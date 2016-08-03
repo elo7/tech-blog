@@ -6,7 +6,7 @@ layout: page
   <div class="post-meta">
       by
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <a rel="author" itemprop="url" href="https://github.com/{{documet.author}}" target="_blank" class="author">
+        <a rel="author" itemprop="url" href="https://github.com/{{document.author}}" target="_blank" class="author">
           <p itemprop="name">@{{document.author}}</p>
         </a>
         <meta itemprop="worksFor" content="Elo7 Serviços de Informática SA">
