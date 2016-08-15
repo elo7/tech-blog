@@ -11,6 +11,7 @@
     "docpad-plugin-highlightjs": "2.3.0",
     "docpad-plugin-markit": "2.3.0",
     "docpad-plugin-nodesass": "2.8.2",
+    "docpad-plugin-rss": "2.3.1",
     "moment": "2.13.0"
   },
   "main": "node_modules/.bin/docpad-server",
