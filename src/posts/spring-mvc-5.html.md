@@ -12,13 +12,13 @@ title: MVC com programação funcional, Por que não?
 description:
 ---
 
+![Alt "Spring e Reactor"](../images/spring_reactor.png)
+
 ## Introdução
 
 Uma coisa muito falada nos últimos tempos é Programação Funcional Reativa. Não sei se é certo falar que é um conceito novo já que algumas linguagens funcionais já usam isso há um bom tempo, mas mesmo assim é um assunto bem novo quando se trata do mundo Java por exemplo, já que é uma linguagem fortemente tipada e tem algumas regrinhas chatas pra escrevê-la, então isso acaba sendo uma novidade para os que estão acostumados com uma programação mais imperativa do mundo Java. Ah, e se você ficou curioso pra saber o porque do termo **programação imperativa**, fique tranquilo que aqui nesse post isso vai ficar bem explicadinho pra você.
 
 ## Spring 5 MVC
-
-![Alt "Spring e Reactor"](../images/spring_reactor.png)
 
 O Spring lançou a sua versão [5.0](https://spring.io/blog/2016/07/28/reactive-programming-with-spring-5-0-m1) com uma grande diferença de paradigma, já saiu na frente (como sempre) e criou um framework web reativo que basicamente usa todas os recursos disponíveis na nova versão do [Reactor 3.0 G.A](https://projectreactor.io/), que por si só já é um projeto bem interessante e dá um leque de opções para desenvolver usando de uma maneira funcional e reativa, mas vamos focar na nova versão do Spring.
 
