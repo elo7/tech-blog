@@ -1,10 +1,21 @@
-var moment = require('moment');
+const moment = require('moment');
+const siteInfo = {
+    title: 'Elo7 Tech',
+    year: moment().get('year')
+};
 
 docpadConfig = function() {
     return {
         documentsPaths: ['documents', 'posts', 'assets'],
 
         plugins: {
+            rss: {
+                default: {
+                    collection: 'posts',
+                    url: '/rss.xml',
+                    title: 'Elo7 Tech'
+                }
+            },
             handlebars: {
                 helpers: {
                     getCollection: function(name) {
@@ -40,7 +51,9 @@ docpadConfig = function() {
 
         templateData: {
             site: {
-                url: "http://localhost:9778"
+                url: "http://localhost:9778",
+                title: siteInfo.title,
+                year: siteInfo.year
             }
         },
 
@@ -48,7 +61,9 @@ docpadConfig = function() {
             static: {
                 templateData: {
                     site: {
-                        url: "https://elo7.github.io/tech-blog"
+                        url: "https://elo7.github.io/tech-blog",
+                        title: siteInfo.title,
+                        year: siteInfo.year
                     }
                 }
             }

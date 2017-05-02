@@ -14,16 +14,33 @@ header.left-pane {
     text-align: center;
     position: relative;
 
+    ul.list-links {
+        text-align: center;
+        width: 100%;
+        li {
+            display: inline-block;
+        }
+    }
+
     .social {
-        width: 2em;
+        display: block;
         height: 2em;
-        position: absolute;
-        display: none;
+        overflow: hidden;
+        text-indent: 100%;
+        white-space: nowrap;
+        width: 2em;
     }
     .github {
-        background-size: 2em 2em;
-        background-repeat: no-repeat;
         background-image: url('images/github_icon.svg');
+        background-repeat: no-repeat;
+        background-size: 2em 2em;
+    }
+
+    .rss {
+        background-image: url('images/rss_icon.svg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 2.5em 2.5em;
     }
 
 }

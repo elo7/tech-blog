@@ -11,6 +11,7 @@
     <link rel='stylesheet' href='/posts.css'>
     <link rel='stylesheet' href='/post.css'>
     <link rel="icon" type="image/png" href="/images/favicon.ico">
+    <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="{{site.title}}">
 </head>
 <body itemscope itemtype="http://schema.org/WebPage">
     <header class="left-pane">
@@ -38,14 +39,18 @@
                 <li><a itemprop="url" href="http://elo7.com.br/" target="_blank">Elo7</a></li>
             </ul>
         </nav>
-        <a rel="external" itemprop="url" href="https://github.com/elo7/tech-blog" class="social github"></a>
+        <ul class="list-links">
+            <li><a rel="external" itemprop="url" href="https://github.com/elo7/tech-blog" class="social github">Github</a></li>
+            <li><a rel="external" itemprop="url" href="/rss.xml" class="social rss">RSS</a></li>
+        </ul>
+
     </header>
     <main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
         {{{content}}}
     </main>
     <footer>
         <a rel="home" itemprop="url" href="http://engenharia.elo7.com.br/" itemscope itemtype="http://schema.org/Organization">
-            <span itemprop="copyrightHolder">engenharia.elo7.com.br © 2016</span>
+            <span itemprop="copyrightHolder">engenharia.elo7.com.br © {{site.year}}</span>
         </a>
     </footer>
     {{#if (isProduction)}}
