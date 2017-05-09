@@ -1,8 +1,11 @@
-var moment = require('moment');
+const moment = require('moment'),
+    categories = require('./src/json/categories.json'),
+    categoriesTask = require('./src/tasks/categories'),
+    ampTask = require('./src/tasks/amp');
 
 docpadConfig = function() {
 	return {
-		documentsPaths: ['documents', 'posts', 'assets', 'publishers'],
+		documentsPaths: ['documents', 'posts', 'assets', 'publishers', 'amp'],
 
 		plugins: {
 			handlebars: {
@@ -14,15 +17,8 @@ docpadConfig = function() {
 						return moment(date).utc().format('DD/MM/YYYY');
 					},
 					getCategories: function() {
-						return [
-							{ category: "front-end" },
-							{ category: "back-end" },
-							{ category: "devops" },
-							{ category: "vagas" },
-							{ category: "mobile" },
-							{ category: "eventos" }
-						];
-					},
+                        return categories;
+                    },
 					getEnvironment: function() {
 						return this.getEnvironment() === "static" ? "production" : "development";
 					},
@@ -41,19 +37,22 @@ docpadConfig = function() {
 						if (len > 0 && str.length > len) {
 							return str.substring(0, (len - 3)) + '...';
 						}
-
 						return str;
 					},
-				}
-			},
-			cleanurls: {
-				static: true,
-				trailingSlashes: true
-			},
-			markit: {
-				html: true
-			}
-		},
+                    ampContent: function(content) {
+                        return content
+                                    .replace(/<img\s/g, '<amp-img layout=\'fixed-height\' height=\'150\' ')
+                    }
+                }
+            },
+            cleanurls: {
+                static: true,
+                trailingSlashes: true
+            },
+            markit: {
+                html: true
+            }
+        },
 
 		templateData: {
 			site: {
@@ -71,105 +70,58 @@ docpadConfig = function() {
 			}
 		},
 
-		collections: function() {
-			var collections = {
-				posts : function() {
-					return this.getCollection('html')
-								.findAll({layout: 'post'})
-								.setComparator(function(postA, postB) {
-									var dateA = postA.toJSON().date;
-									var dateB = postB.toJSON().date;
-									return moment(dateB).unix() - moment(dateA).unix();
-								});
-				},
-				frontend : function() {
-					return this.getCollection('html')
-								.findAll({layout: 'post'})
-								.setFilter('isCategory', function(model) {
-									return model.attributes.category == "front-end";
-								})
-								.setComparator(function(postA, postB) {
-									var dateA = postA.toJSON().date;
-									var dateB = postB.toJSON().date;
-									return moment(dateB).unix() - moment(dateA).unix();
-								});
-				},
-				backend : function() {
-					return this.getCollection('html')
-								.findAll({layout: 'post'})
-								.setFilter('isCategory', function(model) {
-									return model.attributes.category == "back-end";
-								})
-								.setComparator(function(postA, postB) {
-									var dateA = postA.toJSON().date;
-									var dateB = postB.toJSON().date;
-									return moment(dateB).unix() - moment(dateA).unix();
-								});
-				},
-				devops : function() {
-					return this.getCollection('html')
-								.findAll({layout: 'post'})
-								.setFilter('isCategory', function(model) {
-									return model.attributes.category == "devops";
-								})
-								.setComparator(function(postA, postB) {
-									var dateA = postA.toJSON().date;
-									var dateB = postB.toJSON().date;
-									return moment(dateB).unix() - moment(dateA).unix();
-								});
-				},
-				design : function() {
-					return this.getCollection('html')
-								.findAll({layout: 'post'})
-								.setFilter('isCategory', function(model) {
-									return model.attributes.category == "design";
-								})
-								.setComparator(function(postA, postB) {
-									var dateA = postA.toJSON().date;
-									var dateB = postB.toJSON().date;
-									return moment(dateB).unix() - moment(dateA).unix();
-								});
-				},
-				vagas : function() {
-					return this.getCollection('html')
-								.findAll({layout: 'post'})
-								.setFilter('isCategory', function(model) {
-									return model.attributes.category == "vagas";
-								})
-								.setComparator(function(postA, postB) {
-									var dateA = postA.toJSON().date;
-									var dateB = postB.toJSON().date;
-									return moment(dateB).unix() - moment(dateA).unix();
-								});
-				},
-				mobile : function() {
-					return this.getCollection('html')
-								.findAll({layout: 'post'})
-								.setFilter('isCategory', function(model) {
-									return model.attributes.category == "mobile";
-								})
-								.setComparator(function(postA, postB) {
-									var dateA = postA.toJSON().date;
-									var dateB = postB.toJSON().date;
-									return moment(dateB).unix() - moment(dateA).unix();
-								});
-				},
-				eventos : function() {
-					return this.getCollection('html')
-								.findAll({layout: 'post'})
-								.setFilter('isCategory', function(model) {
-									return model.attributes.category == "eventos";
-								})
-								.setComparator(function(postA, postB) {
-									var dateA = postA.toJSON().date;
-									var dateB = postB.toJSON().date;
-									return moment(dateB).unix() - moment(dateA).unix();
-								});
-				}
-			};
-			return collections;
-		}()
-	}
+        events: {
+            populateCollectionsBefore: () => {
+                categoriesTask(categories);
+                ampTask(categories);
+            }
+        },
+
+        collections: function() {
+            var collections = {
+                posts : function() {
+                    return this.getCollection('html')
+                                .findAll({
+                                    layout: 'post'
+                                })
+                                .setComparator(function(postA, postB) {
+                                    var dateA = postA.toJSON().date;
+                                    var dateB = postB.toJSON().date;
+                                    return moment(dateB).unix() - moment(dateA).unix();
+                                });
+                },
+
+                postsAmp : function() {
+                    return this.getCollection('html')
+                                .findAll({
+                                    relativeOutDirPath: 'amp',
+                                    layout: 'post-amp'
+                                })
+                                .setComparator(function(postA, postB) {
+                                    var dateA = postA.toJSON().date;
+                                    var dateB = postB.toJSON().date;
+                                    return moment(dateB).unix() - moment(dateA).unix();
+                                });
+                }
+            };
+
+            categories.forEach(category => {
+                collections[category.category] = function() {
+                    return this.getCollection('html')
+                        .findAll({layout: 'post'})
+                        .setFilter('isCategory', function(model) {
+                            return model.attributes.category === category.category;
+                        })
+                        .setComparator(function(postA, postB) {
+                            var dateA = postA.toJSON().date;
+                            var dateB = postB.toJSON().date;
+                            return moment(dateB).unix() - moment(dateA).unix();
+                        });
+                };
+            });
+            return collections;
+        }()
+    }
 }();
 
 module.exports = docpadConfig;

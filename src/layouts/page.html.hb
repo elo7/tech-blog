@@ -31,7 +31,8 @@
 	<meta property="twitter:description" content="{{document.description}}">
 	<meta property="twitter:image" content="{{site.url}}/images/ico/elo7.png">
 
-	<link rel="canonical" href="{{site.url}}">
+    <link rel="canonical" href="{{site.url}}">
+    <link rel='amphtml' href='{{site.url}}/amp/{{document.slug}}/' />
 
 	<title>Elo7 Tech - {{document.title}}</title>
 	<link rel="stylesheet" href="/reset.css">
