@@ -1,10 +1,10 @@
 ---
-title: Fluxo de trabalho do Design de Produto
+title: Design de Produto no Elo7
 date: 2017-03-22
 author: macadantas
 layout: post
 category: design
-description: Conheça mais sobre o fluxo de trabalho do time de design de produto no Elo7
+description: Conheça o trabalho do time de design de produto no Elo7
 tags:
   - design de produto
   - ux design
@@ -12,27 +12,35 @@ tags:
   - user testing
 ---
 
-Este é o primeiro post sobre design de produto no elo7, por isso ele vai abordar uma visão geral do fluxo de trabalho deste pequeno, porém orgulhoso time =D
+Conheça o trabalho do time de design de produto no Elo7! Vamos apresentar uma visão geral do trabalho deste pequeno, porém orgulhoso time :)
 
-Aqui no Elo7 o time de design de produto - também conhecido como Tyrell - atua na parte de soluções para a interface dos nossos produtos, bem como a busca da melhor experiência possível para os nossos usuários. Hoje somos uma equipe enxuta, formada por 3 membros, mas estamos sempre trabalhando em colaboração com outras equipes, tanto de desenvolvimento quanto de produto.
+O time de design de produto do Elo7 atua na elaboração de soluções para a interface dos nossos produtos (especialmente o nosso site - o marketplace e o Talk7), bem como a busca da experiência mais agradável possível para os nossos usuários. Atualmente, somos uma equipe enxuta, formada por 3 membros, mas estamos sempre trabalhando em colaboração com outras equipes, tanto de desenvolvimento quanto de produto.
 
-Para que tudo funcione bem e para que o usuário final possa ter uma experiência agradável usando o Elo7 ou o Talk7, passamos por algumas etapas no nosso dia-a-dia de trabalho:
+Para que tudo funcione bem, passamos por algumas etapas no nosso dia-a-dia de trabalho, que vou detalhar a seguir.
 
 ## Métodos ágeis:
-![Métodos ágeis](/images/design-de-produto-no-elo7-1)
-Para estar em conformidade com os times de desenvolvimento, no Tyrell também seguimos metodologias ágeis. Temos uma sprint de 2 semanas, que é planejada conforme o roadmap de entregas do produto. Nosso objetivo é sempre estar duas sprints à frente do desenvolvimento, ou seja, se uma tela será implementada, ela provavelmente foi desenhada cerca de um mês antes.
-Fazemos isso para que os conceitos discutidos na equipe de produto e posteriormente desenhados pelo nosso time tenham tempo de maturação, iterações e eventualmente que sejam testados com os usuários (ver o item 3).
+![Métodos ágeis](../images/design-de-produto-no-elo7-1.png)
+Assim como o time de Engenharia, a equipe de design de produto também segue métodos ágeis. Trabalhamos com uma sprint de 2 semanas, que é planejada conforme o roadmap de entregas do produto. Nosso objetivo é sempre estar duas sprints à frente do desenvolvimento, ou seja, quando uma nova página ou tela dos aplicativos começa a ser implementada, ela provavelmente foi desenhada cerca de um mês antes.
+Esta prática permite que os conceitos discutidos na equipe de produto (e posteriormente desenhados pelo nosso time) tenham tempo de maturação, iterações e, eventualmente, que sejam testados diretamente com os usuários.
 
 ## Discussões conceituais
-Toda vez que detectamos melhorias a serem feitas no produto, ou mesmo quando vamos lançar uma nova funcionalidade, isso primeiro é discutido com profissionais de várias áreas em uma reunião estratégica semanal. A partir daí começamos a esboçar quais telas e fluxos serão necessários para o lançamento em questão e colocamos a mão na massa.
+Sempre que detectamos possíveis melhorias para o produto, ou mesmo quando planejamos uma nova funcionalidade, isso é inicialmente discutido com profissionais de várias áreas do Elo7, em uma reunião estratégica semanal. Se decidimos que vamos seguir em frente com a idéia, começamos a esboçar quais telas e casos de uso serão necessários, e colocamos a mão na massa.
 
 ## Mockups em alta fidelidade
-![Métodos ágeis](/images/design-de-produto-no-elo7-2)
-No Elo7 sempre trabalhamos com mockups de alta fidelidade, pois os conceitos são discutidos previamente e quando iniciamos o desenho das telas, já temos uma boa ideia do que deve ser feito. De cara pode parecer que leva mais tempo para fazer e para iterar um mockup desse tipo, mas usando o Sketch o tempo de trabalho reduz bastante graças aos símbolos e outras comodidades da ferramenta no desenho de interfaces. Raramente desenhamos apenas uma única tela, dando preferência ao desenho do fluxo como um todo, com seus principais casos de uso e decorrências - isso evita o retrabalho em uma mesma funcionalidade e faz com que sempre possamos focar no que está sendo trabalhado no momento. Normalmente a mesma tarefa precisa de mockups para todas as plataformas - Desktop, Web Mobile, Android e iOS. Procuramos fazer tudo na mesma sprint para não bagunçar as datas de lançamento.
+![Mockups em alta fidelidade](../images/design-de-produto-no-elo7-2.png)
+Sempre trabalhamos com mockups de alta fidelidade, pois, uma vez que os conceitos já foram discutidos previamente quando iniciamos o desenho das páginas, já temos uma boa ideia do que deve ser feito. A princípio, pode parecer que leva mais tempo para criar e iterar um mockup desse tipo; para termos mais agilidade, utilizamos o Sketch para o desenho de interfaces, que nos ajuda a reduzir o tempo de trabalho graças às opções disponíveis na ferramenta (como símbolos e outras comodidades).
 
-## Pesquisa com usuários
-Todos mês nós rodamos algumas pesquisas com usuários sobre as principais funcionalidades que iremos lançar ou melhorar. Para isso a equipe se divide em uma pessoa para escrever o roteiro de perguntas do teste e uma para criar os protótipos que serão apresentados. Nossos testes são presenciais, então ao longo da semana recebemos usuários e conversamos com eles para entender o que pode ser melhorado no nosso produto. Isso é feito por meio das perguntas previamente definidas no roteiro, juntamente com o protótipo em alta fidelidade, para que o usuário vivencie uma situação quase real de uso.
-Após o fim de cada bateria de testes (que costuma ter cerca de 6 entrevistados), nós compilamos os resultados e apresentamos à equipe de produto, para que possamos entender as melhorias a serem feitas no fluxo testado.
+Raramente desenhamos apenas uma tela, dando preferência ao desenho do fluxo como um todo, com seus principais casos de uso e decorrências - isso evita o retrabalho em uma mesma funcionalidade, além de permitir que sempre possamos focar no que está sendo trabalhado no momento.
 
-Estes são os principais pilares do nosso trabalho, mas existem ramos menores que surgem conforme a necessidade do produto. Ao longo dos posts do Tyrell falaremos com mais detalhe sobre cada um desses tópicos e sobre vários outros!
+Normalmente a mesma tarefa precisa de mockups para todas as plataformas - desktop, web mobile, Android e iOS. Procuramos fazer tudo na mesma sprint para não comprometer as datas de lançamento.
+
+## Pesquisas com usuários
+Mensalmente, nós realizamos algumas pesquisas com usuários sobre as principais funcionalidades que pretendemos lançar ou melhorar. Para isso escrevemos um roteiro de perguntas, e criamos os protótipos que serão apresentados.
+
+Nossas pesquisas são feitas de forma presencial: ao longo da semana, nossos usuários visitam o Elo7 e conversamos a respeito das funcionalidades abordadas na pesquisa, recolhendo feedback do que pode ser melhorado no nosso produto. Essa conversa é conduzida pelas perguntas do roteiro (que comentei antes) e interação em protótipos de alta fidelidade, para que o usuário vivencie uma situação quase real de uso.
+
+Após o fim de cada bateria de pesquisas (que costuma ter cerca de 6 entrevistados), nós compilamos os resultados e apresentamos à equipe de produto, para que possamos entender as melhorias a serem feitas nas funcionalidades testadas.
+
+## Conclusão
+Esses são os principais pilares da equipe de design de produto do Elo7, mas existem ramos menores que surgem conforme a necessidade do produto. Ao longo dos posts falaremos com mais detalhes sobre cada um desses tópicos e sobre vários outros!
 
