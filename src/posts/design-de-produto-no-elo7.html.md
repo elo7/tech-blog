@@ -30,16 +30,16 @@ Sempre que detectamos possíveis melhorias para o produto, ou mesmo quando plane
 ![Mockups em alta fidelidade](../images/design-de-produto-no-elo7-2.png)
 Sempre trabalhamos com mockups de alta fidelidade, pois, uma vez que os conceitos já foram discutidos previamente quando iniciamos o desenho das páginas, já temos uma boa ideia do que deve ser feito. A princípio, pode parecer que leva mais tempo para criar e iterar um mockup desse tipo; para termos mais agilidade, utilizamos o Sketch para o desenho de interfaces, que nos ajuda a reduzir o tempo de trabalho graças às opções disponíveis na ferramenta (como símbolos e outras comodidades).
 
-Raramente desenhamos apenas uma tela, dando preferência ao desenho do fluxo como um todo, com seus principais casos de uso e decorrências - isso evita o retrabalho em uma mesma funcionalidade, além de permitir que sempre possamos focar no que está sendo trabalhado no momento.
+Raramente desenhamos apenas uma tela, dando preferência ao desenho do fluxo como um todo, com seus principais casos de uso e decorrências - isso evita o retrabalho em uma mesma funcionalidade, além de nos permitir sempre focar no que está sendo trabalhado no momento.
 
 Normalmente a mesma tarefa precisa de mockups para todas as plataformas - desktop, web mobile, Android e iOS. Procuramos fazer tudo na mesma sprint para não comprometer as datas de lançamento.
 
 ## Pesquisas com usuários
 Mensalmente, nós realizamos algumas pesquisas com usuários sobre as principais funcionalidades que pretendemos lançar ou melhorar. Para isso escrevemos um roteiro de perguntas, e criamos os protótipos que serão apresentados.
 
-Nossas pesquisas são feitas de forma presencial: ao longo da semana, nossos usuários visitam o Elo7 e conversamos a respeito das funcionalidades abordadas na pesquisa, recolhendo feedback do que pode ser melhorado no nosso produto. Essa conversa é conduzida pelas perguntas do roteiro (que comentei antes) e interação em protótipos de alta fidelidade, para que o usuário vivencie uma situação quase real de uso.
+Nossas pesquisas são feitas de forma presencial: ao longo da semana, nossos usuários são convidados a visitar o Elo7 e a conversar a respeito das funcionalidades abordadas na pesquisa, recolhendo feedback do que pode ser melhorado no nosso produto. Essa conversa é conduzida pelas perguntas do roteiro (que comentei antes) e interação em protótipos de alta fidelidade, para que o usuário vivencie uma situação quase real de uso.
 
-Após o fim de cada bateria de pesquisas (que costuma ter cerca de 6 entrevistados), nós compilamos os resultados e apresentamos à equipe de produto, para que possamos entender as melhorias a serem feitas nas funcionalidades testadas.
+Após o fim de cada bateria de pesquisas (que costuma ter cerca de 6 entrevistados), nós compilamos os resultados e apresentamos à equipe de produto, para podermos entender as melhorias a serem feitas nas funcionalidades testadas.
 
 ## Conclusão
 Esses são os principais pilares da equipe de design de produto do Elo7, mas existem ramos menores que surgem conforme a necessidade do produto. Ao longo dos posts falaremos com mais detalhes sobre cada um desses tópicos e sobre vários outros!
