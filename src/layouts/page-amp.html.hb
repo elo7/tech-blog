@@ -125,12 +125,21 @@
 			padding-bottom: 1em;
 		}
 
-		.post-card, .post-content {
+		.post-card, .post-content, .publisher-info {
 			background: white;
 			margin-left: 2%;
 			padding: 1em;
 			margin-right: 3%;
 			box-shadow: rgba(72, 72, 72, 0.23) 0 0 5px;
+		}
+
+		.publisher-info {
+			margin-bottom: 1em;
+		}
+
+		.publisher-info h1 {
+			margin-top: 0;
+			margin-bottom: 0.5em;
 		}
 
 		.card-devops {
@@ -262,6 +271,30 @@
 		.post-link:hover {
 			background-color: #fba702;
 			color: #ffffff;
+		}
+
+		.social {
+			content: '';
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			background-position: center;
+			text-indent: -9999px;
+			margin-right: 0.5em;
+			background-size: contain;
+			vertical-align: top;
+		}
+
+		.social.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.social.linkedin {
+			background-image: url('/images/ico/ic-linkedin.svg');
+		}
+
+		.social.github {
+			background-image: url('/images/ico/ic-github.svg');
 		}
 
 		footer {
