@@ -41,7 +41,7 @@ docpadConfig = function() {
 					},
                     ampContent: function(content) {
                         return content
-                                    .replace(/<img\s/g, '<amp-img layout=\'fixed-height\' height=\'150\' ')
+                                    .replace(/<img\s/g, '<amp-img layout=\'fixed\' height=\'150\' width=\'auto\'')
                     }
                 }
             },

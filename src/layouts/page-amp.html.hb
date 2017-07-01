@@ -8,38 +8,6 @@
 	<meta name='description' content='{{document.description}}'>
 	<link rel='canonical' href='{{site.url}}/{{document.slug}}/' />
 	<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>
-	<script type='application/ld+json'>
-		{
-			'@context': 'http://schema.org',
-			'@type': 'WebPage',
-			'url': [
-				'http://engenharia.elo7.com.br/',
-				'https://github.com/elo7/tech-blog'
-			],
-			'image': [
-				'//images.elo7.com.br/assets/v3/desktop/svg/logo-elo7.svg'
-			],
-			'blog': {
-				'@type': 'Blog',
-				'blogPost': {
-					'@type': 'BlogPosting',
-					'name': '{{document.title}}',
-					'headline': '{{document.title}}',
-					'datePublished': {{dateAsText document.date}},
-					'articleBody': '{{content}}',
-					'author': {
-						'@type': 'Person',
-						'name': '{{document.author}}',
-						'url': 'https://github.com/{{document.author}}'
-					},
-					'worksFor': {
-						'@type': 'Organization',
-						'name': 'Elo7 Serviços de Informática SA'
-					}
-				}
-			}
-		}
-	</script>
 	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
 	<style amp-custom>
@@ -81,7 +49,7 @@
 			text-align: justify;
 		}
 
-		header {
+		body > header {
 			height: 60px;
 			box-sizing: border-box;
 			background-color: #FDC24F;
@@ -93,7 +61,7 @@
 			z-index: 10;
 		}
 
-		header a {
+		body > header a {
 			background: url('//images.elo7.com.br/assets/v3/desktop/svg/logo-elo7.svg') no-repeat;
 			background-size: 90px 35px;
 			width: 90px;
@@ -107,7 +75,7 @@
 			padding-right: 5%;
 		}
 
-		.post-content a, .post-content a:visited, .post-content a:hover {
+		.post-content .content a, .post-content .content a:visited, .post-content .content a:hover {
 			cursor: pointer;
 			color: #000;
 			font-weight: 500;
@@ -183,7 +151,7 @@
 			color: inherit;
 		}
 
-		.author {
+		.author, .date {
 			color: #888;
 			margin-bottom: 0;
 			margin-top: 0;
@@ -310,9 +278,55 @@
 			font-size: 0.8em;
 		}
 
+		.share {
+			position: relative;
+			text-align: right;
+		}
+
+		.share .link-share {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				text-indent: -9999px;
+				margin-left: 0.5em;
+				text-align: left;
+		}
+
+		.share .link-share.facebook {
+			background-image: url('/images/ico/ic-facebook.svg');
+		}
+
+		.share .link-share.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.link-input {
+			opacity: 0;
+			position: absolute;
+			left: -9999px;
+		}
+
+		.copy-success {
+			font-size: 0.75em;
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			top: 125%;
+			transition: opacity ease-in-out 250ms;
+			text-align: center;
+		}
+
+		.copy-success.active {
+			opacity: 1;
+		}
+
 		code {
 			background-color: #ececec;
 			padding: 0.1em 0.2em;
+		}
+
+		.hide {
+			display: none;
 		}
 
 		.highlight code {
