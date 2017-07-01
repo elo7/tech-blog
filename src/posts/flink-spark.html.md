@@ -46,4 +46,4 @@ Por fim, um dos principais diferenciais do Spark é a sua **comunidade**: Desde 
 
 ## Conclusão
 
-Ambas as ferramentas tem seus pontos positivos e negativos, mas na nossa avaliação o Flink leva a vantagem quando o quesito é processamento de streams. Aqui no Elo7 nós usamos o Flink na nossa pipeline analítica (também conhecido como [Elytics](/elo7-analytics-elytics/) mas também utilizamos Spark em alguns projetos internos com a ajuda do [Nightfall](/nightfall/).
+Ambas as ferramentas tem seus pontos positivos e negativos, mas na nossa avaliação o Flink leva a vantagem quando o quesito é processamento de streams. Aqui no Elo7 nós usamos o Flink na nossa [pipeline analítica](/elo7-analytics-elytics/) mas também utilizamos Spark em alguns projetos internos com a ajuda do [Nightfall](/nightfall/).
