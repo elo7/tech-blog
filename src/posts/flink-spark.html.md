@@ -11,28 +11,27 @@ title: Flink vs Spark
 description: O título do post é polêmico para chamar sua atenção mas a idéia deste post é mostrar um pouco da nossa visão sobre essas duas excelentes ferramentas: Apache Flink e Apache Spark.
 ---
 
-O título do post é polêmico para chamar sua atenção mas a idéia deste post é mostrar um pouco da nossa visão sobre essas duas excelentes ferramentas: [Apache Flink](http://flink.apache.org/) e [Apache Spark](http://spark.apache.org/). Nós não entraremos em detalhes profundos de cada ferramenta, nem faremos qualquer tipo de benchmark, nós vamos apenas apontar as características que são relevantes para o nosso dia-a-dia. 
+O título do post é polêmico para chamar sua atenção mas a idéia deste post é mostrar um pouco da nossa visão sobre essas duas excelentes ferramentas: [Apache Flink](http://flink.apache.org/) e [Apache Spark](http://spark.apache.org/). Nós não entraremos em detalhes profundos de cada ferramenta, nem faremos qualquer tipo de benchmark. Nós vamos apenas apontar as características que são relevantes para o nosso dia-a-dia. 
 Se você não conhece o Flink nem o Spark, na homepage dos projetos tem uma introdução bacana sobre cada um deles.
 
 ## Flink
 
-WIP
-<!-- 
-- Mentalidade stream-first: o Flink tem o conceito de streams infinitos, diferente do Spark Streaming que é baseado em micro batches. 
-- Back pressure automatico
+O Flink é um projeto que nasceu com a mentalidade **streaming-first**, isto é, 
+o objetivo principal da plataforma é processar dados que são produzidos de maneira contínua e infinita:
 
 ![Flink Stream](../images/flink-spark-1.png)
 
-- Garantias exactly-once: A implementação do connector para o Kafka do Flink tem suporte essas garantias, coisa que o Spark não oferecia.
+Essa arquitetura permite que o job que processa o stream seja mais rápido e resiliente. Mais rápido porque os eventos são processados assim que eles chegam e mais resiliente porque os eventuais picos de eventos (também conhecidos como back pressure) são gerenciados de maneira automática pelo Flink.
 
-- Mesmo código para stream e batch: Com o Flink, nós conseguimos emular um stream usando o backup dos dados do Kafka e reprocessar o histórico usando o mesmo código implementado sobre a API de streams. Para fazer isso no Spark seria necessário duas versões do código devido a diferenças na API.
- -->
+No Flink, os streams podem ser tratados como finitos e infinitos. Com isso é possível emular um stream usando o backup dos dados do Kafka e reprocessar o histórico usando **exatamente mesmo código** implementado sobre a API de streams. Isso nos dá o poder de olhar para o passado sempre que for necessário sem nenhum esforço adicional.
+
+As garantias **exactly-once** na computação de estado do Flink nos dão a segurança de os resultados dos streams estão corretos, mesmo em cenários de falha. Como esse estado é persistido utilizando o mecanismo de savepoints, é possível fazer o deploy de novas versões do stream sem perder o estado atual computado.
+
+O ponto fraco do Flink é a sua **comunidade** que ainda é pequena. Isso faz com que o ecossistema não seja tão rico, o que leva à falta de conectores para outras ferramentas. Por exemplo, para conseguirmos utilizar o Flink na nossa pipeline, nós mesmos adicionamos o [suporte para o Elasticsearch 5.x](https://github.com/apache/flink/pull/2767).
 
 ## Spark
 
-Já o Spark possui uma mentalidade **batch-first**. Isso acontece porque o projeto foi criado com o propósito de ser mais rápido e eficiente do que o MapReduce, principal técnica de processamento na época.
-
-Influenciado por essa mentalidade, o Spark Streaming foi criado para resolver o problema de streaming utilizando **microbatches**, aproventando a implementação fundamental de batches do Spark (os famosos RDDs):
+Já o Spark possui uma mentalidade **batch-first**. Isso acontece porque o projeto foi criado com o propósito de ser mais rápido e eficiente do que o MapReduce, principal técnica de processamento na época. Influenciado por essa mentalidade, o Spark Streaming foi criado para resolver o problema de fluxos continuos utilizando **microbatches**, aproventando a implementação fundamental de batches do Spark (os famosos RDDs):
 ![Spark Microbatches](../images/flink-spark-2.png)
 
 Para nós isso não faz muita diferença, afinal, os dados serão processados de maneira semelhante a um stream mesmo com um pouco mais de latência. O problema desta implementação é que o tamanho da window e o tamanho do microbatch precisam estar muito bem configurados para conseguir sobreviver a um volume de eventos maior do que o esperado.
@@ -41,9 +40,10 @@ Falando em configuração, isso é o que não falta no Spark: existem muitas e *
 
 Mas tem outra coisa que sobra no Spark e não tem o lado negativo: **métricas e estatísticas**. A interface padrão possui informações sobre basicamente tudo o que esta acontecendo no cluster durante a execução de um job, o que ajuda bastante na hora de encontrar um possível gargalo no processamento.
 
+Uma característica que nos incomodou bastante no Spark foi a maneira como os **checkpoints** foram implementados: as classes envolvidas no job são serializadas e armazenadas no checkpoint. O problema é que se as classes deste job forem atualizadas, não é possível fazer o deploy dessa nova versão sem excluir o checkpoint com a serialização das classes antigas...
+
 Por fim, um dos principais diferenciais do Spark é a sua **comunidade**: Desde 2009, mais de 1000 desenvolvedores já contribuiram ao projeto! Essa comunidade faz com que o ecossistema em torno do Spark seja muito rico, especialmente no que se refere a machine learning e procesamento em batch. 
 
 ## Conclusão
 
-As duas ferramentas são equivalentes em diversos aspectos, e portanto, podem ser utilizadas em cenários semelhantes. Aqui no Elo7 optamos por usar o Flink na nossa pipeline analítica (também conhecido como [Elytics](/elo7-analytics-elytics/) mas também utilizamos Spark em alguns projetos internos com a ajuda do [Nightfall](/nightfall/).
-
+Ambas as ferramentas tem seus pontos positivos e negativos, mas na nossa avaliação o Flink leva a vantagem quando o quesito é processamento de streams. Aqui no Elo7 nós usamos o Flink na nossa pipeline analítica (também conhecido como [Elytics](/elo7-analytics-elytics/) mas também utilizamos Spark em alguns projetos internos com a ajuda do [Nightfall](/nightfall/).
