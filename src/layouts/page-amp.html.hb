@@ -478,30 +478,57 @@
 		}
 	</style>
 </head>
-<body>
+<body itemscope itemtype='http://schema.org/WebPage'>
 	<amp-sidebar id='sidebar' layout='nodisplay'>
 		<h2>Categorias</h2>
 		<ul>
 			{{#each (getCategories)}}
-				<li><a href='/amp/{{category}}'>{{category}}</a></li>
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/{{category}}'>
+						<span itemprop='name'>{{category}}</span>
+					</a>
+				</li>
 			{{/each}}
 		</ul>
 		<h2>Veja também</h2>
 		<ul>
-			<li><a href='http://carreira.elo7.com.br/engenharia/' target='_blank'>A engenharia</a></li>
-			<li><a href='http://carreira.elo7.com.br/' target='_blank'>Carreiras</a></li>
-			<li><a href='http://eventos.elo7.com.br/' target='_blank'>Nossos eventos</a></li>
-			<li><a href='https://www.elo7.com.br/' target='_blank'>Elo7</a></li>
-			</ul>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+					<span itemprop='name'>A engenharia</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Carreiras</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://eventos.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Nossos eventos</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='https://www.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Elo7</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a rel='external' itemprop='url' href='https://github.com/elo7/tech-blog'>Github</a>
+			</li>
+		</ul>
 		</ul>
 	</amp-sidebar>
-	<header><button class='sidebar-trigger' on='tap:sidebar'>☰</button><a href='/amp/home/' class='logo'>{{site.title}}</a></header>
+	<header>
+		<button class='sidebar-trigger' on='tap:sidebar'>☰</button>
+		<a rel='home' itemprop='url' href='/amp/home/' class='logo'>{{site.title}}</a></header>
 
-	<main>
+	<main itemscope itemtype="http://schema.org/Blog">
 		{{{ampContent content}}}
 	</main>
-	<footer>
-		<a href='http://engenharia.elo7.com.br/'>engenharia.elo7.com.br © 2017</a>
+	<footer itemscope itemtype='http://schema.org/Organization'>
+		<a rel='home' itemprop='url' href='http://engenharia.elo7.com.br/' >engenharia.elo7.com.br © 2017</a>
+		<meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+		&middot;
 	</footer>
 </body>
 </html>
