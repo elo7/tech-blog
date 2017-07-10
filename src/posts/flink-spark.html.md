@@ -5,7 +5,7 @@ tags:
   - spark
   - flink
   - big data
-author: mikedias
+authors: [mikedias,gmcoringa]
 layout: post
 title: Flink vs Spark
 description: O título do post é polêmico para chamar sua atenção mas a idéia deste post é mostrar um pouco da nossa visão sobre essas duas excelentes ferramentas: Apache Flink e Apache Spark.
