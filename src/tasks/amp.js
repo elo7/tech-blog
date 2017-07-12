@@ -4,7 +4,7 @@ const ampTask = (categories) => {
 	console.info('\nAMP Task');
 	console.info('Copying posts folder...');
 	shelljs.mkdir('./src/documents/amp');
-	shelljs.cp('-rf', './src/posts/*', './src/documents/amp');
+	shelljs.cp('-rf', './src/posts/*.html.md', './src/documents/amp');
 	shelljs.cp('-rf', './src/documents/*.hb', './src/documents/amp');
 	shelljs.mkdir('./src/documents/amp/publishers');
 	shelljs.cp('-rf', './src/publishers/*.md', './src/documents/amp/publishers');

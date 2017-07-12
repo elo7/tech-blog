@@ -11,14 +11,12 @@ layout: page-amp
 
 		<article>
 			{{#each document.authors}}
-				<a data-author='{{this}}' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/{{this}}' class='author'>
-					<meta itemprop='url' content='/{{this}}'>
-					<img class='hide avatar' width='50px' height='50px' itemprop='image'>
+				<a data-author='{{this}}' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/amp/publishers/{{this}}' class='author'>
+					<meta itemprop='url' content='/amp/publishers/{{this}}'>
 					<span itemprop='name' class='publisher' data-author='{{this}}'>@{{this}}</span>
 					<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
 				</a>
 			{{/each}}
-
 		</article>
 	</div>
 	<div class='content' itemprop='articleBody'>

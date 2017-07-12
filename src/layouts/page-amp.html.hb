@@ -6,7 +6,7 @@
 	<script async custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
 	<title>Elo7 Tech - {{document.title}}</title>
 	<meta name='description' content='{{document.description}}'>
-	<link rel='canonical' href='{{site.url}}/{{document.slug}}/' />
+	<link rel='canonical' href='{{site.url}}/{{getCanonicalURI document.slug}}' />
 	<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>
 	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
@@ -522,11 +522,11 @@
 		<button class='sidebar-trigger' on='tap:sidebar'>☰</button>
 		<a rel='home' itemprop='url' href='/amp/home/' class='logo'>{{site.title}}</a></header>
 
-	<main itemscope itemtype="http://schema.org/Blog">
-		{{{ampContent content}}}
+	<main itemscope itemtype='http://schema.org/Blog'>
+		{{{replaceForAmpTags content}}}
 	</main>
 	<footer itemscope itemtype='http://schema.org/Organization'>
-		<a rel='home' itemprop='url' href='http://engenharia.elo7.com.br/' >engenharia.elo7.com.br © 2017</a>
+		<a rel='home' itemprop='url' href='/amp/home/'>engenharia.elo7.com.br © 2017</a>
 		<meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
 		&middot;
 	</footer>
