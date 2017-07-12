@@ -6,7 +6,7 @@ tags:
   - spring
   - mvc
   - functional programming
-author: gabriel.gomes
+authors: [gabriel.gomes]
 layout: post
 title: MVC com programação funcional, Por que não?
 description:
