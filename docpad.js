@@ -2,7 +2,7 @@ var moment = require('moment');
 
 docpadConfig = function() {
 	return {
-		documentsPaths: ['documents', 'posts', 'assets', 'publishers'],
+		documentsPaths: ['documents', 'posts', 'assets', 'autores', 'categorias'],
 
 		plugins: {
 			handlebars: {
@@ -18,9 +18,9 @@ docpadConfig = function() {
 							{ category: "front-end" },
 							{ category: "back-end" },
 							{ category: "devops" },
-							{ category: "vagas" },
 							{ category: "mobile" },
-							{ category: "eventos" }
+							{ category: "eventos" },
+							{ category: "vagas" }
 						];
 					},
 					getEnvironment: function() {

@@ -11,7 +11,7 @@ layout: page
 
 		<article>
 			{{#each document.authors}}
-				<a data-author='{{this}}' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/{{this}}' class='author'>
+				<a data-author='{{this}}' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autores/{{this}}' class='author'>
 					<meta itemprop='url' content='/{{this}}'>
 					<img class='hide avatar' width='50px' height='50px' itemprop='image'>
 					<p itemprop='name' class='publisher' data-author='{{this}}'>@{{this}}</p>
