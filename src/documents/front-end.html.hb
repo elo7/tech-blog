@@ -4,6 +4,7 @@ description: Confira todos os nossos posts sobre front-end, escritos pelo time d
 layout: page
 ---
 <section class="posts-container" itemscope itemtype="http://schema.org/Blog">
+	<h1 class='title'>{{document.title}}</h1>
 	{{#each (getCollection "frontend")}}
 			<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-{{category}}">
 				<header>

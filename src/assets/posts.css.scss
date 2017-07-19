@@ -7,6 +7,18 @@ autoprefix: true
 .posts-container {
 	padding: 1em 5%;
 
+	> .title {
+		font-size: 2em;
+		padding: 0.5em 0;
+		font-weight: bold;
+		color: #524947;
+	}
+
+	.description {
+		margin-top: 1em;
+		margin-bottom: 2em;
+	}
+
 	> a {
 		text-decoration: none;
 		color: map-get($colors-text, black);
@@ -109,9 +121,15 @@ autoprefix: true
 }
 
 @media (max-width: 500px) {
-	.posts-container .date {
-		display: block;
-		margin-top: 1em;
+	.posts-container {
+		.title + .post-card {
+			padding-top: 0;
+		}
+
+		.date {
+			display: block;
+			margin-top: 1em;
+		}
 	}
 }
 
