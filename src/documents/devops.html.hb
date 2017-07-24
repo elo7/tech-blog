@@ -4,6 +4,7 @@ description: Confira todos os nossos posts sobre cultura e práticas DevOps, esc
 layout: page
 ---
 <section class="posts-container" itemscope itemtype="http://schema.org/Blog">
+	<h1 class='title'>{{document.title}}</h1>
 	{{#each (getCollection "devops")}}
 			<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-{{category}}">
 				<header>

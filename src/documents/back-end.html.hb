@@ -4,6 +4,7 @@ description: Confira todos os nossos posts sobre back-end e tecnologias de servi
 layout: page
 ---
 <section class="posts-container" itemscope itemtype="http://schema.org/Blog">
+	<h1 class='title'>{{document.title}}</h1>
 	{{#each (getCollection "backend")}}
 			<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-{{category}}">
 				<header>
