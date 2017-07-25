@@ -52,6 +52,12 @@ docpadConfig = function() {
 			},
 			markit: {
 				html: true
+			},
+			rss: {
+				default: {
+					collection: 'posts',
+					title: 'Elo7 Tech Blog'
+				}
 			}
 		},
 
