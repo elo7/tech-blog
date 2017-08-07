@@ -1,4 +1,12 @@
 node_modules
 out
 src/assets/js/vendor
+amp/
 .DS_Store
+back-end.html.hb
+devops.html.hb
+eventos.html.hb
+front-end.html.hb
+mobile.html.hb
+vagas.html.hb
+

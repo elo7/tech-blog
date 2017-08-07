@@ -16,7 +16,8 @@
     "elo7-ajax-amd": "1.3.2",
     "elo7-doc-amd": "1.1.1",
     "elo7-events-amd": "1.1.3",
-    "moment": "2.17.1"
+    "moment": "2.17.1",
+    "shelljs": "0.7.7"
   },
   "main": "node_modules/.bin/docpad-server",
   "scripts": {
@@ -26,6 +27,7 @@
     "copy-async-amd": "cp node_modules/define-async/async-define.js src/assets/js/vendor/async-define.js",
     "copy-events-amd": "cp node_modules/elo7-events-amd/events-amd.js src/assets/js/vendor/events-amd.js",
     "copy": "mkdir -p src/assets/js/vendor && npm run copy-ajax-amd && npm run copy-events-amd && npm run copy-async-amd && npm run copy-doc-amd",
-    "postinstall": "npm run copy"
+    "postinstall": "npm run copy",
+    "clean": "rm -rf out && rm -rf src/documents/amp" 
   }
 }
