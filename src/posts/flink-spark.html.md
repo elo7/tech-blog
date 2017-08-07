@@ -32,7 +32,7 @@ Para nós isso não faz muita diferença, afinal, os dados serão processados de
 
 ### Back Pressure
 
-Os eventuais picos de eventos, também conhecidos como *back pressure*, podem impactar o processamento de seus *streams*. O Flink os gerencia de forma automática devido a forma a qual foi projetado, na qual os dados são processados assim que chegam. No Spark há a necessidade de configura-lo para lidar com tais situações corretamenta, o que varia de acordo com a sua fonte de dados. Isto ocorre em situações onde picos de eventos são gerados, devido o Spark processá-los em intervalos nos quais você os configurou (*micro-bateces*).
+Os eventuais picos de eventos, também conhecidos como *back pressure*, podem impactar o processamento de seus *streams*. O Flink os gerencia de forma automática devido a forma a qual foi projetado, na qual os dados são processados assim que chegam. No Spark há a necessidade de configurá-lo para lidar com tais situações corretamente, o que varia de acordo com a sua fonte de dados. Isto ocorre em situações onde picos de eventos são gerados, devido o Spark processá-los em intervalos nos quais você os configurou (*micro-batches*).
 No nosso caso utilizamos o [Kafka Direct Aproach](https://spark.apache.org/docs/latest/streaming-kafka-0-8-integration.html#approach-2-direct-approach-no-receivers) que, para conseguir lidar com *back pressures*, precisa das seguintes *flags* habilitadas:
 * ``spark.streaming.backpressure.enabled=true``
 * ``spark.streamng.kafka.maxRatePerPartition``
@@ -43,7 +43,7 @@ Podemos concluir então, que, para lidar com *back-pressures* o Flink é muito m
 
 ### APIs
 
-O Flink utiliza as mesmas APIs para seus processamentos *batch* e *streams*, já o Spark possui APIs diferentes, excessão se faz caso você utilize [Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html), diponível a partir do Spark 2, o qual utiliza a mesma API tanto para batch quanto para *streams*. Porém esta não é a única vantagem desta nova API, que conta com diversas otimizações, além do suporte a SQLs.
+O Flink utiliza as mesmas APIs para seus processamentos *batch* e *streams*, já o Spark possui APIs diferentes, exceção se faz caso você utilize [Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html), diponível a partir do Spark 2, o qual utiliza a mesma API tanto para batch quanto para *streams*. Porém esta não é a única vantagem desta nova API, que conta com diversas otimizações, além do suporte a SQLs.
 
 Com isso, em ambas as ferramentas é possível emular um *stream* usando o backup dos dados do Kafka e reprocessar o histórico usando **exatamente o mesmo código** implementado sobre a API de streams. Isso nos dá o poder de olhar para o passado sempre que for necessário sem nenhum esforço adicional.
 
@@ -53,7 +53,7 @@ Ambas as ferramentas garantem **exactly-once**, o Flink através da sua computa�
 
 ### Atualizações dos jobs
 
-Com o flink é possível fazer o deploy de novas versões do stream sem perder o estado atual computado. No Spark, isto somente é possível à partir da versão 2, nas versões anteriores todo o código era serialzado juntamente com os estados salvos nos checkpoints, desta forma, um novo diretório de checkpoint deve ser utilizado, dependendo da sua fonte de dados será necessário código adicional para lidar com este problema. Seguem dois exemplos:
+Com o flink é possível fazer o deploy de novas versões do stream sem perder o estado atual computado. No Spark, isto somente é possível a partir da versão 2, nas versões anteriores todo o código era serialzado juntamente com os estados salvos nos checkpoints, desta forma, um novo diretório de checkpoint deve ser utilizado, dependendo da sua fonte de dados será necessário código adicional para lidar com este problema. Seguem dois exemplos:
 
 * [Kafka Receiver Based](https://spark.apache.org/docs/latest/streaming-kafka-0-8-integration.html#approach-1-receiver-based-approach): como os offsets do Kafka são controlados pelo Zookeeper, basta iniciar um novo job em paralelo, assim que o job com código antigo parar o novo job assumirá;
 * [Kafka Direct Aproach](https://spark.apache.org/docs/latest/streaming-kafka-0-8-integration.html#approach-2-direct-approach-no-receivers): você precisará persistir os offsets em um database para que possa saber qual a sua posição inicial quando o job for reiniciado sem a existência do checkpoint.
@@ -70,7 +70,7 @@ Este é um item no qual o Flink peca, são poucas as métricas existentes no mes
 
 ![Spark UI](../images/flink-spark-3.png)
 
-Com o [Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#monitoring-streaming-queries) as métricas podem ser coletadas conforme o progesso do stream, dessa forma, fica facil enviar métricas para ferramentas externas e gerar alarmes a partir desses dados. Veja mais detalhes da nossa arquitetura de *streams* em [Elo7 + Analytics = Elytics](/elo7-analytics-elytics/).
+Com o [Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#monitoring-streaming-queries) as métricas podem ser coletadas conforme o progresso do stream, dessa forma, fica fácil enviar métricas para ferramentas externas e gerar alarmes a partir desses dados. Veja mais detalhes da nossa arquitetura de *streams* em [Elo7 + Analytics = Elytics](/elo7-analytics-elytics/).
 
 ### Comunidade
 
