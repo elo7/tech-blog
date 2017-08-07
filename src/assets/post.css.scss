@@ -7,7 +7,7 @@ autoprefix: true
 @import 'code';
 
 .post-content {
-	padding: 1em 5%;
+	padding: 1em 6% 1em 5%;
 	background-color: $white;
 
 	.title {
@@ -111,14 +111,13 @@ autoprefix: true
 
 @media (min-width: 800px) {
 	.post-content {
-		padding: 1em 15%;
 		margin-left: 210px;
 	}
 
 	.share {
 		position: fixed;
 		top: 3.5em;
-		right: 10%;
+		right: 1%;
 
 		.link-share {
 			display: block;

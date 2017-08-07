@@ -5,7 +5,7 @@ autoprefix: true
 @import 'colors';
 
 .posts-container {
-	padding: 1em 5%;
+	padding: 1em 2%;
 
 	> a {
 		text-decoration: none;
@@ -117,7 +117,6 @@ autoprefix: true
 
 @media (min-width: 800px) {
 	.posts-container {
-		padding: 1em 15%;
 		margin-left: 210px; /* Navigation pane size */
 
 		.post-card {
