@@ -9,6 +9,7 @@ tags:
   - javascript
   - tests
   - tdd
+coverImage: jest-testar-seu-codigo-javascript-nunca-foi-tao-facil-cover.png
 ---
 
 Trabalhar com desenvolvimento de software é algo que está longe de ser fácil, pois além da parte técnica (que evolui a passadas largas), todo profissional precisa estar minimamente antenado a ponto de perceber qual das suas posturas em relação à execução de suas atividades podem literalmente travá-lo (dentro da carreira) ou levá-lo a outro patamar. Dentre as muitas características valorizadas atualmente pelo mercado, uma importantissíma é ser um profissional adaptável a mudanças, pelo simples fato que **o mundo muda muito rapidamente**, e o jeito que trabalhavámos no passado já não serve e/ou se encaixa com o presente.
