@@ -12,6 +12,9 @@ pageSize: 10
 			<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-{{category}}">
 				<header>
 					<a href="{{../site.baseUrl}}{{url}}" class="link">
+						<figure class="cover-image">
+							<img src="{{site.url}}/{{getCoverUri coverImage}}" alt="{{title}}">
+						</figure>
 						<h1 itemprop='name' class="title">{{title}}</h1>
 					</a>
 				</header>

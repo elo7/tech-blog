@@ -11,6 +11,7 @@ tags:
   - iac
   - infrastructure as code
   - infra
+coverImage: terraformando-tudo-3.jpg
 ---
 
 Veja os outros *posts* da série:

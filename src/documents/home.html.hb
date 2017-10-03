@@ -7,6 +7,10 @@ layout: page-amp
 <section class='posts-container' itemscope itemtype='http://schema.org/Blog'>
     {{#each (getCollection "posts")}}
 		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-{{category}}'>
+			<figure>
+				<img src="{{site.url}}/{{getCoverUri coverImage}}" alt="{{title}}">
+				<figcaption>{{title}}</figcaption>
+			</figure>
 			<header>
 				<a href='{{../site.baseUrl}}/amp{{url}}' class='link'>
 					<h2 itemprop='name' class='title'>{{title}}</h2>

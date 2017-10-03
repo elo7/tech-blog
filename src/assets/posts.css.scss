@@ -21,7 +21,6 @@ autoprefix: true
 
 	.post-card {
 		margin: 1em 0;
-		padding: 2em 0;
 		position: relative;
 		overflow: auto;
 
@@ -57,6 +56,7 @@ autoprefix: true
 				background-color: darken(map-get($colors-background, green), 10);
 			}
 		}
+
 		.title {
 			color: map-get($colors-text, darker);
 			display: inline-block;
@@ -68,6 +68,7 @@ autoprefix: true
 				text-decoration: underline;
 			}
 		}
+
 		.author{
 			text-decoration: none;
 			color: map-get($colors-text, gray);
@@ -87,15 +88,18 @@ autoprefix: true
 				display: inline-block;
 			}
 		}
+
 		.description {
 			margin-top: 1.5em;
 			font-weight: lighter;
 			line-height: 1.8;
 		}
+
 		.link {
 			text-decoration: none;
 			color: map-get($colors-text, black);
 		}
+
 		.post-link {
 			border: 1px solid darken($yellow-default, 10);
 			border-radius: 3px;
@@ -111,6 +115,16 @@ autoprefix: true
 			&:hover {
 				background-color: darken($yellow-default, 10);
 				color: map-get($colors-text, white);
+			}
+		}
+
+		.cover-image {
+			img {
+				width: 100%;
+			}
+
+			figcaption {
+				display: none;
 			}
 		}
 	}
