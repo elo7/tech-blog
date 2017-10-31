@@ -119,8 +119,13 @@ autoprefix: true
 		}
 
 		.cover-image {
+			background: lightgray;
+			margin-bottom: 0.5em;
+			overflow: hidden;
+
 			img {
-				width: 100%;
+				display: block;
+				margin: auto;
 			}
 
 			figcaption {
@@ -151,6 +156,10 @@ autoprefix: true
 
 			.author + time:before {
 				content: '·';
+			}
+
+			.cover-image img {
+				max-width: 100%;
 			}
 		}
 	}

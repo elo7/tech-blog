@@ -15,6 +15,8 @@ pageSize: 10
 						<figure class="cover-image">
 							<img src="{{site.url}}/{{getCoverUri coverImage}}" alt="{{title}}">
 						</figure>
+					</a>
+					<a href="{{../site.baseUrl}}{{url}}" class="link">
 						<h1 itemprop='name' class="title">{{title}}</h1>
 					</a>
 				</header>

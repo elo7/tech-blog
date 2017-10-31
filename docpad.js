@@ -149,7 +149,7 @@ const docpadConfig = function() {
 						if (fileName && fileName.length > 0) {
 							return `images/cover/${fileName}`;
 						}
-						return 'images/ico/elo7.png';
+						return 'images/cover/elo7.png';
 					}
 				}
 			},
