@@ -5,5 +5,6 @@ layout: publisher
 twitter: aterribili
 github: aterribili
 linkedin: abner-terribili-3a486733
-description: I really enjoy develop any kind of applications, lately I'm working with mobile development (iOS, Android and react native), test driven always. In spare time, I'm on functional tide, studying haskell, clojure, Clang and playing some blues with my guitar.
+description: 255/5000
+Eu realmente gosto de desenvolver qualquer tipo de aplicações, ultimamente estou trabalhando com desenvolvimento mobile (iOS, Android e React Natice), test-driven sempre. No tempo livre, estou na maré funcional, estudando o Haskell, Clojure, Clang e tocando alguns blues com minha guitarra.
 ---
