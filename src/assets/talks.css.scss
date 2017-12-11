@@ -1,0 +1,56 @@
+---
+autoprefix: true
+---
+
+@import 'colors';
+
+.talks-container {
+	padding: 1em 5%;
+
+	> a {
+		text-decoration: none;
+		color: map-get($colors-text, black);
+	}
+
+	> .title {
+		font-size: 2.5em;
+		color: map-get($colors-text, darker);
+		margin-top: 0.5em;
+		margin-bottom: 1em;
+	}
+
+	.talk {
+		background-color: white;
+		margin: 1em 0;
+		padding-bottom: 2em;
+		display: inline-block;
+		width: 45%;
+		border: 1px solid map-get($colors-border, light-gray);
+		text-align: center;
+
+		img {
+			width: 100%;
+			border-bottom: 2px solid map-get($colors-border, gray);
+		}
+	}
+
+	.author{
+		text-decoration: none;
+		color: map-get($colors-text, gray);
+		transition: color 0.3s;
+
+		p {
+			display: inline-block;
+			padding-top: 0.6em;
+		}
+
+		&:hover {
+			color: darken($yellow-default, 10);
+		}
+
+		+ .author:before {
+			content: '·';
+			display: inline-block;
+		}
+	}
+}

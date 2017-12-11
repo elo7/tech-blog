@@ -12,7 +12,7 @@ const orderByDate = (postA, postB) => {
 
 const docpadConfig = function() {
 	return {
-		documentsPaths: ['documents', 'posts', 'assets', 'publishers', 'amp'],
+		documentsPaths: ['documents', 'posts', 'assets', 'publishers', 'talks', 'amp'],
 
 		plugins: {
 			tags: {
@@ -195,6 +195,11 @@ const docpadConfig = function() {
 				posts : function() {
 					return this.getCollection('html')
 								.findAll({layout: 'post'})
+								.setComparator(orderByDate);
+				},
+				talks : function() {
+					return this.getCollection('html')
+								.findAll({layout: 'talk'})
 								.setComparator(orderByDate);
 				},
 				postsAmp() {
