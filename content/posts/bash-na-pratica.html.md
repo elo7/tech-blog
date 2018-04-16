@@ -418,3 +418,7 @@ Obtemos nosso arquivo final, com a quantidade de repetições que o hash aparece
 2 MD5 (./elo7/src/test/acceptance/vendor/ruby/1.9.1/gems/json_pure-1.8.3/java/src/json/ext/GeneratorService.java) = 1ddff19b29628f05caf18f1e6cb9fa92
 2 MD5 (./elo7/src/test/acceptance/vendor/ruby/1.9.1/gems/json_pure-1.8.3/java/src/json/ext/OptionsReader.java) = 1fdb1c5ee5b4ac9c770e6d9071073182
 ```
+
+```
+for i in $(curl -q https://coinmarketcap.com/coins/ | grep -E "volume|currency-name|currency-symbol" | grep -oE "(\<a.*\<)" | cut -d \< -f 1 ); do echo $i | grep -E "currenc|data" | sed "s/\>/ /g" | grep -oE "( .*$)|(data-btc=\"[\.0-9]*\")"; done | xargs -n4 | sed "s/=/ /g" | awk '{ print $4 " " $1"-BTC " $2 " " $5}' | grep -vE "Monthly|BTC Bitcoin" | sort -n | awk '{ print $2 }' | xargs | sed "s/ /,/g"
+```
