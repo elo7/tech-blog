@@ -1,11 +1,11 @@
 ---
-title: Data science
+title: Data Science
 description: Confira todos os nossos posts sobre Data Science, Machine Learning e Inteligência Artificial, escritos pelo time de Engenharia do Elo7, o maior marketplace de produtos criativos da América Latina.
 layout: page
 ---
 
 <section class="posts-container" itemscope itemtype="http://schema.org/Blog">
-	<h1 class='title'>Data science</h1>
+	<h1 class='title'>Data Science</h1>
     {{#each (getCollection "data-science")}}
 		<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-{{category}}">
 			<header>

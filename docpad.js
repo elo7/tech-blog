@@ -150,6 +150,10 @@ const docpadConfig = function() {
 							return `images/cover/${fileName}`;
 						}
 						return 'images/cover/elo7.png';
+					},
+					
+					toJSON(object) {
+						return JSON.stringify(object);
 					}
 				}
 			},
@@ -213,14 +217,16 @@ const docpadConfig = function() {
 			};
 
 			categories.forEach(category => {
-				collections[category.category] = function() {
-					return this.getCollection('html')
-						.findAll({layout: 'post'})
-						.setFilter('isCategory', function(model) {
-							return model.attributes.category === category.category;
-						})
-						.setComparator(orderByDate);
-				};
+				if(category.category != "talks") {
+					collections[category.category] = function() {
+						return this.getCollection('html')
+							.findAll({layout: 'post'})
+							.setFilter('isCategory', function(model) {
+								return model.attributes.category === category.category;
+							})
+							.setComparator(orderByDate);
+					};
+				}
 			});
 			return collections;
 		}()

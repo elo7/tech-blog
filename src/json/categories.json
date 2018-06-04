@@ -36,9 +36,10 @@
     },
 
     {
-        "category": "palestras",
+        "category": "talks",
         "title": "Palestras",
-        "description": "Confira todas as palestras do time de Engenharia do Elo7!"
+        "description": "Confira todas as palestras do time de Engenharia do Elo7!",
+        "bodyClassName": "palestras"
     },
 
     {
