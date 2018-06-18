@@ -19,10 +19,22 @@ autoprefix: true
 		margin-bottom: 1em;
 	}
 
+	.post-info {
+		flex: 2;
+		padding: 0 3em;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
 	.post-card {
 		margin: 1em 0;
-		position: relative;
 		overflow: auto;
+		display: flex;
+
+		> header {
+			flex: 1;
+		}
 
 		&:not(:first-of-type) {
 			border-top: 1px solid map-get($colors-border, light-gray);
@@ -31,7 +43,7 @@ autoprefix: true
 		.post-meta {
 			color: map-get($colors-text, gray);
 			font-weight: 300;
-			font-size: 0.9em;
+			text-align: center;
 		}
 
 		.date {
@@ -40,21 +52,16 @@ autoprefix: true
 		}
 
 		.category {
-			background-color: map-get($colors-background, green);
-			color: map-get($colors-text, white);
+			color: map-get($colors-text, gray);
 			text-decoration: none;
-			font-size: 0.8em;
-			padding: .5em;
+			font-size: 1.2em;
 			border-radius: 3px;
-			display: inline-block;
-			margin-top: 2.3em;
+			display: block;
+			text-align: center;
 			cursor: pointer;
 			transition: background-color 0.3s;
 			font-weight: 300;
-
-			&:hover {
-				background-color: darken(map-get($colors-background, green), 10);
-			}
+			text-transform: uppercase;
 		}
 
 		.title {
@@ -90,27 +97,29 @@ autoprefix: true
 		}
 
 		.description {
-			margin-top: 1.5em;
 			font-weight: lighter;
 			line-height: 1.8;
+			text-align: center;
 		}
 
 		.link {
 			text-decoration: none;
 			color: map-get($colors-text, black);
+			display: block;
+			text-align: center;
 		}
 
 		.post-link {
 			border: 1px solid darken($yellow-default, 10);
 			border-radius: 3px;
 			color: darken($yellow-default, 10);
-			display: inline-block;
-			float: right;
-			margin-top: 1em;
 			padding: 0.8em;
 			text-align: center;
 			transition: background-color 0.3s, color 0.3s;
 			font-size: 0.9em;
+			margin: 0 auto;
+			display: block;
+			width: 25%;
 
 			&:hover {
 				background-color: darken($yellow-default, 10);
@@ -119,25 +128,19 @@ autoprefix: true
 		}
 
 		.cover-image {
-			background: lightgray;
+			background: #eee;
 			height: 300px;
-			margin-bottom: 0.5em;
+			width: 300px;
 			overflow: hidden;
-			position: relative;
 
 			&:hover img {
 				opacity: 1;
 			}
 
 			img {
-				bottom: 0;
-				left: 0;
-				max-width: 100%;
+				max-height: 100%;
 				margin: auto;
-				position: absolute;
 				opacity: 0.7;
-				right: 0;
-				top: 0;
 			}
 
 			figcaption {
