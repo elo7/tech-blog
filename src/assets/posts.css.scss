@@ -20,21 +20,17 @@ autoprefix: true
 	}
 
 	.post-info {
-		flex: 2;
-		padding: 0 3em;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		padding: 0 1em;
 	}
 
 	.post-card {
 		margin: 1em 0;
-		overflow: auto;
+		padding-top: 1em;
 		display: flex;
-
-		> header {
-			flex: 1;
-		}
+		flex-direction: column;
 
 		&:not(:first-of-type) {
 			border-top: 1px solid map-get($colors-border, light-gray);
@@ -43,7 +39,6 @@ autoprefix: true
 		.post-meta {
 			color: map-get($colors-text, gray);
 			font-weight: 300;
-			text-align: center;
 		}
 
 		.date {
@@ -57,11 +52,12 @@ autoprefix: true
 			font-size: 1.2em;
 			border-radius: 3px;
 			display: block;
-			text-align: center;
 			cursor: pointer;
 			transition: background-color 0.3s;
 			font-weight: 300;
 			text-transform: uppercase;
+			margin-top: 0.5em;
+			margin-bottom: 0.5em;
 		}
 
 		.title {
@@ -99,14 +95,14 @@ autoprefix: true
 		.description {
 			font-weight: lighter;
 			line-height: 1.8;
-			text-align: center;
+			margin-top: 1em;
+			margin-bottom: 0.5em;
 		}
 
 		.link {
 			text-decoration: none;
 			color: map-get($colors-text, black);
 			display: block;
-			text-align: center;
 		}
 
 		.post-link {
@@ -119,7 +115,6 @@ autoprefix: true
 			font-size: 0.9em;
 			margin: 0 auto;
 			display: block;
-			width: 25%;
 
 			&:hover {
 				background-color: darken($yellow-default, 10);
@@ -129,9 +124,10 @@ autoprefix: true
 
 		.cover-image {
 			background: #eee;
-			height: 300px;
-			width: 300px;
+			height: 150px;
+			width: 100%;
 			overflow: hidden;
+			position: relative;
 
 			&:hover img {
 				opacity: 1;
@@ -141,6 +137,9 @@ autoprefix: true
 				max-height: 100%;
 				margin: auto;
 				opacity: 0.7;
+				transform: translateX(-50%);
+				position: absolute;
+				left: 50%;
 			}
 
 			figcaption {
@@ -164,6 +163,12 @@ autoprefix: true
 		.post-card {
 			padding: 2em;
 			background-color: $white;
+			flex-direction: row;
+
+			.category {
+				text-align: center;
+				margin: 0;
+			}
 
 			&:not(:first-of-type) {
 				border-top: none;
@@ -173,5 +178,48 @@ autoprefix: true
 				content: '·';
 			}
 		}
+	}
+}
+
+@media (min-width: 900px) {
+	.posts-container {
+		.post-card {
+			> header {
+				flex: 1;
+			}
+
+			.post-info {
+				flex: 2;
+			}
+
+			.post-meta {
+				text-align: center;
+			}
+
+			.link {
+				text-align: center;
+			}
+
+			.post-link {
+				width: 25%;
+			}
+
+			.cover-image {
+				height: 300px;
+				width: 300px;
+			}
+
+			.description {
+				margin: 0;
+				text-align: center;
+			}
+		}
+	}
+}
+
+@media (max-width: 1200px) {
+	.posts-container .post-card .cover-image {
+		height: 150px;
+		width: 150px;
 	}
 }

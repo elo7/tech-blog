@@ -3,7 +3,7 @@ layout: page
 ---
 <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-content'>
 	<figure class='cover-image'>
-		<img src='{{site.url}}/{{getCoverUri cover}}' alt='{{title}}'>
+		<img src='{{site.url}}/{{getCoverUri document.cover}}' alt='{{title}}'>
 	</figure>
 	<h1 itemprop='name' class='title'>{{document.title}}</h1>
 	<div class='post-meta'>
