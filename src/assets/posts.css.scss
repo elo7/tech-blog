@@ -120,12 +120,24 @@ autoprefix: true
 
 		.cover-image {
 			background: lightgray;
+			height: 300px;
 			margin-bottom: 0.5em;
 			overflow: hidden;
+			position: relative;
+
+			&:hover img {
+				opacity: 1;
+			}
 
 			img {
-				display: block;
+				bottom: 0;
+				left: 0;
+				max-width: 100%;
 				margin: auto;
+				position: absolute;
+				opacity: 0.7;
+				right: 0;
+				top: 0;
 			}
 
 			figcaption {
@@ -156,10 +168,6 @@ autoprefix: true
 
 			.author + time:before {
 				content: '·';
-			}
-
-			.cover-image img {
-				max-width: 100%;
 			}
 		}
 	}

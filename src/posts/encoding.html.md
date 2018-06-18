@@ -8,7 +8,7 @@ authors: [mariofts]
 layout: post
 title: Desmistificando o Encoding
 description: Já reparou como é difícil fazer acentos, emojis e outros caracteres estranhos serem exibidos corretamente nos seus programas? Vamos entender um pouco sobre como funciona o armazenamento de caracteres e como fazer software que suporte múltiplas línguas da maneira correta.
-coverImage: desmistificando-encoding.jpg
+cover: desmistificando-encoding.jpg
 ---
 
 Já reparou como é difícil fazer acentos, emojis e outros caracteres estranhos serem exibidos corretamente nos seus programas? Vamos entender um pouco sobre como funciona o armazenamento de caracteres e como fazer software que suporte múltiplas línguas da maneira correta. Sim, é muito mais que termos vários arquivos com as mensagens traduzidas...

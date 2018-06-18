@@ -11,7 +11,7 @@ tags:
   - iac
   - infrastructure as code
   - infra
-coverImage: terraformando-tudo-3.jpg
+cover: terraformando-tudo-3.jpg
 ---
 
 Veja os outros *posts* da série:
@@ -237,5 +237,3 @@ Esperamos ter respondido com clareza a resposta da pergunta "E o legado?" quando
 Um outro detalhe foi que, aqui no Elo7, não saímos importando tudo que já existia de uma vez, decidimos fazer por demanda. Assim, quando uma mudança na infra de uma aplicação era necessária, aproveitávamos e fazíamos o `import`.
 
 Logo voltamos com mais posts sobre Terraform! Obrigado! :D
-
-

@@ -13,7 +13,7 @@ pageSize: 10
 				<header>
 					<a href="{{../site.baseUrl}}{{url}}" class="link">
 						<figure class="cover-image">
-							<img src="{{site.url}}/{{getCoverUri coverImage}}" alt="{{title}}">
+							<img src="{{site.url}}/{{getCoverUri cover}}" alt="{{title}}">
 						</figure>
 					</a>
 					<a href="{{../site.baseUrl}}{{url}}" class="link">

@@ -8,7 +8,7 @@ layout: page-amp
     {{#each (getCollection "posts")}}
 		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-{{category}}'>
 			<figure>
-				<img src="{{site.url}}/{{getCoverUri coverImage}}" alt="{{title}}">
+				<img src="{{site.url}}/{{getCoverUri cover}}" alt="{{title}}">
 				<figcaption>{{title}}</figcaption>
 			</figure>
 			<header>
