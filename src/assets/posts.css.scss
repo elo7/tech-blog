@@ -23,7 +23,7 @@ autoprefix: true
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		padding: 0 1em;
+		padding-left: 1.5rem;
 	}
 
 	.post-card {
@@ -42,14 +42,14 @@ autoprefix: true
 		}
 
 		.date {
-			font-size: 0.9em;
+			font-size: 0.8em;
 			color: map-get($colors-text, gray);
 		}
 
 		.category {
 			color: map-get($colors-text, gray);
 			text-decoration: none;
-			font-size: 1.2em;
+			font-size: 1em;
 			border-radius: 3px;
 			display: block;
 			cursor: pointer;
@@ -63,7 +63,7 @@ autoprefix: true
 		.title {
 			color: map-get($colors-text, darker);
 			display: inline-block;
-			font-size: 1.8em;
+			font-size: 1.6em;
 			text-decoration: none;
 			line-height: 1.2;
 
@@ -75,6 +75,7 @@ autoprefix: true
 		.author{
 			text-decoration: none;
 			color: map-get($colors-text, gray);
+			font-size: 0.8rem;
 			transition: color 0.3s;
 
 			p {
@@ -97,6 +98,8 @@ autoprefix: true
 			line-height: 1.8;
 			margin-top: 1em;
 			margin-bottom: 0.5em;
+			font-size: 0.9em;
+			text-align: justify;
 		}
 
 		.link {
@@ -134,12 +137,12 @@ autoprefix: true
 			}
 
 			img {
-				max-height: 100%;
 				margin: auto;
 				opacity: 0.7;
-				transform: translateX(-50%);
+				transform: translate(-50%, -50%);
 				position: absolute;
 				left: 50%;
+				top: 50%;
 			}
 
 			figcaption {
@@ -158,10 +161,8 @@ autoprefix: true
 
 @media (min-width: 800px) {
 	.posts-container {
-		padding: 1em 15%;
-
 		.post-card {
-			padding: 2em;
+			padding: 1.5rem;
 			background-color: $white;
 			flex-direction: row;
 
@@ -170,26 +171,8 @@ autoprefix: true
 				margin: 0;
 			}
 
-			&:not(:first-of-type) {
-				border-top: none;
-			}
-
-			.author + time:before {
-				content: '·';
-			}
-		}
-	}
-}
-
-@media (min-width: 900px) {
-	.posts-container {
-		.post-card {
-			> header {
-				flex: 1;
-			}
-
 			.post-info {
-				flex: 2;
+				flex: 1;
 			}
 
 			.post-meta {
@@ -200,26 +183,22 @@ autoprefix: true
 				text-align: center;
 			}
 
-			.post-link {
-				width: 25%;
+			.description {
+				margin: 0;
+			}
+
+			&:not(:first-of-type) {
+				border-top: none;
+			}
+
+			.author + time:before {
+				content: '·';
 			}
 
 			.cover-image {
 				height: 300px;
 				width: 300px;
 			}
-
-			.description {
-				margin: 0;
-				text-align: center;
-			}
 		}
-	}
-}
-
-@media (max-width: 1200px) {
-	.posts-container .post-card .cover-image {
-		height: 150px;
-		width: 150px;
 	}
 }
