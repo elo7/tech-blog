@@ -19,7 +19,7 @@ description: Neste post, você aprenderá a criar uma API do Restful com o Kotli
 
 Kotlin vem ganhando muita popularidade nos últimos tempos devido a seus recursos de produtividade e a possibilidade de utilização na plataforma Android.
 
-Devido à crescente popularidade do Kotlin, o Spring framework também introduziu um suporte dedicado ao Kotlin.
+Devido à crescente popularidade do Kotlin, o Spring Framework também introduziu um suporte dedicado ao Kotlin.
 
 Neste post, você aprenderá a criar uma API do CRUD Restful com o Kotlin, Spring Boot e JPA.
 
@@ -31,12 +31,12 @@ Usaremos o MySQL como nossa fonte de dados e JPA e Hibernate para acessar os dad
 
 ## Criando a aplicação
 
-Usaremos a ferramenta da Web Spring initializr para fazer o bootstrap da nossa aplicação. 
+Usaremos a ferramenta da Web Spring initializr para fazer o bootstrap da nossa aplicação.
 
 1. Acesse [http://start.spring.io](http://start.spring.io)
 2. Defina o nome do Artefato
-3. Selecione Kotlin na seção de linguagens 
-4. Selecione a versão mais recente do Spring Boot 
+3. Selecione Kotlin na seção de linguagens
+4. Selecione a versão mais recente do Spring Boot
 5. Adicione dependências da Web, JPA e MySQL.
 6. Clique em Gerar Projeto para gerar e baixar o projeto.
 
@@ -62,6 +62,7 @@ spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDial
 # Hibernate ddl auto (create, create-drop, validate, update)
 spring.jpa.hibernate.ddl-auto = update
 ```
+
 Não se esqueça de alterar **spring.datasource.username** e **spring.datasource.password** conforme sua configuração do MySQL.
 
 Além disso, a propriedade **spring.jpa.hibernate.ddl-auto** foi marcada para update. Essa propriedade atualiza o esquema do banco de dados sempre que você cria ou modifica os modelos de domínio na aplicação.
@@ -95,7 +96,7 @@ data class Livro (
 ```
 A classe Livro acabou ficando pequena e concisa. Isso porque no Kotlin os getters e setters são implicitamente definidos. Além disso, foi usada **data class**. Um data class gera automaticamente os métodos **equals()**, **hashcode()**, **toString()** e **copy()**.
 
-Há uma ressalva ao usar data classes com JPA: data classes requerem um construtor principal com pelo menos um parâmetro e o JPA requer um construtor sem argumentos. Para resolver este impasse, o Kotlin tem o [no-arg compiler plugin](https://kotlinlang.org/docs/reference/compiler-plugins.html#no-arg-compiler-plugin) que gera um construtor de sem argumentos que só pode ser chamado usando reflection. 
+Há uma ressalva ao usar data classes com JPA: data classes requerem um construtor principal com pelo menos um parâmetro e o JPA requer um construtor sem argumentos. Para resolver este impasse, o Kotlin tem o [no-arg compiler plugin](https://kotlinlang.org/docs/reference/compiler-plugins.html#no-arg-compiler-plugin) que gera um construtor sem argumentos que só pode ser chamado usando reflection.
 
 Observe que foi atribuído um valor padrão para todos os atributos na classe Livro. Isso é necessário para o construtor sem argumentos.
 
@@ -122,11 +123,11 @@ data class Categoria (
 
 ## Lidando com a referência circular
 
-Como livro tem referência para categoria, e categoria tem referência para uma lista de livros. Ocorre o problema clássico, a maldita referência circular 😕
+O livro tem referência para categoria, e categoria tem referência para uma lista de livros. Ocorre o problema clássico, a maldita referência circular. 😕
 
-A alternativa adotada para solucionar esse problema foi usar as annotations @JsonManagedReference e @JsonBackReference do jackson. Entretanto existem outras maneiras de resolver esse problema, como por exemplo utilizar o @JsonIgnore em uma das pontas.
+A alternativa adotada para solucionar esse problema foi usar as annotations @JsonManagedReference e @JsonBackReference do Jackson. Entretanto, existem outras maneiras de resolver esse problema, como por exemplo utilizar o @JsonIgnore em uma das pontas.
 
-Uma outra alternativa muito boa seria criar um DTO. Deixando apenas as informações que você precisa na serialização e use as annotations do jackson nela, isso se precisar. Essa solução é um pouco mais de trabalhosa no início, mas a manutenção tende a ser bem mais simples.
+Uma outra alternativa muito boa seria criar um DTO. Deixando apenas as informações que você precisa na serialização e usando as annotations do Jackson nesse objeto, isso se precisar. Essa solução é um pouco mais trabalhosa no início, mas a manutenção tende a ser bem mais simples.
 
 Mais informações podem ser encontradas nesse post: [jackson-bidirectional-relationships-and-infinite-recursion](http://www.baeldung.com/jackson-bidirectional-relationships-and-infinite-recursion)
 
@@ -134,7 +135,7 @@ Mais informações podem ser encontradas nesse post: [jackson-bidirectional-rela
 
 Vamos agora criar o repositório para acessar os dados do banco de dados.
 
-Como estendemos o ArticleRepository da interface JpaRepository, todos os métodos CRUD na entidade Livro estão prontamente disponíveis. O Spring boot conecta-se automaticamente a uma implementação padrão do JpaRepository chamada SimpleJpaRepository em tempo de execução.
+Como o ArticleRepository extende a interface JpaRepository, todos os métodos CRUD na entidade Livro estão prontamente disponíveis. O Spring Boot conecta-se automaticamente a uma implementação padrão do JpaRepository chamada SimpleJpaRepository em tempo de execução.
 
 ```kotlin
 package br.com.elo7.test.apijpa.repository
@@ -158,9 +159,9 @@ import org.springframework.stereotype.Repository
 @Repository
 interface CategoriaRepository : JpaRepository<Categoria, Long>
 ```
-## Criando End-Points
+## Criando Endpoints
 
-Agora vamos implementar os end-points do controller para todas as operações CRUD nas entidades Livro e Categoria.
+Agora vamos implementar os endpoints do controller para todas as operações CRUD nas entidades Livro e Categoria.
 
 ```kotlin
 package br.com.elo7.test.apijpa.controller
@@ -183,8 +184,7 @@ class LivroController(private val livroRepository: LivroRepository, private val 
 
    @PostMapping("/livros")
    fun createNewLivro(@Valid @RequestBody livro: Livro) {
-       val categoria = livro.categoria
-       if (categoria != null) categoriaRepository.save(categoria)
+       livro.categoria?.let { categoriaRepository.save(it) }
        livroRepository.save(livro)
    }
 
