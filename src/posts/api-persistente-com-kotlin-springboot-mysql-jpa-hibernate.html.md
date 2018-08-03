@@ -93,7 +93,7 @@ data class Livro (
        val categoria: Categoria? = null
 )
 ```
-A classe Livro acabou ficando pequena e concisa. Isso porque no Kotlin não é preciso de getters e setters como no Java. Além disso, foi usada **data class**. Um data class gera automaticamente os métodos **equals()**, **hashcode()**, **toString()** e **copy()**.
+A classe Livro acabou ficando pequena e concisa. Isso porque no Kotlin os getters e setters são implicitamente definidos. Além disso, foi usada **data class**. Um data class gera automaticamente os métodos **equals()**, **hashcode()**, **toString()** e **copy()**.
 
 Há uma ressalva ao usar data classes com JPA: data classes requerem um construtor principal com pelo menos um parâmetro e o JPA requer um construtor sem argumentos. Para resolver este impasse, o Kotlin tem o [no-arg compiler plugin](https://kotlinlang.org/docs/reference/compiler-plugins.html#no-arg-compiler-plugin) que gera um construtor de sem argumentos que só pode ser chamado usando reflection. 
 
