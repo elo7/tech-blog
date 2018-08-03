@@ -25,7 +25,7 @@ Neste post, você aprenderá a criar uma API do CRUD Restful com o Kotlin, Sprin
 
 ## O que vamos construir?
 
-Neste post criaremos APIs Restful para armazenar dados de livros e categorias. A categorias tem uma lista de livros, e cada livro pode ter uma categoria. Vamos escrever APIs para criar, recuperar, e excluir livros e categorias. Um livro tem um id, um título e o nome do autor.
+Neste post criaremos APIs Restful para armazenar dados de livros e categorias. As categorias têm uma lista de livros, e cada livro pode ter uma categoria. Vamos escrever APIs para criar, recuperar, e excluir livros e categorias. Um livro tem um id, um título e o nome do autor.
 
 Usaremos o MySQL como nossa fonte de dados e JPA e Hibernate para acessar os dados do banco de dados.
 
