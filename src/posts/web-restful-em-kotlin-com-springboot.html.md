@@ -96,9 +96,11 @@ class SomaController {
 }
 ```
 
-## Criando a classe Application 
+## Criando a classe Application
 
-Finalmente, precisamos definir uma classe Application. Como Spring Boot procura por um método *main static* público, precisamos definir isso no Kotlin. Isso poderia ser feito com a anotação @JvmStatic, mas aqui preferimos usar uma [top-level function](https://kotlinlang.org/docs/reference/functions.html) definida fora da classe Application, pois ela leva a um código mais conciso e limpo.
+Finalmente, precisamos definir uma classe Application. Como o Spring Boot procura por um método *main static* público, precisamos definir isso no Kotlin. Isso poderia ser feito com a anotação @JvmStatic, mas aqui preferimos usar uma [top-level function](https://kotlinlang.org/docs/reference/functions.html) definida fora da classe Application, pois ela leva a um código mais conciso e limpo.
+
+Tanto o cabeçalho (parâmetros, no construtor, etc) como o corpo da classe são opcionais; se a classe não tiver corpo, as chaves podem ser omitidas. [Classes and Inheritance](https://kotlinlang.org/docs/reference/classes.html)
 
 ```kotlin
 package br.com.elo7.example
