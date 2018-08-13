@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	{{ partial "head.html" . }}
+	<link rel='stylesheet' href='{{ "css/talks.css" | absURL}}' >
+    <body>
+        {{ partial "header.html" . }}
+        <main aria-label="Conteúdo principal" itemscope itemtype="http://schema.org/Blog">
+            <section class='container talks-container' itemscope itemtype='http://schema.org/Blog'>
+                <h1 class='category-title'>Palestras</h1>
+
+                {{ range .Pages }}
+                    <article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="talk-card">
+                        <header>
+                            <a href='{{ .Permalink }}' class='link'>
+                                <h2 itemprop='name' class="title">{{ .Title }}</h2>
+                            </a>
+                        </header>
+                        <div class="talk-meta">
+                            {{ range .Params.speakers }}
+                                <a href='/autor/{{ . }}/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                                    <p itemprop='name'>@{{ . }}</p>
+                                </a>
+                            {{ end }}
+                            {{ partial "date.html" . }}
+                        </div>
+
+                        {{ with .Params.description }}
+                            <p class=' description' itemprop='description'>
+                                {{ . }}
+                            </p>
+                            <meta itemprop='headline' content='{{ . | truncate 110 }}' >
+                        {{ end }}
+                        <a href='{{ .Permalink }}' class='link talk-link'>Veja essa talk</a>
+                    </article>
+                {{ end }}
+            </section>
+        </main>
+
+        {{ partial "footer.html" . }}
+    </body>
+</html>

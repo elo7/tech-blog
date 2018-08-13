@@ -1,0 +1,19 @@
+baseURL = "http://elo7.dev/"
+languageCode = "pt-BR"
+title = "Tech Blog Elo7"
+enableRobotsTXT = true
+
+[taxonomies]
+    category = "category"
+    tag = "tags"
+[params]
+    siteName = "Tech Blog Elo7"
+    description = "Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série."
+    gaCode = "UA-3692628-29"
+    env = "production"
+[permalinks]
+    posts = "/:filename"
+    pages = "/:filename"
+    category = "/categoria/:title"
+    authors = "/autor/:filename"
+    tag = "/tags/:title"

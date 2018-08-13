@@ -1,0 +1,41 @@
+{{ .Scratch.Set "publisher" .Params.publisher }}
+
+<article class='publisher-info' itemscope itemtype='http://schema.org/Person'>
+	<section class='info'>
+		<h1 class='name' itemprop='name' data-author='{{.Params.publisher}}' class='publisher'>{{.Params.publisher}}</h1>
+		<a itemprop='url' href='https://github.com/{{.Params.github}}' class='social github' target='_blank' title='Conheça meu github'>{{.Params.github}}</a>
+		{{with .Params.twitter}}
+			<a itemprop='url' href='https://twitter.com/{{.}}' class='social twitter' target='_blank' title='Conheça meu twitter'>{{.}}</a>
+		{{end}}
+		{{with .Params.linkedin}}
+			<a itemprop='url' href='https://www.linkedin.com/in/{{.}}' class='social linkedin' target='_blank' title='Conheça meu linkedin'>{{.}}</a>
+		{{end}}
+	</section>
+	<figure class='hide avatar' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+		<img itemprop='contentUrl' width='100px' height='100px'/>
+	</figure>
+	{{with .Params.description}}
+		<p class='publisher-description'>{{.}}</p>
+		<meta itemprop='description' content='{{. | truncate 110}}' >
+	{{end}}
+</article>
+
+<section class='container posts-container publisher-container' itemscope itemtype='http://schema.org/Blog'>
+	<h2 class="title">Posts</h2>
+	{{range .Site.RegularPages}}
+		{{if in .Params.authors $.Params.github}}
+			{{ partial "post-summary-author.html" . }}
+		{{end}}
+	{{end}}
+</section>
+
+<section class="container posts-container publisher-container">
+	<h2 class="title">Palestras</h2>
+	{{ range where .Site.Pages "Section" "talks" }}
+		{{if in .Params.speakers $.Params.github}}
+			{{ partial "post-summary-author.html" . }}
+		{{end}}
+	{{end}}
+</section>
+
+<script async src='/js/publisher.js'></script>

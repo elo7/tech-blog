@@ -1,0 +1,32 @@
+<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-{{ .Params.category | urlize }}'>
+    <div class='post-info'>
+        <a href='/categoria/{{ .Params.category | urlize }}/' class='category {{ .Params.category | urlize }}'>{{ .Params.category }}</a>
+        <div class='post-meta'>
+            <a href='{{ .Permalink }}' class='link'>
+                <h2 itemprop='name' class='title'>{{ .Title }}</h2>
+            </a>
+            {{ range .Params.authors }}
+                <a href='/autor/{{ . }}/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@{{ . }}</p>
+                </a>
+            {{ end }}
+            {{ partial "date.html" . }}
+        </div>
+        {{ with .Params.description }}
+            <p class=' description' itemprop='description'>
+                {{ . }}
+            </p>
+            <meta itemprop='headline' content='{{ . | truncate 110 }}' >
+        {{ end }}
+        <a href='{{ .Permalink }}' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>

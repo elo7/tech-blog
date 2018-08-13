@@ -1,0 +1,12 @@
+{{ $paginator := .Paginate (where .Data.Pages "Type" "posts") }}
+{{$page := .}}
+
+<section class='container posts-container' itemscope itemtype='http://schema.org/Blog'>
+	{{ if not .IsHome}}
+		<h1 class='title'>{{.Title}}</h1>
+	{{ end }}
+	{{ range $paginator.Pages }}
+		{{ partial "post-summary.html" (dict "context" . "page" $page)}}
+	{{ end }}
+
+</section>

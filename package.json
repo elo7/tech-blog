@@ -2,43 +2,27 @@
   "name": "tech-elo7",
   "version": "0.1.0",
   "description": "Tech Blog",
-  "config": {
-    "amp": true
-  },
   "dependencies": {
     "define-async": "1.2.0",
-    "docpad": "~6.79.4",
-    "docpad-plugin-autoprefix": "~2.1.0",
-    "docpad-plugin-cleanurls": "~2.10.0",
-    "docpad-plugin-ghpages": "~2.6.1",
-    "docpad-plugin-handlebars": "~2.4.0",
-    "docpad-plugin-highlightjs": "~2.5.0",
-    "docpad-plugin-markit": "~2.4.0",
-    "docpad-plugin-nodesass": "~2.8.2",
-    "docpad-plugin-paged": "~2.5.0",
-    "docpad-plugin-sitemap": "~2.4.0",
-    "docpad-plugin-tags": "~2.1.0",
     "elo7-ajax-amd": "1.3.5",
     "elo7-doc-amd": "1.3.1",
     "elo7-events-amd": "1.1.3",
-    "image-size": "0.6.2",
-    "moment": "2.20.1",
-    "shelljs": "0.8.0"
+    "highlightjs": "9.10.0"
   },
   "main": "node_modules/.bin/docpad-server",
   "scripts": {
-    "copy:ajax-amd": "cp node_modules/elo7-ajax-amd/ajax.js src/assets/js/vendor/ajax.js",
-    "copy:doc-amd": "cp node_modules/elo7-doc-amd/doc.js src/assets/js/vendor/doc.js",
-    "copy:async-amd": "cp node_modules/define-async/async-define.js src/assets/js/vendor/async-define.js",
-    "copy:events-amd": "cp node_modules/elo7-events-amd/events-amd.js src/assets/js/vendor/events-amd.js",
-    "precopy": "mkdir -p src/assets/js/vendor",
-    "copy": "npm run copy:ajax-amd && npm run copy:events-amd && npm run copy:async-amd && npm run copy:doc-amd",
+    "copy:ajax-amd": "cp node_modules/elo7-ajax-amd/ajax.js static/js/vendor/ajax.js",
+    "copy:doc-amd": "cp node_modules/elo7-doc-amd/doc.js static/js/vendor/doc.js",
+    "copy:async-amd": "cp node_modules/define-async/async-define.js static/js/vendor/async-define.js",
+    "copy:events-amd": "cp node_modules/elo7-events-amd/events-amd.js static/js/vendor/events-amd.js",
+    "copy:highlightjs": "cp node_modules/highlightjs/highlight.pack.js static/js/vendor/highlight.js",
+    "copy:highlightcss": "cp node_modules/highlightjs/styles/default.css static/css/vendor/highlight.css",
+    "copy": "npm run copy:ajax-amd && npm run copy:events-amd && npm run copy:async-amd && npm run copy:doc-amd && npm run copy:highlightjs && npm run copy:highlightcss",
+    "precopy": "mkdir -p static/js/vendor && mkdir -p static/css/vendor",
     "postinstall": "npm run copy",
-    "clean-amp": "rm -rf src/documents/amp",
-    "clean": "docpad clean && rm -rf out && npm run clean-amp",
-    "start": "docpad run",
-    "test": "docpad generate --silent --env static",
-    "deploy": "npm install && docpad deploy-ghpages --silent --env static",
-    "dev": "npm run clean-amp && rm -rf node_modules/docpad-plugin-tags/ && npm start --tech-elo7:amp=false"
+    "start": "hugo server -D",
+    "build": "sass -f --update .:.",
+    "dev": "sass --watch .:.",
+    "deploy": "./publish_to_ghpages.sh"
   }
 }

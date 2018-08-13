@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    {{ partial "head.html" . }}
+    <body>
+        {{ partial "header.html" . }}
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/{{if .Params.cover }}{{.Params.cover}}{{else}}elo7.png{{end}}' alt='{{ .Title }}' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>{{ .Title }}</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            {{ partial "date.html" . }}
+                        </p>
+
+                        <article>
+                            {{ range .Params.authors }}
+                                <a data-author='{{ . }}' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/{{ . }}/' class='author'>
+                                    <meta itemprop='url' content='/autor/{{ . }}'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='{{ . }}'>@{{ . }}</p>
+                                </a>
+                            {{ end }}
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        {{ .Content }}
+
+                        <ul class='tag-list'>
+                            {{ range .Params.tags }}
+                                <li>
+                                    <a href='/tags/{{ . | urlize }}/'>{{ . | lower }}</a>
+                                </li>
+                            {{ end }}
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href={{.Permalink}}&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text={{.Title | urlize }}&url={{.Permalink}}&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='{{.Permalink}}?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='{{.Permalink}}?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='{{.Description}}'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='{{.Site.BaseURL}}'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        {{ partial "footer.html" . }}
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '{{.Params.date}}:{{.Page.URL}}';
+            var disqus_url = '{{.Permalink}}';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>
