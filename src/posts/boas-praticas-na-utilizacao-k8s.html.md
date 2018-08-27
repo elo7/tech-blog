@@ -1,6 +1,6 @@
 ---
 title: Boas práticas na utilização do Kubernetes em produção
-date: 2018-04-16
+date: 2018-08-27
 category: devops
 layout: post
 description: Neste post discutiremos alguns pontos de atenção importantes e necessários ao implementar o Kubernetes em ambientes de produção.
