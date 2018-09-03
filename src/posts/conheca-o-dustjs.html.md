@@ -11,7 +11,7 @@ tags:
   - isomorfismo
 ---
 
-O time de front-end do Elo7 está sempre buscando novas tecnologias para compor o fluxo de trabalho, mesmo quando algumas dessas tecnologias não estejam nos holofotes da comunidade. Acreditamos que independente do *hype*, temos como principal foco a resolução de nossas necessidades e é por isso que neste post vamos falar sobre o [Dust.js](http://www.dustjs.com/), uma bibloteca javascript para trabalhar com templates, desenvolvido pelo Linkedin e que usamos em nosso serviço de templates.
+O time de front-end do Elo7 está sempre buscando novas tecnologias para compor o fluxo de trabalho, mesmo que algumas dessas tecnologias não estejam nos holofotes da comunidade. Acreditamos que independente do *hype*, temos como principal foco a resolução de nossas necessidades e é por isso que neste post vamos falar sobre o [Dust.js](http://www.dustjs.com/), uma bibloteca javascript para trabalhar com templates, desenvolvido pelo Linkedin e que usamos em nosso serviço de templates.
 
 ## Por que escolhemos o Dust.js?
 
