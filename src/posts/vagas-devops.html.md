@@ -1,10 +1,10 @@
 ---
 title: Vaga Engenheiro de Software/DevOps
-date: 2017-07-18
+date: 2018-09-03
 authors: [jlmfonseca]
 layout: post
 category: vagas
-description: O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Estamos à procura de Engenheiros de Software/DevOps para fazer parte do nosso time.
+description: O Elo7, o maior marketplace de produtos criativos da América Latina, está à procura de Engenheiros de Software/DevOps para fazer parte do nosso time.
 tags:
   - devops
   - back-end
