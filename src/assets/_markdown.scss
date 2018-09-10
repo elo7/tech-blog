@@ -83,6 +83,21 @@
         max-width: 100%;
     }
 
+    figcaption {
+      color: map-get($colors-text, gray);
+      font-style: italic;
+      margin-top: 1em;
+      text-align: center;
+    }
+
+    figure {
+      margin: 2em auto;
+
+      img {
+        margin: 0 auto;
+      }
+    }
+
     em {
         font-style: italic;
     }
