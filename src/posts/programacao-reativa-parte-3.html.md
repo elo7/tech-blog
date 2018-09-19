@@ -1113,6 +1113,58 @@ A saída demonstra que a *thread* executando as tarefas (no caso, a *thread* pri
 
 Caso essas configurações não atendam o seu caso de uso, também existe o método [Schedulers.from](http://reactivex.io/RxJava/javadoc/io/reactivex/schedulers/Schedulers.html#from--), que recebe como parâmetro um [Executor](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Executor.html) do Java, o qual você pode criar e parametrizar de acordo com suas necessidades.
 
+### TestScheduler
+
+Um detalhe de implementação importante do `Scheduler` é o conceito de um "relógio" interno, que fornece ao agendador uma noção de "tempo". É esse conceito que permite a criação de `streams` baseados em intervalos (como `Observable.interval`) ou operadores que trabalham com janelas de tempo (como `window` ou `debounce`). Especialmente para testes de unidade, pode ser conveniente simularmos algo como um "avanço no tempo" para reproduzirmos algum comportamento. Existe uma classe específica para esse propósito chamada [TestScheduler](http://reactivex.io/RxJava/javadoc/io/reactivex/schedulers/TestScheduler.html).
+
+Digamos, um código como esse:
+
+```java
+//aguarda 5 segundos entre cada emissão
+Observable.interval(5000, TimeUnit.MILLISECONDS)
+		.subscribe(System.out::println);
+```
+
+Se quiséssemos testar o código acima, teríamos que reproduzir o tempo de espera (no caso, 5 segundos) no nosso teste. Isso não é apenas demorado; o problema maior é que o código acima não faz realmente nada até o momento em que a janela de tempo se fecha e o evento é disparado. Mas se pudéssemos adiantar o tempo para "cinco segundos no futuro", o código acima seria executado instantaneamente. Não podemos adiantar o relógio da máquina, mas podemos adiantar um relógio "virtual".
+
+```java
+TestScheduler scheduler = new TestScheduler();
+
+Observable.interval(5000, TimeUnit.MILLISECONDS, scheduler) // utiliza o TestScheduler
+	.subscribe(System.out::println);
+
+scheduler.advanceTimeBy(5000, TimeUnit.MILLISECONDS); // avança no tempo!
+
+/*
+output:
+
+0
+*/
+```
+
+Caso o tempo adiantado seja "maior" do que o intervalo, o `Observable` irá emitir os eventos normalmente (os mesmos eventos que seriam emitidos com o andar "normal" do tempo).
+
+```java
+TestScheduler scheduler = new TestScheduler();
+
+// intervalo de 1 segundo
+Observable.interval(1000, TimeUnit.MILLISECONDS, scheduler)
+	.subscribe(System.out::println);
+
+// avança cinco segundos; nesse tempo, o Observable acima teria emitido 5 eventos
+scheduler.advanceTimeBy(5000, TimeUnit.MILLISECONDS);
+
+/*
+output:
+
+0
+1
+2
+3
+4
+*/
+```
+
 ## Processamento bloqueante (ou "Come To The Dark Side")
 
 Muito do que se diz a respeito da programação reativa se refere a **processamento não-bloqueante**, e, como vimos acima, os frameworks Rx fornecem uma sólida fundação para implementarmos esse tipo de lógica. O próprio modelo de programação declarativo também simplifica a implementação; ao invés do código imperativo, trabalhamos com funções que apenas recebem dados empurrados e devolvem o resultado de uma computação, e se essa função é executada em uma *thread* separada, é um detalhe que não afeta a escrita do código.
