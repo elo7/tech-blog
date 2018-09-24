@@ -209,7 +209,7 @@ output: diferentes timestamps
 */
 ```
 
-Um detalhe relevante que ainda não abordamos é a questão dos "streams assíncronos", que, com efeito, é um dos motivos do *hype* em geral sobre a programação reativa. Frameworks reativos como RxJava suportam *multithreading* de maneira simples e natural (como veremos), o que eventualmente pode levar alguns desenvolvedores a inferir que "tudo" é feito de forma assíncrona. Isso **não é verdade!**. É importante deixar claro que TODOS os frameworks Rx **são single-threaded por padrão**, por uma questão de economia de recursos do hardware. Se um compartamento assíncrono é necessário, isso deve ser configurado **explicitamente**.
+Um detalhe relevante que ainda não abordamos é a questão dos "streams assíncronos", que, com efeito, é um dos motivos do *hype* em geral sobre a programação reativa. Frameworks reativos como RxJava suportam *multithreading* de maneira simples e natural (como veremos), o que eventualmente pode levar alguns desenvolvedores a inferir que "tudo" é feito de forma assíncrona. Isso **não é verdade!**. É importante deixar claro que TODOS os frameworks Rx **são single-threaded por padrão**, por uma questão de economia de recursos do hardware. Se um comportamento assíncrono é necessário, isso deve ser configurado **explicitamente**.
 
 ## "em combinação com consumo/roteamento de eventos"
 

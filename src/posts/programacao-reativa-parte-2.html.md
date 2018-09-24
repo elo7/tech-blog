@@ -933,7 +933,7 @@ three
 
 ![range](/images/programacao-reativa-parte-2-11.png)
 
-O método [range](http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#range-int-int-) devolve um `Observable` que emite uma sequência de valores do tipo `Integer` dentro do intervalo especificado (há uma sobrecarga que emite valores do tipo `Long`, [rangeLong](http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#rangeLong-long-long-)) .
+O método [range](http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#range-int-int-) devolve um `Observable` que emite uma sequência de valores do tipo `Integer` dentro do intervalo especificado (há outro operador que emite valores do tipo `Long`, [rangeLong](http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#rangeLong-long-long-)) .
 
 ```java
 Observable.range(0, 5)
@@ -1640,7 +1640,7 @@ one
 */
 ```
 
-Assim como o `first`, o método `last` também vem ns sabores [lastElement](http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#lastElement--) e [lastOrError](http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#lastOrError--).
+Assim como o `first`, o método `last` também vem nos sabores [lastElement](http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#lastElement--) e [lastOrError](http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#lastOrError--).
 
 #### elementAt
 
@@ -1659,6 +1659,7 @@ output:
 
 two
 */
+```
 
 ```java
 Observable.empty()
@@ -1801,7 +1802,7 @@ output:
 
 ![skipUntil](/images/programacao-reativa-parte-2-36.png)
 
-Já o [skipUntil] recebe um segundo `Observable`, e devolve um `stream` que omite todos os itens até que o segundo `Observable` emita algum valor:
+Já o [skipUntil](http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#skipUntil-io.reactivex.ObservableSource-) recebe um segundo `Observable`, e devolve um `stream` que omite todos os itens até que o segundo `Observable` emita algum valor:
 
 ```java
 
