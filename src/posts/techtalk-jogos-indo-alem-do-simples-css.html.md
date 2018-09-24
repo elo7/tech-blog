@@ -1,5 +1,5 @@
 ---
-title: Techtalk - Jogos indo além do simples CSS
+title: Techtalk - Jogos: indo além do simples CSS
 date: 2018-08-30
 category: front-end
 layout: post
