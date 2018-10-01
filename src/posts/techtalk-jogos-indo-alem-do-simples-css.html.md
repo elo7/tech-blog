@@ -1,6 +1,6 @@
 ---
 title: Techtalk - Jogos: indo além do simples CSS
-date: 2018-08-30
+date: 2018-10-01
 category: front-end
 layout: post
 description: Há quem pense que o CSS serve somente para aplicar estilos a determinados elementos, e realmente seu principal objetivo é esse! Mas alguém já pensou que seria possível capturar eventos, como um evento de clique por exemplo, e gerar algum tipo de animação com isso? E falar que com isso é possível criar um jogo? Neste talk explicarei como criar um jogo simples, sem uma linha de javascript, usando apenas HTML e CSS. Além de muitas de suas funcionalidades: pseudo-elementos, pseudo-classes, animations, entre outras.
