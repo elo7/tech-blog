@@ -5,16 +5,16 @@ layout: page
 ---
 <link rel="stylesheet" href="/talks.css">
 
-<section class="posts-container" itemscope itemtype="http://schema.org/Blog">
-	<h1 class='title'>Palestras</h1>
+<section class="talks-container" itemscope itemtype="http://schema.org/Blog">
+	<h1 class='category-title'>Palestras</h1>
     {{#each (getCollection "talks")}}
-		<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-{{category}}">
+		<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="talk-card card-{{category}}">
 			<header>
 				<a href="{{../site.baseUrl}}{{url}}" class="link">
 					<h2 itemprop='name' class="title">{{title}}</h2>
 				</a>
 			</header>
-			<div class="post-meta">
+			<div class="talk-meta">
 				{{#each speakers}}
 					<a href="/{{this}}/" class="author" itemprop='author' itemscope itemtype="http://schema.org/Person">
 						<p itemprop='name'>@{{this}}</p>
@@ -32,7 +32,7 @@ layout: page
 				</p>
 				<meta itemprop='headline' content='{{ellipsis . 110}}' >
 			{{/description}}
-			<a href="{{../site.baseUrl}}{{url}}" class="link post-link">Veja essa talk</a>
+			<a href="{{../site.baseUrl}}{{url}}" class="link talk-link">Veja essa talk</a>
 		</article>
 	{{/each}}
 </section>

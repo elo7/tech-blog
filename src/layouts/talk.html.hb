@@ -4,7 +4,7 @@ layout: page
 
 <link rel="stylesheet" href="/talks.css">
 
-<section class="talks-container">
+<section class="talk-container">
 	<h1 class="title">{{document.title}}</h1>
 	<div>
 		{{#each document.speakers}}
