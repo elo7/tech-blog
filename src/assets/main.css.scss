@@ -277,10 +277,6 @@ footer {
         }
     }
 
-    .container {
-        padding: 1em 15%;
-    }
-
     .navigation {
         padding: 1em 0;
 
@@ -322,5 +318,11 @@ footer {
     main {
         margin-left: $left-panel-width;
         padding-bottom: 81px; /*Footer Size*/
+    }
+}
+
+@media (min-width: 1100px) {
+    .container {
+        padding: 1em 15%;
     }
 }

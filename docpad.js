@@ -140,8 +140,16 @@ const docpadConfig = function() {
 							return options.inverse(this);
 						}
 					},
+
 					encodeURI(uri) {
 						return encodeURI(uri);
+					},
+
+					getCoverUri(fileName) {
+						if (fileName && fileName.length > 0) {
+							return `images/cover/${fileName}`;
+						}
+						return 'images/cover/elo7.png';
 					}
 				}
 			},

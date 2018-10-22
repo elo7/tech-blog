@@ -10,6 +10,7 @@ authors: [tcelestino]
 layout: post
 title: Web Share API
 description: Conheça mais uma API JavaScript que pretende melhorar a experiência do usuário quando precisar compartilhar links da Web para aplicativos nativos.
+cover: web-share-api.png
 ---
 
 Vivemos atualmente a era da informação, onde estamos conectados o tempo todo a redes sociais (Facebook, Twitter, LinkedIn), programas de conversação (WhatsApp, Telegram e Slack) e outras ferramentas que permitem o compartilhamento de informações. Através destes softwares, podemos compartilhar com nossos amigos de tudo: fotos, textos, um link para uma notícia importante ou até mesmo aquele produto que gostamos. Como desenvolvedor web, você provavelmente já precisou adicionar em seus projetos algum recurso para compartilhamento de terceiros. Muitas vezes, a quantidade de código gerado que é inserido pode influenciar no funcionamento da página, como por exemplo no tempo de carregamento. Aqui no Elo7, já usamos plugins (Facebook Share, por exemplo), mas hoje utilizamos o compartilhamento via URL, que é baseado em *query string*. Com isso, evitamos a inserção de códigos desnecessários nas páginas, o que resulta em melhor performance de carregamento.

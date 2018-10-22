@@ -17,7 +17,7 @@
 	<meta property="fb:admins" content="100003324447975">
 
 	<meta property="og:site_name" content="Elo7 Tech">
-	<meta property="og:image" content="{{site.url}}/images/ico/elo7.png">
+	<meta property="og:image" content="{{site.url}}/{{getCoverUri document.cover}}">
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="Elo7 Tech - {{document.title}}">
 	<meta property="og:url" content="{{site.url}}{{document.url}}">

@@ -10,6 +10,7 @@ tags:
   - javascript
   - front-end
   - libs
+cover: mask-amd.jpg
 ---
 
 Sempre procuramos uma biblioteca que seja bem focada no problema que queremos resolver e frequentemente encontramos aqueles pacotes com várias funcionalidades. Normalmente, utilizamos apenas um recurso (ou alguns) da biblioteca que escolhemos utilizar.
