@@ -9,7 +9,7 @@ layout: page
     {{#each (getCollection "$category.category")}}
 		<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-{{category}}">
 			<header>
-				<figure class="cover-image">
+				<figure class="cover-image" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
 					<img src="{{site.url}}/{{getCoverUri cover}}" alt="{{title}}">
 				</figure>
 			</header>
@@ -37,22 +37,16 @@ layout: page
 					<meta itemprop='headline' content='{{ellipsis . 110}}' >
 				{{/description}}
 				<a href="{{../site.baseUrl}}{{url}}" class="link post-link">Continue lendo</a>
-
-				<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject" style="display: none;"> <!--Change for a post image-->
-					<link href="{{../site.baseUrl}}/images/ico/elo7.png" itemprop="url"/>
+				<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+			</div>
+			<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization" style="display: none;">
+				<meta itemprop='name' content='Elo7 Tech'/>
+				<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+					<link href="{{../site.baseUrl}}/images/ico/logo-elo7.png" itemprop="url"/>
 					<meta itemprop='width' content='100px'/>
 					<meta itemprop='height' content='100px'/>
 				</span>
-				<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
-				<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization" style="display: none;">
-					<meta itemprop='name' content='Elo7 Tech'/>
-					<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-						<link href="{{../site.baseUrl}}/images/ico/logo-elo7.png" itemprop="url"/>
-						<meta itemprop='width' content='100px'/>
-						<meta itemprop='height' content='100px'/>
-					</span>
-				</span>
-			</div>
+			</span>
 		</article>
 	{{/each}}
 </section>

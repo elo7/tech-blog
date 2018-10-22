@@ -133,23 +133,14 @@ autoprefix: true
 	overflow: hidden;
 	position: relative;
 
-	&:hover img {
-		opacity: 1;
-	}
-
 	img {
 		max-height: 100%;
 		margin: auto;
-		opacity: 0.7;
 		transform: translate(-50%, -50%);
 		position: absolute;
 		left: 50%;
 		top: 50%;
 		max-width: none;
-	}
-
-	figcaption {
-		display: none;
 	}
 }
 
@@ -157,7 +148,6 @@ autoprefix: true
 	margin-bottom: 2em;
 	position: relative;
 	text-align: right;
-
 
 	.share-post {
 		background-color: darken($yellow-default, 10);
@@ -199,6 +189,12 @@ autoprefix: true
 		padding: 0.2em;
 		background-position: center center;
 		background-repeat: no-repeat;
+		border-radius: 50%;
+		margin-bottom: 0.5em;
+
+		&:hover {
+			opacity: 0.8;
+		}
 
 		&.facebook {
 			background-image: url('/images/ico/ic-facebook.svg');
@@ -240,7 +236,7 @@ autoprefix: true
 @media (min-width: 800px) {
 	.post-main {
 		.post-content {
-			padding: 2em;
+			padding: 2em 3.5em;
 		}
 
 		> .title {
@@ -258,15 +254,11 @@ autoprefix: true
 
 	.share {
 		position: fixed;
-		top: 2em;
-		left: calc(215px + (100% - 215px) * 0.85);
+		top: 10px;
+		right: 10px;
 
 		.link-share {
 			display: block;
-
-			&:hover {
-				opacity: 1;
-			}
 		}
 
 		.copy-success {
