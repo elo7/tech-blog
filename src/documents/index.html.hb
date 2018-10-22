@@ -13,7 +13,7 @@ pageSize: 10
 				<header>
 					<a href="{{../site.baseUrl}}{{url}}" class="link">
 						<figure class="cover-image" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-							<img src="{{site.url}}/{{getCoverUri cover}}" alt="{{title}}">
+							<img src="{{site.url}}/{{getCoverUri cover}}" alt="{{title}}" itemprop="url">
 						</figure>
 					</a>
 				</header>

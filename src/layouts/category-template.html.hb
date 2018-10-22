@@ -10,7 +10,7 @@ layout: page
 		<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-{{category}}">
 			<header>
 				<figure class="cover-image" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-					<img src="{{site.url}}/{{getCoverUri cover}}" alt="{{title}}">
+					<img src="{{site.url}}/{{getCoverUri cover}}" alt="{{title}}" itemprop="url">
 				</figure>
 			</header>
 			<div class="post-info">

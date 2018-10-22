@@ -2,8 +2,8 @@
 layout: page
 ---
 <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
-	<figure class='cover-image'>
-		<img src='{{site.url}}/{{getCoverUri document.cover}}' alt='{{title}}'>
+	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<img src='{{site.url}}/{{getCoverUri document.cover}}' alt='{{title}}' itemprop="url">
 	</figure>
 	<div class='post-content'>
 		<h1 itemprop='name' class='title'>{{document.title}}</h1>
@@ -52,11 +52,6 @@ layout: page
 				</div>
 			</section>
 		</div>
-		<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
-			<link href="{{../site.baseUrl}}/images/ico/elo7.png" itemprop="url"/>
-			<meta itemprop='width' content='100px'/>
-			<meta itemprop='height' content='100px'/>
-		</span>
 
 		<meta itemprop='headline' content='{{document.description}}'/>
 		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
