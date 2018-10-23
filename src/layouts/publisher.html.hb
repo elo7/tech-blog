@@ -23,16 +23,14 @@ layout: page
 	{{/document.description}}
 </article>
 
-<section class="container posts-container" itemscope itemtype="http://schema.org/Blog">
+<section class="container posts-container publisher-container" itemscope itemtype="http://schema.org/Blog">
 	{{#each (getCollection "posts")}}
 		{{#contain authors ../document.github}}
 			<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-{{category}}">
-				<header>
-						<a href="{{../site.baseUrl}}{{url}}" class="link">
-							<h2 itemprop='name' class="title">{{title}}</h2>
-						</a>
-				</header>
 				<div class="post-meta">
+					<a href="{{../site.baseUrl}}{{url}}" class="link">
+						<h2 itemprop='name' class="title">{{title}}</h2>
+					</a>
 					{{#each authors}}
 						<a href="/{{this}}/" class="author" itemprop='author' itemscope itemtype="http://schema.org/Person">
 							<p itemprop='name'>@{{this}}</p>
