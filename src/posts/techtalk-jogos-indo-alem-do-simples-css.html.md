@@ -9,6 +9,7 @@ tags:
   - css
   - front-end
   - tech-talk
+cover: pacman.jpg
 ---
 
 Naturalmente, quando pensamos em jogos, pensamos em animações, eventos, vários tipos de interações... E na hora de desenvolver, mais naturalmente ainda pensamos em uma linguagem de programação, já que ela possibilita executar tudo isso. Mas você já pensou em fazer um jogo usando apenas HTML (uma linguagem de estrutura) e CSS (uma linguagem de estilos)? Sem uma linha de Javascript? Sim, sim, isso é possível! Veja a minha talk e descubra como isso é possível ;D
