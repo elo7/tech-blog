@@ -12,10 +12,13 @@ body {
 .category-title {
 	font-size: 2.5em;
 	color: map-get($colors-text, darker);
-	margin-bottom: 1em;
+	margin-top: 0.5em;
+    margin-bottom: 1em;
 }
 
 .talks-container {
+	padding: 1em 5%;
+
 	> .title {
 		color: map-get($colors-text, darker);
 		display: inline-block;
@@ -53,10 +56,11 @@ body {
 }
 
 .talk-card {
-	padding: 1em 5%;
+	padding: 1.5rem;
 	background-color: $white;
 	display: flex;
-    flex-flow: column;
+	flex-flow: column;
+	margin: 1em 0;
 
 	> a {
 		text-decoration: none;
@@ -68,7 +72,6 @@ body {
 	font-size: 2.1em;
 	font-weight: 500;
 	color: map-get($colors-text, darker);
-	margin-top: 0.5em;
 	margin-bottom: 0.5rem;
 }
 
@@ -141,10 +144,6 @@ body {
 @media (min-width: 800px) {
 	.talk-container {
 		padding: 2em;
-		margin: 2em 15%;
-	}
-
-	.talks-container {
 		margin: 2em 15%;
 	}
 }
