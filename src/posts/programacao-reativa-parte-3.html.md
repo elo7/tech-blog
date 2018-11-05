@@ -8,6 +8,7 @@ authors: [ljtfreitas]
 layout: post
 title: Programação Reativa - Parte 3
 description: Terceiro capítulo da Jornada Reativa! Falaremos agora sobre coisas interessantes: código assíncrono, execução em paralelo e backpressure!
+cover: programacao-reativa-parte-3.png
 ---
 Nos dois [posts](/programacao-reativa) [anteriores](/programacao-reativa-parte-2) sobre Programação Reativa, estudamos os fundamentos desse paradigma e vimos muitos exemplos de código usando o [RxJava](https://github.com/ReactiveX/RxJava). Nesse capítulo, vamos nos focar na abstração sobre a **execução assícrona e parelela** que os frameworks Rx fornecem, e especialmente em um conceito que é um dos pilares do modelo reativo: a **contrapressão** ou ***backpressure***.
 

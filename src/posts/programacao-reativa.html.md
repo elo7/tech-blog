@@ -8,6 +8,7 @@ authors: [ljtfreitas]
 layout: post
 title: Programação Reativa - Parte 1
 description: Você ouviu falar ou leu a respeito de uma tal "programação reativa", e não sabe bem do que se trata? Este post é para você.
+cover: programacao-reativa.png
 ---
 Em tempos recentes, a expressão "programação reativa" tem ganhado (ainda mais) força nas discussões do mundo do software. Apesar de não ser algo necessariamente "novo" (nem um pouco, na verdade) e se basear em conceitos e padrões já existentes, a tal "programação reativa" tem ganho *muito* destaque e há um bom número de frameworks que suportam esse paradigma em diversas linguagens. Mas será apenas mais uma "buzzword" ou algo realmente útil?
 

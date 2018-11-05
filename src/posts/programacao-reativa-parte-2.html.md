@@ -8,6 +8,7 @@ authors: [ljtfreitas]
 layout: post
 title: Programação Reativa - Parte 2
 description: Continuando a série sobre Programação Reativa, agora com um pouco de código!
+cover: programacao-reativa-parte-2.png
 ---
 No [post anterior](/programacao-reativa), vimos os fundamentos da programação reativa, incluindo o funcionamento básico sobre os quais os frameworks da família [ReactiveX](http://reactivex.io/) são implementados. Nessa segunda fase da nossa "jornada reativa", começaremos a estudar os principais recursos e funcionalidades do [RxJava](https://github.com/ReactiveX/RxJava), e então estaremos mais preparados para aplicar esses conceitos - não apenas em "programas" mas em "sistemas", os chamados **sistemas reativos**.
 

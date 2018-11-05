@@ -9,6 +9,7 @@ authors: [ljtfreitas]
 layout: post
 title: Testes de código com Mockito (2) - Novidades da nova versão
 description: Há algum tempo, escrevi sobre o funcionamento e os principais recursos do Mockito. Neste post, vamos conhecer as novidades da nova versão do framework.
+cover: testes-de-codigo-com-mockito-parte-2.png
 ---
 Há algum tempo, escrevi um [post](/testes-codigo-mockito) sobre o funcionamento e os principais recursos do [Mockito](http://site.mockito.org/). Na ocasião em que o post foi escrito, a versão 2 do framework ainda estava em beta, e, nesse tempo, não apenas foi [oficialmente lançada](https://github.com/mockito/mockito/wiki/What%27s-new-in-Mockito-2) como ocorreram vários releases subsequentes (no momento em que escrevo, a última versão é a 2.7.22).
 
