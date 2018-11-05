@@ -10,6 +10,7 @@ authors: [fernandabernardo]
 layout: post
 title: CSS Basics - Margin x Padding
 description: Como funcionam as propriedades de espaçamento de CSS? Elas sempre funcionam como o esperado? Nesse post falaremos sobre as propriedades margin e padding e como elas funcionam em algumas situações.
+cover: margin-padding.jpg
 ---
 
 Depois de falar sobre a propriedade *display* no [post anterior](/css-basics-display/), continuaremos falando sobre outras propriedades básicas do CSS. Nesse post conheça um pouco mais sobre as propriedades de espaçamento ***margin*** e ***padding***.

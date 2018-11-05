@@ -8,6 +8,7 @@ authors: [fernandabernardo]
 tags:
   - javascript
   - isomorfico
+cover: isomorfico.jpg
 ---
 
 Novos frameworks são criados a todo momento e um novo nome está criando mais força no mundo Javascript: isomorfismo. Farei uma série de posts para explicar melhor esse conceito e algumas aplicações dele com o uso de frameworks. Nesse primeiro post, será abordada uma parte mais teórica sobre o que é isomorfismo.

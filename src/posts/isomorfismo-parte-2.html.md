@@ -8,6 +8,7 @@ authors: [fernandabernardo]
 tags:
   - javascript
   - isomorfico
+cover: isomorfico-2.png
 ---
 
 Continuando o post sobre [Javascript isomórfico](/isomorfismo), depois de explicar toda a história e o conceito de isomorfismo, vamos entrar em uma parte mais prática. Quais empresas usam, o resultado da implementação e alguns frameworks existentes no mercado serão alguns dos tópicos deste post.

@@ -11,6 +11,7 @@ tags:
   - metodologias
   - processos
   - pareamento
+cover: pareamento.jpeg
 ---
 
 Geralmente temos a visão dos programadores como sendo aquelas pessoas de fone que se isolam do mundo e de todos.
