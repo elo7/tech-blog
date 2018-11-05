@@ -10,6 +10,7 @@ authors: [luiz]
 layout: post
 title: Um pouco sobre acessibilidade, CSS e Javascript
 description: Um HTML semântico é uma boa base para um site acessível e algumas técnicas de CSS e Javascript podem melhorar ainda mais a experiência. Por outro lado, podem deixar sua página extremamente inacessível. Vamos discutir alguns casos nesse post.
+cover: um-pouco-sobre-css-js-a11y-cover.png
 ---
 
 Quando se fala em acessibilidade na Web, normalmente as questões giram em torno de recursos mais avançados de navegação, como pop-ups, formulários com AJAX e menus, que exigem código CSS e Javascript para serem implementados. Isso porque, do lado do HTML, as coisas são *um pouco* mais simples. [Ao escrever um HTML semântico, já ganhamos uma página bastante acessível](/html-semantico-1/).
