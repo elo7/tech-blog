@@ -10,9 +10,8 @@ authors: [luiz]
 layout: post
 title: Javascript e acessibilidade
 description: Javascript: herói ou vilão da acessibilidade na web? Neste post, vamos discutir que cuidados precisamos tomar para que o Javascript não se torne fogo amigo na luta por uma web mais acessível.
+cover: javascript-e-a11y-capa.jpg
 ---
-
-![Javascript: herói ou vilão da acessibilidade?](../images/javascript-e-a11y-capa.jpg)
 
 Se temos uma web rica em termos de experiência do usuário, muito se deve ao Javascript, que nos permite criar componentes dinâmicos e torna a web uma plataforma muito mais interativa. Porém, com grandes poderes, vêm grandes responsabilidades e, se não tomarmos cuidado, dependendo da solução que implementarmos, podemos prejudicar a usabilidade e a acessibilidade das nossas interfaces. [Num post anterior](/um-pouco-sobre-css-js-a11y/), vimos que até o CSS pode atrapalhar em alguns casos, quem dirá o Javascript!
 

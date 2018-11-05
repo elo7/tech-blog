@@ -9,6 +9,7 @@ authors: [luiz]
 layout: post
 title: Testando acessibilidade
 description: Acessibilidade é um tema que tem ganho cada vez mais atenção. Vemos cada vez mais conteúdo e dicas sobre como tornar sua aplicação mais acessível. Mas como garantir que nossas medidas para incluir acessibilidade estão surtindo efeito?
+cover: testando-acessibilidade-cover.jpg
 ---
 
 Assim como muitos times front-end no mercado afora, nosso time despertou para a questão de acessibilidade recentemente. E, nesse processo, tivemos muitos aprendizados, e descobrimos que, quando se fala de acessibilidade, uma questão essencial é: como testar? Vejamos como foi esse processo aqui.
