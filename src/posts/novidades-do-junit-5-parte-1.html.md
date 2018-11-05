@@ -9,6 +9,7 @@ authors: [ljtfreitas]
 layout: post
 title: Novidades do JUnit 5 - parte 1
 description: Recentemente (setembro/2017), foi lançado o JUnit 5, a nova versão do principal framework para testes de código na plataforma Java. Neste post, vamos conhecer algumas novidades e mudanças desse novo release.
+cover: novidades-do-junit-5-parte-1.png
 ---
 
 Em setembro/2017, após pouco mais de um ano de versões *milestones* e testes, foi lançado o [JUnit 5](http://junit.org/junit5/), a nova versão do principal framework para testes de código na plataforma Java. Essa versão traz várias novas funcionalidades excelentes e algumas mudanças drásticas em relação às versões anteriores.

@@ -9,6 +9,7 @@ authors: [ljtfreitas]
 layout: post
 title: Novidades do JUnit 5 - parte 2
 description: Neste post, vamos continuar a explorar as mudanças da nova versão do JUnit. No post anterior, vimos os principais novos recursos. Agora, vou comentar sobre a migração dos nossos testes já existentes.
+cover: novidades-do-junit-5-parte-2.png
 ---
 
 Em setembro/2017, após pouco mais de um ano de versões *milestones* e testes, foi lançado o JUnit 5, a nova versão do principal framework para testes de código na plataforma Java. Escrevi um post sobre as principais novas funcionalidades e recursos. Váááárias coisas legais, mas o que fazemos com os testes **que já existem no nosso projeto**?

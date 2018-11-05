@@ -10,6 +10,7 @@ authors: [ljtfreitas,newton-beck]
 layout: post
 title: Microserviços e REST (sério?)
 description: Microserviços e REST estão na moda. Vamos discutir um pouco sobre essas duas palavrinhas.
+cover: microservicos-e-rest.png
 ---
 
 No trabalho da [Engenharia](https://carreira.elo7.com.br/engenharia) do Elo7, temos múltiplas equipes dedicadas à nossa principal aplicação ([o site do Elo7](https://www.elo7.com.br)), segmentadas em diferentes domínios do negócio (carrinho de compras, pagamentos, integrações com Correios, etc). Também temos equipes focadas no uso de tecnologias específicas, como front-end, ferramentas de busca e plataformas mobile. O trabalho desenvolvido por todas essas equipes é inter-relacionado, sendo comum que diferentes aplicações, de diferentes times, precisem conversar entre si. Isso não é novidade, e existem muitas maneiras diferentes para implementar esse tipo de integração entre sistemas. Neste post, vamos falar um pouco sobre algumas possíveis estratégias, no contexto de *microserviços*, e diferentes abordagens de implementação.

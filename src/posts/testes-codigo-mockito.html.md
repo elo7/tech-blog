@@ -9,6 +9,7 @@ authors: [ljtfreitas]
 layout: post
 title: Testes de código com Mockito
 description: No trabalho da Engenharia do Elo7, valorizamos bastante a qualidade do código que produzimos. Isso passa por várias etapas: boas práticas de código, programação pareada, revisões cuidadosas e, claro, testes. Muitos testes...
+cover: testes-de-codigo-com-mockito.png
 ---
 No trabalho da Engenharia do Elo7, valorizamos bastante a qualidade do código que produzimos. Isso passa por várias etapas: boas práticas de código, programação pareada, revisões cuidadosas e, claro, testes. Muitos testes.
 
