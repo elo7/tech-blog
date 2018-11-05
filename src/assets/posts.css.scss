@@ -157,31 +157,21 @@ autoprefix: true
 
 @media (min-width: 800px) {
 	.posts-container {
-		.post-card {
-			padding: 1.5rem;
-			background-color: $white;
+		&:not(.publisher-container) .post-card {
 			flex-direction: row;
 
-			.category {
+			.category, .post-meta, .link {
 				text-align: center;
-				margin: 0;
 			}
-
+	
 			.post-info {
 				flex: 1;
 			}
+		}
 
-			.post-meta {
-				text-align: center;
-			}
-
-			.link {
-				text-align: center;
-			}
-
-			.description {
-				margin: 0;
-			}
+		.post-card {
+			padding: 1.5rem;
+			background-color: $white;
 
 			&:not(:first-of-type) {
 				border-top: none;
