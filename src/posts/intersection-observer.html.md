@@ -1,5 +1,5 @@
 ---
-date: 2018-11-05
+date: 2018-11-26
 category: front-end
 tags:
   - intersection-observer
@@ -11,9 +11,9 @@ description: Entenda como funciona a API Intersection Observer e saiba como nós
 cover: intersection-observer.png
 ---
 
-Nos últimos meses nós conseguimos usufruir bastante da **Intersection Observer API** que está disponível desde a versão 51 do Chrome.
+Nos últimos meses nós conseguimos usufruir bastante da [**Intersection Observer API**](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) que está disponível desde a versão 51 do Chrome.
 
-Fizemos carregamento assíncrono de imagens, paginação infinita, carrosséis entre outras ações na tela dependendo da visibilidade em que algum elemento possui.
+Implementamos carregamento assíncrono de imagens, paginação infinita, carrosséis entre outras ações na tela dependendo da visibilidade que algum elemento possui.
 
 ## O que é, o que faz, pra que serve?
 
@@ -21,7 +21,7 @@ O **Intersection Observer** é uma **API** que atua como uma sentinela te avisan
 
 ![Alt "Exemplo de página"](../images/intersection-observer-page.png)
 
-Assim é possível executar qualquer tipo de ação sem ter que ficar observando o scroll da tela. Ganhando bastante performance sem deixar o código complexo.
+Assim é possível executar qualquer tipo de ação sem ter que ficar observando o scroll da tela, ganhando bastante performance sem deixar o código complexo.
 
 
 ## Um exemplo simples
@@ -57,7 +57,7 @@ images.forEach(function(image) {
 
 ```
 
-Desta maneira assim que a **borda** de cada um dos itens observados ficar visível a função será executada, porém existem momentos em que o ideal é que a função seja chamada antes da imagem ser exibida, ou apenas quando ela estiver com a sua metade visível.
+Dessa maneira, assim que a **borda** de cada um dos itens observados ficar visível, a função será executada Porém, existem momentos em que o ideal é que a função seja chamada antes da imagem ser exibida, ou apenas quando ela estiver com a sua metade visível.
 
 Para isso temos algumas configurações disponíveis:
 
@@ -76,16 +76,21 @@ var io = new IntersectionObserver( function(images) {
 );
 ```
 
-- rootMargin: Conseguimos definir uma margin no elemento para conseguir disparar com antecedência ou após o início da intersecção;
+- rootMargin: Conseguimos definir uma margin no elemento para disparar o evento com antecedência ou após o início da intersecção;
 
-- threshold: Permite determinar em qual porcentagem de visibilidade do elemento o evento será disparado. O padrão é 0, caso o ideal seja executar a função com a metade da imagem visível  seria 0,5.
+- threshold: Permite determinar em qual porcentagem de visibilidade do elemento o evento será disparado. O padrão é 0, caso o ideal seja executar a função com a metade da imagem visível seria 0,5.
 
 Outra configuração interessante é o *root*, que permite definir um container para os elementos que não seja a página toda.
 
+## Visibilidade
+
+Um ponto bom para salientar, que nós já quebramos a cabeça por aqui é que o elemento precisa estar visível na página para ser observado, ou seja se houver um `display: none` no momento em que `observer` for cadastrado no elemento nada irá funcionar.
+
+Diferente do `visibility: hidden`, que funciona normalmente, por nunca deixar de ocupar espaço na tela.
 
 ## Polyfill
 
-Infelizmente por ser relativamente recente, a *API* não possui um suporte muito abrangente.
+Infelizmente, por ser relativamente recente, a *API* não possui um suporte muito abrangente.
 
 Aqui no Elo7, nós utilizamos esse [Polyfill](https://github.com/w3c/IntersectionObserver/tree/master/polyfill). Você pode checar [aqui](https://caniuse.com/#feat=intersectionobserver) se o suporte atual é suficiente para a sua aplicação.
 
@@ -97,6 +102,6 @@ Esse é o exemplo completinho:
 <p data-height="392" data-theme-id="0" data-slug-hash="bQdGOw" data-default-tab="result" data-user="alinelee" data-pen-title="Carrossel" class="codepen">See the Pen <a href="https://codepen.io/alinelee/pen/bQdGOw/">Carrossel</a> by Aline Lee (<a href="https://codepen.io/alinelee">@alinelee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Para se aprofundar mais no assunto você pode consultar a [documentação completa](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), ou esse [artigo](https://developers.google.com/web/updates/2016/04/intersectionobserver) bem interessante do Google.
+Para se aprofundar mais no assunto você pode consultar a [documentação completa](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), ou esse [artigo bem interessante do Google.](https://developers.google.com/web/updates/2016/04/intersectionobserver)
 
 Se você ficou com alguma dúvida, ou quer compartilhar a sua experiência com a *API* fique à vontade para utilizar a caixa de comentários. Obrigada e até a próxima!
