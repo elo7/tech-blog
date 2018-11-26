@@ -74,7 +74,7 @@ layout: page
 	{{/each}}
 </section>
 
-<section class="container posts-container">
+<section class="container posts-container publisher-container">
 	<h2 class="title">Palestras</h2>
 	{{#each (getCollection "talks")}}
 		{{#contain speakers ../document.github}}
