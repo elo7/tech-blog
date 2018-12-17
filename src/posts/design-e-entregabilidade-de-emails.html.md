@@ -1,6 +1,6 @@
 ---
 title: Como o design pode contribuir com a entregabilidade dos emails?
-date: 2018-11-06
+date: 2018-12-17
 category: design
 layout: post
 description: Qual a relação entre o design e a entregabilidade dos emails? Descubra aqui! :)
