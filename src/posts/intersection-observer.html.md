@@ -11,7 +11,8 @@ description: Entenda como funciona a API Intersection Observer e saiba como nós
 cover: intersection-observer.png
 ---
 
-Nos últimos meses nós conseguimos usufruir bastante da [**Intersection Observer API**](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) que está disponível desde a versão 51 do Chrome.
+Nos últimos meses nós conseguimos usufruir bastante da <a href='https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API' rel='nofollow' target='_blank'>**Intersection Observer API**</a> que está disponível desde a versão 51 do Chrome.
+
 
 Implementamos carregamento assíncrono de imagens, paginação infinita, carrosséis entre outras ações na tela dependendo da visibilidade que algum elemento possui.
 
@@ -33,8 +34,8 @@ Vamos pensar em um carrossel de imagens, que conforme seja scrollado nós deixam
 Para fazer isso nós precisamos primeiro criar o *observer* que irá disparar um evento quando cada uma das imagens for exibida. Ou seja:
 
 ```js
-var io = new IntersectionObserver( function(images) {
-		images.forEach(function(entryImage) {
+var io = new IntersectionObserver( function(entries) {
+		entries.forEach(function(entryImage) {
 			if (entryImage.isIntersecting) {
 				console.log(entryImage);
 			}
@@ -62,10 +63,10 @@ Dessa maneira, assim que a **borda** de cada um dos itens observados ficar visí
 Para isso temos algumas configurações disponíveis:
 
 ```js
-var io = new IntersectionObserver( function(images) {
-		images.forEach(function(image) {
-			if (item.isIntersecting) {
-				console.log(image);
+var io = new IntersectionObserver( function(entries) {
+		entries.forEach(function(entryImage) {
+			if (entryImage.isIntersecting) {
+				console.log(entryImage);
 			}
 		});
 	}, {
@@ -76,7 +77,7 @@ var io = new IntersectionObserver( function(images) {
 );
 ```
 
-- rootMargin: Conseguimos definir uma margin no elemento para disparar o evento com antecedência ou após o início da intersecção;
+- rootMargin: Conseguimos definir uma margem no elemento para disparar o evento com antecedência ou após o início da intersecção;
 
 - threshold: Permite determinar em qual porcentagem de visibilidade do elemento o evento será disparado. O padrão é 0, caso o ideal seja executar a função com a metade da imagem visível seria 0,5.
 
@@ -84,9 +85,11 @@ Outra configuração interessante é o *root*, que permite definir um container 
 
 ## Visibilidade
 
-Um ponto bom para salientar, que nós já quebramos a cabeça por aqui é que o elemento precisa estar visível na página para ser observado, ou seja se houver um `display: none` no momento em que `observer` for cadastrado no elemento nada irá funcionar.
+Um ponto bom para salientar, que nós já quebramos a cabeça por aqui é que o elemento precisa estar presente na página para ser observado, ou seja se houver um `display: none` no momento em que `observer` for cadastrado no elemento nada irá funcionar.
 
 Diferente do `visibility: hidden`, que funciona normalmente, por nunca deixar de ocupar espaço na tela.
+
+E ocupar espaço na tela é uma parte importante dessa API pois caso os elementos observados tenham tamanho **0x0** o disparo dos eventos pode ser antecipado e acabar acontecendo vários disparos simultâneos.
 
 ## Polyfill
 
