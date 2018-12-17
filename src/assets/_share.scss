@@ -1,0 +1,123 @@
+.share {
+	margin-bottom: 2em;
+	position: relative;
+	text-align: right;
+
+	.share-post {
+		background-color: darken($yellow-default, 10);
+		border: 1px solid darken($yellow-default, 10);
+		color: map-get($colors-text, white);
+		border-radius: 5px;
+		display: block;
+		padding: 0.55em 0;
+		text-align: center;
+		text-decoration: none;
+		width: 100%;
+
+		&:focus, &:hover {
+			color: map-get($colors-text, white);
+		}
+
+		&:before {
+			background-image: url('/images/ico/ic-share.svg');
+			background-repeat: no-repeat;
+			background-size: contain;
+			content: '';
+			display: inline-block;
+			height: 15px;
+			vertical-align: middle;
+			width: 25px;
+		}
+	}
+
+	.share-post:not(.hide) ~ .social-share {
+		display: none;
+	}
+
+	.link-share {
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		text-indent: -9999px;
+		text-align: left;
+		padding: 0.2em;
+		background-position: center center;
+		background-repeat: no-repeat;
+		border-radius: 50%;
+		margin-bottom: 0.5em;
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		&.facebook {
+			background-image: url('/images/ico/ic-facebook.svg');
+			background-color: map-get($vendor-colors, facebook);
+		}
+
+		&.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+			background-color: map-get($vendor-colors, twitter);
+		}
+
+		&.copy {
+			background-image: url('/images/ico/ic-link.svg');
+			background-color: map-get($colors-background, dark-green);
+		}
+	}
+
+	.link-input {
+		opacity: 0;
+		position: absolute;
+		left: -9999px;
+	}
+
+	.copy-success {
+		font-size: 0.75em;
+		opacity: 0;
+		position: absolute;
+		right: 0;
+		top: 125%;
+		transition: opacity ease-in-out 250ms;
+		text-align: center;
+
+		&.active {
+			opacity: 1;
+		}
+	}
+}
+
+@media (min-width: 800px) {
+    .share {
+		position: fixed;
+		top: 10px;
+		right: 10px;
+
+		.link-share {
+			display: block;
+		}
+
+		.copy-success {
+			left: 0;
+			right: auto;
+			top: auto;
+			padding: 0.5em;
+			background-color: rgba(0,0,0,0.5);
+			white-space: nowrap;
+			color: white;
+			margin-top: 0.5em;
+			border-radius: 0.3em;
+
+			&:before {
+				content: '';
+				border: 5px solid transparent;
+				border-bottom: 5px solid rgba(0,0,0,0.5);
+				width: 0;
+				height: 0;
+				display: block;
+				position: absolute;
+				bottom: 100%;
+			}
+		}
+	}
+}

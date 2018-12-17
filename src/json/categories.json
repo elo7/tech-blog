@@ -36,6 +36,13 @@
     },
 
     {
+        "category": "talks",
+        "title": "Palestras",
+        "description": "Confira todas as palestras do time de Engenharia do Elo7!",
+        "bodyClassName": "palestras"
+    },
+
+    {
         "category": "front-end",
         "title": "Front-end",
         "description": "Confira todos os nossos posts sobre front-end, escritos pelo time de Engenharia do Elo7, o maior marketplace de produtos criativos da América Latina."

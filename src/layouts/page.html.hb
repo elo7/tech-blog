@@ -63,7 +63,7 @@
 	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
 	<script src="/js/vendor/async-define.js"></script>
 </head>
-<body itemscope itemtype="http://schema.org/WebPage" data-env="{{getEnvironment}}" data-ga-code="{{getGaCode}}">
+<body itemscope itemtype="http://schema.org/WebPage" data-env="{{getEnvironment}}" data-ga-code="{{getGaCode}}" class="{{document.bodyClassName}}">
 	<header class="left-pane">
 		<div class="logo-container">
 			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>

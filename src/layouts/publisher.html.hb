@@ -24,6 +24,8 @@ layout: page
 </article>
 
 <section class="container posts-container publisher-container" itemscope itemtype="http://schema.org/Blog">
+	<h2 class="title">Posts</h2>
+
 	{{#each (getCollection "posts")}}
 		{{#contain authors ../document.github}}
 			<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-{{category}}">
@@ -71,4 +73,39 @@ layout: page
 		{{/contain}}
 	{{/each}}
 </section>
+
+<section class="container posts-container publisher-container">
+	<h2 class="title">Palestras</h2>
+	{{#each (getCollection "talks")}}
+		{{#contain speakers ../document.github}}
+			<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-{{category}}">
+				<header>
+					<a href="{{../site.baseUrl}}{{url}}" class="link">
+						<h2 itemprop='name' class="title">{{title}}</h2>
+					</a>
+				</header>
+				<div class="post-meta">
+					{{#each speakers}}
+						<a href="/{{this}}/" class="author" itemprop='author' itemscope itemtype="http://schema.org/Person">
+							<p itemprop='name'>@{{this}}</p>
+						</a>
+					{{/each}}
+					<time datetime="{{formatDate this.date ''}}" class="date" aria-label="{{formatDate this.date 'LL'}}">
+						{{dateAsText this.date}}
+						<meta itemprop="datePublished" content='{{this.date}}'/>
+					</time>
+				</div>
+
+				{{#description}}
+					<p class="description" itemprop="description">
+						{{.}}
+					</p>
+					<meta itemprop='headline' content='{{ellipsis . 110}}' >
+				{{/description}}
+				<a href="{{../site.baseUrl}}{{url}}" class="link post-link">Veja essa talk</a>
+			</article>
+		{{/contain}}
+	{{/each}}
+</section>
+
 <script async src="/js/publisher.js"></script>
