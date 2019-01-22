@@ -1,5 +1,5 @@
 ---
-date: 2018-11-26
+date: 2019-01-22
 category: front-end
 tags:
   - intersection-observer
@@ -44,7 +44,7 @@ var io = new IntersectionObserver( function(entries) {
 );
 ```
 
-Utilizando o *entryImage* nós conseguimos recuperar o elemento, verificar se está visível, suas dimensões, etc. Para mais detalhes sobre o *entryImage* consulte a [documentação aqui]( https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry).
+Utilizando o *entryImage* nós conseguimos recuperar o elemento, verificar se está visível, suas dimensões, etc. Para mais detalhes sobre o *entryImage* consulte a <a href='https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry' rel='noopener' target='_blank'>documentação aqui</a>.
 
 
 Depois precisamos selecionar e fazer com que cada uma das imagens sejam observadas:
@@ -95,16 +95,16 @@ E ocupar espaço na tela é uma parte importante dessa API pois caso os elemento
 
 Infelizmente, por ser relativamente recente, a *API* não possui um suporte muito abrangente.
 
-Aqui no Elo7, nós utilizamos esse [Polyfill](https://github.com/w3c/IntersectionObserver/tree/master/polyfill). Você pode checar [aqui](https://caniuse.com/#feat=intersectionobserver) se o suporte atual é suficiente para a sua aplicação.
+Aqui no Elo7, nós utilizamos esse <a href='https://github.com/w3c/IntersectionObserver/tree/master/polyfill' rel='noopener' target='_blank'>Polyfill</a>. Você pode checar <a href='https://caniuse.com/#feat=intersectionobserver' rel='noopener' target='_blank'>aqui</a> se o suporte atual é suficiente para a sua aplicação.
 
 ## Conclusão
 
 Esse post foi um apanhado geral sobre como nós utilizamos o *Intersetion Observer API* nos últimos tempos no Elo7.
 
 Esse é o exemplo completinho:
-<p data-height="392" data-theme-id="0" data-slug-hash="bQdGOw" data-default-tab="result" data-user="alinelee" data-pen-title="Carrossel" class="codepen">See the Pen <a href="https://codepen.io/alinelee/pen/bQdGOw/">Carrossel</a> by Aline Lee (<a href="https://codepen.io/alinelee">@alinelee</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="392" data-theme-id="0" data-slug-hash="bQdGOw" data-default-tab="result" data-user="alinelee" data-pen-title="Carrossel" class="codepen">See the Pen <a href='https://codepen.io/alinelee/pen/bQdGOw/' rel='noopener' target='_blank'>Carrossel</a> by Aline Lee (<a href='https://codepen.io/alinelee' rel='noopener' target='_blank'>@alinelee</a>) on <a href='https://codepen.io' rel='noopener' target='_blank'>CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Para se aprofundar mais no assunto você pode consultar a [documentação completa](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), ou esse [artigo bem interessante do Google.](https://developers.google.com/web/updates/2016/04/intersectionobserver)
+Para se aprofundar mais no assunto você pode consultar a <a href='https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API' rel='noopener' target='_blank'>documentação completa</a>, ou esse <a href='https://developers.google.com/web/updates/2016/04/intersectionobserver' rel='noopener' target='_blank'>artigo bem interessante do Google.</a>
 
 Se você ficou com alguma dúvida, ou quer compartilhar a sua experiência com a *API* fique à vontade para utilizar a caixa de comentários. Obrigada e até a próxima!
