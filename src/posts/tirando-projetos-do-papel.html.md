@@ -28,7 +28,7 @@ Antes de qualquer coisa é necessário ter uma visão bem clara de onde que se q
 - Linha de comando para gerar a base de um componente
 - Entre infinitos outros...
 
-Perceba que não precisei entrar em nenhum detalhe de qual ferramenta utilizar, ou qual linguagem de programação. Aqui respondemos apenas "O que?" vamos fazer, não precisamos responder nem "Como?" nem "Por que?" iremos fazer algo.
+Perceba que não precisei entrar em nenhum detalhe de qual ferramenta utilizar, ou qual linguagem de programação. Aqui respondemos apenas "O quê?" vamos fazer, não precisamos responder nem "Como?" nem "Por quê?" iremos fazer algo.
 
 !["O que? Como? Por que?"](/images/tirando-projetos-do-papel-1.jpg)
 
@@ -38,9 +38,9 @@ Essas metas são um pouco menores do que o objetivo principal. Perceba que estam
 
 Só que ainda não chegamos na resolução do grande problema de não ter tempo. A grande magia de se tirar projetos do papel é a consistência. Quanto tempo você tem livre na sua semana? Se tiver pelo menos meia hora no dia, então você tem tempo!
 
-Aí você pode pensar "mas só meia hora?". Bom, se você conseguir escrever uma linha de código todo dia durante meia hora, ao final do mês serão 30 linhas escritas e ao final de um ano serão 365 linhas. O que é melhor: 30 linhas ou nenhuma linha de código escrito? Então… meia hora por dia pode ser a solução do problema "não tenho tempo". Nesses momentos, não devemos pensar em rapidez e sim em resultado. Se você só pode se comprometer meia hora por dia, ótimo! Se puder mais, melhor ainda! 
+Aí você pode pensar "mas só meia hora?". Bom, se você conseguir escrever uma linha de código todo dia durante meia hora, ao final do mês serão 30 linhas escritas e ao final de um ano serão 365 linhas. O que é melhor: 30 linhas ou nenhuma linha de código escrito? Então… meia hora por dia pode ser a solução do problema "não tenho tempo". Nesses momentos, não devemos pensar em rapidez e sim em resultado. Se você só pode se comprometer meia hora por dia, ótimo! Se puder mais, melhor ainda!
 
-E como gerenciamos esse pouco tempo que temos por dia para executar alguma tarefa? Existem técnicas para nos ajudar. Uma delas é o [Pomodoro](https://francescocirillo.com/pages/pomodoro-technique), uma técnica para gerenciamento de tempo. Uma outra ferramenta que você pode utilizar para te ajudar a organizar suas tarefas é o [Trello](https://trello.com/). Só com essas duas ferramentas você já consegue organizar todo o seu tempo e tarefas que eu comentei até agora.
+E como gerenciamos esse pouco tempo que temos por dia para executar alguma tarefa? Existem técnicas para nos ajudar. Uma delas é o <a href="https://francescocirillo.com/pages/pomodoro-technique" target="_blank" rel="noopener">Pomodoro</a>, uma técnica para gerenciamento de tempo. Uma outra ferramenta que você pode utilizar para te ajudar a organizar suas tarefas é o <a href="https://trello.com/" target="_blank" rel="noopener">Trello</a>. Só com essas duas ferramentas você já consegue organizar todo o seu tempo e tarefas que eu comentei até agora.
 
 Depois de começar a entregar as tarefas e ver o seu projeto tomando forma, provavelmente você já ficará mais motivado a andar com essa ideia mais e mais. Mas se isso não acontecer, uma forma de arranjar motivação é criando um comprometimento público. E o que seria isso? Falar sobre o seu projeto para alguém próximo, para alguém que te segue ou alguém que se beneficiaria disso que você está criando. Dessa forma, você se compromete com uma pessoa externa, além de você mesmo, a entregar esse projeto. E essa pessoa pode também te cobrar ou te motivar, caso seja necessário.
 
