@@ -78,6 +78,7 @@ var io = new IntersectionObserver( function(entries) {
 ```
 
 - rootMargin: Conseguimos definir uma margem no elemento para disparar o evento com antecedência ou após o início da intersecção;
+![Alt "Exemplo de rootMargin"](../images/intersection-observer-page-2.png)
 
 - threshold: Permite determinar em qual porcentagem de visibilidade do elemento o evento será disparado. O padrão é 0, caso o ideal seja executar a função com a metade da imagem visível seria 0,5.
 
