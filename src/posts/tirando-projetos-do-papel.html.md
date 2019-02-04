@@ -1,6 +1,6 @@
 ---
 title: Tirando projetos do papel
-date: 2018-11-05
+date: 2019-02-04
 category: cultura
 layout: post
 description: Geralmente, temos diversas ideias ao longo do dia, mas entre ter a ideia e ter um projeto concluído existe uma distância gigantesca. E como fazer para tirar essas ideias do papel? Nesse post vou falar um pouco sobre como sair dessa zona de conforto.
