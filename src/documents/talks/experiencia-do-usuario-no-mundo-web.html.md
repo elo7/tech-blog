@@ -1,0 +1,8 @@
+---
+title: A experiência do usuário no mundo web de hoje e quais são as novas apis web
+speakers: [williammizuta]
+layout: talk
+date: 2019-02-04
+description: O modo que os usuários utilizam tecnologia não fica parada no tempo e hoje os usuários passam mais tempo acessando sites no celular do que no desktop. E é o papel dos desenvolvedores entenderem essa mudança e adaptar o produto para que seja de melhor agrado aos usuários. Um dos casos é o preenchimento de formulários no celular, que tende a ser tedioso, repetitivo e lento. Contudo, a tecnologia tem evoluído e os navegadores tem desenvolvidos novas APIs que podem melhorar a experiência do usuário. Nessa palestra, falaremos como podemos melhorar a experiência no preenchimento do formulário de login, de pagamento e de formulários genérico.
+embeded_slides: "<iframe src='//www.slideshare.net/slideshow/embed_code/key/1SxiyXRIxAt6c9' width='595' height='485' frameborder='0' marginwidth='0' marginheight='0' scrolling='no' style='border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;' allowfullscreen> </iframe> <div style='margin-bottom:5px'> <strong> <a href='//www.slideshare.net/WilliamSeitiMizuta/front7-2017-a-experincia-do-usurio-no-mundo-web-de-hoje-e-quais-so-as-novas-ap-is-web' title='Front7 2017 - A experiência do usuário no mundo web de hoje e quais são as novas ap is web' target='_blank'>Front7 2017 - A experiência do usuário no mundo web de hoje e quais são as novas ap is web</a> </strong> de <strong><a href='https://www.slideshare.net/WilliamSeitiMizuta' target='_blank'>William Seiti Mizuta</a></strong> </div>"
+---
