@@ -9,6 +9,7 @@ authors: [fernandabernardo]
 layout: post
 title: CSS Basics - Display
 description: O que cada um dos atributos da propriedade display realmente significa? O objetivo deste post é abordar qual é o melhor uso para cada um deles, e quais são as mudanças de layout causadas por cada possível valor.
+cover: display.jpg
 ---
 
 Este será o primeiro de uma série de posts sobre **CSS Básico**. A ideia desses posts é explicar como funciona cada uma das propriedades do CSS que na teoria "todo mundo conhece". Vamos entender como usar cada uma delas sem ficarmos apenas "chutando" até descobrir o que funciona e nunca mais mexer. Nesse primeiro post falaremos sobre a propriedade **display**.
