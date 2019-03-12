@@ -1,0 +1,827 @@
+<!doctype html>
+<html amp lang='pt-br'>
+<head>
+	<meta charset='utf-8'>
+	<script async src='https://cdn.ampproject.org/v0.js'></script>
+	<script async custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
+	<script async custom-element='amp-image-lightbox' src='https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js'></script>
+	<script async custom-element='amp-analytics' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js'></script>
+	<title>Elo7 Tech - Testando acessibilidade</title>
+	<meta name='description' content='Acessibilidade é um tema que tem ganho cada vez mais atenção. Vemos cada vez mais conteúdo e dicas sobre como tornar sua aplicação mais acessível. Mas como garantir que nossas medidas para incluir acessibilidade estão surtindo efeito?'>
+	<link rel='canonical' href='https://elo7.dev/testando-acessibilidade/' />
+	<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>
+	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+	<style amp-custom>
+		body {
+			background-color: white;
+			font-family: 'Open Sans', sans-serif;
+			color: #666;
+		}
+
+		h1 {
+			color: #333;
+			font-size: 1.5em;
+			margin-bottom: 0;
+		}
+
+		h2, h3 {
+			color: #444;
+			font-size: 1.2em;
+		}
+
+		h3 {
+			font-weight: 300;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		p, li {
+			font-size: 0.9em;
+		}
+
+		ul {
+			padding-left: 1.5em;
+		}
+
+		article {
+			line-height: 1.8;
+			text-align: justify;
+		}
+
+		blockquote {
+			margin: 1em;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			font-size: 0.9em;
+			width: 100%;
+			text-align: left;
+		}
+
+		table thead th {
+			background-color: #4a4a4a;
+			color: white;
+		}
+
+		table th, table td {
+			padding: 0.2em 0.5em;
+		}
+
+		tr:nth-child(even) td {
+			background-color: #f3f3f3;
+		}
+
+		table th:not(:first-child), table td:not(:first-child) {
+			text-align: right;
+		}
+
+		body > header {
+			height: 60px;
+			box-sizing: border-box;
+			background-color: #FDC24F;
+			text-align: center;
+			padding-top: 0.8em;
+			padding-bottom: 0.8em;
+			position: sticky;
+			top: 0;
+			z-index: 10;
+		}
+
+		body > header a {
+			background: url('//images.elo7.com.br/assets/v3/desktop/svg/logo-elo7.svg') no-repeat;
+			background-size: 90px 35px;
+			width: 90px;
+			height: 35px;
+			display: inline-block;
+			filter: brightness(100);
+		}
+
+		.post-content, footer {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+
+		.post-content .content a, .post-content .content a:visited, .post-content .content a:hover {
+			cursor: pointer;
+			color: #000;
+			font-weight: 500;
+			text-decoration: underline;
+			word-break: break-word;
+		}
+
+		.post-content .post-image {
+			text-align: center;
+			display: block;
+		}
+
+		.post-content p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		main {
+			background-color: #ecebeb;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+
+		.post-card, .post-content, .publisher-info {
+			background: white;
+			margin-left: 2%;
+			padding: 1em;
+			margin-right: 3%;
+			box-shadow: rgba(72, 72, 72, 0.23) 0 0 5px;
+		}
+
+		.publisher-info {
+			margin-bottom: 1em;
+		}
+
+		.publisher-info h1 {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+		}
+
+		.card-devops {
+			border-left: 5px solid #7d7873;
+		}
+
+		.card-eventos {
+			border-left: 5px solid #fdb933;
+		}
+
+		.card-front-end {
+			border-left: 5px solid #c15eb4;
+		}
+
+		.card-back-end {
+			border-left: 5px solid #359c9c;
+		}
+
+		.card-mobile {
+			border-left: 5px solid #fa9c5e;
+		}
+
+		.card-vagas {
+			border-left: 5px solid #99c799;
+		}
+
+		.card-design {
+			border-left: 5px solid #7c9ec4;
+		}
+
+		.card-cultura {
+			border-left: 5px solid #f44336;
+		}
+
+		.post-card:not(:last-of-type) {
+			margin-bottom: 1em;
+		}
+
+		.post-card .title {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+			text-align: left;
+		}
+
+		.post-card .title a {
+			color: inherit;
+		}
+
+		.author, .date {
+			color: #888;
+			margin-bottom: 0;
+			margin-top: 0;
+			font-size: 0.9em;
+		}
+
+		.author a {
+			color: inherit;
+			margin-bottom: 1.5em;
+		}
+
+		#sidebar {
+			width: 60vw;
+			background-color: #4a4a4a;
+			color: #fff;
+			padding-right: 1em;
+			padding-left: 1em;
+		}
+
+		#sidebar li {
+			margin-bottom: 0.5em;
+		}
+
+		#sidebar ul {
+			margin-bottom: 1.5em;
+			list-style: none;
+			padding: 0;
+		}
+
+		#sidebar h2 {
+			margin-bottom: 0;
+		}
+
+		#sidebar a {
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		#sidebar a, #sidebar h2 {
+			color: inherit;
+		}
+
+		.sidebar-trigger {
+			position: absolute;
+			left: 5%;
+			background-color: transparent;
+			border: none;
+			color: #fff;
+			font-size: 1.8em;
+			padding: 0;
+		}
+
+		.category {
+			background-color: #73bebe;
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 0.8em;
+			padding: .5em;
+			border-radius: 3px;
+			display: inline-block;
+			margin-top: 2.3em;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			font-weight: 300;
+		}
+
+		.category:hover {
+			background-color: #73bebe;
+		}
+
+		.post-link {
+			border: 1px solid #fba702;
+			border-radius: 3px;
+			color: #fba702;
+			display: inline-block;
+			float: right;
+			margin-top: 1em;
+			padding: 0.8em;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s, color 0.3s;
+			font-size: 0.9em;
+		}
+
+		.post-link:hover {
+			background-color: #fba702;
+			color: #ffffff;
+		}
+
+		.social {
+			content: '';
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			background-position: center;
+			text-indent: -9999px;
+			margin-right: 0.5em;
+			background-size: contain;
+			vertical-align: top;
+		}
+
+		.social.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.social.linkedin {
+			background-image: url('/images/ico/ic-linkedin.svg');
+		}
+
+		.social.github {
+			background-image: url('/images/ico/ic-github.svg');
+		}
+
+		footer {
+			background-color: #4a4a4a;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		footer a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 0.8em;
+		}
+
+		.footer-social {
+			line-height: 0;
+		}
+
+		.footer-social a {
+			background-size: 2em 2em;
+			background-repeat: no-repeat;
+			display: inline-block;
+			height: 2em;
+			width: 2em;
+			overflow: hidden;
+			text-indent: -9999px;
+		}
+
+		.footer-social a + a {
+			margin-left: 0.5em;
+		}
+
+		.footer-social .github {
+			background-image: url('/images/github_icon.svg');
+		}
+		.footer-social .email {
+			background-image: url('/images/email_icon.png');
+		}
+
+		.footer-social .rss {
+			background-image: url('/images/ico/feed.svg');
+		}
+
+		.footer-social .twitter {
+            background-image: url('/images/ico/ic-negative-twitter.svg');
+        }
+
+		.share {
+			position: relative;
+			text-align: right;
+			margin-top: 1em;
+		}
+
+		.share .link-share {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				text-indent: -9999px;
+				margin-left: 0.5em;
+				text-align: left;
+		}
+
+		.share .link-share.facebook {
+			background-image: url('/images/ico/ic-facebook.svg');
+		}
+
+		.share .link-share.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.link-input {
+			opacity: 0;
+			position: absolute;
+			left: -9999px;
+		}
+
+		.copy-success {
+			font-size: 0.75em;
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			top: 125%;
+			transition: opacity ease-in-out 250ms;
+			text-align: center;
+		}
+
+		.copy-success.active {
+			opacity: 1;
+		}
+
+		code {
+			background-color: #ececec;
+			padding: 0.1em 0.2em;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.highlight code {
+			overflow: auto;
+		}
+
+		.hljs {
+			display: block;
+			padding: 0.5em 1em;
+			background: #23241f;
+		}
+
+		.hljs,
+		.hljs-tag,
+		.css .hljs-rules,
+		.css .hljs-value,
+		.css .hljs-function
+		.hljs-preprocessor,
+		.hljs-pragma {
+			color: #f8f8f2;
+		}
+
+		.hljs-strongemphasis,
+		.hljs-strong,
+		.hljs-emphasis {
+			color: #a8a8a2;
+		}
+
+		.hljs-bullet,
+		.hljs-blockquote,
+		.hljs-horizontal_rule,
+		.hljs-number,
+		.hljs-regexp,
+		.alias .hljs-keyword,
+		.hljs-literal,
+		.hljs-hexcolor {
+			color: #ae81ff;
+		}
+
+		.hljs-tag .hljs-value,
+		.hljs-code,
+		.hljs-title,
+		.css .hljs-class,
+		.hljs-class .hljs-title:last-child {
+			color: #a6e22e;
+		}
+
+		.hljs-link_url {
+			font-size: 80%;
+		}
+
+		.hljs-strong,
+		.hljs-strongemphasis {
+			font-weight: bold;
+		}
+
+		.hljs-emphasis,
+		.hljs-strongemphasis,
+		.hljs-class .hljs-title:last-child {
+			font-style: italic;
+		}
+
+		.hljs-keyword,
+		.hljs-function,
+		.hljs-change,
+		.hljs-winutils,
+		.hljs-flow,
+		.lisp .hljs-title,
+		.clojure .hljs-built_in,
+		.nginx .hljs-title,
+		.tex .hljs-special,
+		.hljs-header,
+		.hljs-attribute,
+		.hljs-symbol,
+		.hljs-symbol .hljs-string,
+		.hljs-tag .hljs-title,
+		.hljs-value,
+		.alias .hljs-keyword:first-child,
+		.css .hljs-tag,
+		.css .unit,
+		.css .hljs-important {
+			color: #F92672;
+		}
+
+		.hljs-function .hljs-keyword,
+		.hljs-class .hljs-keyword:first-child,
+		.hljs-constant,
+		.css .hljs-attribute {
+			color: #66d9ef;
+		}
+
+		.hljs-variable,
+		.hljs-params,
+		.hljs-class .hljs-title {
+			color: #f8f8f2;
+		}
+
+		.hljs-string,
+		.css .hljs-id,
+		.hljs-subst,
+		.haskell .hljs-type,
+		.ruby .hljs-class .hljs-parent,
+		.hljs-built_in,
+		.sql .hljs-aggregate,
+		.django .hljs-template_tag,
+		.django .hljs-variable,
+		.smalltalk .hljs-class,
+		.django .hljs-filter .hljs-argument,
+		.smalltalk .hljs-localvars,
+		.smalltalk .hljs-array,
+		.hljs-attr_selector,
+		.hljs-pseudo,
+		.hljs-addition,
+		.hljs-stream,
+		.hljs-envvar,
+		.apache .hljs-tag,
+		.apache .hljs-cbracket,
+		.tex .hljs-command,
+		.hljs-prompt,
+		.hljs-link_label,
+		.hljs-link_url {
+			color: #e6db74;
+		}
+
+		.hljs-comment,
+		.hljs-javadoc,
+		.java .hljs-annotation,
+		.python .hljs-decorator,
+		.hljs-template_comment,
+		.hljs-pi,
+		.hljs-doctype,
+		.hljs-deletion,
+		.hljs-shebang,
+		.apache .hljs-sqbracket,
+		.tex .hljs-formula {
+			color: #75715e;
+		}
+
+		.coffeescript .javascript,
+		.javascript .xml,
+		.tex .hljs-formula,
+		.xml .javascript,
+		.xml .vbscript,
+		.xml .css,
+		.xml .hljs-cdata,
+		.xml .php,
+		.php .xml {
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body itemscope itemtype='http://schema.org/WebPage'>
+	<amp-sidebar id='sidebar' layout='nodisplay'>
+		<h2>Categorias</h2>
+		<ul>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/back-end/'>
+						<span itemprop='name'>back-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/cultura/'>
+						<span itemprop='name'>cultura</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/data-science/'>
+						<span itemprop='name'>data-science</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/design/'>
+						<span itemprop='name'>design</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/devops/'>
+						<span itemprop='name'>devops</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/eventos/'>
+						<span itemprop='name'>eventos</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/talks/'>
+						<span itemprop='name'>talks</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/front-end/'>
+						<span itemprop='name'>front-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/mobile/'>
+						<span itemprop='name'>mobile</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/vagas/'>
+						<span itemprop='name'>vagas</span>
+					</a>
+				</li>
+			
+		</ul>
+		<h2>Veja também</h2>
+		<ul>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+					<span itemprop='name'>A engenharia</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Carreiras</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://eventos.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Nossos eventos</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='https://www.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Elo7</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a rel='external' itemprop='url' href='https://github.com/elo7/tech-blog'>Github</a>
+			</li>
+		</ul>
+		</ul>
+	</amp-sidebar>
+	<header>
+		<button class='sidebar-trigger' on='tap:sidebar'>☰</button>
+		<a rel='home' itemprop='url' href='/amp/home/' class='logo'></a></header>
+
+	<main itemscope itemtype='http://schema.org/Blog'>
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card post-content'>
+	<h1 itemprop='name' class='title'>Testando acessibilidade</h1>
+	<div class='post-meta'>
+		<p class='date'>
+			Publicado em: <time datetime='30/10/2017' itemprop='datePublished'>30/10/2017</time>
+			<meta itemprop='dateModified' content='30/10/2017'>
+		</p>
+
+		<article>
+			
+				<a data-author='luiz' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/amp/luiz/' class='author'>
+					<meta itemprop='url' content='/amp/luiz'>
+					<span itemprop='name' class='publisher' data-author='luiz'>@luiz</span>
+					<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+				</a>
+			
+		</article>
+	</div>
+	<div class='content' itemprop='articleBody'>
+		<p>Assim como muitos times front-end no mercado afora, nosso time despertou para a questão de acessibilidade recentemente. E, nesse processo, tivemos muitos aprendizados, e descobrimos que, quando se fala de acessibilidade, uma questão essencial é: como testar? Vejamos como foi esse processo aqui.</p>
+<h2>Acessibilidade: o início</h2>
+<p>Começamos a abordar a questão de acessibilidade por iniciativa de alguns indivíduos do time. A <a href="/alinelee/">Aline Lee</a> usou o <em>hackday</em> (tempo reservado em cada sprint para o time de engenharia se aperfeiçoar e inovar) para investigar e melhorar a acessibilidade por teclado no cabeçalho do site.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-0' role='button' tabindex='0' src='../../images/testando-acessibilidade-1.png' layout='fixed' height='11' width='272' alt='Cabeçalho do site do Elo7 com o foco do teclado no componente de busca'></amp-img><amp-image-lightbox id='lightbox-0' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>O <a href="/rapahaeru/">Raphael Oliveira</a> escreveu diversos posts sobre técnicas relacionadas a acessibilidade, tais como <a href="/wai-aria-apanhado-geral/">WAI-ARIA</a> e <a href="/html-semantico-1/">HTML semântico</a>. Desde então, estamos estudando e compartilhando conteúdo sobre acessibilidade de forma contínua dentro do time. Mas entre a teoria e a prática existe um grande abismo.</p>
+<h2>Primeiros testes</h2>
+<p>O time todo foi ganhando consciência da importância de tornar o site do Elo7 mais acessível, e o assunto surgiu em uma retrospectiva; decidimos partir para a prática. Para garantir que entregaríamos telas mais acessíveis, colocamos mais um tópico no nosso <em>critério de pronto</em>: a tarefa tinha que ser testada no quesito &quot;acessibilidade&quot; também.</p>
+<p>E aí começaram os problemas: como testar? Como saber se está realmente acessível? Será que os usuários vão usar dessa forma? Quando realmente colocamos nosso conhecimento à prova, vimos que <strong>acessibilidade não é tão simples como parece</strong>.</p>
+<p>Apesar de conhecer a ideia de leitores de tela, não sabíamos usá-los adequadamente; o mesmo acontecia com os atributos WAI-ARIA. Além disso, estávamos deixando de fora outros testes importantes, como contraste de cores e a facilidade de encontrar as informações na página. Tudo isso só fomos descobrir depois, quando <strong>paramos para estudar mais a fundo e na prática</strong> o que precisávamos fazer.</p>
+<h2>Então... como testar?</h2>
+<p>No Elo7, temos a possibilidade de criar grupos de estudos para temas que não conhecemos muito bem e que precisamos colocar em prática. Criamos, então, um grupo de estudos sobre acessibilidade e começamos os estudos pela nossa primeira dificuldade: como testar?</p>
+<h3>Normas e diversidade</h3>
+<p>Antes de mais nada, precisávamos entender que <strong>teste de acessibilidade vai muito além de teste com leitor de tela</strong>. Acessibilidade busca atender as mais diversas limitações, físicas e cognitivas. Apenas para citar algumas: daltonismo, surdez, baixa visão, cegueira, problemas de coordenação motora, déficit de atenção e epilepsia.</p>
+<p>Um vídeo que ilustra isso muito bem foi elaborado pela Apple, e mostra também a importância de se pensar em acessibilidade:</p>
+<iframe width='560' height='315' src='https://www.youtube.com/embed/XB4cjbYywqg?rel=0' frameborder='0' allowfullscreen></iframe>
+<p>Para lidar com tamanha diversidade, recorremos a especificações que falam sobre acessibilidade, como a <a href="https://www.section508.gov/">Section 508</a>, norma nos EUA, e a <a href="https://www.w3.org/Translations/WCAG20-pt-br/">WCAG 2.0</a>, norma internacional.</p>
+<p>É de se esperar que, com tanta diversidade, as normas sejam bastante amplas, como de fato são. Vendo isso, recorremos a ferramentas que pudessem nos ajudar a detectar violações a essas normas. Encontramos algumas bastante interessantes, como o <a href="https://achecker.ca/">achecker</a>, o <a href="http://wave.webaim.org/">WAVE (<em>Web Accessibility Evaluation Tool</em>)</a> e o <a href="https://developers.google.com/web/tools/lighthouse/?hl=pt-br">Lighthouse</a>, e, com elas, percebemos alguns problemas de acessibilidade bem impactantes e simples de serem resolvidos, como a falta do atributo <code>lang</code> na tag <code>&lt;html&gt;</code> (já corrigimos!). São ferramentas que podem ser (e que serão) integradas aos testes automatizados do sistema para garantir um nível mínimo de acessibilidade.</p>
+<p>Mas, assim como testes de unidade e de aceitação nem sempre pegam todos os problemas possíveis, também percebemos que alguns problemas de acessibilidade mais difíceis de detectar, que dependiam da interação do usuário, ficavam de fora. As próprias ferramentas indicam muitos pontos de atenção, ou seja, pontos que elas sozinhas não conseguem determinar se são problemas ou não, e que exigem a verificação manual do desenvolvedor.</p>
+<h3>Testes manuais e a variedade de leitores de tela</h3>
+<p>Para fazer uma verificação manual, buscamos entender como os usuários com algum tipo de limitação usam a web, em especial usuários de leitores de tela. E aí descobrimos a diversidade de leitores que existem, e como a combinação de leitor com navegador e sistema operacional aumenta bastante a complexidade dos testes. Por exemplo, podemos ter as seguintes combinações:</p>
+<table>
+<thead>
+<tr>
+<th>Sistema Operacional</th>
+<th>Leitor de tela</th>
+<th>Navegador</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows</td>
+<td>NVDA</td>
+<td>Chrome</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>JAWS</td>
+<td>Chrome</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>NVDA</td>
+<td>Internet Explorer</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>JAWS</td>
+<td>Internet Explorer</td>
+</tr>
+<tr>
+<td>OSX</td>
+<td>VoiceOver</td>
+<td>Safari</td>
+</tr>
+<tr>
+<td>OSX</td>
+<td>VoiceOver</td>
+<td>Chrome</td>
+</tr>
+<tr>
+<td>OSX</td>
+<td>ChromeVox</td>
+<td>Chrome</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>Orca</td>
+<td>Firefox</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>Orca</td>
+<td>Chrome</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>ChromeVox</td>
+<td>Chrome</td>
+</tr>
+</tbody>
+</table>
+<p>A tabela acima lista apenas algumas das mais comuns, e vale observar que a maioria dos leitores de tela funciona apenas em um sistema operacional específico. Ainda assim, a gama de possibilidades que nossos testes precisam cobrir aumenta bastante quando os consideramos!</p>
+<p>Chegamos a cogitar a coleta de métricas sobre o uso de leitores de tela em nosso site, mas descobrimos que, além de aparentemente impossível, não é uma ideia legal com nossos usuários. Tecnicamente, o Javascript da página tem acesso à API de acessibilidade do navegador. Essa API é o ponto de contato entre o navegador e o leitor de tela, mas ela não expõe nada sobre o leitor de tela para o código Javascript. Assim, não temos como coletar métricas dessa forma.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-1' role='button' tabindex='0' src='../../images/testando-acessibilidade-2.png' layout='fixed' height='216' width='272' alt='Diagrama de funcionamento da API de acessibilidade do navegador. O leitor de tela e o Javascript têm acesso a ela, mas não conhecem um ao outro diretamente!'></amp-img><amp-image-lightbox id='lightbox-1' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Além da dificuldade técnica, tirar métricas com o objetivo de definir alvos de teste pode ser considerado invasivo pelos usuários, afinal expor o uso de um leitor de tela pode ser comparado a expor uma característica pessoal do usuário. Por fim, dependendo dos resultados colhidos, podemos deixar de testar justamente nos cenários em que a usabilidade é pior e, por isso, tem menos usuários. Uma discussão mais ampla sobre esse aspecto pode ser encontrada no artigo <a href="https://www.powermapper.com/blog/accessibility-analytics/"><em>Detecting screen readers in analytics</em></a>, de Heather Burns.</p>
+<p>Para amenizar o problema, existem algumas métricas públicas sobre o uso de leitores de tela, como mostra <a href="http://webaim.org/projects/screenreadersurvey6/">uma pesquisa sobre o uso de leitores de tela realizada pela WebAIM</a>. Podemos nos basear nesse tipo de pesquisa para limitar um pouco o escopo dos testes, e confiar em <a href="http://webaim.org/techniques/screenreader/">boas práticas de acessibilidade para compatibilidade com leitores de tela</a>.</p>
+<p>Por fim, é interessante observar que <strong>não podemos associar o uso de leitor de tela com deficiência visual</strong>. Isso é importante para entendermos a importância de uma página acessível para nossos usuários e para fazermos testes mais realistas.</p>
+<h3>Empatia</h3>
+<p>Uma vez que conhecemos melhor nossos usuários e as ferramentas que usam, podemos partir para os testes manuais. Então começamos a usar ferramentas como o plugin <a href="http://chromelens.xyz/">ChromeLens</a> para o Google Chrome, para avaliar como um usuário com algum tipo de deficiência visual enxerga a nossa página. Usamos o teclado para tentar navegar pela página e executar os passos principais envolvidos em cada tarefa. Ligamos o leitor de tela e prestamos atenção no que é lido para analisar se faz sentido, se está claro, se é fácil entender em que lugar da tela o usuário está num determinado momento. E aqui começam a surgir aspectos mais subjetivos dos testes de acessibilidade. Como lidar com essa subjetividade?</p>
+<p>Primeiro, ajuda muito <strong>conhecer seus usuários</strong>. Isso inclui conhecer bem <strong>quais ferramentas assistivas eles usam e como usam</strong>. E, para isso, nada melhor do que <strong>testar com os próprios usuários</strong>.</p>
+<p>Infelizmente, isso nem sempre é possível. Por isso, precisamos ser capazes também de nos colocarmos no lugar desses usuários, aprender a usar as ferramentas assistivas e sentir na pele a dificuldade de usá-las. Ou seja, <strong>precisamos criar empatia</strong> com os usuários para os quais estamos projetando o site, e isso é <strong>fundamental para criar um site ou aplicativo acessível de verdade</strong>.</p>
+<p>E como criar essa empatia? Precisamos ouvir pessoas com necessidades especiais, seja em eventos, entrevistas, artigos, pessoalmente etc. Muitos eventos de front têm falado sobre acessibilidade recentemente, e o <a href="http://www.thedevelopersconference.com.br/tdc/2017/saopaulo/trilha-acessibilidade">TDC SP</a> teve uma trilha só sobre o assunto. Além disso, sites como o <a href="http://empat.io/">empat.io</a> mostram entrevistas com usuários de tecnologia, e é possível encontrar diversos vídeos no YouTube. Por fim, nada melhor do que conviver com uma pessoa com necessidades especiais para entender como ela lida com a tecnologia no dia-a-dia! E, para isso, precisamos ir atrás dessas pessoas e tornar o nosso ambiente de trabalho mais inclusivo. Ou seja, <strong>criar um produto mais acessível envolve a empresa toda</strong>.</p>
+<h2>Conclusão</h2>
+<p>Criar um site ou aplicativo acessível é cada vez mais simples do ponto de vista técnico. Nunca tivemos tantos recursos e acesso a tanta informação! Mas, para garantir o uso efetivo dos recursos disponíveis, precisamos <strong>entender nossos usuários</strong> e <strong>seguir boas práticas de código</strong>. Um complementa o outro no processo de tornar uma aplicação mais acessível, um processo que não tem fim pois sempre há o que melhorar e sempre há novas funcionalidades a serem implementadas.</p>
+<p>Falando em sempre melhorar, aqui no Elo7 ainda estamos nesse processo de aprendizado, conhecendo as ferramentas, as técnicas e os usuários, e esse post resume um pouco do que aprendemos até agora. Em breve, compartilharemos mais!</p>
+<p>E você? Compartilhe conosco: que práticas você e sua empresa têm seguido para tornar seus sites e aplicativos mais acessíveis?</p>
+
+		<section class='share'>
+			<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/amp/testando-acessibilidade/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+				Compartilhar no facebook
+			</a>
+			<a href='https://twitter.com/intent/tweet?text=Testando acessibilidade&url=https://elo7.dev/amp/testando-acessibilidade/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+				Compartilhar no twitter
+			</a>
+		</section>
+	</div>
+	<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
+		<link href="/images/ico/elo7.png" itemprop="url"/>
+		<meta itemprop='width' content='100px'/>
+		<meta itemprop='height' content='100px'/>
+	</span>
+
+	<meta itemprop='headline' content='Acessibilidade é um tema que tem ganho cada vez mais atenção. Vemos cada vez mais conteúdo e dicas sobre como tornar sua aplicação mais acessível. Mas como garantir que nossas medidas para incluir acessibilidade estão surtindo efeito?'/>
+	<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop='name' content='Elo7 Tech'/>
+		<meta itemprop="url" content='https://elo7.dev'/>
+		<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+			<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+			<meta itemprop='width' content='100px'/>
+			<meta itemprop='height' content='100px'/>
+		</span>
+	</span>
+	<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+</article>
+	</main>
+	<footer itemscope itemtype='http://schema.org/Organization'>
+		<a rel='home' itemprop='url' href='/amp/home/'>elo7.dev © 2019</a>
+		<meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<amp-analytics type='googleanalytics'>
+		<script type='application/json'>
+			{
+				"vars": {
+					"account": "UA-3692628-29"
+				},
+				"triggers": {
+					"trackPageview": {
+						"on": "visible",
+						"request": "pageview"
+					}
+				}
+			}
+		</script>
+	</amp-analytics>
+</body>
+</html>

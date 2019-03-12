@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Clojure é uma linguagem já conhecida para os amantes do paradigma funcional, neste post, demonstro alguns detalhes de uma biblioteca que faz uma ponte entre esta linguagem e o mundo WEB. Venha aprender como subir uma API REST em 10 minutos!">
+	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
+	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name="theme-color" content="#FDC24F">
+	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,API,REST,clojure,back-end">
+	<meta name="language" content="pt-br">
+	<meta name="title" content="Elo7 Tech - Subindo uma API REST em Clojure">
+	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Subindo uma API REST em Clojure">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<meta property="fb:app_id" content="644444999041914">
+	<meta property="fb:admins" content="100003324447975">
+
+	<meta property="og:site_name" content="Elo7 Tech">
+	<meta property="og:image" content="https://elo7.dev/images/cover/elo7.png">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Elo7 Tech - Subindo uma API REST em Clojure">
+	<meta property="og:url" content="https://elo7.dev/subindo-uma-api-rest-em-clojure/">
+	<meta property="og:description" content="Clojure é uma linguagem já conhecida para os amantes do paradigma funcional, neste post, demonstro alguns detalhes de uma biblioteca que faz uma ponte entre esta linguagem e o mundo WEB. Venha aprender como subir uma API REST em 10 minutos!">
+
+	<meta name="twitter:widgets:csp" content="on">
+	<meta name="twitter:card" content="summary_large_image">
+
+	<meta property="twitter:title" content="Elo7 Tech - Subindo uma API REST em Clojure">
+	<meta property="twitter:domain" content="https://elo7.dev">
+	<meta property="twitter:url" content="https://elo7.dev/subindo-uma-api-rest-em-clojure/">
+	<meta property="twitter:description" content="Clojure é uma linguagem já conhecida para os amantes do paradigma funcional, neste post, demonstro alguns detalhes de uma biblioteca que faz uma ponte entre esta linguagem e o mundo WEB. Venha aprender como subir uma API REST em 10 minutos!">
+	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+
+	<link rel="canonical" href="https://elo7.dev/subindo-uma-api-rest-em-clojure/">
+	
+		<link rel='amphtml' href='https://elo7.dev/amp/subindo-uma-api-rest-em-clojure/' />
+	
+
+	<title>Elo7 Tech - Subindo uma API REST em Clojure</title>
+	<link rel="stylesheet" href="/reset.css">
+	<link rel="stylesheet" href="/main.css">
+	<link rel="stylesheet" href="/posts.css">
+	<link rel="stylesheet" href="/post.css">
+	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
+	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
+	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
+	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
+	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
+	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
+	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
+	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
+	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src="/js/vendor/async-define.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
+	<header class="left-pane">
+		<div class="logo-container">
+			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
+		</div>
+		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
+			<input id="categories-switch" type="checkbox" class="categories-switch">
+			<label for="categories-switch" class="selectable">
+				<h2 class="nav-title">Categorias</h2>
+			</label>
+			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
+				
+					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Back-end</span>
+					</a>
+				
+					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Cultura</span>
+					</a>
+				
+					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Data Science</span>
+					</a>
+				
+					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Design</span>
+					</a>
+				
+					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Devops</span>
+					</a>
+				
+					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Eventos</span>
+					</a>
+				
+					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Palestras</span>
+					</a>
+				
+					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Front-end</span>
+					</a>
+				
+					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Mobile</span>
+					</a>
+				
+					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Vagas</span>
+					</a>
+				
+			</nav>
+		</div>
+		<div class="navigation">
+			<input id="more-switch" type="checkbox" class="more-switch">
+			<label for="more-switch" class="selectable">
+				<h2 class="nav-title">Veja também</h2>
+			</label>
+			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
+					<span itemprop="name">A engenharia</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
+					<span itemprop="name">Carreiras</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
+					<span itemprop="name">Nossos eventos</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
+					<span itemprop="name">Elo7</span>
+				</a>
+			</nav>
+		</div>
+		<div class='social'>
+			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
+			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
+		</div>
+	</header>
+	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<img src='https://elo7.dev/images/cover/elo7.png' alt='' itemprop="url">
+	</figure>
+	<div class='post-content'>
+		<h1 itemprop='name' class='title'>Subindo uma API REST em Clojure</h1>
+		<div class='post-meta'>
+			<p class='date'>
+				Publicado em: <time datetime='22/01/2018' itemprop='datePublished'>22/01/2018</time>
+				<meta itemprop='dateModified' content='22/01/2018'>
+			</p>
+
+			<article>
+				
+					<a data-author='ericdallo' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/ericdallo/' class='author'>
+						<meta itemprop='url' content='/ericdallo'>
+						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
+						<p itemprop='name' class='publisher' data-author='ericdallo'>@ericdallo</p>
+					</a>
+				
+
+				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+			</article>
+		</div>
+		<div itemprop='articleBody'>
+			<p><a href="https://clojure.org/">Clojure</a> é uma linguagem funcional e dinâmica que roda na JVM e que vem crescendo bastante no mercado de trabalho. Ela é tão performática quanto qualquer programa que roda em <em>Java</em> e muito menos verbosa. Isso facilita e muito na manutenção do código, influenciando no custo do desenvolvimento.
+Caso não esteja muito familiarizado com esta linguagem incrível, recomendo a leitura do livro <a href="http://www.braveclojure.com/clojure-for-the-brave-and-true/">Clojure for the Brave and True</a> onde ensina desde o básico sobre Clojure.</p>
+<p>Para testar algumas características da linguagem vamos criar uma aplicação com uma <strong>API REST</strong> básica. Esse projeto, o <a href="https://github.com/ericdallo/clojure7">clojure7</a>, que será um <em>CRUD</em> de posts de um blog.</p>
+<p>Para quem programa ou já programou em <em>Clojure</em>, deve ter esbarrado em algum momento no <a href="https://leiningen.org">Leiningen</a>. Ele é um gerenciador de dependências e tasks, assim como o <em>gradle</em> e <em>maven</em> para os &quot;javeiros&quot;.
+Com o <em>Leinigen</em>, podemos construir a hierarquia do nosso novo projeto, rodar a aplicação com plugins, entre outros.</p>
+<h2>Dependências</h2>
+<p>Vamos utilizar um plugin chamado <strong>Compojure</strong>, para criar a hierarquia e arquivos básicos para nossa aplicação.
+O <a href="https://github.com/weavejester/compojure">Compojure</a> é uma biblioteca, não um framework, baseado no <a href="https://github.com/ring-clojure/ring">Ring</a> (biblioteca que consegue manipular <strong>request</strong> e <strong>response</strong>, semelhante à especificação <strong>Servlet</strong> no Java). A diferença entre os dois está no fato do compojure permitir o gerenciamento das rotas da aplicação mais facilmente.</p>
+<p>Caso tenha dúvidas de como o <em>Ring</em> funciona, sugiro a leitura de <a href="https://github.com/ring-clojure/ring/wiki/Concepts">seus conceitos</a>.</p>
+<p>Vamos começar criando o projeto a partir do <em>Leiningen</em>:</p>
+<pre class="highlight"><code class="hljs bash">$ lein new compojure clojure7
+</code></pre>
+<p>Ao rodar este comando, o <em>lein</em> irá criar alguns arquivos para nós:</p>
+<ul>
+<li><strong>project.clj</strong> - arquivo de configuração do projeto, parecido com o <code>build.gradle</code> ou <code>pom.xml</code></li>
+<li><strong>resources/</strong>  - pasta onde serão guardados arquivos como assets, templates html e migrações de banco</li>
+<li><strong>src/</strong>        - pasta contendo todo o código clojure da aplicação</li>
+<li><strong>test/</strong>       - pasta contendo os testes da aplicação</li>
+</ul>
+<p>Vamos adicionar algumas dependências no arquivo <code>project.clj</code>:</p>
+<ul>
+<li><a href="https://github.com/ring-clojure/ring-json">ring-json</a> - Permite lidarmos com requisições que contenham <em>json</em> e facilita as respostas da aplicação em <em>json</em>.</li>
+<li><a href="http://sqlkorma.com/">korma</a> - Uma das minhas <em>libs</em> favoritas em clojure, um <a href="http://www.devmedia.com.br/orm-object-relational-mapper/19056">ORM</a> que mapeia nossos modelos clojure em modelos relacionais no banco de dados.</li>
+<li><a href="https://github.com/clojure/java.jdbc">mysql</a> - Driver do <em>mysql</em> para clojure.</li>
+</ul>
+<p>As dependências da aplicação ficarão assim:</p>
+<pre class="highlight"><code class="hljs java">:dependencies [[org.clojure/clojure <span class="hljs-string">"1.8.0"</span>]
+               [compojure <span class="hljs-string">"1.5.2"</span>]
+               [ring/ring-defaults <span class="hljs-string">"0.2.1"</span>]
+               [ring/ring-json <span class="hljs-string">"0.4.0"</span>]
+               [korma <span class="hljs-string">"0.4.3"</span>]
+               [mysql/mysql-connector-java <span class="hljs-string">"5.1.6"</span>]]
+
+</code></pre>
+<p>Ainda neste mesmo arquivo, podemos adicionar a configuração do <code>ring</code>:</p>
+<pre class="highlight"><code class="hljs clojure"><span class="hljs-symbol">:ring</span> {<span class="hljs-symbol">:handler</span> clojure7.handler/app}
+</code></pre>
+<p>Na configuração acima temos um <strong>handler</strong>, um arquivo que deverá lidar com cada rota da aplicação, e o namespace apontando para o mesmo.</p>
+<p>Ao abrirmos o <code>src/clojure7/handler.clj</code>, vamos alterar o <em>ring</em> para realizar o <em>bind</em> dos parâmetros da <em>request</em> para <em>json</em> e dizer ao ring que após passar pela nossa rota, transforme os dados da resposta em <em>json</em> .</p>
+<pre class="highlight"><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-builtin-name">ns</span></span> clojure7.handler
+  (<span class="hljs-symbol">:require</span> [compojure.core <span class="hljs-symbol">:refer</span> <span class="hljs-symbol">:all</span>]
+            [compojure.route <span class="hljs-symbol">:as</span> route]
+            [ring.middleware.json <span class="hljs-symbol">:refer</span> [wrap-json-response wrap-json-body]]))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> app
+  (<span class="hljs-name"><span class="hljs-builtin-name">-&gt;</span></span> all-routes
+      wrap-json-response
+      wrap-json-body))
+</code></pre>
+<p>Neste mesmo arquivo, teremos as definições de rotas:</p>
+<pre class="highlight"><code class="hljs clojure">(<span class="hljs-name">defroutes</span> all-routes
+  (<span class="hljs-name">GET</span> <span class="hljs-string">"/"</span> [] <span class="hljs-string">"Hello World"</span>)
+  (<span class="hljs-name">route/not-found</span> <span class="hljs-string">"Página não encontrada :("</span>))
+</code></pre>
+<p>Com o Compojure, temos a definição da nossa rota com o <code>defroutes</code>, onde podemos passar uma lista de rotas para ele. Podemos ver que já temos uma rota <em>GET</em> para a raiz da aplicação que retornará uma <em>String</em> no corpo da resposta, e outra que caso não encontre nenhuma rota definida deste método, exiba a página de 404, &quot;Página não encontrada :(&quot;.</p>
+<h2>Banco de dados</h2>
+<p>Criaremos então a nossa tabela <code>post</code> no nosso banco de dados mysql:</p>
+<pre class="highlight"><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> post (
+  <span class="hljs-string">`id`</span> <span class="hljs-built_in">bigint</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT,
+  <span class="hljs-string">`name`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+  <span class="hljs-string">`category`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">30</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</span>)
+);
+</code></pre>
+<p>A título de curiosidade, assim como no <em>Ruby on Rails</em>, podemos ter migrações de banco de dados para facilitar na criação/alteração de novas tabelas. Neste post não irei demonstrar pela extensão do assunto, mas caso queira aprender, sugiro o uso do <a href="https://github.com/yogthos/migratus">migratus</a> que também é outra <em>lib</em> excelente.</p>
+<p>Vamos criar o arquivo <code>src/clojure7/db.clj</code> contendo as configurações do banco de dados:</p>
+<pre class="highlight"><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-builtin-name">ns</span></span> clojure7.db
+  (<span class="hljs-symbol">:use</span> korma.db))
+
+  (<span class="hljs-name">defdb</span> db (<span class="hljs-name">mysql</span>
+            { <span class="hljs-symbol">:classname</span> <span class="hljs-string">"com.mysql.jdbc.Driver"</span>
+              <span class="hljs-symbol">:subprotocol</span> <span class="hljs-string">"mysql"</span>
+              <span class="hljs-symbol">:subname</span> <span class="hljs-string">"//localhost/clojure7"</span>
+              <span class="hljs-symbol">:user</span> <span class="hljs-string">"root"</span>
+              <span class="hljs-symbol">:password</span> <span class="hljs-string">""</span>}))
+</code></pre>
+<h2>Recursos</h2>
+<p>Se tratando de <em>REST</em>, nosso modelo <code>post</code> é um recurso, então vamos mapeá-lo no arquivo <code>src/clojure7/post/post.clj</code>:</p>
+<pre class="highlight"><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-builtin-name">ns</span></span> clojure7.post.post
+  (<span class="hljs-symbol">:require</span> [korma.db <span class="hljs-symbol">:refer</span> <span class="hljs-symbol">:all</span>]
+            [korma.core <span class="hljs-symbol">:refer</span> <span class="hljs-symbol">:all</span>]
+            [clojure7.db <span class="hljs-symbol">:refer</span> <span class="hljs-symbol">:all</span>]))
+
+(<span class="hljs-name">defentity</span> post)
+</code></pre>
+<p>Podemos observar que com o <code>defentity</code> transformamos o objeto <code>post</code> em uma entidade gerenciada pelo <strong>korma</strong>. Agora podemos manipular os dados da tabela através do clojure, então vamos criar os métodos para cada operação do <em>CRUD</em>:</p>
+<pre class="highlight"><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> find-all []
+  (<span class="hljs-name">select</span> post))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> find-by-id [id]
+    (<span class="hljs-name">select</span> post
+      (<span class="hljs-name">where</span> {<span class="hljs-symbol">:id</span> id})
+      (<span class="hljs-name">limit</span> <span class="hljs-number">1</span>)))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> create [name category]
+  (<span class="hljs-name">insert</span> post
+    (<span class="hljs-name">values</span> {<span class="hljs-symbol">:name</span> name <span class="hljs-symbol">:category</span> category})))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> update-by-id [id name category]
+  (<span class="hljs-name">update</span> post
+    (<span class="hljs-name">set-fields</span> {<span class="hljs-symbol">:name</span> name <span class="hljs-symbol">:category</span> category})
+    (<span class="hljs-name">where</span> {<span class="hljs-symbol">:id</span> id})))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> delete-by-id [id]
+  (<span class="hljs-name">delete</span> post
+    (<span class="hljs-name">where</span> {<span class="hljs-symbol">:id</span> id})))
+</code></pre>
+<p>Criaremos agora as rotas para alterar nosso recurso <code>post</code> no arquivo <code>src/clojure7/handler.clj</code> e adicionaremos no namespace dele o link para o namespace <code>post.clj</code>, assim conseguimos acessar os métodos daquele namespace:</p>
+<pre class="highlight"><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-builtin-name">ns</span></span> clojure7.handler
+    (<span class="hljs-symbol">:require</span> [compojure.core <span class="hljs-symbol">:refer</span> <span class="hljs-symbol">:all</span>]
+              [compojure.route <span class="hljs-symbol">:as</span> route]
+              [clojure7.post.post <span class="hljs-symbol">:as</span> post]
+              [ring.middleware.json <span class="hljs-symbol">:refer</span> [wrap-json-response wrap-json-body]]))
+
+(<span class="hljs-name">defroutes</span> all-routes
+  (<span class="hljs-name">GET</span> <span class="hljs-string">"/posts"</span> []
+    (<span class="hljs-name">post/find-all</span>))
+  (<span class="hljs-name">POST</span> <span class="hljs-string">"/posts"</span> req
+    (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [name (<span class="hljs-name"><span class="hljs-builtin-name">get-in</span></span> req [<span class="hljs-symbol">:body</span> <span class="hljs-string">"name"</span>])
+          category (<span class="hljs-name"><span class="hljs-builtin-name">get-in</span></span> req [<span class="hljs-symbol">:body</span> <span class="hljs-string">"category"</span>])]
+          (<span class="hljs-name">post/create</span> name category)))
+  (<span class="hljs-name">GET</span> <span class="hljs-string">"/posts/:id"</span> [id]
+    (<span class="hljs-name">post/find-by-id</span> id))
+  (<span class="hljs-name">PUT</span> <span class="hljs-string">"/posts/:id"</span> req
+    (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [id (<span class="hljs-name">read-string</span> (<span class="hljs-name"><span class="hljs-builtin-name">get-in</span></span> req [<span class="hljs-symbol">:params</span> <span class="hljs-symbol">:id</span>]))
+          name (<span class="hljs-name"><span class="hljs-builtin-name">get-in</span></span> req [<span class="hljs-symbol">:body</span> <span class="hljs-string">"name"</span>])
+          category (<span class="hljs-name"><span class="hljs-builtin-name">get-in</span></span> req [<span class="hljs-symbol">:body</span> <span class="hljs-string">"category"</span>])]
+          (<span class="hljs-name">post/update-by-id</span> id name category)
+          (<span class="hljs-name">post/find-by-id</span> id)))
+  (<span class="hljs-name">DELETE</span> <span class="hljs-string">"/posts/:id"</span> [id]
+    (<span class="hljs-name">post/delete-by-id</span> id)
+    (<span class="hljs-name"><span class="hljs-builtin-name">str</span></span> <span class="hljs-string">"Deleted post "</span> id))
+  (<span class="hljs-name">route/not-found</span> <span class="hljs-string">"Not Found"</span>))
+</code></pre>
+<h2>Subindo a aplicação</h2>
+<p>Podemos agora subir nossa aplicação com o seguinte comando <code>lein ring server</code>, por padrão ele irá subir na porta 3000.</p>
+<p>Para executar cada uma das ações que criamos no código, seguem abaixo os comandos:</p>
+<ul>
+<li>Criando um <code>post</code></li>
+</ul>
+<pre class="highlight"><code class="hljs bash">curl -X POST localhost:3000/posts -H <span class="hljs-string">"Content-Type: application/json"</span> -d <span class="hljs-string">'{"name":"Clojure com o Simbal", "category":"cool-posts"}'</span>
+</code></pre>
+<ul>
+<li>Listando todos os <code>post</code>'s</li>
+</ul>
+<pre class="highlight"><code class="hljs bash">curl -X GET localhost:3000/posts
+</code></pre>
+<ul>
+<li>Editando um <code>post</code></li>
+</ul>
+<pre class="highlight"><code class="hljs bash">curl -X PUT localhost:3000/posts/1 -H <span class="hljs-string">"Content-Type: application/json"</span> -d <span class="hljs-string">'{"name":"Clojure com o Greg", "category":"other-posts"}'</span>
+</code></pre>
+<ul>
+<li>Encontrando um <code>post</code></li>
+</ul>
+<pre class="highlight"><code class="hljs bash">curl -X GET localhost:3000/posts/1
+</code></pre>
+<ul>
+<li>Removendo um <code>post</code></li>
+</ul>
+<pre class="highlight"><code class="hljs bash">curl -X DELETE localhost:3000/posts/1
+</code></pre>
+<p>Gostou do post? Tem alguma dúvida? Alguma crítica? Comenta aqui em baixo :)
+Espero que tenha despertado, para quem não conhece, aquela curiosidade que todo <em>dev</em> tem quando descobre que existe outra maneira de subir uma API REST nos seus novos projetos :D</p>
+
+
+			<ul class='tag-list'>
+			
+				<li>
+					<a href='/tags/api/'>api</a>
+				</li>
+			
+				<li>
+					<a href='/tags/rest/'>rest</a>
+				</li>
+			
+				<li>
+					<a href='/tags/clojure/'>clojure</a>
+				</li>
+			
+				<li>
+					<a href='/tags/back-end/'>back-end</a>
+				</li>
+			
+			</ul>
+			<section class='share'>
+				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+				<div class='social-share'>
+					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/subindo-uma-api-rest-em-clojure/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+						Compartilhar no facebook
+					</a>
+					<a href='https://twitter.com/intent/tweet?text=Subindo uma API REST em Clojure&url=https://elo7.dev/subindo-uma-api-rest-em-clojure/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+						Compartilhar no twitter
+					</a>
+					<a href='https://elo7.dev/subindo-uma-api-rest-em-clojure/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+						Copiar URL
+					</a>
+					<span class='copy-success'>Link copiado</span>
+					<input type='url' value='https://elo7.dev/subindo-uma-api-rest-em-clojure/?utm_source=share&utm_medium=copy' class='link-input'>
+				</div>
+			</section>
+		</div>
+
+		<meta itemprop='headline' content='Clojure é uma linguagem já conhecida para os amantes do paradigma funcional, neste post, demonstro alguns detalhes de uma biblioteca que faz uma ponte entre esta linguagem e o mundo WEB. Venha aprender como subir uma API REST em 10 minutos!'/>
+		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop='name' content='Elo7 Tech'/>
+			<meta itemprop="url" content='https://elo7.dev'/>
+			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+				<meta itemprop='width' content='100px'/>
+				<meta itemprop='height' content='100px'/>
+			</span>
+		</span>
+		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+		<div id='disqus_thread'></div>
+
+		<script>
+			var disqus_shortname = 'engenhariaelo7';
+			var disqus_identifier = '22/01/2018:/subindo-uma-api-rest-em-clojure/';
+			var disqus_url = 'https://elo7.dev/subindo-uma-api-rest-em-clojure/';
+
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Habilite o JavaScript para ver os comentários</noscript>
+	</div>
+</article>
+<script async src="/js/post.js"></script>
+
+		
+	</main>
+	<footer itemscope itemtype="http://schema.org/Organization">
+		<a rel="home" itemprop="url" href="https://elo7.dev/" >
+			elo7.dev © 2019
+		</a>
+		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<script async src="https://www.google-analytics.com/analytics.js"></script>
+	<script async src="/js/analytics.js"></script>
+	<script async src="/js/github.js"></script>
+	<script async src="/js/vendor/events-amd.js"></script>
+	<script async src="/js/vendor/ajax.js"></script>
+	<script async src="/js/vendor/doc.js"></script>
+	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

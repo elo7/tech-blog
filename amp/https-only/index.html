@@ -1,0 +1,781 @@
+<!doctype html>
+<html amp lang='pt-br'>
+<head>
+	<meta charset='utf-8'>
+	<script async src='https://cdn.ampproject.org/v0.js'></script>
+	<script async custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
+	<script async custom-element='amp-image-lightbox' src='https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js'></script>
+	<script async custom-element='amp-analytics' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js'></script>
+	<title>Elo7 Tech - Migrando para HTTPS</title>
+	<meta name='description' content='Recentemente, o Elo7 passou a ser servido unicamente em HTTPS. Essa mudança, que pode parecer simples à primeira vista, tem uma série de motivos e também implicações, que serão discutidas neste artigo.'>
+	<link rel='canonical' href='https://elo7.dev/https-only/' />
+	<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>
+	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+	<style amp-custom>
+		body {
+			background-color: white;
+			font-family: 'Open Sans', sans-serif;
+			color: #666;
+		}
+
+		h1 {
+			color: #333;
+			font-size: 1.5em;
+			margin-bottom: 0;
+		}
+
+		h2, h3 {
+			color: #444;
+			font-size: 1.2em;
+		}
+
+		h3 {
+			font-weight: 300;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		p, li {
+			font-size: 0.9em;
+		}
+
+		ul {
+			padding-left: 1.5em;
+		}
+
+		article {
+			line-height: 1.8;
+			text-align: justify;
+		}
+
+		blockquote {
+			margin: 1em;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			font-size: 0.9em;
+			width: 100%;
+			text-align: left;
+		}
+
+		table thead th {
+			background-color: #4a4a4a;
+			color: white;
+		}
+
+		table th, table td {
+			padding: 0.2em 0.5em;
+		}
+
+		tr:nth-child(even) td {
+			background-color: #f3f3f3;
+		}
+
+		table th:not(:first-child), table td:not(:first-child) {
+			text-align: right;
+		}
+
+		body > header {
+			height: 60px;
+			box-sizing: border-box;
+			background-color: #FDC24F;
+			text-align: center;
+			padding-top: 0.8em;
+			padding-bottom: 0.8em;
+			position: sticky;
+			top: 0;
+			z-index: 10;
+		}
+
+		body > header a {
+			background: url('//images.elo7.com.br/assets/v3/desktop/svg/logo-elo7.svg') no-repeat;
+			background-size: 90px 35px;
+			width: 90px;
+			height: 35px;
+			display: inline-block;
+			filter: brightness(100);
+		}
+
+		.post-content, footer {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+
+		.post-content .content a, .post-content .content a:visited, .post-content .content a:hover {
+			cursor: pointer;
+			color: #000;
+			font-weight: 500;
+			text-decoration: underline;
+			word-break: break-word;
+		}
+
+		.post-content .post-image {
+			text-align: center;
+			display: block;
+		}
+
+		.post-content p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		main {
+			background-color: #ecebeb;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+
+		.post-card, .post-content, .publisher-info {
+			background: white;
+			margin-left: 2%;
+			padding: 1em;
+			margin-right: 3%;
+			box-shadow: rgba(72, 72, 72, 0.23) 0 0 5px;
+		}
+
+		.publisher-info {
+			margin-bottom: 1em;
+		}
+
+		.publisher-info h1 {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+		}
+
+		.card-devops {
+			border-left: 5px solid #7d7873;
+		}
+
+		.card-eventos {
+			border-left: 5px solid #fdb933;
+		}
+
+		.card-front-end {
+			border-left: 5px solid #c15eb4;
+		}
+
+		.card-back-end {
+			border-left: 5px solid #359c9c;
+		}
+
+		.card-mobile {
+			border-left: 5px solid #fa9c5e;
+		}
+
+		.card-vagas {
+			border-left: 5px solid #99c799;
+		}
+
+		.card-design {
+			border-left: 5px solid #7c9ec4;
+		}
+
+		.card-cultura {
+			border-left: 5px solid #f44336;
+		}
+
+		.post-card:not(:last-of-type) {
+			margin-bottom: 1em;
+		}
+
+		.post-card .title {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+			text-align: left;
+		}
+
+		.post-card .title a {
+			color: inherit;
+		}
+
+		.author, .date {
+			color: #888;
+			margin-bottom: 0;
+			margin-top: 0;
+			font-size: 0.9em;
+		}
+
+		.author a {
+			color: inherit;
+			margin-bottom: 1.5em;
+		}
+
+		#sidebar {
+			width: 60vw;
+			background-color: #4a4a4a;
+			color: #fff;
+			padding-right: 1em;
+			padding-left: 1em;
+		}
+
+		#sidebar li {
+			margin-bottom: 0.5em;
+		}
+
+		#sidebar ul {
+			margin-bottom: 1.5em;
+			list-style: none;
+			padding: 0;
+		}
+
+		#sidebar h2 {
+			margin-bottom: 0;
+		}
+
+		#sidebar a {
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		#sidebar a, #sidebar h2 {
+			color: inherit;
+		}
+
+		.sidebar-trigger {
+			position: absolute;
+			left: 5%;
+			background-color: transparent;
+			border: none;
+			color: #fff;
+			font-size: 1.8em;
+			padding: 0;
+		}
+
+		.category {
+			background-color: #73bebe;
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 0.8em;
+			padding: .5em;
+			border-radius: 3px;
+			display: inline-block;
+			margin-top: 2.3em;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			font-weight: 300;
+		}
+
+		.category:hover {
+			background-color: #73bebe;
+		}
+
+		.post-link {
+			border: 1px solid #fba702;
+			border-radius: 3px;
+			color: #fba702;
+			display: inline-block;
+			float: right;
+			margin-top: 1em;
+			padding: 0.8em;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s, color 0.3s;
+			font-size: 0.9em;
+		}
+
+		.post-link:hover {
+			background-color: #fba702;
+			color: #ffffff;
+		}
+
+		.social {
+			content: '';
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			background-position: center;
+			text-indent: -9999px;
+			margin-right: 0.5em;
+			background-size: contain;
+			vertical-align: top;
+		}
+
+		.social.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.social.linkedin {
+			background-image: url('/images/ico/ic-linkedin.svg');
+		}
+
+		.social.github {
+			background-image: url('/images/ico/ic-github.svg');
+		}
+
+		footer {
+			background-color: #4a4a4a;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		footer a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 0.8em;
+		}
+
+		.footer-social {
+			line-height: 0;
+		}
+
+		.footer-social a {
+			background-size: 2em 2em;
+			background-repeat: no-repeat;
+			display: inline-block;
+			height: 2em;
+			width: 2em;
+			overflow: hidden;
+			text-indent: -9999px;
+		}
+
+		.footer-social a + a {
+			margin-left: 0.5em;
+		}
+
+		.footer-social .github {
+			background-image: url('/images/github_icon.svg');
+		}
+		.footer-social .email {
+			background-image: url('/images/email_icon.png');
+		}
+
+		.footer-social .rss {
+			background-image: url('/images/ico/feed.svg');
+		}
+
+		.footer-social .twitter {
+            background-image: url('/images/ico/ic-negative-twitter.svg');
+        }
+
+		.share {
+			position: relative;
+			text-align: right;
+			margin-top: 1em;
+		}
+
+		.share .link-share {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				text-indent: -9999px;
+				margin-left: 0.5em;
+				text-align: left;
+		}
+
+		.share .link-share.facebook {
+			background-image: url('/images/ico/ic-facebook.svg');
+		}
+
+		.share .link-share.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.link-input {
+			opacity: 0;
+			position: absolute;
+			left: -9999px;
+		}
+
+		.copy-success {
+			font-size: 0.75em;
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			top: 125%;
+			transition: opacity ease-in-out 250ms;
+			text-align: center;
+		}
+
+		.copy-success.active {
+			opacity: 1;
+		}
+
+		code {
+			background-color: #ececec;
+			padding: 0.1em 0.2em;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.highlight code {
+			overflow: auto;
+		}
+
+		.hljs {
+			display: block;
+			padding: 0.5em 1em;
+			background: #23241f;
+		}
+
+		.hljs,
+		.hljs-tag,
+		.css .hljs-rules,
+		.css .hljs-value,
+		.css .hljs-function
+		.hljs-preprocessor,
+		.hljs-pragma {
+			color: #f8f8f2;
+		}
+
+		.hljs-strongemphasis,
+		.hljs-strong,
+		.hljs-emphasis {
+			color: #a8a8a2;
+		}
+
+		.hljs-bullet,
+		.hljs-blockquote,
+		.hljs-horizontal_rule,
+		.hljs-number,
+		.hljs-regexp,
+		.alias .hljs-keyword,
+		.hljs-literal,
+		.hljs-hexcolor {
+			color: #ae81ff;
+		}
+
+		.hljs-tag .hljs-value,
+		.hljs-code,
+		.hljs-title,
+		.css .hljs-class,
+		.hljs-class .hljs-title:last-child {
+			color: #a6e22e;
+		}
+
+		.hljs-link_url {
+			font-size: 80%;
+		}
+
+		.hljs-strong,
+		.hljs-strongemphasis {
+			font-weight: bold;
+		}
+
+		.hljs-emphasis,
+		.hljs-strongemphasis,
+		.hljs-class .hljs-title:last-child {
+			font-style: italic;
+		}
+
+		.hljs-keyword,
+		.hljs-function,
+		.hljs-change,
+		.hljs-winutils,
+		.hljs-flow,
+		.lisp .hljs-title,
+		.clojure .hljs-built_in,
+		.nginx .hljs-title,
+		.tex .hljs-special,
+		.hljs-header,
+		.hljs-attribute,
+		.hljs-symbol,
+		.hljs-symbol .hljs-string,
+		.hljs-tag .hljs-title,
+		.hljs-value,
+		.alias .hljs-keyword:first-child,
+		.css .hljs-tag,
+		.css .unit,
+		.css .hljs-important {
+			color: #F92672;
+		}
+
+		.hljs-function .hljs-keyword,
+		.hljs-class .hljs-keyword:first-child,
+		.hljs-constant,
+		.css .hljs-attribute {
+			color: #66d9ef;
+		}
+
+		.hljs-variable,
+		.hljs-params,
+		.hljs-class .hljs-title {
+			color: #f8f8f2;
+		}
+
+		.hljs-string,
+		.css .hljs-id,
+		.hljs-subst,
+		.haskell .hljs-type,
+		.ruby .hljs-class .hljs-parent,
+		.hljs-built_in,
+		.sql .hljs-aggregate,
+		.django .hljs-template_tag,
+		.django .hljs-variable,
+		.smalltalk .hljs-class,
+		.django .hljs-filter .hljs-argument,
+		.smalltalk .hljs-localvars,
+		.smalltalk .hljs-array,
+		.hljs-attr_selector,
+		.hljs-pseudo,
+		.hljs-addition,
+		.hljs-stream,
+		.hljs-envvar,
+		.apache .hljs-tag,
+		.apache .hljs-cbracket,
+		.tex .hljs-command,
+		.hljs-prompt,
+		.hljs-link_label,
+		.hljs-link_url {
+			color: #e6db74;
+		}
+
+		.hljs-comment,
+		.hljs-javadoc,
+		.java .hljs-annotation,
+		.python .hljs-decorator,
+		.hljs-template_comment,
+		.hljs-pi,
+		.hljs-doctype,
+		.hljs-deletion,
+		.hljs-shebang,
+		.apache .hljs-sqbracket,
+		.tex .hljs-formula {
+			color: #75715e;
+		}
+
+		.coffeescript .javascript,
+		.javascript .xml,
+		.tex .hljs-formula,
+		.xml .javascript,
+		.xml .vbscript,
+		.xml .css,
+		.xml .hljs-cdata,
+		.xml .php,
+		.php .xml {
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body itemscope itemtype='http://schema.org/WebPage'>
+	<amp-sidebar id='sidebar' layout='nodisplay'>
+		<h2>Categorias</h2>
+		<ul>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/back-end/'>
+						<span itemprop='name'>back-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/cultura/'>
+						<span itemprop='name'>cultura</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/data-science/'>
+						<span itemprop='name'>data-science</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/design/'>
+						<span itemprop='name'>design</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/devops/'>
+						<span itemprop='name'>devops</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/eventos/'>
+						<span itemprop='name'>eventos</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/talks/'>
+						<span itemprop='name'>talks</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/front-end/'>
+						<span itemprop='name'>front-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/mobile/'>
+						<span itemprop='name'>mobile</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/vagas/'>
+						<span itemprop='name'>vagas</span>
+					</a>
+				</li>
+			
+		</ul>
+		<h2>Veja também</h2>
+		<ul>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+					<span itemprop='name'>A engenharia</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Carreiras</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://eventos.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Nossos eventos</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='https://www.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Elo7</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a rel='external' itemprop='url' href='https://github.com/elo7/tech-blog'>Github</a>
+			</li>
+		</ul>
+		</ul>
+	</amp-sidebar>
+	<header>
+		<button class='sidebar-trigger' on='tap:sidebar'>☰</button>
+		<a rel='home' itemprop='url' href='/amp/home/' class='logo'></a></header>
+
+	<main itemscope itemtype='http://schema.org/Blog'>
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card post-content'>
+	<h1 itemprop='name' class='title'>Migrando para HTTPS</h1>
+	<div class='post-meta'>
+		<p class='date'>
+			Publicado em: <time datetime='02/05/2017' itemprop='datePublished'>02/05/2017</time>
+			<meta itemprop='dateModified' content='02/05/2017'>
+		</p>
+
+		<article>
+			
+				<a data-author='edsonmarquezani' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/amp/edsonmarquezani/' class='author'>
+					<meta itemprop='url' content='/amp/edsonmarquezani'>
+					<span itemprop='name' class='publisher' data-author='edsonmarquezani'>@edsonmarquezani</span>
+					<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+				</a>
+			
+		</article>
+	</div>
+	<div class='content' itemprop='articleBody'>
+		<p>Como vocês já devem ter notado, recentemente o <a href="https://www.elo7.com.br"><strong>Elo7</strong></a> passou a ser servido <strong>unicamente em <em>HTTPS</em></strong>. Nenhuma parte de nosso conteúdo ou navegação está mais disponível em <em>HTTP</em> plano. Isso segue uma tendência de toda a Internet e cada vez mais sites devem adotar esse &quot;formato&quot;. O gráfico abaixo (<a href="https://www.troyhunt.com/https-adoption-has-reached-the-tipping-point/">extraído daqui</a>) mostra o crescimento do uso de <em>HTTPS</em> entre o 1 milhão de sites mais acessados listados pela <a href="http://www.alexa.com/"><em>Alexa</em></a>.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-0' role='button' tabindex='0' src='../../images/https-4.png' layout='fixed' height='152' width='272' alt='Crescimento de sites HTTPS no último ano'></amp-img><amp-image-lightbox id='lightbox-0' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Essa mudança, que pode parecer simples à primeira vista, tem uma série de motivos e também implicações, que serão discutidas a seguir.</p>
+<h2><em>HTTP</em> versus <em>HTTPS</em></h2>
+<p>O protocolo <em>HTTPS</em> é a versão segura do protocolo <em>HTTP</em>. Com ele, todos os dados trafegados são criptografados por outro protocolo chamado <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security"><em>SSL/TLS</em></a>. O <em>SSL</em> é baseado em técnicas de criptografia simétrica (onde uma única chave é usada) e assimétrica (onde existem chaves separadas para criptografar e descriptografar). Por &quot;debaixo&quot; do <em>SSL</em>, permanece o mesmo <em>HTTP</em> de sempre, como conhecemos.</p>
+<p>O objetivo primário do <em>HTTPS</em> é, como pode ser facilmente deduzido, prover privacidade na comunicação, impedindo que o teor dos dados seja revelado em caso de interceptação por terceiros. Isso é não apenas desejável, mas indispensável para operações que transmitem dados sensíveis, como senhas, dados bancários, mensagens, etc. É por isso que operações de <em>login</em>, pagamentos <em>online</em> e até mesmo troca de mensagens (por aplicativos ou e-mails) sempre são realizadas dessa forma.</p>
+<p>Outra vantagem do <em>HTTPS</em> é a comprovação de identidade, ou seja, poder ter certeza de que um site não é falso e que realmente pertence à entidade que diz pertencer. Isso é possível pois, na <em>web</em>, todo certificado <em>SSL</em> utilizado é assinado por uma <a href="https://en.wikipedia.org/wiki/Certificate_authority">Autoridade Certificadora</a> (<em>CA</em>), garantindo sua autenticidade. O certificado nada mais é do que a chave pública usada na porção do protocolo onde se utiliza criptografia assimétrica. (A compreensão plena de todo o mecanismo de funcionamento do protocolo <em>SSL</em> e, em especial, das técnicas de criptografia foge ao escopo desse artigo, por tratar-se de um tópico bastante extenso e complexo.) Essa chave (ou certificado) contém o próprio endereço do site, entre outras informações da entidade à qual pertence. Quando o navegador obtém esse certificado do site, pode validar se ele foi realmente emitido por uma <em>CA</em> confiável, confirmando se o site é autêntico. (O mecanismo de validação envolve um outro conjunto de certificados das <em>CAs</em> que vêm junto dos navegadores.) Em um cenário onde alguém tentasse usar um certificado falso, essa validação falharia, expondo a fraude, e a barra de endereço não seria exibida com o cadeado verde abaixo.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-1' role='button' tabindex='0' src='../../images/https-6.png' layout='fixed' height='14' width='272' alt='Navegador indicando que a identidade do site é verdadeira e o site é seguro'></amp-img><amp-image-lightbox id='lightbox-1' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Essa garantia de autenticidade é fundamental para sites que contém informações hiper sensíveis dos usuários, como entidades finaceiras, serviços de email, entre outros, evitando que se caia em golpes (<em>phishing</em>).</p>
+<p>Uma das desvantagens do <em>HTTPS</em> em relação ao <em>HTTP</em> é o custo computacional maior para cliente e servidor, devido à série de cálculos que é necessário realizar para criptografar e descriptografar os dados. Entretanto, para o <em>hardware</em> que temos nos dias de hoje, esse <em>overhead</em> costuma ser desprezível perto da complexidade das aplicações em si, impactando muito pouco na carga do servidores ou tempo de resposta. Assim como para os <em>desktops</em>, cujos CPUs ficam ociosos boa parte do tempo.</p>
+<p>Outra desvantagem é o custo: em geral, as autoridades certificadoras cobram pela emissão dos certificados. Entretanto, atualmente já existem serviços gratuitos como o <a href="https://letsencrypt.org/"><em>Let's Encrypt</em></a>, e até mesmo o <a href="https://aws.amazon.com/pt/certificate-manager/"><em>AWS Certificate Manager</em></a>, que oferece gratuitamente certificados, desde que usados em conjunto de outros recursos <em>AWS</em> (como <em>Elastic Load Balancer</em> e <em>CloudFront</em>).</p>
+<h2><em>Snowden</em>, <em>HTTP2</em>, <em>Google</em> e navegadores</h2>
+<p>É bem verdade que o <em>HTTPS</em> é fundamental para operações que envolvem dados mais sensíveis, mas e quanto à navegação mais corriqueira, como leitura de conteúdo, visualização de produtos, pesquisas, etc? Por que utilizá-lo nesses casos?</p>
+<p>Bem, o mundo pós-<a href="https://en.wikipedia.org/wiki/Edward_Snowden"><em>Snowden</em></a> encara essa questão de forma diferente. Hoje, é de conhecimento público que diversos governos de nações espionam a comunicação de cidadãos, empresas e até mesmo de outros governos. Em decorrência disso, a preocupação com a privacidade levou a comunidade técnica a um consenso de que a criptografia deixou de ser uma opção, para se tornar uma necessidade, razão pela qual a adoção do <em>HTTPS</em> tem sido não apenas incentivada, mas também de certa forma forçada pelas grandes empresas do setor e grupos que atuam na definição de padrões e regulação da Internet. Desde 2014 o Google vem <a href="https://webmasters.googleblog.com/2014/08/https-as-ranking-signal.html">favorecendo páginas em <em>HTTPS</em> com um pequeno ganho de ranking (SEO)</a>, como forma de incentivo à sua adoção.</p>
+<p>Portanto, a pergunta que se fazia antes - &quot;por que usar <em>HTTPS</em>?&quot; - foi invertida para: <strong>&quot;por que não usar <em>HTTPS</em>?&quot;</strong></p>
+<p>De fato, para a nova versão do protocolo <em>HTTP</em>, o <a href="https://http2.github.io/"><em><strong>HTTP/2</strong></em></a>, os navegadores nem sequer dão mais suporte à versão não <em>SSL</em>. Ou seja, na prática, pra poder usar os recursos da versão mais nova do <em>HTTP</em>, é obrigatório o uso de <em>HTTPS</em>. E não para por aí. Navegadores como o <em>Chrome</em>, por exemplo, já tem há um bom tempo em seus planos <a href="https://www.chromium.org/Home/chromium-security/marking-http-as-non-secure">classificar explicitamente páginas <em>HTTP</em> como não seguras</a>. Futuramente, toda página <em>HTTP</em> deve ser exibida como abaixo (atualmente isso é só exibido quando habilitada uma <em>flag</em> específica na configuração):</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-2' role='button' tabindex='0' src='../../images/https-1.png' layout='fixed' height='15' width='272' alt='Esse pudim não é seguro!'></amp-img><amp-image-lightbox id='lightbox-2' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>A partir da versão 56, o <a href="https://www.google.com.br/chrome/browser/canary.html"><em>Chrome Canary</em></a> (uma versão com os recursos mais recentes do navegador) já exibe <strong>por padrão</strong> avisos para formulários de senhas ou cartões de crédito em páginas não <em>HTTPS</em>.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-3' role='button' tabindex='0' src='../../images/https-2.png' layout='fixed' height='132' width='272' alt='Aviso de segurança em formulário no Chrome'></amp-img><amp-image-lightbox id='lightbox-3' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Analogamente, a versão de desenvolvimento do <em>Firefox</em> também alerta o usuário de forma bastante explícita.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-4' role='button' tabindex='0' src='../../images/https-3.png' layout='fixed' height='131' width='272' alt='Aviso de segurança em formulário no Firefox'></amp-img><amp-image-lightbox id='lightbox-4' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Todos os outros navegadores também apontam na mesma direção - a migração total para <em>HTTPS</em> parece ser uma realidade inevitável.</p>
+<h2>Assets e outros elementos da página</h2>
+<p>Para que uma página seja considerada segura, não apenas a página em si precisa ser servida em <em>HTTPS</em>, mas também todos os seus recursos (imagens, arquivos <em>CSS</em> e <em>Javascript</em>, etc). Assim como não pode haver chamadas de métodos <em>Ajax</em> para serviços não <em>HTTPS</em>. Isso vale, inclusive, para <em>websockets</em> e <em>pixels</em> ocultos. Portanto, um dos desafios da migração para <em>HTTPS</em> é garantir que todo esse conteúdo também esteja disponível em <em>HTTPS</em>. Do contrário, os navegadores exibirão um ícone de <em>info</em> no lugar do cadeado verde.</p>
+<h2>301 ou 302?</h2>
+<p>Toda migração precisa ser amigável para os usuários, portanto, um requisito fundamental desse tipo de mudança é que todos os links <em>HTTP</em> sejam redirecionados para sua versão em <em>HTTPS</em>, o que, na maior parte das vezes, demanda apenas a troca do protocolo na <em>URL</em>. Isso pode ser realizado a partir de uma configuração muito simples em qualquer <em>webserver</em> de mercado (<em>Nginx</em>, <em>Apache</em>), como no exemplo abaixo para <em>Nginx</em>.</p>
+<pre class="highlight"><code class="hljs nginx"><span class="hljs-comment"># Trecho de configuração que deve ir no server HTTP (porta 80)</span>
+<span class="hljs-attribute">location</span> / {
+  <span class="hljs-attribute">return</span> <span class="hljs-number">302</span> https://<span class="hljs-variable">${http_host}</span><span class="hljs-variable">${request_uri}</span>;
+}
+</code></pre>
+<p>Um ponto de atenção importante é com relação ao tipo de <em>redirect</em> retornado. O protocolo <em>HTTP</em> suporta, entre outros, dois tipos principais e mais usados de <em>redirect</em>:</p>
+<ul>
+<li><em><strong>Redirect Permanente</strong></em> - código <strong>301</strong>: como diz o próprio nome, é permanente, portanto, uma vez recebido para aquela <em>URL</em>, o servidor só volta a ser consultado após limpeza do cache do navegador;</li>
+<li><em><strong>Redirect Temporário</strong></em> - código <strong>302</strong>: basicamente o oposto do caso anterior, não deve ser cacheado pelo navegador, exceto se indicado pelo servidor, e garante que requisições subsequentes sejam feitas no endereço original.</li>
+</ul>
+<p>Como pode ser facilmente concluído, o mais seguro para esse tipo de migração é o <em>redirect</em> temporário (<strong>302</strong>, como no exemplo acima), uma vez que sempre há a possibilidade de ter que reverter as mudanças realizadas.</p>
+<p>Entretanto, após a constatação de que tudo correu bem e de que não há mais grandes chances de precisar reverter as mudanças, o ideal é alterar o retorno para <strong>301</strong>, pois esse é o código de retorno mais adequado e bem interpretado de forma geral, além do fato de poupar requisições e não perder <em>throughput</em> de <em>bots</em>.</p>
+<h2>Page ranking e Bots</h2>
+<p><em>Bots</em> (ou robôs) são agentes automatizados dos mecanismos de busca (<em>Google</em>, <em>Bing</em>, <em>Baidu</em>) que navegam pelos sites e indexam seu conteúdo. Os usuários que vêm por meio desses mecanismos de busca são parte fundamental da audiência da maioria dos sites, incluindo <em>e-commerces</em> como o <a href="https://www.elo7.com.br"><strong>Elo7</strong></a>. Portanto, os <em>bots</em> devem ser tratados com muito cuidado. Aqui no <strong>Elo7</strong>, nós acompanhamos de perto a atividade deles em nosso site por meio de diversas métricas, como abaixo.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-5' role='button' tabindex='0' src='../../images/https-5.png' layout='fixed' height='67' width='272' alt='Métricas de Bots'></amp-img><amp-image-lightbox id='lightbox-5' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Até o presente momento, o Google <a href="https://plus.google.com/+JohnMueller/posts/PY1xCWbeDVC">garante que não há perda de pontuação de ranking</a> para as páginas redirecionadas de <em>HTTP</em> para <em>HTTPS</em>. Entretanto, não são todos os <em>bots</em> que seguem <em>redirects</em>, como ficou evidente mais tarde para nós. Assim que migramos nosso site, vimos uma queda brusca nesse gráfico da esquerda, indicando uma redução grande na quantidade de acesso de <em>bots</em>. Mais tarde, ficou claro que o problema era o bot do <em>Bing</em>, que não seguia <em>redirects</em> e, portanto, parou de navegar pelo nosso conteúdo.</p>
+<h2>Sitemaps e Webmaster Tools</h2>
+<p>Consequências inesperadas como essa - o sumiço dos <em>bots</em> - podem ocorrer, mas há como contorná-las e, de preferência, evitá-las.</p>
+<p>Algo muito importante para a indexação de qualquer site são os índices conhecidos como <a href="https://support.google.com/webmasters/answer/156184?hl=pt-BR"><em>Sitemaps</em></a>, que orientam a navegação inicial dos <em>bots</em> e permitem configurar alguns de seus comportamentos (por exemplo, desligar a indexação de parte das <em>URLs</em>, listar endereços que não estão <em>linkados</em> em outras páginas, entre outras coisas), além de identificar de forma mais exata o tipo de conteúdo. Uma vez que o site seja migrado totalmente para <em>HTTPS</em>, <strong>é muito importante que as <em>URLs</em> listadas nos arquivos de sitemaps também sejam alteradas</strong>.</p>
+<p>Outra ferramenta muito útil são as chamadas <em>Webmaster Tools</em>, painéis de controle oferecidos pelos indexadores, como <a href="https://www.google.com/webmasters/tools/home?hl=pt-BR"><em>Google</em></a> e <a href="http://www.bing.com/toolbox/webmaster"><em>Bing</em></a>, onde é possível visualizar e administrar a indexação das páginas. Através dele é possível adicionar, por exemplo, o endereço inicial do site em <em>HTTPS</em> para que seja indexado paralelamente, mesmo antes da migração definitiva, o que pode ser bastante útil para evitar maiores consequências no <em>ranking</em>.</p>
+<p>E, por final, não se desespere. É natural uma mudança de comportamento dos <em>bots</em> após esse tipo de migração, e tomadas todas as precauções necessárias, muitas já mencionadas, é necessário aguardar até alguns dias para que eles voltem ao normal. Além disso, é importante ficar atento, pois é possível que o site todo seja reindexado após essa mudança, aumentando significativamente a carga.</p>
+<h2>Conclusão</h2>
+<p>A migração para <em>HTTPS</em> é inevitável e terá que ser feita por todos, mais cedo ou mais tarde. Quanto antes possa ser feita, melhor. Não se trata de algo complexo, mas, especialmente para sistemas grandes, pode haver um certo nível de esforço, sendo importante levar em consideração os pontos mencionados. Entretanto, tomados os devidos cuidados e sendo bem planejado, é plenamente possível de ser realizado sem qualquer indisponibilidade.</p>
+<p>Dúvidas? Contribuições? Deixe um comentário!</p>
+
+		<section class='share'>
+			<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/amp/https-only/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+				Compartilhar no facebook
+			</a>
+			<a href='https://twitter.com/intent/tweet?text=Migrando para HTTPS&url=https://elo7.dev/amp/https-only/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+				Compartilhar no twitter
+			</a>
+		</section>
+	</div>
+	<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
+		<link href="/images/ico/elo7.png" itemprop="url"/>
+		<meta itemprop='width' content='100px'/>
+		<meta itemprop='height' content='100px'/>
+	</span>
+
+	<meta itemprop='headline' content='Recentemente, o Elo7 passou a ser servido unicamente em HTTPS. Essa mudança, que pode parecer simples à primeira vista, tem uma série de motivos e também implicações, que serão discutidas neste artigo.'/>
+	<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop='name' content='Elo7 Tech'/>
+		<meta itemprop="url" content='https://elo7.dev'/>
+		<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+			<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+			<meta itemprop='width' content='100px'/>
+			<meta itemprop='height' content='100px'/>
+		</span>
+	</span>
+	<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+</article>
+	</main>
+	<footer itemscope itemtype='http://schema.org/Organization'>
+		<a rel='home' itemprop='url' href='/amp/home/'>elo7.dev © 2019</a>
+		<meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<amp-analytics type='googleanalytics'>
+		<script type='application/json'>
+			{
+				"vars": {
+					"account": "UA-3692628-29"
+				},
+				"triggers": {
+					"trackPageview": {
+						"on": "visible",
+						"request": "pageview"
+					}
+				}
+			}
+		</script>
+	</amp-analytics>
+</body>
+</html>

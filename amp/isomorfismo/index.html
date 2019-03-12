@@ -1,0 +1,826 @@
+<!doctype html>
+<html amp lang='pt-br'>
+<head>
+	<meta charset='utf-8'>
+	<script async src='https://cdn.ampproject.org/v0.js'></script>
+	<script async custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
+	<script async custom-element='amp-image-lightbox' src='https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js'></script>
+	<script async custom-element='amp-analytics' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js'></script>
+	<title>Elo7 Tech - Javascript Isomórfico</title>
+	<meta name='description' content='Novos frameworks são criados a todo momento e um novo nome está criando mais força no mundo Javascript: isomorfismo.'>
+	<link rel='canonical' href='https://elo7.dev/isomorfismo/' />
+	<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>
+	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+	<style amp-custom>
+		body {
+			background-color: white;
+			font-family: 'Open Sans', sans-serif;
+			color: #666;
+		}
+
+		h1 {
+			color: #333;
+			font-size: 1.5em;
+			margin-bottom: 0;
+		}
+
+		h2, h3 {
+			color: #444;
+			font-size: 1.2em;
+		}
+
+		h3 {
+			font-weight: 300;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		p, li {
+			font-size: 0.9em;
+		}
+
+		ul {
+			padding-left: 1.5em;
+		}
+
+		article {
+			line-height: 1.8;
+			text-align: justify;
+		}
+
+		blockquote {
+			margin: 1em;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			font-size: 0.9em;
+			width: 100%;
+			text-align: left;
+		}
+
+		table thead th {
+			background-color: #4a4a4a;
+			color: white;
+		}
+
+		table th, table td {
+			padding: 0.2em 0.5em;
+		}
+
+		tr:nth-child(even) td {
+			background-color: #f3f3f3;
+		}
+
+		table th:not(:first-child), table td:not(:first-child) {
+			text-align: right;
+		}
+
+		body > header {
+			height: 60px;
+			box-sizing: border-box;
+			background-color: #FDC24F;
+			text-align: center;
+			padding-top: 0.8em;
+			padding-bottom: 0.8em;
+			position: sticky;
+			top: 0;
+			z-index: 10;
+		}
+
+		body > header a {
+			background: url('//images.elo7.com.br/assets/v3/desktop/svg/logo-elo7.svg') no-repeat;
+			background-size: 90px 35px;
+			width: 90px;
+			height: 35px;
+			display: inline-block;
+			filter: brightness(100);
+		}
+
+		.post-content, footer {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+
+		.post-content .content a, .post-content .content a:visited, .post-content .content a:hover {
+			cursor: pointer;
+			color: #000;
+			font-weight: 500;
+			text-decoration: underline;
+			word-break: break-word;
+		}
+
+		.post-content .post-image {
+			text-align: center;
+			display: block;
+		}
+
+		.post-content p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		main {
+			background-color: #ecebeb;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+
+		.post-card, .post-content, .publisher-info {
+			background: white;
+			margin-left: 2%;
+			padding: 1em;
+			margin-right: 3%;
+			box-shadow: rgba(72, 72, 72, 0.23) 0 0 5px;
+		}
+
+		.publisher-info {
+			margin-bottom: 1em;
+		}
+
+		.publisher-info h1 {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+		}
+
+		.card-devops {
+			border-left: 5px solid #7d7873;
+		}
+
+		.card-eventos {
+			border-left: 5px solid #fdb933;
+		}
+
+		.card-front-end {
+			border-left: 5px solid #c15eb4;
+		}
+
+		.card-back-end {
+			border-left: 5px solid #359c9c;
+		}
+
+		.card-mobile {
+			border-left: 5px solid #fa9c5e;
+		}
+
+		.card-vagas {
+			border-left: 5px solid #99c799;
+		}
+
+		.card-design {
+			border-left: 5px solid #7c9ec4;
+		}
+
+		.card-cultura {
+			border-left: 5px solid #f44336;
+		}
+
+		.post-card:not(:last-of-type) {
+			margin-bottom: 1em;
+		}
+
+		.post-card .title {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+			text-align: left;
+		}
+
+		.post-card .title a {
+			color: inherit;
+		}
+
+		.author, .date {
+			color: #888;
+			margin-bottom: 0;
+			margin-top: 0;
+			font-size: 0.9em;
+		}
+
+		.author a {
+			color: inherit;
+			margin-bottom: 1.5em;
+		}
+
+		#sidebar {
+			width: 60vw;
+			background-color: #4a4a4a;
+			color: #fff;
+			padding-right: 1em;
+			padding-left: 1em;
+		}
+
+		#sidebar li {
+			margin-bottom: 0.5em;
+		}
+
+		#sidebar ul {
+			margin-bottom: 1.5em;
+			list-style: none;
+			padding: 0;
+		}
+
+		#sidebar h2 {
+			margin-bottom: 0;
+		}
+
+		#sidebar a {
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		#sidebar a, #sidebar h2 {
+			color: inherit;
+		}
+
+		.sidebar-trigger {
+			position: absolute;
+			left: 5%;
+			background-color: transparent;
+			border: none;
+			color: #fff;
+			font-size: 1.8em;
+			padding: 0;
+		}
+
+		.category {
+			background-color: #73bebe;
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 0.8em;
+			padding: .5em;
+			border-radius: 3px;
+			display: inline-block;
+			margin-top: 2.3em;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			font-weight: 300;
+		}
+
+		.category:hover {
+			background-color: #73bebe;
+		}
+
+		.post-link {
+			border: 1px solid #fba702;
+			border-radius: 3px;
+			color: #fba702;
+			display: inline-block;
+			float: right;
+			margin-top: 1em;
+			padding: 0.8em;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s, color 0.3s;
+			font-size: 0.9em;
+		}
+
+		.post-link:hover {
+			background-color: #fba702;
+			color: #ffffff;
+		}
+
+		.social {
+			content: '';
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			background-position: center;
+			text-indent: -9999px;
+			margin-right: 0.5em;
+			background-size: contain;
+			vertical-align: top;
+		}
+
+		.social.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.social.linkedin {
+			background-image: url('/images/ico/ic-linkedin.svg');
+		}
+
+		.social.github {
+			background-image: url('/images/ico/ic-github.svg');
+		}
+
+		footer {
+			background-color: #4a4a4a;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		footer a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 0.8em;
+		}
+
+		.footer-social {
+			line-height: 0;
+		}
+
+		.footer-social a {
+			background-size: 2em 2em;
+			background-repeat: no-repeat;
+			display: inline-block;
+			height: 2em;
+			width: 2em;
+			overflow: hidden;
+			text-indent: -9999px;
+		}
+
+		.footer-social a + a {
+			margin-left: 0.5em;
+		}
+
+		.footer-social .github {
+			background-image: url('/images/github_icon.svg');
+		}
+		.footer-social .email {
+			background-image: url('/images/email_icon.png');
+		}
+
+		.footer-social .rss {
+			background-image: url('/images/ico/feed.svg');
+		}
+
+		.footer-social .twitter {
+            background-image: url('/images/ico/ic-negative-twitter.svg');
+        }
+
+		.share {
+			position: relative;
+			text-align: right;
+			margin-top: 1em;
+		}
+
+		.share .link-share {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				text-indent: -9999px;
+				margin-left: 0.5em;
+				text-align: left;
+		}
+
+		.share .link-share.facebook {
+			background-image: url('/images/ico/ic-facebook.svg');
+		}
+
+		.share .link-share.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.link-input {
+			opacity: 0;
+			position: absolute;
+			left: -9999px;
+		}
+
+		.copy-success {
+			font-size: 0.75em;
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			top: 125%;
+			transition: opacity ease-in-out 250ms;
+			text-align: center;
+		}
+
+		.copy-success.active {
+			opacity: 1;
+		}
+
+		code {
+			background-color: #ececec;
+			padding: 0.1em 0.2em;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.highlight code {
+			overflow: auto;
+		}
+
+		.hljs {
+			display: block;
+			padding: 0.5em 1em;
+			background: #23241f;
+		}
+
+		.hljs,
+		.hljs-tag,
+		.css .hljs-rules,
+		.css .hljs-value,
+		.css .hljs-function
+		.hljs-preprocessor,
+		.hljs-pragma {
+			color: #f8f8f2;
+		}
+
+		.hljs-strongemphasis,
+		.hljs-strong,
+		.hljs-emphasis {
+			color: #a8a8a2;
+		}
+
+		.hljs-bullet,
+		.hljs-blockquote,
+		.hljs-horizontal_rule,
+		.hljs-number,
+		.hljs-regexp,
+		.alias .hljs-keyword,
+		.hljs-literal,
+		.hljs-hexcolor {
+			color: #ae81ff;
+		}
+
+		.hljs-tag .hljs-value,
+		.hljs-code,
+		.hljs-title,
+		.css .hljs-class,
+		.hljs-class .hljs-title:last-child {
+			color: #a6e22e;
+		}
+
+		.hljs-link_url {
+			font-size: 80%;
+		}
+
+		.hljs-strong,
+		.hljs-strongemphasis {
+			font-weight: bold;
+		}
+
+		.hljs-emphasis,
+		.hljs-strongemphasis,
+		.hljs-class .hljs-title:last-child {
+			font-style: italic;
+		}
+
+		.hljs-keyword,
+		.hljs-function,
+		.hljs-change,
+		.hljs-winutils,
+		.hljs-flow,
+		.lisp .hljs-title,
+		.clojure .hljs-built_in,
+		.nginx .hljs-title,
+		.tex .hljs-special,
+		.hljs-header,
+		.hljs-attribute,
+		.hljs-symbol,
+		.hljs-symbol .hljs-string,
+		.hljs-tag .hljs-title,
+		.hljs-value,
+		.alias .hljs-keyword:first-child,
+		.css .hljs-tag,
+		.css .unit,
+		.css .hljs-important {
+			color: #F92672;
+		}
+
+		.hljs-function .hljs-keyword,
+		.hljs-class .hljs-keyword:first-child,
+		.hljs-constant,
+		.css .hljs-attribute {
+			color: #66d9ef;
+		}
+
+		.hljs-variable,
+		.hljs-params,
+		.hljs-class .hljs-title {
+			color: #f8f8f2;
+		}
+
+		.hljs-string,
+		.css .hljs-id,
+		.hljs-subst,
+		.haskell .hljs-type,
+		.ruby .hljs-class .hljs-parent,
+		.hljs-built_in,
+		.sql .hljs-aggregate,
+		.django .hljs-template_tag,
+		.django .hljs-variable,
+		.smalltalk .hljs-class,
+		.django .hljs-filter .hljs-argument,
+		.smalltalk .hljs-localvars,
+		.smalltalk .hljs-array,
+		.hljs-attr_selector,
+		.hljs-pseudo,
+		.hljs-addition,
+		.hljs-stream,
+		.hljs-envvar,
+		.apache .hljs-tag,
+		.apache .hljs-cbracket,
+		.tex .hljs-command,
+		.hljs-prompt,
+		.hljs-link_label,
+		.hljs-link_url {
+			color: #e6db74;
+		}
+
+		.hljs-comment,
+		.hljs-javadoc,
+		.java .hljs-annotation,
+		.python .hljs-decorator,
+		.hljs-template_comment,
+		.hljs-pi,
+		.hljs-doctype,
+		.hljs-deletion,
+		.hljs-shebang,
+		.apache .hljs-sqbracket,
+		.tex .hljs-formula {
+			color: #75715e;
+		}
+
+		.coffeescript .javascript,
+		.javascript .xml,
+		.tex .hljs-formula,
+		.xml .javascript,
+		.xml .vbscript,
+		.xml .css,
+		.xml .hljs-cdata,
+		.xml .php,
+		.php .xml {
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body itemscope itemtype='http://schema.org/WebPage'>
+	<amp-sidebar id='sidebar' layout='nodisplay'>
+		<h2>Categorias</h2>
+		<ul>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/back-end/'>
+						<span itemprop='name'>back-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/cultura/'>
+						<span itemprop='name'>cultura</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/data-science/'>
+						<span itemprop='name'>data-science</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/design/'>
+						<span itemprop='name'>design</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/devops/'>
+						<span itemprop='name'>devops</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/eventos/'>
+						<span itemprop='name'>eventos</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/talks/'>
+						<span itemprop='name'>talks</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/front-end/'>
+						<span itemprop='name'>front-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/mobile/'>
+						<span itemprop='name'>mobile</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/vagas/'>
+						<span itemprop='name'>vagas</span>
+					</a>
+				</li>
+			
+		</ul>
+		<h2>Veja também</h2>
+		<ul>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+					<span itemprop='name'>A engenharia</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Carreiras</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://eventos.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Nossos eventos</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='https://www.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Elo7</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a rel='external' itemprop='url' href='https://github.com/elo7/tech-blog'>Github</a>
+			</li>
+		</ul>
+		</ul>
+	</amp-sidebar>
+	<header>
+		<button class='sidebar-trigger' on='tap:sidebar'>☰</button>
+		<a rel='home' itemprop='url' href='/amp/home/' class='logo'></a></header>
+
+	<main itemscope itemtype='http://schema.org/Blog'>
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card post-content'>
+	<h1 itemprop='name' class='title'>Javascript Isomórfico</h1>
+	<div class='post-meta'>
+		<p class='date'>
+			Publicado em: <time datetime='30/01/2017' itemprop='datePublished'>30/01/2017</time>
+			<meta itemprop='dateModified' content='30/01/2017'>
+		</p>
+
+		<article>
+			
+				<a data-author='fernandabernardo' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/amp/fernandabernardo/' class='author'>
+					<meta itemprop='url' content='/amp/fernandabernardo'>
+					<span itemprop='name' class='publisher' data-author='fernandabernardo'>@fernandabernardo</span>
+					<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+				</a>
+			
+		</article>
+	</div>
+	<div class='content' itemprop='articleBody'>
+		<p>Novos frameworks são criados a todo momento e um novo nome está criando mais força no mundo Javascript: isomorfismo. Farei uma série de posts para explicar melhor esse conceito e algumas aplicações dele com o uso de frameworks. Nesse primeiro post, será abordada uma parte mais teórica sobre o que é isomorfismo.</p>
+<h2>Voltando no tempo</h2>
+<p>Antes de falar de fato do isomorfismo, é interessante pensar em o que aconteceu na história para surgir a necessidade de utilizar um código Javascript isomórfico.
+No final de 1990, Tim Berners-Lee publicou uma proposta de gerenciamento de informações mais formal para a <em>World Wide Web</em>. Em 1993, lançaram o <a href="https://pt.wikipedia.org/wiki/Mosaic">Mosaic</a>, o primeiro navegador WWW, que rodava tanto em Windows quanto em Linux, a qual abriu a web para o público em geral. Nesse mesmo ano, já é possível observar as primeiras páginas estáticas, com muitos textos e imagens. <a href="http://gizmodo.com/5960831/23-ancient-web-sites-that-are-still-alive">Alguns desses sites antigos podem ser encontrados nesse artigo</a>.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-0' role='button' tabindex='0' src='../../images/isomorfismo-1.png' layout='fixed' height='74' width='272' alt='&quot;Sites estáticos: Netscape e Space Jam&quot;'></amp-img><amp-image-lightbox id='lightbox-0' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Já em maio de 1995, Brendan Eich criou o Javascript. Inicialmente conhecido como Mocha e mais tarde como LiveScript, o Javascript passou a ser conhecido com este nome apenas em dezembro, depois de receber uma licença da Sun. Essa mudança foi devido a uma jogada de marketing, já que o Java estava começando a ficar bem popular no mesmo período. Com o Javascript, foi possível adicionar mais interações com a página, eventos, animações...</p>
+<p>No final dos anos 2000, as <em>Single Page Applications</em> (SPAs) se tornaram populares. Elas são um modelo de desenvolvimento de aplicações web e mobile. Desenvolver uma SPA significa dividir a responsabilidade com o cliente, ou seja, ter mais código rodando no cliente. Elas se assemelham mais a aplicativos desktop e com elas é possível interagir com uma página sem a necessidade de atualizá-la (reload). Como não é mais necessário o reload, é possível carregar dados assincronamente para que os usuários possam fazer algo durante o primeiro carregamento da página. Temos vários exemplos de SPA (Facebook, Google Drive, Twitter, FourSquare), onde podemos realizar diversas tarefas sem ter que aguardar cada uma delas ser concluída. Um bom exemplo é o Gmail, no qual podemos enviar diversos emails em paralelo sem ter que aguardar o primeiro processo encerrar com sucesso.</p>
+<h2>Problemas atuais</h2>
+<p>Alguns problemas encontrados são com questões de <em>Search Engine Optimization</em> (SEO), já que, por padrão, não é possível rodar uma página dessas sem Javascript, pois todo o seu código é gerado no cliente via JS. Porém, melhora a usabilidade do usuário, tornando uma página mais fluida.</p>
+<p>Em 1997, o projeto do <a href="https://developer.mozilla.org/pt-BR/docs/Mozilla/Projects/Rhino">Rhino</a> foi iniciado na Netscape. O objetivo dele estava ligado ao suporte de scripting dentro de aplicações Java, e não ao desenvolvimento de aplicações completas. Anos depois, em 2009, foi criado o NodeJS e com isso é possível rodar um código Javascript no lado do servidor.</p>
+<p>Sendo possível rodar código Javascript no servidor e também no cliente, podemos nos fazer uma pergunta: E se fosse possível rodar <strong>um mesmo</strong> código Javascript no servidor e no cliente?</p>
+<h2>Nomenclatura</h2>
+<p>A palavra isomorfismo no dicionário tem alguns significados, mas o que mais se assemelha ao que queremos é:</p>
+<blockquote>
+<p>2. <em>miner</em> fenômeno pelo qual duas ou mais substâncias de composição química diferente se apresentam com a mesma estrutura cristalina.</p>
+</blockquote>
+<p>Outra nomenclatura conhecida é <strong>Javascript Universal</strong>. Esta surgiu com um <a href="https://medium.com/@mjackson/universal-javascript-4761051b7ae9#.e5tzyhurr">post</a> em 2015 do Michael Jackson (é verdade). Ele fez um <a href="https://github.com/facebook/react/pull/4041">pull request</a> para o React colocando os significados das duas nomenclaturas. No post, um dos argumentos mais interessantes é que, quando falamos para uma pessoa sobre Javascript isomórfico, ninguém entende logo o que significa, mas, se falarmos Javascript Universal, todos entendem bem mais rápido sobre o que estamos falando. No post, usarei o termo isomórfico, mas é bom saber que as duas nomenclaturas são usadas hoje em dia.</p>
+<h2>Código isomórfico</h2>
+<p>Depois da parte teórica, a pergunta que surge é: como isso funciona no código?
+Basicamente, temos o mesmo código que consegue rodar no cliente e no servidor. Isso é possível, já que temos a seguinte separação entre os dois lados:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-1' role='button' tabindex='0' src='../../images/isomorfismo-2.png' layout='fixed' height='153' width='272' alt='&quot;Responsabilidades do cliente/servidor&quot;'></amp-img><amp-image-lightbox id='lightbox-1' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Como é possível perceber, alguns pontos são repetidos dos dois lados, e são esses os pontos que serão unificados em um código só isomórfico. O resto, como, por exemplo, a parte de persistência e de sessão, faz parte unicamente do lado servidor, enquanto eventos de DOM e o Local Storage faz parte do lado cliente.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-2' role='button' tabindex='0' src='../../images/isomorfismo-3.png' layout='fixed' height='118' width='272' alt='&quot;Unificação em um código isomórfico&quot;'></amp-img><amp-image-lightbox id='lightbox-2' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Para exemplificar como fazer um código isomórfico e quais são as especificações do lado cliente e do servidor, segue o código abaixo, feito com EcmaScript 2015:</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Pessoa</span> </span>{
+    <span class="hljs-keyword">constructor</span>(nome, dataNascimento) {
+        <span class="hljs-keyword">this</span>.nome = nome;
+        <span class="hljs-keyword">this</span>.dataNascimento = dataNascimento;
+    }
+
+    <span class="hljs-keyword">get</span> idade() { ... }
+
+    <span class="hljs-keyword">get</span> primeiroNome() { ... }
+}
+
+<span class="hljs-built_in">module</span>.exports = Pessoa;
+</code></pre>
+<p>Esse arquivo é o modelo de uma pessoa, com nome e data de nascimento. Nesse modelo há dois métodos, que retornam, respectivamente, a idade e o primeiro nome. Apenas isso é importante saber no momento, toda a forma de como foi implementado é irrelevante para o exemplo. Já o próximo código é a parte mais importante, já que será nele que aplicaremos o isomorfismo.</p>
+<pre class="highlight"><code class="hljs javascript">Pessoa = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./pessoa'</span>);
+
+<span class="hljs-keyword">const</span> parser = {
+    <span class="hljs-attr">parse</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">txt</span>) </span>{
+        <span class="hljs-keyword">return</span> txt.split(<span class="hljs-string">'\n'</span>).map(<span class="hljs-function">(<span class="hljs-params">linha</span>) =&gt;</span> {
+            <span class="hljs-keyword">let</span> [nome, dataTxt] = linha.split(<span class="hljs-string">';'</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Pessoa(nome, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(dataTxt));
+        });
+    }
+};
+
+<span class="hljs-built_in">module</span>.exports = parser;
+</code></pre>
+<p>Nesse código, temos um parser para o arquivo, que separa cada linha do texto e quebra a linha em cada <code>;</code> e, com o resultado disso, cria uma nova Pessoa. O importante desse código é perceber que não utilizamos nenhum módulo do Node nem manipulamos o <code>document</code> do <em>browser</em>.</p>
+<p>Na primeira parte do nosso exemplo, vamos rodar todo esse código no Node, apenas no lado servidor. Para isso, criaremos mais um arquivo (<code>main.js</code>) para rodar todo o código criado.</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">const</span> parser = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./pessoa_parser'</span>);
+<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+fs.readFile(<span class="hljs-string">'pessoas.txt'</span>, (err, content) =&gt; {
+    <span class="hljs-keyword">let</span> pessoas = parser.parse(content.toString());
+    <span class="hljs-built_in">console</span>.log(pessoas);
+});
+
+</code></pre>
+<p>Dessa forma, quando rodamos esse arquivo no servidor, obtemos essa resposta:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-3' role='button' tabindex='0' src='../../images/isomorfismo-4.png' layout='fixed' height='101' width='272' alt='&quot;Output do código quando rodado no servidor&quot;'></amp-img><amp-image-lightbox id='lightbox-3' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Agora, como nosso objetivo é ter um código que rode no servidor e no cliente, precisamos criar um arquivo HTML para tentar rodar esse código que já criamos. Esse HTML ficaria parecido com o código a seguir:</p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Pessoas
+            <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'pessoas'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'processar'</span>&gt;</span>Processar<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>  <span class="hljs-comment">&lt;!-- Import dos scripts --&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>Logo de início, se tentarmos abrir o arquivo em um <em>browser</em>, teremos esse erro:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-4' role='button' tabindex='0' src='../../images/isomorfismo-5.png' layout='fixed' height='67' width='272' alt='&quot;Erro quando código não isomórfico roda no browser&quot;'></amp-img><amp-image-lightbox id='lightbox-4' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Aqui, percebemos que o <code>module</code> e o <code>require</code>, que fazem parte da especificação do <em>node</em>, não funcionam no <em>browser</em>, apenas no servidor. Precisamos arrumar o nosso código para que ele consiga se adaptar nos diferentes ambientes. Porém, vale lembrar que não iremos alterar a função <code>parser</code>, já que esse é o código isomórfico. O lugar que vamos alterar será no <code>main.js</code>, como mostra o código a seguir:</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">module</span> === <span class="hljs-string">'object'</span>) {
+    <span class="hljs-keyword">const</span> parser = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./pessoa_parser'</span>);
+    <span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+    fs.readFile(<span class="hljs-string">'pessoas.txt'</span>, (err, content) =&gt; { ... });
+} <span class="hljs-keyword">else</span> {
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'processar'</span>).addEventListener(<span class="hljs-string">'click'</span>, () =&gt; {
+        <span class="hljs-keyword">let</span> pessoas = parser.parse(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'pessoas'</span>).value);
+        <span class="hljs-built_in">console</span>.log(pessoas);
+    });
+}
+</code></pre>
+<p>Além disso, em todos os lugares que usarem o <code>require</code> ou o <code>module</code>, teremos que fazer o seguinte <code>if</code>:</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">module</span> === <span class="hljs-string">'object'</span>) { ... }
+</code></pre>
+<p>Dessa forma, no servidor continuará funcionando normalmente e, no <em>browser</em>, passará a funcionar:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-5' role='button' tabindex='0' src='../../images/isomorfismo-6.png' layout='fixed' height='89' width='272' alt='&quot;Output do código no browser&quot;'></amp-img><amp-image-lightbox id='lightbox-5' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Agora temos um código isomórfico! (Nossa função parser :) ) Nesse <a href="https://github.com/FernandaBernardo/palestra-isomorfismo-exemplo">repositório</a> está o código completo do exemplo explicado. Finalizando, nesse post temos o que é o isomorfismo, toda a parte histórica e como funciona um código simples. No próximo post, falarei mais sobre frameworks e o que usar isomorfismo traz para seu projeto.</p>
+
+		<section class='share'>
+			<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/amp/isomorfismo/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+				Compartilhar no facebook
+			</a>
+			<a href='https://twitter.com/intent/tweet?text=Javascript Isomórfico&url=https://elo7.dev/amp/isomorfismo/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+				Compartilhar no twitter
+			</a>
+		</section>
+	</div>
+	<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
+		<link href="/images/ico/elo7.png" itemprop="url"/>
+		<meta itemprop='width' content='100px'/>
+		<meta itemprop='height' content='100px'/>
+	</span>
+
+	<meta itemprop='headline' content='Novos frameworks são criados a todo momento e um novo nome está criando mais força no mundo Javascript: isomorfismo.'/>
+	<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop='name' content='Elo7 Tech'/>
+		<meta itemprop="url" content='https://elo7.dev'/>
+		<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+			<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+			<meta itemprop='width' content='100px'/>
+			<meta itemprop='height' content='100px'/>
+		</span>
+	</span>
+	<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+</article>
+	</main>
+	<footer itemscope itemtype='http://schema.org/Organization'>
+		<a rel='home' itemprop='url' href='/amp/home/'>elo7.dev © 2019</a>
+		<meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<amp-analytics type='googleanalytics'>
+		<script type='application/json'>
+			{
+				"vars": {
+					"account": "UA-3692628-29"
+				},
+				"triggers": {
+					"trackPageview": {
+						"on": "visible",
+						"request": "pageview"
+					}
+				}
+			}
+		</script>
+	</amp-analytics>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Neste post discutiremos alguns pontos de atenção importantes e necessários ao implementar o Kubernetes em ambientes de produção.">
+	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
+	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name="theme-color" content="#FDC24F">
+	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,devops,kubernetes,containers,AWS">
+	<meta name="language" content="pt-br">
+	<meta name="title" content="Elo7 Tech - Boas práticas na utilização do Kubernetes em produção">
+	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Boas práticas na utilização do Kubernetes em produção">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<meta property="fb:app_id" content="644444999041914">
+	<meta property="fb:admins" content="100003324447975">
+
+	<meta property="og:site_name" content="Elo7 Tech">
+	<meta property="og:image" content="https://elo7.dev/images/cover/elo7.png">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Elo7 Tech - Boas práticas na utilização do Kubernetes em produção">
+	<meta property="og:url" content="https://elo7.dev/boas-praticas-na-utilizacao-k8s/">
+	<meta property="og:description" content="Neste post discutiremos alguns pontos de atenção importantes e necessários ao implementar o Kubernetes em ambientes de produção.">
+
+	<meta name="twitter:widgets:csp" content="on">
+	<meta name="twitter:card" content="summary_large_image">
+
+	<meta property="twitter:title" content="Elo7 Tech - Boas práticas na utilização do Kubernetes em produção">
+	<meta property="twitter:domain" content="https://elo7.dev">
+	<meta property="twitter:url" content="https://elo7.dev/boas-praticas-na-utilizacao-k8s/">
+	<meta property="twitter:description" content="Neste post discutiremos alguns pontos de atenção importantes e necessários ao implementar o Kubernetes em ambientes de produção.">
+	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+
+	<link rel="canonical" href="https://elo7.dev/boas-praticas-na-utilizacao-k8s/">
+	
+		<link rel='amphtml' href='https://elo7.dev/amp/boas-praticas-na-utilizacao-k8s/' />
+	
+
+	<title>Elo7 Tech - Boas práticas na utilização do Kubernetes em produção</title>
+	<link rel="stylesheet" href="/reset.css">
+	<link rel="stylesheet" href="/main.css">
+	<link rel="stylesheet" href="/posts.css">
+	<link rel="stylesheet" href="/post.css">
+	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
+	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
+	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
+	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
+	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
+	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
+	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
+	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
+	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src="/js/vendor/async-define.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
+	<header class="left-pane">
+		<div class="logo-container">
+			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
+		</div>
+		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
+			<input id="categories-switch" type="checkbox" class="categories-switch">
+			<label for="categories-switch" class="selectable">
+				<h2 class="nav-title">Categorias</h2>
+			</label>
+			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
+				
+					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Back-end</span>
+					</a>
+				
+					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Cultura</span>
+					</a>
+				
+					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Data Science</span>
+					</a>
+				
+					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Design</span>
+					</a>
+				
+					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Devops</span>
+					</a>
+				
+					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Eventos</span>
+					</a>
+				
+					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Palestras</span>
+					</a>
+				
+					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Front-end</span>
+					</a>
+				
+					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Mobile</span>
+					</a>
+				
+					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Vagas</span>
+					</a>
+				
+			</nav>
+		</div>
+		<div class="navigation">
+			<input id="more-switch" type="checkbox" class="more-switch">
+			<label for="more-switch" class="selectable">
+				<h2 class="nav-title">Veja também</h2>
+			</label>
+			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
+					<span itemprop="name">A engenharia</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
+					<span itemprop="name">Carreiras</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
+					<span itemprop="name">Nossos eventos</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
+					<span itemprop="name">Elo7</span>
+				</a>
+			</nav>
+		</div>
+		<div class='social'>
+			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
+			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
+		</div>
+	</header>
+	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<img src='https://elo7.dev/images/cover/elo7.png' alt='' itemprop="url">
+	</figure>
+	<div class='post-content'>
+		<h1 itemprop='name' class='title'>Boas práticas na utilização do Kubernetes em produção</h1>
+		<div class='post-meta'>
+			<p class='date'>
+				Publicado em: <time datetime='27/08/2018' itemprop='datePublished'>27/08/2018</time>
+				<meta itemprop='dateModified' content='27/08/2018'>
+			</p>
+
+			<article>
+				
+					<a data-author='marcusrios' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/marcusrios/' class='author'>
+						<meta itemprop='url' content='/marcusrios'>
+						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
+						<p itemprop='name' class='publisher' data-author='marcusrios'>@marcusrios</p>
+					</a>
+				
+
+				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+			</article>
+		</div>
+		<div itemprop='articleBody'>
+			<p>O <a href="https://kubernetes.io/">Kubernetes</a> é uma ferramenta para orquestração de <em>containers</em> extremamente consolidada no mercado e com muitos recursos que facilitam a administração, diminuindo o <em>overhead</em> operacional de se manter ambientes com <em>containers</em>. Contudo, quando falamos de ambientes de produção, alguns pontos como segurança, disponibilidade, escalabilidade e outros precisam ser tratados com muito afinco para que tenhamos uma plataforma resiliente e preparada para receber grandes cargas de trabalho. A ideia desse <em>post</em> é apresentar alguns dos vários pontos de atenção que precisamos ter na hora de implementar/utilizar nosso cluster.</p>
+<h2>Autenticação e autorização</h2>
+<p>Existem várias estrátegias de <a href="https://kubernetes.io/docs/admin/authentication/#authentication-strategies">autenticação</a> no <code>Kubernetes</code>. Aqui no Elo7 usamos certificados <em>x509</em> que são gerados pelo <a href="https://www.vaultproject.io/">vault</a>. No nosso caso, a autorização é feita pelo <code>vault</code> com base no usuário do <em>GitHub</em>. Independentemente da estratégia adotada, a ideia aqui é não deixar o <em>cluster</em> acessível sem autenticação e, preferencialmente, que seja adotado um mecanismo de autorização com base nas permissões que cada usuário precise.</p>
+<h2>Liveness e Readiness probes</h2>
+<p>Para o <code>Kubernetes</code>, por padrão, o seu <em>container</em> estará apto a receber requisições a partir do momento em que o <em>pod</em> estiver com o status de <em>Ready</em>, mas não necessariamente ele está de fato &quot;pronto&quot;. Um bom exemplo disso seria uma aplicação Java com Spring que pode levar alguns segundos até carregar todas as suas dependências e iniciar a <em>app</em>. Nesse meio tempo, as requisições que forem encaminhadas para esse <em>pod</em> retornaram erro 500 para o <a href="https://kubernetes.io/docs/concepts/services-networking/service/">Service</a> e consequentemente para o usuário. Pensando nisso, existe uma técnica para garantir que o <em>pod</em> só receberá requisições quando a <em>app</em> estiver realmente pronta. Podemos fazer isso usando <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#define-readiness-probes">readiness probe</a>. Vejamos abaixo um exemplo:</p>
+<pre class="highlight"><code class="hljs yaml"><span class="hljs-attr">readinessProbe:</span>
+<span class="hljs-attr">  httpGet:</span>
+<span class="hljs-attr">    path:</span> <span class="hljs-string">"/health"</span>
+<span class="hljs-attr">    port:</span> <span class="hljs-number">8080</span>
+<span class="hljs-attr">  initialDelaySeconds:</span> <span class="hljs-number">10</span>
+<span class="hljs-attr">  periodSeconds:</span> <span class="hljs-number">5</span>
+<span class="hljs-attr">  successThreshold:</span> <span class="hljs-number">3</span>
+</code></pre>
+<p><strong>initialDelaySeconds</strong> = Tempo em segundos que o <code>Kubernetes</code> aguarda antes de realizar uma operação de <em>readiness</em> ou <em>liveness</em>, após o container ser iniciado.</p>
+<p><strong>periodSeconds</strong> = De quantos em quantos segundos o <code>Kubernetes</code> deve realizar uma operação de <em>readiness</em> ou <em>liveness</em>.</p>
+<p><strong>successThreshold</strong> = Quantas vezes consecutivas o <em>probe</em> precisa responder com <strong>OK</strong> para ser considerado pronto para receber tráfego.</p>
+<p>No nosso exemplo estamos realizando um GET em <code>POD_IP:8080/health</code></p>
+<p>Assim como temos o <code>readinessProbe</code> para avaliar se o <em>pod</em> está pronto, também temos o <code>livenessProbe</code> para dizer se o <em>pod</em> está vivo, ou seja, para dizer se a <em>app</em> está de pé ou não. O funcionamento é basicamente o mesmo do <code>readinessProbe</code>. É importante destacar que essas checagens podem ser feitas com comandos também. Vejamos um exemplo:</p>
+<pre class="highlight"><code class="hljs yaml"><span class="hljs-attr">readinessProbe:</span>
+<span class="hljs-attr">  exec:</span>
+<span class="hljs-attr">    command:</span>
+<span class="hljs-bullet">    -</span> <span class="hljs-string">test</span>
+<span class="hljs-bullet">    -</span> <span class="hljs-bullet">-e</span>
+<span class="hljs-bullet">    -</span> <span class="hljs-string">/tmp/endpoints.json</span>
+<span class="hljs-attr">  initialDelaySeconds:</span> <span class="hljs-number">15</span>
+<span class="hljs-attr">  periodSeconds:</span> <span class="hljs-number">30</span>
+</code></pre>
+<p>Nesse caso o que será avaliado para considerar esse <em>container</em> como saudável é a existencia do arquivo <code>/tmp/endpoints.json</code></p>
+<h2>Quanto de recurso eu defino aqui?</h2>
+<p>Por padrão, se nada foi informado, o <code>Kubernetes</code> irá subir seus <em>containers</em> sem limites para uso de CPU e memória (por exemplo). Quando estamos definindo alguns objetos como <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">deployments</a>, temos a possibilidade de configurar valores de <em>requests</em> e <em>limits</em> na sessão de <a href="https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/"><code>resources</code></a>. Vejamos abaixo o que cada um significa e um exemplo de implementação:</p>
+<p><strong>requests</strong> = Qual o valor de CPU e memória que o <code>Kubernetes</code> precisa reservar para o meu container ser iniciado.</p>
+<p><strong>limits</strong> = Qual o valor máximo de CPU e memória que meu <em>container</em> pode consumir no <code>Kubernetes</code>.</p>
+<pre class="highlight"><code class="hljs yaml"><span class="hljs-attr">resources:</span>
+<span class="hljs-attr">  requests:</span>
+<span class="hljs-attr">    memory:</span> <span class="hljs-string">"128Mi"</span>
+<span class="hljs-attr">    cpu:</span> <span class="hljs-string">"1000m"</span>
+<span class="hljs-attr">  limits:</span>
+<span class="hljs-attr">    memory:</span> <span class="hljs-string">"512Mi"</span>
+<span class="hljs-attr">    cpu:</span> <span class="hljs-string">"2000m"</span>
+</code></pre>
+<p>No exemplo acima, estamos definindo 512MB de memória/2000 <em>millicores</em> para limits e 128 MB de memória/1000 <em>millicores</em> para requests (lembrando que 1m representa 1/1000 = 0,001 de um <em>core</em> de CPU, assim como 500m = 500/1000 = 0,5 <em>core</em> de uma CPU ou 50% de uma CPU).</p>
+<p>Estamos falando para o Kubernetes reservar 1 <em>core</em> de uma CPU para nosso <em>container</em>, mas a grande pergunta é: precisamos realmente reservar 1 <em>core</em> de CPU para esse container? Provavelmente a resposta vai ser não, mas a única forma de termos certeza é acompanharmos o consumo de recursos no container (podemos utilizar ferramentas como o <a href="https://github.com/google/cadvisor">cAdivisor</a> e o <a href="https://github.com/prometheus/prometheus">Prometheus</a> para nos ajudar nessa tarefa).</p>
+<p>O grande problema de usar valores &quot;altos&quot; na configuração das <em>requests</em> é que podemos estar superdimensionando nosso <em>cluster</em>, logo precisaremos de mais <em>nodes</em> e consequentemente teremos um desperdício de recursos, visto que o <code>Kubernetes</code> está pré-alocando 1 <em>core</em> de CPU, mas na verdade estamos usando apenas 30% disso, por exemplo. Isso pode parecer pouco, mas se pensarmos em um cenário com centenas de <em>containers</em> com esse mesmo perfil de configuração, ao final do mês estaremos rodando alguns <em>nodes</em> sem necessidade.</p>
+<h2>Definindo limits padrão</h2>
+<p>Como dito anteriormente, em configurações padrões e se não for informado nada na criação do <em>deployment</em>, o <code>Kubernetes</code> irá criar o mesmo com recursos &quot;ilimitados&quot;. Para contornar essa situação, o <code>Kubernetes</code> disponibiliza um recurso que define valores de <em>requests</em> e <em>limits</em> <em>defaults</em>, caso não sejam informados. Isso pode ser feito utilizando o objeto <a href="https://kubernetes.io/docs/tasks/administer-cluster/memory-default-namespace/"><code>LimitRange</code></a></p>
+<pre class="highlight"><code class="hljs yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">LimitRange</span>
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> <span class="hljs-string">ns-limits-range</span>
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  limits:</span>
+<span class="hljs-attr">  - default:</span>
+<span class="hljs-attr">      cpu:</span> <span class="hljs-number">500</span><span class="hljs-string">m</span>
+<span class="hljs-attr">      memory:</span> <span class="hljs-number">512</span><span class="hljs-string">Mi</span>
+<span class="hljs-attr">    defaultRequest:</span>
+<span class="hljs-attr">      cpu:</span> <span class="hljs-number">200</span><span class="hljs-string">m</span>
+<span class="hljs-attr">      memory:</span> <span class="hljs-number">256</span><span class="hljs-string">Mi</span>
+<span class="hljs-attr">    type:</span> <span class="hljs-string">Container</span>
+</code></pre>
+<h2>nodeSelector</h2>
+<p>A <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">namespace</a> é um recurso que permite criar <em>clusters</em> &quot;virtuais&quot;. A idéia aqui seria organizar seus objetos (<em>deployments</em>, <em>secrets</em>, <em>configMaps</em> e afins) em ambientes separados como produção e desenvolvimento ou até mesmo por projeto ou times. Mas a <em>namespace</em> em si é só um recurso lógico, ou seja, ela não vai garantir que seus <em>deployments</em> de produção não rodem no mesmo node que os <em>deployments</em> de desenvolvimento. Para resolver isso, umas das alternativas seria usar <a href="https://kubernetes.io/docs/concepts/configuration/assign-pod-node/">nodeSelector</a>.</p>
+<p>O <code>nodeSelector</code> é um recurso que permite especificar em qual <em>node</em> seu container será executado. Vejamos um exemplo disso na declaração de um <em>pod</em>:</p>
+<pre class="highlight"><code class="hljs yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Pod</span>
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> <span class="hljs-string">nginx</span>
+<span class="hljs-attr">  labels:</span>
+<span class="hljs-attr">    env:</span> <span class="hljs-string">test</span>
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  containers:</span>
+<span class="hljs-attr">  - name:</span> <span class="hljs-string">nginx</span>
+<span class="hljs-attr">    image:</span> <span class="hljs-string">nginx</span>
+<span class="hljs-attr">    imagePullPolicy:</span> <span class="hljs-string">IfNotPresent</span>
+<span class="hljs-attr">  nodeSelector:</span>
+<span class="hljs-attr">    elo7-environment:</span> <span class="hljs-string">dev</span>
+</code></pre>
+<p>Essa declaração irá criar um <em>pod</em> usando a imagem do <a href="https://www.nginx.com/">nginx</a> e criará o mesmo em qualquer <em>node</em> que tenha a label <code>elo-environment=dev</code>. Quando estamos adicionando um novo <em>node</em> no nosso <em>cluster</em>, temos a possibilidade de passar uma <em>flag</em> para o <a href="https://kubernetes.io/docs/reference/generated/kubelet/">kubelet</a> que irá informar as <em>labels</em> que aquele <em>node</em> terá. No exemplo acima, ao criar o <em>node</em> passariamos a seguinte <em>flag</em>:</p>
+<p><code>--node-labels=elo7-environment=dev</code></p>
+<h2>Qual é a melhor forma de autorizar minhas aplicações rodando no k8s para usar recursos na AWS?</h2>
+<p>No nosso caso, nosso <em>Cloud Provider</em> é a AWS. Existem uma série de serviços externos que talvez nossa aplicação precise acessar (como S3, SQS e afins). Para consumir tais serviços precisamos ser autorizados, e esse mecanismo de autorização pode ser feito usando <a href="https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys">AWS Access e Secret Keys</a> ou <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">roles</a>. Por questões de segurança e boas práticas não é recomendado usar <em>Access Keys</em> para aplicações na AWS. Ao invés disso, é recomendado usar <em>IAM roles</em>. Pensando nisso, foi criado o <em>plugin</em> <a href="https://github.com/jtblin/kube2iam">kube2iam</a>. Esse <em>plugin</em> permite que você adicione no campo de <code>annotations</code> qual <em>role</em> estará vinculada com sua <em>app</em>, permitindo que a mesma acesse recursos da AWS. Lembrando que esse <em>plugin</em> é implementado no <code>Kubernetes</code> como um <a href="https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/">DaemonSet</a>. Para maiores informações de como configurá-lo, recomendo a leitura da configuração disponível no Readme do projeto no GitHub. Abaixo temos um exemplo simples de como usar esse recurso:</p>
+<pre class="highlight"><code class="hljs yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Pod</span>
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> <span class="hljs-string">aws-cli</span>
+<span class="hljs-attr">  labels:</span>
+<span class="hljs-attr">    name:</span> <span class="hljs-string">aws-cli</span>
+<span class="hljs-attr">  annotations:</span>
+    <span class="hljs-string">iam.amazonaws.com/role:</span> <span class="hljs-string">role-arn</span>
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  containers:</span>
+<span class="hljs-attr">  - image:</span> <span class="hljs-string">fstab/aws-cli</span>
+<span class="hljs-attr">    command:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">"/usr/local/bin/aws"</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">"s3"</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">"ls"</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">"some-bucket"</span>
+<span class="hljs-attr">    name:</span> <span class="hljs-string">aws-cli</span>
+</code></pre>
+<h2>Conclusão</h2>
+<p>Nesse <em>post</em> elencamos alguns dos muitos tópicos que precisam ser tratados com a implementação do <code>Kubernetes</code> em produção. E você? Como está lidando com os desafios e dilemas na implementação em sua empresa? Aproveite o espaço no campo de comentários para deixar seu ponto de vista ou compartilhar como você lidou com esses desafios. Um abraço e até a próxima!</p>
+
+
+			<ul class='tag-list'>
+			
+				<li>
+					<a href='/tags/devops/'>devops</a>
+				</li>
+			
+				<li>
+					<a href='/tags/kubernetes/'>kubernetes</a>
+				</li>
+			
+				<li>
+					<a href='/tags/containers/'>containers</a>
+				</li>
+			
+				<li>
+					<a href='/tags/aws/'>aws</a>
+				</li>
+			
+			</ul>
+			<section class='share'>
+				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+				<div class='social-share'>
+					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/boas-praticas-na-utilizacao-k8s/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+						Compartilhar no facebook
+					</a>
+					<a href='https://twitter.com/intent/tweet?text=Boas práticas na utilização do Kubernetes em produção&url=https://elo7.dev/boas-praticas-na-utilizacao-k8s/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+						Compartilhar no twitter
+					</a>
+					<a href='https://elo7.dev/boas-praticas-na-utilizacao-k8s/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+						Copiar URL
+					</a>
+					<span class='copy-success'>Link copiado</span>
+					<input type='url' value='https://elo7.dev/boas-praticas-na-utilizacao-k8s/?utm_source=share&utm_medium=copy' class='link-input'>
+				</div>
+			</section>
+		</div>
+
+		<meta itemprop='headline' content='Neste post discutiremos alguns pontos de atenção importantes e necessários ao implementar o Kubernetes em ambientes de produção.'/>
+		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop='name' content='Elo7 Tech'/>
+			<meta itemprop="url" content='https://elo7.dev'/>
+			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+				<meta itemprop='width' content='100px'/>
+				<meta itemprop='height' content='100px'/>
+			</span>
+		</span>
+		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+		<div id='disqus_thread'></div>
+
+		<script>
+			var disqus_shortname = 'engenhariaelo7';
+			var disqus_identifier = '27/08/2018:/boas-praticas-na-utilizacao-k8s/';
+			var disqus_url = 'https://elo7.dev/boas-praticas-na-utilizacao-k8s/';
+
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Habilite o JavaScript para ver os comentários</noscript>
+	</div>
+</article>
+<script async src="/js/post.js"></script>
+
+		
+	</main>
+	<footer itemscope itemtype="http://schema.org/Organization">
+		<a rel="home" itemprop="url" href="https://elo7.dev/" >
+			elo7.dev © 2019
+		</a>
+		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<script async src="https://www.google-analytics.com/analytics.js"></script>
+	<script async src="/js/analytics.js"></script>
+	<script async src="/js/github.js"></script>
+	<script async src="/js/vendor/events-amd.js"></script>
+	<script async src="/js/vendor/ajax.js"></script>
+	<script async src="/js/vendor/doc.js"></script>
+	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

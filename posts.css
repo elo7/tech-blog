@@ -1,0 +1,131 @@
+@charset "UTF-8";
+.posts-container {
+  padding: 1em 5%; }
+  .posts-container > a {
+    text-decoration: none;
+    color: #000; }
+  .posts-container > .title {
+    font-size: 2.5em;
+    color: #333;
+    margin-top: 0.5em;
+    margin-bottom: 1em; }
+  .posts-container .post-info {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    padding-left: 1.5rem; }
+  .posts-container .post-card {
+    margin: 1em 0;
+    padding-top: 1em;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column; }
+    .posts-container .post-card:not(:first-of-type) {
+      border-top: 1px solid #E2E2E2; }
+    .posts-container .post-card .post-meta {
+      color: #888;
+      font-weight: 300; }
+    .posts-container .post-card .date {
+      font-size: 0.8em;
+      color: #888; }
+    .posts-container .post-card .category {
+      color: #888;
+      text-decoration: none;
+      font-size: 1em;
+      border-radius: 3px;
+      display: block;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-weight: 300;
+      text-transform: uppercase;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em; }
+    .posts-container .post-card .title {
+      color: #333;
+      display: inline-block;
+      font-size: 1.6em;
+      text-decoration: none;
+      line-height: 1.2; }
+      .posts-container .post-card .title:hover {
+        text-decoration: underline; }
+    .posts-container .post-card .author {
+      text-decoration: none;
+      color: #888;
+      font-size: 0.8rem;
+      transition: color 0.3s; }
+      .posts-container .post-card .author p {
+        display: inline-block;
+        padding-top: 0.6em; }
+      .posts-container .post-card .author:hover {
+        color: #fba702; }
+      .posts-container .post-card .author + .author:before {
+        content: '·';
+        display: inline-block; }
+    .posts-container .post-card .description {
+      font-weight: lighter;
+      line-height: 1.8;
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+      font-size: 0.9em;
+      text-align: justify; }
+    .posts-container .post-card .link {
+      text-decoration: none;
+      color: #000;
+      display: block; }
+    .posts-container .post-card .post-link {
+      border: 1px solid #fba702;
+      border-radius: 3px;
+      color: #fba702;
+      padding: 0.8em;
+      text-align: center;
+      transition: background-color 0.3s, color 0.3s;
+      font-size: 0.9em;
+      margin: 0 auto;
+      display: block; }
+      .posts-container .post-card .post-link:hover {
+        background-color: #fba702;
+        color: #FFF; }
+    .posts-container .post-card .cover-image {
+      background: #eee;
+      height: 150px;
+      width: 100%;
+      overflow: hidden;
+      position: relative; }
+      .posts-container .post-card .cover-image:hover img {
+        opacity: 1; }
+      .posts-container .post-card .cover-image img {
+        margin: auto;
+        opacity: 0.7;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        left: 50%;
+        top: 50%; }
+
+@media (max-width: 500px) {
+  .posts-container .date {
+    display: block;
+    margin-top: 1em; } }
+
+@media (min-width: 800px) {
+  .posts-container:not(.publisher-container) .post-card {
+    -ms-flex-direction: row;
+        flex-direction: row; }
+    .posts-container:not(.publisher-container) .post-card .category, .posts-container:not(.publisher-container) .post-card .post-meta, .posts-container:not(.publisher-container) .post-card .link {
+      text-align: center; }
+    .posts-container:not(.publisher-container) .post-card .post-info {
+      -ms-flex: 1;
+          flex: 1; }
+  .posts-container .post-card {
+    padding: 1.5rem;
+    background-color: #FFF; }
+    .posts-container .post-card:not(:first-of-type) {
+      border-top: none; }
+    .posts-container .post-card .author + time:before {
+      content: '·'; }
+    .posts-container .post-card .cover-image {
+      height: 300px;
+      width: 300px; } }

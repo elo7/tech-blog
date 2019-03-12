@@ -1,0 +1,888 @@
+<!doctype html>
+<html amp lang='pt-br'>
+<head>
+	<meta charset='utf-8'>
+	<script async src='https://cdn.ampproject.org/v0.js'></script>
+	<script async custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
+	<script async custom-element='amp-image-lightbox' src='https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js'></script>
+	<script async custom-element='amp-analytics' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js'></script>
+	<title>Elo7 Tech - Introdução à programação funcional com Java 8</title>
+	<meta name='description' content='Disponível desde 2014, o Java 8 ainda deixa muitas dúvidas, principalmente quanto às novidades em relação à sua versão anterior. Nesse post vou falar sobre as principais novidades do Java 8.'>
+	<link rel='canonical' href='https://elo7.dev/introducao-a-programacao-funcional-com-java8/' />
+	<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>
+	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+	<style amp-custom>
+		body {
+			background-color: white;
+			font-family: 'Open Sans', sans-serif;
+			color: #666;
+		}
+
+		h1 {
+			color: #333;
+			font-size: 1.5em;
+			margin-bottom: 0;
+		}
+
+		h2, h3 {
+			color: #444;
+			font-size: 1.2em;
+		}
+
+		h3 {
+			font-weight: 300;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		p, li {
+			font-size: 0.9em;
+		}
+
+		ul {
+			padding-left: 1.5em;
+		}
+
+		article {
+			line-height: 1.8;
+			text-align: justify;
+		}
+
+		blockquote {
+			margin: 1em;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			font-size: 0.9em;
+			width: 100%;
+			text-align: left;
+		}
+
+		table thead th {
+			background-color: #4a4a4a;
+			color: white;
+		}
+
+		table th, table td {
+			padding: 0.2em 0.5em;
+		}
+
+		tr:nth-child(even) td {
+			background-color: #f3f3f3;
+		}
+
+		table th:not(:first-child), table td:not(:first-child) {
+			text-align: right;
+		}
+
+		body > header {
+			height: 60px;
+			box-sizing: border-box;
+			background-color: #FDC24F;
+			text-align: center;
+			padding-top: 0.8em;
+			padding-bottom: 0.8em;
+			position: sticky;
+			top: 0;
+			z-index: 10;
+		}
+
+		body > header a {
+			background: url('//images.elo7.com.br/assets/v3/desktop/svg/logo-elo7.svg') no-repeat;
+			background-size: 90px 35px;
+			width: 90px;
+			height: 35px;
+			display: inline-block;
+			filter: brightness(100);
+		}
+
+		.post-content, footer {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+
+		.post-content .content a, .post-content .content a:visited, .post-content .content a:hover {
+			cursor: pointer;
+			color: #000;
+			font-weight: 500;
+			text-decoration: underline;
+			word-break: break-word;
+		}
+
+		.post-content .post-image {
+			text-align: center;
+			display: block;
+		}
+
+		.post-content p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		main {
+			background-color: #ecebeb;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+
+		.post-card, .post-content, .publisher-info {
+			background: white;
+			margin-left: 2%;
+			padding: 1em;
+			margin-right: 3%;
+			box-shadow: rgba(72, 72, 72, 0.23) 0 0 5px;
+		}
+
+		.publisher-info {
+			margin-bottom: 1em;
+		}
+
+		.publisher-info h1 {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+		}
+
+		.card-devops {
+			border-left: 5px solid #7d7873;
+		}
+
+		.card-eventos {
+			border-left: 5px solid #fdb933;
+		}
+
+		.card-front-end {
+			border-left: 5px solid #c15eb4;
+		}
+
+		.card-back-end {
+			border-left: 5px solid #359c9c;
+		}
+
+		.card-mobile {
+			border-left: 5px solid #fa9c5e;
+		}
+
+		.card-vagas {
+			border-left: 5px solid #99c799;
+		}
+
+		.card-design {
+			border-left: 5px solid #7c9ec4;
+		}
+
+		.card-cultura {
+			border-left: 5px solid #f44336;
+		}
+
+		.post-card:not(:last-of-type) {
+			margin-bottom: 1em;
+		}
+
+		.post-card .title {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+			text-align: left;
+		}
+
+		.post-card .title a {
+			color: inherit;
+		}
+
+		.author, .date {
+			color: #888;
+			margin-bottom: 0;
+			margin-top: 0;
+			font-size: 0.9em;
+		}
+
+		.author a {
+			color: inherit;
+			margin-bottom: 1.5em;
+		}
+
+		#sidebar {
+			width: 60vw;
+			background-color: #4a4a4a;
+			color: #fff;
+			padding-right: 1em;
+			padding-left: 1em;
+		}
+
+		#sidebar li {
+			margin-bottom: 0.5em;
+		}
+
+		#sidebar ul {
+			margin-bottom: 1.5em;
+			list-style: none;
+			padding: 0;
+		}
+
+		#sidebar h2 {
+			margin-bottom: 0;
+		}
+
+		#sidebar a {
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		#sidebar a, #sidebar h2 {
+			color: inherit;
+		}
+
+		.sidebar-trigger {
+			position: absolute;
+			left: 5%;
+			background-color: transparent;
+			border: none;
+			color: #fff;
+			font-size: 1.8em;
+			padding: 0;
+		}
+
+		.category {
+			background-color: #73bebe;
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 0.8em;
+			padding: .5em;
+			border-radius: 3px;
+			display: inline-block;
+			margin-top: 2.3em;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			font-weight: 300;
+		}
+
+		.category:hover {
+			background-color: #73bebe;
+		}
+
+		.post-link {
+			border: 1px solid #fba702;
+			border-radius: 3px;
+			color: #fba702;
+			display: inline-block;
+			float: right;
+			margin-top: 1em;
+			padding: 0.8em;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s, color 0.3s;
+			font-size: 0.9em;
+		}
+
+		.post-link:hover {
+			background-color: #fba702;
+			color: #ffffff;
+		}
+
+		.social {
+			content: '';
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			background-position: center;
+			text-indent: -9999px;
+			margin-right: 0.5em;
+			background-size: contain;
+			vertical-align: top;
+		}
+
+		.social.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.social.linkedin {
+			background-image: url('/images/ico/ic-linkedin.svg');
+		}
+
+		.social.github {
+			background-image: url('/images/ico/ic-github.svg');
+		}
+
+		footer {
+			background-color: #4a4a4a;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		footer a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 0.8em;
+		}
+
+		.footer-social {
+			line-height: 0;
+		}
+
+		.footer-social a {
+			background-size: 2em 2em;
+			background-repeat: no-repeat;
+			display: inline-block;
+			height: 2em;
+			width: 2em;
+			overflow: hidden;
+			text-indent: -9999px;
+		}
+
+		.footer-social a + a {
+			margin-left: 0.5em;
+		}
+
+		.footer-social .github {
+			background-image: url('/images/github_icon.svg');
+		}
+		.footer-social .email {
+			background-image: url('/images/email_icon.png');
+		}
+
+		.footer-social .rss {
+			background-image: url('/images/ico/feed.svg');
+		}
+
+		.footer-social .twitter {
+            background-image: url('/images/ico/ic-negative-twitter.svg');
+        }
+
+		.share {
+			position: relative;
+			text-align: right;
+			margin-top: 1em;
+		}
+
+		.share .link-share {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				text-indent: -9999px;
+				margin-left: 0.5em;
+				text-align: left;
+		}
+
+		.share .link-share.facebook {
+			background-image: url('/images/ico/ic-facebook.svg');
+		}
+
+		.share .link-share.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.link-input {
+			opacity: 0;
+			position: absolute;
+			left: -9999px;
+		}
+
+		.copy-success {
+			font-size: 0.75em;
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			top: 125%;
+			transition: opacity ease-in-out 250ms;
+			text-align: center;
+		}
+
+		.copy-success.active {
+			opacity: 1;
+		}
+
+		code {
+			background-color: #ececec;
+			padding: 0.1em 0.2em;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.highlight code {
+			overflow: auto;
+		}
+
+		.hljs {
+			display: block;
+			padding: 0.5em 1em;
+			background: #23241f;
+		}
+
+		.hljs,
+		.hljs-tag,
+		.css .hljs-rules,
+		.css .hljs-value,
+		.css .hljs-function
+		.hljs-preprocessor,
+		.hljs-pragma {
+			color: #f8f8f2;
+		}
+
+		.hljs-strongemphasis,
+		.hljs-strong,
+		.hljs-emphasis {
+			color: #a8a8a2;
+		}
+
+		.hljs-bullet,
+		.hljs-blockquote,
+		.hljs-horizontal_rule,
+		.hljs-number,
+		.hljs-regexp,
+		.alias .hljs-keyword,
+		.hljs-literal,
+		.hljs-hexcolor {
+			color: #ae81ff;
+		}
+
+		.hljs-tag .hljs-value,
+		.hljs-code,
+		.hljs-title,
+		.css .hljs-class,
+		.hljs-class .hljs-title:last-child {
+			color: #a6e22e;
+		}
+
+		.hljs-link_url {
+			font-size: 80%;
+		}
+
+		.hljs-strong,
+		.hljs-strongemphasis {
+			font-weight: bold;
+		}
+
+		.hljs-emphasis,
+		.hljs-strongemphasis,
+		.hljs-class .hljs-title:last-child {
+			font-style: italic;
+		}
+
+		.hljs-keyword,
+		.hljs-function,
+		.hljs-change,
+		.hljs-winutils,
+		.hljs-flow,
+		.lisp .hljs-title,
+		.clojure .hljs-built_in,
+		.nginx .hljs-title,
+		.tex .hljs-special,
+		.hljs-header,
+		.hljs-attribute,
+		.hljs-symbol,
+		.hljs-symbol .hljs-string,
+		.hljs-tag .hljs-title,
+		.hljs-value,
+		.alias .hljs-keyword:first-child,
+		.css .hljs-tag,
+		.css .unit,
+		.css .hljs-important {
+			color: #F92672;
+		}
+
+		.hljs-function .hljs-keyword,
+		.hljs-class .hljs-keyword:first-child,
+		.hljs-constant,
+		.css .hljs-attribute {
+			color: #66d9ef;
+		}
+
+		.hljs-variable,
+		.hljs-params,
+		.hljs-class .hljs-title {
+			color: #f8f8f2;
+		}
+
+		.hljs-string,
+		.css .hljs-id,
+		.hljs-subst,
+		.haskell .hljs-type,
+		.ruby .hljs-class .hljs-parent,
+		.hljs-built_in,
+		.sql .hljs-aggregate,
+		.django .hljs-template_tag,
+		.django .hljs-variable,
+		.smalltalk .hljs-class,
+		.django .hljs-filter .hljs-argument,
+		.smalltalk .hljs-localvars,
+		.smalltalk .hljs-array,
+		.hljs-attr_selector,
+		.hljs-pseudo,
+		.hljs-addition,
+		.hljs-stream,
+		.hljs-envvar,
+		.apache .hljs-tag,
+		.apache .hljs-cbracket,
+		.tex .hljs-command,
+		.hljs-prompt,
+		.hljs-link_label,
+		.hljs-link_url {
+			color: #e6db74;
+		}
+
+		.hljs-comment,
+		.hljs-javadoc,
+		.java .hljs-annotation,
+		.python .hljs-decorator,
+		.hljs-template_comment,
+		.hljs-pi,
+		.hljs-doctype,
+		.hljs-deletion,
+		.hljs-shebang,
+		.apache .hljs-sqbracket,
+		.tex .hljs-formula {
+			color: #75715e;
+		}
+
+		.coffeescript .javascript,
+		.javascript .xml,
+		.tex .hljs-formula,
+		.xml .javascript,
+		.xml .vbscript,
+		.xml .css,
+		.xml .hljs-cdata,
+		.xml .php,
+		.php .xml {
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body itemscope itemtype='http://schema.org/WebPage'>
+	<amp-sidebar id='sidebar' layout='nodisplay'>
+		<h2>Categorias</h2>
+		<ul>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/back-end/'>
+						<span itemprop='name'>back-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/cultura/'>
+						<span itemprop='name'>cultura</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/data-science/'>
+						<span itemprop='name'>data-science</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/design/'>
+						<span itemprop='name'>design</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/devops/'>
+						<span itemprop='name'>devops</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/eventos/'>
+						<span itemprop='name'>eventos</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/talks/'>
+						<span itemprop='name'>talks</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/front-end/'>
+						<span itemprop='name'>front-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/mobile/'>
+						<span itemprop='name'>mobile</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/vagas/'>
+						<span itemprop='name'>vagas</span>
+					</a>
+				</li>
+			
+		</ul>
+		<h2>Veja também</h2>
+		<ul>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+					<span itemprop='name'>A engenharia</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Carreiras</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://eventos.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Nossos eventos</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='https://www.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Elo7</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a rel='external' itemprop='url' href='https://github.com/elo7/tech-blog'>Github</a>
+			</li>
+		</ul>
+		</ul>
+	</amp-sidebar>
+	<header>
+		<button class='sidebar-trigger' on='tap:sidebar'>☰</button>
+		<a rel='home' itemprop='url' href='/amp/home/' class='logo'></a></header>
+
+	<main itemscope itemtype='http://schema.org/Blog'>
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card post-content'>
+	<h1 itemprop='name' class='title'>Introdução à programação funcional com Java 8</h1>
+	<div class='post-meta'>
+		<p class='date'>
+			Publicado em: <time datetime='05/12/2016' itemprop='datePublished'>05/12/2016</time>
+			<meta itemprop='dateModified' content='05/12/2016'>
+		</p>
+
+		<article>
+			
+				<a data-author='diegocesar' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/amp/diegocesar/' class='author'>
+					<meta itemprop='url' content='/amp/diegocesar'>
+					<span itemprop='name' class='publisher' data-author='diegocesar'>@diegocesar</span>
+					<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+				</a>
+			
+		</article>
+	</div>
+	<div class='content' itemprop='articleBody'>
+		<p>Disponível desde 2014, o Java 8 ainda deixa muitas dúvidas, principalmente quanto às novidades em relação à sua versão anterior e a incorporação de conceitos de programação funcional. Nesse post vou falar sobre as principais novidades do Java 8 relativas a esse aspecto. É importante observar que o Java 8 foi desenvolvido pensando na retrocompatibilidade, ou seja, aplicações desenvolvidas na versão 7 funcionarão perfeitamente nas versões mais atuais da linguagem. Esse é um dos pontos fortes do Java, que ajudam a garantir o seu sucesso.</p>
+<p>Veremos a seguir um pouco sobre as principais novidades implementadas no Java 8:</p>
+<h2>Lambda expressions</h2>
+<p>Uma das principais e mais comentadas mudanças do Java 8 são as <strong>Lambda Expressions</strong>, que trazem um pouco do paradigma da programação funcional para o Java. <a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html">Segundo a Oracle</a>, Lambda é uma forma clara e objetiva de representar um método usando apenas uma expressão.
+É importante lembrar que as Lambda Expressions só funcionarão para <strong>interfaces funcionais</strong>, que são interfaces que possuem apenas um método.</p>
+<p>Exemplo:</p>
+<p><strong>Sem lambda =/</strong></p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Operator</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">float</span> <span class="hljs-title">calc</span><span class="hljs-params">(<span class="hljs-keyword">float</span> number1, <span class="hljs-keyword">float</span> number2)</span></span>;
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Calculator</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        System.out.println(
+            calculate(<span class="hljs-number">15</span>, <span class="hljs-number">10</span>, <span class="hljs-keyword">new</span> Operator(){
+                <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> <span class="hljs-title">calc</span><span class="hljs-params">(<span class="hljs-keyword">float</span> num1, <span class="hljs-keyword">float</span> num2)</span> </span>{
+                    <span class="hljs-keyword">return</span> num1 + num2;
+                }
+            })
+        );
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">float</span> <span class="hljs-title">calculate</span><span class="hljs-params">(<span class="hljs-keyword">float</span> number1, <span class="hljs-keyword">float</span> number2, Operator operator)</span> </span>{
+        <span class="hljs-keyword">return</span> operator.calc(number1, number2);
+    }
+}
+</code></pre>
+<p><strong>Com lambda =D</strong></p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Operator</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">float</span> <span class="hljs-title">calc</span><span class="hljs-params">(<span class="hljs-keyword">float</span> number1, <span class="hljs-keyword">float</span> number2)</span></span>;
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Calculator</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        System.out.println(
+            calculate(<span class="hljs-number">15</span>, <span class="hljs-number">10</span>, (number1, number2) -&gt; { <span class="hljs-keyword">return</span> number1 + number2; })
+        );
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">float</span> <span class="hljs-title">calculate</span><span class="hljs-params">(<span class="hljs-keyword">float</span> number1, <span class="hljs-keyword">float</span> number2, Operator operator)</span> </span>{
+        <span class="hljs-keyword">return</span> operator.calc(number1, number2);
+    }
+}
+</code></pre>
+<p>Resultado: <code>25.0</code></p>
+<h2>Stream</h2>
+<p>Stream é uma abstração que permite processar dados de coleções de forma declarativa usando Lambda Expressions.
+Muitas das operações que eram feitas utlizando loops complexos podem ser substituidas por streams, desta forma simplificamos o código e ganhamos em performance.</p>
+<p>Os passos para fazer uso do Stream são:</p>
+<ol>
+<li>Obter o Stream a partir de uma Collection:</li>
+</ol>
+<pre class="highlight"><code class="hljs java">    List&lt;Integer&gt; numbers = Arrays.asList(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>);
+    Stream stream = numbers.stream();
+</code></pre>
+<ol start="2">
+<li>Adicionar uma ou mais operações no pipeline como ordenações, filtros etc. Por exemplo, podemos ordenar e remover os itens duplicados de uma lista:</li>
+</ol>
+<pre class="highlight"><code class="hljs java">    stream = stream.sorted().distinct()
+</code></pre>
+<ol start="3">
+<li>Invocar o método collect, responsável por processar o pipeline e retornar o resultado no formato solicitado.</li>
+</ol>
+<pre class="highlight"><code class="hljs java">    List&lt;Integer&gt; result = stream.collect(Collectors.toList());
+</code></pre>
+<p>Veja algumas das operações que você pode executar em um Stream:</p>
+<h3>filter</h3>
+<p>Filtra <em>strings</em> ou <em>streams</em> de acordo com a regra passada como parâmetro. No exemplo abaixo, filtra todas as '<em>strings</em> não vazias'.</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">removeEmptyStrings</span><span class="hljs-params">()</span> </span>{
+    List&lt;String&gt; strings = Arrays.asList(<span class="hljs-string">"abc"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">"bc"</span>, <span class="hljs-string">"abcd"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">"xyz"</span>, <span class="hljs-string">"foo"</span>);
+    strings = strings.stream().filter(<span class="hljs-keyword">var</span> -&gt; !<span class="hljs-keyword">var</span>.isEmpty()).collect(Collectors.toList());
+}
+</code></pre>
+<p>Resultado: <code>[abc, bc, abcd, xyz, foo]</code></p>
+<h3>sorted</h3>
+<p>Tem como função ordenar os itens de um <em>Stream</em>, como no seguinte exemplo:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sortListAlphabetically</span><span class="hljs-params">()</span> </span>{
+    List&lt;String&gt; strings = Arrays.asList(<span class="hljs-string">"z"</span>, <span class="hljs-string">"x"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">"c"</span>, <span class="hljs-string">"b"</span>, <span class="hljs-string">"y"</span>);
+    strings = strings.stream().sorted().collect(Collectors.toList());
+}
+</code></pre>
+<p>Resultado: <code>[a, b, c, x, y, z]</code></p>
+<p>Também é possível ordenar utilizando regras diferentes da natural:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sortNumbersReversed</span><span class="hljs-params">()</span> </span>{
+    List&lt;Integer&gt; numbers = Arrays.asList(<span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>);
+    numbers = numbers.stream().sorted((num1, num2) -&gt; num2 - num1).collect(Collectors.toList());
+}
+</code></pre>
+<p>Resultado: <code>[5, 4, 3, 2, 1]</code></p>
+<h3>map</h3>
+<p>O map aceita uma função como argumento que pode transformar cada um dos itens em um novo elemento:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">countStringCharacters</span><span class="hljs-params">()</span> </span>{
+    List&lt;String&gt; strings = Arrays.asList(<span class="hljs-string">"one"</span>, <span class="hljs-string">"two"</span>, <span class="hljs-string">"three"</span>, <span class="hljs-string">"four"</span>);
+    List&lt;Integer&gt; totals = strings.stream().map(str -&gt; str.length()).collect(Collectors.toList());
+}
+</code></pre>
+<p>Resultado: <code>[3, 3, 5, 4]</code></p>
+<h3>reduce</h3>
+<p>O objetivo do reduce, como o nome sugere, é reduzir o número de itens de um <em>Stream</em> em um único valor. Para isso, ele recebe um argumento (opcional) que será utilizado como valor inicial do segundo argumento. O próximo argumento (obrigatório) é uma função que deve receber dois parâmetros, tratá-los da maneira desejada e devolver um resultado. Este resultado será o primeiro parâmetro desta mesma função na próxima iteração e o segundo parâmetro será o próximo elemento do <em>Stream</em>.</p>
+<p>Exemplo: Retornar a soma dos números pares de uma lista:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isEven</span><span class="hljs-params">(<span class="hljs-keyword">int</span> number)</span> </span>{
+    <span class="hljs-keyword">return</span> number % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sumEvenNumbers</span><span class="hljs-params">()</span> </span>{
+    List&lt;Integer&gt; numbers = Arrays.asList(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>);
+    Integer result = numbers.stream().reduce(<span class="hljs-number">0</span>, (total, nextNumber) -&gt; isEven(nextNumber) ? total + nextNumber : total);
+}
+</code></pre>
+<p>Na primeira iteração, o nosso lambda recebe no parâmetro <code>total</code> o valor inicial <code>0</code>, que foi passado como argumento para o reduce, e o <code>nextNumber</code> recebe <code>1</code>, o primeiro valor da lista. Como <code>1</code> não é um número par, devolvemos o total atual: <code>0</code> para o reduce, que inicia a próxima iteração.
+No passo seguinte, o lambda recebe o total retornado pela iteração anterior: <code>0</code> e <code>2</code> como <code>nextNumber</code>. Como <code>2</code> é um número par ele será somado ao <code>total</code> e devolvido ao reduce, portanto na próxima iteração o <code>total</code> valerá <code>2</code>.</p>
+<p>Resultado: <code>12</code></p>
+<h3>distinct</h3>
+<p>O distinct devolve um Stream sem nenhuma entrada duplicada.</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">distinctElements</span><span class="hljs-params">()</span> </span>{
+    List&lt;Integer&gt; numbers = Arrays.asList(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>);
+    numbers = numbers.stream().distinct().collect(Collectors.toList());
+}
+</code></pre>
+<p>Resultado: <code>[1, 2, 3, 4, 5]</code></p>
+<h2>Parallel Stream</h2>
+<p>O resultado final do Parallel Stream é o mesmo do Stream. A diferença entre eles é que, neste caso, os dados são processados de forma paralela, em várias threads, diferentemente do segundo, que é serial. O processamento paralelo por si só não garante melhora de performance, exceto em casos onde exista um grande volume de dados e múltiplos núcleos de processamento.</p>
+<h2>Default Methods</h2>
+<p>O Java 8 permite a implementação de métodos padrões em interfaces utilizando a palavra chave <strong>default</strong>.
+Os métodos default são úteis para incrementar interfaces sem quebrar as classes que as implementam.</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Vehicle</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">void</span> <span class="hljs-title">turnOn</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">"The vehicle is turned on!"</span>);
+    }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Car</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Vehicle</span> </span>{ }
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DefaultTest</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span> <span class="hljs-params">(String[] args)</span> </span>{
+        Car myCar = <span class="hljs-keyword">new</span> Car();
+        myCar.turnOn();
+    }
+}
+</code></pre>
+<p>Resultado: <code>The vehicle is turned on</code></p>
+<h2>Optionals</h2>
+<p>Optional é um <em>wrapper</em> ou <em>container</em> que pode conter ou não um valor. Esta classe contém métodos para verificar se um valor está presente ou não e recuperar o seu valor. Os métodos mais comuns são: <strong>of</strong>, <strong>isPresent</strong> e <strong>get</strong>.
+Optionals são úteis para evitar problemas com NullPointerException, pois deixam claro que um argumento ou retorno de método podem ou não ter um valor presente. Se antigamente ficava a cargo do programador checar se o valor é <code>null</code>, com Optionals ele praticamente fica obrigado a fazer esta checagem.</p>
+<pre class="highlight"><code class="hljs java">    <span class="hljs-comment">// Cria um Optional a partir do número 5</span>
+    Optional&lt;Integer&gt; myOptional = Optional.of(<span class="hljs-number">5</span>);
+
+    <span class="hljs-comment">// Verifica se existe um valor definido em myOptional</span>
+    <span class="hljs-keyword">if</span> (myOptional.isPresent()) {
+        <span class="hljs-comment">// Recupera o valor de myOptional e o exibe</span>
+        System.out.println(myOptional.get());
+    }
+</code></pre>
+<p>Resultado: 5</p>
+<p>Essas são apenas algumas das principais novidades do Java 8. De acordo com os exemplos dados, é possível notar que ganhamos em produtividade quando utilizamos as novidades apresentadas. No caso da aplicação de streams, ainda ganhamos em performance, já que o processamento é executado através de um pipeline, seja este serial ou paralelo.</p>
+<p><a href="http://www.oracle.com/technetwork/java/javase/8-whats-new-2157071.html">Você encontra a lista completa de novas implementações no site da Oracle</a>. Consulte também a <a href="http://www.oracle.com/technetwork/java/javase/documentation/jdk8-doc-downloads-2133158.html">documentação do Java 8</a> para obter a referência completa da linguagem.</p>
+<p>O que achou das novidades? Você utiliza alguma novidade do Java 8 que não foi comentada aqui?</p>
+
+		<section class='share'>
+			<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/amp/introducao-a-programacao-funcional-com-java8/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+				Compartilhar no facebook
+			</a>
+			<a href='https://twitter.com/intent/tweet?text=Introdução à programação funcional com Java 8&url=https://elo7.dev/amp/introducao-a-programacao-funcional-com-java8/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+				Compartilhar no twitter
+			</a>
+		</section>
+	</div>
+	<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
+		<link href="/images/ico/elo7.png" itemprop="url"/>
+		<meta itemprop='width' content='100px'/>
+		<meta itemprop='height' content='100px'/>
+	</span>
+
+	<meta itemprop='headline' content='Disponível desde 2014, o Java 8 ainda deixa muitas dúvidas, principalmente quanto às novidades em relação à sua versão anterior. Nesse post vou falar sobre as principais novidades do Java 8.'/>
+	<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop='name' content='Elo7 Tech'/>
+		<meta itemprop="url" content='https://elo7.dev'/>
+		<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+			<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+			<meta itemprop='width' content='100px'/>
+			<meta itemprop='height' content='100px'/>
+		</span>
+	</span>
+	<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+</article>
+	</main>
+	<footer itemscope itemtype='http://schema.org/Organization'>
+		<a rel='home' itemprop='url' href='/amp/home/'>elo7.dev © 2019</a>
+		<meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<amp-analytics type='googleanalytics'>
+		<script type='application/json'>
+			{
+				"vars": {
+					"account": "UA-3692628-29"
+				},
+				"triggers": {
+					"trackPageview": {
+						"on": "visible",
+						"request": "pageview"
+					}
+				}
+			}
+		</script>
+	</amp-analytics>
+</body>
+</html>

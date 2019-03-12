@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Conheça o Nightfall, um projeto criado pela Engenharia do Elo7 para simplificar a criação de streams e batches no Spark, fornecendo injeção de dependências, configuração e facilidades na criação de tasks.">
+	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
+	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name="theme-color" content="#FDC24F">
+	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,spark,big data,dependency injection,java,kafka">
+	<meta name="language" content="pt-br">
+	<meta name="title" content="Elo7 Tech - Nightfall - Injetando dependências no Spark (Parte 1)">
+	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Nightfall - Injetando dependências no Spark (Parte 1)">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<meta property="fb:app_id" content="644444999041914">
+	<meta property="fb:admins" content="100003324447975">
+
+	<meta property="og:site_name" content="Elo7 Tech">
+	<meta property="og:image" content="https://elo7.dev/images/cover/elo7.png">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Elo7 Tech - Nightfall - Injetando dependências no Spark (Parte 1)">
+	<meta property="og:url" content="https://elo7.dev/nightfall/">
+	<meta property="og:description" content="Conheça o Nightfall, um projeto criado pela Engenharia do Elo7 para simplificar a criação de streams e batches no Spark, fornecendo injeção de dependências, configuração e facilidades na criação de tasks.">
+
+	<meta name="twitter:widgets:csp" content="on">
+	<meta name="twitter:card" content="summary_large_image">
+
+	<meta property="twitter:title" content="Elo7 Tech - Nightfall - Injetando dependências no Spark (Parte 1)">
+	<meta property="twitter:domain" content="https://elo7.dev">
+	<meta property="twitter:url" content="https://elo7.dev/nightfall/">
+	<meta property="twitter:description" content="Conheça o Nightfall, um projeto criado pela Engenharia do Elo7 para simplificar a criação de streams e batches no Spark, fornecendo injeção de dependências, configuração e facilidades na criação de tasks.">
+	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+
+	<link rel="canonical" href="https://elo7.dev/nightfall/">
+	
+		<link rel='amphtml' href='https://elo7.dev/amp/nightfall/' />
+	
+
+	<title>Elo7 Tech - Nightfall - Injetando dependências no Spark (Parte 1)</title>
+	<link rel="stylesheet" href="/reset.css">
+	<link rel="stylesheet" href="/main.css">
+	<link rel="stylesheet" href="/posts.css">
+	<link rel="stylesheet" href="/post.css">
+	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
+	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
+	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
+	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
+	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
+	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
+	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
+	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
+	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src="/js/vendor/async-define.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
+	<header class="left-pane">
+		<div class="logo-container">
+			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
+		</div>
+		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
+			<input id="categories-switch" type="checkbox" class="categories-switch">
+			<label for="categories-switch" class="selectable">
+				<h2 class="nav-title">Categorias</h2>
+			</label>
+			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
+				
+					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Back-end</span>
+					</a>
+				
+					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Cultura</span>
+					</a>
+				
+					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Data Science</span>
+					</a>
+				
+					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Design</span>
+					</a>
+				
+					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Devops</span>
+					</a>
+				
+					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Eventos</span>
+					</a>
+				
+					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Palestras</span>
+					</a>
+				
+					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Front-end</span>
+					</a>
+				
+					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Mobile</span>
+					</a>
+				
+					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Vagas</span>
+					</a>
+				
+			</nav>
+		</div>
+		<div class="navigation">
+			<input id="more-switch" type="checkbox" class="more-switch">
+			<label for="more-switch" class="selectable">
+				<h2 class="nav-title">Veja também</h2>
+			</label>
+			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
+					<span itemprop="name">A engenharia</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
+					<span itemprop="name">Carreiras</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
+					<span itemprop="name">Nossos eventos</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
+					<span itemprop="name">Elo7</span>
+				</a>
+			</nav>
+		</div>
+		<div class='social'>
+			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
+			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
+		</div>
+	</header>
+	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<img src='https://elo7.dev/images/cover/elo7.png' alt='' itemprop="url">
+	</figure>
+	<div class='post-content'>
+		<h1 itemprop='name' class='title'>Nightfall - Injetando dependências no Spark (Parte 1)</h1>
+		<div class='post-meta'>
+			<p class='date'>
+				Publicado em: <time datetime='29/05/2017' itemprop='datePublished'>29/05/2017</time>
+				<meta itemprop='dateModified' content='29/05/2017'>
+			</p>
+
+			<article>
+				
+					<a data-author='gadsc' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/gadsc/' class='author'>
+						<meta itemprop='url' content='/gadsc'>
+						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
+						<p itemprop='name' class='publisher' data-author='gadsc'>@gadsc</p>
+					</a>
+				
+
+				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+			</article>
+		</div>
+		<div itemprop='articleBody'>
+			<h2>O início</h2>
+<p>Começamos a utilizar o <a href="http://spark.apache.org/">Spark</a> no <strong>Elo7</strong> para processar métricas em tempo real, enviando eventos assíncronos do nosso site para serem consumidos em um sistema de agregação. Essa foi uma forma de remover o acoplamento entre as métricas e o negócio.</p>
+<h3>Mas o que é Spark?</h3>
+<p><a href="http://spark.apache.org/">Spark</a> é uma plataforma para computação distribuída, que extende o modelo de MapReduce. É uma ferramenta de propósito geral e projetada para alta performance, incluindo queries iterativas e processamento em batch e streaming.</p>
+<h3>Por que Spark?</h3>
+<p>Precisávamos de uma ferramenta para análise em tempo real, e tínhamos preferência por opções com recursos de machine learning (que pensamos em utilizar futuramente). Optamos pelo Spark, que além de atender esses requisitos, possui integração nativa com o <a href="https://kafka.apache.org/">Apache Kafka</a> e o <a href="https://aws.amazon.com/kinesis/">Amazon Kinesis</a>, que eram ferramentas cogitadas para Streams de mensagem.</p>
+<p><img src="../images/nightfall-1.png" alt="&quot;Exemplo de arquitetura&quot;"></p>
+<p>Após a produção dos eventos, precisamos criar os consumidores para processá-los, que são nossos <em>jobs</em> do <em>Spark</em>. Nossos <em>jobs</em> possuem várias <em>tasks</em> onde cada uma processa um tipo de evento de uma forma específica. O nosso código no início do desenvolvimento dos <em>jobs</em> era parecido com:</p>
+<ul>
+<li>Job</li>
+</ul>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SparkJobExample</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        MyJobConfiguration config = <span class="hljs-keyword">new</span> MyJobConfiguration(args);
+        JavaStreamingContext context = <span class="hljs-keyword">null</span>;
+
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">if</span> (config.getSparkCheckpoint().isPresent()) {
+                context = JavaStreamingContext.getOrCreate(
+                        config.getSparkCheckpoint().get(),
+                        (Function0&lt;JavaStreamingContext&gt;) () -&gt; MyJob.createContext(config));
+            } <span class="hljs-keyword">else</span> {
+                context = MyJob.createContext(config);
+            }
+            context.start();
+            context.awaitTermination();
+        } <span class="hljs-keyword">catch</span> (Exception e) {
+            <span class="hljs-keyword">throw</span> e;
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span>(context != <span class="hljs-keyword">null</span>) {
+                context.stop(<span class="hljs-keyword">true</span>, <span class="hljs-keyword">true</span>);
+            }
+        }
+    }
+
+    [...]
+</code></pre>
+<p>Para mais detalhes veja <a href="https://github.com/gadsc/spark-samples/blob/master/jobs/spark/src/main/java/com/gadsc/spark/SparkJobExample.java">aqui</a></p>
+<p>Dessa forma, tínhamos uma injeção de dependência para as configurações do banco e do job. Caso precisássemos fazer injeção em outras classes seria necessário fazer algo assim:</p>
+<pre class="highlight"><code class="hljs java">    <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">"unchecked"</span>)
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> JavaStreamingContext <span class="hljs-title">createContext</span><span class="hljs-params">(MyJobConfiguration config)</span> </span>{
+        [...]
+        MyFilter myFilter = <span class="hljs-keyword">new</span> MyFilter(config);
+
+        Arrays.asList(
+                <span class="hljs-keyword">new</span> MyTask(config),
+                <span class="hljs-keyword">new</span> OtherTask(config, myFilter)
+        ).stream().forEach(processor -&gt; processor.process(stream));
+
+        checkpoint.ifPresent(context::checkpoint);
+
+        <span class="hljs-keyword">return</span> context;
+    }
+}
+</code></pre>
+<p>Ou seja, para cada nova classe que nossa <em>task</em> (a classe que efetivamente executa o processamento dos eventos) utilize, precisamos instanciá-la no <em>Job</em>. Um pouco ruim não acham?</p>
+<h2>Simplificando as coisas</h2>
+<p>Para <strong>resolver</strong> nosso problema, criamos um projeto chamado <strong>Nightfall</strong>, que utiliza o <a href="https://github.com/Netflix/governator/wiki">Netflix Governator</a> e o <a href="https://github.com/google/guava/wiki">Google Guava</a> para prover o contexto do <strong>Spark</strong>, injeção de dependência e configuração. Com o <strong>Nightfall</strong>, simplificamos o código dos nossos novos jobs, utilizando inversão de controle e injeção de dependências. Um exemplo do código:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@KafkaSimple</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">KafkaSimpleTest</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        NightfallApplication.run(KafkaSimpleTest.class, args);
+    }
+}
+</code></pre>
+<p>Muito mais simples, não? O código acima provê um <em>job</em> <strong>SparkStream</strong> que utiliza o <em>Simple API</em> do <em>Kafka</em>.</p>
+<h2>Criando um Stream</h2>
+<p>Agora que já sabemos o que nos motivou a criar o <strong>Nightfall</strong>, vejamos como utilizá-lo para facilitar nossa vida :D</p>
+<p>Digamos que temos um produtor de evento que envia um payload como o json abaixo:</p>
+<pre class="highlight"><code class="hljs json">{
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"OrderStarted"</span>,
+    <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2016-11-07T14:22:08.592-03:00"</span>,
+    <span class="hljs-attr">"payload"</span>: {
+        <span class="hljs-attr">"orderCreatedAt"</span>: <span class="hljs-string">"2016-11-02T18:00:50.798-03:00"</span>,
+        <span class="hljs-attr">"orderId"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"deviceFamily"</span>: <span class="hljs-string">"DESKTOP"</span>,
+        <span class="hljs-attr">"sellerName"</span>: <span class="hljs-string">"Vendedor 1"</span>,
+        <span class="hljs-attr">"buyerId"</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-attr">"sellerId"</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-attr">"products"</span>: [{
+            <span class="hljs-attr">"itemId"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">3</span>,
+            <span class="hljs-attr">"price"</span>: <span class="hljs-number">500.00</span>,
+            <span class="hljs-attr">"itemTitle"</span>: <span class="hljs-string">"Product 1"</span>
+        }],
+        <span class="hljs-attr">"access"</span>: <span class="hljs-string">"WEB_BROWSER"</span>,
+        <span class="hljs-attr">"totalPrice"</span>: <span class="hljs-number">1500.00</span>,
+        <span class="hljs-attr">"browser"</span>: <span class="hljs-string">"CHROME"</span>
+    }
+}
+</code></pre>
+<p>Abaixo, o código para consumir esse evento como um <em>Stream</em>:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@KafkaSimple</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderJob</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        NightfallApplication.run(OrderJob.class, args);
+    }
+}
+
+</code></pre>
+<p>Após a criação do nosso <em>job</em>, precisamos criar a <em>task</em> para processar a mensagem. Nossa task é uma classe Java simples, anotada com <a href="https://github.com/elo7/nightfall/wiki/how-to-use#dependency-injection-on-spark-jobs">@Task</a> (anotação fornecida pelo NightFall). Ao inicializar o NightfallApplication, é realizado um <em>classpath scan</em> para encontrar todas as classes que contem essa anotação.
+Utilizarei a implementação que usa <em>DataPoint</em> (<em>DataPoint é um contrato criado para padronizar a estrutura das mensagens, representando o evento a ser processado, possuindo uma <strong>data</strong>, <strong>tipo</strong> e um <strong>payload</strong></em>):</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@Task</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloWorldTask</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">StreamTaskProcessor</span>&lt;<span class="hljs-title">DataPoint</span>&lt;<span class="hljs-title">String</span>&gt;&gt; </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String ORDER_STARTED = <span class="hljs-string">"OrderStarted"</span>;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">process</span><span class="hljs-params">(JavaDStream&lt;DataPoint&lt;String&gt;&gt; dataPointsStream)</span> </span>{
+        dataPointsStream
+                .filter(dataPoint -&gt; DataPointValidator.isValidForType(dataPoint, ORDER_STARTED))
+                .foreachRDD(rdd -&gt; {
+                    <span class="hljs-keyword">if</span> (!rdd.isEmpty()) {
+                        rdd.foreachPartition(partition -&gt; partition.forEachRemaining(<span class="hljs-keyword">this</span>::log));
+                    }
+                });
+    }
+
+}
+</code></pre>
+<p>Esse é um exemplo de <em>task</em> que processaria apenas os eventos do tipo <em>OrderStarted</em>.</p>
+<p>Já sabemos porque o NightFall foi criado e como ele funciona, então vejamos mais alguns exemplos. Primeiramente veremos um exemplo de <em>Stream</em>.</p>
+<ul>
+<li>Siga as intruções do <a href="https://kafka.apache.org/082/documentation.html#quickstart">Quick Start Kafka</a> para:
+<ol>
+<li>Instalação e startup. <strong>OBS</strong>: utilizar a versão 0.8.2 do <em>Kafka</em>.</li>
+<li>Crie um tópico no Kafka.</li>
+<li>Enviar mensagens para o tópico criado.</li>
+</ol>
+</li>
+</ul>
+<p>Uma vez que temos um tópico, podemos criar um stream para consumir as mensagens. Para isso, podemos utilizar o próprio projeto do <strong>Nightfall</strong> para adicionar a task que criamos acima, adicionando-a no sub-módulo <em>examples</em> do <strong>Nightfall</strong>.
+Além de adicionar o <em>job</em> e a <em>task</em>, precisaremos configurar o arquivo <code>nightfall.properties</code>:</p>
+<pre class="highlight"><code class="hljs bash"><span class="hljs-comment"># Kafka Consumer</span>
+kafka.brokers=localhost:9092
+kafka.topics=<span class="hljs-variable">${NOME_DO_TÓPICO_CRIADO}</span>
+
+<span class="hljs-comment"># Kafka Offset</span>
+kafka.offset.persistent=<span class="hljs-literal">false</span>
+kafka.cassandra.hosts=cassandra
+kafka.cassandra.keyspace=kafka
+kafka.cassandra.auto.migration=<span class="hljs-literal">false</span>
+kafka.cassandra.user=
+kafka.cassandra.password=
+kafka.cassandra.datacenter=
+
+<span class="hljs-comment"># Stream Configurations</span>
+stream.batch.interval.ms=20000
+stream.provider.converter=com.elo7.nightfall.di.providers.spark.stream.DataPointStreamContextConverter
+stream.checkpoint.directory=/Users/developer/dev/tmp/examples/HelloWorldJob
+
+<span class="hljs-comment"># Monitoring config</span>
+reporter.statsd.host=localhost
+reporter.statsd.port=8125
+reporter.statsd.prefix=dev.spark
+reporter.enabled=<span class="hljs-literal">false</span>
+reporter.class=com.elo7.nightfall.di.providers.reporter.jmx.JMXReporterFactory
+</code></pre>
+<p>Após a configuração do arquivo localizado em <code>examples/src/main/resources</code> podemos executar o <em>job</em> através do comando:</p>
+<pre class="highlight"><code class="hljs bash">./gradlew <span class="hljs-string">'jobs/example'</span>:run -PmainClass=<span class="hljs-string">"<span class="hljs-variable">${JOB_PACKAGE}</span>.OrderJob"</span>
+</code></pre>
+<p>Após o <em>job</em> ser iniciado podemos enviar um evento do tipo <strong>OrderStarted</strong> (como no exemplo mais acima). Será impresso o <em>json</em> nos logs; caso enviemos um outro tipo de evento, ele não será exibido.</p>
+<h2>Criando um Batch</h2>
+<p>Agora podemos criar nosso <em>job</em>, <em>task</em> e configurações para processar em <em>Batch</em> ao invés de <em>Stream</em>. Para isso, precisaremos criar o seguinte job:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@FileRDD</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BatchOrderJob</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        NightfallApplication.run(OrderJob.class, args);
+    }
+}
+
+</code></pre>
+<p>Precisamos criar a task também:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@Task</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BatchHelloWorldTask</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">BatchTaskProcessor</span>&lt;<span class="hljs-title">DataPoint</span>&lt;<span class="hljs-title">String</span>&gt;&gt; </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String ORDER_STARTED = <span class="hljs-string">"OrderStarted"</span>;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">process</span><span class="hljs-params">(JavaRDD&lt;DataPoint&lt;String&gt;&gt; dataPointsStream)</span> </span>{
+        dataPointsStream
+                .filter(dataPoint -&gt; DataPointValidator.isValidForType(dataPoint, ORDER_STARTED))
+                .foreachPartition(
+                    rdd.foreachPartition(partition -&gt; partition.forEachRemaining(<span class="hljs-keyword">this</span>::log))
+                );
+    }
+
+}
+</code></pre>
+<p>Não podemos esquecer de criar as seguintes configurações:</p>
+<pre class="highlight"><code class="hljs bash"><span class="hljs-comment"># Batch Configuration</span>
+<span class="hljs-comment"># File Configuration</span>
+file.s3.access.key=
+file.s3.secret.key=
+file.source=/tmp/nightfall
+
+<span class="hljs-comment"># Batch</span>
+batch.history.enabled=<span class="hljs-literal">false</span>
+
+<span class="hljs-comment"># Batch - Job History</span>
+batch.cassandra.hosts=cassandrar
+batch.cassandra.port=9042
+batch.cassandra.user=
+batch.cassandra.password=
+batch.cassandra.keyspace=kafka
+batch.cassandra.datacenter=
+batch.history.ttl.days=7
+</code></pre>
+<p>Como passamos na configuração <code>file.source</code> um arquivo local, precisaremos criar o arquivo compactado contendo os eventos que serão processados pelo <em>Batch</em>. O arquivo que vamos utilizar é um txt (zipado) com os eventos, localizado no caminho especificado.
+Para executar o <em>Batch</em> executamos o seguinte comando:</p>
+<pre class="highlight"><code class="hljs bash">./gradlew <span class="hljs-string">'jobs/example'</span>:run -PmainClass=<span class="hljs-string">"<span class="hljs-variable">${JOB_PACKAGE}</span>.BatchOrderJob"</span>
+</code></pre>
+<p>Podemos ver a impressão dos eventos que são do tipo <em>OrderStarted</em> no log da aplicação :)</p>
+<h3>É hora da revisão</h3>
+<p>Nesse post vimos o que nos motivou a criar o <em>Nightfall</em>, as configurações básicas para conseguir criar um <em>Stream</em> e um <em>Batch</em>. <a href="https://github.com/gadsc/spark-samples">Aqui</a> vocês podem acessar o repositório contendo todos os códigos mostrados nesse post ;D
+Por hoje é só, pessoal, mas iremos fazer uma série de posts para explicar mais usos do <em>Nigthfall</em>. Gostou? Se tiver algo para acrescentar/sugerir/dúvida, deixe nos comentários e aguardem os próximos posts.</p>
+
+
+			<ul class='tag-list'>
+			
+				<li>
+					<a href='/tags/spark/'>spark</a>
+				</li>
+			
+				<li>
+					<a href='/tags/big-data/'>big data</a>
+				</li>
+			
+				<li>
+					<a href='/tags/dependency-injection/'>dependency injection</a>
+				</li>
+			
+				<li>
+					<a href='/tags/java/'>java</a>
+				</li>
+			
+				<li>
+					<a href='/tags/kafka/'>kafka</a>
+				</li>
+			
+			</ul>
+			<section class='share'>
+				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+				<div class='social-share'>
+					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/nightfall/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+						Compartilhar no facebook
+					</a>
+					<a href='https://twitter.com/intent/tweet?text=Nightfall - Injetando dependências no Spark (Parte 1)&url=https://elo7.dev/nightfall/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+						Compartilhar no twitter
+					</a>
+					<a href='https://elo7.dev/nightfall/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+						Copiar URL
+					</a>
+					<span class='copy-success'>Link copiado</span>
+					<input type='url' value='https://elo7.dev/nightfall/?utm_source=share&utm_medium=copy' class='link-input'>
+				</div>
+			</section>
+		</div>
+
+		<meta itemprop='headline' content='Conheça o Nightfall, um projeto criado pela Engenharia do Elo7 para simplificar a criação de streams e batches no Spark, fornecendo injeção de dependências, configuração e facilidades na criação de tasks.'/>
+		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop='name' content='Elo7 Tech'/>
+			<meta itemprop="url" content='https://elo7.dev'/>
+			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+				<meta itemprop='width' content='100px'/>
+				<meta itemprop='height' content='100px'/>
+			</span>
+		</span>
+		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+		<div id='disqus_thread'></div>
+
+		<script>
+			var disqus_shortname = 'engenhariaelo7';
+			var disqus_identifier = '29/05/2017:/nightfall/';
+			var disqus_url = 'https://elo7.dev/nightfall/';
+
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Habilite o JavaScript para ver os comentários</noscript>
+	</div>
+</article>
+<script async src="/js/post.js"></script>
+
+		
+	</main>
+	<footer itemscope itemtype="http://schema.org/Organization">
+		<a rel="home" itemprop="url" href="https://elo7.dev/" >
+			elo7.dev © 2019
+		</a>
+		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<script async src="https://www.google-analytics.com/analytics.js"></script>
+	<script async src="/js/analytics.js"></script>
+	<script async src="/js/github.js"></script>
+	<script async src="/js/vendor/events-amd.js"></script>
+	<script async src="/js/vendor/ajax.js"></script>
+	<script async src="/js/vendor/doc.js"></script>
+	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

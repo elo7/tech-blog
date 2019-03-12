@@ -1,0 +1,761 @@
+<!doctype html>
+<html amp lang='pt-br'>
+<head>
+	<meta charset='utf-8'>
+	<script async src='https://cdn.ampproject.org/v0.js'></script>
+	<script async custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
+	<script async custom-element='amp-image-lightbox' src='https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js'></script>
+	<script async custom-element='amp-analytics' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js'></script>
+	<title>Elo7 Tech - Características de Big Data</title>
+	<meta name='description' content='Uma pequena introdução sobre Big Data no Elo7'>
+	<link rel='canonical' href='https://elo7.dev/caracteristicas-do-big-data/' />
+	<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>
+	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+	<style amp-custom>
+		body {
+			background-color: white;
+			font-family: 'Open Sans', sans-serif;
+			color: #666;
+		}
+
+		h1 {
+			color: #333;
+			font-size: 1.5em;
+			margin-bottom: 0;
+		}
+
+		h2, h3 {
+			color: #444;
+			font-size: 1.2em;
+		}
+
+		h3 {
+			font-weight: 300;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		p, li {
+			font-size: 0.9em;
+		}
+
+		ul {
+			padding-left: 1.5em;
+		}
+
+		article {
+			line-height: 1.8;
+			text-align: justify;
+		}
+
+		blockquote {
+			margin: 1em;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			font-size: 0.9em;
+			width: 100%;
+			text-align: left;
+		}
+
+		table thead th {
+			background-color: #4a4a4a;
+			color: white;
+		}
+
+		table th, table td {
+			padding: 0.2em 0.5em;
+		}
+
+		tr:nth-child(even) td {
+			background-color: #f3f3f3;
+		}
+
+		table th:not(:first-child), table td:not(:first-child) {
+			text-align: right;
+		}
+
+		body > header {
+			height: 60px;
+			box-sizing: border-box;
+			background-color: #FDC24F;
+			text-align: center;
+			padding-top: 0.8em;
+			padding-bottom: 0.8em;
+			position: sticky;
+			top: 0;
+			z-index: 10;
+		}
+
+		body > header a {
+			background: url('//images.elo7.com.br/assets/v3/desktop/svg/logo-elo7.svg') no-repeat;
+			background-size: 90px 35px;
+			width: 90px;
+			height: 35px;
+			display: inline-block;
+			filter: brightness(100);
+		}
+
+		.post-content, footer {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+
+		.post-content .content a, .post-content .content a:visited, .post-content .content a:hover {
+			cursor: pointer;
+			color: #000;
+			font-weight: 500;
+			text-decoration: underline;
+			word-break: break-word;
+		}
+
+		.post-content .post-image {
+			text-align: center;
+			display: block;
+		}
+
+		.post-content p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		main {
+			background-color: #ecebeb;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+
+		.post-card, .post-content, .publisher-info {
+			background: white;
+			margin-left: 2%;
+			padding: 1em;
+			margin-right: 3%;
+			box-shadow: rgba(72, 72, 72, 0.23) 0 0 5px;
+		}
+
+		.publisher-info {
+			margin-bottom: 1em;
+		}
+
+		.publisher-info h1 {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+		}
+
+		.card-devops {
+			border-left: 5px solid #7d7873;
+		}
+
+		.card-eventos {
+			border-left: 5px solid #fdb933;
+		}
+
+		.card-front-end {
+			border-left: 5px solid #c15eb4;
+		}
+
+		.card-back-end {
+			border-left: 5px solid #359c9c;
+		}
+
+		.card-mobile {
+			border-left: 5px solid #fa9c5e;
+		}
+
+		.card-vagas {
+			border-left: 5px solid #99c799;
+		}
+
+		.card-design {
+			border-left: 5px solid #7c9ec4;
+		}
+
+		.card-cultura {
+			border-left: 5px solid #f44336;
+		}
+
+		.post-card:not(:last-of-type) {
+			margin-bottom: 1em;
+		}
+
+		.post-card .title {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+			text-align: left;
+		}
+
+		.post-card .title a {
+			color: inherit;
+		}
+
+		.author, .date {
+			color: #888;
+			margin-bottom: 0;
+			margin-top: 0;
+			font-size: 0.9em;
+		}
+
+		.author a {
+			color: inherit;
+			margin-bottom: 1.5em;
+		}
+
+		#sidebar {
+			width: 60vw;
+			background-color: #4a4a4a;
+			color: #fff;
+			padding-right: 1em;
+			padding-left: 1em;
+		}
+
+		#sidebar li {
+			margin-bottom: 0.5em;
+		}
+
+		#sidebar ul {
+			margin-bottom: 1.5em;
+			list-style: none;
+			padding: 0;
+		}
+
+		#sidebar h2 {
+			margin-bottom: 0;
+		}
+
+		#sidebar a {
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		#sidebar a, #sidebar h2 {
+			color: inherit;
+		}
+
+		.sidebar-trigger {
+			position: absolute;
+			left: 5%;
+			background-color: transparent;
+			border: none;
+			color: #fff;
+			font-size: 1.8em;
+			padding: 0;
+		}
+
+		.category {
+			background-color: #73bebe;
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 0.8em;
+			padding: .5em;
+			border-radius: 3px;
+			display: inline-block;
+			margin-top: 2.3em;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			font-weight: 300;
+		}
+
+		.category:hover {
+			background-color: #73bebe;
+		}
+
+		.post-link {
+			border: 1px solid #fba702;
+			border-radius: 3px;
+			color: #fba702;
+			display: inline-block;
+			float: right;
+			margin-top: 1em;
+			padding: 0.8em;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s, color 0.3s;
+			font-size: 0.9em;
+		}
+
+		.post-link:hover {
+			background-color: #fba702;
+			color: #ffffff;
+		}
+
+		.social {
+			content: '';
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			background-position: center;
+			text-indent: -9999px;
+			margin-right: 0.5em;
+			background-size: contain;
+			vertical-align: top;
+		}
+
+		.social.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.social.linkedin {
+			background-image: url('/images/ico/ic-linkedin.svg');
+		}
+
+		.social.github {
+			background-image: url('/images/ico/ic-github.svg');
+		}
+
+		footer {
+			background-color: #4a4a4a;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		footer a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 0.8em;
+		}
+
+		.footer-social {
+			line-height: 0;
+		}
+
+		.footer-social a {
+			background-size: 2em 2em;
+			background-repeat: no-repeat;
+			display: inline-block;
+			height: 2em;
+			width: 2em;
+			overflow: hidden;
+			text-indent: -9999px;
+		}
+
+		.footer-social a + a {
+			margin-left: 0.5em;
+		}
+
+		.footer-social .github {
+			background-image: url('/images/github_icon.svg');
+		}
+		.footer-social .email {
+			background-image: url('/images/email_icon.png');
+		}
+
+		.footer-social .rss {
+			background-image: url('/images/ico/feed.svg');
+		}
+
+		.footer-social .twitter {
+            background-image: url('/images/ico/ic-negative-twitter.svg');
+        }
+
+		.share {
+			position: relative;
+			text-align: right;
+			margin-top: 1em;
+		}
+
+		.share .link-share {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				text-indent: -9999px;
+				margin-left: 0.5em;
+				text-align: left;
+		}
+
+		.share .link-share.facebook {
+			background-image: url('/images/ico/ic-facebook.svg');
+		}
+
+		.share .link-share.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.link-input {
+			opacity: 0;
+			position: absolute;
+			left: -9999px;
+		}
+
+		.copy-success {
+			font-size: 0.75em;
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			top: 125%;
+			transition: opacity ease-in-out 250ms;
+			text-align: center;
+		}
+
+		.copy-success.active {
+			opacity: 1;
+		}
+
+		code {
+			background-color: #ececec;
+			padding: 0.1em 0.2em;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.highlight code {
+			overflow: auto;
+		}
+
+		.hljs {
+			display: block;
+			padding: 0.5em 1em;
+			background: #23241f;
+		}
+
+		.hljs,
+		.hljs-tag,
+		.css .hljs-rules,
+		.css .hljs-value,
+		.css .hljs-function
+		.hljs-preprocessor,
+		.hljs-pragma {
+			color: #f8f8f2;
+		}
+
+		.hljs-strongemphasis,
+		.hljs-strong,
+		.hljs-emphasis {
+			color: #a8a8a2;
+		}
+
+		.hljs-bullet,
+		.hljs-blockquote,
+		.hljs-horizontal_rule,
+		.hljs-number,
+		.hljs-regexp,
+		.alias .hljs-keyword,
+		.hljs-literal,
+		.hljs-hexcolor {
+			color: #ae81ff;
+		}
+
+		.hljs-tag .hljs-value,
+		.hljs-code,
+		.hljs-title,
+		.css .hljs-class,
+		.hljs-class .hljs-title:last-child {
+			color: #a6e22e;
+		}
+
+		.hljs-link_url {
+			font-size: 80%;
+		}
+
+		.hljs-strong,
+		.hljs-strongemphasis {
+			font-weight: bold;
+		}
+
+		.hljs-emphasis,
+		.hljs-strongemphasis,
+		.hljs-class .hljs-title:last-child {
+			font-style: italic;
+		}
+
+		.hljs-keyword,
+		.hljs-function,
+		.hljs-change,
+		.hljs-winutils,
+		.hljs-flow,
+		.lisp .hljs-title,
+		.clojure .hljs-built_in,
+		.nginx .hljs-title,
+		.tex .hljs-special,
+		.hljs-header,
+		.hljs-attribute,
+		.hljs-symbol,
+		.hljs-symbol .hljs-string,
+		.hljs-tag .hljs-title,
+		.hljs-value,
+		.alias .hljs-keyword:first-child,
+		.css .hljs-tag,
+		.css .unit,
+		.css .hljs-important {
+			color: #F92672;
+		}
+
+		.hljs-function .hljs-keyword,
+		.hljs-class .hljs-keyword:first-child,
+		.hljs-constant,
+		.css .hljs-attribute {
+			color: #66d9ef;
+		}
+
+		.hljs-variable,
+		.hljs-params,
+		.hljs-class .hljs-title {
+			color: #f8f8f2;
+		}
+
+		.hljs-string,
+		.css .hljs-id,
+		.hljs-subst,
+		.haskell .hljs-type,
+		.ruby .hljs-class .hljs-parent,
+		.hljs-built_in,
+		.sql .hljs-aggregate,
+		.django .hljs-template_tag,
+		.django .hljs-variable,
+		.smalltalk .hljs-class,
+		.django .hljs-filter .hljs-argument,
+		.smalltalk .hljs-localvars,
+		.smalltalk .hljs-array,
+		.hljs-attr_selector,
+		.hljs-pseudo,
+		.hljs-addition,
+		.hljs-stream,
+		.hljs-envvar,
+		.apache .hljs-tag,
+		.apache .hljs-cbracket,
+		.tex .hljs-command,
+		.hljs-prompt,
+		.hljs-link_label,
+		.hljs-link_url {
+			color: #e6db74;
+		}
+
+		.hljs-comment,
+		.hljs-javadoc,
+		.java .hljs-annotation,
+		.python .hljs-decorator,
+		.hljs-template_comment,
+		.hljs-pi,
+		.hljs-doctype,
+		.hljs-deletion,
+		.hljs-shebang,
+		.apache .hljs-sqbracket,
+		.tex .hljs-formula {
+			color: #75715e;
+		}
+
+		.coffeescript .javascript,
+		.javascript .xml,
+		.tex .hljs-formula,
+		.xml .javascript,
+		.xml .vbscript,
+		.xml .css,
+		.xml .hljs-cdata,
+		.xml .php,
+		.php .xml {
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body itemscope itemtype='http://schema.org/WebPage'>
+	<amp-sidebar id='sidebar' layout='nodisplay'>
+		<h2>Categorias</h2>
+		<ul>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/back-end/'>
+						<span itemprop='name'>back-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/cultura/'>
+						<span itemprop='name'>cultura</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/data-science/'>
+						<span itemprop='name'>data-science</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/design/'>
+						<span itemprop='name'>design</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/devops/'>
+						<span itemprop='name'>devops</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/eventos/'>
+						<span itemprop='name'>eventos</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/talks/'>
+						<span itemprop='name'>talks</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/front-end/'>
+						<span itemprop='name'>front-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/mobile/'>
+						<span itemprop='name'>mobile</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/vagas/'>
+						<span itemprop='name'>vagas</span>
+					</a>
+				</li>
+			
+		</ul>
+		<h2>Veja também</h2>
+		<ul>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+					<span itemprop='name'>A engenharia</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Carreiras</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://eventos.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Nossos eventos</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='https://www.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Elo7</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a rel='external' itemprop='url' href='https://github.com/elo7/tech-blog'>Github</a>
+			</li>
+		</ul>
+		</ul>
+	</amp-sidebar>
+	<header>
+		<button class='sidebar-trigger' on='tap:sidebar'>☰</button>
+		<a rel='home' itemprop='url' href='/amp/home/' class='logo'></a></header>
+
+	<main itemscope itemtype='http://schema.org/Blog'>
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card post-content'>
+	<h1 itemprop='name' class='title'>Características de Big Data</h1>
+	<div class='post-meta'>
+		<p class='date'>
+			Publicado em: <time datetime='23/04/2018' itemprop='datePublished'>23/04/2018</time>
+			<meta itemprop='dateModified' content='23/04/2018'>
+		</p>
+
+		<article>
+			
+				<a data-author='ericvinicius' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/amp/ericvinicius/' class='author'>
+					<meta itemprop='url' content='/amp/ericvinicius'>
+					<span itemprop='name' class='publisher' data-author='ericvinicius'>@ericvinicius</span>
+					<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+				</a>
+			
+		</article>
+	</div>
+	<div class='content' itemprop='articleBody'>
+		<p>Este é só o primeiro <em>post</em> de uma série de <em>publicações</em> sobre a área de <strong>Big Data</strong> que iremos lançar aqui no blog. Nessa série iremos mostrar como utilizamos o Big Data aqui no <strong>Elo7</strong>, entre outras características que foram muito importantes para a construção da nossa arquitetura atual.</p>
+<h2>Primeiramente... O que é Big Data?</h2>
+<p>Basicamente, um conjunto de dados que podem ser analisados computacionalmente para revelar padrões, tendências e associações. Aqui no Elo7 geramos métricas, e fazemos análises em cima destes dados, para validar novas features e/ou hipóteses.</p>
+<h2>6 V's</h2>
+<p>Dentre as várias características do Big Data, os que são considerados bem importantes são seus 6V's. É comum algumas pessoas falarem que existem mais do que 6, mas para este post vou focar nos 6 principais, são eles:</p>
+<h3>Volume</h3>
+<p>O <em>Volume</em> representa a quantidade de dados que temos, em MBs, GBs, TBs, etc. Ter um volume de dados muito grande pode ser um problema, pois aumenta muito o custo, tanto de storage para armazenar tudo isso, quanto na parte de processamento - afinal, com pouco processamento e um grande volume, qualquer tipo de análise será muito demorada. Sem falar no custo de tráfego de rede, caso seus dados estejam na nuvem. Por isso a compactação dos seus dados é bem importante (vamos fazer um post sobre os tipos de compactação de arquivo mais para frente). Aqui no Elo7 os nossos dados de análise compactados ocupam o espaço de aproximadamente 14TB, estes mesmos arquivos não compactados ocupariam aproximadamente 190TB.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-0' role='button' tabindex='0' src='../../images/more_volume_less_perfomace_more_cost.png' layout='fixed' height='220' width='272' alt='Mais volume, menos performance, mais custo'></amp-img><amp-image-lightbox id='lightbox-0' layout='nodisplay'></amp-image-lightbox></div></p>
+<h3>Velocity</h3>
+<p><em>Velocity</em> é basicamente a velocidade com que, capturamos informações, salvamos estas informações e as deixamos disponíveis para análise. Quanto mais rápido for isso, mais rápido poderemos detectar uma anomalia, como por exemplo, em um deploy. Mas com esta velocidade devemos tomar cuidado, pois pode existir um custo a mais para deixar estas informações disponíveis em &quot;real-time&quot;. Dessa forma, é importante decidir quais informações realmente são necessárias em tempo real. Por exemplo, informações sobre as quantidades/valores de vendas do seu negócio fazem todo sentido serem analisados em tempo real, mas informações de qual cliente compra mais, pode não fazer. Além disso, as informações não &quot;real-time&quot;, tem um tempo extra para serem filtradas quais são úteis. Algo que faz sentido é analisar a quantidade de acessos do seu site, mas será que faz sentido analisar em tempo real o acesso dos bots? Se formos filtrar isso dificilmente conseguiríamos ter uma análise &quot;real-time&quot;.</p>
+<h3>Variety</h3>
+<p>A <em>Variety</em> é a heterogeneidade dos dados. Antigamente os dados eram guardados somente em tabelas, o que facilitava bastante as análises. Mas, hoje em dia, os dados são salvos em diversas formas diferentes, como grafo, imagens, sons etc. Isso causa diversos tipos de problemas, pois cada tipo destes tem uma forma de consumo ou de armazenamento diferente, o que torna  bem difícil comparar essas informações (vamos abordar maneiras melhores de lidar com isso em posts futuros).
+Mas isso não quer dizer que não devemos salvar estas informações, pois elas podem ser úteis em algum momento no futuro.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-1' role='button' tabindex='0' src='../../images/variety_of_datas.png' layout='fixed' height='178' width='272' alt='Grande Variedade dos Dados'></amp-img><amp-image-lightbox id='lightbox-1' layout='nodisplay'></amp-image-lightbox></div></p>
+<h3>Veracity</h3>
+<p><em>Veracity</em> representa a assertividade dos nossos dados, o grau de certeza que temos sobre eles, então podemos até dizer que é a qualidade de nossos dados. Muitas vezes está ligado à procedência de nossos dados. Se a informação que estamos consumindo está vindo de um lugar que não é a fonte real do dado, pode ser que a qualidade do dado não seja das melhores. Por exemplo, ao analisar o <em>click</em> dos usuários no seu site, se formos capturar este dado no <em>controller</em> ou em um <em>filter</em> de nosso servidor, poderíamos capturar chamadas de outros sistemas, que na prática não são os <em>click</em>s reais. Uma informação sem qualidade, não é confiável, e uma análise em cima desta informação pode gerar uma ação errada.</p>
+<h2>Valence</h2>
+<p>É a conectividade de dados, como eles estão ligados uns aos outros. Essa informação sobre o seu Big Data é importante, pois irá definir como serão feitas as suas análises. Se as suas informações estão quebradas por diversos dados, será necessário fazer &quot;join&quot; destes dados. Por exemplo, imagine um sistema dividido em microsserviços, onde cada requisição do usuário passa por diversos sistemas, para analisar o caminho do usário será necessário ligar os dados de todos estes sistemas, o que pode influenciar na velocidade em que seus dados estarão disponíveis para análise. Essa característica pode impactar onde nosso dado estará armazenado. Dessa forma, armazenar tudo isso em um banco que não permite &quot;joins&quot; pode não ser uma boa ideia, apesar de poder ser contornado de outras formas.</p>
+<h2>Value</h2>
+<p>Valor é o nosso objetivo, é o que tiramos do nosso Big Data. Regulando bem todos os outros 5Vs aumentaremos o nosso valor. Toda informação que tiramos de nosso Big Data, pode ou não ser útil, mas não quer dizer que devemos jogá-la fora, pois no futuro ela pode vir a ser útil, ou até mesmo em outro contexto.</p>
+<h2>Resumindo</h2>
+<p>Devemos estar atentos à esses 5V's:</p>
+<ul>
+<li><strong>Volume</strong> -&gt; Tamanho;</li>
+<li><strong>Velocity</strong> -&gt; Velocidade de novos dados, ou a de crescimento;</li>
+<li><strong>Variety</strong> -&gt; Variedade de tipos de dados que temos;</li>
+<li><strong>Veracity</strong> -&gt; nosso nível de confiança nos dados;</li>
+<li><strong>Valence</strong> -&gt; conectividade entre os dados.</li>
+</ul>
+<p>Regulando bem estes 5V's chegaremos ao nosso 6˚V, o nosso objetivo, o <strong>Valor</strong>, para conseguirmos encontrar padrões, tendências e associações sobre nosso usuários, produtos e dados.</p>
+
+		<section class='share'>
+			<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/amp/caracteristicas-do-big-data/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+				Compartilhar no facebook
+			</a>
+			<a href='https://twitter.com/intent/tweet?text=Características de Big Data&url=https://elo7.dev/amp/caracteristicas-do-big-data/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+				Compartilhar no twitter
+			</a>
+		</section>
+	</div>
+	<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
+		<link href="/images/ico/elo7.png" itemprop="url"/>
+		<meta itemprop='width' content='100px'/>
+		<meta itemprop='height' content='100px'/>
+	</span>
+
+	<meta itemprop='headline' content='Uma pequena introdução sobre Big Data no Elo7'/>
+	<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop='name' content='Elo7 Tech'/>
+		<meta itemprop="url" content='https://elo7.dev'/>
+		<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+			<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+			<meta itemprop='width' content='100px'/>
+			<meta itemprop='height' content='100px'/>
+		</span>
+	</span>
+	<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+</article>
+	</main>
+	<footer itemscope itemtype='http://schema.org/Organization'>
+		<a rel='home' itemprop='url' href='/amp/home/'>elo7.dev © 2019</a>
+		<meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<amp-analytics type='googleanalytics'>
+		<script type='application/json'>
+			{
+				"vars": {
+					"account": "UA-3692628-29"
+				},
+				"triggers": {
+					"trackPageview": {
+						"on": "visible",
+						"request": "pageview"
+					}
+				}
+			}
+		</script>
+	</amp-analytics>
+</body>
+</html>

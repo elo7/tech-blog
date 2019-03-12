@@ -1,0 +1,787 @@
+<!doctype html>
+<html amp lang='pt-br'>
+<head>
+	<meta charset='utf-8'>
+	<script async src='https://cdn.ampproject.org/v0.js'></script>
+	<script async custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
+	<script async custom-element='amp-image-lightbox' src='https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js'></script>
+	<script async custom-element='amp-analytics' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js'></script>
+	<title>Elo7 Tech - Rodando seus testes no Circle CI</title>
+	<meta name='description' content='Integrar os testes a um servidor de integração contínua é uma tarefa importante para os sistemas hoje em dia. Nesse post vamos abordar o Circle CI como opção para essa tarefa.'>
+	<link rel='canonical' href='https://elo7.dev/rodando-seus-testes-no-circle-ci/' />
+	<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>
+	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+	<style amp-custom>
+		body {
+			background-color: white;
+			font-family: 'Open Sans', sans-serif;
+			color: #666;
+		}
+
+		h1 {
+			color: #333;
+			font-size: 1.5em;
+			margin-bottom: 0;
+		}
+
+		h2, h3 {
+			color: #444;
+			font-size: 1.2em;
+		}
+
+		h3 {
+			font-weight: 300;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		p, li {
+			font-size: 0.9em;
+		}
+
+		ul {
+			padding-left: 1.5em;
+		}
+
+		article {
+			line-height: 1.8;
+			text-align: justify;
+		}
+
+		blockquote {
+			margin: 1em;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			font-size: 0.9em;
+			width: 100%;
+			text-align: left;
+		}
+
+		table thead th {
+			background-color: #4a4a4a;
+			color: white;
+		}
+
+		table th, table td {
+			padding: 0.2em 0.5em;
+		}
+
+		tr:nth-child(even) td {
+			background-color: #f3f3f3;
+		}
+
+		table th:not(:first-child), table td:not(:first-child) {
+			text-align: right;
+		}
+
+		body > header {
+			height: 60px;
+			box-sizing: border-box;
+			background-color: #FDC24F;
+			text-align: center;
+			padding-top: 0.8em;
+			padding-bottom: 0.8em;
+			position: sticky;
+			top: 0;
+			z-index: 10;
+		}
+
+		body > header a {
+			background: url('//images.elo7.com.br/assets/v3/desktop/svg/logo-elo7.svg') no-repeat;
+			background-size: 90px 35px;
+			width: 90px;
+			height: 35px;
+			display: inline-block;
+			filter: brightness(100);
+		}
+
+		.post-content, footer {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+
+		.post-content .content a, .post-content .content a:visited, .post-content .content a:hover {
+			cursor: pointer;
+			color: #000;
+			font-weight: 500;
+			text-decoration: underline;
+			word-break: break-word;
+		}
+
+		.post-content .post-image {
+			text-align: center;
+			display: block;
+		}
+
+		.post-content p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		main {
+			background-color: #ecebeb;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+
+		.post-card, .post-content, .publisher-info {
+			background: white;
+			margin-left: 2%;
+			padding: 1em;
+			margin-right: 3%;
+			box-shadow: rgba(72, 72, 72, 0.23) 0 0 5px;
+		}
+
+		.publisher-info {
+			margin-bottom: 1em;
+		}
+
+		.publisher-info h1 {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+		}
+
+		.card-devops {
+			border-left: 5px solid #7d7873;
+		}
+
+		.card-eventos {
+			border-left: 5px solid #fdb933;
+		}
+
+		.card-front-end {
+			border-left: 5px solid #c15eb4;
+		}
+
+		.card-back-end {
+			border-left: 5px solid #359c9c;
+		}
+
+		.card-mobile {
+			border-left: 5px solid #fa9c5e;
+		}
+
+		.card-vagas {
+			border-left: 5px solid #99c799;
+		}
+
+		.card-design {
+			border-left: 5px solid #7c9ec4;
+		}
+
+		.card-cultura {
+			border-left: 5px solid #f44336;
+		}
+
+		.post-card:not(:last-of-type) {
+			margin-bottom: 1em;
+		}
+
+		.post-card .title {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+			text-align: left;
+		}
+
+		.post-card .title a {
+			color: inherit;
+		}
+
+		.author, .date {
+			color: #888;
+			margin-bottom: 0;
+			margin-top: 0;
+			font-size: 0.9em;
+		}
+
+		.author a {
+			color: inherit;
+			margin-bottom: 1.5em;
+		}
+
+		#sidebar {
+			width: 60vw;
+			background-color: #4a4a4a;
+			color: #fff;
+			padding-right: 1em;
+			padding-left: 1em;
+		}
+
+		#sidebar li {
+			margin-bottom: 0.5em;
+		}
+
+		#sidebar ul {
+			margin-bottom: 1.5em;
+			list-style: none;
+			padding: 0;
+		}
+
+		#sidebar h2 {
+			margin-bottom: 0;
+		}
+
+		#sidebar a {
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		#sidebar a, #sidebar h2 {
+			color: inherit;
+		}
+
+		.sidebar-trigger {
+			position: absolute;
+			left: 5%;
+			background-color: transparent;
+			border: none;
+			color: #fff;
+			font-size: 1.8em;
+			padding: 0;
+		}
+
+		.category {
+			background-color: #73bebe;
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 0.8em;
+			padding: .5em;
+			border-radius: 3px;
+			display: inline-block;
+			margin-top: 2.3em;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			font-weight: 300;
+		}
+
+		.category:hover {
+			background-color: #73bebe;
+		}
+
+		.post-link {
+			border: 1px solid #fba702;
+			border-radius: 3px;
+			color: #fba702;
+			display: inline-block;
+			float: right;
+			margin-top: 1em;
+			padding: 0.8em;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s, color 0.3s;
+			font-size: 0.9em;
+		}
+
+		.post-link:hover {
+			background-color: #fba702;
+			color: #ffffff;
+		}
+
+		.social {
+			content: '';
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			background-position: center;
+			text-indent: -9999px;
+			margin-right: 0.5em;
+			background-size: contain;
+			vertical-align: top;
+		}
+
+		.social.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.social.linkedin {
+			background-image: url('/images/ico/ic-linkedin.svg');
+		}
+
+		.social.github {
+			background-image: url('/images/ico/ic-github.svg');
+		}
+
+		footer {
+			background-color: #4a4a4a;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		footer a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 0.8em;
+		}
+
+		.footer-social {
+			line-height: 0;
+		}
+
+		.footer-social a {
+			background-size: 2em 2em;
+			background-repeat: no-repeat;
+			display: inline-block;
+			height: 2em;
+			width: 2em;
+			overflow: hidden;
+			text-indent: -9999px;
+		}
+
+		.footer-social a + a {
+			margin-left: 0.5em;
+		}
+
+		.footer-social .github {
+			background-image: url('/images/github_icon.svg');
+		}
+		.footer-social .email {
+			background-image: url('/images/email_icon.png');
+		}
+
+		.footer-social .rss {
+			background-image: url('/images/ico/feed.svg');
+		}
+
+		.footer-social .twitter {
+            background-image: url('/images/ico/ic-negative-twitter.svg');
+        }
+
+		.share {
+			position: relative;
+			text-align: right;
+			margin-top: 1em;
+		}
+
+		.share .link-share {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				text-indent: -9999px;
+				margin-left: 0.5em;
+				text-align: left;
+		}
+
+		.share .link-share.facebook {
+			background-image: url('/images/ico/ic-facebook.svg');
+		}
+
+		.share .link-share.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.link-input {
+			opacity: 0;
+			position: absolute;
+			left: -9999px;
+		}
+
+		.copy-success {
+			font-size: 0.75em;
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			top: 125%;
+			transition: opacity ease-in-out 250ms;
+			text-align: center;
+		}
+
+		.copy-success.active {
+			opacity: 1;
+		}
+
+		code {
+			background-color: #ececec;
+			padding: 0.1em 0.2em;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.highlight code {
+			overflow: auto;
+		}
+
+		.hljs {
+			display: block;
+			padding: 0.5em 1em;
+			background: #23241f;
+		}
+
+		.hljs,
+		.hljs-tag,
+		.css .hljs-rules,
+		.css .hljs-value,
+		.css .hljs-function
+		.hljs-preprocessor,
+		.hljs-pragma {
+			color: #f8f8f2;
+		}
+
+		.hljs-strongemphasis,
+		.hljs-strong,
+		.hljs-emphasis {
+			color: #a8a8a2;
+		}
+
+		.hljs-bullet,
+		.hljs-blockquote,
+		.hljs-horizontal_rule,
+		.hljs-number,
+		.hljs-regexp,
+		.alias .hljs-keyword,
+		.hljs-literal,
+		.hljs-hexcolor {
+			color: #ae81ff;
+		}
+
+		.hljs-tag .hljs-value,
+		.hljs-code,
+		.hljs-title,
+		.css .hljs-class,
+		.hljs-class .hljs-title:last-child {
+			color: #a6e22e;
+		}
+
+		.hljs-link_url {
+			font-size: 80%;
+		}
+
+		.hljs-strong,
+		.hljs-strongemphasis {
+			font-weight: bold;
+		}
+
+		.hljs-emphasis,
+		.hljs-strongemphasis,
+		.hljs-class .hljs-title:last-child {
+			font-style: italic;
+		}
+
+		.hljs-keyword,
+		.hljs-function,
+		.hljs-change,
+		.hljs-winutils,
+		.hljs-flow,
+		.lisp .hljs-title,
+		.clojure .hljs-built_in,
+		.nginx .hljs-title,
+		.tex .hljs-special,
+		.hljs-header,
+		.hljs-attribute,
+		.hljs-symbol,
+		.hljs-symbol .hljs-string,
+		.hljs-tag .hljs-title,
+		.hljs-value,
+		.alias .hljs-keyword:first-child,
+		.css .hljs-tag,
+		.css .unit,
+		.css .hljs-important {
+			color: #F92672;
+		}
+
+		.hljs-function .hljs-keyword,
+		.hljs-class .hljs-keyword:first-child,
+		.hljs-constant,
+		.css .hljs-attribute {
+			color: #66d9ef;
+		}
+
+		.hljs-variable,
+		.hljs-params,
+		.hljs-class .hljs-title {
+			color: #f8f8f2;
+		}
+
+		.hljs-string,
+		.css .hljs-id,
+		.hljs-subst,
+		.haskell .hljs-type,
+		.ruby .hljs-class .hljs-parent,
+		.hljs-built_in,
+		.sql .hljs-aggregate,
+		.django .hljs-template_tag,
+		.django .hljs-variable,
+		.smalltalk .hljs-class,
+		.django .hljs-filter .hljs-argument,
+		.smalltalk .hljs-localvars,
+		.smalltalk .hljs-array,
+		.hljs-attr_selector,
+		.hljs-pseudo,
+		.hljs-addition,
+		.hljs-stream,
+		.hljs-envvar,
+		.apache .hljs-tag,
+		.apache .hljs-cbracket,
+		.tex .hljs-command,
+		.hljs-prompt,
+		.hljs-link_label,
+		.hljs-link_url {
+			color: #e6db74;
+		}
+
+		.hljs-comment,
+		.hljs-javadoc,
+		.java .hljs-annotation,
+		.python .hljs-decorator,
+		.hljs-template_comment,
+		.hljs-pi,
+		.hljs-doctype,
+		.hljs-deletion,
+		.hljs-shebang,
+		.apache .hljs-sqbracket,
+		.tex .hljs-formula {
+			color: #75715e;
+		}
+
+		.coffeescript .javascript,
+		.javascript .xml,
+		.tex .hljs-formula,
+		.xml .javascript,
+		.xml .vbscript,
+		.xml .css,
+		.xml .hljs-cdata,
+		.xml .php,
+		.php .xml {
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body itemscope itemtype='http://schema.org/WebPage'>
+	<amp-sidebar id='sidebar' layout='nodisplay'>
+		<h2>Categorias</h2>
+		<ul>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/back-end/'>
+						<span itemprop='name'>back-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/cultura/'>
+						<span itemprop='name'>cultura</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/data-science/'>
+						<span itemprop='name'>data-science</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/design/'>
+						<span itemprop='name'>design</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/devops/'>
+						<span itemprop='name'>devops</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/eventos/'>
+						<span itemprop='name'>eventos</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/talks/'>
+						<span itemprop='name'>talks</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/front-end/'>
+						<span itemprop='name'>front-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/mobile/'>
+						<span itemprop='name'>mobile</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/vagas/'>
+						<span itemprop='name'>vagas</span>
+					</a>
+				</li>
+			
+		</ul>
+		<h2>Veja também</h2>
+		<ul>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+					<span itemprop='name'>A engenharia</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Carreiras</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://eventos.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Nossos eventos</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='https://www.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Elo7</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a rel='external' itemprop='url' href='https://github.com/elo7/tech-blog'>Github</a>
+			</li>
+		</ul>
+		</ul>
+	</amp-sidebar>
+	<header>
+		<button class='sidebar-trigger' on='tap:sidebar'>☰</button>
+		<a rel='home' itemprop='url' href='/amp/home/' class='logo'></a></header>
+
+	<main itemscope itemtype='http://schema.org/Blog'>
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card post-content'>
+	<h1 itemprop='name' class='title'>Rodando seus testes no Circle CI</h1>
+	<div class='post-meta'>
+		<p class='date'>
+			Publicado em: <time datetime='14/05/2018' itemprop='datePublished'>14/05/2018</time>
+			<meta itemprop='dateModified' content='14/05/2018'>
+		</p>
+
+		<article>
+			
+				<a data-author='thiagoandrad' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/amp/thiagoandrad/' class='author'>
+					<meta itemprop='url' content='/amp/thiagoandrad'>
+					<span itemprop='name' class='publisher' data-author='thiagoandrad'>@thiagoandrad</span>
+					<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+				</a>
+			
+		</article>
+	</div>
+	<div class='content' itemprop='articleBody'>
+		<p><div class='post-image'><amp-img on='tap:lightbox-0' role='button' tabindex='0' src='..//images/rodando-seus-testes-no-circle-ci-1.png' layout='fixed' height='65' width='272' alt='Circle CI'></amp-img><amp-image-lightbox id='lightbox-0' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Em nossos projetos, testar e manter tudo funcionando antes de subir para produção é uma tarefa constante dentro do fluxo de trabalho. A cada modificação de código podemos quebrar algo, fazendo então com que os desenvolvedores adotem estratégias, como a criação de testes, para diminuir possíveis bugs. Hoje, com o uso muito comum do <a href="https://git-scm.com/">GIT</a> para versionar nossos códigos, muitas ferramentas de integração surgiram como <a href="https://circleci.com/">Circle CI</a>, <a href="https://travis-ci.com/">Travis</a>, <a href="https://jenkins.io/">Jenkins</a>, <a href="https://www.gocd.org/">GO CD</a> e outras, onde seus testes podem rodar e dar um feedback rápido do seu código.</p>
+<p>Com o <a href="https://circleci.com/">Circle CI</a> podemos integrar nossos repositórios que usam <code>git</code> como o <a href="https://github.com/">GitHub</a> ou <a href="https://bitbucket.org/">Bitbucket</a>, de uma maneira bem simples a um custo interessante. Isso porque, mesmo para repositórios privados, <a href="https://circleci.com/pricing/">o serviço não é cobrado se somente uma máquina for usada</a> (pelo menos até a data deste post =] ).</p>
+<h2>Configurando seu projeto</h2>
+<p>A configuração é bem simples, baseando-se em um arquivo de extensão <code>.yml</code>. Basta criar, na raiz do projeto, um diretório com o nome de <code>.circleci</code> e dentro dele criamos o arquivo de configuração <code>config.yml</code>.</p>
+<p>A estrutura de pastas ficará basicamente assim:</p>
+<pre class="highlight"><code class="hljs stylus">└── &lt;pasta do projeto&gt;
+    └── <span class="hljs-selector-class">.circleci</span>
+            └── config<span class="hljs-selector-class">.yml</span>
+</code></pre>
+<p>Dentro do nosso <code>config.yml</code> teremos várias divisões para determinar as configurações que o Circle CI fará para nós. Na <a href="https://circleci.com/docs/2.0/">doc</a> oficial <a href="https://circleci.com/docs/2.0/tutorials/">existem vários exemplos básicos</a> para várias linguagens diferentes. Para nosso exemplo iremos usar uma aplicação em Java usando como ferramenta de build o <a href="https://maven.apache.org/">Maven</a>, mas isso não impacta negativamente no exemplo caso queira usar outra linguagem.</p>
+<p>Aqui definimos a versão usada do Circle CI como 2.0 (ainda existe uma 1.0 depreciada) e adicionamos configurações para definir o diretório, e qual imagem <em>docker</em> usará para poder buildar e rodar os testes. O próprio Circle CI tem várias imagens que são muito usadas no mercado, mas você poderia usar qualquer outra do <a href="https://hub.docker.com/">docker hub</a> (neste caso estamos usando uma específica para Java 8).</p>
+<pre class="highlight"><code class="hljs yml"><span class="hljs-attr">version:</span> <span class="hljs-number">2</span> <span class="hljs-comment"># use CircleCI 2.0</span>
+<span class="hljs-attr">jobs:</span> <span class="hljs-comment"># a collection of steps</span>
+<span class="hljs-attr">  build:</span> <span class="hljs-comment"># runs not using Workflows must have a `build` job as entry point</span>
+
+<span class="hljs-attr">    working_directory:</span> <span class="hljs-string">~/circleci-test</span> <span class="hljs-comment"># directory where steps will run</span>
+
+<span class="hljs-attr">    docker:</span> <span class="hljs-comment"># run the steps with Docker</span>
+<span class="hljs-attr">      - image:</span> <span class="hljs-string">circleci/openjdk:8-jdk</span> <span class="hljs-comment"># ...with this image as the primary container; this is where all `steps` will run</span>
+</code></pre>
+<p>Na próxima etapa definimos os passos a serem executados no <em>pipeline</em>. Basicamente aqui baixamos as dependências e salvamos em um cache para melhorar a velocidade em uma próxima vez quando o <em>pipeline</em> de testes for iniciado.</p>
+<pre class="highlight"><code class="hljs yml"><span class="hljs-attr">steps:</span> <span class="hljs-comment"># a collection of executable commands</span>
+
+<span class="hljs-bullet">      -</span> <span class="hljs-string">checkout</span> <span class="hljs-comment"># check out source code to working directory</span>
+
+<span class="hljs-attr">      - restore_cache:</span> <span class="hljs-comment"># restore the saved cache after the first run or if `pom.xml` has changed</span>
+<span class="hljs-attr">          key:</span> <span class="hljs-string">circleci-test-{{</span> <span class="hljs-string">checksum</span> <span class="hljs-string">"pom.xml"</span> <span class="hljs-string">}}</span>
+
+<span class="hljs-attr">      - run:</span> <span class="hljs-string">mvn</span> <span class="hljs-attr">dependency:go-offline</span> <span class="hljs-comment"># gets the project dependencies</span>
+
+<span class="hljs-attr">      - save_cache:</span> <span class="hljs-comment"># saves the project dependencies</span>
+<span class="hljs-attr">          paths:</span>
+<span class="hljs-bullet">            -</span> <span class="hljs-string">~/.m2</span>
+<span class="hljs-attr">          key:</span> <span class="hljs-string">circleci-test-{{</span> <span class="hljs-string">checksum</span> <span class="hljs-string">"pom.xml"</span> <span class="hljs-string">}}</span>
+</code></pre>
+<p>Por fim, executamos aqui o comando do <code>maven</code> para rodar os testes e gerar nosso pacote, então indicamos para o Circle CI onde estão os relatórios gerados pelo teste e o artefado gerado.</p>
+<pre class="highlight"><code class="hljs yml"><span class="hljs-attr">- run:</span> <span class="hljs-string">mvn</span> <span class="hljs-string">package</span> <span class="hljs-comment"># run the actual tests</span>
+
+<span class="hljs-attr">      - store_test_results:</span> <span class="hljs-comment"># uploads the test metadata from the `target/surefire-reports` directory so that it can show up in the CircleCI dashboard.</span>
+<span class="hljs-attr">          path:</span> <span class="hljs-string">target/surefire-reports</span>
+
+<span class="hljs-attr">      - store_artifacts:</span> <span class="hljs-comment"># store the uberjar as an artifact</span>
+<span class="hljs-attr">          path:</span> <span class="hljs-string">target/circleci-test-0.0.1-SNAPSHOT.jar</span>
+</code></pre>
+<p>O arquivo completo fica basicamente como <a href="https://circleci.com/docs/2.0/language-java/">este</a>.</p>
+<h2>Concluindo a configuração pelo Circle CI</h2>
+<p>Agora podemos logar no Circle CI usando a conta onde está seu projeto (nesse caso GitHub) e só precisamos clicar em <code>add projects</code> no menu lateral e depois adicionar seu projeto:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-1' role='button' tabindex='0' src='..//images/rodando-seus-testes-no-circle-ci-2.png' layout='fixed' height='30' width='272' alt='Selecionando projeto'></amp-img><amp-image-lightbox id='lightbox-1' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>No próximo passo o primordial é escolher qual a tecnologia que será utilizada, no nosso caso é <code>Maven (Java)</code>:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-2' role='button' tabindex='0' src='..//images/rodando-seus-testes-no-circle-ci-3.png' layout='fixed' height='19' width='272' alt='Selecionando tecnologia'></amp-img><amp-image-lightbox id='lightbox-2' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Pronto! Seus testes já irão iniciar e logo você terá seu feedback =). Agora a cada <em>commit</em> que rolar no seu repositório os testes iniciarão automaticamente:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-3' role='button' tabindex='0' src='..//images/rodando-seus-testes-no-circle-ci-4.png' layout='fixed' height='46' width='272' alt='feedback dos testes'></amp-img><amp-image-lightbox id='lightbox-3' layout='nodisplay'></amp-image-lightbox></div></p>
+<h2>Conclusão</h2>
+<p>Se você precisa de integração com seu repositório de maneira simples e sem custo, talvez o Circle CI te atenda bem.
+E se precisarmos de mais configuraçoes como workflows, paralelizar testes, mais máquinas, fazer um <em>ssh</em> para o <em>container</em> onde estão os testes estão sendo executados? Tudo isso é possível e outras coisinhas mais.</p>
+
+		<section class='share'>
+			<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/amp/rodando-seus-testes-no-circle-ci/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+				Compartilhar no facebook
+			</a>
+			<a href='https://twitter.com/intent/tweet?text=Rodando seus testes no Circle CI&url=https://elo7.dev/amp/rodando-seus-testes-no-circle-ci/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+				Compartilhar no twitter
+			</a>
+		</section>
+	</div>
+	<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
+		<link href="/images/ico/elo7.png" itemprop="url"/>
+		<meta itemprop='width' content='100px'/>
+		<meta itemprop='height' content='100px'/>
+	</span>
+
+	<meta itemprop='headline' content='Integrar os testes a um servidor de integração contínua é uma tarefa importante para os sistemas hoje em dia. Nesse post vamos abordar o Circle CI como opção para essa tarefa.'/>
+	<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop='name' content='Elo7 Tech'/>
+		<meta itemprop="url" content='https://elo7.dev'/>
+		<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+			<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+			<meta itemprop='width' content='100px'/>
+			<meta itemprop='height' content='100px'/>
+		</span>
+	</span>
+	<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+</article>
+	</main>
+	<footer itemscope itemtype='http://schema.org/Organization'>
+		<a rel='home' itemprop='url' href='/amp/home/'>elo7.dev © 2019</a>
+		<meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<amp-analytics type='googleanalytics'>
+		<script type='application/json'>
+			{
+				"vars": {
+					"account": "UA-3692628-29"
+				},
+				"triggers": {
+					"trackPageview": {
+						"on": "visible",
+						"request": "pageview"
+					}
+				}
+			}
+		</script>
+	</amp-analytics>
+</body>
+</html>

@@ -1,0 +1,954 @@
+<!doctype html>
+<html amp lang='pt-br'>
+<head>
+	<meta charset='utf-8'>
+	<script async src='https://cdn.ampproject.org/v0.js'></script>
+	<script async custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
+	<script async custom-element='amp-image-lightbox' src='https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js'></script>
+	<script async custom-element='amp-analytics' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js'></script>
+	<title>Elo7 Tech - Testes mais fluidos com AssertJ</title>
+	<meta name='description' content='Diversos posts falam sobre a importância dos testes, mas o foco aqui será como melhorar a compreensão e legibilidade de nossos testes utilizando o AssertJ!'>
+	<link rel='canonical' href='https://elo7.dev/testes-mais-fluidos-com-assertj/' />
+	<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>
+	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+	<style amp-custom>
+		body {
+			background-color: white;
+			font-family: 'Open Sans', sans-serif;
+			color: #666;
+		}
+
+		h1 {
+			color: #333;
+			font-size: 1.5em;
+			margin-bottom: 0;
+		}
+
+		h2, h3 {
+			color: #444;
+			font-size: 1.2em;
+		}
+
+		h3 {
+			font-weight: 300;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		p, li {
+			font-size: 0.9em;
+		}
+
+		ul {
+			padding-left: 1.5em;
+		}
+
+		article {
+			line-height: 1.8;
+			text-align: justify;
+		}
+
+		blockquote {
+			margin: 1em;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			font-size: 0.9em;
+			width: 100%;
+			text-align: left;
+		}
+
+		table thead th {
+			background-color: #4a4a4a;
+			color: white;
+		}
+
+		table th, table td {
+			padding: 0.2em 0.5em;
+		}
+
+		tr:nth-child(even) td {
+			background-color: #f3f3f3;
+		}
+
+		table th:not(:first-child), table td:not(:first-child) {
+			text-align: right;
+		}
+
+		body > header {
+			height: 60px;
+			box-sizing: border-box;
+			background-color: #FDC24F;
+			text-align: center;
+			padding-top: 0.8em;
+			padding-bottom: 0.8em;
+			position: sticky;
+			top: 0;
+			z-index: 10;
+		}
+
+		body > header a {
+			background: url('//images.elo7.com.br/assets/v3/desktop/svg/logo-elo7.svg') no-repeat;
+			background-size: 90px 35px;
+			width: 90px;
+			height: 35px;
+			display: inline-block;
+			filter: brightness(100);
+		}
+
+		.post-content, footer {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+
+		.post-content .content a, .post-content .content a:visited, .post-content .content a:hover {
+			cursor: pointer;
+			color: #000;
+			font-weight: 500;
+			text-decoration: underline;
+			word-break: break-word;
+		}
+
+		.post-content .post-image {
+			text-align: center;
+			display: block;
+		}
+
+		.post-content p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		main {
+			background-color: #ecebeb;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+
+		.post-card, .post-content, .publisher-info {
+			background: white;
+			margin-left: 2%;
+			padding: 1em;
+			margin-right: 3%;
+			box-shadow: rgba(72, 72, 72, 0.23) 0 0 5px;
+		}
+
+		.publisher-info {
+			margin-bottom: 1em;
+		}
+
+		.publisher-info h1 {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+		}
+
+		.card-devops {
+			border-left: 5px solid #7d7873;
+		}
+
+		.card-eventos {
+			border-left: 5px solid #fdb933;
+		}
+
+		.card-front-end {
+			border-left: 5px solid #c15eb4;
+		}
+
+		.card-back-end {
+			border-left: 5px solid #359c9c;
+		}
+
+		.card-mobile {
+			border-left: 5px solid #fa9c5e;
+		}
+
+		.card-vagas {
+			border-left: 5px solid #99c799;
+		}
+
+		.card-design {
+			border-left: 5px solid #7c9ec4;
+		}
+
+		.card-cultura {
+			border-left: 5px solid #f44336;
+		}
+
+		.post-card:not(:last-of-type) {
+			margin-bottom: 1em;
+		}
+
+		.post-card .title {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+			text-align: left;
+		}
+
+		.post-card .title a {
+			color: inherit;
+		}
+
+		.author, .date {
+			color: #888;
+			margin-bottom: 0;
+			margin-top: 0;
+			font-size: 0.9em;
+		}
+
+		.author a {
+			color: inherit;
+			margin-bottom: 1.5em;
+		}
+
+		#sidebar {
+			width: 60vw;
+			background-color: #4a4a4a;
+			color: #fff;
+			padding-right: 1em;
+			padding-left: 1em;
+		}
+
+		#sidebar li {
+			margin-bottom: 0.5em;
+		}
+
+		#sidebar ul {
+			margin-bottom: 1.5em;
+			list-style: none;
+			padding: 0;
+		}
+
+		#sidebar h2 {
+			margin-bottom: 0;
+		}
+
+		#sidebar a {
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		#sidebar a, #sidebar h2 {
+			color: inherit;
+		}
+
+		.sidebar-trigger {
+			position: absolute;
+			left: 5%;
+			background-color: transparent;
+			border: none;
+			color: #fff;
+			font-size: 1.8em;
+			padding: 0;
+		}
+
+		.category {
+			background-color: #73bebe;
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 0.8em;
+			padding: .5em;
+			border-radius: 3px;
+			display: inline-block;
+			margin-top: 2.3em;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			font-weight: 300;
+		}
+
+		.category:hover {
+			background-color: #73bebe;
+		}
+
+		.post-link {
+			border: 1px solid #fba702;
+			border-radius: 3px;
+			color: #fba702;
+			display: inline-block;
+			float: right;
+			margin-top: 1em;
+			padding: 0.8em;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s, color 0.3s;
+			font-size: 0.9em;
+		}
+
+		.post-link:hover {
+			background-color: #fba702;
+			color: #ffffff;
+		}
+
+		.social {
+			content: '';
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			background-position: center;
+			text-indent: -9999px;
+			margin-right: 0.5em;
+			background-size: contain;
+			vertical-align: top;
+		}
+
+		.social.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.social.linkedin {
+			background-image: url('/images/ico/ic-linkedin.svg');
+		}
+
+		.social.github {
+			background-image: url('/images/ico/ic-github.svg');
+		}
+
+		footer {
+			background-color: #4a4a4a;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		footer a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 0.8em;
+		}
+
+		.footer-social {
+			line-height: 0;
+		}
+
+		.footer-social a {
+			background-size: 2em 2em;
+			background-repeat: no-repeat;
+			display: inline-block;
+			height: 2em;
+			width: 2em;
+			overflow: hidden;
+			text-indent: -9999px;
+		}
+
+		.footer-social a + a {
+			margin-left: 0.5em;
+		}
+
+		.footer-social .github {
+			background-image: url('/images/github_icon.svg');
+		}
+		.footer-social .email {
+			background-image: url('/images/email_icon.png');
+		}
+
+		.footer-social .rss {
+			background-image: url('/images/ico/feed.svg');
+		}
+
+		.footer-social .twitter {
+            background-image: url('/images/ico/ic-negative-twitter.svg');
+        }
+
+		.share {
+			position: relative;
+			text-align: right;
+			margin-top: 1em;
+		}
+
+		.share .link-share {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				text-indent: -9999px;
+				margin-left: 0.5em;
+				text-align: left;
+		}
+
+		.share .link-share.facebook {
+			background-image: url('/images/ico/ic-facebook.svg');
+		}
+
+		.share .link-share.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.link-input {
+			opacity: 0;
+			position: absolute;
+			left: -9999px;
+		}
+
+		.copy-success {
+			font-size: 0.75em;
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			top: 125%;
+			transition: opacity ease-in-out 250ms;
+			text-align: center;
+		}
+
+		.copy-success.active {
+			opacity: 1;
+		}
+
+		code {
+			background-color: #ececec;
+			padding: 0.1em 0.2em;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.highlight code {
+			overflow: auto;
+		}
+
+		.hljs {
+			display: block;
+			padding: 0.5em 1em;
+			background: #23241f;
+		}
+
+		.hljs,
+		.hljs-tag,
+		.css .hljs-rules,
+		.css .hljs-value,
+		.css .hljs-function
+		.hljs-preprocessor,
+		.hljs-pragma {
+			color: #f8f8f2;
+		}
+
+		.hljs-strongemphasis,
+		.hljs-strong,
+		.hljs-emphasis {
+			color: #a8a8a2;
+		}
+
+		.hljs-bullet,
+		.hljs-blockquote,
+		.hljs-horizontal_rule,
+		.hljs-number,
+		.hljs-regexp,
+		.alias .hljs-keyword,
+		.hljs-literal,
+		.hljs-hexcolor {
+			color: #ae81ff;
+		}
+
+		.hljs-tag .hljs-value,
+		.hljs-code,
+		.hljs-title,
+		.css .hljs-class,
+		.hljs-class .hljs-title:last-child {
+			color: #a6e22e;
+		}
+
+		.hljs-link_url {
+			font-size: 80%;
+		}
+
+		.hljs-strong,
+		.hljs-strongemphasis {
+			font-weight: bold;
+		}
+
+		.hljs-emphasis,
+		.hljs-strongemphasis,
+		.hljs-class .hljs-title:last-child {
+			font-style: italic;
+		}
+
+		.hljs-keyword,
+		.hljs-function,
+		.hljs-change,
+		.hljs-winutils,
+		.hljs-flow,
+		.lisp .hljs-title,
+		.clojure .hljs-built_in,
+		.nginx .hljs-title,
+		.tex .hljs-special,
+		.hljs-header,
+		.hljs-attribute,
+		.hljs-symbol,
+		.hljs-symbol .hljs-string,
+		.hljs-tag .hljs-title,
+		.hljs-value,
+		.alias .hljs-keyword:first-child,
+		.css .hljs-tag,
+		.css .unit,
+		.css .hljs-important {
+			color: #F92672;
+		}
+
+		.hljs-function .hljs-keyword,
+		.hljs-class .hljs-keyword:first-child,
+		.hljs-constant,
+		.css .hljs-attribute {
+			color: #66d9ef;
+		}
+
+		.hljs-variable,
+		.hljs-params,
+		.hljs-class .hljs-title {
+			color: #f8f8f2;
+		}
+
+		.hljs-string,
+		.css .hljs-id,
+		.hljs-subst,
+		.haskell .hljs-type,
+		.ruby .hljs-class .hljs-parent,
+		.hljs-built_in,
+		.sql .hljs-aggregate,
+		.django .hljs-template_tag,
+		.django .hljs-variable,
+		.smalltalk .hljs-class,
+		.django .hljs-filter .hljs-argument,
+		.smalltalk .hljs-localvars,
+		.smalltalk .hljs-array,
+		.hljs-attr_selector,
+		.hljs-pseudo,
+		.hljs-addition,
+		.hljs-stream,
+		.hljs-envvar,
+		.apache .hljs-tag,
+		.apache .hljs-cbracket,
+		.tex .hljs-command,
+		.hljs-prompt,
+		.hljs-link_label,
+		.hljs-link_url {
+			color: #e6db74;
+		}
+
+		.hljs-comment,
+		.hljs-javadoc,
+		.java .hljs-annotation,
+		.python .hljs-decorator,
+		.hljs-template_comment,
+		.hljs-pi,
+		.hljs-doctype,
+		.hljs-deletion,
+		.hljs-shebang,
+		.apache .hljs-sqbracket,
+		.tex .hljs-formula {
+			color: #75715e;
+		}
+
+		.coffeescript .javascript,
+		.javascript .xml,
+		.tex .hljs-formula,
+		.xml .javascript,
+		.xml .vbscript,
+		.xml .css,
+		.xml .hljs-cdata,
+		.xml .php,
+		.php .xml {
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body itemscope itemtype='http://schema.org/WebPage'>
+	<amp-sidebar id='sidebar' layout='nodisplay'>
+		<h2>Categorias</h2>
+		<ul>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/back-end/'>
+						<span itemprop='name'>back-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/cultura/'>
+						<span itemprop='name'>cultura</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/data-science/'>
+						<span itemprop='name'>data-science</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/design/'>
+						<span itemprop='name'>design</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/devops/'>
+						<span itemprop='name'>devops</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/eventos/'>
+						<span itemprop='name'>eventos</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/talks/'>
+						<span itemprop='name'>talks</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/front-end/'>
+						<span itemprop='name'>front-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/mobile/'>
+						<span itemprop='name'>mobile</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/vagas/'>
+						<span itemprop='name'>vagas</span>
+					</a>
+				</li>
+			
+		</ul>
+		<h2>Veja também</h2>
+		<ul>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+					<span itemprop='name'>A engenharia</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Carreiras</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://eventos.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Nossos eventos</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='https://www.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Elo7</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a rel='external' itemprop='url' href='https://github.com/elo7/tech-blog'>Github</a>
+			</li>
+		</ul>
+		</ul>
+	</amp-sidebar>
+	<header>
+		<button class='sidebar-trigger' on='tap:sidebar'>☰</button>
+		<a rel='home' itemprop='url' href='/amp/home/' class='logo'></a></header>
+
+	<main itemscope itemtype='http://schema.org/Blog'>
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card post-content'>
+	<h1 itemprop='name' class='title'>Testes mais fluidos com AssertJ</h1>
+	<div class='post-meta'>
+		<p class='date'>
+			Publicado em: <time datetime='26/02/2018' itemprop='datePublished'>26/02/2018</time>
+			<meta itemprop='dateModified' content='26/02/2018'>
+		</p>
+
+		<article>
+			
+				<a data-author='fabioueno' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/amp/fabioueno/' class='author'>
+					<meta itemprop='url' content='/amp/fabioueno'>
+					<span itemprop='name' class='publisher' data-author='fabioueno'>@fabioueno</span>
+					<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+				</a>
+			
+		</article>
+	</div>
+	<div class='content' itemprop='articleBody'>
+		<p>Em um <a href="https://engenharia.elo7.com.br/a-cultura-por-tras-do-time-fora-de-serie"><em>post</em></a> anterior, o <a href="https://engenharia.elo7.com.br/leonardosouza/">Leonardo Souza</a> explicou como é a cultura da empresa e comentou sobre o <em>hackday</em>, um dia em que os desenvolvedores podem trabalhar em suas próprias ideias. Eu entrei para a empresa em outubro e nos meus primeiros meses fiquei auxiliando nas ideias de outras pessoas, pois ainda não tinha nenhuma ideia. Pouco tempo depois, a ThoughtWorks lançou a décima-sétima edição do seu <a href="https://www.thoughtworks.com/radar">radar</a> e, para minha surpresa, na área de linguagens e <em>frameworks</em> para se adotar estava apenas Python 3. Na área seguinte, para testar, estava o <a href="http://joel-costigliola.github.io/assertj"><strong>AssertJ</strong></a>. A partir desse momento resolvi explorar essa biblioteca.</p>
+<h2>Motivação</h2>
+<p>A primeira coisa que pensei foi: qual é a vantagem em utilizá-lo? Logo de cara, o radar nos informa que o <em>framework</em> em questão fornece uma interface fluida para asserções. Mas o que é uma interface fluida? <a href="https://martinfowler.com/bliki/FluentInterface.html">Martin Fowler</a> mostra um exemplo e comenta um pouco, mas, em resumo, é uma forma de escrever nosso código tentando nos aproximar da maneira como escrevemos no dia-a-dia.</p>
+<p>Esclarecidas essas dúvidas, resolvi dar uma olhada no código, de fato. Vamos supor que temos um cenário de teste em que queremos verificar se a variável <code>a</code> é igual à variável <code>b</code>.</p>
+<h3>JUnit</h3>
+<p>Utilizando apenas JUnit, ficaríamos com o seguinte código:</p>
+<pre class="highlight"><code class="hljs java">assertEquals(b, a);
+</code></pre>
+<p>E teríamos a seguinte importação:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.junit.Assert.assertEquals;
+</code></pre>
+<p>Essa asserção sempre me incomodou, pois eu não gostava de escrever primeiro o valor esperado e, só depois, o valor real. Felizmente isso não foi algo frequente no meu time, pois usamos o <a href="http://hamcrest.org">Hamcrest</a>. Aí entrou um outro ponto: qual a vantagem do AssertJ sobre o que já usamos?</p>
+<h3>Hamcrest</h3>
+<p>Para isso, vamos reescrever o teste acima, usando o que o time já estava acostumado:</p>
+<pre class="highlight"><code class="hljs java">assertThat(a, equalTo(b));
+</code></pre>
+<p>E os <code>import</code>s:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.hamcrest.MatcherAssert.assertThat;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.hamcrest.Matchers.equalTo;
+</code></pre>
+<p>É possível observar que agora escrevemos na ordem que esperamos, ou seja, primeiro o valor real, depois o esperado. Um outro ponto é que aumentamos o número de <code>import</code>s para dois, mas isso é totalmente aceitável.</p>
+<h3>AssertJ</h3>
+<p>E, finalmente, como ficaria com o AssertJ?</p>
+<pre class="highlight"><code class="hljs java">assertThat(a).isEqualTo(b);
+</code></pre>
+<p>E teríamos o seguinte <code>import</code>:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.assertj.core.api.Assertions.assertThat;
+</code></pre>
+<p>Duas coisas que me chamaram a atenção:</p>
+<ol>
+<li>A asserção ficou ainda melhor do que com Hamcrest (no meu ponto de vista).</li>
+<li>Temos uma linha de importação a menos.</li>
+</ol>
+<p>Mas, sendo sincero, quem se importa quanto à quantidade de linhas de importação? A IDE já nos auxilia e as faz de forma rápida com algum atalho. Como o propósito não é esse, mas escrever nossos testes de forma mais simples e fáceis de entender, achei que o <em>framework</em> cumpria o que prometia. Além disso, procurando por &quot;Hamcrest vs AssertJ&quot; no Google é possível ver que este vem ganhando cada vez mais espaço.</p>
+<p>Um ponto importante é que, mesmo fazendo as alterações, ainda é necessário aprovação do(s) time(s) envolvido(s). Dito isso, eu optei por testá-lo e comecei a migrar todas as minhas classes de teste, até chegar o momento em que não era mais necessário manter a dependência do Hamcrest.</p>
+<h2>Migrando os testes</h2>
+<p>Para converter todos os testes do JUnit para o AssertJ, o próprio site oficial contém uma <a href="http://joel-costigliola.github.io/assertj/assertj-core-converting-junit-assertions-to-assertj.html">seção</a>, onde é possível fazer o <em>download</em> de um <em>script</em>, que faz as alterações automaticamente. Entretanto, para ter certeza que aprendi a utilizar o <em>framework</em> e conhecer um pouco mais de suas <em>features</em>, optei por fazer todo o processo manualmente. Felizmente não temos mais do que 58 classes de teste no projeto em questão.</p>
+<h3>Adicionando a dependência</h3>
+<p>O primeiro passo foi adicionar a dependência ao projeto. Como usamos Gradle, adicionamos a linha seguinte em nosso <code>build.gradle</code>:</p>
+<pre class="highlight"><code class="hljs java">testCompile <span class="hljs-string">'org.assertj:assertj-core:3.9.0'</span>
+</code></pre>
+<blockquote>
+<p>Obs: Para a versão 3.x é necessário Java 8 ou superior. Caso tenha o Java 7, use a versão 2.x. Se tiver Java 6, opte pela versão 1.x.</p>
+</blockquote>
+<blockquote>
+<p>Obs 2: No <a href="http://joel-costigliola.github.io/assertj/assertj-core-quick-start.html"><em>quick start</em></a> é possível encontrar o código para o Maven.</p>
+</blockquote>
+<h3>Alterando o primeiro teste</h3>
+<p>Cada <em>commit</em> meu alterava uma única classe de teste, então vamos para a primeira classe, responsável por verificar se, dado um código, há um tipo de mensagem associada ou não. Um código válido, por exemplo, é 1, enquanto que 99 é inválido. Nosso teste antes, estava da seguinte forma:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MessageTypeTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">should_return_present_when_message_type_is_valid</span><span class="hljs-params">()</span> </span>{
+        Optional&lt;MessageType&gt; messageType = MessageType.fromCode(<span class="hljs-number">1</span>);
+
+        assertTrue(messageType.isPresent());
+        assertEquals(<span class="hljs-number">1</span>, messageType.get().getCode());
+    }
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">should_return_empty_when_message_type_is_not_valid</span><span class="hljs-params">()</span> </span>{
+        Optional&lt;MessageType&gt; messageType = MessageType.fromCode(<span class="hljs-number">99</span>);
+
+        assertFalse(messageType.isPresent());
+    }
+}
+</code></pre>
+<p>No primeiro exemplo, vimos que onde aparece <code>assertEquals()</code>, trocamos por <code>assertThat().isEqualTo()</code>. Logo, essa foi a primeira mudança que fiz:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MessageTypeTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">should_return_present_when_message_type_is_valid</span><span class="hljs-params">()</span> </span>{
+        Optional&lt;MessageType&gt; messageType = MessageType.fromCode(<span class="hljs-number">1</span>);
+
+        assertTrue(messageType.isPresent());
+        assertThat(messageType.get().getCode()).isEqualTo(<span class="hljs-number">1</span>);
+    }
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">should_return_empty_when_message_type_is_not_valid</span><span class="hljs-params">()</span> </span>{
+        Optional&lt;MessageType&gt; messageType = MessageType.fromCode(<span class="hljs-number">99</span>);
+
+        assertFalse(messageType.isPresent());
+    }
+}
+</code></pre>
+<p>Com o que já vimos, poderíamos alterar as asserções <em>booleanas</em>, ficando com <code>assertThat(messageType.isPresent()).isEqualTo(true)</code> (ou <code>false</code> no segundo caso). Mas o <em>framework</em> nos disponibiliza dois métodos para isso, o <code>isTrue()</code> ou <code>isFalse()</code>, então podemos refatorar tudo, ficando com o código final abaixo:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MessageTypeTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">should_return_present_when_message_type_is_valid</span><span class="hljs-params">()</span> </span>{
+        Optional&lt;MessageType&gt; messageType = MessageType.fromCode(<span class="hljs-number">1</span>);
+
+        assertThat(messageType.isPresent()).isTrue();
+        assertThat(messageType.get().getCode()).isEqualTo(<span class="hljs-number">1</span>);
+    }
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">should_return_empty_when_message_type_is_not_valid</span><span class="hljs-params">()</span> </span>{
+        Optional&lt;MessageType&gt; messageType = MessageType.fromCode(<span class="hljs-number">99</span>);
+
+        assertThat(messageType.isPresent()).isFalse();
+    }
+}
+</code></pre>
+<h3>Próximos testes</h3>
+<p>A maioria dos testes continha asserções simples, como <code>assertEquals()</code>, <code>assertTrue()</code>, <code>assertFalse()</code>, <code>assertNull()</code> e <code>assertNotNull()</code>. Todas elas podem ser facilmente substituídas por, respectivamente:</p>
+<ul>
+<li><code>assertThat().isEqualTo()</code></li>
+<li><code>assertThat().isTrue()</code></li>
+<li><code>assertThat().isFalse()</code></li>
+<li><code>assertThat().isNull()</code></li>
+<li><code>assertThat().isNotNull()</code></li>
+</ul>
+<p>Conhecendo um pouquinho de inglês essa tarefa fica um pouco mais intuitiva.</p>
+<p>Mas a migração começa a ficar um pouco mais interessante quando começamos a mexer com coleções e <em>streams</em>.</p>
+<p>Uma das classes, <code>ConversationDAOIntegrationTest</code> continha métodos que verificavam o conteúdo de listas de conversas. Como podemos filtrar por mensagens não arquivadas, por exemplo, temos que verificar se determinada conversa está presente ou não numa listagem. Nosso teste estava assim:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConversationDAOIntegrationTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">should_filter_active_conversations</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// Código omitido para manter a simplicidade...</span>
+
+        List&lt;GroupParticipation&gt; result = groups.getResults();
+
+        assertThat(result, contains(activeParticipation));
+        assertThat(result, not(contains(archivedParticipation)));
+    }
+}
+</code></pre>
+<p>Repare que estávamos usando Hamcrest aqui! Observe, também, que precisamos ficar encadeando chamadas de métodos para verificar se a lista não contém determinado elemento. Um pouco ruim, não? Com AssertJ, podemos fazer assim:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConversationDAOIntegrationTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">should_filter_active_conversations</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// Código omitido para manter a simplicidade...</span>
+
+        List&lt;GroupParticipation&gt; result = groups.getResults();
+
+        assertThat(result).contains(activeParticipation);
+        assertThat(result).doesNotContain(archivedParticipation);
+    }
+}
+</code></pre>
+<p>Um pouco melhor, certo? Olhando um pouco mais o <a href="http://joel-costigliola.github.io/assertj/core-8/api/index.html">Javadoc</a>, vi que há outros métodos, um deles chamado de <code>containsExactly()</code>, que verifica se o grupo possui o elemento passado como parâmetro e nada mais, em ordem! Nesse caso não há problema, pois temos apenas um único parâmetro. Caso tivéssemos mais de um e a ordem não importasse, poderíamos usar ainda o <code>containsExactlyInAnyOrder()</code>. Usando o método que acabamos de descobrir, temos o seguinte:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConversationDAOIntegrationTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">should_filter_active_conversations</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// Código omitido para manter a simplicidade...</span>
+
+        List&lt;GroupParticipation&gt; result = groups.getResults();
+
+        assertThat(result).containsExactly(activeParticipation);
+    }
+}
+</code></pre>
+<p>Uma outra classe, <code>ConversationCreationAcceptanceTest</code> também possui métodos envolvendo conversas. Um deles, inclusive, filtra os participantes de uma conversa, para garantir que a pessoa que criou a conversa é o comprador... Vamos dar uma olhada em como ele estava:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConversationCreationAcceptanceTest</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseAcceptanceTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">should_create_a_conversation_as_buyer</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// Código omitido para manter a simplicidade...</span>
+
+        Optional&lt;Conversation&gt; optionalConversation = conversations.details();
+
+        assertTrue(optionalConversation.isPresent());
+
+        Conversation conversation = optionalConversation.get();
+
+        assertEquals(randomConversation.getExternalId(), conversation.getExternalId());
+        assertEquals(userCreation.getExternalUserId(), conversation.getLastMessage().get().getSender().getAuthorId());
+        assertEquals(<span class="hljs-number">1</span>, conversation.getMembers().stream()
+                            .filter(p -&gt; p.getMemberId().equals(userCreation.getExternalUserId()))
+                            .filter(p -&gt; p.getGroupRole().equals(<span class="hljs-string">"BUYER"</span>))
+                            .count());
+    }
+}
+</code></pre>
+<p>O <code>assertTrue()</code> está presente para verificar se o <code>optionalConversation</code> possui algum valor antes de realizarmos o <code>get()</code>. Como ele não nos interessa no momento e já sabemos como transformá-lo numa asserção do AssertJ, vamos passar a omití-lo. Os dois primeiros <code>assertEquals()</code> também podem ser convertidos facilmente, sobrando o último, que faz um filtro nos membros da conversa. Ao invés de criarmos um <em>stream</em> à partir da lista, podemos chamar direto o método <code>filteredOn()</code> do AssertJ, assim:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConversationCreationAcceptanceTest</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseAcceptanceTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">should_create_a_conversation_as_buyer</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// Código omitido para manter a simplicidade...</span>
+
+        Conversation conversation = optionalConversation.get();
+
+        assertThat(conversation.getExternalId()).isEqualTo(randomConversation.getExternalId());
+        assertThat(conversation.getLastMessage().get().getSender().getAuthorId()).isEqualTo(userCreation.getExternalUserId());
+        assertThat(conversation.getMembers())
+            .filteredOn(conversationMember -&gt; conversationMember.getMemberId().equals(userCreation.getExternalUserId()))
+            .filteredOn(conversationMember -&gt; conversationMember.getGroupRole().equals(<span class="hljs-string">"BUYER"</span>))
+            .hasSize(<span class="hljs-number">1</span>);
+    }
+}
+</code></pre>
+<p>Vou bater na tecla que o AssertJ não está aqui para diminuir a quantidade de código que escrevemos (às vezes ele diminui, mas não é a regra). A ideia de utilizá-lo é tornar o código mais legível para o ser humano, como se estivéssemos escrevendo uma frase.</p>
+<h3>Melhorando os testes</h3>
+<p>O que aconteceria, no último exemplo, se a primeira asserção estiver incorreta? O restante do código nem é executado e não temos como saber se o restante está correto ou não. Ou seja, se o ID externo da conversa não for igual ao esperado, não saberemos se o ID do autor está correto, nem se ele é um comprador. Para isso, o AssertJ nos oferece <em>soft assertions</em>, isto é, asserções suaves, que executa todo o código e, ao final, nos informa quais asserções falharam.</p>
+<p>Vamos alterar o código acima para utilizar esse recurso, através do <code>SoftAssertions.assertSoftly()</code>:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConversationCreationAcceptanceTest</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseAcceptanceTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">should_create_a_conversation_as_buyer</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// Código omitido para manter a simplicidade...</span>
+
+        Conversation conversation = optionalConversation.get();
+
+        SoftAssertions.assertSoftly(softly -&gt; {
+            softly.assertThat(conversation.getExternalId()).isEqualTo(randomConversation.getExternalId());
+            softly.assertThat(conversation.getLastMessage().get().getSender().getAuthorId()).isEqualTo(userCreation.getExternalUserId());
+            softly.assertThat(conversation.getMembers())
+                        .filteredOn(conversationMember -&gt; conversationMember.getMemberId().equals(userCreation.getExternalUserId()))
+                        .filteredOn(conversationMember -&gt; conversationMember.getGroupRole().equals(<span class="hljs-string">"BUYER"</span>))
+                        .hasSize(<span class="hljs-number">1</span>);
+        }
+    }
+}
+</code></pre>
+<h2>Conclusão</h2>
+<p>Se testes automatizados são ou não importantes não é o foco desse <em>post</em>. Vários outros já argumentaram em cima desse tema e, como nós acreditamos que seja importante, estamos de olho no código para melhorá-lo e garantir que tudo funcione corretamente. Para isso, usamos os <em>frameworks</em> e dentre os diversos disponíveis, o AssertJ acabou de entrar na nossa <em>stack</em>. Só lembrando, não optamos por utilizá-lo para escrever menos. Ao contrário, escrevemos mais, mas fazemos nossos testes como se fossem frases que podem ser lidas, facilitando muito nosso trabalho.</p>
+<p>Nesse <em>post</em> vimos apenas uma parte dos recursos disponíveis, mas olhando no site oficial, encontraremos diversos outros que podem ser muito úteis, como o método <code>extracting()</code>, que permite retirarmos atributos do objeto em questão, ou criar <em>custom assertions</em> que nos possibilita criar as nossas próprias asserções!</p>
+
+		<section class='share'>
+			<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/amp/testes-mais-fluidos-com-assertj/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+				Compartilhar no facebook
+			</a>
+			<a href='https://twitter.com/intent/tweet?text=Testes mais fluidos com AssertJ&url=https://elo7.dev/amp/testes-mais-fluidos-com-assertj/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+				Compartilhar no twitter
+			</a>
+		</section>
+	</div>
+	<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
+		<link href="/images/ico/elo7.png" itemprop="url"/>
+		<meta itemprop='width' content='100px'/>
+		<meta itemprop='height' content='100px'/>
+	</span>
+
+	<meta itemprop='headline' content='Diversos posts falam sobre a importância dos testes, mas o foco aqui será como melhorar a compreensão e legibilidade de nossos testes utilizando o AssertJ!'/>
+	<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop='name' content='Elo7 Tech'/>
+		<meta itemprop="url" content='https://elo7.dev'/>
+		<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+			<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+			<meta itemprop='width' content='100px'/>
+			<meta itemprop='height' content='100px'/>
+		</span>
+	</span>
+	<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+</article>
+	</main>
+	<footer itemscope itemtype='http://schema.org/Organization'>
+		<a rel='home' itemprop='url' href='/amp/home/'>elo7.dev © 2019</a>
+		<meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<amp-analytics type='googleanalytics'>
+		<script type='application/json'>
+			{
+				"vars": {
+					"account": "UA-3692628-29"
+				},
+				"triggers": {
+					"trackPageview": {
+						"on": "visible",
+						"request": "pageview"
+					}
+				}
+			}
+		</script>
+	</amp-analytics>
+</body>
+</html>

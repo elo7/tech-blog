@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Para fazer seu conteúdo ser encontrado com a quantidade de informações geradas nos dias de hoje, se torna fundamental sabermos utilizar o conceito da semântica.">
+	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
+	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name="theme-color" content="#FDC24F">
+	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,html,semantica,seo,acessibilidade,front-end">
+	<meta name="language" content="pt-br">
+	<meta name="title" content="Elo7 Tech - A importância da semântica no HTML - parte I">
+	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - A importância da semântica no HTML - parte I">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<meta property="fb:app_id" content="644444999041914">
+	<meta property="fb:admins" content="100003324447975">
+
+	<meta property="og:site_name" content="Elo7 Tech">
+	<meta property="og:image" content="https://elo7.dev/images/cover/elo7.png">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Elo7 Tech - A importância da semântica no HTML - parte I">
+	<meta property="og:url" content="https://elo7.dev/html-semantico-1/">
+	<meta property="og:description" content="Para fazer seu conteúdo ser encontrado com a quantidade de informações geradas nos dias de hoje, se torna fundamental sabermos utilizar o conceito da semântica.">
+
+	<meta name="twitter:widgets:csp" content="on">
+	<meta name="twitter:card" content="summary_large_image">
+
+	<meta property="twitter:title" content="Elo7 Tech - A importância da semântica no HTML - parte I">
+	<meta property="twitter:domain" content="https://elo7.dev">
+	<meta property="twitter:url" content="https://elo7.dev/html-semantico-1/">
+	<meta property="twitter:description" content="Para fazer seu conteúdo ser encontrado com a quantidade de informações geradas nos dias de hoje, se torna fundamental sabermos utilizar o conceito da semântica.">
+	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+
+	<link rel="canonical" href="https://elo7.dev/html-semantico-1/">
+	
+		<link rel='amphtml' href='https://elo7.dev/amp/html-semantico-1/' />
+	
+
+	<title>Elo7 Tech - A importância da semântica no HTML - parte I</title>
+	<link rel="stylesheet" href="/reset.css">
+	<link rel="stylesheet" href="/main.css">
+	<link rel="stylesheet" href="/posts.css">
+	<link rel="stylesheet" href="/post.css">
+	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
+	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
+	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
+	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
+	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
+	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
+	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
+	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
+	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src="/js/vendor/async-define.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
+	<header class="left-pane">
+		<div class="logo-container">
+			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
+		</div>
+		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
+			<input id="categories-switch" type="checkbox" class="categories-switch">
+			<label for="categories-switch" class="selectable">
+				<h2 class="nav-title">Categorias</h2>
+			</label>
+			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
+				
+					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Back-end</span>
+					</a>
+				
+					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Cultura</span>
+					</a>
+				
+					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Data Science</span>
+					</a>
+				
+					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Design</span>
+					</a>
+				
+					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Devops</span>
+					</a>
+				
+					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Eventos</span>
+					</a>
+				
+					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Palestras</span>
+					</a>
+				
+					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Front-end</span>
+					</a>
+				
+					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Mobile</span>
+					</a>
+				
+					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Vagas</span>
+					</a>
+				
+			</nav>
+		</div>
+		<div class="navigation">
+			<input id="more-switch" type="checkbox" class="more-switch">
+			<label for="more-switch" class="selectable">
+				<h2 class="nav-title">Veja também</h2>
+			</label>
+			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
+					<span itemprop="name">A engenharia</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
+					<span itemprop="name">Carreiras</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
+					<span itemprop="name">Nossos eventos</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
+					<span itemprop="name">Elo7</span>
+				</a>
+			</nav>
+		</div>
+		<div class='social'>
+			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
+			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
+		</div>
+	</header>
+	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<img src='https://elo7.dev/images/cover/elo7.png' alt='' itemprop="url">
+	</figure>
+	<div class='post-content'>
+		<h1 itemprop='name' class='title'>A importância da semântica no HTML - parte I</h1>
+		<div class='post-meta'>
+			<p class='date'>
+				Publicado em: <time datetime='26/09/2016' itemprop='datePublished'>26/09/2016</time>
+				<meta itemprop='dateModified' content='26/09/2016'>
+			</p>
+
+			<article>
+				
+					<a data-author='rapahaeru' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/rapahaeru/' class='author'>
+						<meta itemprop='url' content='/rapahaeru'>
+						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
+						<p itemprop='name' class='publisher' data-author='rapahaeru'>@rapahaeru</p>
+					</a>
+				
+
+				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+			</article>
+		</div>
+		<div itemprop='articleBody'>
+			<p><img src="../images/html-semantico1-01.jpg" alt="Onde encontrar"></p>
+<p>Antigamente a informação era armazenada em papéis, rochas e até paredes. A única forma de encontrar o que queríamos era indo até o local no qual a mensagem estava armazenada. Hoje existe todo um mundo digital que gera terabytes de dados por segundo.</p>
+<p>E para onde vai toda essa informação? Será que ficou mais fácil encontrar o que se deseja? O problema atual não é a escassez, mas a porção de ruído proveniente de uma quantidade exorbitante de dados.</p>
+<p>Para facilitar que o seu conteúdo criado seja encontrado, é fundamental utilizar um conceito que não é nem um pouco novo: a semântica.</p>
+<p>Este é o primeiro de dois posts que trataremos sobre semântica na web. Falaremos de forma introdutória sobre a sua importância e a sua real utilidade, tanto para usuários quanto para nós desenvolvedores.</p>
+<h2>O que é semântica ?</h2>
+<p>Semântica é uma palavra que tem origem no grego <strong>semantikos</strong>, termo que pode ser traduzido como “aquilo que tem sentindo”. É o estudo do significado dos signos, que podem ser palavras, frases ou sons na linguagem.</p>
+<h2>Qual a importância do HTML semântico para o profissional front-end ?</h2>
+<p>O objetivo do HTML é marcar o conteúdo de um site de acordo com o seu significado, estruturando a informação a ser passada. Quanto mais semântico, mais fácil para os leitores (usuários ou motores de busca) interpretarem as informações de um site.</p>
+<p>E apesar de um site ser composto por HTML, CSS e JavaScript, é do HTML a responsabilidade de repassar as informações. Os outros dois têm outras responsabilidades que ajudam o HTML no seu papel.</p>
+<p>É no HTML que os motores de busca e leitores de tela procurarão informações armazenadas em seus reais significados. O CSS estilizará os elementos para que o conteúdo fique mais claro, mais legível.</p>
+<p>Já o JavaScript, cuida de definir as atuações dos elementos e aprimorar a experiência do usuário. E aqui no Elo7 sempre nos preocupamos em desenvolver de forma não obstrutiva ( quando não afeta a experiência do usuário na falta do JavaScript). Então, se soubermos como organizar as marcações no HTML de forma correta, podemos ter muitos benefícios.</p>
+<h2>Acessibilidade e visibilidade</h2>
+<p>Ser acessível para as pessoas com deficiência é um dos vários pilares de um HTML bem estruturado semanticamente, independente de sua apresentação visual. Usuários não visuais podem acessar seu site utilizando um leitor de tela para &quot;ouvir&quot; sua página. Não podemos esquecer dos robôs de busca que também são leitores não-visuais e varrem todo o HTML para detectar a melhor maneira de apresentar os dados a quem os procura.</p>
+<p>E podemos ajudar a marcar um trecho de informação, atribuindo a ele um significado, por exemplo, ao inserir a tag <strong>&lt; h1 &gt;</strong>, você está informando que este é o seu título mais importante de sua página (ou seção =]), independente do idioma.</p>
+<p>Utilizando microdatas baseados em vocabulário, como o <a href="https://schema.org/">Schema.org</a> (aprofundaremos mais futuramente), podemos atribuir o título da página a um objeto ou a um sentimento. Por exemplo, uma página que vende bem-casado pode ter como título &quot;lembranças de casamento&quot; e ser associada tanto a um objeto que se presenteia ou a uma memória de casamento.</p>
+<p>Graças a esse tipo de meta informação, hoje já podemos encontrar nos sites de busca o que procuramos de forma mais exata e a tendência é que isso se aprimore cada vez mais.</p>
+<h2>Significados</h2>
+<p><img src="../images/html-semantico1-02.jpg" alt="Significado da informação"></p>
+<p>Cada elemento do HTML é uma etiqueta que representa um significado, porém, em nosso idioma há algumas similaridades e pequenas nuances que podem oferecer outros sentidos, como exemplificado acima com a palavra &quot;lembrança&quot;.</p>
+<p>Como um computador diferenciaria ou interpretaria uma frase entre aspas ou uma citação?</p>
+<p>Ao falarmos de semântica em nosso código, precisamos nos focar na diversidade interpretativa. Aparentemente, ao utilizar as tags <strong>&lt; q &gt;</strong> e <strong>&lt; bloquote &gt;</strong> não é possível notar muita diferença, mas ao saber utilizá-las de forma específica, o contexto pode ser alterado sutilmente.</p>
+<p>Utiliza-se <strong>&lt; q &gt;</strong> com o objetivo de fazer uma citação do texto atual discorrido. Já o <strong>&lt; bloquote &gt;</strong> é focado em uma citação externa ao texto.</p>
+<p>Também não podemos esquecer do <strong>&lt; cite &gt;</strong> que no HTML5 atualizou seu contexto. No html 4.01 a tag era referente a uma citação e na versão atual se refere ao nome de uma obra a ser creditada. Caso queira mais comparações de significado, recomendo o post da <a href="https://twitter.com/daniguerrato?lang=pt">Dani Guerrato</a>  no <a href="http://tableless.com.br/semantica-padroes-e-o-que-voce-tem-a-ver-com-isto/">Tableless</a>.</p>
+<p>Mas aí entra um questionamento:  por quê mudar o contexto de uma tag? O desenvolvimento web tem um paralelo com a nossa linguagem, sutil, porém importante. A língua é viva e não pode ser controlada. Portanto, o que hoje significa algo, amanhã pode ter outro significado e os padrões deverão ser atualizados.</p>
+<p>Com isso, o HTML faz com que o conteúdo seja mais &quot;apresentável&quot; para leitores não-visuais, oferecendo uma melhor forma de compreensão do documento. Além disso, fica mais fácil a manutenção da página por outros desenvolvedores.</p>
+<p>Saber como expor seus dados ao mundo é fundamental. Saber da forma correta é ainda melhor.</p>
+<p>Por enquanto é só, mas este tema continuará no próximo <a href="/html-semantico-2/">post</a>.</p>
+
+
+			<ul class='tag-list'>
+			
+				<li>
+					<a href='/tags/html/'>html</a>
+				</li>
+			
+				<li>
+					<a href='/tags/semantica/'>semantica</a>
+				</li>
+			
+				<li>
+					<a href='/tags/seo/'>seo</a>
+				</li>
+			
+				<li>
+					<a href='/tags/acessibilidade/'>acessibilidade</a>
+				</li>
+			
+				<li>
+					<a href='/tags/front-end/'>front-end</a>
+				</li>
+			
+			</ul>
+			<section class='share'>
+				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+				<div class='social-share'>
+					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/html-semantico-1/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+						Compartilhar no facebook
+					</a>
+					<a href='https://twitter.com/intent/tweet?text=A importância da semântica no HTML - parte I&url=https://elo7.dev/html-semantico-1/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+						Compartilhar no twitter
+					</a>
+					<a href='https://elo7.dev/html-semantico-1/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+						Copiar URL
+					</a>
+					<span class='copy-success'>Link copiado</span>
+					<input type='url' value='https://elo7.dev/html-semantico-1/?utm_source=share&utm_medium=copy' class='link-input'>
+				</div>
+			</section>
+		</div>
+
+		<meta itemprop='headline' content='Para fazer seu conteúdo ser encontrado com a quantidade de informações geradas nos dias de hoje, se torna fundamental sabermos utilizar o conceito da semântica.'/>
+		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop='name' content='Elo7 Tech'/>
+			<meta itemprop="url" content='https://elo7.dev'/>
+			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+				<meta itemprop='width' content='100px'/>
+				<meta itemprop='height' content='100px'/>
+			</span>
+		</span>
+		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+		<div id='disqus_thread'></div>
+
+		<script>
+			var disqus_shortname = 'engenhariaelo7';
+			var disqus_identifier = '26/09/2016:/html-semantico-1/';
+			var disqus_url = 'https://elo7.dev/html-semantico-1/';
+
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Habilite o JavaScript para ver os comentários</noscript>
+	</div>
+</article>
+<script async src="/js/post.js"></script>
+
+		
+	</main>
+	<footer itemscope itemtype="http://schema.org/Organization">
+		<a rel="home" itemprop="url" href="https://elo7.dev/" >
+			elo7.dev © 2019
+		</a>
+		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<script async src="https://www.google-analytics.com/analytics.js"></script>
+	<script async src="/js/analytics.js"></script>
+	<script async src="/js/github.js"></script>
+	<script async src="/js/vendor/events-amd.js"></script>
+	<script async src="/js/vendor/ajax.js"></script>
+	<script async src="/js/vendor/doc.js"></script>
+	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

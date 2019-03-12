@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Terceiro post da série &#x27;Terraformando Tudo&#x27;, que conta a nossa trajetória em busca da codificação da nossa infraestrutura. Neste post mostraremos como &quot;terraformar&quot; uma infra já existente.">
+	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
+	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name="theme-color" content="#FDC24F">
+	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,devops,terraform,iac,infrastructure as code,infra">
+	<meta name="language" content="pt-br">
+	<meta name="title" content="Elo7 Tech - Terraformando tudo - parte 3">
+	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Terraformando tudo - parte 3">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<meta property="fb:app_id" content="644444999041914">
+	<meta property="fb:admins" content="100003324447975">
+
+	<meta property="og:site_name" content="Elo7 Tech">
+	<meta property="og:image" content="https://elo7.dev/images/cover/terraformando-tudo-3.jpg">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Elo7 Tech - Terraformando tudo - parte 3">
+	<meta property="og:url" content="https://elo7.dev/terraformando-tudo-3/">
+	<meta property="og:description" content="Terceiro post da série &#x27;Terraformando Tudo&#x27;, que conta a nossa trajetória em busca da codificação da nossa infraestrutura. Neste post mostraremos como &quot;terraformar&quot; uma infra já existente.">
+
+	<meta name="twitter:widgets:csp" content="on">
+	<meta name="twitter:card" content="summary_large_image">
+
+	<meta property="twitter:title" content="Elo7 Tech - Terraformando tudo - parte 3">
+	<meta property="twitter:domain" content="https://elo7.dev">
+	<meta property="twitter:url" content="https://elo7.dev/terraformando-tudo-3/">
+	<meta property="twitter:description" content="Terceiro post da série &#x27;Terraformando Tudo&#x27;, que conta a nossa trajetória em busca da codificação da nossa infraestrutura. Neste post mostraremos como &quot;terraformar&quot; uma infra já existente.">
+	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+
+	<link rel="canonical" href="https://elo7.dev/terraformando-tudo-3/">
+	
+		<link rel='amphtml' href='https://elo7.dev/amp/terraformando-tudo-3/' />
+	
+
+	<title>Elo7 Tech - Terraformando tudo - parte 3</title>
+	<link rel="stylesheet" href="/reset.css">
+	<link rel="stylesheet" href="/main.css">
+	<link rel="stylesheet" href="/posts.css">
+	<link rel="stylesheet" href="/post.css">
+	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
+	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
+	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
+	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
+	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
+	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
+	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
+	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
+	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src="/js/vendor/async-define.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
+	<header class="left-pane">
+		<div class="logo-container">
+			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
+		</div>
+		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
+			<input id="categories-switch" type="checkbox" class="categories-switch">
+			<label for="categories-switch" class="selectable">
+				<h2 class="nav-title">Categorias</h2>
+			</label>
+			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
+				
+					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Back-end</span>
+					</a>
+				
+					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Cultura</span>
+					</a>
+				
+					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Data Science</span>
+					</a>
+				
+					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Design</span>
+					</a>
+				
+					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Devops</span>
+					</a>
+				
+					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Eventos</span>
+					</a>
+				
+					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Palestras</span>
+					</a>
+				
+					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Front-end</span>
+					</a>
+				
+					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Mobile</span>
+					</a>
+				
+					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Vagas</span>
+					</a>
+				
+			</nav>
+		</div>
+		<div class="navigation">
+			<input id="more-switch" type="checkbox" class="more-switch">
+			<label for="more-switch" class="selectable">
+				<h2 class="nav-title">Veja também</h2>
+			</label>
+			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
+					<span itemprop="name">A engenharia</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
+					<span itemprop="name">Carreiras</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
+					<span itemprop="name">Nossos eventos</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
+					<span itemprop="name">Elo7</span>
+				</a>
+			</nav>
+		</div>
+		<div class='social'>
+			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
+			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
+		</div>
+	</header>
+	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<img src='https://elo7.dev/images/cover/terraformando-tudo-3.jpg' alt='' itemprop="url">
+	</figure>
+	<div class='post-content'>
+		<h1 itemprop='name' class='title'>Terraformando tudo - parte 3</h1>
+		<div class='post-meta'>
+			<p class='date'>
+				Publicado em: <time datetime='18/09/2017' itemprop='datePublished'>18/09/2017</time>
+				<meta itemprop='dateModified' content='18/09/2017'>
+			</p>
+
+			<article>
+				
+					<a data-author='lucasvasconcelos' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/lucasvasconcelos/' class='author'>
+						<meta itemprop='url' content='/lucasvasconcelos'>
+						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
+						<p itemprop='name' class='publisher' data-author='lucasvasconcelos'>@lucasvasconcelos</p>
+					</a>
+				
+
+				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+			</article>
+		</div>
+		<div itemprop='articleBody'>
+			<p>Veja os outros <em>posts</em> da série:</p>
+<ul>
+<li><a href="/terraformando-tudo-1/">Terraformando tudo - parte 1</a></li>
+<li><a href="/terraformando-tudo-2/">Terraformando tudo - parte 2</a></li>
+</ul>
+<p>Olár!</p>
+<p>Como foi prometido no <a href="/terraformando-tudo-2/">segundo post</a>, estamos aqui novamente. Agora, para responder uma das perguntas que sempre são feitas na hora de adotar uma nova ferramenta: &quot;E o legado?&quot;</p>
+<p>No contexto de Infraestrutura como Código, o legado é a infra já existente. No caso do Elo7, são todos os recursos criados &quot;na base do mouse&quot; pelo console da AWS.</p>
+<p>Também é válido lembrar que esse cenário não ocorre apenas com ambientes legados. Ele pode ocorrer em uma situação de emergência, onde o plantonista ou time responsável é obrigado a fazer alguma alteração na infra via console/interface web para corrigir algum problema. Nesse caso também teremos inconsistências entre o estado encontrado no código e no <em>provider</em>.</p>
+<h2>O caminho inverso</h2>
+<p>Se até agora o Terraform gerou estados baseados no código, agora vamos fazer o caminho inverso: vamos gerar estados de uma infra já existente no <em>provider</em> e escrever código que se encaixa nesse estado.</p>
+<p>O Terraform vai nos ajudar na primeira parte do caminho, gerando os estados da infra existente através do <a href="https://www.terraform.io/docs/import/index.html">comando <code>import</code></a>.</p>
+<p>Antes das demonstrações, devemos nos atentar às limitações dessa funcionalidade:</p>
+<ul>
+<li>Os <code>resources</code> suportados pelo <code>import</code> do Terraform não são os mesmos que temos à disposição para criar do zero no Terraform. Ou seja, nem todos recursos que podem ser criados através do código podem ser importados. A boa notícia é que a cada nova <em>release</em> do Terraform (que possui ciclo de vida de aproximadamente 20 dias) novos recursos para importação são adicionados. Em um caso onde o recurso (Redshift, Lambda, etc) não for suportado pelo <code>import</code>, pode-se criar um estado manualmente ou utilizar ferramentas de terceiros. <a href="https://www.terraform.io/docs/import/importability.html">Uma lista dos <code>resources</code> suportados atualmente pode ser vista aqui</a>. E, caso quiser, é relativamente fácil fazer com que um <code>resource</code> seja &quot;importável&quot;, como pode ser visto nesse <a href="https://github.com/hashicorp/terraform/pull/15237/files">PR</a>;</li>
+<li>O <code>import</code> não gera código! Ele gera o estado daquele recurso apenas, cabendo a nós a escrita do código referente ao estado gerado.</li>
+</ul>
+<p>Com esses pontos em mente, vamos ver como podemos utilizar o <code>import</code>.</p>
+<h2>Usando o <code>import</code></h2>
+<p>Para o <code>import</code>, devemos ter em mãos três informações (mais informações sobre o <em>pattern</em> do Terraform <a href="/terraformando-tudo-2/">no segundo post</a>):</p>
+<ul>
+<li>Tipo do recurso</li>
+<li>Nome do recurso</li>
+<li>ID do recurso na AWS</li>
+</ul>
+<p>Vamos ver como funciona o <code>import</code> de uma instância EC2?</p>
+<h3>Importando um <code>resource</code></h3>
+<p>O exemplo a seguir mostra o <code>import</code> de uma instância existente na AWS. Primeiro, vamos nomear nossas variáveis:</p>
+<ul>
+<li><strong>Tipo do recurso:</strong> <code>aws_instance</code></li>
+<li><strong>Nome do recurso:</strong> <code>elo7-ec2-example</code></li>
+<li><strong>ID do recurso na AWS:</strong> <code>i-a1b2c3</code> (Como a instância já existe na AWS, temos o ID dela)</li>
+</ul>
+<p>Agora, vamos rodar o <code>import</code> (sim! É apenas um comando!):</p>
+<pre class="highlight"><code class="hljs python">$ terraform <span class="hljs-keyword">import</span> aws_instance.elo7-ec2-example i-a1b2c3
+</code></pre>
+<p>Onde</p>
+<pre class="highlight"><code class="hljs python">$ terraform  <span class="hljs-keyword">import</span>  aws_instance.elo7-ec2-example  i-a1b2c3
+|__________| |_____| |___________| |______________| |______|
+      |       |           |           |                |
+Comando do    |        Tipo de        |         ID do resource
+ Terraform    |        Resource       |            na AWS
+              |                       |
+          Funcionalidade         Nome do resource
+            de <span class="hljs-keyword">import</span>             no Terraform
+</code></pre>
+<p>Ao executar o comando, temos uma saída dizendo que tudo correu bem:</p>
+<pre class="highlight"><code class="hljs pf">$ terraform import aws_instance.elo7-ec2-example i-a1b2c3
+aws_instance.elo7-ec2-example: Importing <span class="hljs-keyword">from</span> ID <span class="hljs-string">"i-a1b2c3"</span>...
+aws_instance.elo7-ec2-example: Import complete!
+  Imported aws_instance (ID: i-a1b2c3)
+aws_instance.elo7-ec2-example: Refreshing <span class="hljs-keyword">state</span>... (ID: i-a1b2c3)
+
+Import success! The resources imported are shown above. These are
+now <span class="hljs-keyword">in</span> your Terraform <span class="hljs-keyword">state</span>. Import does not currently generate
+configuration, so you must do this next. If you do not create configuration
+<span class="hljs-keyword">for</span> the above resources, then the next `terraform plan` will mark
+them <span class="hljs-keyword">for</span> destruction
+</code></pre>
+<p>E por último, mas não menos importante, o estado que o Terraform gera:</p>
+<pre class="highlight"><code class="hljs python"><span class="hljs-string">"aws_instance.elo7-ec2-example"</span>: {
+    <span class="hljs-string">"type"</span>: <span class="hljs-string">"aws_instance"</span>,
+    <span class="hljs-string">"depends_on"</span>: [],
+    <span class="hljs-string">"primary"</span>: {
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"i-a1b2c3"</span>,
+        <span class="hljs-string">"attributes"</span>: {
+            <span class="hljs-string">"ami"</span>: <span class="hljs-string">"ami-z9e334"</span>,
+            <span class="hljs-string">"availability_zone"</span>: <span class="hljs-string">"us-west-1a"</span>,
+            <span class="hljs-string">"disable_api_termination"</span>: <span class="hljs-string">"false"</span>,
+            <span class="hljs-string">"ebs_block_device.#"</span>: <span class="hljs-string">"0"</span>,
+            <span class="hljs-string">"ebs_optimized"</span>: <span class="hljs-string">"false"</span>,
+            <span class="hljs-string">"ephemeral_block_device.#"</span>: <span class="hljs-string">"0"</span>,
+            <span class="hljs-string">"iam_instance_profile"</span>: <span class="hljs-string">"example-web-app"</span>,
+            <span class="hljs-string">"id"</span>: <span class="hljs-string">"i-a1b2c3"</span>,
+            <span class="hljs-string">"instance_state"</span>: <span class="hljs-string">"running"</span>,
+            <span class="hljs-string">"instance_type"</span>: <span class="hljs-string">"t2.large"</span>,
+            <span class="hljs-string">"key_name"</span>: <span class="hljs-string">"key-web-app"</span>,
+            <span class="hljs-string">"monitoring"</span>: <span class="hljs-string">"false"</span>,
+            <span class="hljs-string">"network_interface_id"</span>: <span class="hljs-string">"eni-5643f442"</span>,
+            <span class="hljs-string">"private_dns"</span>: <span class="hljs-string">"ip-10-0-3-54.us-west-1.compute.internal"</span>,
+            <span class="hljs-string">"private_ip"</span>: <span class="hljs-string">"10.0.3.54"</span>,
+            <span class="hljs-string">"public_dns"</span>: <span class="hljs-string">""</span>,
+            <span class="hljs-string">"public_ip"</span>: <span class="hljs-string">""</span>,
+            <span class="hljs-string">"root_block_device.#"</span>: <span class="hljs-string">"1"</span>,
+            <span class="hljs-string">"root_block_device.0.delete_on_termination"</span>: <span class="hljs-string">"true"</span>,
+            <span class="hljs-string">"root_block_device.0.iops"</span>: <span class="hljs-string">"100"</span>,
+            <span class="hljs-string">"root_block_device.0.volume_size"</span>: <span class="hljs-string">"8"</span>,
+            <span class="hljs-string">"root_block_device.0.volume_type"</span>: <span class="hljs-string">"gp2"</span>,
+            <span class="hljs-string">"security_groups.#"</span>: <span class="hljs-string">"0"</span>,
+            <span class="hljs-string">"source_dest_check"</span>: <span class="hljs-string">"true"</span>,
+            <span class="hljs-string">"subnet_id"</span>: <span class="hljs-string">"subnet-674f3556"</span>,
+            <span class="hljs-string">"tags.%"</span>: <span class="hljs-string">"3"</span>,
+            <span class="hljs-string">"tags.Name"</span>: <span class="hljs-string">"web-app"</span>,
+            <span class="hljs-string">"tags.env"</span>: <span class="hljs-string">"dev"</span>,
+            <span class="hljs-string">"tenancy"</span>: <span class="hljs-string">"default"</span>,
+            <span class="hljs-string">"user_data"</span>: <span class="hljs-string">"d2a580ddfbcb7e5ba2e00833805981ac61d500df"</span>,
+            <span class="hljs-string">"vpc_security_group_ids.#"</span>: <span class="hljs-string">"1"</span>,
+            <span class="hljs-string">"vpc_security_group_ids.4021914259"</span>: <span class="hljs-string">"sg-8f38de4"</span>
+        },
+        <span class="hljs-string">"meta"</span>: {
+            <span class="hljs-string">"schema_version"</span>: <span class="hljs-string">"1"</span>
+        },
+        <span class="hljs-string">"tainted"</span>: false
+    },
+    <span class="hljs-string">"deposed"</span>: [],
+    <span class="hljs-string">"provider"</span>: <span class="hljs-string">"aws"</span>
+}
+</code></pre>
+<p>Pronto! Já rodamos o <code>import</code> e possuímos nossa infra criada manualmente no idioma do Terraform! :)</p>
+<p>Mas lembram que isso é só a primeira parte do caminho? Esse comando não gera o código, e isso pode trazer consequências gravíssimas, pois <strong>podemos destruir a infra que acabamos de importar</strong>.</p>
+<p>Sim, isso é possível. Porque, no momento em que um <code>apply</code> for executado, o Terraform irá tentar destruir a infra que não existe em seu código e existe em seu estado que, <a href="/terraformando-tudo-1/">como já vimos</a>, é o comportamento esperado. Para provar esse ponto, vejamos a saída de um <code>terraform plan</code>:</p>
+<pre class="highlight"><code class="hljs undefined">$ terraform plan
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but
+will not be persisted to local or remote state storage.
+
+aws_instance.elo7-ec2-example: Refreshing state... (ID: i-a1b2c3)
+
+The Terraform execution plan has been generated and is shown below.
+Resources are shown in alphabetical order for quick scanning. Green resources
+will be created (or destroyed and then created if an existing resource
+exists), yellow resources are being changed in-place, and red resources
+will be destroyed. Cyan entries are data sources to be read.
+
+Note: You didn't specify an "-out" parameter to save this plan, so when
+"apply" is called, Terraform can't guarantee this is what will execute.
+
+- aws_instance.elo7-ec2-example
+
+
+Plan: 0 to add, 0 to change, 1 to destroy.
+</code></pre>
+<p><strong>NUNCA execute o <code>apply</code> nesse momento :|</strong></p>
+<h2>Segunda parte do caminho: escrevendo o código</h2>
+<p>Temos duas opções:</p>
+<ul>
+<li>Escrever o código manualmente;</li>
+<li>Gerar o código utilizando a ferramenta <a href="https://github.com/dtan4/terraforming">terraforming</a> (essa ferramenta é específica para recursos na AWS).</li>
+</ul>
+<p>A escolha mais correta é utilizar uma ferramenta que vai fazer o trabalho para nós mas, por questões didáticas, vamos mostrar o processo de escrita manual do código.</p>
+<p>Para fazer isso, devemos pegar as informações relevantes do estado e gerar um <em>configuration</em>. Nesse caso, estamos importando uma instância EC2 e vamos precisar retirar do estado as seguintes informações:</p>
+<ul>
+<li><strong>Nome do resource:</strong> <code>elo7-ec2-example</code></li>
+<li><strong>ID da AMI:</strong> <code>ami-z9e334</code></li>
+<li><strong>Tipo da instância:</strong> <code>t2.large</code></li>
+<li><strong>Nome da chave:</strong> <code>key-web-app</code></li>
+<li><strong>ID da subnet:</strong> <code>subnet-674f3556</code></li>
+<li><strong>Security groups:</strong> <code>sg-8f38de4</code></li>
+<li><strong>IAM Instance Profile:</strong> <code>example-web-app</code></li>
+<li><strong>EC2 Tags:</strong> <code>Name: web-app, env: test</code></li>
+</ul>
+<p>Cada <code>resource</code> depende de um conjunto mínimo de informações para que possa ser definido. Mais informações podem ser vistas na <a href="https://www.terraform.io/docs/">documentação oficial</a>.</p>
+<p>Com os dados obtidos, podemos gerar o código:</p>
+<pre class="highlight"><code class="hljs python">resource aws_instance <span class="hljs-string">"elo7-ec2-example"</span> {
+    ami = <span class="hljs-string">"ami-z9e334"</span>
+    instance_type = <span class="hljs-string">"t2.large"</span>
+    key_name = <span class="hljs-string">"key-web-app"</span>
+    subnet_id = <span class="hljs-string">"subnet-674f3556"</span>
+    vpc_security_group_ids = [ <span class="hljs-string">"sg-8f38de4"</span> ]
+    iam_instance_profile = <span class="hljs-string">"example-web-app"</span>
+
+    tags {
+        Name = <span class="hljs-string">"web-app"</span>
+        env = <span class="hljs-string">"test"</span>
+    }
+}
+</code></pre>
+<p>Podemos testar nosso código executando o comando <code>plan</code>. O sucesso da importação se dá quando esse comando indica que nenhuma mudança será feita, nos dizendo que não há inconsistências entre código e estado:</p>
+<pre class="highlight"><code class="hljs undefined">$ terraform plan
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but
+will not be persisted to local or remote state storage.
+
+aws_instance.elo7-ec2-example: Refreshing state... (ID: i-a1b2c3)
+
+No changes. Infrastructure is up-to-date. This means that Terraform
+could not detect any differences between your configuration and
+the real physical resources that exist. As a result, Terraform
+doesn't need to do anything.
+</code></pre>
+<p>No dia-a-dia, com certeza iremos preferir utilizar a ferramenta <code>terraforming</code> citada acima. Nós já usamos ela bastante por aqui e não tivemos problemas. Mais informações sobre como utilizá-la podem ser vistas <a href="https://github.com/dtan4/terraforming">na página da ferramenta</a>.</p>
+<h2>Conclusões</h2>
+<p>Esperamos ter respondido com clareza a resposta da pergunta &quot;E o legado?&quot; quando se trata de Infraestrutura como Código e Terraform.</p>
+<p>É recomendado que, ao utilizar o comando <code>import</code>, o usuário já possua alguma vivência com o Terraform e conheça bem os conceitos dos <code>resources</code> que serão importados, pois existem pontos do procedimento nos quais os estados são inconsistentes e um comando errado pode causar catástrofes. Cuidado com <code>resources</code> como registros de DNS e <em>load balancers</em>.</p>
+<p>Um outro detalhe foi que, aqui no Elo7, não saímos importando tudo que já existia de uma vez, decidimos fazer por demanda. Assim, quando uma mudança na infra de uma aplicação era necessária, aproveitávamos e fazíamos o <code>import</code>.</p>
+<p>Logo voltamos com mais posts sobre Terraform! Obrigado! :D</p>
+
+
+			<ul class='tag-list'>
+			
+				<li>
+					<a href='/tags/devops/'>devops</a>
+				</li>
+			
+				<li>
+					<a href='/tags/terraform/'>terraform</a>
+				</li>
+			
+				<li>
+					<a href='/tags/iac/'>iac</a>
+				</li>
+			
+				<li>
+					<a href='/tags/infrastructure-as-code/'>infrastructure as code</a>
+				</li>
+			
+				<li>
+					<a href='/tags/infra/'>infra</a>
+				</li>
+			
+			</ul>
+			<section class='share'>
+				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+				<div class='social-share'>
+					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/terraformando-tudo-3/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+						Compartilhar no facebook
+					</a>
+					<a href='https://twitter.com/intent/tweet?text=Terraformando tudo - parte 3&url=https://elo7.dev/terraformando-tudo-3/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+						Compartilhar no twitter
+					</a>
+					<a href='https://elo7.dev/terraformando-tudo-3/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+						Copiar URL
+					</a>
+					<span class='copy-success'>Link copiado</span>
+					<input type='url' value='https://elo7.dev/terraformando-tudo-3/?utm_source=share&utm_medium=copy' class='link-input'>
+				</div>
+			</section>
+		</div>
+
+		<meta itemprop='headline' content='Terceiro post da série &#x27;Terraformando Tudo&#x27;, que conta a nossa trajetória em busca da codificação da nossa infraestrutura. Neste post mostraremos como &quot;terraformar&quot; uma infra já existente.'/>
+		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop='name' content='Elo7 Tech'/>
+			<meta itemprop="url" content='https://elo7.dev'/>
+			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+				<meta itemprop='width' content='100px'/>
+				<meta itemprop='height' content='100px'/>
+			</span>
+		</span>
+		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+		<div id='disqus_thread'></div>
+
+		<script>
+			var disqus_shortname = 'engenhariaelo7';
+			var disqus_identifier = '18/09/2017:/terraformando-tudo-3/';
+			var disqus_url = 'https://elo7.dev/terraformando-tudo-3/';
+
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Habilite o JavaScript para ver os comentários</noscript>
+	</div>
+</article>
+<script async src="/js/post.js"></script>
+
+		
+	</main>
+	<footer itemscope itemtype="http://schema.org/Organization">
+		<a rel="home" itemprop="url" href="https://elo7.dev/" >
+			elo7.dev © 2019
+		</a>
+		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<script async src="https://www.google-analytics.com/analytics.js"></script>
+	<script async src="/js/analytics.js"></script>
+	<script async src="/js/github.js"></script>
+	<script async src="/js/vendor/events-amd.js"></script>
+	<script async src="/js/vendor/ajax.js"></script>
+	<script async src="/js/vendor/doc.js"></script>
+	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

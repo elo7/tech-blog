@@ -1,0 +1,789 @@
+<!doctype html>
+<html amp lang='pt-br'>
+<head>
+	<meta charset='utf-8'>
+	<script async src='https://cdn.ampproject.org/v0.js'></script>
+	<script async custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
+	<script async custom-element='amp-image-lightbox' src='https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js'></script>
+	<script async custom-element='amp-analytics' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js'></script>
+	<title>Elo7 Tech - Minimizando código duplicado com React Native no Elo7</title>
+	<meta name='description' content='Neste post explico como aplicamos o uso de React Native no Elo7.'>
+	<link rel='canonical' href='https://elo7.dev/minimizando-codigo-duplicado-com-react-native/' />
+	<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>
+	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+	<style amp-custom>
+		body {
+			background-color: white;
+			font-family: 'Open Sans', sans-serif;
+			color: #666;
+		}
+
+		h1 {
+			color: #333;
+			font-size: 1.5em;
+			margin-bottom: 0;
+		}
+
+		h2, h3 {
+			color: #444;
+			font-size: 1.2em;
+		}
+
+		h3 {
+			font-weight: 300;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		p, li {
+			font-size: 0.9em;
+		}
+
+		ul {
+			padding-left: 1.5em;
+		}
+
+		article {
+			line-height: 1.8;
+			text-align: justify;
+		}
+
+		blockquote {
+			margin: 1em;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			font-size: 0.9em;
+			width: 100%;
+			text-align: left;
+		}
+
+		table thead th {
+			background-color: #4a4a4a;
+			color: white;
+		}
+
+		table th, table td {
+			padding: 0.2em 0.5em;
+		}
+
+		tr:nth-child(even) td {
+			background-color: #f3f3f3;
+		}
+
+		table th:not(:first-child), table td:not(:first-child) {
+			text-align: right;
+		}
+
+		body > header {
+			height: 60px;
+			box-sizing: border-box;
+			background-color: #FDC24F;
+			text-align: center;
+			padding-top: 0.8em;
+			padding-bottom: 0.8em;
+			position: sticky;
+			top: 0;
+			z-index: 10;
+		}
+
+		body > header a {
+			background: url('//images.elo7.com.br/assets/v3/desktop/svg/logo-elo7.svg') no-repeat;
+			background-size: 90px 35px;
+			width: 90px;
+			height: 35px;
+			display: inline-block;
+			filter: brightness(100);
+		}
+
+		.post-content, footer {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+
+		.post-content .content a, .post-content .content a:visited, .post-content .content a:hover {
+			cursor: pointer;
+			color: #000;
+			font-weight: 500;
+			text-decoration: underline;
+			word-break: break-word;
+		}
+
+		.post-content .post-image {
+			text-align: center;
+			display: block;
+		}
+
+		.post-content p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		main {
+			background-color: #ecebeb;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+
+		.post-card, .post-content, .publisher-info {
+			background: white;
+			margin-left: 2%;
+			padding: 1em;
+			margin-right: 3%;
+			box-shadow: rgba(72, 72, 72, 0.23) 0 0 5px;
+		}
+
+		.publisher-info {
+			margin-bottom: 1em;
+		}
+
+		.publisher-info h1 {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+		}
+
+		.card-devops {
+			border-left: 5px solid #7d7873;
+		}
+
+		.card-eventos {
+			border-left: 5px solid #fdb933;
+		}
+
+		.card-front-end {
+			border-left: 5px solid #c15eb4;
+		}
+
+		.card-back-end {
+			border-left: 5px solid #359c9c;
+		}
+
+		.card-mobile {
+			border-left: 5px solid #fa9c5e;
+		}
+
+		.card-vagas {
+			border-left: 5px solid #99c799;
+		}
+
+		.card-design {
+			border-left: 5px solid #7c9ec4;
+		}
+
+		.card-cultura {
+			border-left: 5px solid #f44336;
+		}
+
+		.post-card:not(:last-of-type) {
+			margin-bottom: 1em;
+		}
+
+		.post-card .title {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+			text-align: left;
+		}
+
+		.post-card .title a {
+			color: inherit;
+		}
+
+		.author, .date {
+			color: #888;
+			margin-bottom: 0;
+			margin-top: 0;
+			font-size: 0.9em;
+		}
+
+		.author a {
+			color: inherit;
+			margin-bottom: 1.5em;
+		}
+
+		#sidebar {
+			width: 60vw;
+			background-color: #4a4a4a;
+			color: #fff;
+			padding-right: 1em;
+			padding-left: 1em;
+		}
+
+		#sidebar li {
+			margin-bottom: 0.5em;
+		}
+
+		#sidebar ul {
+			margin-bottom: 1.5em;
+			list-style: none;
+			padding: 0;
+		}
+
+		#sidebar h2 {
+			margin-bottom: 0;
+		}
+
+		#sidebar a {
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		#sidebar a, #sidebar h2 {
+			color: inherit;
+		}
+
+		.sidebar-trigger {
+			position: absolute;
+			left: 5%;
+			background-color: transparent;
+			border: none;
+			color: #fff;
+			font-size: 1.8em;
+			padding: 0;
+		}
+
+		.category {
+			background-color: #73bebe;
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 0.8em;
+			padding: .5em;
+			border-radius: 3px;
+			display: inline-block;
+			margin-top: 2.3em;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			font-weight: 300;
+		}
+
+		.category:hover {
+			background-color: #73bebe;
+		}
+
+		.post-link {
+			border: 1px solid #fba702;
+			border-radius: 3px;
+			color: #fba702;
+			display: inline-block;
+			float: right;
+			margin-top: 1em;
+			padding: 0.8em;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s, color 0.3s;
+			font-size: 0.9em;
+		}
+
+		.post-link:hover {
+			background-color: #fba702;
+			color: #ffffff;
+		}
+
+		.social {
+			content: '';
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			background-position: center;
+			text-indent: -9999px;
+			margin-right: 0.5em;
+			background-size: contain;
+			vertical-align: top;
+		}
+
+		.social.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.social.linkedin {
+			background-image: url('/images/ico/ic-linkedin.svg');
+		}
+
+		.social.github {
+			background-image: url('/images/ico/ic-github.svg');
+		}
+
+		footer {
+			background-color: #4a4a4a;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		footer a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 0.8em;
+		}
+
+		.footer-social {
+			line-height: 0;
+		}
+
+		.footer-social a {
+			background-size: 2em 2em;
+			background-repeat: no-repeat;
+			display: inline-block;
+			height: 2em;
+			width: 2em;
+			overflow: hidden;
+			text-indent: -9999px;
+		}
+
+		.footer-social a + a {
+			margin-left: 0.5em;
+		}
+
+		.footer-social .github {
+			background-image: url('/images/github_icon.svg');
+		}
+		.footer-social .email {
+			background-image: url('/images/email_icon.png');
+		}
+
+		.footer-social .rss {
+			background-image: url('/images/ico/feed.svg');
+		}
+
+		.footer-social .twitter {
+            background-image: url('/images/ico/ic-negative-twitter.svg');
+        }
+
+		.share {
+			position: relative;
+			text-align: right;
+			margin-top: 1em;
+		}
+
+		.share .link-share {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				text-indent: -9999px;
+				margin-left: 0.5em;
+				text-align: left;
+		}
+
+		.share .link-share.facebook {
+			background-image: url('/images/ico/ic-facebook.svg');
+		}
+
+		.share .link-share.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.link-input {
+			opacity: 0;
+			position: absolute;
+			left: -9999px;
+		}
+
+		.copy-success {
+			font-size: 0.75em;
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			top: 125%;
+			transition: opacity ease-in-out 250ms;
+			text-align: center;
+		}
+
+		.copy-success.active {
+			opacity: 1;
+		}
+
+		code {
+			background-color: #ececec;
+			padding: 0.1em 0.2em;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.highlight code {
+			overflow: auto;
+		}
+
+		.hljs {
+			display: block;
+			padding: 0.5em 1em;
+			background: #23241f;
+		}
+
+		.hljs,
+		.hljs-tag,
+		.css .hljs-rules,
+		.css .hljs-value,
+		.css .hljs-function
+		.hljs-preprocessor,
+		.hljs-pragma {
+			color: #f8f8f2;
+		}
+
+		.hljs-strongemphasis,
+		.hljs-strong,
+		.hljs-emphasis {
+			color: #a8a8a2;
+		}
+
+		.hljs-bullet,
+		.hljs-blockquote,
+		.hljs-horizontal_rule,
+		.hljs-number,
+		.hljs-regexp,
+		.alias .hljs-keyword,
+		.hljs-literal,
+		.hljs-hexcolor {
+			color: #ae81ff;
+		}
+
+		.hljs-tag .hljs-value,
+		.hljs-code,
+		.hljs-title,
+		.css .hljs-class,
+		.hljs-class .hljs-title:last-child {
+			color: #a6e22e;
+		}
+
+		.hljs-link_url {
+			font-size: 80%;
+		}
+
+		.hljs-strong,
+		.hljs-strongemphasis {
+			font-weight: bold;
+		}
+
+		.hljs-emphasis,
+		.hljs-strongemphasis,
+		.hljs-class .hljs-title:last-child {
+			font-style: italic;
+		}
+
+		.hljs-keyword,
+		.hljs-function,
+		.hljs-change,
+		.hljs-winutils,
+		.hljs-flow,
+		.lisp .hljs-title,
+		.clojure .hljs-built_in,
+		.nginx .hljs-title,
+		.tex .hljs-special,
+		.hljs-header,
+		.hljs-attribute,
+		.hljs-symbol,
+		.hljs-symbol .hljs-string,
+		.hljs-tag .hljs-title,
+		.hljs-value,
+		.alias .hljs-keyword:first-child,
+		.css .hljs-tag,
+		.css .unit,
+		.css .hljs-important {
+			color: #F92672;
+		}
+
+		.hljs-function .hljs-keyword,
+		.hljs-class .hljs-keyword:first-child,
+		.hljs-constant,
+		.css .hljs-attribute {
+			color: #66d9ef;
+		}
+
+		.hljs-variable,
+		.hljs-params,
+		.hljs-class .hljs-title {
+			color: #f8f8f2;
+		}
+
+		.hljs-string,
+		.css .hljs-id,
+		.hljs-subst,
+		.haskell .hljs-type,
+		.ruby .hljs-class .hljs-parent,
+		.hljs-built_in,
+		.sql .hljs-aggregate,
+		.django .hljs-template_tag,
+		.django .hljs-variable,
+		.smalltalk .hljs-class,
+		.django .hljs-filter .hljs-argument,
+		.smalltalk .hljs-localvars,
+		.smalltalk .hljs-array,
+		.hljs-attr_selector,
+		.hljs-pseudo,
+		.hljs-addition,
+		.hljs-stream,
+		.hljs-envvar,
+		.apache .hljs-tag,
+		.apache .hljs-cbracket,
+		.tex .hljs-command,
+		.hljs-prompt,
+		.hljs-link_label,
+		.hljs-link_url {
+			color: #e6db74;
+		}
+
+		.hljs-comment,
+		.hljs-javadoc,
+		.java .hljs-annotation,
+		.python .hljs-decorator,
+		.hljs-template_comment,
+		.hljs-pi,
+		.hljs-doctype,
+		.hljs-deletion,
+		.hljs-shebang,
+		.apache .hljs-sqbracket,
+		.tex .hljs-formula {
+			color: #75715e;
+		}
+
+		.coffeescript .javascript,
+		.javascript .xml,
+		.tex .hljs-formula,
+		.xml .javascript,
+		.xml .vbscript,
+		.xml .css,
+		.xml .hljs-cdata,
+		.xml .php,
+		.php .xml {
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body itemscope itemtype='http://schema.org/WebPage'>
+	<amp-sidebar id='sidebar' layout='nodisplay'>
+		<h2>Categorias</h2>
+		<ul>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/back-end/'>
+						<span itemprop='name'>back-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/cultura/'>
+						<span itemprop='name'>cultura</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/data-science/'>
+						<span itemprop='name'>data-science</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/design/'>
+						<span itemprop='name'>design</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/devops/'>
+						<span itemprop='name'>devops</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/eventos/'>
+						<span itemprop='name'>eventos</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/talks/'>
+						<span itemprop='name'>talks</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/front-end/'>
+						<span itemprop='name'>front-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/mobile/'>
+						<span itemprop='name'>mobile</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/vagas/'>
+						<span itemprop='name'>vagas</span>
+					</a>
+				</li>
+			
+		</ul>
+		<h2>Veja também</h2>
+		<ul>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+					<span itemprop='name'>A engenharia</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Carreiras</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://eventos.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Nossos eventos</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='https://www.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Elo7</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a rel='external' itemprop='url' href='https://github.com/elo7/tech-blog'>Github</a>
+			</li>
+		</ul>
+		</ul>
+	</amp-sidebar>
+	<header>
+		<button class='sidebar-trigger' on='tap:sidebar'>☰</button>
+		<a rel='home' itemprop='url' href='/amp/home/' class='logo'></a></header>
+
+	<main itemscope itemtype='http://schema.org/Blog'>
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card post-content'>
+	<h1 itemprop='name' class='title'>Minimizando código duplicado com React Native no Elo7</h1>
+	<div class='post-meta'>
+		<p class='date'>
+			Publicado em: <time datetime='16/10/2017' itemprop='datePublished'>16/10/2017</time>
+			<meta itemprop='dateModified' content='16/10/2017'>
+		</p>
+
+		<article>
+			
+				<a data-author='aterribili' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/amp/aterribili/' class='author'>
+					<meta itemprop='url' content='/amp/aterribili'>
+					<span itemprop='name' class='publisher' data-author='aterribili'>@aterribili</span>
+					<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+				</a>
+			
+		</article>
+	</div>
+	<div class='content' itemprop='articleBody'>
+		<h1>Minimizando código duplicado com React Native no Elo7</h1>
+<h2>Início</h2>
+<p>Quando entrei no Elo7, estávamos engatinhando no mundo dos aplicativos, tínhamos uma versão apenas para o Android, que era basicamente um <em>wrapper</em> de um conjunto de <em>webviews</em>, com um <em>drawer menu</em> nativo. Olhando o <em>roadmap</em>, percebemos que logo atacaríamos uma versão <em>mais</em> nativa (sem tantos <em>webviews</em>) para o iOS e Android. O tempo foi passando e logo as versões mais nativas foram amadurecendo. Então, percebemos que havia uma quantidade de código semelhante* em ambas plataformas: consumo de um endpoint/API, mapeamento de um JSON para um modelo e exibição na tela, etc.</p>
+<p>*Semelhante = códigos que fazem exatamente a mesma coisa, porém em linguagens diferentes (Android = Java, iOS = Objective-C)</p>
+<p>Com essas informações, definimos que iríamos minimizar esse código dúplicado, com a premissa de criar aplicativos nativos. Fomos atrás de material na internet e encontramos o <a href="https://github.com/dropbox/djinni">Djinni</a>, do Dropbox, que tinha uma proposta alinhada com algo que procurávamos, porém apenas a camada de UI (<em>User Interface</em>), teria que ser escrita em cada plataforma. Fizemos algumas provas de conceito e o resultado não foi o que esperávamos, o código escrito usando o Djinni era em C++, não abstraía a camada de UI e ainda assim era complexo de integrar com <em>apps</em> já existentes. Então assumimos que a melhor maneira de construir aplicativos na época, era manter a abordagem que já estava dando certo, cada plataforma com o seu código.</p>
+<h2>Meio</h2>
+<p>Novamente, olhando o <em>roadmap</em>, vimos que desenvolveríamos mais dois aplicativos destinados aos vendedores que, por sua vez, teriam algumas <em>features</em> já presentes nos aplicativos dos compradores (já mencionados). Nessa época, decidimos modularizar o que seria semelhante em mais de um aplicativo. Lembrando que ainda nesse ponto, <strong>não</strong> compartilhávamos código entre plataformas (Android e iOS).
+Dividimos as aplicações em <em>libraries</em> do iOS e Android:
+módulo de mensagens - responsável por abstrair <strong>quase</strong> tudo que tem relação com o nosso fluxo de troca de mensagens;
+módulo <em>commons</em> - responsável por abstrair fluxo de <em>login</em>, tela de perfil e tudo que considerávamos comum entre os aplicativos;
+módulo <em>networking</em> - responsável por abstrair nossa camada HTTP;</p>
+<p>Segue uma descrição resumida do cenário do Android, visto que do iOS é <strong>muito</strong> semelhante, ele será omitido:</p>
+<p>Talk7 consome as <em>libraries</em>:</p>
+<ul>
+<li>módulo de mensagens</li>
+<li>módulo <em>commons</em></li>
+<li>módulo <em>networking</em></li>
+</ul>
+<p>Elo7 consome as <em>libraries</em>:</p>
+<ul>
+<li>módulo de mensagens</li>
+<li>módulo <em>commons</em></li>
+<li>módulo <em>networking</em></li>
+</ul>
+<p>Com essa estrutura e a famosa <a href="https://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/">Clean Architecture</a>, alcançamos um reaproveitamento de código legal, com todas aquelas vantagens de evitar código duplicado que todo mundo já conhece, tem até uma <a href="https://www.youtube.com/watch?v=HK0fZRCJfYw">palestra minha com o Thiago Pilon</a> que falamos bastante a respeito da arquitetura que adotamos na época. (<a href="https://github.com/Pilon">Thiago Pilon</a>)</p>
+<h2>Fim (pelo menos até agora)</h2>
+<p>Eis que algumas <a href="https://facebook.github.io/react-native/showcase.html">pessoas/empresas</a> não paravam de falar que o React-Native (RN) era uma solução <strong>elegante</strong> para compartilhamento de código entre plataformas, que é uma ferramenta que permite escrever aplicativos nativos usando <a href="https://facebook.github.io/react/">React</a> e Javascript e tem como diretiva: aprenda uma vez e escreva aplicativos para as duas plataformas (Android e iOS, eventualmente até aplicações <a href="https://github.com/Microsoft/react-native-windows">WPF/Phone para Windows</a>).</p>
+<p>A proposta do RN é ambiciosa, gerar código nativo, componentes de UI nativos, integração com código já existente, <a href="https://facebook.github.io/react-native/docs/debugging.html">toolset</a> bem completo e até possibilidade de <a href="https://microsoft.github.io/code-push/">atualização de aplicativos já instalados</a>.</p>
+<p>Esses dois últimos pontos chamaram bastante nossa atenção, poderiamos colocar o RN na nossa base de código sem reescrever todo o projeto, uma vez que a integração com a parte nativa era possível e também poderíamos subir uma correção de <em>bug</em> sem a necessidade de passar por todo o processo de <em>review</em>/aprovação da Apple, isso sem falar que teríamos nossa base inteira atualizada em pouco tempo. &lt;3</p>
+<h3>Prova de conceito</h3>
+<p>Concluímos que a proposta do RN casava muito bem com aquela premissa lá do começo do post, de evitar código duplicado entre as plataformas (Android e iOS), então decidimos avaliar. Fizemos nossa prova de conceito e obtivemos sucesso, porém a integração deu bastante trabalho, e até que chegássemos à uma solução <em>production-ready</em>, investimos muito esforço. O problema era que os mantenedores do RN estão acostumados com uma estrutura de diretórios diferente da que temos aqui e não queríamos mudar nossa estrutura atual, afetando a produtividade do time modificando a maneira de trabalhar.. Então, tomamos a ousada decisão de fazer a integração de uma forma bem diferente da <a href="https://facebook.github.io/react-native/docs/integration-with-existing-apps.html">sugerida</a>.</p>
+<p>Estrutura de diretórios sugerida:</p>
+<pre class="highlight"><code class="hljs stylus">ios/
+android/
+package<span class="hljs-selector-class">.json</span>
+src/
+node_modules/
+...
+</code></pre>
+<p>Ou seja, nosso projeto estaria acoplado ao RN :/, e não queríamos isso, pois se um dia abandonarmos a ideia de utilizar RN, poderíamos simplesmente removê-lo. :)
+Por essa motivação, gostaríamos que a <em>lib</em> que abstraísse o RN também fosse uma dependência dos aplicativos atuais, algo como:</p>
+<p>Talk7 consome as libraries:</p>
+<ul>
+<li>lib de mensagens</li>
+<li>lib <em>commons</em></li>
+<li>lib <em>networking</em></li>
+<li><strong>lib react native</strong></li>
+</ul>
+<p>Após um tempo investido, aproximadamente 1 mês, alcançamos esse objetivo. O único incômodo causado para a parte do time que não estava totalmente envolvida com essa integração, era a instalação do <a href="https://www.npmjs.com">NPM</a> para podermos gerar o <em>bundle</em> com os componentes escritos em RN. Acredito que a explicação de como integramos o RN nos aplicativos daqui vale um outro <em>post</em>, pois é um tema bem extenso e não está no escopo do tema deste <em>post</em>.</p>
+<h2>Hoje</h2>
+<p>No Elo7, o RN vem cumprindo seu objetivo, por isso já temos diversas <em>features</em> feitas inteiramente em RN, que se comunicam com o nosso <em>backend</em> e são exibidas nas plataformas Android e iOS, compartilhando código Javascript de fácil manutenção.</p>
+<p>Bom, mas e a experiência do usuário, como fica?
+Não precisa ser igual, se você precisar de customizações específicas para cada plataforma, o RN resolve <a href="https://facebook.github.io/react-native/docs/platform-specific-code.html">muito bem</a>, vale a pena conferir.</p>
+<p>Aqui vai um exemplo de código em React Native, bem simples, com o objetivo de exibir um pouco a forma que utilizamos o RN aqui no Elo7:</p>
+<div data-snack-id="ryfaGFmUW" data-snack-platform="ios" data-snack-preview="true" data-snack-theme="light"></div>
+<script async src="https://snack.expo.io/embed.js"></script>
+<p>Caso tenha dúvidas ou sugestões, pode comentar abaixo. (:</p>
+<p>Obrigado <a href="https://github.com/Pilon">Thiago Pilon</a> pela revisão e sugestões!</p>
+
+		<section class='share'>
+			<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/amp/minimizando-codigo-duplicado-com-react-native/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+				Compartilhar no facebook
+			</a>
+			<a href='https://twitter.com/intent/tweet?text=Minimizando código duplicado com React Native no Elo7&url=https://elo7.dev/amp/minimizando-codigo-duplicado-com-react-native/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+				Compartilhar no twitter
+			</a>
+		</section>
+	</div>
+	<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
+		<link href="/images/ico/elo7.png" itemprop="url"/>
+		<meta itemprop='width' content='100px'/>
+		<meta itemprop='height' content='100px'/>
+	</span>
+
+	<meta itemprop='headline' content='Neste post explico como aplicamos o uso de React Native no Elo7.'/>
+	<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop='name' content='Elo7 Tech'/>
+		<meta itemprop="url" content='https://elo7.dev'/>
+		<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+			<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+			<meta itemprop='width' content='100px'/>
+			<meta itemprop='height' content='100px'/>
+		</span>
+	</span>
+	<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+</article>
+	</main>
+	<footer itemscope itemtype='http://schema.org/Organization'>
+		<a rel='home' itemprop='url' href='/amp/home/'>elo7.dev © 2019</a>
+		<meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<amp-analytics type='googleanalytics'>
+		<script type='application/json'>
+			{
+				"vars": {
+					"account": "UA-3692628-29"
+				},
+				"triggers": {
+					"trackPageview": {
+						"on": "visible",
+						"request": "pageview"
+					}
+				}
+			}
+		</script>
+	</amp-analytics>
+</body>
+</html>

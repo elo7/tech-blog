@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Conheça a Credential Managament API e veja como implementá-la em seu projeto.">
+	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
+	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name="theme-color" content="#FDC24F">
+	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,javascript,web,webapi">
+	<meta name="language" content="pt-br">
+	<meta name="title" content="Elo7 Tech - Credential Managament API">
+	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Credential Managament API">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<meta property="fb:app_id" content="644444999041914">
+	<meta property="fb:admins" content="100003324447975">
+
+	<meta property="og:site_name" content="Elo7 Tech">
+	<meta property="og:image" content="https://elo7.dev/images/cover/elo7.png">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Elo7 Tech - Credential Managament API">
+	<meta property="og:url" content="https://elo7.dev/credential-management-api/">
+	<meta property="og:description" content="Conheça a Credential Managament API e veja como implementá-la em seu projeto.">
+
+	<meta name="twitter:widgets:csp" content="on">
+	<meta name="twitter:card" content="summary_large_image">
+
+	<meta property="twitter:title" content="Elo7 Tech - Credential Managament API">
+	<meta property="twitter:domain" content="https://elo7.dev">
+	<meta property="twitter:url" content="https://elo7.dev/credential-management-api/">
+	<meta property="twitter:description" content="Conheça a Credential Managament API e veja como implementá-la em seu projeto.">
+	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+
+	<link rel="canonical" href="https://elo7.dev/credential-management-api/">
+	
+		<link rel='amphtml' href='https://elo7.dev/amp/credential-management-api/' />
+	
+
+	<title>Elo7 Tech - Credential Managament API</title>
+	<link rel="stylesheet" href="/reset.css">
+	<link rel="stylesheet" href="/main.css">
+	<link rel="stylesheet" href="/posts.css">
+	<link rel="stylesheet" href="/post.css">
+	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
+	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
+	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
+	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
+	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
+	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
+	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
+	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
+	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src="/js/vendor/async-define.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
+	<header class="left-pane">
+		<div class="logo-container">
+			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
+		</div>
+		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
+			<input id="categories-switch" type="checkbox" class="categories-switch">
+			<label for="categories-switch" class="selectable">
+				<h2 class="nav-title">Categorias</h2>
+			</label>
+			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
+				
+					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Back-end</span>
+					</a>
+				
+					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Cultura</span>
+					</a>
+				
+					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Data Science</span>
+					</a>
+				
+					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Design</span>
+					</a>
+				
+					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Devops</span>
+					</a>
+				
+					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Eventos</span>
+					</a>
+				
+					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Palestras</span>
+					</a>
+				
+					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Front-end</span>
+					</a>
+				
+					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Mobile</span>
+					</a>
+				
+					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Vagas</span>
+					</a>
+				
+			</nav>
+		</div>
+		<div class="navigation">
+			<input id="more-switch" type="checkbox" class="more-switch">
+			<label for="more-switch" class="selectable">
+				<h2 class="nav-title">Veja também</h2>
+			</label>
+			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
+					<span itemprop="name">A engenharia</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
+					<span itemprop="name">Carreiras</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
+					<span itemprop="name">Nossos eventos</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
+					<span itemprop="name">Elo7</span>
+				</a>
+			</nav>
+		</div>
+		<div class='social'>
+			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
+			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
+		</div>
+	</header>
+	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<img src='https://elo7.dev/images/cover/elo7.png' alt='' itemprop="url">
+	</figure>
+	<div class='post-content'>
+		<h1 itemprop='name' class='title'>Credential Managament API</h1>
+		<div class='post-meta'>
+			<p class='date'>
+				Publicado em: <time datetime='19/03/2018' itemprop='datePublished'>19/03/2018</time>
+				<meta itemprop='dateModified' content='19/03/2018'>
+			</p>
+
+			<article>
+				
+					<a data-author='tcelestino' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/tcelestino/' class='author'>
+						<meta itemprop='url' content='/tcelestino'>
+						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
+						<p itemprop='name' class='publisher' data-author='tcelestino'>@tcelestino</p>
+					</a>
+				
+
+				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+			</article>
+		</div>
+		<div itemprop='articleBody'>
+			<p>Hoje em dia passamos muito tempo em redes sociais, fóruns, blogs e sites de comércio eletrônico, sabemos então o quanto é chato ter que ficar anotando dados de login e senha deste serviços. E como você sabe, por questões de segurança, não devemos usar os mesmos dados para acessar diferentes serviços. Para resolver este problema, existem diversas aplicações que gerenciam essas informações, como: <a href="https://www.lastpass.com">LastPass</a>, <a href="https://1password.com/">1Password</a>, <a href="https://bitwarden.com/">bitwarden</a>, <a href="https://www.dashlane.com/">Dashlane</a>, entre outros. Os principais navegadores do mercado também possuem recursos para fazer esse gerenciamento. Mas daí surge uma dúvida: como faríamos para informar estes dados ao navegador? É possível integrar meu sistema de login ao mesmo? Para elucidar essas questões (e se existem outras, pode deixar nos comentários logo abaixo), lhe apresento a <a href="https://www.w3.org/TR/credential-management-1/">Credential Management API</a>, que pelo próprio nome já diz, faz o gerenciamento de suas credenciais (login e senha) utilizando o navegador. No momento, apenas a versão do Chrome para desktop e Android possui a API implementada. Acredito que em breve a veremos em outros navegadores.</p>
+<p>A Credential Management API segue três pilares:</p>
+<ul>
+<li>Permite acesso com um toque com o seletor de contas;</li>
+<li>Salva e gerencia seus dados;</li>
+<li>Simplifica o fluxo de acesso.</li>
+</ul>
+<p>Existem diversas maneiras de melhorar o fluxo de utilização do seu site com a Credential Managament API. Um exemplo seria facilitar o processo de login automático, caso o usuário tenha múltiplas contas registradas em seu navegador.</p>
+<h2>Como usamos no Elo7</h2>
+<p>Antes de mostrar a implementação da API, queria exemplificar como a utilizamos aqui no <a href="https://www.elo7.com.br/?utm_source=tech-blog&amp;utm_medium=credential-management-api">Elo7</a>.</p>
+<p>Utilizamos a Credential Management API no sistema de login do Elo7 (na versão web mobile) e analisando os resultados através do Google Analytics, observamos que realmente nossos usuários utilizam este recurso, independente do seu nível de conhecimento.</p>
+<p><img src="../images/credential-management-api-1.png" alt="Alt &quot;Gráfico do Google Analytics sobre o uso da Credential Management API&quot;"></p>
+<div style="text-align: center; font-style: italic">Gráfico de uso da Credential Management API no Elo7</div>
+<p>Interessante os resultados, não? Bom, vamos deixar de conversa e partir para o melhor, que é a implementação!</p>
+<h2>Implementando a API</h2>
+<p>Como grande maioria das API's Javascript lançadas hoje em dia, precisamos garantir a segurança das informações. Ou seja, para usar a Credential Management API você precisa ter um servidor com uma conexão segura. Em outras palavras, é necessário que o protocolo <em>https</em> esteja habilitado em seu servidor.</p>
+<p>A primeira coisa que precisamos verificar é se esta API está disponível em seu navegador. Importante: nos exemplos a seguir utilizarei algumas das novidades recém adicionadas à linguagem Javascript (ES6/ES7/ES8). Caso não conheça, você pode conhecer mais <a href="http://kangax.github.io/compat-table/es2016plus/">clicando aqui</a>.</p>
+<p>No exemplo a seguir, utilizaremos um formulário com os seguintes campos:</p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'login'</span> <span class="hljs-attr">method</span>=<span class="hljs-string">'POST'</span> <span class="hljs-attr">action</span>=<span class="hljs-string">'/auth/login'</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Email: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'email'</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'name'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Senha: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'password'</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'pass'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'submit'</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'Logar'</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-meta">'use strict'</span>;
+
+<span class="hljs-keyword">if</span> (<span class="hljs-string">'credentials'</span> <span class="hljs-keyword">in</span> navigator) {
+    <span class="hljs-keyword">const</span> form = <span class="hljs-built_in">document</span>.forms.login;
+
+    form.addEventListener(<span class="hljs-string">'submit'</span>, () =&gt; {
+        <span class="hljs-keyword">let</span> cred = <span class="hljs-keyword">await</span> navigator.credentials.create({
+            <span class="hljs-attr">password</span>: {
+                <span class="hljs-attr">id</span>: form.elements[<span class="hljs-number">0</span>].value, <span class="hljs-comment">// campo de email</span>
+                password: form.elements[<span class="hljs-number">1</span>].value <span class="hljs-comment">// campo de senha</span>
+            }
+        });
+
+        navigator.credentials
+            .store(cred)
+            .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Dados foram salvos com sucesso'</span>))
+            .catch(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Seus dados não foram salvos'</span>));
+    });
+}
+</code></pre>
+<p>No código acima, estamos criando uma <em>credential</em> de forma assíncrona quando é feito um <code>submit</code> no formulário, no qual passamos para este as informações preenchidas nos campos (email e senha). Feito isso, chamamos o método <code>navigator.credentials.store()</code>, passando como argumento/parâmetro o objeto que criamos com <code>navigator.credentials.create()</code>. Esse método retornará uma Promise. Caso você não saiba o que é uma Promise, recomendo ler a <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise">documentação</a> disponível no <a href="https://developer.mozilla.org/pt-BR/">Mozilla Developer Network (MDN)</a>. Vale lembrar que, caso aconteça o <code>catch</code> o usuário irá logar no sistema, apenas as informações (email e senha) não serão gravadas.</p>
+<p>Recentemente a Google atualizou diversas características desta API, adicionando novas maneiras de criar uma <em>credential</em>. Agora ela pode ser criada de forma síncrona ao instanciar o objeto <code>PasswordCredential</code> ou de forma assíncrona utilizando o método <code>navigator.credentials.create()</code>. Para maiores detalhes, <a href="https://developers.google.com/web/updates/2017/06/credential-management-updates#creating_a_passwordcredential_object">leia aqui</a>.</p>
+<h2>Requisitando as informações</h2>
+<p>Assim como salvamos, também podemos recuperar informações que já foram salvas. Para isso, vamos usar o método <code>navigator.credentials.get()</code>. Esse método retornará as informações que salvamos anteriormente no método <code>navigator.credentials.store()</code>. Caso não exista nenhuma informação, será retornado um <code>null</code>. Ou seja, você pode criar uma abordagem que faça o usuário cadastrar as informações caso o valor seja <code>null</code>, por exemplo.</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-meta">'use strict'</span>;
+
+<span class="hljs-keyword">if</span> (<span class="hljs-string">'credentials'</span> <span class="hljs-keyword">in</span> navigator) {
+    <span class="hljs-comment">//...</span>
+
+    <span class="hljs-comment">// recuperando dados caso já estejam existentes</span>
+    navigator.credentials.get({
+        <span class="hljs-attr">password</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">mediation</span>: <span class="hljs-string">'silent'</span>
+    }).then(<span class="hljs-function">(<span class="hljs-params">cred</span>) =&gt;</span> {
+        <span class="hljs-keyword">if</span> (cred) {
+            <span class="hljs-comment">// faça alguma coisa</span>
+        }
+    });
+}
+</code></pre>
+<p>Como podem observar, passamos para o <code>navigator.credentials.get()</code> duas informações:</p>
+<ul>
+<li>password: por padrão, o valor é <code>false</code>, por isso é preciso passar o valor <code>true</code> para recuperar informações;</li>
+<li>meditation: você pode passar as seguintes opções:
+<ul>
+<li>silent: não exibe a opção de múltiplas escolhas. Pode ser considerado como <code>true</code>;</li>
+<li>optional: exibe a escolha de múltiplas contas. Pode ser considerado como <code>false</code>;</li>
+<li>required: sempre exibe a interface de de múltiplas contas.</li>
+</ul>
+</li>
+</ul>
+<p><img src="../images/credential-management-api-2.png" alt="Alt &quot;Seleção de múltiplas contas usando a Credential Management API&quot;"></p>
+<div style="text-align: center; font-style: italic">Seleção de múltiplas contas usando a Credential Management API</div>
+<p>Podemos usar diversas abordagens, inclusive integrando com serviços de autenticação de terceiros como o <a href="https://developers.google.com/identity/sign-in/web/sign-in">Google Sign-In</a> e <a href="https://developers.facebook.com/docs/facebook-login/">Facebook Login</a>. Para isso, existe o <code>federated</code>, no qual podemos informar qual serviço será o fornecedor desses dados. Leia mais <a href="https://developers.google.com/web/fundamentals/security/credential-management/retrieve-credentials">aqui</a>.</p>
+<p>Agora, vamos alterar o código para melhorar o fluxo do usuário caso ele tenha diversas contas. Lembrando que isso é um exemplo e você pode criar a sua própria abordagem a partir das necessidades de seu projeto.</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-meta">'use strict'</span>;
+
+<span class="hljs-keyword">if</span> (<span class="hljs-string">'credentials'</span> <span class="hljs-keyword">in</span> navigator) {
+    <span class="hljs-comment">//...</span>
+
+    navigator.credentials.get({
+        <span class="hljs-attr">password</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">mediation</span>: <span class="hljs-string">'silent'</span>
+    }).then(<span class="hljs-function">(<span class="hljs-params">cred</span>) =&gt;</span> {
+        <span class="hljs-comment">// caso já exista as credenciais</span>
+        <span class="hljs-keyword">if</span> (cred) {
+            <span class="hljs-comment">// será repassada essas informações para a função que irá trata-las.</span>
+            login(cred);
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-comment">// não existindo as credenciais, obtemos a partir do navigator.credentials.get()</span>
+            navigator.credentials.get({
+                <span class="hljs-attr">password</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-attr">mediation</span>: <span class="hljs-string">'optional'</span>
+            }).then(<span class="hljs-function">(<span class="hljs-params">cred</span>) =&gt;</span> {
+                <span class="hljs-keyword">if</span>(cred) {
+                    login(cred);
+                }
+            }).catch(<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> <span class="hljs-built_in">console</span>.error(e));
+        }
+    }).catch(<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> <span class="hljs-built_in">console</span>.error(e));
+}
+</code></pre>
+<p>Você pode ter percebido que adicionamos uma função chamada <code>login</code> em nosso código. Mas o que vamos ter nela? Como sabe, precisamos fazer o usuário logar em nosso sistema, logo precisamos fazer uma requisição para o nosso sistema. Na nossa função, teriamos a seguinte implementação</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">var</span> login = <span class="hljs-function">(<span class="hljs-params">cred</span>) =&gt;</span> {
+    <span class="hljs-string">'use strict'</span>;
+
+    <span class="hljs-keyword">if</span> (cred) {
+        <span class="hljs-keyword">let</span> form = <span class="hljs-keyword">new</span> FormData();
+
+        form.append(<span class="hljs-string">'email'</span>, cred.id);
+        form.append(<span class="hljs-string">'password'</span>, cred.password);
+
+        <span class="hljs-comment">// simula uma rota de autenticação em nosso sistema</span>
+        fetch(<span class="hljs-string">'/auth/login'</span>, {
+            <span class="hljs-attr">method</span>: <span class="hljs-string">'POST'</span>,
+            <span class="hljs-attr">credentials</span>: <span class="hljs-string">'include'</span>,
+            <span class="hljs-attr">body</span>: form
+        }).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+            <span class="hljs-comment">// caso tenha sucesso, será redirecionado para uma rota. No caso, a página inicial</span>
+            <span class="hljs-keyword">if</span> (res.status === <span class="hljs-number">200</span>) {
+                <span class="hljs-built_in">window</span>.location = <span class="hljs-string">'/'</span>;
+                <span class="hljs-comment">// em caso de erro, enviamos para uma rota que irá tratar o erro</span>
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-built_in">window</span>.location = <span class="hljs-string">'/auth/error'</span>;
+            }
+        }).catch(<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> <span class="hljs-built_in">console</span>.error(e));
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// implementa um fallback caso o cred não tenha as infos necessárias</span>
+    };
+}
+</code></pre>
+<p>No código acima, passamos para a função <code>login</code> o objeto <code>cred</code> que será usado no nosso back-end para autenticar os dados do usuário. Fazemos essa requisição AJAX usando a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">Fetch API</a>, no qual recebemos uma Promise no qual podemos implementar nossa lógica.</p>
+<p>Melhorando nosso código de obtenção das credenciais, podemos usar a função <code>login</code> caso o usuário já possua suas credenciais salvas ou não.</p>
+<pre class="highlight"><code class="hljs javascript">navigator.credentials.get({
+    <span class="hljs-attr">password</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">mediation</span>: <span class="hljs-string">'silent'</span>
+}).then(<span class="hljs-function">(<span class="hljs-params">cred</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (cred) {
+        login(cred);
+    } <span class="hljs-keyword">else</span> {
+        navigator.credentials.get({
+            <span class="hljs-attr">password</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">mediation</span>: <span class="hljs-string">'optional'</span>
+        }).then(<span class="hljs-function">(<span class="hljs-params">cred</span>) =&gt;</span> {
+            login(cred);
+        }).catch(<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> <span class="hljs-built_in">console</span>.error(e));
+    }
+}).catch(<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> <span class="hljs-built_in">console</span>.error(e));
+</code></pre>
+<p>Agora que sabemos como salvar e obter os dados salvos com a Credentinal Management API e integrá-la a um sistema próprio de autenticação, também podemos garantir o <em>logout</em> do usuário em nosso sistema. Para isso, vamos usar o método <code>navigator.credentials.requireUserMediation()</code>. Leia mais <a href="https://developers.google.com/web/fundamentals/security/credential-management/retrieve-credentials#sign-out">sobre aqui</a>.</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.logout'</span>).addEventListener(<span class="hljs-string">'click'</span>, (evt) =&gt; {
+    <span class="hljs-keyword">if</span> (<span class="hljs-string">'credentials'</span> <span class="hljs-keyword">in</span> navigator &amp;&amp; navigator.credentials.preventSilentAccess) {
+        navigator.credentials.preventSilentAccess();
+    }
+    evt.preventDefault();
+    <span class="hljs-built_in">window</span>.location = <span class="hljs-string">'/auth/logout'</span>;
+});
+
+</code></pre>
+<p>Com isso, garantimos que o usuário não &quot;logará&quot; automaticamente quando fizer um novo acesso ao sistema.</p>
+<h2>Conclusão</h2>
+<p>A Credential Management API é uma solução que melhora bastante a usabilidade do processo de autenticação dos usuários, agilizando e mantendo as informações de forma segura. A idéia é que ela se torne muito mais interessante quando for futuramente implementada pela maioria dos navegadores existentes no mercado.</p>
+<p>Em caso de dúvidas, críticas e mais dicas de como implementar a API, fique livre para deixar o seu comentário. :)</p>
+<h2>Referências</h2>
+<ul>
+<li><a href="https://developers.google.com/web/fundamentals/security/credential-management/">A Credential Management API - Google Developer</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Credential_Management_API">Credential Management API - Mozilla Developer Network</a></li>
+<li><a href="https://developers.google.com/web/fundamentals/security/credential-management/store-credentials">Store Credentials</a></li>
+<li><a href="https://developers.google.com/web/fundamentals/security/credential-management/retrieve-credentials">Sign in Users</a></li>
+</ul>
+
+
+			<ul class='tag-list'>
+			
+				<li>
+					<a href='/tags/javascript/'>javascript</a>
+				</li>
+			
+				<li>
+					<a href='/tags/web/'>web</a>
+				</li>
+			
+				<li>
+					<a href='/tags/webapi/'>webapi</a>
+				</li>
+			
+			</ul>
+			<section class='share'>
+				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+				<div class='social-share'>
+					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/credential-management-api/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+						Compartilhar no facebook
+					</a>
+					<a href='https://twitter.com/intent/tweet?text=Credential Managament API&url=https://elo7.dev/credential-management-api/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+						Compartilhar no twitter
+					</a>
+					<a href='https://elo7.dev/credential-management-api/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+						Copiar URL
+					</a>
+					<span class='copy-success'>Link copiado</span>
+					<input type='url' value='https://elo7.dev/credential-management-api/?utm_source=share&utm_medium=copy' class='link-input'>
+				</div>
+			</section>
+		</div>
+
+		<meta itemprop='headline' content='Conheça a Credential Managament API e veja como implementá-la em seu projeto.'/>
+		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop='name' content='Elo7 Tech'/>
+			<meta itemprop="url" content='https://elo7.dev'/>
+			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+				<meta itemprop='width' content='100px'/>
+				<meta itemprop='height' content='100px'/>
+			</span>
+		</span>
+		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+		<div id='disqus_thread'></div>
+
+		<script>
+			var disqus_shortname = 'engenhariaelo7';
+			var disqus_identifier = '19/03/2018:/credential-management-api/';
+			var disqus_url = 'https://elo7.dev/credential-management-api/';
+
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Habilite o JavaScript para ver os comentários</noscript>
+	</div>
+</article>
+<script async src="/js/post.js"></script>
+
+		
+	</main>
+	<footer itemscope itemtype="http://schema.org/Organization">
+		<a rel="home" itemprop="url" href="https://elo7.dev/" >
+			elo7.dev © 2019
+		</a>
+		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<script async src="https://www.google-analytics.com/analytics.js"></script>
+	<script async src="/js/analytics.js"></script>
+	<script async src="/js/github.js"></script>
+	<script async src="/js/vendor/events-amd.js"></script>
+	<script async src="/js/vendor/ajax.js"></script>
+	<script async src="/js/vendor/doc.js"></script>
+	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

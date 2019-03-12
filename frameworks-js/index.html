@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Será que realmente precisamos usar um framework ou uma biblioteca JavaScript? E como decidir qual devemos usar no projeto?">
+	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
+	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name="theme-color" content="#FDC24F">
+	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,javascript,frameworks javascript,bibliotecas javascript,performance front-end">
+	<meta name="language" content="pt-br">
+	<meta name="title" content="Elo7 Tech - Frameworks e bibliotecas JavaScript: quando e qual usar">
+	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Frameworks e bibliotecas JavaScript: quando e qual usar">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<meta property="fb:app_id" content="644444999041914">
+	<meta property="fb:admins" content="100003324447975">
+
+	<meta property="og:site_name" content="Elo7 Tech">
+	<meta property="og:image" content="https://elo7.dev/images/cover/elo7.png">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Elo7 Tech - Frameworks e bibliotecas JavaScript: quando e qual usar">
+	<meta property="og:url" content="https://elo7.dev/frameworks-js/">
+	<meta property="og:description" content="Será que realmente precisamos usar um framework ou uma biblioteca JavaScript? E como decidir qual devemos usar no projeto?">
+
+	<meta name="twitter:widgets:csp" content="on">
+	<meta name="twitter:card" content="summary_large_image">
+
+	<meta property="twitter:title" content="Elo7 Tech - Frameworks e bibliotecas JavaScript: quando e qual usar">
+	<meta property="twitter:domain" content="https://elo7.dev">
+	<meta property="twitter:url" content="https://elo7.dev/frameworks-js/">
+	<meta property="twitter:description" content="Será que realmente precisamos usar um framework ou uma biblioteca JavaScript? E como decidir qual devemos usar no projeto?">
+	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+
+	<link rel="canonical" href="https://elo7.dev/frameworks-js/">
+	
+		<link rel='amphtml' href='https://elo7.dev/amp/frameworks-js/' />
+	
+
+	<title>Elo7 Tech - Frameworks e bibliotecas JavaScript: quando e qual usar</title>
+	<link rel="stylesheet" href="/reset.css">
+	<link rel="stylesheet" href="/main.css">
+	<link rel="stylesheet" href="/posts.css">
+	<link rel="stylesheet" href="/post.css">
+	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
+	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
+	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
+	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
+	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
+	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
+	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
+	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
+	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src="/js/vendor/async-define.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
+	<header class="left-pane">
+		<div class="logo-container">
+			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
+		</div>
+		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
+			<input id="categories-switch" type="checkbox" class="categories-switch">
+			<label for="categories-switch" class="selectable">
+				<h2 class="nav-title">Categorias</h2>
+			</label>
+			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
+				
+					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Back-end</span>
+					</a>
+				
+					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Cultura</span>
+					</a>
+				
+					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Data Science</span>
+					</a>
+				
+					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Design</span>
+					</a>
+				
+					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Devops</span>
+					</a>
+				
+					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Eventos</span>
+					</a>
+				
+					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Palestras</span>
+					</a>
+				
+					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Front-end</span>
+					</a>
+				
+					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Mobile</span>
+					</a>
+				
+					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Vagas</span>
+					</a>
+				
+			</nav>
+		</div>
+		<div class="navigation">
+			<input id="more-switch" type="checkbox" class="more-switch">
+			<label for="more-switch" class="selectable">
+				<h2 class="nav-title">Veja também</h2>
+			</label>
+			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
+					<span itemprop="name">A engenharia</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
+					<span itemprop="name">Carreiras</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
+					<span itemprop="name">Nossos eventos</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
+					<span itemprop="name">Elo7</span>
+				</a>
+			</nav>
+		</div>
+		<div class='social'>
+			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
+			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
+		</div>
+	</header>
+	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<img src='https://elo7.dev/images/cover/elo7.png' alt='' itemprop="url">
+	</figure>
+	<div class='post-content'>
+		<h1 itemprop='name' class='title'>Frameworks e bibliotecas JavaScript: quando e qual usar</h1>
+		<div class='post-meta'>
+			<p class='date'>
+				Publicado em: <time datetime='07/08/2017' itemprop='datePublished'>07/08/2017</time>
+				<meta itemprop='dateModified' content='07/08/2017'>
+			</p>
+
+			<article>
+				
+					<a data-author='williammizuta' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/williammizuta/' class='author'>
+						<meta itemprop='url' content='/williammizuta'>
+						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
+						<p itemprop='name' class='publisher' data-author='williammizuta'>@williammizuta</p>
+					</a>
+				
+
+				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+			</article>
+		</div>
+		<div itemprop='articleBody'>
+			<p><img src="../images/frameworks-js-1.jpg" alt="Frameworks e bibliotecas JavaScript"></p>
+<p>Recentemente, temos ouvido cada vez mais sobre frameworks e bibliotecas JavaScript, tanto os que já existem há algum tempo como os que acabaram de surgir: <a href="https://jquery.com/">jQuery</a>, <a href="http://zeptojs.com/">Zepto</a>, <a href="http://emberjs.com/">Ember</a>, <a href="http://backbonejs.org/">Backbone</a>, <a href="https://angular.io/">AngularJS</a>, <a href="https://facebook.github.io/react/">React</a>, <a href="https://vuejs.org/">Vue.js</a>... mas será que precisamos usar algum deles? Se sim, qual devemos escolher para nossa aplicação? Neste post, vou apresentar porque no Elo7 decidimos por não adotar nenhum desses frameworks ou bibliotecas, e quais foram as consequências dessa decisão.</p>
+<h2>O que são e para que servem?</h2>
+<p>Os desenvolvedores front-end se deparam com muitos problemas comuns que precisam ser resolvidos a cada novo projeto que se inicia. Um exemplo disso é a necessidade de dar suporte a navegadores que possuem APIs JavaScript distintas, como acontece com versões legadas de alguns navegadores.</p>
+<p>Para resolver este problema, surgiu o jQuery, que se tornou uma das bibliotecas mais famosas e mais utilizadas no mercado. Além de permitir que o desenvolvedor escreva um código que funcione numa gama enorme de navegadores, ele também trouxe uma API mais amigável.</p>
+<p>O mercado, junto com as necessidades dos usuários, muda com o passar do tempo. Para acompanhar essas mudanças, os desenvolvedores têm implementado novos frameworks e bibliotecas a fim de suprir as necessidades do momento. Esta mudança é contínua, e por isso, novos frameworks e bibliotecas têm surgido a cada dia.</p>
+<h2>Quais as desvantagens dos frameworks/bibliotecas JavaScript?</h2>
+<p>Como toda decisão técnica que tomamos, a escolha de um framework ou uma biblioteca traz suas vantagens e desvantagens. Uma das principais vantagens é podermos utilizar uma solução pronta e testada para problemas comuns, ou seja, não precisamos reinventar a roda para cada projeto. Mas os frameworks e bibliotecas também têm suas desvantagens.</p>
+<p>Um dos principais pontos negativos é o acréscimo em <em>kbytes</em> no carregamento da página. Para visualizar um site, o navegador do usuário precisa baixar todo o conteúdo necessário: o próprio html, arquivos css e js, fontes, imagens, etc. O framework e a biblioteca serão um arquivo a mais a ser baixado, aumentando o consumo de rede. Muitas vezes, a página fica em branco ou inoperante enquanto o framework ou a biblioteca não é carregado e executado.</p>
+<p>Por exemplo, a versão minificada com compressão gzip do <a href="https://code.jquery.com/jquery-3.1.1.min.js">jQuery 3.1.1</a> tem 34.6kb; do <a href="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js">AngularJS 1.6.1</a>, 56.9kb e do <a href="https://unpkg.com/react@15.4.0/dist/react.min.js">React 15.4.0</a> junto com o <a href="https://unpkg.com/react-dom@15.4.0/dist/react-dom.min.js">React DOM 15.4.0</a>, 44,3kb. Isso se não adicionarmos nenhum plugin e sem contar o código JavaScript que precisamos adicionar para executar a nossa lógica.</p>
+<p>Cada vez mais os usuários têm acessado a internet através de celulares, de modo que dependemos de redes móveis para baixar o conteúdo das páginas. Simulando uma conexão 3G normal, com 100ms de latência e 750kb/s de velocidade de download, usando a versão minificada na CDN de cada um dos projetos abaixo, obtivemos o seguinte resultado no Devtools do Chrome:</p>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th style="text-align:right">Tamanho</th>
+<th style="text-align:right">Tempo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jQuery 3.1.1</td>
+<td style="text-align:right">34,6 kb</td>
+<td style="text-align:right">536 ms</td>
+</tr>
+<tr>
+<td>Zepto 1.2.0</td>
+<td style="text-align:right">10,8 kb</td>
+<td style="text-align:right">263 ms</td>
+</tr>
+<tr>
+<td>Ember 2.10.2</td>
+<td style="text-align:right">514 kb</td>
+<td style="text-align:right">5660 ms</td>
+</tr>
+<tr>
+<td>Backbone 1.3.3</td>
+<td style="text-align:right">8,7 kb</td>
+<td style="text-align:right">245 ms</td>
+</tr>
+<tr>
+<td>Angular 1.6.1</td>
+<td style="text-align:right">56,9 kb</td>
+<td style="text-align:right">736 ms</td>
+</tr>
+<tr>
+<td>React 15.4.0</td>
+<td style="text-align:right">7,3 kb</td>
+<td style="text-align:right">179 ms</td>
+</tr>
+<tr>
+<td>React DOM 15.4.0</td>
+<td style="text-align:right">37,0 kb</td>
+<td style="text-align:right">504 ms</td>
+</tr>
+<tr>
+<td>Vue.js 2.1.8</td>
+<td style="text-align:right">28,7 kb</td>
+<td style="text-align:right">405 ms</td>
+</tr>
+</tbody>
+</table>
+<p>Além disso, precisamos pensar na execução: todo código vai ocupar memória e utilizar o processador para executar. Quanto maior e mais complexo, mais recursos do dispositivo serão utilizados. Se o código não for bem projetado, o site pode passar a sensação de &quot;travado&quot;, pois o processamento é pesado para o dispositivo do usuário.</p>
+<p>E se você deseja que o conteúdo do seu site seja indexado pelos sites de busca (SEO), o conteúdo precisa estar disponível mesmo que o JavaScript da página não execute. Assim, você não depende dos &quot;bots&quot; conseguirem rodar JavaScript para ser possível ler o conteúdo do seu site. Lembrando que o tempo de carregamento é um critério de SEO, ou seja, quanto mais tempo demorar para carregar a página, menor a chance do seu site aparecer na busca.</p>
+<h2>Quando devemos utilizar um framework ou uma biblioteca JavaScript e qual escolher?</h2>
+<p>Ao iniciar um projeto, todo desenvolvedor pensa em qual a arquitetura deverá utilizar junto com os frameworks e as bibliotecas. Essa escolha geralmente é feita seguindo alguma das seguintes formas:</p>
+<ol>
+<li>utilizar a mesma arquitetura do projeto anterior;</li>
+<li>escolher a arquitetura que é mais utilizada no momento;</li>
+<li>ou a última arquitetura comentada na comunidade.</li>
+</ol>
+<p>Mas será que essas são as melhores formas de escolher a base do projeto?</p>
+<p>Como mencionado anteriormente, os frameworks e as bibliotecas JavaScript foram desenvolvidos para resolver alguns problemas que vários sites se depararam. Mas não significa que todo o projeto vai ter os mesmos problemas. Então, eu acho que o mais justo é analisarmos se o projeto apresenta algum dos problemas que os frameworks e bibliotecas se propõe a resolver e se são realmente necessários, pois toda dependência vai trazer uma queda de performance que nem sempre trará algum benefício em troca.</p>
+<h2>A arquitetura no Elo7</h2>
+<p>Um dos nossos principais valores é o foco na satisfação e fidelização do cliente. E isso foi importante para a decisão da arquitetura front-end: desejamos criar um site robusto que todos os usuários possam utilizar e que a resposta do site seja o mais rápida possível.</p>
+<p>Para não depender do poder de processamento do device que nosso usuário está usando, decidimos que todo o conteúdo da página deve ser renderizado do lado do servidor. Além disso, o JavaScript da página só agrega a usabilidade do site, mas o usuário pode interagir com o conteúdo da página antes mesmo do JavaScript carregar ou executar.</p>
+<p>E uma outra vantagem que ganhamos ao adotar a renderização no lado do servidor foi o SEO: apesar de alguns bots executarem JavaScript simples, não é possível saber o quanto eles conseguem ler do conteúdo se o mesmo for renderizado dinamicamente no lado do cliente.</p>
+<p>Com essa arquitetura, nós temos pouca lógica no JavaScript da página. Assim, vários problemas que outros projetos enfrentaram, não apareceram no Elo7. E mesmos os que surgiram foram tão pontuais que era mais vantajoso utilizar pequenas bibliotecas do que um framework completo.</p>
+<p>No início, utilizamos pequenas bibliotecas que pesquisamos no site <a href="http://microjs.com/">microjs</a> para resolver os pequenos problemas que encontramos. E com o tempo implementamos as nossas próprias bibliotecas, pois, mesmos sendo pequenas, elas faziam mais do que a nossa necessidade. E assim surgiram as seguintes bibliotecas <em>open-source</em> do Elo7:</p>
+<ul>
+<li><a href="https://github.com/elo7/async-define">async-define</a>: Controle da execução dos JavaScript assíncronos utilizando a arquitetura <a href="https://en.wikipedia.org/wiki/Asynchronous_module_definition">AMD</a></li>
+<li><a href="https://github.com/elo7/doc-amd/">doc-amd</a>: Manipulação do DOM</li>
+<li><a href="https://github.com/elo7/tag-amd">tag-amd</a>: Criação de tags dentro de um input</li>
+<li><a href="https://github.com/elo7/format-amd">format-amd</a>: Formatação de números</li>
+<li><a href="https://github.com/elo7/events-amd">events-amd</a>: Controle de eventos do navegador</li>
+<li><a href="https://github.com/elo7/cookie-amd">cookie-amd</a>: Controle de cookies do navegador</li>
+<li><a href="https://github.com/elo7/ajax-amd">ajax-amd</a>: Evento de ajax</li>
+<li><a href="https://github.com/elo7/i18n-amd">i18n-amd</a>: Internacionalização no lado do cliente</li>
+<li><a href="https://github.com/elo7/form-amd">form-amd</a>: Manipulação e validação de formulários</li>
+<li><a href="https://github.com/elo7/mask-amd">mask-amd</a>: Máscara para campos de dados</li>
+</ul>
+<p>Não vou descrever o que cada biblioteca faz aqui para o post não ficar gigante, mas serão escritos posts explicando com detalhes como cada biblioteca funciona e você saberá se ela se encaixa no seu problema. Além disso, elas estão abertas para que todos possam contribuir. Sintam-se a vontade.</p>
+<h2>Conclusão</h2>
+<p>Nenhuma arquitetura ou framework é melhor que outra. Cada uma foi pensada em resolver um conjunto de problemas em específico. Não é só porque há uma empresa grande utilizando uma determinada arquitetura que ela é a bala de prata para todos.</p>
+<p>Então, antes de escolher uma arquitetura, identifique quais os seus problemas atuais e os que estão para vir de acordo com o seu produto, para só então decidir se vale a pena ou não usar um framework ou biblioteca e qual é o melhor para você.</p>
+<h2>Atualização</h2>
+<ul>
+<li>Leia também o <a href="/customizando-campos-de-formulario-com-elo7-mask-amd/">post sobre a biblioteca de máscaras de campos de dados (mask-amd)</a>.</li>
+</ul>
+
+
+			<ul class='tag-list'>
+			
+				<li>
+					<a href='/tags/javascript/'>javascript</a>
+				</li>
+			
+				<li>
+					<a href='/tags/frameworks-javascript/'>frameworks javascript</a>
+				</li>
+			
+				<li>
+					<a href='/tags/bibliotecas-javascript/'>bibliotecas javascript</a>
+				</li>
+			
+				<li>
+					<a href='/tags/performance-front-end/'>performance front-end</a>
+				</li>
+			
+			</ul>
+			<section class='share'>
+				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+				<div class='social-share'>
+					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/frameworks-js/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+						Compartilhar no facebook
+					</a>
+					<a href='https://twitter.com/intent/tweet?text=Frameworks e bibliotecas JavaScript: quando e qual usar&url=https://elo7.dev/frameworks-js/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+						Compartilhar no twitter
+					</a>
+					<a href='https://elo7.dev/frameworks-js/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+						Copiar URL
+					</a>
+					<span class='copy-success'>Link copiado</span>
+					<input type='url' value='https://elo7.dev/frameworks-js/?utm_source=share&utm_medium=copy' class='link-input'>
+				</div>
+			</section>
+		</div>
+
+		<meta itemprop='headline' content='Será que realmente precisamos usar um framework ou uma biblioteca JavaScript? E como decidir qual devemos usar no projeto?'/>
+		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop='name' content='Elo7 Tech'/>
+			<meta itemprop="url" content='https://elo7.dev'/>
+			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+				<meta itemprop='width' content='100px'/>
+				<meta itemprop='height' content='100px'/>
+			</span>
+		</span>
+		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+		<div id='disqus_thread'></div>
+
+		<script>
+			var disqus_shortname = 'engenhariaelo7';
+			var disqus_identifier = '07/08/2017:/frameworks-js/';
+			var disqus_url = 'https://elo7.dev/frameworks-js/';
+
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Habilite o JavaScript para ver os comentários</noscript>
+	</div>
+</article>
+<script async src="/js/post.js"></script>
+
+		
+	</main>
+	<footer itemscope itemtype="http://schema.org/Organization">
+		<a rel="home" itemprop="url" href="https://elo7.dev/" >
+			elo7.dev © 2019
+		</a>
+		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<script async src="https://www.google-analytics.com/analytics.js"></script>
+	<script async src="/js/analytics.js"></script>
+	<script async src="/js/github.js"></script>
+	<script async src="/js/vendor/events-amd.js"></script>
+	<script async src="/js/vendor/ajax.js"></script>
+	<script async src="/js/vendor/doc.js"></script>
+	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

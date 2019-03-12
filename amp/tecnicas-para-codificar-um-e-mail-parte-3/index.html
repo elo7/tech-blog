@@ -1,0 +1,1003 @@
+<!doctype html>
+<html amp lang='pt-br'>
+<head>
+	<meta charset='utf-8'>
+	<script async src='https://cdn.ampproject.org/v0.js'></script>
+	<script async custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
+	<script async custom-element='amp-image-lightbox' src='https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js'></script>
+	<script async custom-element='amp-analytics' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js'></script>
+	<title>Elo7 Tech - Técnicas para codificar um e-mail - parte 3</title>
+	<meta name='description' content='Já teve problemas ao visualizar um e-mail no celular? Aquelas letras pequenas, scroll lateral e colunas quebradas? Neste post iremos abordar como criar colunas nos e-mails e como deixá-las responsivas para melhor visualização em dispositivos móveis.'>
+	<link rel='canonical' href='https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/' />
+	<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>
+	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+	<style amp-custom>
+		body {
+			background-color: white;
+			font-family: 'Open Sans', sans-serif;
+			color: #666;
+		}
+
+		h1 {
+			color: #333;
+			font-size: 1.5em;
+			margin-bottom: 0;
+		}
+
+		h2, h3 {
+			color: #444;
+			font-size: 1.2em;
+		}
+
+		h3 {
+			font-weight: 300;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		p, li {
+			font-size: 0.9em;
+		}
+
+		ul {
+			padding-left: 1.5em;
+		}
+
+		article {
+			line-height: 1.8;
+			text-align: justify;
+		}
+
+		blockquote {
+			margin: 1em;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			font-size: 0.9em;
+			width: 100%;
+			text-align: left;
+		}
+
+		table thead th {
+			background-color: #4a4a4a;
+			color: white;
+		}
+
+		table th, table td {
+			padding: 0.2em 0.5em;
+		}
+
+		tr:nth-child(even) td {
+			background-color: #f3f3f3;
+		}
+
+		table th:not(:first-child), table td:not(:first-child) {
+			text-align: right;
+		}
+
+		body > header {
+			height: 60px;
+			box-sizing: border-box;
+			background-color: #FDC24F;
+			text-align: center;
+			padding-top: 0.8em;
+			padding-bottom: 0.8em;
+			position: sticky;
+			top: 0;
+			z-index: 10;
+		}
+
+		body > header a {
+			background: url('//images.elo7.com.br/assets/v3/desktop/svg/logo-elo7.svg') no-repeat;
+			background-size: 90px 35px;
+			width: 90px;
+			height: 35px;
+			display: inline-block;
+			filter: brightness(100);
+		}
+
+		.post-content, footer {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+
+		.post-content .content a, .post-content .content a:visited, .post-content .content a:hover {
+			cursor: pointer;
+			color: #000;
+			font-weight: 500;
+			text-decoration: underline;
+			word-break: break-word;
+		}
+
+		.post-content .post-image {
+			text-align: center;
+			display: block;
+		}
+
+		.post-content p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		main {
+			background-color: #ecebeb;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+
+		.post-card, .post-content, .publisher-info {
+			background: white;
+			margin-left: 2%;
+			padding: 1em;
+			margin-right: 3%;
+			box-shadow: rgba(72, 72, 72, 0.23) 0 0 5px;
+		}
+
+		.publisher-info {
+			margin-bottom: 1em;
+		}
+
+		.publisher-info h1 {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+		}
+
+		.card-devops {
+			border-left: 5px solid #7d7873;
+		}
+
+		.card-eventos {
+			border-left: 5px solid #fdb933;
+		}
+
+		.card-front-end {
+			border-left: 5px solid #c15eb4;
+		}
+
+		.card-back-end {
+			border-left: 5px solid #359c9c;
+		}
+
+		.card-mobile {
+			border-left: 5px solid #fa9c5e;
+		}
+
+		.card-vagas {
+			border-left: 5px solid #99c799;
+		}
+
+		.card-design {
+			border-left: 5px solid #7c9ec4;
+		}
+
+		.card-cultura {
+			border-left: 5px solid #f44336;
+		}
+
+		.post-card:not(:last-of-type) {
+			margin-bottom: 1em;
+		}
+
+		.post-card .title {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+			text-align: left;
+		}
+
+		.post-card .title a {
+			color: inherit;
+		}
+
+		.author, .date {
+			color: #888;
+			margin-bottom: 0;
+			margin-top: 0;
+			font-size: 0.9em;
+		}
+
+		.author a {
+			color: inherit;
+			margin-bottom: 1.5em;
+		}
+
+		#sidebar {
+			width: 60vw;
+			background-color: #4a4a4a;
+			color: #fff;
+			padding-right: 1em;
+			padding-left: 1em;
+		}
+
+		#sidebar li {
+			margin-bottom: 0.5em;
+		}
+
+		#sidebar ul {
+			margin-bottom: 1.5em;
+			list-style: none;
+			padding: 0;
+		}
+
+		#sidebar h2 {
+			margin-bottom: 0;
+		}
+
+		#sidebar a {
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		#sidebar a, #sidebar h2 {
+			color: inherit;
+		}
+
+		.sidebar-trigger {
+			position: absolute;
+			left: 5%;
+			background-color: transparent;
+			border: none;
+			color: #fff;
+			font-size: 1.8em;
+			padding: 0;
+		}
+
+		.category {
+			background-color: #73bebe;
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 0.8em;
+			padding: .5em;
+			border-radius: 3px;
+			display: inline-block;
+			margin-top: 2.3em;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			font-weight: 300;
+		}
+
+		.category:hover {
+			background-color: #73bebe;
+		}
+
+		.post-link {
+			border: 1px solid #fba702;
+			border-radius: 3px;
+			color: #fba702;
+			display: inline-block;
+			float: right;
+			margin-top: 1em;
+			padding: 0.8em;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s, color 0.3s;
+			font-size: 0.9em;
+		}
+
+		.post-link:hover {
+			background-color: #fba702;
+			color: #ffffff;
+		}
+
+		.social {
+			content: '';
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			background-position: center;
+			text-indent: -9999px;
+			margin-right: 0.5em;
+			background-size: contain;
+			vertical-align: top;
+		}
+
+		.social.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.social.linkedin {
+			background-image: url('/images/ico/ic-linkedin.svg');
+		}
+
+		.social.github {
+			background-image: url('/images/ico/ic-github.svg');
+		}
+
+		footer {
+			background-color: #4a4a4a;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		footer a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 0.8em;
+		}
+
+		.footer-social {
+			line-height: 0;
+		}
+
+		.footer-social a {
+			background-size: 2em 2em;
+			background-repeat: no-repeat;
+			display: inline-block;
+			height: 2em;
+			width: 2em;
+			overflow: hidden;
+			text-indent: -9999px;
+		}
+
+		.footer-social a + a {
+			margin-left: 0.5em;
+		}
+
+		.footer-social .github {
+			background-image: url('/images/github_icon.svg');
+		}
+		.footer-social .email {
+			background-image: url('/images/email_icon.png');
+		}
+
+		.footer-social .rss {
+			background-image: url('/images/ico/feed.svg');
+		}
+
+		.footer-social .twitter {
+            background-image: url('/images/ico/ic-negative-twitter.svg');
+        }
+
+		.share {
+			position: relative;
+			text-align: right;
+			margin-top: 1em;
+		}
+
+		.share .link-share {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				text-indent: -9999px;
+				margin-left: 0.5em;
+				text-align: left;
+		}
+
+		.share .link-share.facebook {
+			background-image: url('/images/ico/ic-facebook.svg');
+		}
+
+		.share .link-share.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.link-input {
+			opacity: 0;
+			position: absolute;
+			left: -9999px;
+		}
+
+		.copy-success {
+			font-size: 0.75em;
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			top: 125%;
+			transition: opacity ease-in-out 250ms;
+			text-align: center;
+		}
+
+		.copy-success.active {
+			opacity: 1;
+		}
+
+		code {
+			background-color: #ececec;
+			padding: 0.1em 0.2em;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.highlight code {
+			overflow: auto;
+		}
+
+		.hljs {
+			display: block;
+			padding: 0.5em 1em;
+			background: #23241f;
+		}
+
+		.hljs,
+		.hljs-tag,
+		.css .hljs-rules,
+		.css .hljs-value,
+		.css .hljs-function
+		.hljs-preprocessor,
+		.hljs-pragma {
+			color: #f8f8f2;
+		}
+
+		.hljs-strongemphasis,
+		.hljs-strong,
+		.hljs-emphasis {
+			color: #a8a8a2;
+		}
+
+		.hljs-bullet,
+		.hljs-blockquote,
+		.hljs-horizontal_rule,
+		.hljs-number,
+		.hljs-regexp,
+		.alias .hljs-keyword,
+		.hljs-literal,
+		.hljs-hexcolor {
+			color: #ae81ff;
+		}
+
+		.hljs-tag .hljs-value,
+		.hljs-code,
+		.hljs-title,
+		.css .hljs-class,
+		.hljs-class .hljs-title:last-child {
+			color: #a6e22e;
+		}
+
+		.hljs-link_url {
+			font-size: 80%;
+		}
+
+		.hljs-strong,
+		.hljs-strongemphasis {
+			font-weight: bold;
+		}
+
+		.hljs-emphasis,
+		.hljs-strongemphasis,
+		.hljs-class .hljs-title:last-child {
+			font-style: italic;
+		}
+
+		.hljs-keyword,
+		.hljs-function,
+		.hljs-change,
+		.hljs-winutils,
+		.hljs-flow,
+		.lisp .hljs-title,
+		.clojure .hljs-built_in,
+		.nginx .hljs-title,
+		.tex .hljs-special,
+		.hljs-header,
+		.hljs-attribute,
+		.hljs-symbol,
+		.hljs-symbol .hljs-string,
+		.hljs-tag .hljs-title,
+		.hljs-value,
+		.alias .hljs-keyword:first-child,
+		.css .hljs-tag,
+		.css .unit,
+		.css .hljs-important {
+			color: #F92672;
+		}
+
+		.hljs-function .hljs-keyword,
+		.hljs-class .hljs-keyword:first-child,
+		.hljs-constant,
+		.css .hljs-attribute {
+			color: #66d9ef;
+		}
+
+		.hljs-variable,
+		.hljs-params,
+		.hljs-class .hljs-title {
+			color: #f8f8f2;
+		}
+
+		.hljs-string,
+		.css .hljs-id,
+		.hljs-subst,
+		.haskell .hljs-type,
+		.ruby .hljs-class .hljs-parent,
+		.hljs-built_in,
+		.sql .hljs-aggregate,
+		.django .hljs-template_tag,
+		.django .hljs-variable,
+		.smalltalk .hljs-class,
+		.django .hljs-filter .hljs-argument,
+		.smalltalk .hljs-localvars,
+		.smalltalk .hljs-array,
+		.hljs-attr_selector,
+		.hljs-pseudo,
+		.hljs-addition,
+		.hljs-stream,
+		.hljs-envvar,
+		.apache .hljs-tag,
+		.apache .hljs-cbracket,
+		.tex .hljs-command,
+		.hljs-prompt,
+		.hljs-link_label,
+		.hljs-link_url {
+			color: #e6db74;
+		}
+
+		.hljs-comment,
+		.hljs-javadoc,
+		.java .hljs-annotation,
+		.python .hljs-decorator,
+		.hljs-template_comment,
+		.hljs-pi,
+		.hljs-doctype,
+		.hljs-deletion,
+		.hljs-shebang,
+		.apache .hljs-sqbracket,
+		.tex .hljs-formula {
+			color: #75715e;
+		}
+
+		.coffeescript .javascript,
+		.javascript .xml,
+		.tex .hljs-formula,
+		.xml .javascript,
+		.xml .vbscript,
+		.xml .css,
+		.xml .hljs-cdata,
+		.xml .php,
+		.php .xml {
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body itemscope itemtype='http://schema.org/WebPage'>
+	<amp-sidebar id='sidebar' layout='nodisplay'>
+		<h2>Categorias</h2>
+		<ul>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/back-end/'>
+						<span itemprop='name'>back-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/cultura/'>
+						<span itemprop='name'>cultura</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/data-science/'>
+						<span itemprop='name'>data-science</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/design/'>
+						<span itemprop='name'>design</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/devops/'>
+						<span itemprop='name'>devops</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/eventos/'>
+						<span itemprop='name'>eventos</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/talks/'>
+						<span itemprop='name'>talks</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/front-end/'>
+						<span itemprop='name'>front-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/mobile/'>
+						<span itemprop='name'>mobile</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/vagas/'>
+						<span itemprop='name'>vagas</span>
+					</a>
+				</li>
+			
+		</ul>
+		<h2>Veja também</h2>
+		<ul>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+					<span itemprop='name'>A engenharia</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Carreiras</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://eventos.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Nossos eventos</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='https://www.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Elo7</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a rel='external' itemprop='url' href='https://github.com/elo7/tech-blog'>Github</a>
+			</li>
+		</ul>
+		</ul>
+	</amp-sidebar>
+	<header>
+		<button class='sidebar-trigger' on='tap:sidebar'>☰</button>
+		<a rel='home' itemprop='url' href='/amp/home/' class='logo'></a></header>
+
+	<main itemscope itemtype='http://schema.org/Blog'>
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card post-content'>
+	<h1 itemprop='name' class='title'>Técnicas para codificar um e-mail - parte 3</h1>
+	<div class='post-meta'>
+		<p class='date'>
+			Publicado em: <time datetime='09/04/2018' itemprop='datePublished'>09/04/2018</time>
+			<meta itemprop='dateModified' content='09/04/2018'>
+		</p>
+
+		<article>
+			
+				<a data-author='erikatakahara' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/amp/erikatakahara/' class='author'>
+					<meta itemprop='url' content='/amp/erikatakahara'>
+					<span itemprop='name' class='publisher' data-author='erikatakahara'>@erikatakahara</span>
+					<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+				</a>
+			
+		</article>
+	</div>
+	<div class='content' itemprop='articleBody'>
+		<p>No <a href="/tecnicas-para-codificar-um-e-mail-parte-2/">segundo post da série</a>, aprendemos a lidar com espaçamento nos e-mails. Neste, iremos abordar como criar conteúdo em colunas e como deixá-las <a href='https://tableless.com.br/introducao-ao-responsive-web-design/' rel='nofollow' target='_blank'>responsivas</a>.</p>
+<p>Finalmente chegamos ao conteúdo! Para começar, vamos criar uma nova tabela. É possível usar a mesma tabela do container e alterar o <code>bgcolor</code> para mudar a cor da célula em vez da tabela. Mas aconselho a criar uma nova para evitar problemas com o <code>colspan</code> e <code>rowspan</code>, porque essas propriedades causam problemas para manter a estrutura correta à medida que são criadas novas células.</p>
+<p>Para montar o conteúdo, vamos usar as mesmas técnicas citadas nos posts anteriores:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-0' role='button' tabindex='0' src='../../images/tecnicas-para-codificar-um-e-mail-parte-3-1.png' layout='fixed' height='122' width='272' alt='E-mail com o conteúdo'></amp-img><amp-image-lightbox id='lightbox-0' layout='nodisplay'></amp-image-lightbox></div></p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">bgcolor</span>=<span class="hljs-string">"#ffffff"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"padding-left: 15px; padding-right: 15px"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"padding: 0; margin: 0.5em 0; font-size: 1.5em; font-family: arial, sans-serif; color: #788895"</span>&gt;</span>Novidades do tech blog!<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/570x150"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Imagem"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"570"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"150"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum  [...]<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Phasellus vulputate [...]<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<p>Mas temos um problema: com essa modificação, o e-mail deixou de ser responsivo por causa da imagem com largura fixa que expande o tamanho de seu container, fazendo com que os outros elementos ocupem uma área maior:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-1' role='button' tabindex='0' src='../../images/tecnicas-para-codificar-um-e-mail-parte-3-2.png' layout='fixed' height='326' width='272' alt='Problema da largura fixa nos dispositivos móveis'></amp-img><amp-image-lightbox id='lightbox-1' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Para torná-lo responsivo, basta adicionar uma largura na imagem para que ocupe o maior espaço possível do container sem expandi-lo, ou seja, <code>width: 100%</code>. O problema dessa técnica é que a altura definida acaba deixando a imagem desproporcional em telas menores.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-2' role='button' tabindex='0' src='../../images/tecnicas-para-codificar-um-e-mail-parte-3-3.png' layout='fixed' height='341' width='272' alt='Adicionando largura 100% para os dispositivos móveis'></amp-img><amp-image-lightbox id='lightbox-2' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Uma solução é remover a altura fixa, mas caso a imagem esteja carregando ou não possa ser carregada (por URL inválida ou inacessível ou até mesmo o cliente de e-mail impedir a sua exibição, por exemplo), o nosso navegador não consegue definir a altura e usará um valor proporcional à largura:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-3' role='button' tabindex='0' src='../../images/tecnicas-para-codificar-um-e-mail-parte-3-4.png' layout='fixed' height='191' width='272' alt='Template do e-mail quebra quando a imagem demora para carregar'></amp-img><amp-image-lightbox id='lightbox-3' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>A solução que acredito ser a melhor é fazer uma mescla de <code>width=&quot;100%&quot;</code> e limitar o tamanho da imagem com o <code>max-width</code> e o <code>max-height</code>.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-4' role='button' tabindex='0' src='../../images/tecnicas-para-codificar-um-e-mail-parte-3-5.png' layout='fixed' height='118' width='272' alt='Imagem com altura máxima definida'></amp-img><amp-image-lightbox id='lightbox-4' layout='nodisplay'></amp-image-lightbox></div></p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">bgcolor</span>=<span class="hljs-string">"#ffffff"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"padding-left: 15px; padding-right: 15px"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"padding: 0; margin: 0.5em 0; font-size: 1.5em; font-family: arial, sans-serif; color: #788895"</span>&gt;</span>Novidades do tech blog!<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/570x150"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Imagem"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"max-width: 570px; max-height: 150px;"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum  [...]<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Phasellus vulputate [...]<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<h2>Colunas responsivas</h2>
+<p>Para as colunas, vamos criar duas tabelas com uma largura de 270px: uma com a imagem e a outra com o título do texto e a descrição:</p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"270"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/270x150"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"max-width: 270px; height: 150px;"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Imagem veja mais"</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"270"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"margin: 0; font-size: 1.5em; font-family: 'Lobster', sans-serif; color: #788895"</span>&gt;</span>Veja mais!<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Sed congue purus lorem, nec luctus nibh fermentum non. Ut fermentum aliquet nunc, tempus placerat turpis tristique sed.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<p>Para alinhar os elementos na mesma linha, vamos usar a propriedade <code>display: inline-block</code>:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-5' role='button' tabindex='0' src='../../images/tecnicas-para-codificar-um-e-mail-parte-3-6.png' layout='fixed' height='70' width='272' alt='Colunas em e-mail'></amp-img><amp-image-lightbox id='lightbox-5' layout='nodisplay'></amp-image-lightbox></div></p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"270"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: inline-block"</span>&gt;</span>
+    [...]
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"270"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: inline-block"</span>&gt;</span>
+    [...]
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<p>Para alinhar no topo é só adicionar o atributo <code>valign=&quot;top&quot;</code> (o <code>valign</code> tem a mesma função da propriedade <code>vertical-align</code>).</p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"270"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: inline-block"</span> <span class="hljs-attr">valign</span>=<span class="hljs-string">"top"</span>&gt;</span>
+    [...]
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"270"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: inline-block"</span> <span class="hljs-attr">valign</span>=<span class="hljs-string">"top"</span>&gt;</span>
+    [...]
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<p>Por fim, vamos adicionar margem nas duas tabelas para separar o conteúdo verticalmente e uma margem à direita na primeira.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-6' role='button' tabindex='0' src='../../images/tecnicas-para-codificar-um-e-mail-parte-3-7.png' layout='fixed' height='53' width='272' alt='Colunas alinhadas verticalmente'></amp-img><amp-image-lightbox id='lightbox-6' layout='nodisplay'></amp-image-lightbox></div></p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"270"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: inline-block; margin-right: 15px;"</span> <span class="hljs-attr">valign</span>=<span class="hljs-string">"top"</span>&gt;</span>
+    [...]
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<p>E como usamos o <code>display: inline-block</code>, essas colunas já são responsivas:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-7' role='button' tabindex='0' src='../../images/tecnicas-para-codificar-um-e-mail-parte-3-8.png' layout='fixed' height='354' width='272' alt='Colunas em um dispositivo móvel'></amp-img><amp-image-lightbox id='lightbox-7' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>O problema agora é que a primeira tabela está causando um scroll horizontal. Isso porque a margem da direita (15px), somada à largura da imagem (270px) e a margem interna (30px), ultrapassa o limite de 300px (largura mínima de um celular).</p>
+<p>Uma forma de resolver é remover o <code>margin-right</code> da primeira tabela e adicionar um <code>span</code> em volta da tabela com um <code>border-right: 15px solid white</code>. Essa borda se encarrega de criar o espaçamento entre as duas tabelas na horizontal e não contabiliza na soma por ser um elemento <code>inline</code>. Dessa forma conseguimos atingir o efeito desejado:</p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"border-right: 15px solid white"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"270"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: inline-block"</span> <span class="hljs-attr">valign</span>=<span class="hljs-string">"top"</span>&gt;</span>
+        [...]
+    <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"270"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: inline-block"</span> <span class="hljs-attr">valign</span>=<span class="hljs-string">"top"</span>&gt;</span>
+        [...]
+    <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+</code></pre>
+<p><div class='post-image'><amp-img on='tap:lightbox-8' role='button' tabindex='0' src='../../images/tecnicas-para-codificar-um-e-mail-parte-3-9.png' layout='fixed' height='374' width='272' alt='Colunas usando borda para criar a margem'></amp-img><amp-image-lightbox id='lightbox-8' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>A outra forma é adicionar uma <a href='https://developer.mozilla.org/pt-BR/docs/Web/Guide/CSS/CSS_Media_queries' target='_blank' rel='nofollow'>media query</a> específica para mobile e remover essa margem. Sim! Alguns clientes de e-mail agora aceitam a tag <code>style</code> no cabeçalho e media queries! Essa mudança está revolucionando o desenvolvimento de e-mails responsivos, criando experiência mais rica para os nossos usuários e melhorando a legibilidade do código.</p>
+<p>Voltando ao nosso exemplo, vamos adicionar a tag <code>style</code> com uma media query dentro do header:</p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+        @<span class="hljs-keyword">media</span> only screen and (max-width: <span class="hljs-number">480px</span>) {
+
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+</code></pre>
+<p>As regras declaradas nessa media query serão aplicadas para todas as telas com uma largura de no máximo 480px, ou seja, apenas para a versão mobile. Para aplicar a regra de remoção da margem, vamos adicionar uma classe para a primeira tabela:</p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tabela-responsiva"</span> <span class="hljs-attr">bgcolor</span>=<span class="hljs-string">"#ffffff"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"padding-left: 15px; padding-right: 15px; margin-right: 15px;"</span>&gt;</span>
+</code></pre>
+<p>E dentro da media query:</p>
+<pre class="highlight"><code class="hljs css">@<span class="hljs-keyword">media</span> only screen and (max-width: <span class="hljs-number">480px</span>) {
+    <span class="hljs-selector-class">.tabela-responsiva</span> {
+        <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
+    }
+}
+</code></pre>
+<p>O <code>!important</code> é necessário para conseguirmos sobrescrever o estilo que está declarado <code>inline</code>. Com essa mudança conseguimos atingir o mesmo resultado, entretanto a tag <code>style</code> no cabeçalho não funciona em alguns clientes de e-mail.</p>
+<p>Voltando ao nosso e-mail, agora o único problema ainda não resolvido é o fato do template não ser exibido corretamente em telas um pouco menores que 600px, mas maiores que 480px:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-9' role='button' tabindex='0' src='../../images/tecnicas-para-codificar-um-e-mail-parte-3-10.png' layout='fixed' height='251' width='272' alt='Colunas quebram em duas linhas em devices com uma largura um pouco menor que 600px'></amp-img><amp-image-lightbox id='lightbox-9' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Para esse problema, podemos alterar a largura das tabelas para serem baseadas em uma porcentagem. Por exemplo, se alterarmos as larguras dessas tabelas para 47% (um valor próximo da largura de 270px) teríamos o seguinte resultado:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-10' role='button' tabindex='0' src='../../images/tecnicas-para-codificar-um-e-mail-parte-3-11.png' layout='fixed' height='126' width='272' alt='Usando porcentagem nas colunas'></amp-img><amp-image-lightbox id='lightbox-10' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Mas, como podemos ver, essa alteração piora a usabilidade na versão mobile. Nesse caso, podemos aproveitar a nossa media query no header e fazer essas tabelas ocuparem 100% do espaço em telas menores. Vamos adicionar a mesma classe <code>.tabela-responsiva</code> para a segunda tabela e adicionar a seguinte regra na media query:</p>
+<pre class="highlight"><code class="hljs css">@<span class="hljs-keyword">media</span> only screen and (max-width: <span class="hljs-number">480px</span>) {
+    <span class="hljs-selector-class">.tabela-responsiva</span> {
+        <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
+        <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span> <span class="hljs-meta">!important</span>;
+    }
+}
+</code></pre>
+<p><div class='post-image'><amp-img on='tap:lightbox-11' role='button' tabindex='0' src='../../images/tecnicas-para-codificar-um-e-mail-parte-3-12.png' layout='fixed' height='168' width='272' alt='Template final'></amp-img><amp-image-lightbox id='lightbox-11' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>E voilá! Chegamos ao efeito desejado!</p>
+<p>Também poderíamos optar por não utilizar a tag <code>style</code> para corrigir esse problema. Não resolveria muito, mas poderíamos voltar para as medidas fixas e adicionar uma tabela envolta para alinhar os elementos no centro e melhorar um pouco o design.</p>
+<p>Por fim, podemos só adicionar uma tipografia padrão na tabela de conteúdo:</p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">bgcolor</span>=<span class="hljs-string">"#ffffff"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"padding-left: 15px; padding-right: 15px; font-family: arial, sans-serif"</span>&gt;</span>
+</code></pre>
+<p>Assim, todo o texto que está no conteúdo já herda por padrão essa tipografia.</p>
+<h2>Compatibilidade</h2>
+<p>As técnicas apresentadas funcionam nos seguintes clientes de email:</p>
+<h3>Web</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Gmail</th>
+<th>Inbox</th>
+<th>Outlook</th>
+<th>Yahoo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chrome</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗¹</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗¹</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗¹</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>IE11</td>
+<td>✓</td>
+<td>-</td>
+<td>✗¹</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Edge</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗¹</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Chrome Mobile</td>
+<td>✗¹</td>
+<td>-</td>
+<td>✗¹</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Firefox Mobile</td>
+<td>✗¹</td>
+<td>-</td>
+<td>✗¹</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Safari Mobile</td>
+<td>✗¹</td>
+<td>-</td>
+<td>✗¹</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<h3>Mobile</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Gmail App</th>
+<th>Inbox App</th>
+<th>Outlook App</th>
+<th>Yahoo App</th>
+<th>Apple Mail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Android</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>-</td>
+</tr>
+<tr>
+<td>iOS</td>
+<td>✗¹</td>
+<td>✗¹</td>
+<td>✗¹</td>
+<td>✗¹</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Windows Phone</td>
+<td>-</td>
+<td>-</td>
+<td>✓</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3>Aplicativo Outlook</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>2007</th>
+<th>2010</th>
+<th>2011</th>
+<th>2013</th>
+<th>2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Outlook</td>
+<td>✗¹</td>
+<td>✗¹</td>
+<td>✓</td>
+<td>✗¹</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<p>¹ A propriedade <code>style</code> no <code>head</code> não funciona</p>
+<h2>Conclusão</h2>
+<p>Enfim, conseguimos finalizar o e-mail com o layout apresentado no <a href="/tecnicas-para-codificar-um-e-mail/">primeiro post</a>! No próximo e último post da série, vamos comentar sobre algumas dicas e web fonts nos e-mails.</p>
+<p>E você? Já teve problemas com e-mails responsivos?</p>
+
+		<section class='share'>
+			<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/amp/tecnicas-para-codificar-um-e-mail-parte-3/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+				Compartilhar no facebook
+			</a>
+			<a href='https://twitter.com/intent/tweet?text=Técnicas para codificar um e-mail - parte 3&url=https://elo7.dev/amp/tecnicas-para-codificar-um-e-mail-parte-3/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+				Compartilhar no twitter
+			</a>
+		</section>
+	</div>
+	<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
+		<link href="/images/ico/elo7.png" itemprop="url"/>
+		<meta itemprop='width' content='100px'/>
+		<meta itemprop='height' content='100px'/>
+	</span>
+
+	<meta itemprop='headline' content='Já teve problemas ao visualizar um e-mail no celular? Aquelas letras pequenas, scroll lateral e colunas quebradas? Neste post iremos abordar como criar colunas nos e-mails e como deixá-las responsivas para melhor visualização em dispositivos móveis.'/>
+	<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop='name' content='Elo7 Tech'/>
+		<meta itemprop="url" content='https://elo7.dev'/>
+		<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+			<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+			<meta itemprop='width' content='100px'/>
+			<meta itemprop='height' content='100px'/>
+		</span>
+	</span>
+	<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+</article>
+	</main>
+	<footer itemscope itemtype='http://schema.org/Organization'>
+		<a rel='home' itemprop='url' href='/amp/home/'>elo7.dev © 2019</a>
+		<meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<amp-analytics type='googleanalytics'>
+		<script type='application/json'>
+			{
+				"vars": {
+					"account": "UA-3692628-29"
+				},
+				"triggers": {
+					"trackPageview": {
+						"on": "visible",
+						"request": "pageview"
+					}
+				}
+			}
+		</script>
+	</amp-analytics>
+</body>
+</html>

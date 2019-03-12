@@ -1,0 +1,878 @@
+<!doctype html>
+<html amp lang='pt-br'>
+<head>
+	<meta charset='utf-8'>
+	<script async src='https://cdn.ampproject.org/v0.js'></script>
+	<script async custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
+	<script async custom-element='amp-image-lightbox' src='https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js'></script>
+	<script async custom-element='amp-analytics' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js'></script>
+	<title>Elo7 Tech - A tecnologia por trás de progressive web apps</title>
+	<meta name='description' content='Se você trabalha com web, provavelmente já deve ter ouvido falar no termo progressive web app. Essa é uma tendência que vem aparecendo muito forte, impulsionada principalmente pelo Google. O objetivo deste post vai ser explorar um pouco mais o lado técnico dessa tendência: como a tecnologia evoluiu para chegarmos nesse ponto, o que temos de ferramentas e o que ainda está por vir.'>
+	<link rel='canonical' href='https://elo7.dev/a-tecnologia-por-tras-de-progressive-web-apps/' />
+	<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>
+	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+	<style amp-custom>
+		body {
+			background-color: white;
+			font-family: 'Open Sans', sans-serif;
+			color: #666;
+		}
+
+		h1 {
+			color: #333;
+			font-size: 1.5em;
+			margin-bottom: 0;
+		}
+
+		h2, h3 {
+			color: #444;
+			font-size: 1.2em;
+		}
+
+		h3 {
+			font-weight: 300;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		p, li {
+			font-size: 0.9em;
+		}
+
+		ul {
+			padding-left: 1.5em;
+		}
+
+		article {
+			line-height: 1.8;
+			text-align: justify;
+		}
+
+		blockquote {
+			margin: 1em;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			font-size: 0.9em;
+			width: 100%;
+			text-align: left;
+		}
+
+		table thead th {
+			background-color: #4a4a4a;
+			color: white;
+		}
+
+		table th, table td {
+			padding: 0.2em 0.5em;
+		}
+
+		tr:nth-child(even) td {
+			background-color: #f3f3f3;
+		}
+
+		table th:not(:first-child), table td:not(:first-child) {
+			text-align: right;
+		}
+
+		body > header {
+			height: 60px;
+			box-sizing: border-box;
+			background-color: #FDC24F;
+			text-align: center;
+			padding-top: 0.8em;
+			padding-bottom: 0.8em;
+			position: sticky;
+			top: 0;
+			z-index: 10;
+		}
+
+		body > header a {
+			background: url('//images.elo7.com.br/assets/v3/desktop/svg/logo-elo7.svg') no-repeat;
+			background-size: 90px 35px;
+			width: 90px;
+			height: 35px;
+			display: inline-block;
+			filter: brightness(100);
+		}
+
+		.post-content, footer {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+
+		.post-content .content a, .post-content .content a:visited, .post-content .content a:hover {
+			cursor: pointer;
+			color: #000;
+			font-weight: 500;
+			text-decoration: underline;
+			word-break: break-word;
+		}
+
+		.post-content .post-image {
+			text-align: center;
+			display: block;
+		}
+
+		.post-content p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		main {
+			background-color: #ecebeb;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+
+		.post-card, .post-content, .publisher-info {
+			background: white;
+			margin-left: 2%;
+			padding: 1em;
+			margin-right: 3%;
+			box-shadow: rgba(72, 72, 72, 0.23) 0 0 5px;
+		}
+
+		.publisher-info {
+			margin-bottom: 1em;
+		}
+
+		.publisher-info h1 {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+		}
+
+		.card-devops {
+			border-left: 5px solid #7d7873;
+		}
+
+		.card-eventos {
+			border-left: 5px solid #fdb933;
+		}
+
+		.card-front-end {
+			border-left: 5px solid #c15eb4;
+		}
+
+		.card-back-end {
+			border-left: 5px solid #359c9c;
+		}
+
+		.card-mobile {
+			border-left: 5px solid #fa9c5e;
+		}
+
+		.card-vagas {
+			border-left: 5px solid #99c799;
+		}
+
+		.card-design {
+			border-left: 5px solid #7c9ec4;
+		}
+
+		.card-cultura {
+			border-left: 5px solid #f44336;
+		}
+
+		.post-card:not(:last-of-type) {
+			margin-bottom: 1em;
+		}
+
+		.post-card .title {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+			text-align: left;
+		}
+
+		.post-card .title a {
+			color: inherit;
+		}
+
+		.author, .date {
+			color: #888;
+			margin-bottom: 0;
+			margin-top: 0;
+			font-size: 0.9em;
+		}
+
+		.author a {
+			color: inherit;
+			margin-bottom: 1.5em;
+		}
+
+		#sidebar {
+			width: 60vw;
+			background-color: #4a4a4a;
+			color: #fff;
+			padding-right: 1em;
+			padding-left: 1em;
+		}
+
+		#sidebar li {
+			margin-bottom: 0.5em;
+		}
+
+		#sidebar ul {
+			margin-bottom: 1.5em;
+			list-style: none;
+			padding: 0;
+		}
+
+		#sidebar h2 {
+			margin-bottom: 0;
+		}
+
+		#sidebar a {
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		#sidebar a, #sidebar h2 {
+			color: inherit;
+		}
+
+		.sidebar-trigger {
+			position: absolute;
+			left: 5%;
+			background-color: transparent;
+			border: none;
+			color: #fff;
+			font-size: 1.8em;
+			padding: 0;
+		}
+
+		.category {
+			background-color: #73bebe;
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 0.8em;
+			padding: .5em;
+			border-radius: 3px;
+			display: inline-block;
+			margin-top: 2.3em;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			font-weight: 300;
+		}
+
+		.category:hover {
+			background-color: #73bebe;
+		}
+
+		.post-link {
+			border: 1px solid #fba702;
+			border-radius: 3px;
+			color: #fba702;
+			display: inline-block;
+			float: right;
+			margin-top: 1em;
+			padding: 0.8em;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s, color 0.3s;
+			font-size: 0.9em;
+		}
+
+		.post-link:hover {
+			background-color: #fba702;
+			color: #ffffff;
+		}
+
+		.social {
+			content: '';
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			background-position: center;
+			text-indent: -9999px;
+			margin-right: 0.5em;
+			background-size: contain;
+			vertical-align: top;
+		}
+
+		.social.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.social.linkedin {
+			background-image: url('/images/ico/ic-linkedin.svg');
+		}
+
+		.social.github {
+			background-image: url('/images/ico/ic-github.svg');
+		}
+
+		footer {
+			background-color: #4a4a4a;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		footer a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 0.8em;
+		}
+
+		.footer-social {
+			line-height: 0;
+		}
+
+		.footer-social a {
+			background-size: 2em 2em;
+			background-repeat: no-repeat;
+			display: inline-block;
+			height: 2em;
+			width: 2em;
+			overflow: hidden;
+			text-indent: -9999px;
+		}
+
+		.footer-social a + a {
+			margin-left: 0.5em;
+		}
+
+		.footer-social .github {
+			background-image: url('/images/github_icon.svg');
+		}
+		.footer-social .email {
+			background-image: url('/images/email_icon.png');
+		}
+
+		.footer-social .rss {
+			background-image: url('/images/ico/feed.svg');
+		}
+
+		.footer-social .twitter {
+            background-image: url('/images/ico/ic-negative-twitter.svg');
+        }
+
+		.share {
+			position: relative;
+			text-align: right;
+			margin-top: 1em;
+		}
+
+		.share .link-share {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				text-indent: -9999px;
+				margin-left: 0.5em;
+				text-align: left;
+		}
+
+		.share .link-share.facebook {
+			background-image: url('/images/ico/ic-facebook.svg');
+		}
+
+		.share .link-share.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.link-input {
+			opacity: 0;
+			position: absolute;
+			left: -9999px;
+		}
+
+		.copy-success {
+			font-size: 0.75em;
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			top: 125%;
+			transition: opacity ease-in-out 250ms;
+			text-align: center;
+		}
+
+		.copy-success.active {
+			opacity: 1;
+		}
+
+		code {
+			background-color: #ececec;
+			padding: 0.1em 0.2em;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.highlight code {
+			overflow: auto;
+		}
+
+		.hljs {
+			display: block;
+			padding: 0.5em 1em;
+			background: #23241f;
+		}
+
+		.hljs,
+		.hljs-tag,
+		.css .hljs-rules,
+		.css .hljs-value,
+		.css .hljs-function
+		.hljs-preprocessor,
+		.hljs-pragma {
+			color: #f8f8f2;
+		}
+
+		.hljs-strongemphasis,
+		.hljs-strong,
+		.hljs-emphasis {
+			color: #a8a8a2;
+		}
+
+		.hljs-bullet,
+		.hljs-blockquote,
+		.hljs-horizontal_rule,
+		.hljs-number,
+		.hljs-regexp,
+		.alias .hljs-keyword,
+		.hljs-literal,
+		.hljs-hexcolor {
+			color: #ae81ff;
+		}
+
+		.hljs-tag .hljs-value,
+		.hljs-code,
+		.hljs-title,
+		.css .hljs-class,
+		.hljs-class .hljs-title:last-child {
+			color: #a6e22e;
+		}
+
+		.hljs-link_url {
+			font-size: 80%;
+		}
+
+		.hljs-strong,
+		.hljs-strongemphasis {
+			font-weight: bold;
+		}
+
+		.hljs-emphasis,
+		.hljs-strongemphasis,
+		.hljs-class .hljs-title:last-child {
+			font-style: italic;
+		}
+
+		.hljs-keyword,
+		.hljs-function,
+		.hljs-change,
+		.hljs-winutils,
+		.hljs-flow,
+		.lisp .hljs-title,
+		.clojure .hljs-built_in,
+		.nginx .hljs-title,
+		.tex .hljs-special,
+		.hljs-header,
+		.hljs-attribute,
+		.hljs-symbol,
+		.hljs-symbol .hljs-string,
+		.hljs-tag .hljs-title,
+		.hljs-value,
+		.alias .hljs-keyword:first-child,
+		.css .hljs-tag,
+		.css .unit,
+		.css .hljs-important {
+			color: #F92672;
+		}
+
+		.hljs-function .hljs-keyword,
+		.hljs-class .hljs-keyword:first-child,
+		.hljs-constant,
+		.css .hljs-attribute {
+			color: #66d9ef;
+		}
+
+		.hljs-variable,
+		.hljs-params,
+		.hljs-class .hljs-title {
+			color: #f8f8f2;
+		}
+
+		.hljs-string,
+		.css .hljs-id,
+		.hljs-subst,
+		.haskell .hljs-type,
+		.ruby .hljs-class .hljs-parent,
+		.hljs-built_in,
+		.sql .hljs-aggregate,
+		.django .hljs-template_tag,
+		.django .hljs-variable,
+		.smalltalk .hljs-class,
+		.django .hljs-filter .hljs-argument,
+		.smalltalk .hljs-localvars,
+		.smalltalk .hljs-array,
+		.hljs-attr_selector,
+		.hljs-pseudo,
+		.hljs-addition,
+		.hljs-stream,
+		.hljs-envvar,
+		.apache .hljs-tag,
+		.apache .hljs-cbracket,
+		.tex .hljs-command,
+		.hljs-prompt,
+		.hljs-link_label,
+		.hljs-link_url {
+			color: #e6db74;
+		}
+
+		.hljs-comment,
+		.hljs-javadoc,
+		.java .hljs-annotation,
+		.python .hljs-decorator,
+		.hljs-template_comment,
+		.hljs-pi,
+		.hljs-doctype,
+		.hljs-deletion,
+		.hljs-shebang,
+		.apache .hljs-sqbracket,
+		.tex .hljs-formula {
+			color: #75715e;
+		}
+
+		.coffeescript .javascript,
+		.javascript .xml,
+		.tex .hljs-formula,
+		.xml .javascript,
+		.xml .vbscript,
+		.xml .css,
+		.xml .hljs-cdata,
+		.xml .php,
+		.php .xml {
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body itemscope itemtype='http://schema.org/WebPage'>
+	<amp-sidebar id='sidebar' layout='nodisplay'>
+		<h2>Categorias</h2>
+		<ul>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/back-end/'>
+						<span itemprop='name'>back-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/cultura/'>
+						<span itemprop='name'>cultura</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/data-science/'>
+						<span itemprop='name'>data-science</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/design/'>
+						<span itemprop='name'>design</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/devops/'>
+						<span itemprop='name'>devops</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/eventos/'>
+						<span itemprop='name'>eventos</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/talks/'>
+						<span itemprop='name'>talks</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/front-end/'>
+						<span itemprop='name'>front-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/mobile/'>
+						<span itemprop='name'>mobile</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/vagas/'>
+						<span itemprop='name'>vagas</span>
+					</a>
+				</li>
+			
+		</ul>
+		<h2>Veja também</h2>
+		<ul>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+					<span itemprop='name'>A engenharia</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Carreiras</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://eventos.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Nossos eventos</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='https://www.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Elo7</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a rel='external' itemprop='url' href='https://github.com/elo7/tech-blog'>Github</a>
+			</li>
+		</ul>
+		</ul>
+	</amp-sidebar>
+	<header>
+		<button class='sidebar-trigger' on='tap:sidebar'>☰</button>
+		<a rel='home' itemprop='url' href='/amp/home/' class='logo'></a></header>
+
+	<main itemscope itemtype='http://schema.org/Blog'>
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card post-content'>
+	<h1 itemprop='name' class='title'>A tecnologia por trás de progressive web apps</h1>
+	<div class='post-meta'>
+		<p class='date'>
+			Publicado em: <time datetime='10/10/2016' itemprop='datePublished'>10/10/2016</time>
+			<meta itemprop='dateModified' content='10/10/2016'>
+		</p>
+
+		<article>
+			
+				<a data-author='luiz' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/amp/luiz/' class='author'>
+					<meta itemprop='url' content='/amp/luiz'>
+					<span itemprop='name' class='publisher' data-author='luiz'>@luiz</span>
+					<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+				</a>
+			
+		</article>
+	</div>
+	<div class='content' itemprop='articleBody'>
+		<p>Se você trabalha com web, provavelmente já deve ter ouvido falar no termo <em>progressive web app</em>. Essa é uma tendência que vem aparecendo muito forte, impulsionada principalmente pelo Google, que até já organizou <a href="https://events.withgoogle.com/progressive-web-app-dev-summit/">um evento especificamente sobre esse tema</a>.</p>
+<p>O <a href="http://fabricio.nu/">Fabricio Teixeira</a> já escreveu <a href="http://arquiteturadeinformacao.com/mobile/o-que-sao-progressive-web-apps/">um post explicando bem o <strong>conceito</strong> de <em>progressive web apps</em></a>. O objetivo aqui, então, vai ser explorar um pouco mais o lado técnico dessa tendência: como a tecnologia evoluiu para chegarmos nesse ponto, o que temos de ferramentas e o que ainda está por vir.</p>
+<h2>Tudo começou há um tempo atrás...</h2>
+<p>A ideia de tentar transformar um site em algo mais próximo de um aplicativo não é tão nova quanto parece. A partir do momento em que os celulares começaram a ser capazes de ter aplicativos com boa usabilidade, os provedores de conteúdo e de serviços começaram a disponibilizar aplicativos para melhorar a experiência de seus usuários. A melhora da experiência vinha por conta de uma melhor <strong>integração com o sistema nativo</strong> e <strong>performance</strong>.</p>
+<p>Conforme os desenvolvedores foram percebendo a importância desses fatores para uma melhor experiência do usuário, começaram a surgir algumas especificações que procuram tornar os sites mais próximos do sistema operacional, com acesso a mais recursos do dispositivo e sem tanta dependência de conectividade para funcionar. Dentre elas, podemos citar:</p>
+<ul>
+<li>APIs de acesso a sensores do dispositivo
+<ul>
+<li><a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Geolocation">Geolocalização</a> (<code>navigator.geolocation</code>)</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia">Câmera/microfone</a> (<code>navigator.mediaDevices.getUserMedia</code>)</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Detecting_device_orientation">Giroscópio/acelerômetro</a> (eventos <code>deviceorientation</code> e <code>devicemotion</code>, respectivamente)</li>
+</ul>
+</li>
+<li>LocalStorage/SessionStorage (<code>window.localStorage</code>/<code>window.sessionStorage</code>)</li>
+<li>Indexed Database (<code>window.indexedDB</code>)</li>
+<li>Manifesto para aplicações web (<code>link rel=&quot;manifest&quot;</code>)</li>
+<li>A falecida especificação de cache de aplicação (atributo <code>manifest</code> na tag <code>html</code>)</li>
+<li>A especificação de <code>CacheStorage</code>, que veio substituir o cache de aplicação (<code>window.caches</code>)</li>
+<li>Service workers (<code>navigator.serviceWorker</code>)</li>
+</ul>
+<p>Neste post, vamos focar nas APIs que permitem uma experiência &quot;app&quot; para qualquer tipo de site, que são as APIs de armazenamento (LocalStorage/SessionStorage, Indexed Database, Cache de aplicação e CacheStorage), o manifesto para aplicações web e os <em>service workers</em>.</p>
+<h3>LocalStorage e SessionStorage</h3>
+<p>Armazenar informações sobre o usuário na máquina dele sempre foi um requisito técnico importante para conseguirmos fornecer uma experiência personalizada para quem usa nosso site ou aplicação. Por muito tempo, os <em>cookies</em> do navegador cumpriram esse papel, mas com algumas limitações.</p>
+<p>Os <em>cookies</em> foram projetados para facilitar o envio de informações relativas a um usuário para o servidor da aplicação; eles são enviados a cada requisição feita ao servidor e, portanto, não podem conter muita informação. Por isso, normalmente eles incluem apenas um código que identifica o usuário, e o resto das informações personalizadas, tais como nome de usuário, avatar, preferências etc. ficam todas no servidor.</p>
+<p>No entanto, com a possibilidade de criar aplicações cada vez mais ricas do lado do cliente, com navegadores mais poderosos e bibliotecas JavaScript mais sofisticadas, surgiu a necessidade de armazenar mais informações no navegador do cliente. Como os <em>cookies</em> precisam ser leves, era necessário algo com esse propósito específico; surgiam então as especificações de LocalStorage e SessionStorage.</p>
+<p>Ambas são muito parecidas: especificam um objeto no escopo global do JavaScript que permite associar uma chave e um valor, ambos textuais. Esse objeto é único por domínio (por subdomínio, na verdade), ou seja, sua aplicação pode usá-lo tanto para armazenar informações específicas de uma página como informações mais genéricas.</p>
+<p>A diferença entre elas está no tempo de vida da informação armazenada nesses objetos. O objeto <code>window.localStorage</code> armazena as informações indefinidamente, até que o usuário apague-as explicitamente por meio das configurações do navegador. Já o objeto <code>window.sessionStorage</code> armazena as informações até que você feche a aba ou janela do navegador.</p>
+<p>Por serem objetos de armazenamento exclusivamente local, o LocalStorage e o SessionStorage têm capacidade de armazenamento de informações muito maior do que os <em>cookies</em>, sem afetar em nada a velocidade de comunicação com o servidor. A capacidade exata varia de acordo com o navegador, mas fica na faixa dos megabytes (você pode verificar os limites do seu navegador usando o <a href="http://dev-test.nemikor.com/web-storage/support-test/">Web Storage Support Test</a>).</p>
+<h3>Indexed Database</h3>
+<p>Ter um espaço de armazenamento no cliente já permite criar aplicações muito mais ricas no cliente. Porém, conforme aumenta a complexidade da aplicação, cresce também a complexidade dos dados que ela precisa armazenar e consultar. Surge, então, a necessidade de algo mais sofisticado que o LocalStorage ou o SessionStorage, que permita o armazenamento e a consulta de dados mais estruturados.</p>
+<p>Nessa linha, surgiram duas especificações em paralelo: a especificação <em>Web SQL Database</em> e a especificação <em>Indexed Database</em>. A primeira, implementada experimentalmente nos navegadores baseados em WebKit (Chrome, Safari, Opera etc.), tenta trazer uma base de dados com suporte a SQL para o navegador. A segunda, que acabou se tornando a recomendação da W3C e que já é <a href="http://caniuse.com/#feat=indexeddb">bem suportada por todos os navegadores mais modernos</a>, segue uma abordagem diferenciada, com uma API de mais baixo nível de acesso aos dados armazenados.</p>
+<p>A especificação <em>Indexed Database</em> acabou tornando-se a escolha oficial para armazenamento de dados pela falta de um padrão claro na linguagem SQL e pelo poder que uma API de mais baixo nível fornece aos desenvolvedores (<a href="https://hacks.mozilla.org/2010/06/beyond-html5-database-apis-and-the-road-to-indexeddb/">você pode ler mais sobre esses pontos no blog de desenvolvedores da Mozilla</a>). Com essa especificação, é possível implementar inúmeras bibliotecas de mais alto nível sobre ela, inclusive bibliotecas que dão suporte a algum tipo de SQL.</p>
+<p>Tendo uma base de dados sofisticada como uma <em>Indexed Database</em> disponível, já é possível criar aplicações incríveis que não precisam acessar o servidor o tempo todo. No entanto, a experiência do usuário não se aproxima da experiência de uso de uma aplicação nativa apenas com poder de processamento. É necessário lidar ainda com a parte mais visual da experiência, além dos problemas de conectividade inerentes aos dispositivos móveis. Afinal, mesmo as aplicações mais sofisticadas precisam sincronizar os dados com um servidor de vez em quando. As próximas especificações lidam justamente com essas questões.</p>
+<h3>Manifesto para aplicações web</h3>
+<p>Quando acessamos uma página da web, ela é aberta dentro de um navegador. O navegador adiciona, ao redor do conteúdo, barra de endereços, menu, ícones de extensões, barra de status etc. Tudo isso atrapalha a experiência do usuário quando queremos que ele realize tarefas na nossa aplicação, não é verdade? Compare com a experiência de acessar um aplicativo: toda a tela pode ser usada por ele, tornando a experiência mais imersiva e aproveitando melhor o espaço de tela, que é restrito.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-0' role='button' tabindex='0' src='../../images/tecnologia-pwa-4.png' layout='fixed' height='218' width='272' alt='Barra de endereços do navegador tomando parte do espaço disponível'></amp-img><amp-image-lightbox id='lightbox-0' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Fora isso, é comum que os usuários criem atalhos para seus aplicativos favoritos. No entanto, é difícil ver atalhos para sites. Por que? No Google Chrome, por exemplo, existe a opção de adicionar à tela inicial um atalho para o site que estamos visitando. Mas, quando fazemos isso num site simples, o atalho não é tão fácil de identificar quanto um atalho de aplicativo.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-1' role='button' tabindex='0' src='../../images/tecnologia-pwa-6.jpg' layout='fixed' height='484' width='272' alt='Atalho de um site comum versus atalho de um site com manifesto configurado'></amp-img><amp-image-lightbox id='lightbox-1' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Para melhorar esses pontos, surgiu a especificação do manifesto para aplicações web. Com ele, você consegue especificar se seu site deve ser visualizado com a barra de endereços ou em tela cheia (propriedade <code>display</code>); qual orientação de tela é mais adequada para seu site (retrato, paisagem ou indiferente, na propriedade <code>orientation</code>); qual a cor principal do tema de cores do site (propriedade <code>theme_color</code>, útil para customizar a cor da janela do navegador); e qual nome e ícone deve ter o atalho na área de trabalho (propriedades <code>short_name</code> e <code>icons</code>, respectivamente).</p>
+<p>Usar essa especificação é simples: basta escrever um arquivo no formato JSON seguindo a especificação:</p>
+<pre class="highlight"><code class="hljs json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Elo7"</span>,
+    <span class="hljs-attr">"short_name"</span>: <span class="hljs-string">"Elo7"</span>,
+    <span class="hljs-attr">"icons"</span>: [
+        {
+            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"//images.elo7.com.br/marketplace/assets/web/common/png/favicon/32x32-negative.png"</span>,
+            <span class="hljs-attr">"sizes"</span>: <span class="hljs-string">"32x32"</span>,
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"image/png"</span>,
+            <span class="hljs-attr">"density"</span>: <span class="hljs-number">0.75</span>
+        },
+        {
+            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"//images.elo7.com.br/marketplace/assets/web/common/png/favicon/48x48-negative.png"</span>,
+            <span class="hljs-attr">"sizes"</span>: <span class="hljs-string">"48x48"</span>,
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"image/png"</span>,
+            <span class="hljs-attr">"density"</span>: <span class="hljs-number">1.0</span>
+        },
+        {
+            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"//images.elo7.com.br/marketplace/assets/web/common/png/favicon/64x64-negative.png"</span>,
+            <span class="hljs-attr">"sizes"</span>: <span class="hljs-string">"64x64"</span>,
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"image/png"</span>,
+            <span class="hljs-attr">"density"</span>: <span class="hljs-number">1.5</span>
+        },
+    ],
+    <span class="hljs-attr">"start_url"</span>: <span class="hljs-string">"/?elo7_source=web_app_manifest"</span>,
+    <span class="hljs-attr">"display"</span>: <span class="hljs-string">"standalone"</span>,
+    <span class="hljs-attr">"orientation"</span>: <span class="hljs-string">"portrait"</span>,
+    <span class="hljs-attr">"theme_color"</span>: <span class="hljs-string">"#FDB933"</span>,
+    <span class="hljs-attr">"background_color"</span>: <span class="hljs-string">"#FDB933"</span>
+}
+</code></pre>
+<p>e referenciá-lo nas páginas de seu site com a tag <code>&lt;link&gt;</code>:</p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"manifest"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"manifest.json"</span>&gt;</span>
+</code></pre>
+<p>Com isso, sua aplicação web já começa a ganhar uma aparência de aplicativo! Mas a experiência de navegação ainda é de um site: uma conexão ruim afeta diretamente a experiência.</p>
+<h3>AppCache: uma primeira tentativa de experiência offline</h3>
+<p>A única forma de fazer com que a aplicação não dependa de conectividade com a internet para funcionar é fazer com que os recursos de que ela depende sejam armazenados no dispositivo do usuário.</p>
+<p>Já existe há muito tempo a ideia de <em>cachear</em> recursos no navegador do cliente. A ideia é guardar algumas informações como arquivos CSS, Javascript e imagens que mudam pouco no site. Assim, na próxima visita do usuário, ele não precisa baixar de novo essas informações. No entanto, mesmo tendo esses dados armazenados, o navegador ainda faz requisições para carregar o HTML inicial e verificar se é necessário atualizar os dados em cache.</p>
+<p>Para tentar resolver esse problema, surgiu a especificação <em>AppCache</em>. A ideia é parecida com a do manifesto de aplicação: você escreve um arquivo descrevendo os dados que seu site necessita para funcionar offline e qual o comportamento dele nessa situação:</p>
+<pre class="highlight"><code class="hljs stylus">CACHE MANIFEST
+index<span class="hljs-selector-class">.html</span>
+estilo<span class="hljs-selector-class">.css</span>
+logo<span class="hljs-selector-class">.svg</span>
+banner<span class="hljs-selector-class">.png</span>
+interacoes<span class="hljs-selector-class">.js</span>
+</code></pre>
+<p>Em seguida, referencia esse arquivo no seu HTML usando um atributo na tag <code>&lt;html&gt;</code> para que o navegador possa carregá-lo:</p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">manifest</span>=<span class="hljs-string">"elo7.appcache"</span>&gt;</span>
+    ...
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>Com essas informações, o navegador consegue fornecer uma versão offline do seu site ou aplicação web para o usuário quando necessário.</p>
+<p>Apesar de parecer uma solução simples e efetiva, ela vem com uma série de complicações. Primeiro, uma vez que o conteúdo tenha sido cacheado pelo AppCache, o navegador do usuário vai <strong>sempre</strong> usar a versão cacheada. Ou seja, para servir uma nova versão da aplicação para seu usuário, você vai precisar força-lo a atualizar o cache, e isso não é nada fácil. O AppCache só é atualizado quando o arquivo de manifesto é alterado e, <strong>além disso</strong>, os arquivos por ele referenciados devem ser atualizados de acordo com as regras de cache HTTP tradicional.</p>
+<p>Fora essas dificuldades com atualização, o AppCache também não fornece um controle muito forte sobre <strong>o que</strong> vai ser cacheado e <strong>por quanto tempo</strong>. Dependendo de como for utilizado, o cache pode crescer indefinidamente, gerando sérios problemas para o usuário.</p>
+<p>Felizmente, uma nova especificação, muito mais poderosa, veio resolver a questão da experiência offline e <em>quase</em> offline (sabe aqueles momentos em que o 3G começa a falhar?) e enterrou a especificação AppCache.</p>
+<h3>Service workers</h3>
+<p>Em meados de 2014, surgiu a primeira versão dessa nova especificação, trazendo um mundo enorme de possibilidades com ela. Pela primeira vez na web, uma página poderia especificar um arquivo Javascript para executar além do escopo da própria página e controlar <strong>totalmente</strong> o acesso a recursos externos.</p>
+<pre class="highlight"><code class="hljs javascript">navigator.serviceWorker.register(<span class="hljs-string">'sw.js'</span>)
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">sw</span>) </span>{
+        <span class="hljs-comment">// service worker registrado!</span>
+    }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-comment">// falha ao registrar service worker</span>
+    });
+</code></pre>
+<p>Para evitar problemas de segurança, esse é um recurso que está disponível apenas para páginas servidas via HTTPS (criptografia).</p>
+<p>Na especificação AppCache, a estratégia de cache e <em>fallback</em> ficava toda a cargo do navegador; era inflexível. Com os <em>service workers</em>, o controle passa todo para o desenvolvedor. Ele pode implementar a mesma estratégia do AppCache (servir o conteúdo cacheado e atualizar em background) ou outra totalmente diferente, como acessar o cache e a rede ao mesmo tempo para responder rapidamente a uma requisição sem deixar de atualizar sempre o conteúdo. Nesse caso, o <em>service worker</em> trabalha em conjunto com outra especificação: <strong>CacheStorage</strong>, um cache programável voltado para o armazenamento de recursos pelo <em>service worker</em>.</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-comment">// sw.js</span>
+self.addEventListener(<span class="hljs-string">'install'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{
+    event.waitUntil(
+        caches.open(<span class="hljs-string">'meusite-v1'</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">cache</span>) </span>{
+            <span class="hljs-keyword">return</span> cache.addAll([ <span class="hljs-comment">/* URLs aqui */</span> ]);
+        })
+    );
+});
+
+self.addEventListener(<span class="hljs-string">'fetch'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{
+    event.respondWith(
+        <span class="hljs-comment">// sua estratégia para offline aqui</span>
+    );
+});
+</code></pre>
+<p>Além do controle de acesso à rede, que por si só já é muito valioso, o <em>service worker</em> também permite trabalhar com sincronização de dados em background e <em>push notifications</em>, recursos que já existem há muito tempo em aplicações nativas e são fundamentais para uma experiência de uso mais fluida e para aumentar o engajamento do usuário com o site ou a aplicação.</p>
+<h2>Ferramentas para o desenvolvedor</h2>
+<p>Em conjunto com novas APIs, estão surgindo também cada vez mais ferramentas que auxiliam o desenvolvedor na elaboração de aplicações para a web. Recentemente, o Google Chrome incluiu no seu painel de ferramentas para desenvolvedores, o <em>DevTools</em>, uma nova aba chamada <em>Application</em>, que reúne inspetores/controladores para as APIs mais frequentemente usadas no desenvolvimento de aplicações web.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-2' role='button' tabindex='0' src='../../images/tecnologia-pwa-1.png' layout='fixed' height='126' width='272' alt='Painel Application do DevTools no Chrome'></amp-img><amp-image-lightbox id='lightbox-2' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>É possível verificar o estado de registro e funcionamento do <em>service worker</em> da página aberta, forçar seu recarregamento, verificar se a especificação do manifesto da aplicação está correta, quais arquivos e rotas foram cacheadas e muito mais.</p>
+<p>No Firefox, também é possível inspecionar os dados armazenados pela aplicação na aba <em>Storage</em> das ferramentas de desenvolvedor, e o <em>service worker</em> numa aba separada, específica para ele.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-3' role='button' tabindex='0' src='../../images/tecnologia-pwa-2.png' layout='fixed' height='107' width='272' alt='Painel Storage do DevTools do Firefox'></amp-img><amp-image-lightbox id='lightbox-3' layout='nodisplay'></amp-image-lightbox></div></p>
+<p><div class='post-image'><amp-img on='tap:lightbox-4' role='button' tabindex='0' src='../../images/tecnologia-pwa-3.png' layout='fixed' height='193' width='272' alt='Debug de Service Workers no Firefox'></amp-img><amp-image-lightbox id='lightbox-4' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Safari e Edge estão a caminho de fornecer suporte às APIs necessárias e ferramentas de auxílio aos desenvolvedores. É possível acompanhar a evolução dos navegadores, pelo menos quanto ao suporte a <em>service workers</em>, no site <a href="https://jakearchibald.github.io/isserviceworkerready/"><em>Is ServiceWorker Ready?</em></a>.</p>
+<h2>Mas... e o suporte?</h2>
+<p>Sempre que surge uma nova tecnologia ou uma nova API, aparece o mesmo questionamento na cabeça dos desenvolvedores: mas como começar a trabalhar com isso se tenho que continuar dando suporte a navegadores antigos, com poucos recursos? O termo <em>progressive web app</em> inclui essa preocupação. A palavra <em><strong>progressive</strong></em> implica que, antes de mais nada, sua aplicação deve funcionar como um site comum, <strong>independentemente do suporte do navegador</strong>. As tecnologias comentadas nesse post são usadas pela aplicação para <em>melhorar</em> a experiência do usuário, não para determinar quem pode e quem não pode acessar o site.</p>
+<p>Desenvolver uma <em>progressive web app</em>, ou PWA para simplificar, significa ter constantemente a preocupação de fazer a aplicação ser acessível por todos, sem quebrar. Implica em ter diversas verificações no código para garantir que uma API só será chamada se ela estiver presente no navegador, como, por exemplo, na hora de registrar um <em>service worker</em>:</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">if</span> (<span class="hljs-string">'serviceWorker'</span> <span class="hljs-keyword">in</span> navigator) {
+    navigator.serviceWorker.register(<span class="hljs-string">'sw.js'</span>)
+        .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">sw</span>) </span>{
+            <span class="hljs-comment">// service worker registrado!</span>
+        }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-comment">// falha ao registrar service worker</span>
+        });
+}
+</code></pre>
+<p>No código acima, o <code>if</code> garante que o navegador tem suporte a <em>service worker</em> antes de começar a usar a API. Assim, caso o navegador <strong>não</strong> tenha esse suporte, o resto do Javascript do site continua funcionando normalmente.</p>
+<p>Essa preocupação também implica em garantir que o desempenho do site ou da aplicação seja razoável mesmo em condições precárias de conectividade e de capacidade de processamento. Para isso, ajuda pensar <strong>primeiro</strong> nos cenários mais limitados. Isso é uma forma de trabalhar que é conhecida para quem trabalha com web, e que se torna cada vez mais importante conforme temos mais poder nas mãos. É o conceito de <em>progressive enhancement</em>, e agora temos que considerá-lo na implementação de aplicações web.</p>
+<h2>O futuro</h2>
+<p>As tecnologias envolvidas com as PWAs ainda são bem recentes e, portanto, vão amadurecer bastante. A começar pelo suporte dos navegadores (tanto funcionalidade quanto ferramentas de desenvolvedores). O suporte a <em>service workers</em> e as funcionalidades que deles dependem (sincronização em segundo plano, <em>push notifications</em>) está só no começo e a expectativa, agora, é de que o Safari implemente suporte, para que web apps mais ricas funcionem bem nos dispositivos da Apple. Vale notar que o Edge, navegador da Microsoft, deve ganhar suporte a <em>service workers</em> em breve.</p>
+<p>Outro ponto que deve evoluir bastante nos próximos meses é a caracterização automática de PWAs pelos navegadores. Isso é importante para que o navegador disponibilize de forma clara para o usuário a opção de adicionar a aplicação à tela inicial do dispositivo, que é o passo básico para que o usuário passe a enxergar um endereço web como uma aplicação. O Google Chrome já conta com alguns critérios para mostrar, automaticamente, uma mensagem convidando o usuário a instalar a aplicação, dentre eles a presença de um manifesto e de um <em>service worker</em> na página em questão (<a href="https://infrequently.org/2016/09/what-exactly-makes-something-a-progressive-web-app/">o autor desses critérios escreveu sobre eles em seu blog, em inglês</a>). Esses critérios ainda estão sendo aperfeiçoados com base no feedback de desenvolvedores e usuários, e podem mudar consideravelmente, principalmente com a evolução do suporte de PWAs por outros navegadores.</p>
+<p>Aqui no Elo7, estamos aos poucos implementando os requisitos necessários para transformar nosso site numa PWA. O <a href="https://www.elo7.com.br/v3/manifest/webapp.json">manifesto de aplicação web já está lá</a>! Os próximos passos incluem a migração da infraestrutura toda para HTTPS para, assim, podermos começar a usar <em>service workers</em> em algumas páginas. E você, na sua empresa, como está considerando a implementação de PWAs? Compartilhe conosco nos comentários ou via Twitter, na tag <code>#elo7tech</code>.</p>
+
+		<section class='share'>
+			<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/amp/a-tecnologia-por-tras-de-progressive-web-apps/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+				Compartilhar no facebook
+			</a>
+			<a href='https://twitter.com/intent/tweet?text=A tecnologia por trás de progressive web apps&url=https://elo7.dev/amp/a-tecnologia-por-tras-de-progressive-web-apps/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+				Compartilhar no twitter
+			</a>
+		</section>
+	</div>
+	<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
+		<link href="/images/ico/elo7.png" itemprop="url"/>
+		<meta itemprop='width' content='100px'/>
+		<meta itemprop='height' content='100px'/>
+	</span>
+
+	<meta itemprop='headline' content='Se você trabalha com web, provavelmente já deve ter ouvido falar no termo progressive web app. Essa é uma tendência que vem aparecendo muito forte, impulsionada principalmente pelo Google. O objetivo deste post vai ser explorar um pouco mais o lado técnico dessa tendência: como a tecnologia evoluiu para chegarmos nesse ponto, o que temos de ferramentas e o que ainda está por vir.'/>
+	<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop='name' content='Elo7 Tech'/>
+		<meta itemprop="url" content='https://elo7.dev'/>
+		<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+			<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+			<meta itemprop='width' content='100px'/>
+			<meta itemprop='height' content='100px'/>
+		</span>
+	</span>
+	<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+</article>
+	</main>
+	<footer itemscope itemtype='http://schema.org/Organization'>
+		<a rel='home' itemprop='url' href='/amp/home/'>elo7.dev © 2019</a>
+		<meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<amp-analytics type='googleanalytics'>
+		<script type='application/json'>
+			{
+				"vars": {
+					"account": "UA-3692628-29"
+				},
+				"triggers": {
+					"trackPageview": {
+						"on": "visible",
+						"request": "pageview"
+					}
+				}
+			}
+		</script>
+	</amp-analytics>
+</body>
+</html>

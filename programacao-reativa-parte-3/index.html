@@ -1,0 +1,1480 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Terceiro capítulo da Jornada Reativa! Falaremos agora sobre coisas interessantes: código assíncrono, execução em paralelo e backpressure!">
+	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
+	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name="theme-color" content="#FDC24F">
+	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,java,programacao-reativa">
+	<meta name="language" content="pt-br">
+	<meta name="title" content="Elo7 Tech - Programação Reativa - Parte 3">
+	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Programação Reativa - Parte 3">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<meta property="fb:app_id" content="644444999041914">
+	<meta property="fb:admins" content="100003324447975">
+
+	<meta property="og:site_name" content="Elo7 Tech">
+	<meta property="og:image" content="https://elo7.dev/images/cover/programacao-reativa-parte-3.png">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Elo7 Tech - Programação Reativa - Parte 3">
+	<meta property="og:url" content="https://elo7.dev/programacao-reativa-parte-3/">
+	<meta property="og:description" content="Terceiro capítulo da Jornada Reativa! Falaremos agora sobre coisas interessantes: código assíncrono, execução em paralelo e backpressure!">
+
+	<meta name="twitter:widgets:csp" content="on">
+	<meta name="twitter:card" content="summary_large_image">
+
+	<meta property="twitter:title" content="Elo7 Tech - Programação Reativa - Parte 3">
+	<meta property="twitter:domain" content="https://elo7.dev">
+	<meta property="twitter:url" content="https://elo7.dev/programacao-reativa-parte-3/">
+	<meta property="twitter:description" content="Terceiro capítulo da Jornada Reativa! Falaremos agora sobre coisas interessantes: código assíncrono, execução em paralelo e backpressure!">
+	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+
+	<link rel="canonical" href="https://elo7.dev/programacao-reativa-parte-3/">
+	
+		<link rel='amphtml' href='https://elo7.dev/amp/programacao-reativa-parte-3/' />
+	
+
+	<title>Elo7 Tech - Programação Reativa - Parte 3</title>
+	<link rel="stylesheet" href="/reset.css">
+	<link rel="stylesheet" href="/main.css">
+	<link rel="stylesheet" href="/posts.css">
+	<link rel="stylesheet" href="/post.css">
+	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
+	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
+	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
+	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
+	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
+	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
+	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
+	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
+	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src="/js/vendor/async-define.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
+	<header class="left-pane">
+		<div class="logo-container">
+			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
+		</div>
+		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
+			<input id="categories-switch" type="checkbox" class="categories-switch">
+			<label for="categories-switch" class="selectable">
+				<h2 class="nav-title">Categorias</h2>
+			</label>
+			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
+				
+					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Back-end</span>
+					</a>
+				
+					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Cultura</span>
+					</a>
+				
+					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Data Science</span>
+					</a>
+				
+					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Design</span>
+					</a>
+				
+					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Devops</span>
+					</a>
+				
+					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Eventos</span>
+					</a>
+				
+					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Palestras</span>
+					</a>
+				
+					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Front-end</span>
+					</a>
+				
+					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Mobile</span>
+					</a>
+				
+					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Vagas</span>
+					</a>
+				
+			</nav>
+		</div>
+		<div class="navigation">
+			<input id="more-switch" type="checkbox" class="more-switch">
+			<label for="more-switch" class="selectable">
+				<h2 class="nav-title">Veja também</h2>
+			</label>
+			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
+					<span itemprop="name">A engenharia</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
+					<span itemprop="name">Carreiras</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
+					<span itemprop="name">Nossos eventos</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
+					<span itemprop="name">Elo7</span>
+				</a>
+			</nav>
+		</div>
+		<div class='social'>
+			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
+			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
+		</div>
+	</header>
+	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<img src='https://elo7.dev/images/cover/programacao-reativa-parte-3.png' alt='' itemprop="url">
+	</figure>
+	<div class='post-content'>
+		<h1 itemprop='name' class='title'>Programação Reativa - Parte 3</h1>
+		<div class='post-meta'>
+			<p class='date'>
+				Publicado em: <time datetime='24/09/2018' itemprop='datePublished'>24/09/2018</time>
+				<meta itemprop='dateModified' content='24/09/2018'>
+			</p>
+
+			<article>
+				
+					<a data-author='ljtfreitas' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/ljtfreitas/' class='author'>
+						<meta itemprop='url' content='/ljtfreitas'>
+						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
+						<p itemprop='name' class='publisher' data-author='ljtfreitas'>@ljtfreitas</p>
+					</a>
+				
+
+				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+			</article>
+		</div>
+		<div itemprop='articleBody'>
+			<p>Nos dois <a href="/programacao-reativa">posts</a> <a href="/programacao-reativa-parte-2">anteriores</a> sobre Programação Reativa, estudamos os fundamentos desse paradigma e vimos muitos exemplos de código usando o <a href="https://github.com/ReactiveX/RxJava">RxJava</a>. Nesse capítulo, vamos nos focar na abstração sobre a <strong>execução assícrona e parelela</strong> que os frameworks Rx fornecem, e especialmente em um conceito que é um dos pilares do modelo reativo: a <strong>contrapressão</strong> ou <em><strong>backpressure</strong></em>.</p>
+<blockquote>
+<p><em>“A dúvida é o princípio da sabedoria. (Aristóteles)”</em></p>
+</blockquote>
+<h2>Processamento assíncrono</h2>
+<p>Um dos assuntos que mais causam discussão a respeito da programação reativa é questão do processamento assíncrono. Com efeito, as ideias sobre as quais o paradigma reativo é fundamentado favorecem a execução concorrente do código, assim como ocorre nas linguagens funcionais: código declarativo, funções livres de efeitos colaterais, propagação de estado e imutabilidade. Todos os operadores reativos que vimos no <a href="/programacao-reativa-parte-2">post anterior</a> funcionam dessa forma, de modo que qualquer operação <strong>poderia</strong> ser executada de maneira assíncrona, ou mesmo em paralelo, sem nenhum problema. Mas isso deve ser feito <strong>explicitamente</strong>; colocando em outras palavras: a não ser que você diga o contrário, todas as operações irão ocorrer <strong>em uma única thread</strong>, por uma questão de economia de recursos do <em>hardware</em>. O código abaixo demonstra isso.</p>
+<pre class="highlight"><code class="hljs java">Observable.create(emitter -&gt; {
+
+    emitter.onNext(<span class="hljs-string">"one"</span>);
+    emitter.onNext(<span class="hljs-string">"two"</span>);
+    emitter.onComplete();
+
+}).subscribe(
+        value -&gt; System.out.println(<span class="hljs-string">"Receive "</span> + value + <span class="hljs-string">" on Thread "</span> + Thread.currentThread().getId()),
+        Throwable::printStackTrace,
+        () -&gt; System.out.println(<span class="hljs-string">"Receive OnCompleted on Thread "</span> + Thread.currentThread().getId()));
+
+<span class="hljs-comment">/*
+output:
+
+Receive one on Thread 1
+Receive two on Thread 1
+Receive OnCompleted on Thread 1
+*/</span>
+</code></pre>
+<p>O código acima demonstra claramente que não há nenhuma outra <em>thread</em> envolvida; todas as coisas aconteceram na <em>thread</em> corrente do programa, e também seria o caso se tivéssemos realizado mais operações sobre o <code>Observable</code> (<em>map</em>, <em>flatMap</em>, etc). E se os eventos fossem emitidos em uma <em>thread</em> diferente? Vejamos o exemplo abaixo, usando um <code>Subject</code>:</p>
+<pre class="highlight"><code class="hljs java">BehaviorSubject&lt;Integer&gt; subject = BehaviorSubject.create();
+
+AtomicInteger counter = <span class="hljs-keyword">new</span> AtomicInteger(<span class="hljs-number">0</span>); <span class="hljs-comment">//efeito colateral; apenas para testes! :)</span>
+
+Runnable runnable = () -&gt; {
+    <span class="hljs-keyword">int</span> count = counter.incrementAndGet();
+
+    System.out.println(<span class="hljs-string">"Emitting value "</span> + count +
+        <span class="hljs-string">" on Thread "</span> + Thread.currentThread().getId()); <span class="hljs-comment">//thread em que o onNext está sendo emitido</span>
+
+    subject.onNext(count);
+};
+
+subject.subscribe(value -&gt; System.out.println(<span class="hljs-string">"Receive "</span> + value +
+    <span class="hljs-string">" on Thread "</span> + Thread.currentThread().getId())); <span class="hljs-comment">//thread em que o subscribe está sendo executado</span>
+
+System.out.println(<span class="hljs-string">"Current thread: "</span> + Thread.currentThread().getId()); <span class="hljs-comment">//thread atual do programa</span>
+
+<span class="hljs-comment">// inicializa duas novas threads que farão a emissão dos eventos</span>
+<span class="hljs-keyword">new</span> Thread(runnable).start();
+<span class="hljs-keyword">new</span> Thread(runnable).start();
+
+Thread.sleep(<span class="hljs-number">1000</span>);
+
+<span class="hljs-comment">/*
+output:
+
+Current thread: 1
+Emitting value 1 on Thread 12
+Emitting value 2 on Thread 13
+Receive 1 on Thread 12
+Receive 2 on Thread 13
+*/</span>
+</code></pre>
+<p>Se você executar esse código, talvez a ordem da saída seja ligeiramente diferente. O detalhe importante a ser percebido no exemplo acima é que <strong>a emissão dos eventos e o subscribe ocorrem sempre na mesma thread, sincronamente</strong>. Esse é o comportamento padrão dos frameworks Rx, e tambem é o caso do RxJava.</p>
+<p>Mas e se quisermos publicar e processar eventos em <em>threads</em> diferentes?</p>
+<h3>(Um pouquinho de) Schedulers</h3>
+<p>Um dos princípios de design dos frameworks Rx é fornecer uma fundação simples e segura para programação assíncrona e concorrente. O principal objeto que abstrai esses conceitos é o <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>. Naturalmente, a implementação depende de detalhes específicos de cada linguagem e, no caso do RxJava, o comportamento é implementado com o <em>Executor Framework</em>, a API padrão de concorrência do Java.</p>
+<p>Para criamos uma instância de um <code>Scheduler</code>, podemos utilizar os métodos de fábrica da classe <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/schedulers/Schedulers.html">Schedulers</a>:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-comment">// Scheduler indicado para tarefas computacionais comuns</span>
+Scheduler computation = Schedulers.computation();
+
+<span class="hljs-comment">// Scheduler indicado para tarefas envolvendo IO</span>
+Scheduler io = Schedulers.io();
+
+<span class="hljs-comment">// Scheduler que criará uma nova thread para cada unidade de trabalho requerida</span>
+Scheduler newThread = Schedulers.newThread();
+
+<span class="hljs-comment">// Scheduler que irá enfileirar as unidades de trabalho, consumindo-as no formato FIFO usando as threads do poll</span>
+Scheduler trampoline = Schedulers.trampoline();
+
+<span class="hljs-comment">// Scheduler que irá executar todas as unidades de trabalho em uma única thread.</span>
+<span class="hljs-comment">// Indicado para trabalhos que requerem computação sequencial</span>
+Scheduler single = Schedulers.single();
+
+<span class="hljs-comment">// Scheduler criado a partir de um Executor do Java fornecido por você.</span>
+<span class="hljs-comment">// O código abaixo cria um ExecutorService usando a classe Executors, da API padrão do Java.</span>
+Scheduler customized = Schedulers.from(Executors.newFixedThreadPool(<span class="hljs-number">100</span>));
+</code></pre>
+<p>Um dos pontos fortes dos frameworks reativos é fornecer um nível de abstração simples para o processamento assíncrono, que historicamente é uma grande dor de cabeça para os programadores (incluindo especialmente a linguagem Java). Com efeito, trabalhar diretamente com <em>threads</em> não é algo trivial, envolvendo diversos detalhes complicados, que fatalmente serão refletidos em códigos igualmente complicados.</p>
+<p>O papel do <code>Scheduler</code> é simplificar essa complexidade, de tal maneira que não precisamos nos preocupar com os detalhes de baixo nível acerca da manipulação de <em>threads</em>, e sim apenas nos concentrarmos nas operações que desejamos realizar com nosso <code>stream</code>, uma vez escolhido o <code>Scheduler</code> mais adequado à tarefa.</p>
+<p>Com os métodos acima, podemos criar um <code>Scheduler</code> para diversos casos de uso. Mas e agora, o que fazemos com ele?</p>
+<h3>subscribeOn e observeOn</h3>
+<p>Os métodos <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#subscribeOn-io.reactivex.Scheduler-">subscribeOn</a> e <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#observeOn-io.reactivex.Scheduler-">observeOn</a> permitem controlar qual será o comportamento, em relação às <em>threads</em>, da emissão e subscrição de eventos. Ambos recebem um <code>Scheduler</code> como argumento.</p>
+<h4>subscribeOn</h4>
+<p><img src="/images/programacao-reativa-parte-3-1.png" alt="subscribeOn"></p>
+<p>O método <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#subscribeOn-io.reactivex.Scheduler-">subscribeOn</a> permite controlar em qual <code>Scheduler</code> a <strong>emissão dos eventos</strong> será realizada. Revisitando o exemplo anterior:</p>
+<pre class="highlight"><code class="hljs java">Observable.create(emitter -&gt; {
+
+    <span class="hljs-comment">//thread em que o onNext está sendo emitido</span>
+    System.out.println(<span class="hljs-string">"Emitting on Thread "</span> + Thread.currentThread().getId());
+
+    emitter.onNext(<span class="hljs-string">"one"</span>);
+    emitter.onNext(<span class="hljs-string">"two"</span>);
+    emitter.onComplete();
+
+})
+.subscribeOn(Schedulers.newThread()) <span class="hljs-comment">// aqui estamos dizendo o Scheduler em que a emissão de eventos deve ocorrer</span>
+.subscribe(
+        value -&gt;
+            <span class="hljs-comment">//thread em que o subscribe está sendo executado</span>
+            System.out.println(<span class="hljs-string">"Receive "</span> + value + <span class="hljs-string">" on Thread "</span> + Thread.currentThread().getId()),
+        Throwable::printStackTrace,
+        () -&gt; System.out.println(<span class="hljs-string">"Receive OnCompleted on Thread "</span> + Thread.currentThread().getId()));
+
+
+System.out.println(<span class="hljs-string">"Current thread: "</span> + Thread.currentThread().getId()); <span class="hljs-comment">//thread atual do programa</span>
+
+Thread.sleep(<span class="hljs-number">1000</span>);
+
+<span class="hljs-comment">/*
+output:
+
+Current thread: 1
+Emitting on Thread 11
+Receive one on Thread 11
+Receive two on Thread 11
+Receive OnCompleted on Thread 11
+*/</span>
+</code></pre>
+<p>No exemplo acima, utilizamos o método <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#create-io.reactivex.ObservableOnSubscribe-">create</a> (já visto no <a href="/programacao-reativa-parte-2">post anterior</a>) para criação do <code>Observable</code>, mas o comportamento do <code>subscribeOn</code> é o mesmo para qualquer outro método de criação. Vejamos o exemplo abaixo, usando o método de fábrica <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#just-T-">just</a>:</p>
+<pre class="highlight"><code class="hljs java">Observable.just(<span class="hljs-string">"one"</span>, <span class="hljs-string">"two"</span>)
+    .subscribeOn(Schedulers.newThread())
+    .subscribe(
+        value -&gt; System.out.println(<span class="hljs-string">"Receive "</span> + value + <span class="hljs-string">" on Thread "</span> + Thread.currentThread().getId()),
+        Throwable::printStackTrace,
+        () -&gt; System.out.println(<span class="hljs-string">"Receive OnCompleted on Thread "</span> + Thread.currentThread().getId()));
+
+
+System.out.println(<span class="hljs-string">"Current thread: "</span> + Thread.currentThread().getId());
+
+Thread.sleep(<span class="hljs-number">1000</span>);
+
+<span class="hljs-comment">/*
+output:
+
+Current thread: 1
+Receive one on Thread 11
+Receive two on Thread 11
+Receive OnCompleted on Thread 11
+*/</span>
+</code></pre>
+<p>Alguns métodos de criação do <code>Observable</code> operam sempre sobre <em>threads</em> diferentes da execução do programa (pois são naturalmente assíncronos); por exemplo, o método <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#interval-long-java.util.concurrent.TimeUnit-">interval</a>.</p>
+<pre class="highlight"><code class="hljs java">Observable.interval(<span class="hljs-number">1000</span>, TimeUnit.MILLISECONDS)
+    .subscribe(value -&gt; System.out.println(<span class="hljs-string">"Receive "</span> + value + <span class="hljs-string">" on Thread "</span> + Thread.currentThread().getId()));
+
+System.out.println(<span class="hljs-string">"Current thread: "</span> + Thread.currentThread().getId());
+
+Thread.sleep(<span class="hljs-number">3000</span>);
+
+<span class="hljs-comment">/*
+output:
+
+Current thread: 1
+Receive 0 on Thread 11
+Receive 1 on Thread 11
+Receive 2 on Thread 11
+*/</span>
+</code></pre>
+<p>Usando o <code>subscribeOn</code> em conjunto com esses métodos, também é possível controlar o <code>Scheduler</code> utilizado; outra maneira é usar uma sobrecarga que permite customizar o <code>Scheduler</code> por parâmetro (de maneira consistente, outros métodos como <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#intervalRange-long-long-long-long-java.util.concurrent.TimeUnit-">intervalRange</a> também são sobrecarregados da mesma maneira):</p>
+<pre class="highlight"><code class="hljs java">Observable.interval(<span class="hljs-number">1000</span>, TimeUnit.MILLISECONDS, Schedulers.newThread())
+    .subscribe(value -&gt; System.out.println(<span class="hljs-string">"Receive "</span> + value + <span class="hljs-string">" on Thread "</span> + Thread.currentThread().getId()));
+
+System.out.println(<span class="hljs-string">"Current thread: "</span> + Thread.currentThread().getId());
+
+Thread.sleep(<span class="hljs-number">3000</span>);
+
+<span class="hljs-comment">/*
+output:
+
+Current thread: 1
+Receive 0 on Thread 11
+Receive 1 on Thread 11
+Receive 2 on Thread 11
+*/</span>
+</code></pre>
+<p>Em todos os exemplos acima, podemos perceber que os <em>subscribers</em> foram executados <strong>na mesma thread</strong> em que os eventos foram publicados. Também podemos customizar esse comportamento usando o <code>observeOn</code>.</p>
+<h4>observeOn</h4>
+<p><img src="/images/programacao-reativa-parte-3-2.png" alt="observeOn"></p>
+<p>O método <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#observeOn-io.reactivex.Scheduler-">observeOn</a> se refere à outra ponta do <em>pipeline</em> reativo, nos permitindo controlar em qual <code>Scheduler</code> o <strong>consumo dos eventos</strong> será realizado. O mesmo exemplo anterior:</p>
+<pre class="highlight"><code class="hljs java">Observable.create(emitter -&gt; {
+
+    <span class="hljs-comment">//thread em que o onNext está sendo emitido</span>
+    System.out.println(<span class="hljs-string">"Emitting on Thread "</span> + Thread.currentThread().getId());
+
+    emitter.onNext(<span class="hljs-string">"one"</span>);
+    emitter.onNext(<span class="hljs-string">"two"</span>);
+    emitter.onComplete();
+
+})
+.observeOn(Schedulers.newThread()) <span class="hljs-comment">// aqui estamos dizendo o Scheduler em que o consumo de eventos deve ocorrer</span>
+.subscribe(
+        value -&gt;
+            <span class="hljs-comment">//thread em que o subscribe está sendo executado</span>
+            System.out.println(<span class="hljs-string">"Receive "</span> + value + <span class="hljs-string">" on Thread "</span> + Thread.currentThread().getId())
+        ,
+        Throwable::printStackTrace,
+        () -&gt; System.out.println(<span class="hljs-string">"Receive OnCompleted on Thread "</span> + Thread.currentThread().getId()));
+
+
+System.out.println(<span class="hljs-string">"Current thread: "</span> + Thread.currentThread().getId()); <span class="hljs-comment">//thread atual do programa</span>
+
+Thread.sleep(<span class="hljs-number">1000</span>);
+
+<span class="hljs-comment">/*
+output:
+
+Emitting on Thread 1
+Current thread: 1
+Receive one on Thread 11
+Receive two on Thread 11
+Receive OnCompleted on Thread 11
+*/</span>
+</code></pre>
+<p>No exemplo acima, a <strong>emissão</strong> dos eventos ocorreu na <em>thread</em> atual do programa, mas o <strong>consumo</strong> dos eventos, não. O exemplo com o método <code>just</code> demonstra o mesmo comportamento:</p>
+<pre class="highlight"><code class="hljs java">Observable.just(<span class="hljs-string">"one"</span>, <span class="hljs-string">"two"</span>)
+    .observeOn(Schedulers.newThread())
+    .subscribe(
+        value -&gt; System.out.println(<span class="hljs-string">"Receive "</span> + value + <span class="hljs-string">" on Thread "</span> + Thread.currentThread().getId()),
+        Throwable::printStackTrace,
+        () -&gt; System.out.println(<span class="hljs-string">"Receive OnCompleted on Thread "</span> + Thread.currentThread().getId()));
+
+
+System.out.println(<span class="hljs-string">"Current thread: "</span> + Thread.currentThread().getId());
+
+Thread.sleep(<span class="hljs-number">1000</span>);
+
+<span class="hljs-comment">/*
+output:
+
+Current thread: 1
+Receive one on Thread 11
+Receive two on Thread 11
+Receive OnCompleted on Thread 11
+*/</span>
+</code></pre>
+<p>Os operadores também serão executados utilizando esse <code>Scheduler</code>:</p>
+<pre class="highlight"><code class="hljs java">Observable.create(emitter -&gt; {
+
+    <span class="hljs-comment">//thread em que o onNext está sendo emitido</span>
+    System.out.println(<span class="hljs-string">"Emitting on Thread "</span> + Thread.currentThread().getId());
+
+    emitter.onNext(<span class="hljs-string">"one"</span>);
+    emitter.onNext(<span class="hljs-string">"two"</span>);
+    emitter.onComplete();
+
+})
+.observeOn(Schedulers.newThread()) <span class="hljs-comment">// aqui estamos dizendo o Scheduler em que o consumo de eventos deve ocorrer</span>
+.map(value -&gt; {
+
+    <span class="hljs-comment">//thread em que o operador map está sendo executado</span>
+    System.out.println(<span class="hljs-string">"Map, on thread "</span> + Thread.currentThread().getId());
+    <span class="hljs-keyword">return</span> value.toString().toUpperCase();
+})
+.subscribe(
+        value -&gt;
+            <span class="hljs-comment">//thread em que o subscribe está sendo executado</span>
+            System.out.println(<span class="hljs-string">"Receive "</span> + value + <span class="hljs-string">" on Thread "</span> + Thread.currentThread().getId())
+        ,
+        Throwable::printStackTrace,
+        () -&gt; System.out.println(<span class="hljs-string">"Receive OnCompleted on Thread "</span> + Thread.currentThread().getId()));
+
+System.out.println(<span class="hljs-string">"Current thread: "</span> + Thread.currentThread().getId()); <span class="hljs-comment">//thread atual do programa</span>
+
+Thread.sleep(<span class="hljs-number">1000</span>);
+
+<span class="hljs-comment">/*
+output:
+
+Emitting on Thread 1
+Current thread: 1
+Map, on thread 11
+Receive ONE on Thread 11
+Map, on thread 11
+Receive TWO on Thread 11
+Receive OnCompleted on Thread 11
+*/</span>
+</code></pre>
+<p>No <a href="/programacao-reativa-parte-2">post anterior</a>, insisti bastante na característica da <strong>imutabilidade</strong> dos <code>streams</code>; isso também é válido para os métodos <code>subscribeOn</code> e <code>observeOn</code>. No exemplo anterior, o <code>map</code> devolve um novo <code>Observable</code> que parametrizamos com um <code>Scheduler</code> específico; poderíamos modificar também esse novo <code>Observable</code> para utilizar outro <code>Scheduler</code>, encadeando operações em <em>threads</em> diferentes:</p>
+<pre class="highlight"><code class="hljs java">Observable.create(emitter -&gt; {
+
+    <span class="hljs-comment">//thread em que o onNext está sendo emitido</span>
+    System.out.println(<span class="hljs-string">"Emitting on Thread "</span> + Thread.currentThread().getId());
+
+    emitter.onNext(<span class="hljs-string">"one"</span>);
+    emitter.onNext(<span class="hljs-string">"two"</span>);
+    emitter.onComplete();
+
+})
+.observeOn(Schedulers.newThread())
+.map(value -&gt; {
+
+    <span class="hljs-comment">//thread em que o operador map está sendo executado</span>
+    System.out.println(<span class="hljs-string">"First map, on thread "</span> + Thread.currentThread().getId());
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"Hello, "</span> + value;
+
+})
+.observeOn(Schedulers.newThread()) <span class="hljs-comment">// aqui estamos modificando o Scheduler do novo Observable</span>
+.map(value -&gt; {
+
+    <span class="hljs-comment">//thread em que o operador map está sendo executado</span>
+    System.out.println(<span class="hljs-string">"Second map, on thread "</span> + Thread.currentThread().getId());
+    <span class="hljs-keyword">return</span> value.toString().toUpperCase();
+
+})
+.observeOn(Schedulers.newThread()) <span class="hljs-comment">// novamente, estamos modificando o Scheduler onde os dados serão observados</span>
+.subscribe(
+        value -&gt; {
+            System.out.println(<span class="hljs-string">"Receive "</span> + value + <span class="hljs-string">" on Thread "</span> + Thread.currentThread().getId());
+        },
+        Throwable::printStackTrace,
+        () -&gt; System.out.println(<span class="hljs-string">"Receive OnCompleted on Thread "</span> + Thread.currentThread().getId()));
+
+System.out.println(<span class="hljs-string">"Current thread: "</span> + Thread.currentThread().getId()); <span class="hljs-comment">//thread atual do programa</span>
+
+Thread.sleep(<span class="hljs-number">1000</span>);
+
+<span class="hljs-comment">/*
+output:
+
+Emitting on Thread 1
+Current thread: 1
+First map, on thread 11
+First map, on thread 11
+Second map, on thread 12
+Second map, on thread 12
+Receive HELLO, ONE on Thread 13
+Receive HELLO, TWO on Thread 13
+Receive OnCompleted on Thread 13
+*/</span>
+</code></pre>
+<p>Naturalmente, podemos combinar o <code>subscribeOn</code> e <code>observeOn</code> em um mesmo <em>pipeline</em>:</p>
+<pre class="highlight"><code class="hljs java">Observable.create(emitter -&gt; {
+
+    <span class="hljs-comment">//thread em que o onNext está sendo emitido</span>
+    System.out.println(<span class="hljs-string">"Emitting on Thread "</span> + Thread.currentThread().getId());
+
+    emitter.onNext(<span class="hljs-string">"one"</span>);
+    emitter.onNext(<span class="hljs-string">"two"</span>);
+    emitter.onComplete();
+
+})
+.subscribeOn(Schedulers.newThread())
+.observeOn(Schedulers.newThread())
+.map(value -&gt; {
+
+    <span class="hljs-comment">//thread em que o operador map está sendo executado</span>
+    System.out.println(<span class="hljs-string">"Map, on thread "</span> + Thread.currentThread().getId());
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"Hello, "</span> + value;
+
+})
+.subscribe(
+        value -&gt;
+            <span class="hljs-comment">//thread em que o subscribe está sendo executado</span>
+            System.out.println(<span class="hljs-string">"Receive "</span> + value + <span class="hljs-string">" on Thread "</span> + Thread.currentThread().getId())
+        ,
+        Throwable::printStackTrace,
+        () -&gt; System.out.println(<span class="hljs-string">"Receive OnCompleted on Thread "</span> + Thread.currentThread().getId()));
+
+System.out.println(<span class="hljs-string">"Current thread: "</span> + Thread.currentThread().getId()); <span class="hljs-comment">//thread atual do programa</span>
+
+Thread.sleep(<span class="hljs-number">1000</span>);
+
+<span class="hljs-comment">/*
+output:
+
+Current thread: 1
+Emitting on Thread 11
+Map, on thread 12
+Receive Hello, one on Thread 12
+Map, on thread 12
+Receive Hello, two on Thread 12
+Receive OnCompleted on Thread 12
+*/</span>
+</code></pre>
+<p>Com o <code>Scheduler</code> e o auxílio dos métodos <code>subscribeOn</code> e <code>observeOn</code>, é quase trivial implementarmos processamentos assíncronos e comunicação entre diferentes <em>threads</em>. Usando a API &quot;pura&quot; do Java, esse código seria extremamente difícil de ser escrito, além de vulnerável a muitos e complicados erros.</p>
+<h2>Processamento paralelo</h2>
+<p>Nos exemplos acima, introduzimos um comportamento assíncrono ao nosso código; conseguimos emitir e processar eventos em <em>threads</em> diferentes do segmento em que o programa está sendo executado. Mas ainda não introduzimos <strong>paralelismo</strong> ao nosso programa.</p>
+<p>Como vimos até aqui, o conceito essencial de um <code>stream</code> é <strong>uma sequência de eventos ordenados no tempo</strong>; isso significa que, mesmo que nosso código processe eventos em uma <em>thread</em> diferente, ainda assim isso ocorrerá <strong>na ordem em que os eventos forem emitidos</strong>. Esse é o comportamento correto e esperado ao lidarmos com um <code>stream</code>, mas nem sempre será o desejado; na maioria das vezes, processar os eventos em ordem faz sentido para o programa, mas outras vezes, não.</p>
+<p>Imaginemos um cenário em que os dados emitidos pelo <code>stream</code> são identificadores de, por exemplo, um usuário no modelo da nossa aplicação, e para cada identificador emitido queremos obter uma instância de um objeto que represente esse usuário:</p>
+<pre class="highlight"><code class="hljs java">Observable.fromCallable(UUID::randomUUID) <span class="hljs-comment">//gera um UUID randomico</span>
+    <span class="hljs-comment">//apenas para exemplo: o operador repeat() re-emite os eventos do Observable original em sequência, indefinidamente</span>
+    <span class="hljs-comment">// (digamos que cada valor emitido seja o nosso id de usuário)</span>
+    .repeat()
+    .take(<span class="hljs-number">10</span>) <span class="hljs-comment">// obtém os 10 primeiros elementos</span>
+    .subscribeOn(Schedulers.newThread()) <span class="hljs-comment">// muda o Scheduler de emissão dos eventos</span>
+    .map(id -&gt; findById(id)) <span class="hljs-comment">// transforma cada uuid em um User</span>
+    .subscribe(user -&gt; <span class="hljs-comment">//implementa alguma logica com o User);</span>
+</code></pre>
+<p>O método <code>findById(UUID id)</code> poderia ser algo como:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> User <span class="hljs-title">findById</span><span class="hljs-params">(UUID id)</span> </span>{
+    <span class="hljs-comment">// obtém um User de alguma forma, usando o id: consulta ao banco de dados, API externa, etc.</span>
+    <span class="hljs-comment">// o que nos importa aqui é que será uma operação bloqueante e lenta :(</span>
+    <span class="hljs-keyword">return</span> ...;
+}
+</code></pre>
+<p>Com o <code>subscribeOn</code> (e o <code>observeOn</code>, onde fizer sentido) nós mudamos o contexto da <em>thread</em> de execução, mas ainda não introduzimos um processamento paralelo de fato; continuamos a processar os valores na ordem em que estão sendo emitidos, e cada processamento do operador <em>map</em> <strong>bloqueia</strong> a <em>thread</em> utilizada na emissão dos eventos. Uma possibilidade para contornarmos isso poderia ser o uso do <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#flatMap-io.reactivex.functions.Function-">flatMap</a>, gerando um novo <code>Observable</code> para cada elemento de maneira <em>lazy</em>:</p>
+<pre class="highlight"><code class="hljs java">Observable.fromCallable(UUID::randomUUID)
+    .repeat()
+    .take(<span class="hljs-number">10</span>)
+    .subscribeOn(Schedulers.newThread())
+    .flatMap(id -&gt;
+        <span class="hljs-comment">// transforma cada uuid em um Observable que emite um User</span>
+        Observable.fromCallable(() -&gt; findById(id))
+    )
+    .subscribe(user -&gt; <span class="hljs-comment">//implementa alguma logica com o User);</span>
+</code></pre>
+<p>Tecnicamente, essa poderia ser uma boa solução. O operador [flatMap] transforma cada elemento em um novo <code>Observable</code>, se subscrevendo a todos eles para capturar os valores emitidos (que serão reemitidos no novo <code>Observable</code>). Ainda assim, a criação do <code>Observable</code> através do método <code>fromCallable</code> não é assíncrona, e continuamos bloqueando a <em>thread</em> sobre a qual o <code>flatMap</code> está sendo executado; podemos contornar isso, modificando o <code>Scheduler</code> da emissão de eventos para cada novo <code>Observable</code> gerado:</p>
+<pre class="highlight"><code class="hljs java">Observable.fromCallable(UUID::randomUUID)
+    .repeat()
+    .take(<span class="hljs-number">10</span>)
+    .subscribeOn(Schedulers.newThread())
+    .flatMap(id -&gt;
+        Observable.fromCallable(() -&gt; findById(id))
+            .subscribeOn(Schedulers.io())) <span class="hljs-comment">//modifica o Scheduler de cada novo Observable</span>
+    .subscribe(user -&gt; <span class="hljs-comment">//implementa alguma logica com o User);</span>
+</code></pre>
+<p>Conseguimos! Porém... essa é uma abordagem que funciona, mas parece problemática e sujeita a erros; os detalhes a respeito da execução assíncrona do <em>pipeline</em> estão tomando um espaço desproporcional no nosso código, obscurecendo a lógica de transformação e operação dos dados.</p>
+<p>Como dito antes, em um caso de uso como esse, a ordem dos valores emitidos não tem muita importância. O que queremos aqui é executarmos as operações (no nosso caso, buscar os usuários pelo seu identificador) <strong>em paralelo</strong>, e depois juntarmos todos os resultados. O código acima pode ser útil, mas não seria mais simples um método equivalente ao <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/BaseStream.html#parallel--">parallel</a>, da API de <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html">Stream</a> do Java?</p>
+<p>Naturalmente, o RxJava fornece uma maneira simples de fazermos isso :).</p>
+<h3>(Um pouquinho de) Flowable</h3>
+<p>A versão 2.x do RxJava introduziu um novo objeto chamado <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Flowable.html">Flowable</a>. Esse objeto é equivalente a um <code>Observable</code>, mas vitaminado com esteróides. Ainda vamos falar bastante e carinhosamente do <code>Flowable</code> nesse post; por enquanto, vamos apenas estudar como esse objeto pode nos ajudar em relação ao paralelismo.</p>
+<p>Para nossa alegria, o <code>Flowable</code> possui um método chamado <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Flowable.html#parallel--">parallel</a> que, como o nome indica, paraleliza o processsamento do <code>stream</code>; esse &quot;modo paralelo&quot; é representado pelo objeto <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/parallel/ParallelFlowable.html">ParallelFlowable</a> (que é o retorno do método <code>parallel</code>). Apenas um conjunto restrito de operadores está disponível nesse objeto (<code>map</code>, <code>flatMap</code>, <code>reduce</code>, <code>collect</code>, e alguns outros).</p>
+<p><img src="/images/programacao-reativa-parte-3-3.png" alt="parallel"></p>
+<pre class="highlight"><code class="hljs java">ParallelFlowable&lt;UUID&gt; parallel = Flowable.fromCallable(UUID::randomUUID) <span class="hljs-comment">// Flowable ao invés do Observable</span>
+    .repeat()
+    .take(<span class="hljs-number">10</span>)
+    .parallel(); <span class="hljs-comment">// esse método retorna um ParallelFlowable</span>
+
+parallel
+     <span class="hljs-comment">// Scheduler em que o processamento paralelo será executado; sem o runOn, tudo será feito na thread corrente</span>
+    .runOn(Schedulers.newThread())
+    .map(id -&gt; {
+
+        <span class="hljs-comment">//thread em que o operador map está sendo executado</span>
+        System.out.println(<span class="hljs-string">"Map ["</span> + id + <span class="hljs-string">"], on thread "</span> + Thread.currentThread().getId());
+        <span class="hljs-keyword">return</span> findById(id);
+
+    })
+    <span class="hljs-comment">// após fazermos o que desejávamos em paralelo, retornamos ao fluxo sequencial.</span>
+    <span class="hljs-comment">// não há garantia de ordem</span>
+    .sequential()
+    .subscribe(user -&gt;
+        <span class="hljs-comment">//thread em que o subscribe está sendo executado</span>
+        System.out.println(<span class="hljs-string">"Receive "</span> + user + <span class="hljs-string">" on Thread "</span> + Thread.currentThread().getId())
+    );
+
+<span class="hljs-comment">/*
+output:
+
+Map [25fa8c8f-dd2d-4ec0-a23a-30a45e2c217e], on thread 11
+Map [27a42c45-ca8a-4c73-9484-f7b9b9b36278], on thread 14
+Map [442d2b59-bbd4-4edb-be46-565c76234546], on thread 12
+Map [cb60a768-1999-45ac-8a58-9eb6fe466814], on thread 13
+Map [89e41117-27c2-439b-becc-58c2c083f451], on thread 12
+Receive 25fa8c8f-dd2d-4ec0-a23a-30a45e2c217e on Thread 11
+Map [267b1e0b-7d8f-40f6-a628-8edb2cedc64f], on thread 13
+Map [0e6fbdfe-7ae5-4c58-bb94-003e8edff8ef], on thread 14
+Receive 442d2b59-bbd4-4edb-be46-565c76234546 on Thread 11
+Map [6501ca4f-ebfa-4ad5-9e0f-bd4602cb41b2], on thread 12
+Receive cb60a768-1999-45ac-8a58-9eb6fe466814 on Thread 11
+Receive 27a42c45-ca8a-4c73-9484-f7b9b9b36278 on Thread 11
+Receive 89e41117-27c2-439b-becc-58c2c083f451 on Thread 11
+Receive 267b1e0b-7d8f-40f6-a628-8edb2cedc64f on Thread 11
+Receive 0e6fbdfe-7ae5-4c58-bb94-003e8edff8ef on Thread 11
+Receive 6501ca4f-ebfa-4ad5-9e0f-bd4602cb41b2 on Thread 11
+*/</span>
+</code></pre>
+<p>Como podemos ver, as execuções da função enviada ao operador <code>map</code> foram feitas <strong>em paralelo</strong>, em <em>threads</em> diferentes; o nível de paralelismo é, por padrão, determinado pelo número de CPUs disponíveis (momento cultural: isso pode ser obtido em Java usando <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runtime.html#availableProcessors--">Runtime.getRuntime().availableProcessors()</a>). Se preferir, você pode determinar explicitamente o paralelismo da execução usando <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Flowable.html#parallel-int-">essa sobrecarga</a> do método <code>parallel</code>.</p>
+<p>Ao obter uma instância do <code>ParallelFlowable</code>, um detalhe importante comentado no código acima é o método <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/parallel/ParallelFlowable.html#runOn-io.reactivex.Scheduler-">runOn</a>, análogo ao <code>subscribeOn</code> e <code>observeOn</code>; esse método <strong>deve</strong> ser parametrizado com o <code>Scheduler</code> apropriado para o processamento em paralelo, caso contrário, tudo será executado na <em>thread</em> corrente.</p>
+<p>Outro método importante é o <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/parallel/ParallelFlowable.html#sequential--">sequential</a>:</p>
+<p><img src="/images/programacao-reativa-parte-3-4.png" alt="sequential"></p>
+<p>Conforme o <em>marble diagram</em> demonstra, esse operador irá reagrupar os elementos emitidos em diferentes <em>threads</em> em um nova sequência de eventos ordenados. Não há nenhuma garantia sobre a ordem dos elementos, e o novo <code>Flowable</code> devolvido por esse método coleta os elementos conforme eles são emitidos. O <code>ParallelFlowable</code> não possui o método <code>subscribe</code>, de modo que, para se subscrever aos eventos, você <strong>deve</strong> utilizar esse método.</p>
+<p>Talvez nesse momento surja uma dúvida: por que o <code>Flowable</code> possui um &quot;modo paralelo&quot;, e o <code>Observable</code> não? Porque, na versão 2.x, apenas o <code>Flowable</code> suporta <em><strong>backpressure</strong></em>, que é essencial para não sobrecarregar as diferentes <em>threads</em> que estão sendo executadas em paralelo.</p>
+<p>Mas o que é &quot;backpressure&quot;?</p>
+<h2>Backpressure</h2>
+<p>O conceito de <em>backpressure</em> (&quot;contrapressão&quot;) é um dos pilares da programação reativa, e é suportado (de uma maneira ou de outra) por todas as ferramentas que implementam esse paradigma.</p>
+<p>Em um fluxo reativo, temos dois atores principais: um produtor (<code>stream</code>) e um consumidor (<code>subscriber</code>). Como vimos até aqui, o paradigma reativo é baseado na geração de eventos, que são empurrados para um <em>pipeline</em> de operações e, por fim, igualmente empurrados para o consumidor. Porém, vimos que isso pode ocorrer em diferentes <em>threads</em>, o que implica diferentes velocidades; o que poderia acontecer, então, se <strong>o produtor gerasse dados mais rapidamente do que o consumidor fosse capaz de processá-los?</strong> (música de desastre soando ao fundo)</p>
+<p><em>Backpressure</em> é um possível remédio para essa situação. Essencialmente, <em>backpressure</em> é <strong>uma maneira para que o consumidor avise ao produtor que ele não é capaz de lidar com o volume ou a velocidade dos eventos emitidos</strong>.</p>
+<p>Considere o seguinte exemplo, baseado em um código imperativo:</p>
+<pre class="highlight"><code class="hljs java">Collection&lt;String&gt; elements = ... <span class="hljs-comment">//obtém uma coleção de elementos de alguma forma</span>
+
+Iterator&lt;String&gt; iterator = elements.iterator();
+
+<span class="hljs-comment">// percorre os elementos da coleção</span>
+<span class="hljs-keyword">while</span> (iterator.hasNext()) {
+
+    <span class="hljs-comment">//obtém o elemento corrente da iteração;</span>
+    String element = iterator.next();
+
+    <span class="hljs-comment">//faz algo com o elemento obtido</span>
+}
+</code></pre>
+<p>O código acima fornece um <em>backpressure</em> &quot;natural&quot;, pois os dados são <strong>solicitados</strong> pelo programa (<em>pull based</em>); se o método <code>next</code> for uma operação bloqueante, o programa irá esperar que essa operação termine para que a execução continue. A coleção não gera elementos mais rapidamente do que o código é capaz de processar, pelo simples fato de que o programa os solicita um de cada vez!</p>
+<p>Na programação reativa, o inverso acontece: o modelo de programação é <em>push based</em>, onde os dados são empurrados para o programa; nosso código <strong>recebe</strong>, ao invés de solicitar os dados. Considere o exemplo abaixo:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-comment">// emite um evento a cada millisegundo (!)</span>
+Observable.interval(<span class="hljs-number">1</span>, TimeUnit.MILLISECONDS)
+    .subscribe(element -&gt; {
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-comment">// aguarda dois segundos...</span>
+            Thread.sleep(<span class="hljs-number">2000</span>);
+
+            System.out.println(element);
+
+        } <span class="hljs-keyword">catch</span> (Exception e) {}
+    });
+</code></pre>
+<p>Acima, temos um consumidor mais lento do que a emissão de eventos. Nesse código, não ocorreria problema nenhum, pois vimos que, a não ser que digamos o contrário, a publicação e o consumo dos eventos ocorrem <strong>na mesma thread</strong>. Então, o primeiro <code>onNext</code> é bloqueado até que o evento seja consumido pelo <em>subscriber</em>, e só após isso o segundo evento é emitido, e assim sucessivamente. Se houvesse outro <code>Scheduler</code> envolvido no consumo dos eventos (via <code>observeOn</code>), nosso programa ainda funcionaria... até o momento em que fosse encerrado com um erro do tipo <code>OutOfMemoryError</code>!</p>
+<p>Não queremos que isso aconteça, certo? Queremos que, em momentos de pico, nosso software seja capaz de continuar a processar e responder. Em outras palavras, queremos que nosso software seja <strong>resiliente</strong>. Mas como?</p>
+<h3>Backpressure in action :)</h3>
+<p>Como comentamos antes, o <code>Flowable</code> é o objeto que tem suporte a <em>backpressure</em>. Vejamos o código abaixo:</p>
+<pre class="highlight"><code class="hljs java">Flowable.interval(<span class="hljs-number">1</span>, TimeUnit.MILLISECONDS)
+    .observeOn(Schedulers.newThread())
+    .subscribe(element -&gt; {
+        <span class="hljs-keyword">try</span> {
+            Thread.sleep(<span class="hljs-number">2000</span>);
+
+            System.out.println(element);
+
+        } <span class="hljs-keyword">catch</span> (Exception e) {}
+    });
+</code></pre>
+<p>O código acima irá gerar uma exceção do tipo <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/exceptions/MissingBackpressureException.html">MissingBackpressureException</a>. Essa exceção indica exatamente a situação que temos em mãos e que vimos acima: o produtor tentou emitir um evento que o consumidor não é capaz de processar. Na versão 1.x do RxJava, o <code>Observable</code> também lançava essa exceção caso o consumidor fosse sobrecarregado, mas esse é um problema um tanto quanto obscuro e talvez inesperado. Afinal, nós vimos que o <code>Flowable</code> suporta <em>backpressure</em>, mas a exceção indica que o <em>backpressure</em> está &quot;ausente&quot;. Por que? Porque não definimos a <strong>política</strong> do que deve ser feito caso o volume de eventos seja maior do que o tamanho da pilha interna, <strong>que por padrão é 128 elementos</strong> (esse valor é configurável e pode ser sobrescrito, inclusive para cada operador através de sobrecargas dos métodos, mas também é possível <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Flowable.html#bufferSize--">configurar o tamanho da pilha globalmente</a>).</p>
+<p>Esse é um detalhe interessante, pois o <em>backpressure</em> nos dá o poder de implementarmos um comportamento a respeito dos eventos adjacentes. Afinal de contas, mesmo que o consumidor não seja capaz de processá-los, eventos <strong>estão</strong> sendo gerados; sem o <em>backpressure</em>, essa sobrecarga iria estrangular nosso programa, mas agora temos as ferramentas para decidir o que deve ser feito.</p>
+<p>Para começarmos, podemos converter nosso <code>Observable</code> em um <code>Flowable</code>, com o método <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#toFlowable-io.reactivex.BackpressureStrategy-">toFlowable</a>.</p>
+<pre class="highlight"><code class="hljs java">Flowable flowable = Observable.interval(<span class="hljs-number">1</span>, TimeUnit.MILLISECONDS)
+     .toFlowable(???)
+</code></pre>
+<p>Esse método recebe como parâmetro um <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/BackpressureStrategy.html">BackpressureStrategy</a>, que é um <em>enum</em> com as políticas possíveis de <em>backpressure</em> que podem ser aplicadas, e que vamos analisar abaixo.</p>
+<h3>Políticas de backpressure</h3>
+<h4>missing</h4>
+<p><img src="/images/programacao-reativa-parte-3-5.png" alt="missing"></p>
+<p>Com a estratégia <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/BackpressureStrategy.html#MISSING">MISSING</a>, basicamente desligamos o <em>backpressure</em> do <code>Flowable</code> criado. Eventos são emitidos respeitando o tamanho da pilha, e o consumidor deve lidar com qualquer sobrecarga. E se ele não conseguir? Adivinhe: <code>MissingBackpressureException</code>.</p>
+<pre class="highlight"><code class="hljs java">Flowable&lt;Long&gt; flowable = Observable.interval(<span class="hljs-number">1</span>, TimeUnit.MILLISECONDS)
+            .toFlowable(BackpressureStrategy.MISSING);
+
+flowable.observeOn(Schedulers.newThread())
+    .subscribe(element -&gt; {
+        <span class="hljs-keyword">try</span> {
+            Thread.sleep(<span class="hljs-number">2000</span>);
+
+            System.out.println(element);
+
+        } <span class="hljs-keyword">catch</span> (Exception e) {}
+    });
+
+<span class="hljs-comment">/*output:
+
+io.reactivex.exceptions.MissingBackpressureException: Queue is full?!
+*/</span>
+</code></pre>
+<p>Mas haveria alguma motivação para utilizarmos essa estratégia, desabilitando o <em>backpressure</em>? Sim, como veremos mais adiante.</p>
+<h4>error</h4>
+<p><img src="/images/programacao-reativa-parte-3-6.png" alt="error"></p>
+<p>A estratégia <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/BackpressureStrategy.html#ERROR">ERROR</a>, como o nome indica, irá lançar uma exceção do tipo <code>MissingBackpressureException</code> caso o consumidor não consiga mais processar eventos. Ela é útil caso queiramos que nosso <em>subscriber</em> seja imediatamente notificado sobre essa situação e possa reagir de acordo.</p>
+<pre class="highlight"><code class="hljs java">Flowable&lt;Long&gt; flowable = Observable.interval(<span class="hljs-number">1</span>, TimeUnit.MILLISECONDS)
+            .toFlowable(BackpressureStrategy.ERROR);
+
+flowable.observeOn(Schedulers.newThread())
+    .subscribe(element -&gt; {
+        <span class="hljs-keyword">try</span> {
+            Thread.sleep(<span class="hljs-number">2000</span>);
+
+            System.out.println(element);
+
+        } <span class="hljs-keyword">catch</span> (Exception e) {}
+    });
+
+<span class="hljs-comment">/*output:
+
+io.reactivex.exceptions.MissingBackpressureException: could not emit value due to lack of requests
+*/</span>
+</code></pre>
+<h4>buffer</h4>
+<p><img src="/images/programacao-reativa-parte-3-7.png" alt="buffer"></p>
+<p>O <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/BackpressureStrategy.html#BUFFER">BUFFER</a> irá configurar o <code>Flowable</code> para <em>armazenar</em> os eventos até que eles possam ser consumidos.</p>
+<pre class="highlight"><code class="hljs java">Flowable&lt;Long&gt; flowable = Observable.interval(<span class="hljs-number">1</span>, TimeUnit.MILLISECONDS)
+            .toFlowable(BackpressureStrategy.BUFFER);
+
+flowable.observeOn(Schedulers.newThread())
+    .subscribe(element -&gt; {
+        <span class="hljs-keyword">try</span> {
+            Thread.sleep(<span class="hljs-number">2000</span>);
+
+            System.out.println(element);
+
+        } <span class="hljs-keyword">catch</span> (Exception e) {}
+    });
+
+<span class="hljs-comment">/*output:
+
+1
+2
+...
+*/</span>
+</code></pre>
+<p>No exemplo acima, não há <code>MissingBackpressureException</code>; os eventos são armazenados até que o <em>subscriber</em> possa processá-los. Naturalmente, o <em>buffer</em> também possui um tamanho limitado. O que acontecerá quando o limite de eventos armazenados for atingido? Continue lendo! :)</p>
+<h4>drop</h4>
+<p><img src="/images/programacao-reativa-parte-3-8.png" alt="drop"></p>
+<p>Outra abordagem possível é simplesmente descartar os eventos excedentes, e essa estratégia é o <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/BackpressureStrategy.html#DROP">DROP</a>. Essa estratégia irá descartar todos os eventos posteriores ao momento em que o tamanho máximo da pilha foi alcançado, até que o <em>subscriber</em> sinalize que pode voltar a processá-los (e os eventos voltarão a ser consumidos a partir desse momento):</p>
+<pre class="highlight"><code class="hljs java">Flowable&lt;Long&gt; flowable = Observable.interval(<span class="hljs-number">1</span>, TimeUnit.MILLISECONDS)
+            .toFlowable(BackpressureStrategy.DROP);
+
+flowable.observeOn(Schedulers.newThread())
+    .subscribe(element -&gt; {
+        <span class="hljs-keyword">try</span> {
+            Thread.sleep(<span class="hljs-number">100</span>);
+
+            System.out.println(element);
+
+        } <span class="hljs-keyword">catch</span> (Exception e) {}
+    });
+
+<span class="hljs-comment">/*output (essa saída certamente irá variar):
+
+1
+2
+3
+...
+125
+127
+...
+9870 (os valores anteriores foram descartados!)
+*/</span>
+</code></pre>
+<p>O <em>output</em> da execução acima certamente será diferente caso você execute esse código, mas em algum ponto da sequência você perceberá que vários valores foram simplesmente &quot;pulados&quot; (na minha execução, a saída pulou do valor 127 para o 9870!); na verdade eles foram apenas descartados pelo <code>Flowable</code>. Essa estratégia é útil caso você possa se dar ao luxo de perder elementos; afinal, dependendo do caso de uso, pode ser melhor conseguir lidar com alguns eventos do que com evento nenhum (que é o que acontecerá caso sua aplicação caia!).</p>
+<h4>latest</h4>
+<p><img src="/images/programacao-reativa-parte-3-9.png" alt="latest"></p>
+<p>Por último, o <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/BackpressureStrategy.html#LATEST">LATEST</a>, que é sutilmente diferente do <code>DROP</code>. O detalhe é que essa estratégia garante que o <strong>último evento</strong> adicional não será descartado. A estratégia <code>DROP</code> não tem essa preocupação, descartando todos até que o consumidor possa voltar a consumí-los.</p>
+<h3>onBackpressureXXX</h3>
+<p>O <code>Flowable</code> possui alguns métodos que permitem configurar diretamente a política de <em>backpressure</em> no próprio objeto. Esse é um caso de uso para a estratégia <code>MISSING</code>; pode fazer sentido você utilizar essa estratégia ao converter um <code>Observable</code> para um <code>Flowable</code>, e depois utilizar um desses métodos para <strong>configurar explicitamente</strong> como se dará o <em>backpressure</em> dentro do <em>pipeline</em> reativo.</p>
+<h4>onBackpressureBuffer</h4>
+<p><img src="/images/programacao-reativa-parte-3-10.png" alt="onBackpressureBuffer"></p>
+<p>Equivalente à estratégia <em>BUFFER</em>: esse método irá configurar o <code>Flowable</code> para <em>armazenar</em> os eventos até que eles possam ser consumidos. A saída será a mesma do exemplo anterior:</p>
+<pre class="highlight"><code class="hljs java">Flowable&lt;Long&gt; flowable = Observable.interval(<span class="hljs-number">1</span>, TimeUnit.MILLISECONDS)
+            .toFlowable(BackpressureStrategy.MISSING); <span class="hljs-comment">//desliga o backpressure - será configurado abaixo</span>
+
+flowable.onBackpressureBuffer()
+    .observeOn(Schedulers.newThread())
+    .subscribe(element -&gt; {
+        <span class="hljs-keyword">try</span> {
+            Thread.sleep(<span class="hljs-number">2000</span>);
+
+            System.out.println(element);
+
+        } <span class="hljs-keyword">catch</span> (Exception e) {}
+    });
+
+<span class="hljs-comment">/*output:
+
+1
+2
+...
+*/</span>
+</code></pre>
+<p>Esse método tem sobrecargas que podem ser úteis em diversos casos de uso, como <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Flowable.html#onBackpressureBuffer-int-">customizar o tamanho da pilha do <em>buffer</em></a>, <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Flowable.html#onBackpressureBuffer-int-io.reactivex.functions.Action-">executar uma função</a> caso o <em>buffer</em> seja excedido, ou para um ajuste ainda mais fino, <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Flowable.html#onBackpressureBuffer-long-io.reactivex.functions.Action-io.reactivex.BackpressureOverflowStrategy-">definir uma estratégia</a> sobre o que deve ser feito quando o limite do buffer for alcançado.</p>
+<h4>onBackpressureDrop</h4>
+<p><img src="/images/programacao-reativa-parte-3-11.png" alt="onBackpressureDrop"></p>
+<p>Equivalente à estratégia <em>DROP</em>: eventos excedentes serão descartados.</p>
+<pre class="highlight"><code class="hljs java">Flowable&lt;Long&gt; flowable = Observable.interval(<span class="hljs-number">1</span>, TimeUnit.MILLISECONDS)
+            .toFlowable(BackpressureStrategy.MISSING);
+
+flowable.onBackpressureDrop()
+    .observeOn(Schedulers.newThread())
+    .subscribe(element -&gt; {
+        <span class="hljs-keyword">try</span> {
+            Thread.sleep(<span class="hljs-number">100</span>);
+
+            System.out.println(element);
+
+        } <span class="hljs-keyword">catch</span> (Exception e) {}
+    });
+
+<span class="hljs-comment">/*output (essa saída certamente irá variar):
+
+1
+2
+3
+...
+125
+127
+...
+9870 (os valores anteriores foram descartados!)
+*/</span>
+</code></pre>
+<p>Também existe uma <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Flowable.html#onBackpressureDrop-io.reactivex.functions.Consumer-">sobrecarga</a> que permite executar uma função que recebe os valores descartados.</p>
+<h4>onBackpressureLatest</h4>
+<p><img src="/images/programacao-reativa-parte-3-12.png" alt="onBackpressureLatest"></p>
+<p>Equivalente à estratégia <em>LATEST</em>, com as mesmas considerações comentadas mais acima a respeito da estratégia <code>BackpressureStrategy.LATEST</code>.</p>
+<pre class="highlight"><code class="hljs java">Flowable&lt;Long&gt; flowable = Observable.interval(<span class="hljs-number">1</span>, TimeUnit.MILLISECONDS)
+            .toFlowable(BackpressureStrategy.MISSING);
+
+flowable.onBackpressureLatest()
+    .observeOn(Schedulers.newThread())
+    .subscribe(element -&gt; {
+        <span class="hljs-keyword">try</span> {
+            Thread.sleep(<span class="hljs-number">100</span>);
+
+            System.out.println(element);
+
+        } <span class="hljs-keyword">catch</span> (Exception e) {}
+    });
+</code></pre>
+<h2>Backpressure em detalhes</h2>
+<p>O fato de o produtor gerar mais valores do que o consumidor pode processá-los não é de forma alguma um &quot;problema&quot;, mas uma realidade com a qual nosso <em>software</em> deve lidar. O mecanismo de <em>backpressure</em> nos permite implementar um controle sobre os cenários em que isso ocorre, mas eventualmente podemos lidar com isso de outras maneiras. A ideia principal aqui é <strong>controlarmos o volume de eventos</strong> recebidos pelo consumidor.</p>
+<p>Existem outros operadores que nos permitem controlar/limitar o número de eventos enviados. Por exemplo, <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#sample-long-java.util.concurrent.TimeUnit-">sample</a> permite obter apenas o último evento dentro de um intervalo de tempo; <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#throttleFirst-long-java.util.concurrent.TimeUnit-">throttleFirst</a>, <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#throttleLast-long-java.util.concurrent.TimeUnit-">throttleLast</a>, <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#throttleLatest-long-java.util.concurrent.TimeUnit-">throttleLatest</a>, <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#throttleWithTimeout-long-java.util.concurrent.TimeUnit-">throttleWithTimeout</a> e <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#debounce-long-java.util.concurrent.TimeUnit-">debounce</a> permitem obter elementos dentro de intervalos e sob algumas condições; <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#window-long-">window</a>, <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#groupBy-io.reactivex.functions.Function-">groupBy</a> e <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#buffer-int-">buffer</a> permitem agrupar os elementos para processamento. Todos esses operadores são soluções válidas para casos de uso em que podemos controlar a taxa de eventos emitidos (e eventualmente descartar alguns), e são formas &quot;naturais&quot; de <em>backpressure</em>.</p>
+<p>Porém, nem sempre isso é possível ou o desejado. Por exemplo, quando configuramos uma estratégia de <em>backpressure</em> (nos exemplos mais acima), não implementamos nenhum controle explícito sobre o volume de eventos recebidos pelo consumidor. Mas vimos que todas as estratégias de contrapressão funcionam do mesmo modo: reduzindo a quantidade de <em>inputs</em> enviados ao consumidor. Como isso é feito?</p>
+<h3>Reactive Streams</h3>
+<p>A versão 2.x do RxJava implementa o <a href="http://www.reactive-streams.org/">Reactive Streams</a>, uma pequena especificação que surgiu do esforço de algumas empresas e da comunidade para padronização do comportamento reativo na JVM. O <em>Reactive Streams</em> define um <a href="http://www.reactive-streams.org/reactive-streams-1.0.0-javadoc/">pequeno conjunto</a> de interfaces para publicação e subscrição de eventos, e tem como principal objetivo definir um modelo de funcionamento para o <em>backpressure</em> em conjunto com processamento não-bloqueante. O <em>Reactive Streams</em> <a href="https://docs.oracle.com/javase/9/docs/api/index.html?java/util/concurrent/Flow.html">também está presente no Java a partir da versão 9</a>.</p>
+<p>As estratégias que vimos acima são implementadas com base no comportamento definido nessa especificação, mas como realmente funcionam? Vamos olhar em detalhes agora :).</p>
+<p>O mesmo código dos exemplos anteriores:</p>
+<pre class="highlight"><code class="hljs java">Flowable&lt;Long&gt; flowable = Observable.interval(<span class="hljs-number">1</span>, TimeUnit.MILLISECONDS)
+            .toFlowable(BackpressureStrategy.MISSING);
+
+flowable.onBackpressureLatest()
+    .observeOn(Schedulers.newThread())
+    .subscribe(?);
+</code></pre>
+<p>O método <code>subscribe</code> do <code>Flowable</code> tem diversas sobrecargas; uma delas recebe um <a href="http://www.reactive-streams.org/reactive-streams-1.0.0-javadoc/org/reactivestreams/Subscriber.html">Subscriber</a> do <em>Reactive Streams</em> como argumento.</p>
+<pre class="highlight"><code class="hljs java">Flowable&lt;Long&gt; flowable = Observable.interval(<span class="hljs-number">1</span>, TimeUnit.MILLISECONDS)
+        .toFlowable(BackpressureStrategy.MISSING);
+
+flowable.observeOn(Schedulers.newThread())
+    .subscribe(<span class="hljs-keyword">new</span> Subscriber&lt;Long&gt;() {
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSubscribe</span><span class="hljs-params">(Subscription s)</span> </span>{
+
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNext</span><span class="hljs-params">(Long t)</span> </span>{
+
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(Throwable t)</span> </span>{
+
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onComplete</span><span class="hljs-params">()</span> </span>{
+
+        }
+    });
+</code></pre>
+<p>O método <a href="http://www.reactive-streams.org/reactive-streams-1.0.0-javadoc/org/reactivestreams/Subscriber.html#onSubscribe-org.reactivestreams.Subscription-">onSubscribe</a> é invocado quando uma subscrição se registra ao <code>stream</code>, recebendo como argumento um objeto do tipo <a href="http://www.reactive-streams.org/reactive-streams-1.0.0-javadoc/org/reactivestreams/Subscription.html">Subscription</a>. Esse objeto, que representa um consumidor, <strong>é responsável por controlar o volume de mensagens recebidas</strong>, através do método <a href="http://www.reactive-streams.org/reactive-streams-1.0.0-javadoc/org/reactivestreams/Subscription.html#request-long-">request(n)</a> (nota à parte: seria extremamente raro você ter de lidar com o <em>backpressure</em> e a taxa de eventos diretamente, mas o exemplo irá atender nossos propósitos de estudo ;)).</p>
+<p>Digamos que nosso consumidor seja lento o bastante para que desejemos receber uma mensagem de cada vez. O código abaixo demonstra esse mecanismo:</p>
+<pre class="highlight"><code class="hljs java">Flowable&lt;Long&gt; flowable = Observable.interval(<span class="hljs-number">1</span>, TimeUnit.MILLISECONDS)
+        .toFlowable(BackpressureStrategy.MISSING);
+
+flowable
+    .observeOn(Schedulers.newThread())
+    .subscribe(<span class="hljs-keyword">new</span> Subscriber&lt;Long&gt;() {
+
+        <span class="hljs-keyword">private</span> Subscription subscription;
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSubscribe</span><span class="hljs-params">(Subscription subscription)</span> </span>{
+            <span class="hljs-comment">//recebe o Subscription associado ao Subscriber (um Subscription só pode ser utilizado por um Subscriber)</span>
+            <span class="hljs-keyword">this</span>.subscription = subscription;
+
+            subscription.request(<span class="hljs-number">1</span>); <span class="hljs-comment">//solicita APENAS UM item ao produtor</span>
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNext</span><span class="hljs-params">(Long value)</span> </span>{
+            <span class="hljs-comment">//faz algo leeeento....</span>
+
+            subscription.request(<span class="hljs-number">1</span>); <span class="hljs-comment">//solicita APENAS MAIS UM item ao produtor</span>
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(Throwable t)</span> </span>{
+            t.printStackTrace();
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onComplete</span><span class="hljs-params">()</span> </span>{
+            System.out.println(<span class="hljs-string">"OnComplete"</span>);
+        }
+    });
+</code></pre>
+<p>Nenhum evento é enviado ao consumidor até que o método <code>request</code> do <code>Subscription</code> seja invocado. No método <code>onSubscribe</code>, quando recebemos o <code>Subscription</code> associado ao consumidor, solicitamos <strong>um único evento</strong> ao produtor, que será processado no método <code>onNext</code>. Após isso, solicitamos <strong>mais um evento</strong> ao produtor; e assim sucessivamente.</p>
+<p>Outra sobrecarga do método <code>subscribe</code> recebe um <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/FlowableSubscriber.html">FlowableSubscriber</a>, que é uma especialização do <code>Subscriber</code> no RxJava; vejamos o exemplo abaixo, usando um <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/subscribers/DisposableSubscriber.html">DisposableSubscriber</a> (que implementa essa interface)	:</p>
+<pre class="highlight"><code class="hljs java">Flowable&lt;Long&gt; flowable = Observable.interval(<span class="hljs-number">1</span>, TimeUnit.MILLISECONDS)
+        .toFlowable(BackpressureStrategy.MISSING);
+
+flowable
+    .observeOn(Schedulers.newThread())
+    .subscribe(<span class="hljs-keyword">new</span> DisposableSubscriber&lt;Long&gt;() {
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onStart</span><span class="hljs-params">()</span> </span>{
+            request(<span class="hljs-number">1</span>); <span class="hljs-comment">//solicita APENAS UM item ao produtor (o padrão é Long.MAX_VALUE)</span>
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNext</span><span class="hljs-params">(Long value)</span> </span>{
+            <span class="hljs-comment">//faz algo leeeento....</span>
+
+            subscription.request(<span class="hljs-number">1</span>); <span class="hljs-comment">//solicita APENAS MAIS UM item ao produtor</span>
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(Throwable t)</span> </span>{
+            t.printStackTrace();
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onComplete</span><span class="hljs-params">()</span> </span>{
+            System.out.println(<span class="hljs-string">"OnComplete"</span>);
+        }
+    });
+</code></pre>
+<p>Novamente, muito raramente você terá de lidar diretamente com essa lógica. Como vimos antes, existem meios de limitar a taxa de emissão de eventos e de controlar eventuais sobrecargas com as diferentes estratégias de <em>backpressure</em>. A <a href="https://github.com/ReactiveX/RxJava/wiki/Backpressure-(2.0)">documentação do RxJava</a> também explica extensamente os detalhes de implementação.</p>
+<h2>Flowable em detalhes</h2>
+<p>Vamos falar um pouco mais sobre o <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Flowable.html">Flowable</a>. Como vimos antes, esse objeto é o equivalente de um <code>Observable</code>, mas com suporte a <em>backpressure</em></p>
+<p>Como dito acima, um dos principais objetivos do <em>Reactive Streams</em> é a criação de uma abstração para objetos reativos com suporte a contrapressão, e o RxJava (na versão 2.x) é uma implementação dessa especificação. <code>Flowable</code> implementa a interface <a href="http://www.reactive-streams.org/reactive-streams-1.0.0-javadoc/org/reactivestreams/Publisher.html">Publisher</a> do <em>Reactive Streams</em>, com todos os comportamentos definidos na especificação. Isso também torna o <code>Flowable</code> interoperável com outras implementações do <em>Reactive Streams</em>, como o Reactor ou o Akka (é comum os objetos desses frameworks interoperarem com um <code>Publisher</code>, assim como é o caso da maioria dos métodos do <code>Flowable</code>).</p>
+<p><code>Flowable</code> também tem todos os operadores reativos que vimos no <a href="/programacao-reativa-parte-2">post anterior</a>, e métodos de fábrica equivalentes aos do <code>Observer</code>.</p>
+<p>O suporte a <em>backpressure</em> torna o <code>Flowable</code> mais adequado para cenários de grande volume de mensagens, ou operações de I/O (acesso a disco, banco de dados, requisições HTTP). A <a href="https://github.com/ReactiveX/RxJava/wiki/What's-different-in-2.0#observable-and-flowable">documentação</a> detalha bem os casos em que é mais adequado usar um <code>Flowable</code> ou um <code>Observer</code>.</p>
+<h2>Scheduler em detalhes</h2>
+<p>Agora, um pouco mais sobre o <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>, o principal objeto dos frameworks Rx para computação assíncrona. Aqui, é importante relembrar que o comportamento padrão dos frameworks Rx (e outros) é <em>single thread</em>; se quisermos implementar uma computação assíncrona, isso deve estar <strong>explicitamente</strong> expresso no código. E o <code>Scheduler</code> é o objeto utilizado para esse fim.</p>
+<p>Como vimos antes, instâncias de <code>Scheduler</code> podem ser criadas utilizando a classe <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/schedulers/Schedulers.html">Schedulers</a>, mas o que é esse objeto?</p>
+<p>Um <code>Scheduler</code> é o objeto responsável por organizar/agendar a execução de <strong>unidades de trabalho</strong>. No caso do RxJava, essas unidades são representadas na forma de <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html">Runnables</a>, uma interface da API padrão do Java que essencialmente representa uma computação qualquer. Essas unidades de trabalho representam um <strong>processamento isolado</strong>, que serão executadas tão rapidamente quanto possível (sem tempo de espera), ou em um determinado ponto do tempo (após um período específico ou periodicamente), dependendo do caso. O isolamento de cada unidade fornece uma abstração útil sobre a execução, permitindo que ela seja feita, de maneira uniforme, sobre qualquer modelo de execução de tarefas (síncrono ou assíncrono).</p>
+<p>Cada unidade de trabalho é representada por um <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.Worker.html">Worker</a>, um objeto que encapsula a execução do <code>Runnable</code> sobre um esquema qualquer gerenciado pelo <code>Scheduler</code> (<code>Threads</code> customizadas, <em>event loops</em>, um <code>Executor</code> do Java, modelo de atores, etc). Um componente importante desse objeto é um relógio interno que fornece à tarefa uma noção do &quot;tempo&quot;. Isso permite algumas possibilidades interessantes, especialmente para testes que envolvem o agendamento de tarefas, pois podemos &quot;avançar&quot; ou &quot;voltar&quot; no tempo para simular o comportamento do agendador. Existe um <code>Scheduler</code> especial para esse propósito que veremos mais abaixo ;).</p>
+<p>Para a construção de <code>pipelines</code> reativos, dificilmente você terá que manipular diretamente um <code>Scheduler</code> ou um <code>Worker</code>. Como dito antes, um dos príncipios de design dos frameworks reativos é fornecer uma fundação sólida para construção de programas que façam uso de computação assíncrona, de modo que esse trabalho é, com efeito, realizado de forma transparente. Mas existem variações do <code>Scheduler</code> fornecidas pelo próprio RxJava e é interessante que as conheçamos, para que possamos escolher a mais adequada para cada tipo de tarefa.</p>
+<p>Essas implementações estão disponíveis na classe <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/schedulers/Schedulers.html">Schedulers</a>, e vamos analisá-las com mais detalhes abaixo.</p>
+<h3>Schedulers.computation</h3>
+<p>O método <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/schedulers/Schedulers.html#computation--">Schedulers.computation</a> devolve um <code>Scheduler</code> indicado para uso em tarefas orientadas a CPU (que requerem poder computacional e sem código bloqueante, como cálculos, por exemplo). Por padrão, o número de <em>threads</em> disponíveis será o número de <em>cores</em> disponíveis. Esse comportamento garante que esse <code>Scheduler</code> nunca irá saturar o <em>hardware</em>, mesmo sob carga pesada.</p>
+<h3>Schedulers.io</h3>
+<p><a href="http://reactivex.io/RxJava/javadoc/io/reactivex/schedulers/Schedulers.html#io--">Schedulers.io</a> devolve um <code>Scheduler</code> indicado para uso em tarefas de I/O, como requisições HTTP, acesso a bancos de dados, acesso a disco, etc. NÃO é recomendado para tarefas computacionais. Esse é o <code>Scheduler</code> adequado caso precise realizar I/O bloqueante de maneira assíncrona no seu <code>pipeline</code>.</p>
+<h3>Schedulers.newThread</h3>
+<p><a href="http://reactivex.io/RxJava/javadoc/io/reactivex/schedulers/Schedulers.html#newThread--">Schedulers.newThread</a> retorna um <code>Scheduler</code> que, como o nome indica, cria uma nova <em>thread</em> para cada unidade de trabalho. O cuidado a ser tomado aqui é que um número potencialmente ilimitado de <em>threads</em> podem ser geradas, gerando lentidão ou erros de <code>OutOfMemoryError</code>.</p>
+<h3>Schedulers.single</h3>
+<p>O método <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/schedulers/Schedulers.html#single--">Schedulers.single</a> devolve um <code>Scheduler</code> que irá executar suas tarefas <em>em uma única thread</em>, aninhada à <em>thread</em> corrente e bloqueando sua execução. É útil para tarefas fortemente sequenciais.</p>
+<h3>Schedulers.trampoline</h3>
+<p>O método <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/schedulers/Schedulers.html#trampoline--">Schedulers.trampoline</a> é parecido com o <code>single</code>, mas devolve um <code>Scheduler</code> que irá enfileirar as tarefas e executá-las em um formato FIFO (&quot;first-in-first-out&quot;), de maneira sequencial e <strong>na mesma thread</strong> em que a primeira tarefa for executada. Mas não é isso que o <code>single</code> faz? A diferença do <code>trampoline</code> é que o início de uma tarefa dependerá do término da anterior, mesmo em casos que envolvem <em>delay</em>. Um exemplo utilizando o <code>single</code>:</p>
+<pre class="highlight"><code class="hljs java">Scheduler scheduler = Schedulers.single();
+
+Worker worker = scheduler.createWorker();
+
+System.out.println(<span class="hljs-string">"Current thread: "</span> + Thread.currentThread());
+
+worker.schedule(() -&gt; System.out.println(<span class="hljs-string">"First: "</span> + Thread.currentThread()));
+
+<span class="hljs-comment">//a tarefa abaixo deve esperar 1 segundo para ser executada</span>
+worker.schedule(() -&gt; System.out.println(<span class="hljs-string">"Second: "</span> + Thread.currentThread()), <span class="hljs-number">1</span>, TimeUnit.SECONDS);
+
+System.out.println(<span class="hljs-string">"End"</span>);
+
+Thread.sleep(<span class="hljs-number">2000</span>);
+
+<span class="hljs-comment">/*
+output:
+
+Current thread: Thread[main,5,main]
+First: Thread[RxSingleScheduler-1,5,main]
+End
+Second: Thread[RxSingleScheduler-1,5,main]
+*/</span>
+</code></pre>
+<p>O resultado acima demonstra que o <code>single</code> não bloqueia a <em>thread</em> para execução das tarefas que tenham um tempo de espera.</p>
+<p>Agora o mesmo código, com o <code>trampoline</code>:</p>
+<pre class="highlight"><code class="hljs java">Scheduler scheduler = Schedulers.trampoline();
+
+Worker worker = scheduler.createWorker();
+
+System.out.println(<span class="hljs-string">"Current thread: "</span> + Thread.currentThread());
+
+worker.schedule(() -&gt; System.out.println(<span class="hljs-string">"First: "</span> + Thread.currentThread()));
+
+<span class="hljs-comment">//a tarefa abaixo será agendada para 1 segundo no futuro</span>
+worker.schedule(() -&gt; System.out.println(<span class="hljs-string">"Second: "</span> + Thread.currentThread()), <span class="hljs-number">1</span>, TimeUnit.SECONDS);
+
+worker.schedule(() -&gt; System.out.println(<span class="hljs-string">"Third: "</span> + Thread.currentThread()));
+
+System.out.println(<span class="hljs-string">"End"</span>);
+
+Thread.sleep(<span class="hljs-number">2000</span>);
+
+<span class="hljs-comment">/*
+output:
+Current thread: Thread[main,5,main]
+First: Thread[main,5,main]
+Second: Thread[main,5,main]
+Third: Thread[main,5,main]
+End
+*/</span>
+</code></pre>
+<p>A saída demonstra que a <em>thread</em> executando as tarefas (no caso, a <em>thread</em> principal) ficou <em>bloqueada</em> até que a segunda tarefa terminasse, e depois continuou a executar as tarefas subsequentes. Essa é a diferença fundamental entre o <code>single</code> e o <code>trampoline</code>.</p>
+<h3>Schedulers.from</h3>
+<p>Caso essas configurações não atendam o seu caso de uso, também existe o método <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/schedulers/Schedulers.html#from--">Schedulers.from</a>, que recebe como parâmetro um <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Executor.html">Executor</a> do Java, o qual você pode criar e parametrizar de acordo com suas necessidades.</p>
+<h3>TestScheduler</h3>
+<p>Um detalhe de implementação importante do <code>Scheduler</code> é o conceito de um &quot;relógio&quot; interno, que fornece ao agendador uma noção de &quot;tempo&quot;. É esse conceito que permite a criação de <code>streams</code> baseados em intervalos (como <code>Observable.interval</code>) ou operadores que trabalham com janelas de tempo (como <code>window</code> ou <code>debounce</code>). Especialmente para testes de unidade, pode ser conveniente simularmos algo como um &quot;avanço no tempo&quot; para reproduzirmos algum comportamento. Existe uma classe específica para esse propósito chamada <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/schedulers/TestScheduler.html">TestScheduler</a>.</p>
+<p>Digamos, um código como esse:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-comment">//aguarda 5 segundos entre cada emissão</span>
+Observable.interval(<span class="hljs-number">5000</span>, TimeUnit.MILLISECONDS)
+        .subscribe(System.out::println);
+</code></pre>
+<p>Se quiséssemos testar o código acima, teríamos que reproduzir o tempo de espera (no caso, 5 segundos) no nosso teste. Isso não é apenas demorado; o problema maior é que o código acima não faz realmente nada até o momento em que a janela de tempo se fecha e o evento é disparado. Mas se pudéssemos adiantar o tempo para &quot;cinco segundos no futuro&quot;, o código acima seria executado instantaneamente. Não podemos adiantar o relógio da máquina, mas podemos adiantar um relógio &quot;virtual&quot;.</p>
+<pre class="highlight"><code class="hljs java">TestScheduler scheduler = <span class="hljs-keyword">new</span> TestScheduler();
+
+Observable.interval(<span class="hljs-number">5000</span>, TimeUnit.MILLISECONDS, scheduler) <span class="hljs-comment">// utiliza o TestScheduler</span>
+    .subscribe(System.out::println);
+
+scheduler.advanceTimeBy(<span class="hljs-number">5000</span>, TimeUnit.MILLISECONDS); <span class="hljs-comment">// avança no tempo!</span>
+
+<span class="hljs-comment">/*
+output:
+
+0
+*/</span>
+</code></pre>
+<p>Caso o tempo adiantado seja &quot;maior&quot; do que o intervalo, o <code>Observable</code> irá emitir os eventos normalmente (os mesmos eventos que seriam emitidos com o andar &quot;normal&quot; do tempo).</p>
+<pre class="highlight"><code class="hljs java">TestScheduler scheduler = <span class="hljs-keyword">new</span> TestScheduler();
+
+<span class="hljs-comment">// intervalo de 1 segundo</span>
+Observable.interval(<span class="hljs-number">1000</span>, TimeUnit.MILLISECONDS, scheduler)
+    .subscribe(System.out::println);
+
+<span class="hljs-comment">// avança cinco segundos; nesse tempo, o Observable acima teria emitido 5 eventos</span>
+scheduler.advanceTimeBy(<span class="hljs-number">5000</span>, TimeUnit.MILLISECONDS);
+
+<span class="hljs-comment">/*
+output:
+
+0
+1
+2
+3
+4
+*/</span>
+</code></pre>
+<h2>Processamento bloqueante (ou &quot;Come To The Dark Side&quot;)</h2>
+<p>Muito do que se diz a respeito da programação reativa se refere a <strong>processamento não-bloqueante</strong>, e, como vimos acima, os frameworks Rx fornecem uma sólida fundação para implementarmos esse tipo de lógica. O próprio modelo de programação declarativo também simplifica a implementação; ao invés do código imperativo, trabalhamos com funções que apenas recebem dados empurrados e devolvem o resultado de uma computação, e se essa função é executada em uma <em>thread</em> separada, é um detalhe que não afeta a escrita do código.</p>
+<p>Mas nem sempre isso é possível ou é o desejado, especialmente no caso do Java, que é uma linguagem imperativa; muitas vezes, ao invés de enviarmos uma função que será executada quando o valor estiver disponível, precisamos do valor <em>em si</em> (ou eventualmente de todos os valores gerados pelo <code>stream</code>). Isso é especialmente verdadeiro para compatibilidade com códigos já existentes (não reativos) ou biblotecas de terceiros.</p>
+<p>Se esse for o caso, podemos usar os <strong>operadores bloqueantes</strong>. O nome indica claramente que o processamento do <code>stream</code> deve ser <em>bloqueado</em>, porque, embora por padrão um objeto reativo seja <em>single-thread</em>, isso é feito <em>implicitamente</em>; como vimos nos exemplos acima, se quisermos tornar nosso <code>stream</code> assíncrono, o <em>pipeline</em> reativo não é afetado: será sempre <em>push based</em>, independente de quantas <em>threads</em> estiverem envolvidas. E se quisermos alterar esse comportamento para um modelo bloqueante a fim de obter um valor específico do <code>stream</code>, isso deve ser feito <strong>explicitamente</strong>.</p>
+<p><strong>Evite</strong> o uso desses métodos, pois eles quebram o conceito de <em>push</em> da programação reativa. Porém, para os casos onde isso seja necessário, vamos estudá-los em detalhes.</p>
+<h3>blockingFirst</h3>
+<p><img src="/images/programacao-reativa-parte-3-13.png" alt="blockingFirst"></p>
+<p>O operador <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#blockingFirst--">blockingFirst</a>, como o nome indica, retorna o primeiro elemento emitido pelo <code>stream</code>. Se nenhum item foi emitido, uma exceção do tipo <code>NoSuchElementException</code> será lançada. Como dito antes, o retorno desse método é o <strong>valor em si</strong> extraído do <code>stream</code>, e não um novo <code>Observable</code> como nos demais operadores reativos.</p>
+<p>Caso necessite, use esse método com cuidado. O retorno desse método só é gerado após o evento <em>onComplete</em>, o que o torna perigoso para ser utilizado em <code>streams</code> infinitos (onde o <em>onComplete</em> talvez nunca seja emitido).</p>
+<pre class="highlight"><code class="hljs java">String first = Observable.just(<span class="hljs-string">"one"</span>, <span class="hljs-string">"two"</span>, <span class="hljs-string">"three"</span>)
+    .map(String::toUpperCase)
+    .blockingFirst();
+
+System.out.println(<span class="hljs-string">"First value is: "</span> + first);
+
+<span class="hljs-comment">/*
+output:
+
+First value is: ONE
+*/</span>
+</code></pre>
+<p>Como comentei, o <code>blocking</code> no nome do método não é um detalhe; estamos dizendo explicitamente ao <code>Observable</code> que o processamento deve ser bloqueado a fim de retornar o primeiro valor. No exemplo acima, não há diferença (<em>single-thread</em> por padrão, lembram-se?), mas digamos que nosso <code>map</code> esteja sendo executado em <em>threads</em> separadas; essas <em>threads</em> <strong>serão bloqueadas</strong>, pois o <code>Observable</code> precisa aguardar que elas terminem a fim de gerar o retorno do método. Introduzindo o <em>observeOn</em> no código acima, teríamos:</p>
+<pre class="highlight"><code class="hljs java">String first = Observable.just(<span class="hljs-string">"one"</span>, <span class="hljs-string">"two"</span>, <span class="hljs-string">"three"</span>)
+    <span class="hljs-comment">// aqui estamos dizendo ao Observable que queremos processar os elementos em outra thread</span>
+    .observeOn(Schedulers.newThread())
+    <span class="hljs-comment">// essa função será executada em uma thread separada</span>
+    .map(String::toUpperCase)
+    .blockingFirst(); <span class="hljs-comment">// para gerar o retorno desse método o Observable PRECISA aguardar as threads serem finalizadas</span>
+
+System.out.println(<span class="hljs-string">"First value is: "</span> + first);
+
+<span class="hljs-comment">/*
+output:
+
+First value is: ONE
+*/</span>
+</code></pre>
+<p>Existe uma <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#blockingFirst-T-">sobrecarga</a> desse operador que permite informar um valor <em>default</em>, caso o <code>Observable</code> não tenha emitido nenhum elemento (evitando o <code>NoSuchElementException</code>).</p>
+<h3>blockingLast</h3>
+<p><img src="/images/programacao-reativa-parte-3-14.png" alt="blockingLast"></p>
+<p>De maneira análoga, o operador <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#blockingLast--">blockingLast</a>, retorna o último elemento emitido pelo <code>stream</code>. Se nenhum item foi emitido, uma exceção do tipo <code>NoSuchElementException</code> será lançada. As mesmas considerações acima sobre o <code>blockingFirst</code> também são válidas para o <code>blockingLast</code>.</p>
+<pre class="highlight"><code class="hljs java">String last = Observable.just(<span class="hljs-string">"one"</span>, <span class="hljs-string">"two"</span>, <span class="hljs-string">"three"</span>)
+        .map(String::toUpperCase)
+        .blockingLast();
+
+System.out.println(<span class="hljs-string">"Last value is: "</span> + last);
+
+<span class="hljs-comment">/*
+output:
+
+Last value is: THREE
+*/</span>
+</code></pre>
+<p>Também para esse caso, existe uma <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#blockingLast-T-">sobrecarga</a> que permite informar um valor <em>default</em>, caso o <code>Observable</code> não tenha emitido nenhum elemento (evitando o <code>NoSuchElementException</code>).</p>
+<h3>blockingIterable</h3>
+<p><img src="/images/programacao-reativa-parte-3-15.png" alt="blockingIterable"></p>
+<p>O operador <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#blockingIterable--">blockingIterable</a> converte o <code>stream</code> para um <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html">Iterable</a>.</p>
+<pre class="highlight"><code class="hljs java">Iterable&lt;String&gt; iterable = Observable.just(<span class="hljs-string">"one"</span>, <span class="hljs-string">"two"</span>, <span class="hljs-string">"three"</span>)
+        .map(String::toUpperCase)
+        .blockingIterable();
+
+iterable.forEach(System.out::println);
+
+<span class="hljs-comment">/*
+output:
+
+ONE
+TWO
+THREE
+*/</span>
+</code></pre>
+<p>Novamente, o fato de ser uma operação bloqueante é relevante. Conforme o <em>marble diagram</em> indica, cada iteração (cada chamada ao método <code>Iterable.next</code>) devolve o último elemento emitido. E se nenhum item foi emitido, ou se não houver mais nenhum disponível? O <code>Iterable</code> ficará <strong>bloqueado</strong> aguardando o próximo evento <em>onNext</em>. O exemplo abaixo demonstra esse comportamento:</p>
+<pre class="highlight"><code class="hljs java">Iterable&lt;Long&gt; iterable = Observable.interval(<span class="hljs-number">2000</span>, TimeUnit.MILLISECONDS) <span class="hljs-comment">//emite um valor a cada 2 segundos</span>
+        .blockingIterable();
+
+<span class="hljs-comment">// cada iteração irá aguardar a emissão do próximo evento</span>
+iterable.forEach(System.out::println);
+
+<span class="hljs-comment">/*
+output:
+
+0
+1 //emitido após dois segundos
+2 // emitido após dois segundos
+...
+*/</span>
+</code></pre>
+<h3>blockingLatest</h3>
+<p><img src="/images/programacao-reativa-parte-3-16.png" alt="blockingLatest"></p>
+<p>O operador <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#blockingLatest--">blockingLatest</a> também devolve um <code>Iterable</code>, onde cada iteração irá retornar o último elemento emitido. Caso nenhum item tenha sido emitido <strong>ainda</strong>, o <code>Iterable</code> irá aguardar o próximo evento <em>onNext</em> (novamente, bloqueando a <em>thread</em>!).</p>
+<p>Um detalhe interessante desse operador, demonstrado no <em>marble diagram</em>, é o que acontece caso o <code>stream</code> emita eventos mais rapidamente do que as invocações do <code>Iterable.next</code>. Nesse caso, os eventos <strong>poderão ser descartados</strong>. Se algum <em>onNext</em> for imediatamente seguido de um <em>onComplete</em>, o último valor também <strong>pode</strong> ser ocultado.</p>
+<h3>blockingMostRecent</h3>
+<p><img src="/images/programacao-reativa-parte-3-17.png" alt="blockingMostRecent"></p>
+<p>O operador <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#blockingMostRecent--">blockingMostRecent</a> também devolve um <code>Iterable</code>, onde cada iteração irá retornar o mais recente elemento emitido. A diferença sutil entre esse operador e o <code>blockingLatest</code> é que, caso nenhum elemento tenha sido emitido a cada intervalo de invocação do <code>Iterable.next</code>, você potencialmente terá elementos <strong>repetidos</strong> devolvidos a cada chamada do <code>Iterable.next</code>.</p>
+<pre class="highlight"><code class="hljs java">Iterable&lt;Long&gt; iterable = Observable.interval(<span class="hljs-number">2000</span>, TimeUnit.MILLISECONDS) <span class="hljs-comment">//emite um valor a cada 2 segundos</span>
+        .blockingMostRecent(<span class="hljs-number">0l</span>);
+        <span class="hljs-comment">//esse parâmetro é um valor inicial que será devolvido pelo Iterable SE o stream ainda não tiver emitido nenhum elemento</span>
+
+iterable.forEach(value -&gt; {
+    <span class="hljs-keyword">try</span> {
+        Thread.sleep(<span class="hljs-number">1000</span>); <span class="hljs-comment">//demora um segundo...</span>
+    } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+    }
+    System.out.println(<span class="hljs-string">"Value: "</span> + value);
+});
+
+<span class="hljs-comment">/*
+output:
+
+Value: 0
+Value: 0
+Value: 0
+Value: 0
+Value: 1
+Value: 1
+Value: 2
+Value: 2
+Value: 3
+Value: 3
+...
+*/</span>
+</code></pre>
+<p>Naturalmente, a iteração também pode ser mais lenta do que a emissão de eventos.</p>
+<pre class="highlight"><code class="hljs java">Iterable&lt;Long&gt; iterable = Observable.interval(<span class="hljs-number">1000</span>, TimeUnit.MILLISECONDS) <span class="hljs-comment">//emite um valor a cada 1 segundo</span>
+        .blockingMostRecent(<span class="hljs-number">0l</span>);
+
+iterable.forEach(value -&gt; {
+    <span class="hljs-keyword">try</span> {
+        Thread.sleep(<span class="hljs-number">2000</span>); <span class="hljs-comment">//demora dois segundos...</span>
+    } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+    }
+    System.out.println(<span class="hljs-string">"Value: "</span> + value);
+});
+
+<span class="hljs-comment">/*
+output:
+
+Value: 0
+Value: 1
+Value: 3
+Value: 5
+Value: 7
+Value: 9
+...
+*/</span>
+</code></pre>
+<h3>blockingNext</h3>
+<p><img src="/images/programacao-reativa-parte-3-18.png" alt="blockingNext"></p>
+<p>O operador <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#blockingNext--">blockingNext</a> devolve um <code>Iterable</code> que, a cada iteração, irá aguardar a próxima emissão do evento <em>onNext</em>.</p>
+<pre class="highlight"><code class="hljs java">Iterable&lt;Long&gt; iterable = Observable.interval(<span class="hljs-number">2000</span>, TimeUnit.MILLISECONDS)
+        .blockingNext();
+
+iterable.forEach(System.out::println); <span class="hljs-comment">//cada iteração irá aguardar dois segundos</span>
+</code></pre>
+<p>Há uma diferença sutil entre esse operador e o <code>blockingMostRecent</code>. Caso não ocorram emissões de eventos entre cada iteração, ao contrário do <code>blockingMostRecent</code> que irá capturar o mais recente item emitido (um item potencialmente duplicado), o <code>blockingNext</code> irá aguardar a próxima emissão. Vejamos o mesmo exemplo mais acima do <code>blockingMostRecent</code>, mas usando o <code>blockingNext</code>.</p>
+<pre class="highlight"><code class="hljs java">Iterable&lt;Long&gt; iterable = Observable.interval(<span class="hljs-number">2000</span>, TimeUnit.MILLISECONDS) <span class="hljs-comment">//emite um valor a cada 2 segundos</span>
+        .blockingNext();
+
+iterable.forEach(value -&gt; {
+    <span class="hljs-keyword">try</span> {
+        <span class="hljs-comment">//demora um segundo...</span>
+        <span class="hljs-comment">//embora o consumo seja mais rápido do que a emissão, o iterable irá aguardar a emissão do próximo valor</span>
+
+        Thread.sleep(<span class="hljs-number">1000</span>);
+    } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+    }
+    System.out.println(<span class="hljs-string">"Value: "</span> + value);
+});
+
+<span class="hljs-comment">/*
+output:
+
+Value: 0    //não há elementos repetidos
+Value: 1
+Value: 2
+...
+*/</span>
+</code></pre>
+<h3>blockingSingle</h3>
+<p><img src="/images/programacao-reativa-parte-3-19.png" alt="blockingSingle"></p>
+<p>O operador <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#blockingSingle--">blockingSingle</a> devolve o <strong>único</strong> elemento emitido pelo <code>stream</code>, após ele ser completado. Se mais de um elemento foi emitido, esse método irá lançar uma exceção do tipo <code>IllegalArgumentException</code>. Se nenhum elemento for emitido e o <code>stream</code> for completado, uma exceção do tipo <code>NoSuchElementException</code> será lançada.</p>
+<pre class="highlight"><code class="hljs java">String single = Observable.just(<span class="hljs-string">"one"</span>)
+        .map(String::toUpperCase)
+        .blockingSingle();
+
+System.out.println(single);
+
+<span class="hljs-comment">/*
+output:
+
+ONE
+*/</span>
+</code></pre>
+<pre class="highlight"><code class="hljs java">String single = Observable.just(<span class="hljs-string">"one"</span>, <span class="hljs-string">"two"</span>)
+        .map(String::toUpperCase)
+        .blockingSingle();
+
+System.out.println(single);
+
+<span class="hljs-comment">/*
+output:
+
+java.lang.IllegalArgumentException: Sequence contains more than one element!
+*/</span>
+</code></pre>
+<pre class="highlight"><code class="hljs java">Object single = Observable.empty() <span class="hljs-comment">//um Observable que completa imediatamente</span>
+        .blockingSingle();
+
+System.out.println(single);
+
+<span class="hljs-comment">/*
+output:
+
+java.util.NoSuchElementException
+*/</span>
+</code></pre>
+<p>Esse método tem uma <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#blockingSingle-T-">sobrecarga</a> que permite informar um valor padrão que será devolvido, caso o <code>stream</code> seja completado sem emitir nada.</p>
+<pre class="highlight"><code class="hljs java">Object single = Observable.empty()
+        .blockingSingle(<span class="hljs-string">"default value"</span>);
+
+System.out.println(single);
+
+<span class="hljs-comment">/*
+output:
+
+default value
+*/</span>
+</code></pre>
+<h3>blockingSubscribe</h3>
+<p><img src="/images/programacao-reativa-parte-3-20.png" alt="blockingSubscribe"></p>
+<p>O método <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Observable.html#blockingSubscribe-io.reactivex.functions.Consumer-">blockingSubscribe</a> registra um <em>subscription</em> para o <code>stream</code>, da mesma maneira que o <em>subscribe</em>; porém, o consumo do evento é sempre realizada na <strong>thread corrente</strong>. É uma diferença importantíssima em relação aos comportamentos que estudamos no ínicio do <em>post</em>. Como vimos, os <em>subscribers</em> por padrão executam na mesma <em>thread</em> em que os eventos são publicados, e podemos customizar esse comportamento através do <code>observeOn</code>; os <em>subscribers</em> registrados pelo método <code>blockingSubscribe</code>, ao contrário, <strong>sempre</strong> serão executados na <em>thread</em> corrente do programa.</p>
+<p>Recapitulando o comportamento não-bloqueante do <code>Observable</code>:</p>
+<pre class="highlight"><code class="hljs java">System.out.println(<span class="hljs-string">"Current Thread: "</span> + Thread.currentThread().getId());
+
+Observable.just(<span class="hljs-string">"one"</span>, <span class="hljs-string">"two"</span>, <span class="hljs-string">"three"</span>)
+        .observeOn(Schedulers.newThread())
+        .doOnNext(value -&gt;
+            System.out.println(<span class="hljs-string">"Emiting value "</span> + value + <span class="hljs-string">" on the thread "</span> + Thread.currentThread().getId())
+        )
+        .subscribe(value -&gt;
+            System.out.println(<span class="hljs-string">"Subscribing value "</span> + value + <span class="hljs-string">" on the thread "</span> + Thread.currentThread().getId())
+        );
+
+<span class="hljs-comment">/*
+output:
+
+Current Thread: 1
+Emiting value one on the thread 14     //eventos emitidos em outra thread
+Subscribing value one on the thread 14 //eventos consumidos na mesma thread em que foram emitidos
+Emiting value two on the thread 14
+Subscribing value two on the thread 14
+Emiting value three on the thread 14
+Subscribing value three on the thread 14
+*/</span>
+</code></pre>
+<p>E a diferença utilizando <code>blockingSubscribe</code>:</p>
+<pre class="highlight"><code class="hljs java">System.out.println(<span class="hljs-string">"Current Thread: "</span> + Thread.currentThread().getId());
+
+Observable.just(<span class="hljs-string">"one"</span>, <span class="hljs-string">"two"</span>, <span class="hljs-string">"three"</span>)
+        .observeOn(Schedulers.newThread())
+        .doOnNext(value -&gt;
+            System.out.println(<span class="hljs-string">"Emiting value "</span> + value + <span class="hljs-string">" on the thread "</span> + Thread.currentThread().getId())
+        )
+        .subscribe(value -&gt;
+            System.out.println(<span class="hljs-string">"Subscribing value "</span> + value + <span class="hljs-string">" on the thread "</span> + Thread.currentThread().getId())
+        );
+
+<span class="hljs-comment">/*
+output:
+
+Current Thread: 1
+Emiting value one on the thread 14  //eventos emitidos em outra thread
+Emiting value two on the thread 14
+Emiting value three on the thread 14
+Subscribing value one on the thread 1 //eventos consumidos na thread corrente do programa
+Subscribing value two on the thread 1
+Subscribing value three on the thread 1
+*/</span>
+</code></pre>
+<h2>Conclusão</h2>
+<p>Nesse post, exploramos um ponto muito importante para a programação reativa: a execução assíncrona do código. Os frameworks reativos fornecem abstrações e recursos eficientes para essas complexidades, de modo que nosso código pode se concentrar nas operações do <code>pipeline</code> ao invés de detalhes complicados sobre programação concorrente e comunicação entre <em>threads</em>. Execução assíncrona e não-bloqueante do código são relevantes para escalabilidade e performance, e são uma das principais motivações para a adoção do paradigma reativo.</p>
+<p>Após esse post, já conhecemos bem os principais conceitos e recursos envolvidos em um framework reativo. A partir do próximo post, podemos utilizar esse conhecimento para voos mais altos. Que tal vermos os conceitos de uma <strong>aplicação reativa</strong>? :)</p>
+<p>Para quaisquer dúvidas, comentários, ou qualquer outra coisa, esteja à vontade para utilizar a caixa de comentários. Obrigado e até o próximo post!</p>
+
+
+			<ul class='tag-list'>
+			
+				<li>
+					<a href='/tags/java/'>java</a>
+				</li>
+			
+				<li>
+					<a href='/tags/programacao-reativa/'>programacao-reativa</a>
+				</li>
+			
+			</ul>
+			<section class='share'>
+				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+				<div class='social-share'>
+					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/programacao-reativa-parte-3/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+						Compartilhar no facebook
+					</a>
+					<a href='https://twitter.com/intent/tweet?text=Programação Reativa - Parte 3&url=https://elo7.dev/programacao-reativa-parte-3/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+						Compartilhar no twitter
+					</a>
+					<a href='https://elo7.dev/programacao-reativa-parte-3/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+						Copiar URL
+					</a>
+					<span class='copy-success'>Link copiado</span>
+					<input type='url' value='https://elo7.dev/programacao-reativa-parte-3/?utm_source=share&utm_medium=copy' class='link-input'>
+				</div>
+			</section>
+		</div>
+
+		<meta itemprop='headline' content='Terceiro capítulo da Jornada Reativa! Falaremos agora sobre coisas interessantes: código assíncrono, execução em paralelo e backpressure!'/>
+		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop='name' content='Elo7 Tech'/>
+			<meta itemprop="url" content='https://elo7.dev'/>
+			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+				<meta itemprop='width' content='100px'/>
+				<meta itemprop='height' content='100px'/>
+			</span>
+		</span>
+		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+		<div id='disqus_thread'></div>
+
+		<script>
+			var disqus_shortname = 'engenhariaelo7';
+			var disqus_identifier = '24/09/2018:/programacao-reativa-parte-3/';
+			var disqus_url = 'https://elo7.dev/programacao-reativa-parte-3/';
+
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Habilite o JavaScript para ver os comentários</noscript>
+	</div>
+</article>
+<script async src="/js/post.js"></script>
+
+		
+	</main>
+	<footer itemscope itemtype="http://schema.org/Organization">
+		<a rel="home" itemprop="url" href="https://elo7.dev/" >
+			elo7.dev © 2019
+		</a>
+		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<script async src="https://www.google-analytics.com/analytics.js"></script>
+	<script async src="/js/analytics.js"></script>
+	<script async src="/js/github.js"></script>
+	<script async src="/js/vendor/events-amd.js"></script>
+	<script async src="/js/vendor/ajax.js"></script>
+	<script async src="/js/vendor/doc.js"></script>
+	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

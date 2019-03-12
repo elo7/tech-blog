@@ -1,0 +1,844 @@
+<!doctype html>
+<html amp lang='pt-br'>
+<head>
+	<meta charset='utf-8'>
+	<script async src='https://cdn.ampproject.org/v0.js'></script>
+	<script async custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
+	<script async custom-element='amp-image-lightbox' src='https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js'></script>
+	<script async custom-element='amp-analytics' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js'></script>
+	<title>Elo7 Tech - Arquiteturas para aplicações realtime utilizando MQTT</title>
+	<meta name='description' content='Vamos descrever os diferentes tipos de arquiteturas para a criação de aplicações realtime, como Short Polling, Long Polling, WebSocket + HTTP e suas vantagens e desvantagens em relação a WebSocket + MQTT usada no Talk7.'>
+	<link rel='canonical' href='https://elo7.dev/arquiteturas-para-aplica--es-realtime-utilizando-mqtt/' />
+	<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>
+	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+	<style amp-custom>
+		body {
+			background-color: white;
+			font-family: 'Open Sans', sans-serif;
+			color: #666;
+		}
+
+		h1 {
+			color: #333;
+			font-size: 1.5em;
+			margin-bottom: 0;
+		}
+
+		h2, h3 {
+			color: #444;
+			font-size: 1.2em;
+		}
+
+		h3 {
+			font-weight: 300;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		p, li {
+			font-size: 0.9em;
+		}
+
+		ul {
+			padding-left: 1.5em;
+		}
+
+		article {
+			line-height: 1.8;
+			text-align: justify;
+		}
+
+		blockquote {
+			margin: 1em;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			font-size: 0.9em;
+			width: 100%;
+			text-align: left;
+		}
+
+		table thead th {
+			background-color: #4a4a4a;
+			color: white;
+		}
+
+		table th, table td {
+			padding: 0.2em 0.5em;
+		}
+
+		tr:nth-child(even) td {
+			background-color: #f3f3f3;
+		}
+
+		table th:not(:first-child), table td:not(:first-child) {
+			text-align: right;
+		}
+
+		body > header {
+			height: 60px;
+			box-sizing: border-box;
+			background-color: #FDC24F;
+			text-align: center;
+			padding-top: 0.8em;
+			padding-bottom: 0.8em;
+			position: sticky;
+			top: 0;
+			z-index: 10;
+		}
+
+		body > header a {
+			background: url('//images.elo7.com.br/assets/v3/desktop/svg/logo-elo7.svg') no-repeat;
+			background-size: 90px 35px;
+			width: 90px;
+			height: 35px;
+			display: inline-block;
+			filter: brightness(100);
+		}
+
+		.post-content, footer {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+
+		.post-content .content a, .post-content .content a:visited, .post-content .content a:hover {
+			cursor: pointer;
+			color: #000;
+			font-weight: 500;
+			text-decoration: underline;
+			word-break: break-word;
+		}
+
+		.post-content .post-image {
+			text-align: center;
+			display: block;
+		}
+
+		.post-content p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		main {
+			background-color: #ecebeb;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+
+		.post-card, .post-content, .publisher-info {
+			background: white;
+			margin-left: 2%;
+			padding: 1em;
+			margin-right: 3%;
+			box-shadow: rgba(72, 72, 72, 0.23) 0 0 5px;
+		}
+
+		.publisher-info {
+			margin-bottom: 1em;
+		}
+
+		.publisher-info h1 {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+		}
+
+		.card-devops {
+			border-left: 5px solid #7d7873;
+		}
+
+		.card-eventos {
+			border-left: 5px solid #fdb933;
+		}
+
+		.card-front-end {
+			border-left: 5px solid #c15eb4;
+		}
+
+		.card-back-end {
+			border-left: 5px solid #359c9c;
+		}
+
+		.card-mobile {
+			border-left: 5px solid #fa9c5e;
+		}
+
+		.card-vagas {
+			border-left: 5px solid #99c799;
+		}
+
+		.card-design {
+			border-left: 5px solid #7c9ec4;
+		}
+
+		.card-cultura {
+			border-left: 5px solid #f44336;
+		}
+
+		.post-card:not(:last-of-type) {
+			margin-bottom: 1em;
+		}
+
+		.post-card .title {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+			text-align: left;
+		}
+
+		.post-card .title a {
+			color: inherit;
+		}
+
+		.author, .date {
+			color: #888;
+			margin-bottom: 0;
+			margin-top: 0;
+			font-size: 0.9em;
+		}
+
+		.author a {
+			color: inherit;
+			margin-bottom: 1.5em;
+		}
+
+		#sidebar {
+			width: 60vw;
+			background-color: #4a4a4a;
+			color: #fff;
+			padding-right: 1em;
+			padding-left: 1em;
+		}
+
+		#sidebar li {
+			margin-bottom: 0.5em;
+		}
+
+		#sidebar ul {
+			margin-bottom: 1.5em;
+			list-style: none;
+			padding: 0;
+		}
+
+		#sidebar h2 {
+			margin-bottom: 0;
+		}
+
+		#sidebar a {
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		#sidebar a, #sidebar h2 {
+			color: inherit;
+		}
+
+		.sidebar-trigger {
+			position: absolute;
+			left: 5%;
+			background-color: transparent;
+			border: none;
+			color: #fff;
+			font-size: 1.8em;
+			padding: 0;
+		}
+
+		.category {
+			background-color: #73bebe;
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 0.8em;
+			padding: .5em;
+			border-radius: 3px;
+			display: inline-block;
+			margin-top: 2.3em;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			font-weight: 300;
+		}
+
+		.category:hover {
+			background-color: #73bebe;
+		}
+
+		.post-link {
+			border: 1px solid #fba702;
+			border-radius: 3px;
+			color: #fba702;
+			display: inline-block;
+			float: right;
+			margin-top: 1em;
+			padding: 0.8em;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s, color 0.3s;
+			font-size: 0.9em;
+		}
+
+		.post-link:hover {
+			background-color: #fba702;
+			color: #ffffff;
+		}
+
+		.social {
+			content: '';
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			background-position: center;
+			text-indent: -9999px;
+			margin-right: 0.5em;
+			background-size: contain;
+			vertical-align: top;
+		}
+
+		.social.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.social.linkedin {
+			background-image: url('/images/ico/ic-linkedin.svg');
+		}
+
+		.social.github {
+			background-image: url('/images/ico/ic-github.svg');
+		}
+
+		footer {
+			background-color: #4a4a4a;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		footer a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 0.8em;
+		}
+
+		.footer-social {
+			line-height: 0;
+		}
+
+		.footer-social a {
+			background-size: 2em 2em;
+			background-repeat: no-repeat;
+			display: inline-block;
+			height: 2em;
+			width: 2em;
+			overflow: hidden;
+			text-indent: -9999px;
+		}
+
+		.footer-social a + a {
+			margin-left: 0.5em;
+		}
+
+		.footer-social .github {
+			background-image: url('/images/github_icon.svg');
+		}
+		.footer-social .email {
+			background-image: url('/images/email_icon.png');
+		}
+
+		.footer-social .rss {
+			background-image: url('/images/ico/feed.svg');
+		}
+
+		.footer-social .twitter {
+            background-image: url('/images/ico/ic-negative-twitter.svg');
+        }
+
+		.share {
+			position: relative;
+			text-align: right;
+			margin-top: 1em;
+		}
+
+		.share .link-share {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				text-indent: -9999px;
+				margin-left: 0.5em;
+				text-align: left;
+		}
+
+		.share .link-share.facebook {
+			background-image: url('/images/ico/ic-facebook.svg');
+		}
+
+		.share .link-share.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.link-input {
+			opacity: 0;
+			position: absolute;
+			left: -9999px;
+		}
+
+		.copy-success {
+			font-size: 0.75em;
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			top: 125%;
+			transition: opacity ease-in-out 250ms;
+			text-align: center;
+		}
+
+		.copy-success.active {
+			opacity: 1;
+		}
+
+		code {
+			background-color: #ececec;
+			padding: 0.1em 0.2em;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.highlight code {
+			overflow: auto;
+		}
+
+		.hljs {
+			display: block;
+			padding: 0.5em 1em;
+			background: #23241f;
+		}
+
+		.hljs,
+		.hljs-tag,
+		.css .hljs-rules,
+		.css .hljs-value,
+		.css .hljs-function
+		.hljs-preprocessor,
+		.hljs-pragma {
+			color: #f8f8f2;
+		}
+
+		.hljs-strongemphasis,
+		.hljs-strong,
+		.hljs-emphasis {
+			color: #a8a8a2;
+		}
+
+		.hljs-bullet,
+		.hljs-blockquote,
+		.hljs-horizontal_rule,
+		.hljs-number,
+		.hljs-regexp,
+		.alias .hljs-keyword,
+		.hljs-literal,
+		.hljs-hexcolor {
+			color: #ae81ff;
+		}
+
+		.hljs-tag .hljs-value,
+		.hljs-code,
+		.hljs-title,
+		.css .hljs-class,
+		.hljs-class .hljs-title:last-child {
+			color: #a6e22e;
+		}
+
+		.hljs-link_url {
+			font-size: 80%;
+		}
+
+		.hljs-strong,
+		.hljs-strongemphasis {
+			font-weight: bold;
+		}
+
+		.hljs-emphasis,
+		.hljs-strongemphasis,
+		.hljs-class .hljs-title:last-child {
+			font-style: italic;
+		}
+
+		.hljs-keyword,
+		.hljs-function,
+		.hljs-change,
+		.hljs-winutils,
+		.hljs-flow,
+		.lisp .hljs-title,
+		.clojure .hljs-built_in,
+		.nginx .hljs-title,
+		.tex .hljs-special,
+		.hljs-header,
+		.hljs-attribute,
+		.hljs-symbol,
+		.hljs-symbol .hljs-string,
+		.hljs-tag .hljs-title,
+		.hljs-value,
+		.alias .hljs-keyword:first-child,
+		.css .hljs-tag,
+		.css .unit,
+		.css .hljs-important {
+			color: #F92672;
+		}
+
+		.hljs-function .hljs-keyword,
+		.hljs-class .hljs-keyword:first-child,
+		.hljs-constant,
+		.css .hljs-attribute {
+			color: #66d9ef;
+		}
+
+		.hljs-variable,
+		.hljs-params,
+		.hljs-class .hljs-title {
+			color: #f8f8f2;
+		}
+
+		.hljs-string,
+		.css .hljs-id,
+		.hljs-subst,
+		.haskell .hljs-type,
+		.ruby .hljs-class .hljs-parent,
+		.hljs-built_in,
+		.sql .hljs-aggregate,
+		.django .hljs-template_tag,
+		.django .hljs-variable,
+		.smalltalk .hljs-class,
+		.django .hljs-filter .hljs-argument,
+		.smalltalk .hljs-localvars,
+		.smalltalk .hljs-array,
+		.hljs-attr_selector,
+		.hljs-pseudo,
+		.hljs-addition,
+		.hljs-stream,
+		.hljs-envvar,
+		.apache .hljs-tag,
+		.apache .hljs-cbracket,
+		.tex .hljs-command,
+		.hljs-prompt,
+		.hljs-link_label,
+		.hljs-link_url {
+			color: #e6db74;
+		}
+
+		.hljs-comment,
+		.hljs-javadoc,
+		.java .hljs-annotation,
+		.python .hljs-decorator,
+		.hljs-template_comment,
+		.hljs-pi,
+		.hljs-doctype,
+		.hljs-deletion,
+		.hljs-shebang,
+		.apache .hljs-sqbracket,
+		.tex .hljs-formula {
+			color: #75715e;
+		}
+
+		.coffeescript .javascript,
+		.javascript .xml,
+		.tex .hljs-formula,
+		.xml .javascript,
+		.xml .vbscript,
+		.xml .css,
+		.xml .hljs-cdata,
+		.xml .php,
+		.php .xml {
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body itemscope itemtype='http://schema.org/WebPage'>
+	<amp-sidebar id='sidebar' layout='nodisplay'>
+		<h2>Categorias</h2>
+		<ul>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/back-end/'>
+						<span itemprop='name'>back-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/cultura/'>
+						<span itemprop='name'>cultura</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/data-science/'>
+						<span itemprop='name'>data-science</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/design/'>
+						<span itemprop='name'>design</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/devops/'>
+						<span itemprop='name'>devops</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/eventos/'>
+						<span itemprop='name'>eventos</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/talks/'>
+						<span itemprop='name'>talks</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/front-end/'>
+						<span itemprop='name'>front-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/mobile/'>
+						<span itemprop='name'>mobile</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/vagas/'>
+						<span itemprop='name'>vagas</span>
+					</a>
+				</li>
+			
+		</ul>
+		<h2>Veja também</h2>
+		<ul>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+					<span itemprop='name'>A engenharia</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Carreiras</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://eventos.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Nossos eventos</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='https://www.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Elo7</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a rel='external' itemprop='url' href='https://github.com/elo7/tech-blog'>Github</a>
+			</li>
+		</ul>
+		</ul>
+	</amp-sidebar>
+	<header>
+		<button class='sidebar-trigger' on='tap:sidebar'>☰</button>
+		<a rel='home' itemprop='url' href='/amp/home/' class='logo'></a></header>
+
+	<main itemscope itemtype='http://schema.org/Blog'>
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card post-content'>
+	<h1 itemprop='name' class='title'>Arquiteturas para aplicações realtime utilizando MQTT</h1>
+	<div class='post-meta'>
+		<p class='date'>
+			Publicado em: <time datetime='04/12/2017' itemprop='datePublished'>04/12/2017</time>
+			<meta itemprop='dateModified' content='04/12/2017'>
+		</p>
+
+		<article>
+			
+				<a data-author='cristianoperez' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/amp/cristianoperez/' class='author'>
+					<meta itemprop='url' content='/amp/cristianoperez'>
+					<span itemprop='name' class='publisher' data-author='cristianoperez'>@cristianoperez</span>
+					<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+				</a>
+			
+		</article>
+	</div>
+	<div class='content' itemprop='articleBody'>
+		<p>Neste post vamos explicar alguns modelos arquiteturais para desenvolver um chat em <em>realtime</em> que deve atender às seguintes especificações:</p>
+<ul>
+<li>Mensagem 1-N: apenas o usuário que recebeu a mensagem deve receber a notificação de nova mensagem;</li>
+<li><em>Realtime</em>: o chat do destinatário deve ser atualizado sem nenhuma ação por parte do usuário;</li>
+<li><em>Lightspeed</em>: todo o processo de envio e recebimento deve ser rápido e consumir o mínimo possível de recursos de todos os componentes (remetente, destinatário e servidor).</li>
+</ul>
+<p>Quando temos como objetivo o desenvolvimento de uma aplicação <em>realtime</em> com essas características, com rápidas pesquisas (ou no caso de um leitor mais experiente, que verá essas opções como óbvias), podemos encontrar alguns modelos arquiteturais, como <em>Short Polling</em>, <em>Long Polling</em>, <em>WebSocket</em>. A seguir discutiremos as vantagens e desvantagens de cada um:</p>
+<h1>Short Polling</h1>
+<p>Nesse modelo, o cliente faz requisições periódicas para o servidor. Entre as opções, é o mais fácil e rápido de ser implementado.</p>
+<p>Sua simplicidade pode ser vista nesse trecho de pseudo-código que simula requisições para buscar uma mensagem em uma conversa:</p>
+<pre class="highlight"><code class="hljs arcade"><span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
+    fetch(<span class="hljs-string">"http://localhost:8080/conversa/1/messages"</span>).then(<span class="hljs-function"><span class="hljs-params">msgs</span> =&gt;</span> {
+        <span class="hljs-comment">// trata a lista de novas mensagens</span>
+    });
+}
+</code></pre>
+<p>Simples, fácil e rápido! Porém gera um enorme <em>overhead</em>, tanto no servidor como no cliente, já que o cliente faz requisições ao servidor mesmo que este não tenha nada de novo, o que acaba degradando a performance!</p>
+<p>Imagine agora o cenário onde cerca de 10 mil usuários estão conectados à sua aplicação. Supondo que cada usuário possua em média 3 conversas abertas, teremos o equivalente a 30 mil requisições por segundo sendo enviadas ao servidor (ou 1.8 milhões de requisições por minuto), sendo que a maioria delas não resultará em nada. Assim, no cenário descrito e com o uso de <em>Short Polling</em>, precisaremos contar com muitos recursos para atender a essa enorme quantidade de requisições ou nossos servidores ficarão indisponíveis (uma espécie de ataque DDoS, só que a nós mesmos).</p>
+<h1>Long Polling</h1>
+<p>É muito parecido com o Short Polling, porém nesse cenário o servidor, em vez de retornar respostas vazias às requisições quando não há nada novo, &quot;segura&quot; cada conexão, mantendo-a aberta até efetivamente ter algo novo. Apesar de funcionar muito bem, e resultar em um número menor de requisições, você pode esgotar rapidamente os recursos (CPU/memória/threads) do servidor.</p>
+<h1>WebSocket + HTTP</h1>
+<p>Como o protocolo HTTP 1.X é stateless e de via única, fica difícil para o servidor informar o cliente que um determinado evento ocorreu e é necessário um refresh parcial ou em toda a página. Para isso existe o protocolo <em>WebSocket</em>, que resolve esse problema estabelecendo uma conexão entre cliente e o servidor. O <em>WebSocket</em> define como conectar, mas não como enviar ou receber mensagens (não é um protocolo de transporte). Então, podemos usar o protocolo HTTP para mandar mensagens por meio de uma conexão <em>WebSocket</em>.</p>
+<p>Assim, o servidor consegue comunicar-se com o <em>browser</em>, e o <em>browser</em> reagir sem intervenção do usuário a cada mensagem enviada pelo servidor.</p>
+<p>Porém, no protocolo HTTP temos um <em>overhead</em> de headers.
+<div class='post-image'><amp-img on='tap:lightbox-0' role='button' tabindex='0' src='../../images/mqtt-6.png' layout='fixed' height='128' width='272' alt='Lista com mais de vinte cabeçalhos enviados e recebidos numa requisição HTTP'></amp-img><amp-image-lightbox id='lightbox-0' layout='nodisplay'></amp-image-lightbox></div>
+Bastante coisa não!? Um dos requisitos para desenvolvermos aplicações realtime é que elas sejam <em>Lightspeed</em>. Esse <em>overhead</em>, portanto, é prejudicial, já que aumenta consideravelmente o tamanho da mensagem e consome mais banda e bateria que o necessário (principalmente se considerarmos o desenvolvimento de <em>mobile apps</em>). Segundo um estudo do Google, a maior parte das aplicações transporta nos headers de suas <em>requests</em> cerca de 200 <em>bytes</em> à 2KB (na média esse valor mantém-se entre 700 ~ 800 <em>bytes</em>)</p>
+<pre class="highlight"><code class="hljs bash">~ $ curl -s -w \%{size_header} -o /dev/null www.elo7.com.br
+438 bytes
+</code></pre>
+<h1>WebSocket + MQTT</h1>
+<p><a href="http://mqtt.org/">MQTT</a> é um protocolo de transporte que utiliza o <em>pattern</em> <strong>publisher/subscriber</strong>. É leve, aberto, simples e desenhado para ser fácil de implementar, e essas características fazem dele a melhor escolha quando se trata de comunicação <a href="https://pt.wikipedia.org/wiki/Machine_to_Machine">Machine to Machine</a> (M2M) e <a href="https://pt.wikipedia.org/wiki/Internet_das_coisas">Internet das Coisas</a> (IoT, do termo em inglês Internet of Things).</p>
+<p>Essa tecnologia foi criada em 1999 por um engenheiro da IBM, com o intuito de conectar dutos de óleo a satélites, com o objetivo de enviar métricas, possibilitando gerenciar remotamente esses dutos. Os requisitos para o desenvolvimento utilizando o protocolo MQTT dizem que ele deve ser e/ou ter:</p>
+<ul>
+<li>Simples de implementar;</li>
+<li>Garantia de entrega (QoS);</li>
+<li>Leve e utilizar a banda eficientemente;</li>
+<li><em>Data Agnostic</em> (dados que podem ser enviados e recebidos independente da linguagem);</li>
+<li><em>Continuous Session Awareness</em> (o estado da sessão deve ser preservado no <em>disconnect/reconnect</em>);</li>
+<li><em>Pub/Sub</em>.</li>
+</ul>
+<p>O MQTT resolve o problema do <em>overhead</em> de headers que temos no HTTP. É possível enviar uma mensagem com um header de apenas 2 <em>bytes</em>. Abaixo temos o formato da requisição:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-1' role='button' tabindex='0' src='../../images/mqtt-7.jpg' layout='fixed' height='92' width='272' alt='Esquema do cabeçalho de uma mensagem no protocolo MQTT'></amp-img><amp-image-lightbox id='lightbox-1' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Na tabela abaixo temos uma comparação entre MQTT e HTTP (<a href="https://pt.slideshare.net/steve.liang/mqtt-and-sensorthings-api-mqtt-extension">fonte</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Cenário</th>
+<th>HTTP</th>
+<th>MQTT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>302 <em>bytes</em></td>
+<td>69 bytes (~4x)</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>320 <em>bytes</em></td>
+<td>47 <em>bytes</em> (~7x)</td>
+</tr>
+<tr>
+<td>GET 100x</td>
+<td>12600 <em>bytes</em></td>
+<td>2445 <em>bytes</em> (~5x)</td>
+</tr>
+<tr>
+<td>POST 100x</td>
+<td>14100 <em>bytes</em></td>
+<td>2126 <em>bytes</em> (~7x)</td>
+</tr>
+</tbody>
+</table>
+<h2>Pub/Sub</h2>
+<p>Uma das vantagens do <em>Pub/Sub</em> é o desacoplamento, uma vez que o <em>publisher</em> não precisa saber para quais ou quantos clientes uma mensagem será enviada. Isso é possível graças ao <em>MQTT Broker</em>. O <em>broker</em> filtra as mensagens baseado em tópicos. Cada cliente pode se inscrever em um ou mais tópicos. Quando uma mensagem é enviada, ela é destinada a um tópico específico, e todos os clientes inscritos no tópico de destino recebem a mensagem.</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-2' role='button' tabindex='0' src='../../images/mqtt-8.png' layout='fixed' height='157' width='272' alt='Esquema de funcionamento da arquitetura pub/sub'></amp-img><amp-image-lightbox id='lightbox-2' layout='nodisplay'></amp-image-lightbox></div></p>
+<h2>Broker e Cliente</h2>
+<h3>Broker</h3>
+<p>É o coração e o cérebro do MQTT. É o responsável por receber e enviar as mensagens para os clientes corretos, pela garantia de entrega (QoS) e session. Algumas implementações têm <em>features</em> adicionais como segurança, <em>clusterização</em> e suporte a <em>WebSocket</em>.</p>
+<p><a href="https://github.com/mqtt/mqtt.github.io/wiki/brokers">Lista de <em>brokers</em></a></p>
+<h3>Cliente</h3>
+<p>É a <em>lib</em> que vai ficar dentro da sua aplicação, é a responsável por se conectar, enviar e receber as mensagens do <em>broker</em>. Os clientes estão <a href="https://github.com/mqtt/mqtt.github.io/wiki/libraries">disponível em diversas linguagens e frameworks</a> como Java, Javascript, .NET, C++, Go, Objective-C, Swift, etc. Isso quer dizer que tanto aplicações web até pequenos dispositivos IoT (como sensores de temperatura) podem enviar e receber mensagens. O cliente se conecta com o <em>broker</em> enviando uma mensagem de <code>CONNECT</code> e o <em>broker</em> deve responder com <code>CONNACK</code>. Após a conexão ser estabelecida, ela é mantida aberta até o cliente se desconectar ou perder a conexão.</p>
+<h3>Quality of Service (QoS)</h3>
+<p>QoS é o nível de garantia de entrega das mensagens entre cliente e servidor.</p>
+<p>Existem 3 níveis:</p>
+<p>QoS 0 - <em>At most once</em> (no máximo uma vez)</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-3' role='button' tabindex='0' src='../../images/mqtt-1.png' layout='fixed' height='95' width='272' alt='Exemplo de funcionamento do nível at most once de garantia de entrega das mensagens pelo MQTT'></amp-img><amp-image-lightbox id='lightbox-3' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Garante o menor nível de entrega, também chamado de <em>fire and forget</em>. É o mais rápido e consome menos banda, mas representa a menor garantia de entrega entre todos. Seu ciclo de vida é composto apenas pelo envio de uma mensagem pelo cliente ao <em>broker</em>.</p>
+<p>QoS 1 - <em>At least once</em> (ao menos uma vez)</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-4' role='button' tabindex='0' src='../../images/mqtt-2.png' layout='fixed' height='141' width='272' alt='Exemplo de funcionamento do nível at least once de garantia de entrega das mensagens pelo MQTT'></amp-img><amp-image-lightbox id='lightbox-4' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Garante que a mensagem será enviada pelo menos uma vez ao <em>broker</em>. Após a mensagem ser enviada, o cliente guarda essa mensagem até receber o <code>PUBACK</code> do <em>broker</em>, Caso o <code>PUBACK</code> não seja recebido em um determinado tempo, o cliente envia outro <code>PUBLISH</code>. Pelo lado do broker, quando ele recebe um <code>PUBLISH</code> com QoS 1, a mensagem é processada de imediato enviando para todos os <code>SUBs</code> e respondendo para o cliente com o <code>PUBACK</code>.
+O cliente utiliza o <code>packetId</code> que é retornado no <code>PUBACK</code> para fazer a associação entre <code>PUBLISH</code> e <code>PUBACK</code>.</p>
+<p>QoS 2 - <em>Exactly once</em> (exatamente uma vez)</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-5' role='button' tabindex='0' src='../../images/mqtt-3.png' layout='fixed' height='179' width='272' alt='Exemplo de funcionamento do nível exactly once de garantia de entrega das mensagens pelo MQTT'></amp-img><amp-image-lightbox id='lightbox-5' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Garante que cada mensagem é recebida pelo menos uma vez pelo destinatário. Dos três tipos descritos é o que possui a maior garantia de entrega, porém, é o mais lento.</p>
+<p>Devemos ter em mente que, quanto maior o nível de QoS, mais trocas de mensagens são feitas. Isso afeta o tempo que a mensagem leva para ser efetivamente entregue, e pode levar a um aumento do uso da banda de rede e bateria em dispositivos móveis.</p>
+<h2>Arquitetura realtime do Elo7</h2>
+<p><div class='post-image'><amp-img on='tap:lightbox-6' role='button' tabindex='0' src='../../images/mqtt-4.png' layout='fixed' height='125' width='272' alt='Arquitetura mqtt elo7'></amp-img><amp-image-lightbox id='lightbox-6' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>A imagem acima é um resumo de como utilizamos o MQTT + <em>WebSocket</em> no Elo7. Podemos separar o que acontece nas seguintes etapas:</p>
+<ul>
+<li>O comprador envia uma mensagem para o vendedor</li>
+</ul>
+<p>Quando uma mensagem é enviada, várias operações secundárias são executadas em segundo plano (envio de métricas, captura de eventos, push notifications, etc) a fim de não comprometer a operação principal, que é persistir a mensagem.
+Realizamos essas operações de maneira assíncrona, enfileirando uma mensagem no <a href="https://aws.amazon.com/pt/sqs/">SQS</a>. O <em>mqtt-publisher</em> é o <em>worker</em> responsável pelo processamento das mensagens da fila, publicando-as no tópico adequado no <em>broker MQTT</em> (no nosso caso, utilizamos o <a href="https://mosquitto.org/">Mosquitto</a>).</p>
+<ul>
+<li>O vendedor recebe a mensagem</li>
+</ul>
+<p>Ao receber uma mensagem, o <em>client</em> do vendedor se conecta ao <em>Mosquitto</em> (via <em>WebSocket</em>) e se inscreve (sub) no tópico daquela conversa. No browser, isso é feito utilizando o <em>client</em> MQTT <a href="https://eclipse.org/paho/">pahoJS</a>. Dessa forma, ao receber uma nova mensagem do comprador, a conversa é atualizada sem nenhuma interação (ex: atualização da página) por parte do vendedor.</p>
+<h2>Conclusão</h2>
+<p>Foi demonstrado que existem certas vantagens ao se adotar o MQTT com <em>WebSocket</em>, porém nem tudo são unicórnios e arco-íris. Os custos para ter <em>realtime</em> são maiores em todos os aspectos (infra, manutenção, tempo de desenvolvimento e complexidade).</p>
+<p>Caso decida por MQTT, é necessário ter um bom conhecimento do <em>broker</em> escolhido, conhecer suas vantagens e desvantagens em relação aos outros, como irá escalar sua aplicação no futuro, como trabalhar com <em>brokers</em> distribuídos e também segurança (afinal, não queremos que o usuário tenha acesso às mensagens que não são destinadas a ele).</p>
+<p>Enfim, esperamos que essa análise possa ajudar os leitores na escolha da arquitetura ideal. Lembrando que essa escolha depende de muitos outros fatores, como análise do negócio, retorno do investimento, se a funcionalidade realmente precisa ser <em>realtime</em> e mais características internas da empresa/time envolvido.</p>
+
+		<section class='share'>
+			<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/amp/arquiteturas-para-aplicações-realtime-utilizando-mqtt/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+				Compartilhar no facebook
+			</a>
+			<a href='https://twitter.com/intent/tweet?text=Arquiteturas para aplicações realtime utilizando MQTT&url=https://elo7.dev/amp/arquiteturas-para-aplicações-realtime-utilizando-mqtt/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+				Compartilhar no twitter
+			</a>
+		</section>
+	</div>
+	<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
+		<link href="/images/ico/elo7.png" itemprop="url"/>
+		<meta itemprop='width' content='100px'/>
+		<meta itemprop='height' content='100px'/>
+	</span>
+
+	<meta itemprop='headline' content='Vamos descrever os diferentes tipos de arquiteturas para a criação de aplicações realtime, como Short Polling, Long Polling, WebSocket + HTTP e suas vantagens e desvantagens em relação a WebSocket + MQTT usada no Talk7.'/>
+	<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop='name' content='Elo7 Tech'/>
+		<meta itemprop="url" content='https://elo7.dev'/>
+		<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+			<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+			<meta itemprop='width' content='100px'/>
+			<meta itemprop='height' content='100px'/>
+		</span>
+	</span>
+	<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+</article>
+	</main>
+	<footer itemscope itemtype='http://schema.org/Organization'>
+		<a rel='home' itemprop='url' href='/amp/home/'>elo7.dev © 2019</a>
+		<meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<amp-analytics type='googleanalytics'>
+		<script type='application/json'>
+			{
+				"vars": {
+					"account": "UA-3692628-29"
+				},
+				"triggers": {
+					"trackPageview": {
+						"on": "visible",
+						"request": "pageview"
+					}
+				}
+			}
+		</script>
+	</amp-analytics>
+</body>
+</html>

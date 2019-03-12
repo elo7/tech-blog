@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Uma das bibliotecas mais famosas e mais faladas no Android e também é a que gera mais dúvidas em sua implementação. Iremos tornar fácil a compreensão dessa poderosa ferramenta.">
+	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
+	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name="theme-color" content="#FDC24F">
+	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,java,android,dependency-inversion,dagger2">
+	<meta name="language" content="pt-br">
+	<meta name="title" content="Elo7 Tech - Desmistificando o Dagger 2">
+	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Desmistificando o Dagger 2">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<meta property="fb:app_id" content="644444999041914">
+	<meta property="fb:admins" content="100003324447975">
+
+	<meta property="og:site_name" content="Elo7 Tech">
+	<meta property="og:image" content="https://elo7.dev/images/cover/elo7.png">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Elo7 Tech - Desmistificando o Dagger 2">
+	<meta property="og:url" content="https://elo7.dev/desmistificando-dagger2/">
+	<meta property="og:description" content="Uma das bibliotecas mais famosas e mais faladas no Android e também é a que gera mais dúvidas em sua implementação. Iremos tornar fácil a compreensão dessa poderosa ferramenta.">
+
+	<meta name="twitter:widgets:csp" content="on">
+	<meta name="twitter:card" content="summary_large_image">
+
+	<meta property="twitter:title" content="Elo7 Tech - Desmistificando o Dagger 2">
+	<meta property="twitter:domain" content="https://elo7.dev">
+	<meta property="twitter:url" content="https://elo7.dev/desmistificando-dagger2/">
+	<meta property="twitter:description" content="Uma das bibliotecas mais famosas e mais faladas no Android e também é a que gera mais dúvidas em sua implementação. Iremos tornar fácil a compreensão dessa poderosa ferramenta.">
+	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+
+	<link rel="canonical" href="https://elo7.dev/desmistificando-dagger2/">
+	
+		<link rel='amphtml' href='https://elo7.dev/amp/desmistificando-dagger2/' />
+	
+
+	<title>Elo7 Tech - Desmistificando o Dagger 2</title>
+	<link rel="stylesheet" href="/reset.css">
+	<link rel="stylesheet" href="/main.css">
+	<link rel="stylesheet" href="/posts.css">
+	<link rel="stylesheet" href="/post.css">
+	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
+	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
+	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
+	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
+	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
+	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
+	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
+	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
+	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src="/js/vendor/async-define.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
+	<header class="left-pane">
+		<div class="logo-container">
+			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
+		</div>
+		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
+			<input id="categories-switch" type="checkbox" class="categories-switch">
+			<label for="categories-switch" class="selectable">
+				<h2 class="nav-title">Categorias</h2>
+			</label>
+			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
+				
+					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Back-end</span>
+					</a>
+				
+					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Cultura</span>
+					</a>
+				
+					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Data Science</span>
+					</a>
+				
+					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Design</span>
+					</a>
+				
+					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Devops</span>
+					</a>
+				
+					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Eventos</span>
+					</a>
+				
+					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Palestras</span>
+					</a>
+				
+					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Front-end</span>
+					</a>
+				
+					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Mobile</span>
+					</a>
+				
+					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Vagas</span>
+					</a>
+				
+			</nav>
+		</div>
+		<div class="navigation">
+			<input id="more-switch" type="checkbox" class="more-switch">
+			<label for="more-switch" class="selectable">
+				<h2 class="nav-title">Veja também</h2>
+			</label>
+			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
+					<span itemprop="name">A engenharia</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
+					<span itemprop="name">Carreiras</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
+					<span itemprop="name">Nossos eventos</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
+					<span itemprop="name">Elo7</span>
+				</a>
+			</nav>
+		</div>
+		<div class='social'>
+			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
+			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
+		</div>
+	</header>
+	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<img src='https://elo7.dev/images/cover/elo7.png' alt='' itemprop="url">
+	</figure>
+	<div class='post-content'>
+		<h1 itemprop='name' class='title'>Desmistificando o Dagger 2</h1>
+		<div class='post-meta'>
+			<p class='date'>
+				Publicado em: <time datetime='20/07/2016' itemprop='datePublished'>20/07/2016</time>
+				<meta itemprop='dateModified' content='20/07/2016'>
+			</p>
+
+			<article>
+				
+					<a data-author='rsicarelli' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/rsicarelli/' class='author'>
+						<meta itemprop='url' content='/rsicarelli'>
+						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
+						<p itemprop='name' class='publisher' data-author='rsicarelli'>@rsicarelli</p>
+					</a>
+				
+
+				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+			</article>
+		</div>
+		<div itemprop='articleBody'>
+			<p>Sem dúvidas, uma das bibliotecas mais famosas da “atualidade” (embora tenha vários anos de vida) no universo Android, mas que mesmo assim nos causa muita confusão e dúvida.</p>
+<p>Até mesmo para engenheiros experientes, o <a href="http://google.github.io/dagger/" target="_blank">Dagger 2</a> causa um pouco de “medo” para implementar.</p>
+<p>Mas a parte boa é que ele é muito simples! Vamos juntos tentar dissecar o problema até que você tenha o famoso Eureka!</p>
+<h2>Inversion of Control e Dependency Inversion</h2>
+<p>Para entender bem o <em>Dagger 2</em>, precisamos entender o que significa <a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle" target="_blank"><strong>DI</strong></a> e <a href="https://en.wikipedia.org/wiki/Inversion_of_control" target="_blank"><strong>IoC</strong></a>.</p>
+<p>Vamos criar uma classe qualquer:</p>
+<pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NossaClasse</span> {</span>
+    <span class="hljs-keyword">private</span> NossasDependencia nossaDependencia;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NossaClasse</span> <span class="hljs-params">()</span></span>{
+          nossaDependencia = <span class="hljs-keyword">new</span> nossaDependencia();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">retornaAlgumAtributo</span><span class="hljs-params">()</span></span>{
+        nossaDependencia.retornaAlgumAtributo();
+    }
+}
+</code></pre>
+<p>Agora, como vamos testar essa classe? Perceba que não temos como &quot;controlar&quot; a <code>NossaDependencia</code>, já que a responsabilidade de criar está nas mãos da <code>NossaClasse</code>.</p>
+<p>Para resolver isso, podemos remover a responsabilidade da <code>NossaClasse</code> de <em>criar</em> , utilizando o princípio do <strong>IoC</strong>:</p>
+<pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NossaClasse</span> {</span>
+    <span class="hljs-keyword">private</span> NossasDependencia nossaDependencia;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NossaClasse</span> <span class="hljs-params">(NossasDependencia nossaDependencia)</span></span>{
+       <span class="hljs-keyword">this</span>.nossaDependencia = nossaDependencia;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">retornaAlgumAtributo</span><span class="hljs-params">()</span></span>{
+       nossaDependencia.retornaAlgumAtributo();
+    }
+}
+</code></pre>
+<p>E, em nossa <code>Activity</code>:</p>
+<pre class="highlight"><code class="hljs scala">public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NossaActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">protected</span> void onCreate(<span class="hljs-type">Bundle</span> savedInstanceState) {
+        ...
+        <span class="hljs-type">NossaDependencia</span> nossaDependencia = <span class="hljs-keyword">new</span> <span class="hljs-type">NossaDependencia</span>();
+        <span class="hljs-type">NossaClasse</span> nossaClasse = <span class="hljs-keyword">new</span> <span class="hljs-type">NossaClasse</span>(nossaDependencia);
+    }
+}
+</code></pre>
+<p>Para testar fica super fácil.
+Vamos usar o <a href="http://junit.org/junit4/" target="_blank"><strong>JUnit</strong></a> e o <a href="http://mockito.org/" target="_blank"><strong>Mockito</strong></a> para isso. Caso não esteja familirializado com o <strong>Mockito</strong>, <a href="https://engenharia.elo7.com.br/testes-codigo-mockito/" target="_blank">sugiro dar uma lida nesse post incrível do nosso engenheiro Tiago Lima sobre o assunto</a></p>
+<pre class="highlight"><code class="hljs reasonml">public <span class="hljs-keyword">class</span> TestandoNossaClasse {
+    @Test
+    public void deve<span class="hljs-constructor">RetornarAlgumAtributo()</span>{
+        NossaDependencia target = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Mockito</span>.</span></span>mock(<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">NossaDependencia</span>.</span></span><span class="hljs-keyword">class</span>);
+        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Mockito</span>.</span></span><span class="hljs-keyword">when</span>(nossaDependencia.retorna<span class="hljs-constructor">AlgumAtributo()</span>).<span class="hljs-keyword">then</span><span class="hljs-constructor">Return(<span class="hljs-string">"Dagger 2!"</span>)</span>;
+        NossaClasse alvo = <span class="hljs-keyword">new</span> <span class="hljs-constructor">NossaClasse(<span class="hljs-params">target</span>)</span>;
+        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Assert</span>.</span></span><span class="hljs-keyword">assert</span><span class="hljs-constructor">Equals(<span class="hljs-params">alvo</span>.<span class="hljs-params">retornaAlgumAtributo</span>()</span>, <span class="hljs-string">"Dagger 2!"</span>);
+    }
+}
+</code></pre>
+<p>Conseguiu perceber? Podemos criar testes excepcionais apenas aplicando esse princípio de <strong>IoC</strong>! E, de bandeja, entendemos o que é &quot;injetar uma dependência&quot;, já que a dependência está sendo fornecida para a <code>NossaClasse</code>.</p>
+<h2>Facilitando as coisas</h2>
+<p>Agora, vamos precisar utilizar a <code>NossaClasse</code> em vários lugares, e vai ser bem &quot;chato&quot; ficar repetindo essa linha:</p>
+<pre class="highlight"><code class="hljs reasonml">NossaDependencia nossaDependencia = <span class="hljs-keyword">new</span> <span class="hljs-constructor">NossaDependencia()</span>;
+NossaClasse nossaClasse = <span class="hljs-keyword">new</span> <span class="hljs-constructor">NossaClasse(<span class="hljs-params">nossaDependencia</span>)</span>;
+</code></pre>
+<p>Poderiamos facilitar as coisas criando um pattern de <a href="https://sourcemaking.com/design_patterns/factory_method" target="_blank"><strong>Factory</strong></a>:</p>
+<pre class="highlight"><code class="hljs cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">DependenciaFactory</span> {
+   <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> NossaDependencia nossaDependencia;
+   <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> NossaClasse nossaClasse;
+
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> NossaDependencia <span class="hljs-title">fornecerNossaDependencia</span>(<span class="hljs-params"></span>)</span>{
+      <span class="hljs-keyword">if</span>(nossaDependencia == <span class="hljs-literal">null</span>){
+         nossaDependencia = <span class="hljs-keyword">new</span> NossaDependencia();
+      }
+      <span class="hljs-keyword">return</span> nossaDependencia;
+   }
+
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> NossaClasse <span class="hljs-title">fornececerNossaClasse</span>(<span class="hljs-params"></span>)</span>{
+      <span class="hljs-keyword">if</span>(nossaClasse == <span class="hljs-literal">null</span>){
+         nossaClasse = <span class="hljs-keyword">new</span> NossaClasse(fornecerNossaDependencia())
+      }
+      <span class="hljs-keyword">return</span> nossaClasse;
+   }
+}
+</code></pre>
+<p>Agora, irá ficar mais transparente pra nós:</p>
+<pre class="highlight"><code class="hljs scala">public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OutraActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">protected</span> void onCreate(<span class="hljs-type">Bundle</span> savedInstanceState) {
+        ...
+        <span class="hljs-type">NossaClasse</span> nossaClasse = <span class="hljs-type">DependenciaFactory</span>.fornececerNossaClasse();
+    }
+}
+</code></pre>
+<p>Elegante, não é? Também achei.</p>
+<h2>Dagger 2</h2>
+<p>Agora que entendemos o por que de <em>inverter as responsabilidades</em>, podemos falar sobre o <strong>Dagger 2</strong>.</p>
+<p>O que seria o <strong>Dagger 2</strong>? Seria, basicamente, o nosso <code>DependenciaFactory</code>, só que com uma implementação um pouco mais &quot;avançada&quot;!.</p>
+<h2>Cenário</h2>
+<p>Para explicar a arquitetura utilizada no <strong>Dagger 2</strong>, vamos fazer um paralelo com um cenário mais convencional para nós.</p>
+<p>Vamos imaginar que iremos ter uma <em>fábrica de cadeiras</em>. Já temos as madeiras e os pregos, só <em>precisamos das nossas ferramentas</em>.</p>
+<p>Bom, como iremos construir várias cadeiras, seria bom se comprassemos nossas ferramentas para não ter que ter o trabalho de ir buscá-las em algum lugar todas as vezes que iremos utilizá-las.</p>
+<p>Também, seria ótimo se tivéssemos uma caixa de ferramentas para guardar todas elas. Caso comprássemos uma nova, era só jogar lá dentro.</p>
+<p>Com o <strong>Dagger 2</strong> nossas ferramentas são os <code>Modules</code> e nossa caixa de ferramentas são nossos <code>Componentes</code>! Ou seja, um <code>Component</code> nada mais é que um conjunto de <code>Modules</code>.</p>
+<h2>Criando nossas ferramentas (Modules)</h2>
+<p>Para se constuir uma cadeira, precisamos de pelo menos um martelo, certo? Temos vários martelos e precisamos fornecer esses martelos de alguma maneira:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@Ferramenta</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Martelos</span> </span>{
+
+    <span class="hljs-meta">@Fornecedor</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> MarteloPequeno <span class="hljs-title">fornecerMarteloPequeno</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MarteloPequeno();
+    }
+
+    <span class="hljs-meta">@Fornecedor</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> MarteloMedio <span class="hljs-title">fornecerMarteloMedio</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MarteloMedio();
+    }
+
+    <span class="hljs-meta">@Fornecedor</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> MarteloGrande <span class="hljs-title">fornecerMarteloGrande</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MarteloGrande();
+    }
+}
+</code></pre>
+<p>Percebe que estamos usando <code>@AlgumaCoisa</code>? Isso é uma API chamada <strong>Annotation Processor</strong>! Você &quot;anota&quot; um método, e algum processador irá gerar todo o código para você. Sugiro que você dê uma lida no <a href="https://medium.com/android-dev-br/annotation-processing-no-android-d28b734b8043#.uvndm6yz3" target="_blank">artigo</a> que nosso engenheiro <strong>Felipe Theodoro</strong> escreveu sobre esse assunto!</p>
+<p>Aqui, estamos anotando que nossa classe <code>Martelos</code> é uma fornecedora de ferramentas do tipo <strong>martelo</strong>, e que temos métodos que &quot;fornecem&quot; nossas classes.</p>
+<p>O <strong>Dagger 2</strong> tem dois processors que irão gerar toda as implementações necessárias. Vamos adaptar nossa classe para o &quot;universo&quot; do <strong>Dagger 2</strong>:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@Module</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Martelos</span> </span>{
+
+    <span class="hljs-meta">@Provides</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> MarteloPequeno <span class="hljs-title">providesMarteloPequeno</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MarteloPequeno();
+    }
+
+    <span class="hljs-meta">@Provides</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> MarteloMedio <span class="hljs-title">providesMarteloMedio</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MarteloMedio();
+    }
+
+    <span class="hljs-meta">@Provides</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> MarteloGrande <span class="hljs-title">providesMarteloGrande</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MarteloGrande();
+    }
+}
+</code></pre>
+<p>Fácil, né? Agora, podemos &quot;comprar&quot; vários martelos e irá ser bem simples de fornecer (<em>provides</em>) eles para quem quiser usa-los.</p>
+<h2>Colocando as ferramentas na caixa</h2>
+<p>Agora, precisamos colocar isso tudo junto. Então, vamos colocar nossas ferramentas na caixa de ferramentas:</p>
+<pre class="highlight"><code class="hljs nimrod">@<span class="hljs-type">CaixaDeFerramentas</span>(ferramentas = {<span class="hljs-type">Martelos</span>.class})
+public <span class="hljs-keyword">interface</span> <span class="hljs-type">NossaCaixaDeFerramentas</span> <span class="hljs-meta">{...}</span>
+</code></pre>
+<p>Traduzindo pro dagger:</p>
+<pre class="highlight"><code class="hljs css">@<span class="hljs-keyword">Component</span>(<span class="hljs-keyword">modules</span> = {<span class="hljs-selector-tag">Martelos</span><span class="hljs-selector-class">.class</span>})
+<span class="hljs-selector-tag">public</span> <span class="hljs-selector-tag">interface</span> <span class="hljs-selector-tag">NossoComponent</span> {}
+</code></pre>
+<p>Pronto, &quot;já está tudo lá&quot;.</p>
+<h2>Fornecendo as ferramentas</h2>
+<p>Temos todas as nossas ferramentas criadas. Agora, precisamos disponibilizá-las para todo mundo que quiser utilizar. Para isso, podemos colocar nossa caixa de ferramentas em um lugar que <em>todo mundo tenha acesso</em>: na <code>Application</code>:</p>
+<pre class="highlight"><code class="hljs scala">public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NossaApplication</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Application</span> </span>{
+    <span class="hljs-keyword">private</span> static <span class="hljs-type">NossoComponent</span> component;
+
+    <span class="hljs-meta">@Override</span>
+    public void onCreate() {
+        <span class="hljs-keyword">super</span>.onCreate();
+
+        component = <span class="hljs-type">NossoComponent</span>.builder()
+                .martelos(<span class="hljs-keyword">new</span> <span class="hljs-type">Martelos</span>())
+                .build();
+    }
+}
+</code></pre>
+<p>Mas pera lá. O <code>NossoComponent</code> tem um <a href="https://sourcemaking.com/design_patterns/builder" target="_blank"><code>Builder Pattern</code></a>? E esse método &quot;martelos()&quot;? Não temos nada.</p>
+<p>Veja que o <strong>Dagger 2</strong> gerou eles para nós, &quot;automaticamente&quot; (precisa fazer o build no projeto), e colocou um <em>&quot;Dagger&quot;</em> na frente, que é a classe gerada através do <em>Annotation Processor</em> que já vimos.</p>
+<p>Vamos ajustar noso código:</p>
+<pre class="highlight"><code class="hljs armasm"><span class="hljs-symbol">component</span> = DaggerNossoComponent.<span class="hljs-keyword">builder()
+</span>    .<span class="hljs-keyword">martelos(new </span><span class="hljs-keyword">Martelos())
+</span>    .<span class="hljs-keyword">build();
+</span></code></pre>
+<p>Ótimo.</p>
+<p>Só precisamos &quot;pegar&quot; essa caixa de ferramenta de algum jeito, então:</p>
+<pre class="highlight"><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> NossoComponent <span class="hljs-title">getComponent</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> nossoComponent;
+}
+</code></pre>
+<h2>Definindo quem pode utilizar</h2>
+<p>Só temos um problema. Somos um pouco &quot;ciumentos&quot; com nossas ferramentas, assim como o <strong>Dagger 2</strong>. Ou seja, precisamos deixar explícito quem pode utilizá-las.</p>
+<p>Na nossa caixa de ferramentas, vamos colocar algumas &quot;etiquetas&quot; com o nome de quem pode utilizá-las (classes):</p>
+<pre class="highlight"><code class="hljs groovy"><span class="hljs-meta">@Component</span>(modules = {Martelos.<span class="hljs-keyword">class</span>})
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">NossoComponent</span> {</span>
+    <span class="hljs-keyword">void</span> nossaActivityPodeUsarNossasFerramentas(NossaActivity nossaActivity);
+}
+</code></pre>
+<p>Agora, precisamos pegar as ferramentas na nossa classe:</p>
+<pre class="highlight"><code class="hljs scala">public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NossaActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span> </span>{
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-keyword">protected</span> void onCreate(<span class="hljs-type">Bundle</span> savedInstanceState) {
+      ...
+      <span class="hljs-type">NossaApplication</span>.getNossoComponent().nossaActivityPodeUsarNossasFerramentas(<span class="hljs-keyword">this</span>);
+  }
+}
+</code></pre>
+<p>E como vamos utilizar nosso martelo? Simples:</p>
+<pre class="highlight"><code class="hljs armasm"><span class="hljs-comment">@NossoMarteloMedio</span>
+<span class="hljs-keyword">MarteloMedio </span><span class="hljs-keyword">marteloMedio;
+</span></code></pre>
+<p>Agora, traduzindo tudo pro Dagger 2:</p>
+<pre class="highlight"><code class="hljs groovy"><span class="hljs-meta">@Component</span>(modules = {Martelos.<span class="hljs-keyword">class</span>})
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">NossoComponent</span> {</span>
+    <span class="hljs-keyword">void</span> inject(NossaActivity nossaActivity);
+}
+</code></pre>
+<p>E usando o <code>Martelo</code> na nossa <code>Activity</code>:</p>
+<pre class="highlight"><code class="hljs scala">public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NossaActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span> </span>{
+    <span class="hljs-meta">@Inject</span>
+    <span class="hljs-type">MarteloMedio</span> marteloMedio;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">protected</span> void onCreate(<span class="hljs-type">Bundle</span> savedInstanceState) {
+        ...
+        <span class="hljs-type">NossaApplication</span>.getNossoComponent().inject(<span class="hljs-keyword">this</span>);
+    }
+}
+</code></pre>
+<p><em>Momento Eureka!</em></p>
+<h2>Boas práticas</h2>
+<p>Em nossa caixa de ferramentas, podemos colocar várias ferramentas. Então, é bom &quot;categorizá-las&quot; de alguma maneira. Uma boa prática é agrupar todos os &quot;martelos&quot;, &quot;parafusos&quot;, &quot;madeiras&quot;, &quot;chaves de fenda&quot; etc. Traduzindo para o mundo Java/Android:</p>
+<pre class="highlight"><code class="hljs reasonml">component = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">DaggerNossoComponent</span>.</span></span>builder<span class="hljs-literal">()</span>
+    .presenters(<span class="hljs-keyword">new</span> <span class="hljs-constructor">PresenterModule()</span>)
+    .repositories(<span class="hljs-keyword">new</span> <span class="hljs-constructor">RepositoryModule()</span>)
+    .clients(<span class="hljs-keyword">new</span> <span class="hljs-constructor">ClientModule()</span>)
+    .build<span class="hljs-literal">()</span>;
+</code></pre>
+<h2>Conclusão</h2>
+<p>Como vimos, podemos não utilizar o <strong>Dagger 2</strong> em nosso projeto e termos o mesmo resultado. Porém, a praticidade e o poder que ganhamos com o <strong>Dagger 2</strong>, são muito vantajosos que acaba valendo muito a pena utilizamos.</p>
+<p>No próximo post, irei falar sobre o uso avançado do <strong>Dagger 2</strong> no nossos projetos, focando bastante em testes.</p>
+<p>Gostou? Deixe suas impressões nesse post e também compartilhe!</p>
+
+
+			<ul class='tag-list'>
+			
+				<li>
+					<a href='/tags/java/'>java</a>
+				</li>
+			
+				<li>
+					<a href='/tags/android/'>android</a>
+				</li>
+			
+				<li>
+					<a href='/tags/dependency-inversion/'>dependency-inversion</a>
+				</li>
+			
+				<li>
+					<a href='/tags/dagger2/'>dagger2</a>
+				</li>
+			
+			</ul>
+			<section class='share'>
+				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+				<div class='social-share'>
+					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/desmistificando-dagger2/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+						Compartilhar no facebook
+					</a>
+					<a href='https://twitter.com/intent/tweet?text=Desmistificando o Dagger 2&url=https://elo7.dev/desmistificando-dagger2/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+						Compartilhar no twitter
+					</a>
+					<a href='https://elo7.dev/desmistificando-dagger2/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+						Copiar URL
+					</a>
+					<span class='copy-success'>Link copiado</span>
+					<input type='url' value='https://elo7.dev/desmistificando-dagger2/?utm_source=share&utm_medium=copy' class='link-input'>
+				</div>
+			</section>
+		</div>
+
+		<meta itemprop='headline' content='Uma das bibliotecas mais famosas e mais faladas no Android e também é a que gera mais dúvidas em sua implementação. Iremos tornar fácil a compreensão dessa poderosa ferramenta.'/>
+		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop='name' content='Elo7 Tech'/>
+			<meta itemprop="url" content='https://elo7.dev'/>
+			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+				<meta itemprop='width' content='100px'/>
+				<meta itemprop='height' content='100px'/>
+			</span>
+		</span>
+		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+		<div id='disqus_thread'></div>
+
+		<script>
+			var disqus_shortname = 'engenhariaelo7';
+			var disqus_identifier = '20/07/2016:/desmistificando-dagger2/';
+			var disqus_url = 'https://elo7.dev/desmistificando-dagger2/';
+
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Habilite o JavaScript para ver os comentários</noscript>
+	</div>
+</article>
+<script async src="/js/post.js"></script>
+
+		
+	</main>
+	<footer itemscope itemtype="http://schema.org/Organization">
+		<a rel="home" itemprop="url" href="https://elo7.dev/" >
+			elo7.dev © 2019
+		</a>
+		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<script async src="https://www.google-analytics.com/analytics.js"></script>
+	<script async src="/js/analytics.js"></script>
+	<script async src="/js/github.js"></script>
+	<script async src="/js/vendor/events-amd.js"></script>
+	<script async src="/js/vendor/ajax.js"></script>
+	<script async src="/js/vendor/doc.js"></script>
+	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

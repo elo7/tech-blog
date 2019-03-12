@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Recentemente, o Elo7 passou a ser servido unicamente em HTTPS. Essa mudança, que pode parecer simples à primeira vista, tem uma série de motivos e também implicações, que serão discutidas neste artigo.">
+	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
+	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name="theme-color" content="#FDC24F">
+	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,https,http2">
+	<meta name="language" content="pt-br">
+	<meta name="title" content="Elo7 Tech - Migrando para HTTPS">
+	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Migrando para HTTPS">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<meta property="fb:app_id" content="644444999041914">
+	<meta property="fb:admins" content="100003324447975">
+
+	<meta property="og:site_name" content="Elo7 Tech">
+	<meta property="og:image" content="https://elo7.dev/images/cover/elo7.png">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Elo7 Tech - Migrando para HTTPS">
+	<meta property="og:url" content="https://elo7.dev/https-only/">
+	<meta property="og:description" content="Recentemente, o Elo7 passou a ser servido unicamente em HTTPS. Essa mudança, que pode parecer simples à primeira vista, tem uma série de motivos e também implicações, que serão discutidas neste artigo.">
+
+	<meta name="twitter:widgets:csp" content="on">
+	<meta name="twitter:card" content="summary_large_image">
+
+	<meta property="twitter:title" content="Elo7 Tech - Migrando para HTTPS">
+	<meta property="twitter:domain" content="https://elo7.dev">
+	<meta property="twitter:url" content="https://elo7.dev/https-only/">
+	<meta property="twitter:description" content="Recentemente, o Elo7 passou a ser servido unicamente em HTTPS. Essa mudança, que pode parecer simples à primeira vista, tem uma série de motivos e também implicações, que serão discutidas neste artigo.">
+	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+
+	<link rel="canonical" href="https://elo7.dev/https-only/">
+	
+		<link rel='amphtml' href='https://elo7.dev/amp/https-only/' />
+	
+
+	<title>Elo7 Tech - Migrando para HTTPS</title>
+	<link rel="stylesheet" href="/reset.css">
+	<link rel="stylesheet" href="/main.css">
+	<link rel="stylesheet" href="/posts.css">
+	<link rel="stylesheet" href="/post.css">
+	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
+	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
+	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
+	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
+	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
+	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
+	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
+	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
+	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src="/js/vendor/async-define.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
+	<header class="left-pane">
+		<div class="logo-container">
+			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
+		</div>
+		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
+			<input id="categories-switch" type="checkbox" class="categories-switch">
+			<label for="categories-switch" class="selectable">
+				<h2 class="nav-title">Categorias</h2>
+			</label>
+			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
+				
+					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Back-end</span>
+					</a>
+				
+					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Cultura</span>
+					</a>
+				
+					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Data Science</span>
+					</a>
+				
+					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Design</span>
+					</a>
+				
+					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Devops</span>
+					</a>
+				
+					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Eventos</span>
+					</a>
+				
+					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Palestras</span>
+					</a>
+				
+					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Front-end</span>
+					</a>
+				
+					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Mobile</span>
+					</a>
+				
+					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Vagas</span>
+					</a>
+				
+			</nav>
+		</div>
+		<div class="navigation">
+			<input id="more-switch" type="checkbox" class="more-switch">
+			<label for="more-switch" class="selectable">
+				<h2 class="nav-title">Veja também</h2>
+			</label>
+			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
+					<span itemprop="name">A engenharia</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
+					<span itemprop="name">Carreiras</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
+					<span itemprop="name">Nossos eventos</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
+					<span itemprop="name">Elo7</span>
+				</a>
+			</nav>
+		</div>
+		<div class='social'>
+			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
+			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
+		</div>
+	</header>
+	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<img src='https://elo7.dev/images/cover/elo7.png' alt='' itemprop="url">
+	</figure>
+	<div class='post-content'>
+		<h1 itemprop='name' class='title'>Migrando para HTTPS</h1>
+		<div class='post-meta'>
+			<p class='date'>
+				Publicado em: <time datetime='02/05/2017' itemprop='datePublished'>02/05/2017</time>
+				<meta itemprop='dateModified' content='02/05/2017'>
+			</p>
+
+			<article>
+				
+					<a data-author='edsonmarquezani' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/edsonmarquezani/' class='author'>
+						<meta itemprop='url' content='/edsonmarquezani'>
+						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
+						<p itemprop='name' class='publisher' data-author='edsonmarquezani'>@edsonmarquezani</p>
+					</a>
+				
+
+				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+			</article>
+		</div>
+		<div itemprop='articleBody'>
+			<p>Como vocês já devem ter notado, recentemente o <a href="https://www.elo7.com.br"><strong>Elo7</strong></a> passou a ser servido <strong>unicamente em <em>HTTPS</em></strong>. Nenhuma parte de nosso conteúdo ou navegação está mais disponível em <em>HTTP</em> plano. Isso segue uma tendência de toda a Internet e cada vez mais sites devem adotar esse &quot;formato&quot;. O gráfico abaixo (<a href="https://www.troyhunt.com/https-adoption-has-reached-the-tipping-point/">extraído daqui</a>) mostra o crescimento do uso de <em>HTTPS</em> entre o 1 milhão de sites mais acessados listados pela <a href="http://www.alexa.com/"><em>Alexa</em></a>.</p>
+<p><img src="../images/https-4.png" alt="Crescimento de sites HTTPS no último ano"></p>
+<p>Essa mudança, que pode parecer simples à primeira vista, tem uma série de motivos e também implicações, que serão discutidas a seguir.</p>
+<h2><em>HTTP</em> versus <em>HTTPS</em></h2>
+<p>O protocolo <em>HTTPS</em> é a versão segura do protocolo <em>HTTP</em>. Com ele, todos os dados trafegados são criptografados por outro protocolo chamado <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security"><em>SSL/TLS</em></a>. O <em>SSL</em> é baseado em técnicas de criptografia simétrica (onde uma única chave é usada) e assimétrica (onde existem chaves separadas para criptografar e descriptografar). Por &quot;debaixo&quot; do <em>SSL</em>, permanece o mesmo <em>HTTP</em> de sempre, como conhecemos.</p>
+<p>O objetivo primário do <em>HTTPS</em> é, como pode ser facilmente deduzido, prover privacidade na comunicação, impedindo que o teor dos dados seja revelado em caso de interceptação por terceiros. Isso é não apenas desejável, mas indispensável para operações que transmitem dados sensíveis, como senhas, dados bancários, mensagens, etc. É por isso que operações de <em>login</em>, pagamentos <em>online</em> e até mesmo troca de mensagens (por aplicativos ou e-mails) sempre são realizadas dessa forma.</p>
+<p>Outra vantagem do <em>HTTPS</em> é a comprovação de identidade, ou seja, poder ter certeza de que um site não é falso e que realmente pertence à entidade que diz pertencer. Isso é possível pois, na <em>web</em>, todo certificado <em>SSL</em> utilizado é assinado por uma <a href="https://en.wikipedia.org/wiki/Certificate_authority">Autoridade Certificadora</a> (<em>CA</em>), garantindo sua autenticidade. O certificado nada mais é do que a chave pública usada na porção do protocolo onde se utiliza criptografia assimétrica. (A compreensão plena de todo o mecanismo de funcionamento do protocolo <em>SSL</em> e, em especial, das técnicas de criptografia foge ao escopo desse artigo, por tratar-se de um tópico bastante extenso e complexo.) Essa chave (ou certificado) contém o próprio endereço do site, entre outras informações da entidade à qual pertence. Quando o navegador obtém esse certificado do site, pode validar se ele foi realmente emitido por uma <em>CA</em> confiável, confirmando se o site é autêntico. (O mecanismo de validação envolve um outro conjunto de certificados das <em>CAs</em> que vêm junto dos navegadores.) Em um cenário onde alguém tentasse usar um certificado falso, essa validação falharia, expondo a fraude, e a barra de endereço não seria exibida com o cadeado verde abaixo.</p>
+<p><img src="../images/https-6.png" alt="Navegador indicando que a identidade do site é verdadeira e o site é seguro"></p>
+<p>Essa garantia de autenticidade é fundamental para sites que contém informações hiper sensíveis dos usuários, como entidades finaceiras, serviços de email, entre outros, evitando que se caia em golpes (<em>phishing</em>).</p>
+<p>Uma das desvantagens do <em>HTTPS</em> em relação ao <em>HTTP</em> é o custo computacional maior para cliente e servidor, devido à série de cálculos que é necessário realizar para criptografar e descriptografar os dados. Entretanto, para o <em>hardware</em> que temos nos dias de hoje, esse <em>overhead</em> costuma ser desprezível perto da complexidade das aplicações em si, impactando muito pouco na carga do servidores ou tempo de resposta. Assim como para os <em>desktops</em>, cujos CPUs ficam ociosos boa parte do tempo.</p>
+<p>Outra desvantagem é o custo: em geral, as autoridades certificadoras cobram pela emissão dos certificados. Entretanto, atualmente já existem serviços gratuitos como o <a href="https://letsencrypt.org/"><em>Let's Encrypt</em></a>, e até mesmo o <a href="https://aws.amazon.com/pt/certificate-manager/"><em>AWS Certificate Manager</em></a>, que oferece gratuitamente certificados, desde que usados em conjunto de outros recursos <em>AWS</em> (como <em>Elastic Load Balancer</em> e <em>CloudFront</em>).</p>
+<h2><em>Snowden</em>, <em>HTTP2</em>, <em>Google</em> e navegadores</h2>
+<p>É bem verdade que o <em>HTTPS</em> é fundamental para operações que envolvem dados mais sensíveis, mas e quanto à navegação mais corriqueira, como leitura de conteúdo, visualização de produtos, pesquisas, etc? Por que utilizá-lo nesses casos?</p>
+<p>Bem, o mundo pós-<a href="https://en.wikipedia.org/wiki/Edward_Snowden"><em>Snowden</em></a> encara essa questão de forma diferente. Hoje, é de conhecimento público que diversos governos de nações espionam a comunicação de cidadãos, empresas e até mesmo de outros governos. Em decorrência disso, a preocupação com a privacidade levou a comunidade técnica a um consenso de que a criptografia deixou de ser uma opção, para se tornar uma necessidade, razão pela qual a adoção do <em>HTTPS</em> tem sido não apenas incentivada, mas também de certa forma forçada pelas grandes empresas do setor e grupos que atuam na definição de padrões e regulação da Internet. Desde 2014 o Google vem <a href="https://webmasters.googleblog.com/2014/08/https-as-ranking-signal.html">favorecendo páginas em <em>HTTPS</em> com um pequeno ganho de ranking (SEO)</a>, como forma de incentivo à sua adoção.</p>
+<p>Portanto, a pergunta que se fazia antes - &quot;por que usar <em>HTTPS</em>?&quot; - foi invertida para: <strong>&quot;por que não usar <em>HTTPS</em>?&quot;</strong></p>
+<p>De fato, para a nova versão do protocolo <em>HTTP</em>, o <a href="https://http2.github.io/"><em><strong>HTTP/2</strong></em></a>, os navegadores nem sequer dão mais suporte à versão não <em>SSL</em>. Ou seja, na prática, pra poder usar os recursos da versão mais nova do <em>HTTP</em>, é obrigatório o uso de <em>HTTPS</em>. E não para por aí. Navegadores como o <em>Chrome</em>, por exemplo, já tem há um bom tempo em seus planos <a href="https://www.chromium.org/Home/chromium-security/marking-http-as-non-secure">classificar explicitamente páginas <em>HTTP</em> como não seguras</a>. Futuramente, toda página <em>HTTP</em> deve ser exibida como abaixo (atualmente isso é só exibido quando habilitada uma <em>flag</em> específica na configuração):</p>
+<p><img src="../images/https-1.png" alt="Esse pudim não é seguro!"></p>
+<p>A partir da versão 56, o <a href="https://www.google.com.br/chrome/browser/canary.html"><em>Chrome Canary</em></a> (uma versão com os recursos mais recentes do navegador) já exibe <strong>por padrão</strong> avisos para formulários de senhas ou cartões de crédito em páginas não <em>HTTPS</em>.</p>
+<p><img src="../images/https-2.png" alt="Aviso de segurança em formulário no Chrome"></p>
+<p>Analogamente, a versão de desenvolvimento do <em>Firefox</em> também alerta o usuário de forma bastante explícita.</p>
+<p><img src="../images/https-3.png" alt="Aviso de segurança em formulário no Firefox"></p>
+<p>Todos os outros navegadores também apontam na mesma direção - a migração total para <em>HTTPS</em> parece ser uma realidade inevitável.</p>
+<h2>Assets e outros elementos da página</h2>
+<p>Para que uma página seja considerada segura, não apenas a página em si precisa ser servida em <em>HTTPS</em>, mas também todos os seus recursos (imagens, arquivos <em>CSS</em> e <em>Javascript</em>, etc). Assim como não pode haver chamadas de métodos <em>Ajax</em> para serviços não <em>HTTPS</em>. Isso vale, inclusive, para <em>websockets</em> e <em>pixels</em> ocultos. Portanto, um dos desafios da migração para <em>HTTPS</em> é garantir que todo esse conteúdo também esteja disponível em <em>HTTPS</em>. Do contrário, os navegadores exibirão um ícone de <em>info</em> no lugar do cadeado verde.</p>
+<h2>301 ou 302?</h2>
+<p>Toda migração precisa ser amigável para os usuários, portanto, um requisito fundamental desse tipo de mudança é que todos os links <em>HTTP</em> sejam redirecionados para sua versão em <em>HTTPS</em>, o que, na maior parte das vezes, demanda apenas a troca do protocolo na <em>URL</em>. Isso pode ser realizado a partir de uma configuração muito simples em qualquer <em>webserver</em> de mercado (<em>Nginx</em>, <em>Apache</em>), como no exemplo abaixo para <em>Nginx</em>.</p>
+<pre class="highlight"><code class="hljs nginx"><span class="hljs-comment"># Trecho de configuração que deve ir no server HTTP (porta 80)</span>
+<span class="hljs-attribute">location</span> / {
+  <span class="hljs-attribute">return</span> <span class="hljs-number">302</span> https://<span class="hljs-variable">${http_host}</span><span class="hljs-variable">${request_uri}</span>;
+}
+</code></pre>
+<p>Um ponto de atenção importante é com relação ao tipo de <em>redirect</em> retornado. O protocolo <em>HTTP</em> suporta, entre outros, dois tipos principais e mais usados de <em>redirect</em>:</p>
+<ul>
+<li><em><strong>Redirect Permanente</strong></em> - código <strong>301</strong>: como diz o próprio nome, é permanente, portanto, uma vez recebido para aquela <em>URL</em>, o servidor só volta a ser consultado após limpeza do cache do navegador;</li>
+<li><em><strong>Redirect Temporário</strong></em> - código <strong>302</strong>: basicamente o oposto do caso anterior, não deve ser cacheado pelo navegador, exceto se indicado pelo servidor, e garante que requisições subsequentes sejam feitas no endereço original.</li>
+</ul>
+<p>Como pode ser facilmente concluído, o mais seguro para esse tipo de migração é o <em>redirect</em> temporário (<strong>302</strong>, como no exemplo acima), uma vez que sempre há a possibilidade de ter que reverter as mudanças realizadas.</p>
+<p>Entretanto, após a constatação de que tudo correu bem e de que não há mais grandes chances de precisar reverter as mudanças, o ideal é alterar o retorno para <strong>301</strong>, pois esse é o código de retorno mais adequado e bem interpretado de forma geral, além do fato de poupar requisições e não perder <em>throughput</em> de <em>bots</em>.</p>
+<h2>Page ranking e Bots</h2>
+<p><em>Bots</em> (ou robôs) são agentes automatizados dos mecanismos de busca (<em>Google</em>, <em>Bing</em>, <em>Baidu</em>) que navegam pelos sites e indexam seu conteúdo. Os usuários que vêm por meio desses mecanismos de busca são parte fundamental da audiência da maioria dos sites, incluindo <em>e-commerces</em> como o <a href="https://www.elo7.com.br"><strong>Elo7</strong></a>. Portanto, os <em>bots</em> devem ser tratados com muito cuidado. Aqui no <strong>Elo7</strong>, nós acompanhamos de perto a atividade deles em nosso site por meio de diversas métricas, como abaixo.</p>
+<p><img src="../images/https-5.png" alt="Métricas de Bots"></p>
+<p>Até o presente momento, o Google <a href="https://plus.google.com/+JohnMueller/posts/PY1xCWbeDVC">garante que não há perda de pontuação de ranking</a> para as páginas redirecionadas de <em>HTTP</em> para <em>HTTPS</em>. Entretanto, não são todos os <em>bots</em> que seguem <em>redirects</em>, como ficou evidente mais tarde para nós. Assim que migramos nosso site, vimos uma queda brusca nesse gráfico da esquerda, indicando uma redução grande na quantidade de acesso de <em>bots</em>. Mais tarde, ficou claro que o problema era o bot do <em>Bing</em>, que não seguia <em>redirects</em> e, portanto, parou de navegar pelo nosso conteúdo.</p>
+<h2>Sitemaps e Webmaster Tools</h2>
+<p>Consequências inesperadas como essa - o sumiço dos <em>bots</em> - podem ocorrer, mas há como contorná-las e, de preferência, evitá-las.</p>
+<p>Algo muito importante para a indexação de qualquer site são os índices conhecidos como <a href="https://support.google.com/webmasters/answer/156184?hl=pt-BR"><em>Sitemaps</em></a>, que orientam a navegação inicial dos <em>bots</em> e permitem configurar alguns de seus comportamentos (por exemplo, desligar a indexação de parte das <em>URLs</em>, listar endereços que não estão <em>linkados</em> em outras páginas, entre outras coisas), além de identificar de forma mais exata o tipo de conteúdo. Uma vez que o site seja migrado totalmente para <em>HTTPS</em>, <strong>é muito importante que as <em>URLs</em> listadas nos arquivos de sitemaps também sejam alteradas</strong>.</p>
+<p>Outra ferramenta muito útil são as chamadas <em>Webmaster Tools</em>, painéis de controle oferecidos pelos indexadores, como <a href="https://www.google.com/webmasters/tools/home?hl=pt-BR"><em>Google</em></a> e <a href="http://www.bing.com/toolbox/webmaster"><em>Bing</em></a>, onde é possível visualizar e administrar a indexação das páginas. Através dele é possível adicionar, por exemplo, o endereço inicial do site em <em>HTTPS</em> para que seja indexado paralelamente, mesmo antes da migração definitiva, o que pode ser bastante útil para evitar maiores consequências no <em>ranking</em>.</p>
+<p>E, por final, não se desespere. É natural uma mudança de comportamento dos <em>bots</em> após esse tipo de migração, e tomadas todas as precauções necessárias, muitas já mencionadas, é necessário aguardar até alguns dias para que eles voltem ao normal. Além disso, é importante ficar atento, pois é possível que o site todo seja reindexado após essa mudança, aumentando significativamente a carga.</p>
+<h2>Conclusão</h2>
+<p>A migração para <em>HTTPS</em> é inevitável e terá que ser feita por todos, mais cedo ou mais tarde. Quanto antes possa ser feita, melhor. Não se trata de algo complexo, mas, especialmente para sistemas grandes, pode haver um certo nível de esforço, sendo importante levar em consideração os pontos mencionados. Entretanto, tomados os devidos cuidados e sendo bem planejado, é plenamente possível de ser realizado sem qualquer indisponibilidade.</p>
+<p>Dúvidas? Contribuições? Deixe um comentário!</p>
+
+
+			<ul class='tag-list'>
+			
+				<li>
+					<a href='/tags/https/'>https</a>
+				</li>
+			
+				<li>
+					<a href='/tags/http2/'>http2</a>
+				</li>
+			
+			</ul>
+			<section class='share'>
+				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+				<div class='social-share'>
+					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/https-only/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+						Compartilhar no facebook
+					</a>
+					<a href='https://twitter.com/intent/tweet?text=Migrando para HTTPS&url=https://elo7.dev/https-only/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+						Compartilhar no twitter
+					</a>
+					<a href='https://elo7.dev/https-only/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+						Copiar URL
+					</a>
+					<span class='copy-success'>Link copiado</span>
+					<input type='url' value='https://elo7.dev/https-only/?utm_source=share&utm_medium=copy' class='link-input'>
+				</div>
+			</section>
+		</div>
+
+		<meta itemprop='headline' content='Recentemente, o Elo7 passou a ser servido unicamente em HTTPS. Essa mudança, que pode parecer simples à primeira vista, tem uma série de motivos e também implicações, que serão discutidas neste artigo.'/>
+		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop='name' content='Elo7 Tech'/>
+			<meta itemprop="url" content='https://elo7.dev'/>
+			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+				<meta itemprop='width' content='100px'/>
+				<meta itemprop='height' content='100px'/>
+			</span>
+		</span>
+		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+		<div id='disqus_thread'></div>
+
+		<script>
+			var disqus_shortname = 'engenhariaelo7';
+			var disqus_identifier = '02/05/2017:/https-only/';
+			var disqus_url = 'https://elo7.dev/https-only/';
+
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Habilite o JavaScript para ver os comentários</noscript>
+	</div>
+</article>
+<script async src="/js/post.js"></script>
+
+		
+	</main>
+	<footer itemscope itemtype="http://schema.org/Organization">
+		<a rel="home" itemprop="url" href="https://elo7.dev/" >
+			elo7.dev © 2019
+		</a>
+		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<script async src="https://www.google-analytics.com/analytics.js"></script>
+	<script async src="/js/analytics.js"></script>
+	<script async src="/js/github.js"></script>
+	<script async src="/js/vendor/events-amd.js"></script>
+	<script async src="/js/vendor/ajax.js"></script>
+	<script async src="/js/vendor/doc.js"></script>
+	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

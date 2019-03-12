@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Nesse primeiro post, conheça sobre o Dust.js, biblioteca para trabalhar com templates no cliente e no servidor.">
+	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
+	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name="theme-color" content="#FDC24F">
+	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,front-end,js templates,isomorfismo">
+	<meta name="language" content="pt-br">
+	<meta name="title" content="Elo7 Tech - Conhecendo o Dust.js, uma biblioteca de template para javascript">
+	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Conhecendo o Dust.js, uma biblioteca de template para javascript">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<meta property="fb:app_id" content="644444999041914">
+	<meta property="fb:admins" content="100003324447975">
+
+	<meta property="og:site_name" content="Elo7 Tech">
+	<meta property="og:image" content="https://elo7.dev/images/cover/elo7.png">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Elo7 Tech - Conhecendo o Dust.js, uma biblioteca de template para javascript">
+	<meta property="og:url" content="https://elo7.dev/conheca-o-dustjs/">
+	<meta property="og:description" content="Nesse primeiro post, conheça sobre o Dust.js, biblioteca para trabalhar com templates no cliente e no servidor.">
+
+	<meta name="twitter:widgets:csp" content="on">
+	<meta name="twitter:card" content="summary_large_image">
+
+	<meta property="twitter:title" content="Elo7 Tech - Conhecendo o Dust.js, uma biblioteca de template para javascript">
+	<meta property="twitter:domain" content="https://elo7.dev">
+	<meta property="twitter:url" content="https://elo7.dev/conheca-o-dustjs/">
+	<meta property="twitter:description" content="Nesse primeiro post, conheça sobre o Dust.js, biblioteca para trabalhar com templates no cliente e no servidor.">
+	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+
+	<link rel="canonical" href="https://elo7.dev/conheca-o-dustjs/">
+	
+		<link rel='amphtml' href='https://elo7.dev/amp/conheca-o-dustjs/' />
+	
+
+	<title>Elo7 Tech - Conhecendo o Dust.js, uma biblioteca de template para javascript</title>
+	<link rel="stylesheet" href="/reset.css">
+	<link rel="stylesheet" href="/main.css">
+	<link rel="stylesheet" href="/posts.css">
+	<link rel="stylesheet" href="/post.css">
+	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
+	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
+	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
+	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
+	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
+	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
+	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
+	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
+	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src="/js/vendor/async-define.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
+	<header class="left-pane">
+		<div class="logo-container">
+			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
+		</div>
+		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
+			<input id="categories-switch" type="checkbox" class="categories-switch">
+			<label for="categories-switch" class="selectable">
+				<h2 class="nav-title">Categorias</h2>
+			</label>
+			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
+				
+					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Back-end</span>
+					</a>
+				
+					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Cultura</span>
+					</a>
+				
+					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Data Science</span>
+					</a>
+				
+					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Design</span>
+					</a>
+				
+					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Devops</span>
+					</a>
+				
+					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Eventos</span>
+					</a>
+				
+					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Palestras</span>
+					</a>
+				
+					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Front-end</span>
+					</a>
+				
+					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Mobile</span>
+					</a>
+				
+					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Vagas</span>
+					</a>
+				
+			</nav>
+		</div>
+		<div class="navigation">
+			<input id="more-switch" type="checkbox" class="more-switch">
+			<label for="more-switch" class="selectable">
+				<h2 class="nav-title">Veja também</h2>
+			</label>
+			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
+					<span itemprop="name">A engenharia</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
+					<span itemprop="name">Carreiras</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
+					<span itemprop="name">Nossos eventos</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
+					<span itemprop="name">Elo7</span>
+				</a>
+			</nav>
+		</div>
+		<div class='social'>
+			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
+			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
+		</div>
+	</header>
+	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<img src='https://elo7.dev/images/cover/elo7.png' alt='' itemprop="url">
+	</figure>
+	<div class='post-content'>
+		<h1 itemprop='name' class='title'>Conhecendo o Dust.js, uma biblioteca de template para javascript</h1>
+		<div class='post-meta'>
+			<p class='date'>
+				Publicado em: <time datetime='31/07/2018' itemprop='datePublished'>31/07/2018</time>
+				<meta itemprop='dateModified' content='31/07/2018'>
+			</p>
+
+			<article>
+				
+					<a data-author='tcelestino' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/tcelestino/' class='author'>
+						<meta itemprop='url' content='/tcelestino'>
+						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
+						<p itemprop='name' class='publisher' data-author='tcelestino'>@tcelestino</p>
+					</a>
+				
+
+				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+			</article>
+		</div>
+		<div itemprop='articleBody'>
+			<p>O time de front-end do Elo7 está sempre buscando novas tecnologias para compor o fluxo de trabalho, mesmo que algumas dessas tecnologias não estejam nos holofotes da comunidade. Acreditamos que independente do <em>hype</em>, temos como principal foco a resolução de nossas necessidades e é por isso que neste post vamos falar sobre o <a href="http://www.dustjs.com/">Dust.js</a>, uma bibloteca javascript para trabalhar com templates, desenvolvido pelo Linkedin e que usamos em nosso serviço de templates.</p>
+<h2>Por que escolhemos o Dust.js?</h2>
+<p>Antes de começar a falar sobre o Dust.js, preciso fazer um resumo do porque escolhemos usá-lo e não outras soluções existentes no mercado. E uma palavra pode resumir isso: PERFORMANCE! Sim, a partir de vários testes em diversas bibliotecas, concluímos que a performance do Dust.js atenderia melhor a nossa necessidade. Sem contar que estavamos buscando uma solução para usarmos do lado do cliente (Client Side Render) quanto no servidor (Server Side Render), o famoso isomorfismo. Caso queria saber mais sobre Javascript isomórfico, recomendo ler o <a href="https://engenharia.elo7.com.br/isomorfismo/">post</a> da <a href="https://engenharia.elo7.com.br/fernandabernardo/">Fernanda Bernardo</a> sobre o assunto.</p>
+<p>A premissa do Dust.js é não ter lógica na camada de visualização (view), mesmo você podendo fazer esse tipo de abordagem. No Dust.js a ideia é manter essa lógica na camada modelo (model), assim conseguimos manter nossas <em>views</em> sem regras de negócios. Enxergamos isso como uma boa prática, até porque, se pensarmos melhor, não é a <em>view</em> que tem que cuidar se um conteúdo vai aparecer ou não na tela, concorda?</p>
+<p>Na prática, seria como o exemplo abaixo:</p>
+<pre class="highlight"><code class="hljs javascript">{@eq key=<span class="hljs-string">"elo7Login"</span> value=<span class="hljs-string">"true"</span>}
+  {@eq key=<span class="hljs-string">"login"</span> value=<span class="hljs-string">"true"</span>}
+    {@gt key=<span class="hljs-string">"level"</span> value=<span class="hljs-number">1</span>}
+      {@eq key=<span class="hljs-string">"isSeller"</span> value=<span class="hljs-string">"true"</span>}
+        Bem-vindo vendedor!
+      {/eq}
+    {/gt}
+  {/eq}
+{/eq}
+</code></pre>
+<p>Ao invés de escrever todo esse código (no post sobre helpers, explicarei sobre o <code>@eq</code> e <code>@gt</code>) no nosso template, escrevemos nosssa lógica no modelo. Reescrevendo o código acima, ficaria assim:</p>
+<pre class="highlight"><code class="hljs undefined">{#elo7UserLogin}
+  Bem-vindo Vendedor!
+{/elo7UserLogin}
+</code></pre>
+<p>O <code>elo7UserLogin</code> é nosso objeto modelo, nele que podemos ter funções que irão fazer apresentação do conteúdo em nossa <em>view</em>. No próximo post, irei falar com mais detalhe sobre isso.</p>
+<h2>Iniciando o Dust.js</h2>
+<p>Nessa primeira parte, vamos ver como funciona o &quot;comportamento&quot; e entender o contexto da biblioteca. Para iniciar, vamos criar uma estrutura básica.</p>
+<p><a class="jsbin-embed" href="http://jsbin.com/qatizuf/3/embed?html,output"></a><script src="http://static.jsbin.com/js/embed.min.js?4.1.4"></script></p>
+<p>Fazendo um resumo de como o código acima funciona, teríamos a seguinte estrutura:</p>
+<ul>
+<li>Carregamos os arquivos necessários para o Dust.js funcionar (dust.js e dust-helper.js);</li>
+<li>Implementamos uma função de <em>callback</em> para escrever nosso template na página;</li>
+<li>Criamos um template (usando <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/template_strings">Template Strings</a>) e um objeto modelo;</li>
+<li>Usamos o metódo <code>renderSource</code> para renderizar os dados, template e escrever no nosso HTML.</li>
+</ul>
+<p>Se você já utilizou alguma <em>template engine</em> para javascript (<a href="https://handlebarsjs.com/">handlebars</a>, <a href="http://mustache.github.io/">mustache</a>, etc...) vai perceber que o uso do Dust.js é bem similar. Precisamos criar um objeto modelo e usamos as chaves desse objeto para adicionar os dados na tela. Até ai, nada diferente, correto?</p>
+<h2>Entendendo contexto</h2>
+<p>O Dust.js trabalha com contexto global e isso pode soar bastante estranho no começo. No caso, o contexto é baseado na &quot;árvore&quot; do modelo. Ou seja, o framework fará uma varredura em seu objeto modelo até achar a chave correspondente que está sendo usada em um template. Para exemplicar um pouco desse conceito, observe o seguinte código:</p>
+<p><a class="jsbin-embed" href="http://jsbin.com/rajahus/1/embed?html,output"></a><script src="http://static.jsbin.com/js/embed.min.js?4.1.4"></script></p>
+<p>Analisando o código, estamos pecorrendo o objeto modelo para acessar os valores das chaves <code>{name}</code>, <code>{age}</code> e <code>{city}</code>, mas se você observou com atenção, a chave <code>{city}</code> não está associada a chave <code>persona</code> e mesmo assim conseguimos executar o código. Estranho não?</p>
+<p>No Dust.js, os dados do nosso objeto modelo são lidos de &quot;dentro para fora&quot;. Ou seja, ao percorrer a chave <code>{persona}</code>, conseguimos acessar as chaves daquele <em>nó</em>, mas caso não encontre uma chave que esteja sendo usado no template, o Dust.js irá buscar a chave fora desse <em>nó</em> e por isso que o nosso código é executado sem quebrar. Soa bastante perigoso esse comportamento quando não temos controle dos dados (no caso de usar uma API de terceiros, por exemplo), mas isso é uma das &quot;coisas&quot; estranhas que observamos durante esse tempo de uso da biblioteca e passamos a ter mais cuidado quando escrevemos nossos códigos.</p>
+<h1>Conclusão</h1>
+<p>Vimos nessa primeira parte o conceito por trás da bibloteca e como funciona o seu contexto, que em um primeiro contato pode parecer muito estranho mas garante códigos mais &quot;seguros&quot;.</p>
+<p>Nos próximos posts, iremos abordar sobre iteração de dado, condicionais, filtros e <em>helpers</em>. Caso não queria perder os próximos posts e também acompanhar os novos, assine nossa <a href="http://eepurl.com/cVUwvH">newsletter</a> ou acompanhe nosso feed <a href="https://engenharia.elo7.com.br/rss.xml">RSS</a>.</p>
+
+
+			<ul class='tag-list'>
+			
+				<li>
+					<a href='/tags/front-end/'>front-end</a>
+				</li>
+			
+				<li>
+					<a href='/tags/js-templates/'>js templates</a>
+				</li>
+			
+				<li>
+					<a href='/tags/isomorfismo/'>isomorfismo</a>
+				</li>
+			
+			</ul>
+			<section class='share'>
+				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+				<div class='social-share'>
+					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/conheca-o-dustjs/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+						Compartilhar no facebook
+					</a>
+					<a href='https://twitter.com/intent/tweet?text=Conhecendo o Dust.js, uma biblioteca de template para javascript&url=https://elo7.dev/conheca-o-dustjs/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+						Compartilhar no twitter
+					</a>
+					<a href='https://elo7.dev/conheca-o-dustjs/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+						Copiar URL
+					</a>
+					<span class='copy-success'>Link copiado</span>
+					<input type='url' value='https://elo7.dev/conheca-o-dustjs/?utm_source=share&utm_medium=copy' class='link-input'>
+				</div>
+			</section>
+		</div>
+
+		<meta itemprop='headline' content='Nesse primeiro post, conheça sobre o Dust.js, biblioteca para trabalhar com templates no cliente e no servidor.'/>
+		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop='name' content='Elo7 Tech'/>
+			<meta itemprop="url" content='https://elo7.dev'/>
+			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+				<meta itemprop='width' content='100px'/>
+				<meta itemprop='height' content='100px'/>
+			</span>
+		</span>
+		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+		<div id='disqus_thread'></div>
+
+		<script>
+			var disqus_shortname = 'engenhariaelo7';
+			var disqus_identifier = '31/07/2018:/conheca-o-dustjs/';
+			var disqus_url = 'https://elo7.dev/conheca-o-dustjs/';
+
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Habilite o JavaScript para ver os comentários</noscript>
+	</div>
+</article>
+<script async src="/js/post.js"></script>
+
+		
+	</main>
+	<footer itemscope itemtype="http://schema.org/Organization">
+		<a rel="home" itemprop="url" href="https://elo7.dev/" >
+			elo7.dev © 2019
+		</a>
+		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<script async src="https://www.google-analytics.com/analytics.js"></script>
+	<script async src="/js/analytics.js"></script>
+	<script async src="/js/github.js"></script>
+	<script async src="/js/vendor/events-amd.js"></script>
+	<script async src="/js/vendor/ajax.js"></script>
+	<script async src="/js/vendor/doc.js"></script>
+	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="O título do post é polêmico para chamar sua atenção, mas a ideia deste post é mostrar a nossa visão sobre essas duas excelentes ferramentas: Apache Flink e Apache Spark.">
+	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
+	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name="theme-color" content="#FDC24F">
+	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,spark,flink,big data">
+	<meta name="language" content="pt-br">
+	<meta name="title" content="Elo7 Tech - Flink vs Spark">
+	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Flink vs Spark">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<meta property="fb:app_id" content="644444999041914">
+	<meta property="fb:admins" content="100003324447975">
+
+	<meta property="og:site_name" content="Elo7 Tech">
+	<meta property="og:image" content="https://elo7.dev/images/cover/flink-vs-spark.png">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Elo7 Tech - Flink vs Spark">
+	<meta property="og:url" content="https://elo7.dev/flink-spark/">
+	<meta property="og:description" content="O título do post é polêmico para chamar sua atenção, mas a ideia deste post é mostrar a nossa visão sobre essas duas excelentes ferramentas: Apache Flink e Apache Spark.">
+
+	<meta name="twitter:widgets:csp" content="on">
+	<meta name="twitter:card" content="summary_large_image">
+
+	<meta property="twitter:title" content="Elo7 Tech - Flink vs Spark">
+	<meta property="twitter:domain" content="https://elo7.dev">
+	<meta property="twitter:url" content="https://elo7.dev/flink-spark/">
+	<meta property="twitter:description" content="O título do post é polêmico para chamar sua atenção, mas a ideia deste post é mostrar a nossa visão sobre essas duas excelentes ferramentas: Apache Flink e Apache Spark.">
+	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+
+	<link rel="canonical" href="https://elo7.dev/flink-spark/">
+	
+		<link rel='amphtml' href='https://elo7.dev/amp/flink-spark/' />
+	
+
+	<title>Elo7 Tech - Flink vs Spark</title>
+	<link rel="stylesheet" href="/reset.css">
+	<link rel="stylesheet" href="/main.css">
+	<link rel="stylesheet" href="/posts.css">
+	<link rel="stylesheet" href="/post.css">
+	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
+	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
+	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
+	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
+	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
+	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
+	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
+	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
+	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src="/js/vendor/async-define.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
+	<header class="left-pane">
+		<div class="logo-container">
+			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
+		</div>
+		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
+			<input id="categories-switch" type="checkbox" class="categories-switch">
+			<label for="categories-switch" class="selectable">
+				<h2 class="nav-title">Categorias</h2>
+			</label>
+			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
+				
+					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Back-end</span>
+					</a>
+				
+					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Cultura</span>
+					</a>
+				
+					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Data Science</span>
+					</a>
+				
+					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Design</span>
+					</a>
+				
+					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Devops</span>
+					</a>
+				
+					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Eventos</span>
+					</a>
+				
+					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Palestras</span>
+					</a>
+				
+					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Front-end</span>
+					</a>
+				
+					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Mobile</span>
+					</a>
+				
+					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Vagas</span>
+					</a>
+				
+			</nav>
+		</div>
+		<div class="navigation">
+			<input id="more-switch" type="checkbox" class="more-switch">
+			<label for="more-switch" class="selectable">
+				<h2 class="nav-title">Veja também</h2>
+			</label>
+			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
+					<span itemprop="name">A engenharia</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
+					<span itemprop="name">Carreiras</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
+					<span itemprop="name">Nossos eventos</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
+					<span itemprop="name">Elo7</span>
+				</a>
+			</nav>
+		</div>
+		<div class='social'>
+			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
+			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
+		</div>
+	</header>
+	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<img src='https://elo7.dev/images/cover/flink-vs-spark.png' alt='' itemprop="url">
+	</figure>
+	<div class='post-content'>
+		<h1 itemprop='name' class='title'>Flink vs Spark</h1>
+		<div class='post-meta'>
+			<p class='date'>
+				Publicado em: <time datetime='03/09/2017' itemprop='datePublished'>03/09/2017</time>
+				<meta itemprop='dateModified' content='03/09/2017'>
+			</p>
+
+			<article>
+				
+					<a data-author='mikedias' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/mikedias/' class='author'>
+						<meta itemprop='url' content='/mikedias'>
+						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
+						<p itemprop='name' class='publisher' data-author='mikedias'>@mikedias</p>
+					</a>
+				
+					<a data-author='gmcoringa' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/gmcoringa/' class='author'>
+						<meta itemprop='url' content='/gmcoringa'>
+						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
+						<p itemprop='name' class='publisher' data-author='gmcoringa'>@gmcoringa</p>
+					</a>
+				
+
+				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+			</article>
+		</div>
+		<div itemprop='articleBody'>
+			<p>O título do post é polêmico para chamar sua atenção, mas a ideia deste post é mostrar a nossa visão sobre essas duas excelentes ferramentas: <a href="http://flink.apache.org/">Apache Flink</a> e <a href="http://spark.apache.org/">Apache Spark</a>. Nós não entraremos em detalhes profundos de cada ferramenta, nem faremos qualquer tipo de benchmark. Nós vamos apenas apontar as características que são relevantes para o nosso dia a dia.
+Se você não conhece o Flink ou o Spark, na <em>homepage</em> dos projetos há uma introdução bacana sobre cada um deles.</p>
+<h2>Flink</h2>
+<p>O Flink é um projeto que nasceu com a mentalidade <strong>streaming-first</strong>, isto é, o objetivo principal da plataforma é processar dados que são produzidos de maneira contínua e infinita:</p>
+<p><img src="../images/flink-spark-1.png" alt="Flink Stream"></p>
+<p>Essa arquitetura permite que o <em>job</em> que processa o <em>stream</em> seja mais rápido e resiliente. Mais rápido porque os eventos são processados assim que eles chegam e mais resiliente porque os eventuais picos de eventos (também conhecidos como <em>back pressure</em>) são gerenciados de <a href="https://data-artisans.com/blog/how-flink-handles-backpressure">maneira automática</a> pelo Flink.</p>
+<p>No Flink, os <em>streams</em> podem ser tratados como finitos ou infinitos. Com isso é possível emular um <em>stream</em> usando o <em>backup</em> dos dados do <a href="https://kafka.apache.org/">Apache Kafka</a> e reprocessar o histórico usando <strong>exatamente o mesmo código</strong> implementado sobre a API de <em>streams</em>. Isso nos dá o poder de olhar para o passado sempre que for necessário sem nenhum esforço adicional.</p>
+<p>As <em>windows</em> são uma maneira dividir um <em>stream</em> contínuo em pequenos agrupamentos para efetuar algum processamento. Este conceito é relativamente comum em sistemas de processamento contínuo, porém o Flink possui um tipo especial de <em>window</em> que é muito útil em cenários do dia a dia chamado <strong><a href="https://ci.apache.org/projects/flink/flink-docs-release-1.3/dev/windows.html#session-windows">Session Window</a></strong>. Com ela é possível agrupar eventos subsequentes cujo o intervalo de tempo entre eles não exceda um determinado valor, criando uma espécie de sessão do usuário:</p>
+<p><img src="../images/flink-spark-4.png" alt="Session Window"></p>
+<p>A garantia <strong>exactly-once</strong> na computação de estado do Flink nos dá a segurança de que os resultados dos <em>streams</em> estarão corretos, mesmo em cenários de falha. Como esse estado é persistido utilizando o mecanismo de <em><a href="https://data-artisans.com/blog/turning-back-time-savepoints">savepoints</a></em>, é possível fazer o <em>deploy</em> de novas versões do <em>stream</em> sem perder o estado atual computado.</p>
+<p>O ponto fraco do Flink é a sua <strong>comunidade</strong>, que ainda é pequena. Isso faz com que o ecossistema não seja tão rico, o que leva à falta de integrações para outras ferramentas. Por exemplo, para conseguirmos utilizar o Flink na nossa <em>pipeline</em>, nós mesmos adicionamos o <a href="https://github.com/apache/flink/pull/2767">suporte para o Elasticsearch 5.x</a>.</p>
+<h2>Spark</h2>
+<p>Já o Spark possui uma mentalidade <strong>batch-first</strong>. Isso acontece porque o projeto foi criado com o propósito de ser mais rápido e eficiente do que o <em>MapReduce</em>, principal técnica de processamento na época. Influenciado por essa mentalidade, o Spark Streaming foi criado para resolver o problema de fluxos contínuos utilizando <strong>microbatches</strong>, aproveitando a implementação fundamental de <em>batches</em> do Spark (os famosos <em>RDDs</em>):
+<img src="../images/flink-spark-2.png" alt="Spark Microbatches"></p>
+<p>Para nós isso não faz muita diferença, afinal, os dados serão processados de maneira semelhante a um <em>stream</em> mesmo com um pouco mais de latência. O problema desta implementação é que o tamanho da <em>window</em> e o tamanho do <em>microbatch</em> precisam estar muito bem configurados para conseguir sobreviver a um volume de eventos maior do que o esperado. Uma dessas configurações é a <code>spark.streaming.backpressure.enabled=true</code> que faz com que o Spark analise os tempos de processamentos de <em>micro-batches</em> anteriores para se adaptar a flutuações em micro-batches subsequentes.</p>
+<p>Falando em <strong><a href="https://spark.apache.org/docs/latest/configuration.html">configuração</a></strong>, o Spark possui diversas, inclusive algumas não documentadas. Isso pode ser uma vantagem ou uma desvantagem: é possível otimizar o Spark para se encaixar com suas necessidades mas, ao mesmo tempo, exigirá mais esforço para dominar tais configurações.</p>
+<p>Um dos pontos positivos no Spark é a diversidade de <strong>métricas</strong> e uma interface <em>web</em> que mostra muitas informações sobre o estado de um <em>job</em>, como tempos de processamento, utilização (ou uso) de memória e disco:</p>
+<p><img src="../images/flink-spark-3.png" alt="Spark UI"></p>
+<p>A partir da versão 2.x do Spark, é possível fazer o <strong>deploy de atualizações</strong> do <em>stream</em> sem perder o estado atual computado. Nas versões anteriores, todo o código era serializado juntamente com os estados salvos no <em><a href="https://spark.apache.org/docs/latest/streaming-programming-guide.html#checkpointing">checkpoint</a></em>, não sendo possível reutilizar o mesmo. Dependendo da sua fonte de dados, será necessário código adicional para lidar com este problema.</p>
+<p>Uma das grandes inovações da versão 2.x do Spark foi o <strong><a href="https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html">Structured Streaming</a></strong>, o qual utiliza a mesma API tanto para <em>batch</em> quanto para <em>streams</em>. Porém esta não é a única vantagem desta nova API, que conta com garantias <em>exactly-once</em>, além de diversas otimizações.</p>
+<p>Por fim, um dos principais diferenciais do Spark é a sua <strong>comunidade</strong>: desde 2009, mais de 1000 desenvolvedores já contribuíram ao projeto! Essa comunidade faz com que o ecossistema em torno do Spark seja muito rico, especialmente no que se refere a <em>machine learning</em> e processamento em <em>batch</em>.</p>
+<h2>Conclusão</h2>
+<p>Ambas as ferramentas tem seus pontos positivos e negativos. Aqui no Elo7 nós usamos o Flink na nossa <a href="/elo7-analytics-elytics/">pipeline analítica</a> mas também utilizamos Spark em alguns projetos internos com a ajuda do <a href="/nightfall/">Nightfall</a>.</p>
+
+
+			<ul class='tag-list'>
+			
+				<li>
+					<a href='/tags/spark/'>spark</a>
+				</li>
+			
+				<li>
+					<a href='/tags/flink/'>flink</a>
+				</li>
+			
+				<li>
+					<a href='/tags/big-data/'>big data</a>
+				</li>
+			
+			</ul>
+			<section class='share'>
+				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+				<div class='social-share'>
+					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/flink-spark/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+						Compartilhar no facebook
+					</a>
+					<a href='https://twitter.com/intent/tweet?text=Flink vs Spark&url=https://elo7.dev/flink-spark/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+						Compartilhar no twitter
+					</a>
+					<a href='https://elo7.dev/flink-spark/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+						Copiar URL
+					</a>
+					<span class='copy-success'>Link copiado</span>
+					<input type='url' value='https://elo7.dev/flink-spark/?utm_source=share&utm_medium=copy' class='link-input'>
+				</div>
+			</section>
+		</div>
+
+		<meta itemprop='headline' content='O título do post é polêmico para chamar sua atenção, mas a ideia deste post é mostrar a nossa visão sobre essas duas excelentes ferramentas: Apache Flink e Apache Spark.'/>
+		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop='name' content='Elo7 Tech'/>
+			<meta itemprop="url" content='https://elo7.dev'/>
+			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+				<meta itemprop='width' content='100px'/>
+				<meta itemprop='height' content='100px'/>
+			</span>
+		</span>
+		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+		<div id='disqus_thread'></div>
+
+		<script>
+			var disqus_shortname = 'engenhariaelo7';
+			var disqus_identifier = '03/09/2017:/flink-spark/';
+			var disqus_url = 'https://elo7.dev/flink-spark/';
+
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Habilite o JavaScript para ver os comentários</noscript>
+	</div>
+</article>
+<script async src="/js/post.js"></script>
+
+		
+	</main>
+	<footer itemscope itemtype="http://schema.org/Organization">
+		<a rel="home" itemprop="url" href="https://elo7.dev/" >
+			elo7.dev © 2019
+		</a>
+		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<script async src="https://www.google-analytics.com/analytics.js"></script>
+	<script async src="/js/analytics.js"></script>
+	<script async src="/js/github.js"></script>
+	<script async src="/js/vendor/events-amd.js"></script>
+	<script async src="/js/vendor/ajax.js"></script>
+	<script async src="/js/vendor/doc.js"></script>
+	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

@@ -1,0 +1,937 @@
+<!doctype html>
+<html amp lang='pt-br'>
+<head>
+	<meta charset='utf-8'>
+	<script async src='https://cdn.ampproject.org/v0.js'></script>
+	<script async custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
+	<script async custom-element='amp-image-lightbox' src='https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js'></script>
+	<script async custom-element='amp-analytics' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js'></script>
+	<title>Elo7 Tech - API Persistente com Kotlin, Spring Boot, MySQL, JPA e Hibernate</title>
+	<meta name='description' content='Neste post, você aprenderá a criar uma API do Restful com o Kotlin, Spring Boot e JPA'>
+	<link rel='canonical' href='https://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/' />
+	<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>
+	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+	<style amp-custom>
+		body {
+			background-color: white;
+			font-family: 'Open Sans', sans-serif;
+			color: #666;
+		}
+
+		h1 {
+			color: #333;
+			font-size: 1.5em;
+			margin-bottom: 0;
+		}
+
+		h2, h3 {
+			color: #444;
+			font-size: 1.2em;
+		}
+
+		h3 {
+			font-weight: 300;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		p, li {
+			font-size: 0.9em;
+		}
+
+		ul {
+			padding-left: 1.5em;
+		}
+
+		article {
+			line-height: 1.8;
+			text-align: justify;
+		}
+
+		blockquote {
+			margin: 1em;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			font-size: 0.9em;
+			width: 100%;
+			text-align: left;
+		}
+
+		table thead th {
+			background-color: #4a4a4a;
+			color: white;
+		}
+
+		table th, table td {
+			padding: 0.2em 0.5em;
+		}
+
+		tr:nth-child(even) td {
+			background-color: #f3f3f3;
+		}
+
+		table th:not(:first-child), table td:not(:first-child) {
+			text-align: right;
+		}
+
+		body > header {
+			height: 60px;
+			box-sizing: border-box;
+			background-color: #FDC24F;
+			text-align: center;
+			padding-top: 0.8em;
+			padding-bottom: 0.8em;
+			position: sticky;
+			top: 0;
+			z-index: 10;
+		}
+
+		body > header a {
+			background: url('//images.elo7.com.br/assets/v3/desktop/svg/logo-elo7.svg') no-repeat;
+			background-size: 90px 35px;
+			width: 90px;
+			height: 35px;
+			display: inline-block;
+			filter: brightness(100);
+		}
+
+		.post-content, footer {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+
+		.post-content .content a, .post-content .content a:visited, .post-content .content a:hover {
+			cursor: pointer;
+			color: #000;
+			font-weight: 500;
+			text-decoration: underline;
+			word-break: break-word;
+		}
+
+		.post-content .post-image {
+			text-align: center;
+			display: block;
+		}
+
+		.post-content p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		main {
+			background-color: #ecebeb;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+
+		.post-card, .post-content, .publisher-info {
+			background: white;
+			margin-left: 2%;
+			padding: 1em;
+			margin-right: 3%;
+			box-shadow: rgba(72, 72, 72, 0.23) 0 0 5px;
+		}
+
+		.publisher-info {
+			margin-bottom: 1em;
+		}
+
+		.publisher-info h1 {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+		}
+
+		.card-devops {
+			border-left: 5px solid #7d7873;
+		}
+
+		.card-eventos {
+			border-left: 5px solid #fdb933;
+		}
+
+		.card-front-end {
+			border-left: 5px solid #c15eb4;
+		}
+
+		.card-back-end {
+			border-left: 5px solid #359c9c;
+		}
+
+		.card-mobile {
+			border-left: 5px solid #fa9c5e;
+		}
+
+		.card-vagas {
+			border-left: 5px solid #99c799;
+		}
+
+		.card-design {
+			border-left: 5px solid #7c9ec4;
+		}
+
+		.card-cultura {
+			border-left: 5px solid #f44336;
+		}
+
+		.post-card:not(:last-of-type) {
+			margin-bottom: 1em;
+		}
+
+		.post-card .title {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+			text-align: left;
+		}
+
+		.post-card .title a {
+			color: inherit;
+		}
+
+		.author, .date {
+			color: #888;
+			margin-bottom: 0;
+			margin-top: 0;
+			font-size: 0.9em;
+		}
+
+		.author a {
+			color: inherit;
+			margin-bottom: 1.5em;
+		}
+
+		#sidebar {
+			width: 60vw;
+			background-color: #4a4a4a;
+			color: #fff;
+			padding-right: 1em;
+			padding-left: 1em;
+		}
+
+		#sidebar li {
+			margin-bottom: 0.5em;
+		}
+
+		#sidebar ul {
+			margin-bottom: 1.5em;
+			list-style: none;
+			padding: 0;
+		}
+
+		#sidebar h2 {
+			margin-bottom: 0;
+		}
+
+		#sidebar a {
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		#sidebar a, #sidebar h2 {
+			color: inherit;
+		}
+
+		.sidebar-trigger {
+			position: absolute;
+			left: 5%;
+			background-color: transparent;
+			border: none;
+			color: #fff;
+			font-size: 1.8em;
+			padding: 0;
+		}
+
+		.category {
+			background-color: #73bebe;
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 0.8em;
+			padding: .5em;
+			border-radius: 3px;
+			display: inline-block;
+			margin-top: 2.3em;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			font-weight: 300;
+		}
+
+		.category:hover {
+			background-color: #73bebe;
+		}
+
+		.post-link {
+			border: 1px solid #fba702;
+			border-radius: 3px;
+			color: #fba702;
+			display: inline-block;
+			float: right;
+			margin-top: 1em;
+			padding: 0.8em;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s, color 0.3s;
+			font-size: 0.9em;
+		}
+
+		.post-link:hover {
+			background-color: #fba702;
+			color: #ffffff;
+		}
+
+		.social {
+			content: '';
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			background-position: center;
+			text-indent: -9999px;
+			margin-right: 0.5em;
+			background-size: contain;
+			vertical-align: top;
+		}
+
+		.social.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.social.linkedin {
+			background-image: url('/images/ico/ic-linkedin.svg');
+		}
+
+		.social.github {
+			background-image: url('/images/ico/ic-github.svg');
+		}
+
+		footer {
+			background-color: #4a4a4a;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		footer a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 0.8em;
+		}
+
+		.footer-social {
+			line-height: 0;
+		}
+
+		.footer-social a {
+			background-size: 2em 2em;
+			background-repeat: no-repeat;
+			display: inline-block;
+			height: 2em;
+			width: 2em;
+			overflow: hidden;
+			text-indent: -9999px;
+		}
+
+		.footer-social a + a {
+			margin-left: 0.5em;
+		}
+
+		.footer-social .github {
+			background-image: url('/images/github_icon.svg');
+		}
+		.footer-social .email {
+			background-image: url('/images/email_icon.png');
+		}
+
+		.footer-social .rss {
+			background-image: url('/images/ico/feed.svg');
+		}
+
+		.footer-social .twitter {
+            background-image: url('/images/ico/ic-negative-twitter.svg');
+        }
+
+		.share {
+			position: relative;
+			text-align: right;
+			margin-top: 1em;
+		}
+
+		.share .link-share {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				text-indent: -9999px;
+				margin-left: 0.5em;
+				text-align: left;
+		}
+
+		.share .link-share.facebook {
+			background-image: url('/images/ico/ic-facebook.svg');
+		}
+
+		.share .link-share.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.link-input {
+			opacity: 0;
+			position: absolute;
+			left: -9999px;
+		}
+
+		.copy-success {
+			font-size: 0.75em;
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			top: 125%;
+			transition: opacity ease-in-out 250ms;
+			text-align: center;
+		}
+
+		.copy-success.active {
+			opacity: 1;
+		}
+
+		code {
+			background-color: #ececec;
+			padding: 0.1em 0.2em;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.highlight code {
+			overflow: auto;
+		}
+
+		.hljs {
+			display: block;
+			padding: 0.5em 1em;
+			background: #23241f;
+		}
+
+		.hljs,
+		.hljs-tag,
+		.css .hljs-rules,
+		.css .hljs-value,
+		.css .hljs-function
+		.hljs-preprocessor,
+		.hljs-pragma {
+			color: #f8f8f2;
+		}
+
+		.hljs-strongemphasis,
+		.hljs-strong,
+		.hljs-emphasis {
+			color: #a8a8a2;
+		}
+
+		.hljs-bullet,
+		.hljs-blockquote,
+		.hljs-horizontal_rule,
+		.hljs-number,
+		.hljs-regexp,
+		.alias .hljs-keyword,
+		.hljs-literal,
+		.hljs-hexcolor {
+			color: #ae81ff;
+		}
+
+		.hljs-tag .hljs-value,
+		.hljs-code,
+		.hljs-title,
+		.css .hljs-class,
+		.hljs-class .hljs-title:last-child {
+			color: #a6e22e;
+		}
+
+		.hljs-link_url {
+			font-size: 80%;
+		}
+
+		.hljs-strong,
+		.hljs-strongemphasis {
+			font-weight: bold;
+		}
+
+		.hljs-emphasis,
+		.hljs-strongemphasis,
+		.hljs-class .hljs-title:last-child {
+			font-style: italic;
+		}
+
+		.hljs-keyword,
+		.hljs-function,
+		.hljs-change,
+		.hljs-winutils,
+		.hljs-flow,
+		.lisp .hljs-title,
+		.clojure .hljs-built_in,
+		.nginx .hljs-title,
+		.tex .hljs-special,
+		.hljs-header,
+		.hljs-attribute,
+		.hljs-symbol,
+		.hljs-symbol .hljs-string,
+		.hljs-tag .hljs-title,
+		.hljs-value,
+		.alias .hljs-keyword:first-child,
+		.css .hljs-tag,
+		.css .unit,
+		.css .hljs-important {
+			color: #F92672;
+		}
+
+		.hljs-function .hljs-keyword,
+		.hljs-class .hljs-keyword:first-child,
+		.hljs-constant,
+		.css .hljs-attribute {
+			color: #66d9ef;
+		}
+
+		.hljs-variable,
+		.hljs-params,
+		.hljs-class .hljs-title {
+			color: #f8f8f2;
+		}
+
+		.hljs-string,
+		.css .hljs-id,
+		.hljs-subst,
+		.haskell .hljs-type,
+		.ruby .hljs-class .hljs-parent,
+		.hljs-built_in,
+		.sql .hljs-aggregate,
+		.django .hljs-template_tag,
+		.django .hljs-variable,
+		.smalltalk .hljs-class,
+		.django .hljs-filter .hljs-argument,
+		.smalltalk .hljs-localvars,
+		.smalltalk .hljs-array,
+		.hljs-attr_selector,
+		.hljs-pseudo,
+		.hljs-addition,
+		.hljs-stream,
+		.hljs-envvar,
+		.apache .hljs-tag,
+		.apache .hljs-cbracket,
+		.tex .hljs-command,
+		.hljs-prompt,
+		.hljs-link_label,
+		.hljs-link_url {
+			color: #e6db74;
+		}
+
+		.hljs-comment,
+		.hljs-javadoc,
+		.java .hljs-annotation,
+		.python .hljs-decorator,
+		.hljs-template_comment,
+		.hljs-pi,
+		.hljs-doctype,
+		.hljs-deletion,
+		.hljs-shebang,
+		.apache .hljs-sqbracket,
+		.tex .hljs-formula {
+			color: #75715e;
+		}
+
+		.coffeescript .javascript,
+		.javascript .xml,
+		.tex .hljs-formula,
+		.xml .javascript,
+		.xml .vbscript,
+		.xml .css,
+		.xml .hljs-cdata,
+		.xml .php,
+		.php .xml {
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body itemscope itemtype='http://schema.org/WebPage'>
+	<amp-sidebar id='sidebar' layout='nodisplay'>
+		<h2>Categorias</h2>
+		<ul>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/back-end/'>
+						<span itemprop='name'>back-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/cultura/'>
+						<span itemprop='name'>cultura</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/data-science/'>
+						<span itemprop='name'>data-science</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/design/'>
+						<span itemprop='name'>design</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/devops/'>
+						<span itemprop='name'>devops</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/eventos/'>
+						<span itemprop='name'>eventos</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/talks/'>
+						<span itemprop='name'>talks</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/front-end/'>
+						<span itemprop='name'>front-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/mobile/'>
+						<span itemprop='name'>mobile</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/vagas/'>
+						<span itemprop='name'>vagas</span>
+					</a>
+				</li>
+			
+		</ul>
+		<h2>Veja também</h2>
+		<ul>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+					<span itemprop='name'>A engenharia</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Carreiras</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://eventos.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Nossos eventos</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='https://www.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Elo7</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a rel='external' itemprop='url' href='https://github.com/elo7/tech-blog'>Github</a>
+			</li>
+		</ul>
+		</ul>
+	</amp-sidebar>
+	<header>
+		<button class='sidebar-trigger' on='tap:sidebar'>☰</button>
+		<a rel='home' itemprop='url' href='/amp/home/' class='logo'></a></header>
+
+	<main itemscope itemtype='http://schema.org/Blog'>
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card post-content'>
+	<h1 itemprop='name' class='title'>API Persistente com Kotlin, Spring Boot, MySQL, JPA e Hibernate</h1>
+	<div class='post-meta'>
+		<p class='date'>
+			Publicado em: <time datetime='03/09/2018' itemprop='datePublished'>03/09/2018</time>
+			<meta itemprop='dateModified' content='03/09/2018'>
+		</p>
+
+		<article>
+			
+				<a data-author='davidrobert' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/amp/davidrobert/' class='author'>
+					<meta itemprop='url' content='/amp/davidrobert'>
+					<span itemprop='name' class='publisher' data-author='davidrobert'>@davidrobert</span>
+					<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+				</a>
+			
+		</article>
+	</div>
+	<div class='content' itemprop='articleBody'>
+		<p>Kotlin vem ganhando muita popularidade nos últimos tempos devido a seus recursos de produtividade e a possibilidade de utilização na plataforma Android.</p>
+<p>Devido à crescente popularidade do Kotlin, o Spring Framework também introduziu um suporte dedicado ao Kotlin.</p>
+<p>Neste post, você aprenderá a criar uma API do CRUD Restful com o Kotlin, Spring Boot e JPA.</p>
+<h2>O que vamos construir?</h2>
+<p>Neste post criaremos APIs Restful para armazenar dados de livros e categorias. As categorias têm uma lista de livros, e cada livro pode ter uma categoria. Vamos escrever APIs para criar, recuperar, e excluir livros e categorias. Um livro tem um id, um título e o nome do autor.</p>
+<p>Usaremos o MySQL como nossa fonte de dados e JPA e Hibernate para acessar os dados do banco de dados.</p>
+<h2>Criando a aplicação</h2>
+<p>Usaremos a ferramenta da Web Spring initializr para fazer o bootstrap da nossa aplicação.</p>
+<ol>
+<li>Acesse <a href="http://start.spring.io">http://start.spring.io</a></li>
+<li>Defina o nome do Artefato</li>
+<li>Selecione Kotlin na seção de linguagens</li>
+<li>Selecione a versão mais recente do Spring Boot</li>
+<li>Adicione dependências da Web, JPA e MySQL.</li>
+<li>Clique em Gerar Projeto para gerar e baixar o projeto.</li>
+</ol>
+<h2>Configurando o MySQL</h2>
+<p>Precisamos configurar a URL, o nome de usuário e a senha do banco de dados MySQL para que o Spring Boot possa ter acesso.</p>
+<p>Abra o arquivo <strong>src/main/resources/application.properties</strong> e inclua as seguintes propriedades nele:</p>
+<pre class="highlight"><code class="hljs apacheconf"><span class="hljs-comment">## Spring DATASOURCE (DataSourceAutoConfiguration &amp; DataSourceProperties)</span>
+<span class="hljs-attribute">spring</span>.datasource.url = jdbc:mysql://localhost:3306/test?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;allowMultiQueries=true&amp;useSSL=false
+<span class="hljs-attribute">spring</span>.datasource.username = root
+<span class="hljs-attribute">spring</span>.datasource.password =
+
+<span class="hljs-attribute">spring</span>.jpa.show-sql=false
+
+<span class="hljs-comment">## Hibernate Properties</span>
+
+<span class="hljs-comment"># The SQL dialect makes Hibernate generate better SQL for the chosen database</span>
+<span class="hljs-attribute">spring</span>.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+
+<span class="hljs-comment"># Hibernate ddl auto (create, create-drop, validate, update)</span>
+<span class="hljs-attribute">spring</span>.jpa.hibernate.ddl-auto = update
+</code></pre>
+<p>Não se esqueça de alterar <strong>spring.datasource.username</strong> e <strong>spring.datasource.password</strong> conforme sua configuração do MySQL.</p>
+<p>Além disso, a propriedade <strong>spring.jpa.hibernate.ddl-auto</strong> foi marcada para update. Essa propriedade atualiza o esquema do banco de dados sempre que você cria ou modifica os modelos de domínio na aplicação.</p>
+<h2>Criando os modelos do domínio</h2>
+<pre class="highlight"><code class="hljs kotlin">
+<span class="hljs-keyword">package</span> br.com.elo7.test.apijpa.model
+
+<span class="hljs-keyword">import</span> com.fasterxml.jackson.<span class="hljs-keyword">annotation</span>.JsonBackReference
+<span class="hljs-keyword">import</span> javax.persistence.*
+<span class="hljs-keyword">import</span> javax.validation.constraints.NotBlank
+
+<span class="hljs-meta">@Entity</span>
+<span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Livro</span> </span>(
+       <span class="hljs-meta">@Id</span> <span class="hljs-meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span>
+       <span class="hljs-keyword">val</span> id: <span class="hljs-built_in">Long</span> = <span class="hljs-number">0</span>,
+
+       <span class="hljs-meta">@get: NotBlank</span>
+       <span class="hljs-keyword">val</span> titulo: String = <span class="hljs-string">""</span>,
+
+       <span class="hljs-meta">@get: NotBlank</span>
+       <span class="hljs-keyword">val</span> autor: String = <span class="hljs-string">""</span>,
+
+       <span class="hljs-meta">@JsonBackReference</span>
+       <span class="hljs-meta">@ManyToOne(fetch = FetchType.EAGER)</span>
+       <span class="hljs-meta">@JoinColumn(name = <span class="hljs-meta-string">"categoria_id"</span>)</span>
+       <span class="hljs-keyword">val</span> categoria: Categoria? = <span class="hljs-literal">null</span>
+)
+</code></pre>
+<p>A classe Livro acabou ficando pequena e concisa. Isso porque no Kotlin os getters e setters são implicitamente definidos. Além disso, foi usada <strong>data class</strong>. Um data class gera automaticamente os métodos <strong>equals()</strong>, <strong>hashcode()</strong>, <strong>toString()</strong> e <strong>copy()</strong>.</p>
+<p>Há uma ressalva ao usar data classes com JPA: data classes requerem um construtor principal com pelo menos um parâmetro e o JPA requer um construtor sem argumentos. Para resolver este impasse, o Kotlin tem o <a href="https://kotlinlang.org/docs/reference/compiler-plugins.html#no-arg-compiler-plugin">no-arg compiler plugin</a> que gera um construtor sem argumentos que só pode ser chamado usando reflection.</p>
+<p>Observe que foi atribuído um valor padrão para todos os atributos na classe Livro. Isso é necessário para o construtor sem argumentos.</p>
+<pre class="highlight"><code class="hljs kotlin"><span class="hljs-keyword">package</span> br.com.elo7.test.apijpa.model
+
+<span class="hljs-keyword">import</span> com.fasterxml.jackson.<span class="hljs-keyword">annotation</span>.JsonManagedReference
+<span class="hljs-keyword">import</span> javax.persistence.*
+<span class="hljs-keyword">import</span> javax.validation.constraints.NotBlank
+
+<span class="hljs-meta">@Entity</span>
+<span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Categoria</span> </span>(
+       <span class="hljs-meta">@Id</span> <span class="hljs-meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span>
+       <span class="hljs-keyword">val</span> id: <span class="hljs-built_in">Long</span> = <span class="hljs-number">0</span>,
+
+       <span class="hljs-meta">@get: NotBlank</span>
+       <span class="hljs-keyword">val</span> nome: String = <span class="hljs-string">""</span>,
+
+       <span class="hljs-meta">@JsonManagedReference</span>
+       <span class="hljs-meta">@OneToMany(mappedBy = <span class="hljs-meta-string">"categoria"</span>, cascade = arrayOf(CascadeType.ALL)</span>, fetch = FetchType.EAGER)
+       <span class="hljs-keyword">var</span> livros: List&lt;Livro&gt; = emptyList()
+)
+</code></pre>
+<h2>Lidando com a referência circular</h2>
+<p>O livro tem referência para categoria, e categoria tem referência para uma lista de livros. Ocorre o problema clássico, a maldita referência circular. 😕</p>
+<p>A alternativa adotada para solucionar esse problema foi usar as annotations @JsonManagedReference e @JsonBackReference do Jackson. Entretanto, existem outras maneiras de resolver esse problema, como por exemplo utilizar o @JsonIgnore em uma das pontas.</p>
+<p>Uma outra alternativa muito boa seria criar um DTO. Deixando apenas as informações que você precisa na serialização e usando as annotations do Jackson nesse objeto, isso se precisar. Essa solução é um pouco mais trabalhosa no início, mas a manutenção tende a ser bem mais simples.</p>
+<p>Mais informações podem ser encontradas nesse post: <a href="http://www.baeldung.com/jackson-bidirectional-relationships-and-infinite-recursion">jackson-bidirectional-relationships-and-infinite-recursion</a></p>
+<h2>Criando os Repositorios</h2>
+<p>Vamos agora criar o repositório para acessar os dados do banco de dados.</p>
+<p>Como o ArticleRepository extende a interface JpaRepository, todos os métodos CRUD na entidade Livro estão prontamente disponíveis. O Spring Boot conecta-se automaticamente a uma implementação padrão do JpaRepository chamada SimpleJpaRepository em tempo de execução.</p>
+<pre class="highlight"><code class="hljs kotlin"><span class="hljs-keyword">package</span> br.com.elo7.test.apijpa.repository
+
+<span class="hljs-keyword">import</span> br.com.while42.example.apijpa.model.Livro
+<span class="hljs-keyword">import</span> org.springframework.<span class="hljs-keyword">data</span>.jpa.repository.JpaRepository
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Repository
+
+<span class="hljs-meta">@Repository</span>
+<span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">LivroRepository</span> : <span class="hljs-type">JpaRepository</span>&lt;<span class="hljs-type">Livro, Long</span>&gt;</span>
+</code></pre>
+<pre class="highlight"><code class="hljs kotlin"><span class="hljs-keyword">package</span> br.com.elo7.test.apijpa.repository
+
+<span class="hljs-keyword">import</span> br.com.while42.example.apijpa.model.Categoria
+<span class="hljs-keyword">import</span> br.com.while42.example.apijpa.model.Livro
+<span class="hljs-keyword">import</span> org.springframework.<span class="hljs-keyword">data</span>.jpa.repository.JpaRepository
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Repository
+
+<span class="hljs-meta">@Repository</span>
+<span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">CategoriaRepository</span> : <span class="hljs-type">JpaRepository</span>&lt;<span class="hljs-type">Categoria, Long</span>&gt;</span>
+</code></pre>
+<h2>Criando Endpoints</h2>
+<p>Agora vamos implementar os endpoints do controller para todas as operações CRUD nas entidades Livro e Categoria.</p>
+<pre class="highlight"><code class="hljs kotlin"><span class="hljs-keyword">package</span> br.com.elo7.test.apijpa.controller
+
+<span class="hljs-keyword">import</span> br.com.elo7.test.apijpa.model.Livro
+<span class="hljs-keyword">import</span> br.com.elo7.test.apijpa.repository.CategoriaRepository
+<span class="hljs-keyword">import</span> br.com.elo7.test.apijpa.repository.LivroRepository
+<span class="hljs-keyword">import</span> org.springframework.http.HttpStatus
+<span class="hljs-keyword">import</span> org.springframework.http.ResponseEntity
+<span class="hljs-keyword">import</span> org.springframework.web.bind.<span class="hljs-keyword">annotation</span>.*
+<span class="hljs-keyword">import</span> javax.validation.Valid
+
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-meta">@RequestMapping(<span class="hljs-meta-string">"/api"</span>)</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LivroController</span></span>(<span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> livroRepository: LivroRepository, <span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> categoriaRepository: CategoriaRepository) {
+
+   <span class="hljs-meta">@GetMapping(<span class="hljs-meta-string">"/livros"</span>)</span>
+   <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getAllLivros</span><span class="hljs-params">()</span></span>: List&lt;Livro&gt; =
+           livroRepository.findAll()
+
+   <span class="hljs-meta">@PostMapping(<span class="hljs-meta-string">"/livros"</span>)</span>
+   <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">createNewLivro</span><span class="hljs-params">(<span class="hljs-meta">@Valid</span> <span class="hljs-meta">@RequestBody</span> livro: <span class="hljs-type">Livro</span>)</span></span> {
+       livro.categoria?.let { categoriaRepository.save(it) }
+       livroRepository.save(livro)
+   }
+
+   <span class="hljs-meta">@GetMapping(<span class="hljs-meta-string">"/livros/{id}"</span>)</span>
+   <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getLivroById</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(value = <span class="hljs-meta-string">"id"</span>)</span> livroId: <span class="hljs-type">Long</span>)</span></span>: ResponseEntity&lt;Livro&gt; {
+       <span class="hljs-keyword">return</span> livroRepository.findById(livroId).map { livro -&gt;
+           ResponseEntity.ok(livro)
+       }.orElse(ResponseEntity.notFound().build())
+   }
+
+   <span class="hljs-meta">@DeleteMapping(<span class="hljs-meta-string">"/livros/{id}"</span>)</span>
+   <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">deleteLivroById</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(value = <span class="hljs-meta-string">"id"</span>)</span> livroId: <span class="hljs-type">Long</span>)</span></span>: ResponseEntity&lt;<span class="hljs-built_in">Void</span>&gt; {
+
+       <span class="hljs-keyword">return</span> livroRepository.findById(livroId).map { livro  -&gt;
+           livroRepository.delete(livro)
+           ResponseEntity&lt;<span class="hljs-built_in">Void</span>&gt;(HttpStatus.OK)
+       }.orElse(ResponseEntity.notFound().build())
+
+   }
+}
+</code></pre>
+<pre class="highlight"><code class="hljs kotlin"><span class="hljs-keyword">package</span> br.com.elo7.test.apijpa.controller
+
+<span class="hljs-keyword">import</span> br.com.elo7.test.apijpa.model.Categoria
+<span class="hljs-keyword">import</span> br.com.elo7.test.apijpa.repository.CategoriaRepository
+<span class="hljs-keyword">import</span> org.springframework.http.HttpStatus
+<span class="hljs-keyword">import</span> org.springframework.http.ResponseEntity
+<span class="hljs-keyword">import</span> org.springframework.web.bind.<span class="hljs-keyword">annotation</span>.*
+<span class="hljs-keyword">import</span> javax.validation.Valid
+
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-meta">@RequestMapping(<span class="hljs-meta-string">"/api"</span>)</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CategoriaController</span></span>(<span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> categoriaRepository: CategoriaRepository) {
+
+   <span class="hljs-meta">@GetMapping(<span class="hljs-meta-string">"/categorias"</span>)</span>
+   <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getAllCategorias</span><span class="hljs-params">()</span></span>: List&lt;Categoria&gt; =
+           categoriaRepository.findAll()
+
+   <span class="hljs-meta">@PostMapping(<span class="hljs-meta-string">"/categorias"</span>)</span>
+   <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">createNewCategoria</span><span class="hljs-params">(<span class="hljs-meta">@Valid</span> <span class="hljs-meta">@RequestBody</span> categoria: <span class="hljs-type">Categoria</span>)</span></span>: ResponseEntity&lt;Categoria&gt; {
+       categoriaRepository.save(categoria)
+       <span class="hljs-keyword">return</span> ResponseEntity.ok(categoria)
+   }
+
+   <span class="hljs-meta">@GetMapping(<span class="hljs-meta-string">"/categorias/{id}"</span>)</span>
+   <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getLivroById</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(value = <span class="hljs-meta-string">"id"</span>)</span> categoriaId: <span class="hljs-type">Long</span>)</span></span>: ResponseEntity&lt;Categoria&gt; {
+       <span class="hljs-keyword">return</span> categoriaRepository.findById(categoriaId).map { categoria -&gt;
+           ResponseEntity.ok(categoria)
+       }.orElse(ResponseEntity.notFound().build())
+   }
+
+   <span class="hljs-meta">@DeleteMapping(<span class="hljs-meta-string">"/categorias/{id}"</span>)</span>
+   <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">deleteLivroById</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(value = <span class="hljs-meta-string">"id"</span>)</span> categoriaId: <span class="hljs-type">Long</span>)</span></span>: ResponseEntity&lt;<span class="hljs-built_in">Void</span>&gt; {
+
+       <span class="hljs-keyword">return</span> categoriaRepository.findById(categoriaId).map { categoria  -&gt;
+           categoriaRepository.delete(categoria)
+           ResponseEntity&lt;<span class="hljs-built_in">Void</span>&gt;(HttpStatus.OK)
+       }.orElse(ResponseEntity.notFound().build())
+
+   }
+}
+</code></pre>
+<p>Os controllers definem as APIs para as operações CRUD.</p>
+<h2>Rodando a aplicação</h2>
+<pre class="highlight"><code class="hljs bash">mvn spring-boot:run
+</code></pre>
+<h2>Exemplos de utilização da API</h2>
+<pre class="highlight"><code class="hljs bash">curl -i -H <span class="hljs-string">"Content-Type: application/json"</span> -X POST -d <span class="hljs-string">'{"titulo": "Neuromancer", "autor": "Willian Gibson", "categoria": {"nome": "Ciberpunk"}}'</span> http://localhost:8080/api/livros
+
+curl -i -H <span class="hljs-string">'Accept: application/json'</span> http://localhost:8080/api/livros
+</code></pre>
+<h2>Estrutura final do projeto</h2>
+<p><div class='post-image'><amp-img on='tap:lightbox-0' role='button' tabindex='0' src='../../images/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate-1.png' layout='fixed' height='491' width='272' alt='Estrutura final do projeto'></amp-img><amp-image-lightbox id='lightbox-0' layout='nodisplay'></amp-image-lightbox></div></p>
+
+		<section class='share'>
+			<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/amp/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+				Compartilhar no facebook
+			</a>
+			<a href='https://twitter.com/intent/tweet?text=API Persistente com Kotlin, Spring Boot, MySQL, JPA e Hibernate&url=https://elo7.dev/amp/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+				Compartilhar no twitter
+			</a>
+		</section>
+	</div>
+	<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
+		<link href="/images/ico/elo7.png" itemprop="url"/>
+		<meta itemprop='width' content='100px'/>
+		<meta itemprop='height' content='100px'/>
+	</span>
+
+	<meta itemprop='headline' content='Neste post, você aprenderá a criar uma API do Restful com o Kotlin, Spring Boot e JPA'/>
+	<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop='name' content='Elo7 Tech'/>
+		<meta itemprop="url" content='https://elo7.dev'/>
+		<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+			<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+			<meta itemprop='width' content='100px'/>
+			<meta itemprop='height' content='100px'/>
+		</span>
+	</span>
+	<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+</article>
+	</main>
+	<footer itemscope itemtype='http://schema.org/Organization'>
+		<a rel='home' itemprop='url' href='/amp/home/'>elo7.dev © 2019</a>
+		<meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<amp-analytics type='googleanalytics'>
+		<script type='application/json'>
+			{
+				"vars": {
+					"account": "UA-3692628-29"
+				},
+				"triggers": {
+					"trackPageview": {
+						"on": "visible",
+						"request": "pageview"
+					}
+				}
+			}
+		</script>
+	</amp-analytics>
+</body>
+</html>

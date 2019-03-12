@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Neste post explico como aplicamos o uso de React Native no Elo7.">
+	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
+	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name="theme-color" content="#FDC24F">
+	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,react-native,ios,android">
+	<meta name="language" content="pt-br">
+	<meta name="title" content="Elo7 Tech - Minimizando código duplicado com React Native no Elo7">
+	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Minimizando código duplicado com React Native no Elo7">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<meta property="fb:app_id" content="644444999041914">
+	<meta property="fb:admins" content="100003324447975">
+
+	<meta property="og:site_name" content="Elo7 Tech">
+	<meta property="og:image" content="https://elo7.dev/images/cover/elo7.png">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Elo7 Tech - Minimizando código duplicado com React Native no Elo7">
+	<meta property="og:url" content="https://elo7.dev/minimizando-codigo-duplicado-com-react-native/">
+	<meta property="og:description" content="Neste post explico como aplicamos o uso de React Native no Elo7.">
+
+	<meta name="twitter:widgets:csp" content="on">
+	<meta name="twitter:card" content="summary_large_image">
+
+	<meta property="twitter:title" content="Elo7 Tech - Minimizando código duplicado com React Native no Elo7">
+	<meta property="twitter:domain" content="https://elo7.dev">
+	<meta property="twitter:url" content="https://elo7.dev/minimizando-codigo-duplicado-com-react-native/">
+	<meta property="twitter:description" content="Neste post explico como aplicamos o uso de React Native no Elo7.">
+	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+
+	<link rel="canonical" href="https://elo7.dev/minimizando-codigo-duplicado-com-react-native/">
+	
+		<link rel='amphtml' href='https://elo7.dev/amp/minimizando-codigo-duplicado-com-react-native/' />
+	
+
+	<title>Elo7 Tech - Minimizando código duplicado com React Native no Elo7</title>
+	<link rel="stylesheet" href="/reset.css">
+	<link rel="stylesheet" href="/main.css">
+	<link rel="stylesheet" href="/posts.css">
+	<link rel="stylesheet" href="/post.css">
+	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
+	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
+	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
+	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
+	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
+	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
+	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
+	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
+	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src="/js/vendor/async-define.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
+	<header class="left-pane">
+		<div class="logo-container">
+			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
+		</div>
+		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
+			<input id="categories-switch" type="checkbox" class="categories-switch">
+			<label for="categories-switch" class="selectable">
+				<h2 class="nav-title">Categorias</h2>
+			</label>
+			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
+				
+					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Back-end</span>
+					</a>
+				
+					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Cultura</span>
+					</a>
+				
+					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Data Science</span>
+					</a>
+				
+					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Design</span>
+					</a>
+				
+					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Devops</span>
+					</a>
+				
+					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Eventos</span>
+					</a>
+				
+					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Palestras</span>
+					</a>
+				
+					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Front-end</span>
+					</a>
+				
+					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Mobile</span>
+					</a>
+				
+					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Vagas</span>
+					</a>
+				
+			</nav>
+		</div>
+		<div class="navigation">
+			<input id="more-switch" type="checkbox" class="more-switch">
+			<label for="more-switch" class="selectable">
+				<h2 class="nav-title">Veja também</h2>
+			</label>
+			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
+					<span itemprop="name">A engenharia</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
+					<span itemprop="name">Carreiras</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
+					<span itemprop="name">Nossos eventos</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
+					<span itemprop="name">Elo7</span>
+				</a>
+			</nav>
+		</div>
+		<div class='social'>
+			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
+			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
+		</div>
+	</header>
+	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<img src='https://elo7.dev/images/cover/elo7.png' alt='' itemprop="url">
+	</figure>
+	<div class='post-content'>
+		<h1 itemprop='name' class='title'>Minimizando código duplicado com React Native no Elo7</h1>
+		<div class='post-meta'>
+			<p class='date'>
+				Publicado em: <time datetime='16/10/2017' itemprop='datePublished'>16/10/2017</time>
+				<meta itemprop='dateModified' content='16/10/2017'>
+			</p>
+
+			<article>
+				
+					<a data-author='aterribili' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/aterribili/' class='author'>
+						<meta itemprop='url' content='/aterribili'>
+						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
+						<p itemprop='name' class='publisher' data-author='aterribili'>@aterribili</p>
+					</a>
+				
+
+				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+			</article>
+		</div>
+		<div itemprop='articleBody'>
+			<h1>Minimizando código duplicado com React Native no Elo7</h1>
+<h2>Início</h2>
+<p>Quando entrei no Elo7, estávamos engatinhando no mundo dos aplicativos, tínhamos uma versão apenas para o Android, que era basicamente um <em>wrapper</em> de um conjunto de <em>webviews</em>, com um <em>drawer menu</em> nativo. Olhando o <em>roadmap</em>, percebemos que logo atacaríamos uma versão <em>mais</em> nativa (sem tantos <em>webviews</em>) para o iOS e Android. O tempo foi passando e logo as versões mais nativas foram amadurecendo. Então, percebemos que havia uma quantidade de código semelhante* em ambas plataformas: consumo de um endpoint/API, mapeamento de um JSON para um modelo e exibição na tela, etc.</p>
+<p>*Semelhante = códigos que fazem exatamente a mesma coisa, porém em linguagens diferentes (Android = Java, iOS = Objective-C)</p>
+<p>Com essas informações, definimos que iríamos minimizar esse código dúplicado, com a premissa de criar aplicativos nativos. Fomos atrás de material na internet e encontramos o <a href="https://github.com/dropbox/djinni">Djinni</a>, do Dropbox, que tinha uma proposta alinhada com algo que procurávamos, porém apenas a camada de UI (<em>User Interface</em>), teria que ser escrita em cada plataforma. Fizemos algumas provas de conceito e o resultado não foi o que esperávamos, o código escrito usando o Djinni era em C++, não abstraía a camada de UI e ainda assim era complexo de integrar com <em>apps</em> já existentes. Então assumimos que a melhor maneira de construir aplicativos na época, era manter a abordagem que já estava dando certo, cada plataforma com o seu código.</p>
+<h2>Meio</h2>
+<p>Novamente, olhando o <em>roadmap</em>, vimos que desenvolveríamos mais dois aplicativos destinados aos vendedores que, por sua vez, teriam algumas <em>features</em> já presentes nos aplicativos dos compradores (já mencionados). Nessa época, decidimos modularizar o que seria semelhante em mais de um aplicativo. Lembrando que ainda nesse ponto, <strong>não</strong> compartilhávamos código entre plataformas (Android e iOS).
+Dividimos as aplicações em <em>libraries</em> do iOS e Android:
+módulo de mensagens - responsável por abstrair <strong>quase</strong> tudo que tem relação com o nosso fluxo de troca de mensagens;
+módulo <em>commons</em> - responsável por abstrair fluxo de <em>login</em>, tela de perfil e tudo que considerávamos comum entre os aplicativos;
+módulo <em>networking</em> - responsável por abstrair nossa camada HTTP;</p>
+<p>Segue uma descrição resumida do cenário do Android, visto que do iOS é <strong>muito</strong> semelhante, ele será omitido:</p>
+<p>Talk7 consome as <em>libraries</em>:</p>
+<ul>
+<li>módulo de mensagens</li>
+<li>módulo <em>commons</em></li>
+<li>módulo <em>networking</em></li>
+</ul>
+<p>Elo7 consome as <em>libraries</em>:</p>
+<ul>
+<li>módulo de mensagens</li>
+<li>módulo <em>commons</em></li>
+<li>módulo <em>networking</em></li>
+</ul>
+<p>Com essa estrutura e a famosa <a href="https://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/">Clean Architecture</a>, alcançamos um reaproveitamento de código legal, com todas aquelas vantagens de evitar código duplicado que todo mundo já conhece, tem até uma <a href="https://www.youtube.com/watch?v=HK0fZRCJfYw">palestra minha com o Thiago Pilon</a> que falamos bastante a respeito da arquitetura que adotamos na época. (<a href="https://github.com/Pilon">Thiago Pilon</a>)</p>
+<h2>Fim (pelo menos até agora)</h2>
+<p>Eis que algumas <a href="https://facebook.github.io/react-native/showcase.html">pessoas/empresas</a> não paravam de falar que o React-Native (RN) era uma solução <strong>elegante</strong> para compartilhamento de código entre plataformas, que é uma ferramenta que permite escrever aplicativos nativos usando <a href="https://facebook.github.io/react/">React</a> e Javascript e tem como diretiva: aprenda uma vez e escreva aplicativos para as duas plataformas (Android e iOS, eventualmente até aplicações <a href="https://github.com/Microsoft/react-native-windows">WPF/Phone para Windows</a>).</p>
+<p>A proposta do RN é ambiciosa, gerar código nativo, componentes de UI nativos, integração com código já existente, <a href="https://facebook.github.io/react-native/docs/debugging.html">toolset</a> bem completo e até possibilidade de <a href="https://microsoft.github.io/code-push/">atualização de aplicativos já instalados</a>.</p>
+<p>Esses dois últimos pontos chamaram bastante nossa atenção, poderiamos colocar o RN na nossa base de código sem reescrever todo o projeto, uma vez que a integração com a parte nativa era possível e também poderíamos subir uma correção de <em>bug</em> sem a necessidade de passar por todo o processo de <em>review</em>/aprovação da Apple, isso sem falar que teríamos nossa base inteira atualizada em pouco tempo. &lt;3</p>
+<h3>Prova de conceito</h3>
+<p>Concluímos que a proposta do RN casava muito bem com aquela premissa lá do começo do post, de evitar código duplicado entre as plataformas (Android e iOS), então decidimos avaliar. Fizemos nossa prova de conceito e obtivemos sucesso, porém a integração deu bastante trabalho, e até que chegássemos à uma solução <em>production-ready</em>, investimos muito esforço. O problema era que os mantenedores do RN estão acostumados com uma estrutura de diretórios diferente da que temos aqui e não queríamos mudar nossa estrutura atual, afetando a produtividade do time modificando a maneira de trabalhar.. Então, tomamos a ousada decisão de fazer a integração de uma forma bem diferente da <a href="https://facebook.github.io/react-native/docs/integration-with-existing-apps.html">sugerida</a>.</p>
+<p>Estrutura de diretórios sugerida:</p>
+<pre class="highlight"><code class="hljs stylus">ios/
+android/
+package<span class="hljs-selector-class">.json</span>
+src/
+node_modules/
+...
+</code></pre>
+<p>Ou seja, nosso projeto estaria acoplado ao RN :/, e não queríamos isso, pois se um dia abandonarmos a ideia de utilizar RN, poderíamos simplesmente removê-lo. :)
+Por essa motivação, gostaríamos que a <em>lib</em> que abstraísse o RN também fosse uma dependência dos aplicativos atuais, algo como:</p>
+<p>Talk7 consome as libraries:</p>
+<ul>
+<li>lib de mensagens</li>
+<li>lib <em>commons</em></li>
+<li>lib <em>networking</em></li>
+<li><strong>lib react native</strong></li>
+</ul>
+<p>Após um tempo investido, aproximadamente 1 mês, alcançamos esse objetivo. O único incômodo causado para a parte do time que não estava totalmente envolvida com essa integração, era a instalação do <a href="https://www.npmjs.com">NPM</a> para podermos gerar o <em>bundle</em> com os componentes escritos em RN. Acredito que a explicação de como integramos o RN nos aplicativos daqui vale um outro <em>post</em>, pois é um tema bem extenso e não está no escopo do tema deste <em>post</em>.</p>
+<h2>Hoje</h2>
+<p>No Elo7, o RN vem cumprindo seu objetivo, por isso já temos diversas <em>features</em> feitas inteiramente em RN, que se comunicam com o nosso <em>backend</em> e são exibidas nas plataformas Android e iOS, compartilhando código Javascript de fácil manutenção.</p>
+<p>Bom, mas e a experiência do usuário, como fica?
+Não precisa ser igual, se você precisar de customizações específicas para cada plataforma, o RN resolve <a href="https://facebook.github.io/react-native/docs/platform-specific-code.html">muito bem</a>, vale a pena conferir.</p>
+<p>Aqui vai um exemplo de código em React Native, bem simples, com o objetivo de exibir um pouco a forma que utilizamos o RN aqui no Elo7:</p>
+<div data-snack-id="ryfaGFmUW" data-snack-platform="ios" data-snack-preview="true" data-snack-theme="light" style="overflow:hidden;background:#fafafa;border:1px solid rgba(0,0,0,.16);border-radius:4px;height:505px;width:100%"></div>
+<script async src="https://snack.expo.io/embed.js"></script>
+<p>Caso tenha dúvidas ou sugestões, pode comentar abaixo. (:</p>
+<p>Obrigado <a href="https://github.com/Pilon">Thiago Pilon</a> pela revisão e sugestões!</p>
+
+
+			<ul class='tag-list'>
+			
+				<li>
+					<a href='/tags/react-native/'>react-native</a>
+				</li>
+			
+				<li>
+					<a href='/tags/ios/'>ios</a>
+				</li>
+			
+				<li>
+					<a href='/tags/android/'>android</a>
+				</li>
+			
+			</ul>
+			<section class='share'>
+				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+				<div class='social-share'>
+					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/minimizando-codigo-duplicado-com-react-native/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+						Compartilhar no facebook
+					</a>
+					<a href='https://twitter.com/intent/tweet?text=Minimizando código duplicado com React Native no Elo7&url=https://elo7.dev/minimizando-codigo-duplicado-com-react-native/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+						Compartilhar no twitter
+					</a>
+					<a href='https://elo7.dev/minimizando-codigo-duplicado-com-react-native/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+						Copiar URL
+					</a>
+					<span class='copy-success'>Link copiado</span>
+					<input type='url' value='https://elo7.dev/minimizando-codigo-duplicado-com-react-native/?utm_source=share&utm_medium=copy' class='link-input'>
+				</div>
+			</section>
+		</div>
+
+		<meta itemprop='headline' content='Neste post explico como aplicamos o uso de React Native no Elo7.'/>
+		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop='name' content='Elo7 Tech'/>
+			<meta itemprop="url" content='https://elo7.dev'/>
+			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+				<meta itemprop='width' content='100px'/>
+				<meta itemprop='height' content='100px'/>
+			</span>
+		</span>
+		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+		<div id='disqus_thread'></div>
+
+		<script>
+			var disqus_shortname = 'engenhariaelo7';
+			var disqus_identifier = '16/10/2017:/minimizando-codigo-duplicado-com-react-native/';
+			var disqus_url = 'https://elo7.dev/minimizando-codigo-duplicado-com-react-native/';
+
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Habilite o JavaScript para ver os comentários</noscript>
+	</div>
+</article>
+<script async src="/js/post.js"></script>
+
+		
+	</main>
+	<footer itemscope itemtype="http://schema.org/Organization">
+		<a rel="home" itemprop="url" href="https://elo7.dev/" >
+			elo7.dev © 2019
+		</a>
+		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<script async src="https://www.google-analytics.com/analytics.js"></script>
+	<script async src="/js/analytics.js"></script>
+	<script async src="/js/github.js"></script>
+	<script async src="/js/vendor/events-amd.js"></script>
+	<script async src="/js/vendor/ajax.js"></script>
+	<script async src="/js/vendor/doc.js"></script>
+	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

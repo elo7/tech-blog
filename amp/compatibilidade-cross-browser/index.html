@@ -1,0 +1,806 @@
+<!doctype html>
+<html amp lang='pt-br'>
+<head>
+	<meta charset='utf-8'>
+	<script async src='https://cdn.ampproject.org/v0.js'></script>
+	<script async custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
+	<script async custom-element='amp-image-lightbox' src='https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js'></script>
+	<script async custom-element='amp-analytics' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js'></script>
+	<title>Elo7 Tech - O universo soturno da compatibilidade cross-browser</title>
+	<meta name='description' content='Em um mundo ideal, todos os browsers apresentariam o mesmo comportamento no carregamento e renderização das páginas da web. Para o terror de muitos desenvolvedores, existem determinadas situações em que uma implementação funciona perfeitamente no navegador utilizado na hora de testar o código, contudo ao abrir a mesma página com o mesmo código em outro, o site está quebrado...'>
+	<link rel='canonical' href='https://elo7.dev/compatibilidade-cross-browser/' />
+	<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>
+	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+	<style amp-custom>
+		body {
+			background-color: white;
+			font-family: 'Open Sans', sans-serif;
+			color: #666;
+		}
+
+		h1 {
+			color: #333;
+			font-size: 1.5em;
+			margin-bottom: 0;
+		}
+
+		h2, h3 {
+			color: #444;
+			font-size: 1.2em;
+		}
+
+		h3 {
+			font-weight: 300;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		p, li {
+			font-size: 0.9em;
+		}
+
+		ul {
+			padding-left: 1.5em;
+		}
+
+		article {
+			line-height: 1.8;
+			text-align: justify;
+		}
+
+		blockquote {
+			margin: 1em;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			font-size: 0.9em;
+			width: 100%;
+			text-align: left;
+		}
+
+		table thead th {
+			background-color: #4a4a4a;
+			color: white;
+		}
+
+		table th, table td {
+			padding: 0.2em 0.5em;
+		}
+
+		tr:nth-child(even) td {
+			background-color: #f3f3f3;
+		}
+
+		table th:not(:first-child), table td:not(:first-child) {
+			text-align: right;
+		}
+
+		body > header {
+			height: 60px;
+			box-sizing: border-box;
+			background-color: #FDC24F;
+			text-align: center;
+			padding-top: 0.8em;
+			padding-bottom: 0.8em;
+			position: sticky;
+			top: 0;
+			z-index: 10;
+		}
+
+		body > header a {
+			background: url('//images.elo7.com.br/assets/v3/desktop/svg/logo-elo7.svg') no-repeat;
+			background-size: 90px 35px;
+			width: 90px;
+			height: 35px;
+			display: inline-block;
+			filter: brightness(100);
+		}
+
+		.post-content, footer {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+
+		.post-content .content a, .post-content .content a:visited, .post-content .content a:hover {
+			cursor: pointer;
+			color: #000;
+			font-weight: 500;
+			text-decoration: underline;
+			word-break: break-word;
+		}
+
+		.post-content .post-image {
+			text-align: center;
+			display: block;
+		}
+
+		.post-content p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		main {
+			background-color: #ecebeb;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+
+		.post-card, .post-content, .publisher-info {
+			background: white;
+			margin-left: 2%;
+			padding: 1em;
+			margin-right: 3%;
+			box-shadow: rgba(72, 72, 72, 0.23) 0 0 5px;
+		}
+
+		.publisher-info {
+			margin-bottom: 1em;
+		}
+
+		.publisher-info h1 {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+		}
+
+		.card-devops {
+			border-left: 5px solid #7d7873;
+		}
+
+		.card-eventos {
+			border-left: 5px solid #fdb933;
+		}
+
+		.card-front-end {
+			border-left: 5px solid #c15eb4;
+		}
+
+		.card-back-end {
+			border-left: 5px solid #359c9c;
+		}
+
+		.card-mobile {
+			border-left: 5px solid #fa9c5e;
+		}
+
+		.card-vagas {
+			border-left: 5px solid #99c799;
+		}
+
+		.card-design {
+			border-left: 5px solid #7c9ec4;
+		}
+
+		.card-cultura {
+			border-left: 5px solid #f44336;
+		}
+
+		.post-card:not(:last-of-type) {
+			margin-bottom: 1em;
+		}
+
+		.post-card .title {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+			text-align: left;
+		}
+
+		.post-card .title a {
+			color: inherit;
+		}
+
+		.author, .date {
+			color: #888;
+			margin-bottom: 0;
+			margin-top: 0;
+			font-size: 0.9em;
+		}
+
+		.author a {
+			color: inherit;
+			margin-bottom: 1.5em;
+		}
+
+		#sidebar {
+			width: 60vw;
+			background-color: #4a4a4a;
+			color: #fff;
+			padding-right: 1em;
+			padding-left: 1em;
+		}
+
+		#sidebar li {
+			margin-bottom: 0.5em;
+		}
+
+		#sidebar ul {
+			margin-bottom: 1.5em;
+			list-style: none;
+			padding: 0;
+		}
+
+		#sidebar h2 {
+			margin-bottom: 0;
+		}
+
+		#sidebar a {
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		#sidebar a, #sidebar h2 {
+			color: inherit;
+		}
+
+		.sidebar-trigger {
+			position: absolute;
+			left: 5%;
+			background-color: transparent;
+			border: none;
+			color: #fff;
+			font-size: 1.8em;
+			padding: 0;
+		}
+
+		.category {
+			background-color: #73bebe;
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 0.8em;
+			padding: .5em;
+			border-radius: 3px;
+			display: inline-block;
+			margin-top: 2.3em;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			font-weight: 300;
+		}
+
+		.category:hover {
+			background-color: #73bebe;
+		}
+
+		.post-link {
+			border: 1px solid #fba702;
+			border-radius: 3px;
+			color: #fba702;
+			display: inline-block;
+			float: right;
+			margin-top: 1em;
+			padding: 0.8em;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s, color 0.3s;
+			font-size: 0.9em;
+		}
+
+		.post-link:hover {
+			background-color: #fba702;
+			color: #ffffff;
+		}
+
+		.social {
+			content: '';
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			background-position: center;
+			text-indent: -9999px;
+			margin-right: 0.5em;
+			background-size: contain;
+			vertical-align: top;
+		}
+
+		.social.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.social.linkedin {
+			background-image: url('/images/ico/ic-linkedin.svg');
+		}
+
+		.social.github {
+			background-image: url('/images/ico/ic-github.svg');
+		}
+
+		footer {
+			background-color: #4a4a4a;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		footer a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 0.8em;
+		}
+
+		.footer-social {
+			line-height: 0;
+		}
+
+		.footer-social a {
+			background-size: 2em 2em;
+			background-repeat: no-repeat;
+			display: inline-block;
+			height: 2em;
+			width: 2em;
+			overflow: hidden;
+			text-indent: -9999px;
+		}
+
+		.footer-social a + a {
+			margin-left: 0.5em;
+		}
+
+		.footer-social .github {
+			background-image: url('/images/github_icon.svg');
+		}
+		.footer-social .email {
+			background-image: url('/images/email_icon.png');
+		}
+
+		.footer-social .rss {
+			background-image: url('/images/ico/feed.svg');
+		}
+
+		.footer-social .twitter {
+            background-image: url('/images/ico/ic-negative-twitter.svg');
+        }
+
+		.share {
+			position: relative;
+			text-align: right;
+			margin-top: 1em;
+		}
+
+		.share .link-share {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				text-indent: -9999px;
+				margin-left: 0.5em;
+				text-align: left;
+		}
+
+		.share .link-share.facebook {
+			background-image: url('/images/ico/ic-facebook.svg');
+		}
+
+		.share .link-share.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.link-input {
+			opacity: 0;
+			position: absolute;
+			left: -9999px;
+		}
+
+		.copy-success {
+			font-size: 0.75em;
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			top: 125%;
+			transition: opacity ease-in-out 250ms;
+			text-align: center;
+		}
+
+		.copy-success.active {
+			opacity: 1;
+		}
+
+		code {
+			background-color: #ececec;
+			padding: 0.1em 0.2em;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.highlight code {
+			overflow: auto;
+		}
+
+		.hljs {
+			display: block;
+			padding: 0.5em 1em;
+			background: #23241f;
+		}
+
+		.hljs,
+		.hljs-tag,
+		.css .hljs-rules,
+		.css .hljs-value,
+		.css .hljs-function
+		.hljs-preprocessor,
+		.hljs-pragma {
+			color: #f8f8f2;
+		}
+
+		.hljs-strongemphasis,
+		.hljs-strong,
+		.hljs-emphasis {
+			color: #a8a8a2;
+		}
+
+		.hljs-bullet,
+		.hljs-blockquote,
+		.hljs-horizontal_rule,
+		.hljs-number,
+		.hljs-regexp,
+		.alias .hljs-keyword,
+		.hljs-literal,
+		.hljs-hexcolor {
+			color: #ae81ff;
+		}
+
+		.hljs-tag .hljs-value,
+		.hljs-code,
+		.hljs-title,
+		.css .hljs-class,
+		.hljs-class .hljs-title:last-child {
+			color: #a6e22e;
+		}
+
+		.hljs-link_url {
+			font-size: 80%;
+		}
+
+		.hljs-strong,
+		.hljs-strongemphasis {
+			font-weight: bold;
+		}
+
+		.hljs-emphasis,
+		.hljs-strongemphasis,
+		.hljs-class .hljs-title:last-child {
+			font-style: italic;
+		}
+
+		.hljs-keyword,
+		.hljs-function,
+		.hljs-change,
+		.hljs-winutils,
+		.hljs-flow,
+		.lisp .hljs-title,
+		.clojure .hljs-built_in,
+		.nginx .hljs-title,
+		.tex .hljs-special,
+		.hljs-header,
+		.hljs-attribute,
+		.hljs-symbol,
+		.hljs-symbol .hljs-string,
+		.hljs-tag .hljs-title,
+		.hljs-value,
+		.alias .hljs-keyword:first-child,
+		.css .hljs-tag,
+		.css .unit,
+		.css .hljs-important {
+			color: #F92672;
+		}
+
+		.hljs-function .hljs-keyword,
+		.hljs-class .hljs-keyword:first-child,
+		.hljs-constant,
+		.css .hljs-attribute {
+			color: #66d9ef;
+		}
+
+		.hljs-variable,
+		.hljs-params,
+		.hljs-class .hljs-title {
+			color: #f8f8f2;
+		}
+
+		.hljs-string,
+		.css .hljs-id,
+		.hljs-subst,
+		.haskell .hljs-type,
+		.ruby .hljs-class .hljs-parent,
+		.hljs-built_in,
+		.sql .hljs-aggregate,
+		.django .hljs-template_tag,
+		.django .hljs-variable,
+		.smalltalk .hljs-class,
+		.django .hljs-filter .hljs-argument,
+		.smalltalk .hljs-localvars,
+		.smalltalk .hljs-array,
+		.hljs-attr_selector,
+		.hljs-pseudo,
+		.hljs-addition,
+		.hljs-stream,
+		.hljs-envvar,
+		.apache .hljs-tag,
+		.apache .hljs-cbracket,
+		.tex .hljs-command,
+		.hljs-prompt,
+		.hljs-link_label,
+		.hljs-link_url {
+			color: #e6db74;
+		}
+
+		.hljs-comment,
+		.hljs-javadoc,
+		.java .hljs-annotation,
+		.python .hljs-decorator,
+		.hljs-template_comment,
+		.hljs-pi,
+		.hljs-doctype,
+		.hljs-deletion,
+		.hljs-shebang,
+		.apache .hljs-sqbracket,
+		.tex .hljs-formula {
+			color: #75715e;
+		}
+
+		.coffeescript .javascript,
+		.javascript .xml,
+		.tex .hljs-formula,
+		.xml .javascript,
+		.xml .vbscript,
+		.xml .css,
+		.xml .hljs-cdata,
+		.xml .php,
+		.php .xml {
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body itemscope itemtype='http://schema.org/WebPage'>
+	<amp-sidebar id='sidebar' layout='nodisplay'>
+		<h2>Categorias</h2>
+		<ul>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/back-end/'>
+						<span itemprop='name'>back-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/cultura/'>
+						<span itemprop='name'>cultura</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/data-science/'>
+						<span itemprop='name'>data-science</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/design/'>
+						<span itemprop='name'>design</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/devops/'>
+						<span itemprop='name'>devops</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/eventos/'>
+						<span itemprop='name'>eventos</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/talks/'>
+						<span itemprop='name'>talks</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/front-end/'>
+						<span itemprop='name'>front-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/mobile/'>
+						<span itemprop='name'>mobile</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/vagas/'>
+						<span itemprop='name'>vagas</span>
+					</a>
+				</li>
+			
+		</ul>
+		<h2>Veja também</h2>
+		<ul>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+					<span itemprop='name'>A engenharia</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Carreiras</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://eventos.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Nossos eventos</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='https://www.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Elo7</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a rel='external' itemprop='url' href='https://github.com/elo7/tech-blog'>Github</a>
+			</li>
+		</ul>
+		</ul>
+	</amp-sidebar>
+	<header>
+		<button class='sidebar-trigger' on='tap:sidebar'>☰</button>
+		<a rel='home' itemprop='url' href='/amp/home/' class='logo'></a></header>
+
+	<main itemscope itemtype='http://schema.org/Blog'>
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card post-content'>
+	<h1 itemprop='name' class='title'>O universo soturno da compatibilidade cross-browser</h1>
+	<div class='post-meta'>
+		<p class='date'>
+			Publicado em: <time datetime='28/09/2015' itemprop='datePublished'>28/09/2015</time>
+			<meta itemprop='dateModified' content='28/09/2015'>
+		</p>
+
+		<article>
+			
+				<a data-author='mottam' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/amp/mottam/' class='author'>
+					<meta itemprop='url' content='/amp/mottam'>
+					<span itemprop='name' class='publisher' data-author='mottam'>@mottam</span>
+					<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+				</a>
+			
+		</article>
+	</div>
+	<div class='content' itemprop='articleBody'>
+		<p><div class='post-image'><amp-img on='tap:lightbox-0' role='button' tabindex='0' src='../../images/compatibilidade-cross-browser-1.png' layout='fixed' height='140' width='272' alt='Alt &quot;Browsers&quot;'></amp-img><amp-image-lightbox id='lightbox-0' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Em um mundo ideal, todos os browsers apresentariam o mesmo comportamento no carregamento e renderização das páginas da web. Para o terror de muitos desenvolvedores, existem determinadas situações em que uma implementação funciona perfeitamente no navegador utilizado na hora de testar o código, contudo ao abrir a mesma página com o mesmo código em outro, o site está quebrado.</p>
+<p>Ao afirmar que um site é cross-browser, o desenvolvedor está se comprometendo a dar suporte às funcionalidades em todos os navegadores. O usuário deve conseguir alcançar seus objetivos, esteja ele usando um Internet Explorer 8 ou uma versão nightly do Firefox. Isto não necessariamente significa que a aparência de todos os browsers deve ser igual. Entretanto, é almejado que o desenvolvedor lide com as limitações de cada navegador da melhor forma possível.</p>
+<h2>Checkbox-hack</h2>
+<p>Um truque bem conhecido para exibir e esconder elementos sem javascript é o checkbox hack. A tag label contém a propriedade &quot;for&quot;, a qual faz referência a outro elemento. O comportamento esperado disso é: ao se clicar na label, o mesmo evento de click é disparado na referência. Complementando isso, os seletores de css permitem escolher elementos irmãos. Como resultado, é possível permitir ao usuário clicar em uma label, a qual selecionará um checkbox que, ao clicado, exibe um outro elemento.</p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">'toggle'</span>&gt;</span>Label text<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'toggle'</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'checkbox'</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>olá<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+</code></pre>
+<pre class="highlight"><code class="hljs css"><span class="hljs-selector-id">#toggle</span> {
+    <span class="hljs-attribute">display</span>: none; <span class="hljs-comment">/* Não queremos uma checkbox aparecendo à toa */</span>
+}
+
+<span class="hljs-selector-id">#toggle</span><span class="hljs-selector-pseudo">:checked</span> ~ <span class="hljs-selector-tag">div</span> { <span class="hljs-comment">/* Este é o nosso truque. Quando a checkbox estiver clicada, a div aparece */</span>
+    <span class="hljs-attribute">display</span>: block;
+}
+
+<span class="hljs-selector-tag">div</span> {
+    <span class="hljs-attribute">display</span>: none; <span class="hljs-comment">/* Inicialmente a div está invisível */</span>
+}
+</code></pre>
+<p>Tudo parece perfeito, certo? O Chrome ou o Firefox rodariam isso sem nenhum problema. O problema aparece na hora de testar no IE. O primeiro pensamento que vem à cabeça do desenvolvedor é &quot;Ué, será que o seletor '~' não funciona no IE8?&quot;. Uma rápida procurada na internet e ele já descobre que o seletor em questão funciona desde o IE7! Então por que não funciona?</p>
+<p>Bom, o comportamento de clique em um elemento invisível no IE8 não é o mesmo dos navegadores mais recentes. O problema não está no css, mas no fato da label estar apontando para um checkbox invisível (o que particularmente acredito que faça sentido. Se não está visível, não tem como este elemento ter sido clicado). Portanto, para que este truque funcione no IE, basta que o elemento esteja aparecendo (por mais que não esteja aparente ao usuário final).</p>
+<pre class="highlight"><code class="hljs css"><span class="hljs-selector-id">#toggle</span> {
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">top</span>: -<span class="hljs-number">9999px</span>;
+    <span class="hljs-attribute">left</span>: -<span class="hljs-number">9999px</span>;
+}
+</code></pre>
+<p>Resolvido o problema do IE, aparenta-se que tudo irá funcionar perfeitamente em outros navegadores principais. Entretanto, com a chegada dos smartphones e a popularização dos planos de dados, grande porção dos acessos agora são realizados pelo universo mobile, o que inicialmente não parece um problema. Pela suprema maioria dos smartphones rodarem Android (82.8%) ou iOS (13.9%), é esperado que os navegadores tenham comportamentos iguais à suas respectivas versões desktop.</p>
+<p>Infelizmente, este cenário é bom demais para ser verdade. Ainda é preciso lidar com o Android Browser.</p>
+<p>Em relação ao checkbox hack, pseudo-seletores (:checked, no caso) juntamente a seletores de elementos adjacentes (+ ou ~) não funcionam. Este seria o momento de desistir de tentar implementar essa funcionalidade sem javascript, o que seria péssimo. O poder computacional destes dispositivos é limitado e a experiência de utilização desses navegadores já é péssima. Ademais, resolver este problema com javascript implicaria na velocidade de carregamento da página, algo não desejável quando se trata de conexões por rede móvel.</p>
+<p>É aí que entram as resoluções sem sentido. Existe um hack para que este comportamento seja alcançado: colocar uma animação infinita no corpo do html.</p>
+<p>…?</p>
+<p>Estes são os momentos que intrigam o desenvolvedor, pois este exerce lógica em suas decisões de implementação. Eis que de súbito, existem formas de se resolver o problema tão lógicas quanto a de se colocar dentes caídos debaixo de um travesseiro a fim de resolver problemas financeiros.</p>
+<pre class="highlight"><code class="hljs css"><span class="hljs-selector-tag">body</span> { <span class="hljs-attribute">-webkit-animation</span>: bugfix infinite <span class="hljs-number">1s</span>; }
+@-<span class="hljs-keyword">webkit</span>-<span class="hljs-keyword">keyframes</span> bugfix { <span class="hljs-selector-tag">from</span> {<span class="hljs-attribute">padding</span>:<span class="hljs-number">0</span>;} <span class="hljs-selector-tag">to</span> {<span class="hljs-attribute">padding</span>:<span class="hljs-number">0</span>;} }
+</code></pre>
+<p>E com isso já é possível remover um item da lista de 'não funciona e não sei por quê' e movê-lo para a 'funciona, mas não me pergunte como'. Para finalizar, ainda existe o bug no iOS &lt; 6, o qual não permite que checkboxes sejam ativas com toques em labels. Mas tudo é solucionado com uma propriedade onclick vazia colocada diretamente no elemento.</p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'toggle'</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'checkbox'</span> <span class="hljs-attr">onclick</span> /&gt;</span>
+</code></pre>
+<p>O resultado disso é que algo relativamente trivial acaba se tornando um monstro que só funciona com rituais pagãos.</p>
+<h2>text-align-last</h2>
+<p>Outro problema comum é o de alinhar em uma só linha o conteúdo de um elemento de forma que este tenha o mesmo comportamento de um texto justificado. Este tipo de layout é bem comum quando se quer deixar dois ou mais botões em uma linha, com espaços iguais entre si e ocupando todo o elemento pai. Uma propriedade de css que existe há uma grande porção de tempo resolvia isso sem grandes problemas: a text-align-last. Contando que quando se tem uma linha, a primeira também é a última. No IE 5.5 bastava colocar esta propriedade como text-align-last: justify; e pronto. O efeito obtido já era o desejado.</p>
+<p>Nos navegadores atuais, o único que suporta tal propriedade é o Firefox. Pasmem, nem o Chrome dá suporte a isso. Não obstante, o suporte ao simples text-align é vasto. Este funciona normalmente, exceto na última linha. Uma forma inteligente de resolver esse problema é dada pelo uso do pseudo-seletor :after, criando uma linha vazia após a desejada. Isso torna possível justificar o conteúdo da linha que outrora não era capaz.</p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'parent'</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'son'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'son'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'son'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<pre class="highlight"><code class="hljs scss"><span class="hljs-comment">/* scss */</span>
+<span class="hljs-selector-class">.parent</span> {
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+    <span class="hljs-attribute">text-align</span>: justify;
+
+    <span class="hljs-selector-class">.son</span> {
+        <span class="hljs-attribute">display</span>: inline-block;
+        <span class="hljs-attribute">background</span>: black;
+        <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+        <span class="hljs-attribute">width</span>: <span class="hljs-number">20px</span>;
+    }
+
+    &amp;:after {
+        <span class="hljs-attribute">content</span>: <span class="hljs-string">''</span>; <span class="hljs-comment">/* conteúdo vazio */</span>
+        <span class="hljs-attribute">display</span>: inline-block; <span class="hljs-comment">/* com o inline-block este conteúdo tenta permanecer na mesma linha dos elementos irmãos */</span>
+        <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>; <span class="hljs-comment">/* porém, como a linha ocupa 100% do pai, isto força o início de outra linha */</span>
+    }
+}
+</code></pre>
+<p>Os problemas apresentados neste artigo são um ínfimo pedaço que o grande problema de cross-browsing representa. Além desses, existem problemas de manutenibilidade de código relacionados a arquivos separados de fallback, por exemplo. Em alguns casos, é possível que determinada fonte de código só seja carregada em determinados ambientes, como é o caso do IE. Neste caso, é comum criar um arquivo chamado ie.css e criar fallbacks específicos. O problema emerge quando o arquivo fica tão grande que passa a conflitar com outras regras.</p>
+<p>Em suma, não há um cenário belo no suporte a múltiplas plataformas. Os simples exemplos aqui apresentados demonstram que para alcançar determinados objetivos deixa-se de lado a intuitividade do código. Isto é decorrente da plataforma web estar presa a navegadores, o que deixa o desenvolvedor à mercê de suas implementações. Com isso, a fim de satisfazer os casos distintos de cada navegador, o desenvolvedor escreve códigos semelhantes a canivetes suíços.</p>
+<p>Espero que tenham apreciado este post. Caso tenham gostado, deixem abaixo suas experiências surreais relativas a este assunto!</p>
+
+		<section class='share'>
+			<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/amp/compatibilidade-cross-browser/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+				Compartilhar no facebook
+			</a>
+			<a href='https://twitter.com/intent/tweet?text=O universo soturno da compatibilidade cross-browser&url=https://elo7.dev/amp/compatibilidade-cross-browser/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+				Compartilhar no twitter
+			</a>
+		</section>
+	</div>
+	<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
+		<link href="/images/ico/elo7.png" itemprop="url"/>
+		<meta itemprop='width' content='100px'/>
+		<meta itemprop='height' content='100px'/>
+	</span>
+
+	<meta itemprop='headline' content='Em um mundo ideal, todos os browsers apresentariam o mesmo comportamento no carregamento e renderização das páginas da web. Para o terror de muitos desenvolvedores, existem determinadas situações em que uma implementação funciona perfeitamente no navegador utilizado na hora de testar o código, contudo ao abrir a mesma página com o mesmo código em outro, o site está quebrado...'/>
+	<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop='name' content='Elo7 Tech'/>
+		<meta itemprop="url" content='https://elo7.dev'/>
+		<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+			<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+			<meta itemprop='width' content='100px'/>
+			<meta itemprop='height' content='100px'/>
+		</span>
+	</span>
+	<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+</article>
+	</main>
+	<footer itemscope itemtype='http://schema.org/Organization'>
+		<a rel='home' itemprop='url' href='/amp/home/'>elo7.dev © 2019</a>
+		<meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<amp-analytics type='googleanalytics'>
+		<script type='application/json'>
+			{
+				"vars": {
+					"account": "UA-3692628-29"
+				},
+				"triggers": {
+					"trackPageview": {
+						"on": "visible",
+						"request": "pageview"
+					}
+				}
+			}
+		</script>
+	</amp-analytics>
+</body>
+</html>

@@ -1,0 +1,1638 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="No trabalho da Engenharia do Elo7, valorizamos bastante a qualidade do código que produzimos. Isso passa por várias etapas: boas práticas de código, programação pareada, revisões cuidadosas e, claro, testes. Muitos testes...">
+	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
+	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name="theme-color" content="#FDC24F">
+	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,java,mockito,tdd">
+	<meta name="language" content="pt-br">
+	<meta name="title" content="Elo7 Tech - Testes de código com Mockito">
+	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Testes de código com Mockito">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<meta property="fb:app_id" content="644444999041914">
+	<meta property="fb:admins" content="100003324447975">
+
+	<meta property="og:site_name" content="Elo7 Tech">
+	<meta property="og:image" content="https://elo7.dev/images/cover/testes-de-codigo-com-mockito.png">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Elo7 Tech - Testes de código com Mockito">
+	<meta property="og:url" content="https://elo7.dev/testes-codigo-mockito/">
+	<meta property="og:description" content="No trabalho da Engenharia do Elo7, valorizamos bastante a qualidade do código que produzimos. Isso passa por várias etapas: boas práticas de código, programação pareada, revisões cuidadosas e, claro, testes. Muitos testes...">
+
+	<meta name="twitter:widgets:csp" content="on">
+	<meta name="twitter:card" content="summary_large_image">
+
+	<meta property="twitter:title" content="Elo7 Tech - Testes de código com Mockito">
+	<meta property="twitter:domain" content="https://elo7.dev">
+	<meta property="twitter:url" content="https://elo7.dev/testes-codigo-mockito/">
+	<meta property="twitter:description" content="No trabalho da Engenharia do Elo7, valorizamos bastante a qualidade do código que produzimos. Isso passa por várias etapas: boas práticas de código, programação pareada, revisões cuidadosas e, claro, testes. Muitos testes...">
+	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+
+	<link rel="canonical" href="https://elo7.dev/testes-codigo-mockito/">
+	
+		<link rel='amphtml' href='https://elo7.dev/amp/testes-codigo-mockito/' />
+	
+
+	<title>Elo7 Tech - Testes de código com Mockito</title>
+	<link rel="stylesheet" href="/reset.css">
+	<link rel="stylesheet" href="/main.css">
+	<link rel="stylesheet" href="/posts.css">
+	<link rel="stylesheet" href="/post.css">
+	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
+	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
+	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
+	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
+	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
+	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
+	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
+	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
+	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src="/js/vendor/async-define.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
+	<header class="left-pane">
+		<div class="logo-container">
+			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
+		</div>
+		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
+			<input id="categories-switch" type="checkbox" class="categories-switch">
+			<label for="categories-switch" class="selectable">
+				<h2 class="nav-title">Categorias</h2>
+			</label>
+			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
+				
+					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Back-end</span>
+					</a>
+				
+					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Cultura</span>
+					</a>
+				
+					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Data Science</span>
+					</a>
+				
+					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Design</span>
+					</a>
+				
+					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Devops</span>
+					</a>
+				
+					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Eventos</span>
+					</a>
+				
+					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Palestras</span>
+					</a>
+				
+					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Front-end</span>
+					</a>
+				
+					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Mobile</span>
+					</a>
+				
+					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<span itemprop="name">Vagas</span>
+					</a>
+				
+			</nav>
+		</div>
+		<div class="navigation">
+			<input id="more-switch" type="checkbox" class="more-switch">
+			<label for="more-switch" class="selectable">
+				<h2 class="nav-title">Veja também</h2>
+			</label>
+			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
+					<span itemprop="name">A engenharia</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
+					<span itemprop="name">Carreiras</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
+					<span itemprop="name">Nossos eventos</span>
+				</a>
+				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
+					<span itemprop="name">Elo7</span>
+				</a>
+			</nav>
+		</div>
+		<div class='social'>
+			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
+			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
+		</div>
+	</header>
+	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<img src='https://elo7.dev/images/cover/testes-de-codigo-com-mockito.png' alt='' itemprop="url">
+	</figure>
+	<div class='post-content'>
+		<h1 itemprop='name' class='title'>Testes de código com Mockito</h1>
+		<div class='post-meta'>
+			<p class='date'>
+				Publicado em: <time datetime='02/05/2016' itemprop='datePublished'>02/05/2016</time>
+				<meta itemprop='dateModified' content='02/05/2016'>
+			</p>
+
+			<article>
+				
+					<a data-author='ljtfreitas' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/ljtfreitas/' class='author'>
+						<meta itemprop='url' content='/ljtfreitas'>
+						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
+						<p itemprop='name' class='publisher' data-author='ljtfreitas'>@ljtfreitas</p>
+					</a>
+				
+
+				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+			</article>
+		</div>
+		<div itemprop='articleBody'>
+			<p>No trabalho da Engenharia do Elo7, valorizamos bastante a qualidade do código que produzimos. Isso passa por várias etapas: boas práticas de código, programação pareada, revisões cuidadosas e, claro, testes. Muitos testes.</p>
+<p>Para as aplicações baseadas em Java (nossa principal linguagem), utilizamos o <a href="http://mockito.org/" target="_blank">Mockito</a> como ferramenta de criação de <em><a href="https://pt.wikipedia.org/wiki/Objeto_Mock" target="_blank">objetos mocks</a></em>. Neste post, vamos explorar as principais funcionalidades e alguns recursos avançados desse framework.</p>
+<h2>O básico</h2>
+<p>Não é o objetivo desse post explicar em detalhes a idéia de &quot;mock&quot;, mas podemos arranhar a superfície desse conceito: pense em um mock como um objeto criado em tempo de execução, que devolve <strong>respostas pré-configuradas</strong>. Mocks não são obrigatórios (ou mesmo desejados) em todas as circunstâncias; mocks são úteis em situações em que o código que desejamos testar possui <em>dependências de outros objetos</em> (outras classes da nossa aplicação, interfaces de terceiros, etc), e os detalhes dessas dependências não são importantes para o teste em questão. Queremos testar apenas o nosso código, e não depender do comportamento de outros objetos ou recursos de infraestrutura.</p>
+<p>No exemplo abaixo, temos uma classe chamada AddressSearch, que encapsula um serviço de pesquisa de endereços a partir de um CEP. Esse serviço externo pode ser um banco de dados dos endereços brasileiros (acessado por JDBC), ou um web service SOAP/REST disponibilizado por outra empresa. A interface que representa esse serviço devolve o resultado da pesquisa no formato String, separando os campos por colunas.</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearch</span> </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> AddressSearchService addressSearchService;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AddressSearch</span><span class="hljs-params">(AddressSearchService addressSearchService)</span> </span>{
+        <span class="hljs-keyword">this</span>.addressSearchService = addressSearchService;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Address <span class="hljs-title">findBy</span><span class="hljs-params">(ZipCode zipCode)</span> </span>{
+        String addressAsString = addressSearchService.searchByZipCode(zipCode.get());
+
+        String[] parts = addressAsString.split(<span class="hljs-string">"\\|"</span>);
+
+        Address address = <span class="hljs-keyword">new</span> Address();
+        address.setStreet(parts[<span class="hljs-number">0</span>]);
+        address.setCity(parts[<span class="hljs-number">1</span>]);
+        address.setState(parts[<span class="hljs-number">2</span>]);
+        address.setZipCode(<span class="hljs-keyword">new</span> ZipCode(parts[<span class="hljs-number">3</span>]));
+
+        <span class="hljs-keyword">return</span> address;
+    }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">AddressSearchService</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">searchByZipCode</span><span class="hljs-params">(String zipCode)</span></span>;
+}
+
+</code></pre>
+<p>E o nosso caso de teste:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-keyword">private</span> AddressSearch addressSearch;
+
+    <span class="hljs-meta">@Before</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> </span>{
+        addressSearch = <span class="hljs-keyword">new</span> AddressSearch(<span class="hljs-comment">/* o que passamos aqui??? */</span>);
+    }
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldFindAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        Address address = addressSearch.findBy(<span class="hljs-keyword">new</span> ZipCode(<span class="hljs-string">"12345678"</span>));
+
+        assertEquals(<span class="hljs-string">"Rua Beira Rio"</span>, address.getStreet()); <span class="hljs-comment">// como garantir que o endereço retornado é este?</span>
+        <span class="hljs-comment">// assert nos demais campos de Address</span>
+    }
+}
+
+</code></pre>
+<p>Vamos usar o Mockito para facilitar a escrita do nosso teste.</p>
+<h2>Introduzindo Mockito</h2>
+<h4>Criação de mocks</h4>
+<p>Existe mais de uma maneira de criar mocks no Mockito, que diferem umas das outras quanto à configuração mas com os mesmos resultados finais. Uma maneira é por configuração programática, usando a DSL do framework;</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> org.mockito.Mockito;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-keyword">private</span> AddressSearch addressSearch;
+
+    <span class="hljs-meta">@Before</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> </span>{
+        AddressSearchService mockAddressSearchService = Mockito.mock(AddressSearchService.class);
+        addressSearch = <span class="hljs-keyword">new</span> AddressSearch(mockAddressSearchService);
+    }
+</code></pre>
+<p>Para melhorar a legibilidade do código, podemos importar estáticamente os métodos da classe Mockito:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-keyword">private</span> AddressSearch addressSearch;
+
+    <span class="hljs-meta">@Before</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> </span>{
+        AddressSearchService mockAddressSearchService = mock(AddressSearchService.class);
+        addressSearch = <span class="hljs-keyword">new</span> AddressSearch(mockAddressSearchService);
+    }
+</code></pre>
+<p>Outra maneira é declarar os mocks utilizando anotações:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> org.mockito.MockitoAnnotations;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> AddressSearchService mockAddressSearchService;
+
+    <span class="hljs-meta">@Before</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> </span>{
+        MockitoAnnotations.initMocks(<span class="hljs-keyword">this</span>);
+
+        addressSearch = <span class="hljs-keyword">new</span> AddressSearch(mockAddressSearchService); <span class="hljs-comment">// mockAddressSearchService inicializado</span>
+    }
+</code></pre>
+<p>Adicionamos a anotação <em>@Mock</em> ao atributo, e, no setup do nosso teste, incluímos uma chamada para a classe MockitoAnnotations, que é responsável por processar as anotações da classe enviada para o método <em>initMocks</em>. Podemos utilizar um <a href="https://github.com/junit-team/junit/wiki/Test-runners" target="_blank">TestRunner</a> do Mockito que faz o mesmo trabalho:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> AddressSearchService mockAddressSearchService;
+
+    <span class="hljs-meta">@Before</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> </span>{
+        addressSearch = <span class="hljs-keyword">new</span> AddressSearch(mockAddressSearchService); <span class="hljs-comment">// mockAddressSearchService inicializado</span>
+    }
+</code></pre>
+<p>Observe no topo a anotação @RunWith (do JUnit), passando como parâmetro a classe MockitoJUnitRunner do Mockito. Pessoalmente considero essa configuração a mais fácil de utilizar no Mockito, pois simplifica o código do teste. Mas pode haver situações em que você quer utilizar mocks, porém o seu teste já utiliza o TestRunner de algum outro framework (o JUnit permite parametrizar apenas um runner). Nesses casos, saber criar mocks sem utilizar o MockitoJUnitRunner pode ser útil.</p>
+<p>Uma terceira maneira é utilizar um <a href="https://github.com/junit-team/junit/wiki/Rules" target="_blank">TestRule</a> fornecido pelo Mockito:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> org.mockito.Mock;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-meta">@Rule</span>
+    <span class="hljs-keyword">public</span> MockitoRule mockitoRule = MockitoJUnit.rule();
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> AddressSearchService mockAddressSearchService;
+
+    <span class="hljs-meta">@Before</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> </span>{
+        addressSearch = <span class="hljs-keyword">new</span> AddressSearch(mockAddressSearchService); <span class="hljs-comment">// mockAddressSearchService inicializado</span>
+    }
+</code></pre>
+<p>O MockitoRule realiza o mesmo processamento de anotações demonstrado nos exemplos anteriores. Também é útil ter essa opção se você não puder utilizar o MockitoJUnitRunner (lembre que os campos anotados com @Rule devem ser públicos!).</p>
+<h4>Injeção de mocks</h4>
+<p>Nos exemplos acima, estamos injetando manualmente nosso mock dentro do objeto que estamos testando, através do construtor da classe AddressSearch. Esse é um trabalho que o Mockito também é capaz de realizar, com o uso da anotação @InjectMocks:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> AddressSearchService mockAddressSearchService;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> AddressSearch addressSearch;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldFindAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">//addressSearch pronto para uso, com o mockAddressSearchService injetado</span>
+    }
+</code></pre>
+<p>O atributo anotado com @InjectMocks será instanciado pelo Mockito, e todos os atributos anotados com @Mock e @Spy (veremos o que é um &quot;spy&quot; em detalhes mais à frente) são considerados dependências desse objeto. Essa &quot;injeção de dependências&quot; realizada pelo Mockito segue algumas regras:</p>
+<ul>
+<li>
+<p>Injeção por construtor</p>
+<p>Para construir o objeto, a primeira tentativa é via <strong>construtor</strong>. O maior construtor da classe é escolhido, e os argumentos são resolvidos a partir dos mocks/spies declarados no teste. Dois pontos de atenção aqui são: se algum argumento não for encontrado no teste, <em>null</em> é passado; se algum argumento &quot;não mockável&quot; for esperado (um tipo primitivo, por exemplo), a injeção por construtor não acontece.</p>
+</li>
+<li>
+<p>Injeção por propriedade (<em>setter</em>)</p>
+<p>Se a injeção por construtor não acontece, a segunda tentativa é através das <strong>propriedades</strong> do objeto. Lembre-se que uma <em>propriedade</em> em Java não é necessariamente um campo declarado na classe, e sim os campos expostos via getter/setter. Os mocks são resolvidos pelo tipo (em caso de ambiguidade, além do tipo, é utilizado o nome). O construtor utilizado será o construtor padrão (sem argumentos).</p>
+</li>
+<li>
+<p>Injeção por campos</p>
+<p>Se a injeção por propriedades também não acontece (caso de não existirem <em>setters</em>), a terceira e última tentativa do Mockito é injetar os mocks diretamente nos <strong>campos do objeto</strong>, utilizando <strong>reflection</strong>. Assim como na injeção por propriedade, os mocks são resolvidos pelo tipo e, em caso de ambiguidade, pelo nome. O construtor padrão da classe é o construtor utilizado.</p>
+</li>
+</ul>
+<p>Se nenhuma dessas situações puder ser satisfeita, a injeção dos mocks não é realizada e você deverá fornecer as dependências do seu objeto manualmente. Lembre-se também que o Mockito não é um framework de injeção de dependências, então não espere que um grafo complexo de mocks ou objetos reais seja resolvido.</p>
+<h4>Configuração de mocks</h4>
+<p>Nos exemplos acima, declaramos um mock da interface AddressSearchService e inicializamos o objeto AddressSearch, que queremos testar. Vamos rever nosso caso de teste:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> AddressSearchService mockAddressSearchService;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> AddressSearch addressSearch;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldFindAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        Address address = addressSearch.findBy(<span class="hljs-keyword">new</span> ZipCode(<span class="hljs-string">"12345678"</span>));
+
+        assertEquals(<span class="hljs-string">"Rua Beira Rio"</span>, address.getStreet());
+        assertEquals(<span class="hljs-string">"São Paulo"</span>, address.getCity());
+        assertEquals(<span class="hljs-string">"SP"</span>, address.getState());
+        assertEquals(<span class="hljs-keyword">new</span> ZipCode(<span class="hljs-string">"12345678"</span>), address.getZipCode());
+    }
+}
+</code></pre>
+<p>O cenário que montamos consiste em uma busca por um determinado CEP, e esperamos um objeto Address contendo os dados devolvidos pelo serviço de busca de endereços. Nosso teste ainda não passa, pois precisamos configurar o mock para devolver o endereço esperado. Recapitulando o início do post, um mock é um objeto <strong>que devolve respostas pré-configuradas</strong>, e vamos aprender como fazer isso com a DSL do Mockito:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.junit.Assert.*;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+<span class="hljs-keyword">import</span> org.mockito.InjectMocks;
+<span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.Mockito;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> AddressSearchService mockAddressSearchService;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> AddressSearch addressSearch;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldFindAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        String zipCode = <span class="hljs-string">"12345678"</span>;
+
+        String addressResult = <span class="hljs-string">"Rua Beira Rio|São Paulo|SP|12345678"</span>;
+
+        Mockito.when(mockAddressSearchService.searchByZipCode(zipCode)).thenReturn(addressResult);
+
+        Address address = addressSearch.findBy(<span class="hljs-keyword">new</span> ZipCode(zipCode));
+
+        assertEquals(<span class="hljs-string">"Rua Beira Rio"</span>, address.getStreet());
+        assertEquals(<span class="hljs-string">"São Paulo"</span>, address.getCity());
+        assertEquals(<span class="hljs-string">"SP"</span>, address.getState());
+        assertEquals(<span class="hljs-keyword">new</span> ZipCode(<span class="hljs-string">"12345678"</span>), address.getZipCode());
+    }
+}
+</code></pre>
+<p>No exemplo acima, o método chave é o <em>Mockito.when</em>. O que estamos dizendo ao Mockito é essencialmente: &quot;quando o método searchByZipCode, do objeto mockAddressSearchService, for invocado com um argumento igual a ‘12345678’, devolva esse resultado&quot;. A DSL de fácil entendimento e leitura do Mockito é um dos motivos da larga adoção desse framework. Detalhe: a literatura de testes de código chama esse tipo de configuração de <strong>expectativas</strong>.</p>
+<p>Podemos também utilizar o import estático para omitir o &quot;Mockito.&quot;:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.junit.Assert.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+<span class="hljs-keyword">import</span> org.mockito.InjectMocks;
+<span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> AddressSearchService mockAddressSearchService;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> AddressSearch addressSearch;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldFindAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        String zipCode = <span class="hljs-string">"12345678"</span>;
+
+        String addressResult = <span class="hljs-string">"Rua Beira Rio|São Paulo|SP|12345678"</span>;
+
+        when(mockAddressSearchService.searchByZipCode(zipCode)).thenReturn(addressResult);
+
+        Address address = addressSearch.findBy(<span class="hljs-keyword">new</span> ZipCode(zipCode));
+
+        assertEquals(<span class="hljs-string">"Rua Beira Rio"</span>, address.getStreet());
+        assertEquals(<span class="hljs-string">"São Paulo"</span>, address.getCity());
+        assertEquals(<span class="hljs-string">"SP"</span>, address.getState());
+        assertEquals(<span class="hljs-keyword">new</span> ZipCode(<span class="hljs-string">"12345678"</span>), address.getZipCode());
+    }
+}
+</code></pre>
+<p>O método <em>when</em> oferece alguns outros recursos. Imagine que o método que estamos testando fizesse uso do &quot;searchByZipCode&quot; mais de uma vez; poderíamos configurar <strong>chamadas consecutivas</strong> para nosso mock:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-comment">// código omitido</span>
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldFindAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// código omitido</span>
+
+        when(mockAddressSearchService.searchByZipCode(zipCode))
+            .thenReturn(addressResult, <span class="hljs-string">"resultado da segunda chamada"</span>, <span class="hljs-string">"resultado da terceira chamada"</span>);
+
+        <span class="hljs-comment">// ou alternativamente,</span>
+
+        when(mockAddressSearchService.searchByZipCode(zipCode))
+            .thenReturn(addressResult)
+            .thenReturn(<span class="hljs-string">"resultado da segunda chamada"</span>)
+            .thenReturn(<span class="hljs-string">"resultado da terceira chamada"</span>);
+    }
+}
+</code></pre>
+<p>E se nosso código implementasse algum tratamento de erro na chamada do método &quot;searchByZipCode&quot; (digamos, envolvendo a chamada um try/catch específico para o caso de endereço não encontrado)? Podemos instruir nosso mock a, ao invés de devolver um retorno de método, lançar uma exceção:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-comment">// código omitido</span>
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldFindAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// código omitido</span>
+
+        when(mockAddressSearchService.searchByZipCode(zipCode))
+            .thenThrow(ZipCodeNotFoundException.class);
+
+        <span class="hljs-comment">// ou alternativamente,</span>
+
+        when(mockAddressSearchService.searchByZipCode(zipCode))
+            .thenThrow(<span class="hljs-keyword">new</span> ZipCodeNotFoundException(<span class="hljs-string">"zipcode not found"</span>)));
+    }
+}
+</code></pre>
+<h4>Argument matchers</h4>
+<p>Um detalhe importante na configuração dos mocks são os argumentos do método configurado. No nosso teste, estamos configurando a invocação do método &quot;searchByZipCode&quot; com um argumento do tipo String cujo valor é &quot;12345678&quot;. E se nosso código invocasse esse método com um argumento de valor diferente, o que aconteceria? A resposta é que o Mockito NÃO devolveria a resposta que desejamos, pois a configuração do mock esperava um argumento com um valor específico.</p>
+<p>Esse é o cenário ideal, pois torna o teste mais seguro e a configuração mais assertiva, uma vez que estamos trabalhando com os valores que definimos no nosso teste. Mas existem diversas situações onde podemos/queremos flexibilizar nosso teste; no exemplo acima, por exemplo, poderíamos mover a configuração do mock para o setup do teste, e configurar a resposta para &quot;qualquer String&quot; enviada para o método. Podemos fazer isso utilizando os <strong>argument matchers</strong> do Mockito:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.junit.Assert.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+<span class="hljs-keyword">import</span> org.mockito.InjectMocks;
+<span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> AddressSearchService mockAddressSearchService;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> AddressSearch addressSearch;
+
+    <span class="hljs-meta">@Before</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> </span>{
+        String addressResult = <span class="hljs-string">"Rua Beira Rio|São Paulo|SP|12345678"</span>;
+
+        when(mockAddressSearchService.searchByZipCode(anyString())).thenReturn(addressResult);
+    }
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldFindAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        Address address = addressSearch.findBy(<span class="hljs-keyword">new</span> ZipCode(<span class="hljs-string">"12345678"</span>));
+
+        assertEquals(<span class="hljs-string">"Rua Beira Rio"</span>, address.getStreet());
+        assertEquals(<span class="hljs-string">"São Paulo"</span>, address.getCity());
+        assertEquals(<span class="hljs-string">"SP"</span>, address.getState());
+        assertEquals(<span class="hljs-keyword">new</span> ZipCode(<span class="hljs-string">"12345678"</span>), address.getZipCode());
+    }
+}
+</code></pre>
+<p>Nossa configuração do mock está levemente diferente; o argumento que estamos passando para o método &quot;searchByZipCode&quot; é o matcher <em>anyString()</em>. Agora, o que estamos dizendo ao Mockito é: &quot;quando o método searchByZipCode, do objeto mockAddressSearchService, for invocado com uma String qualquer, devolva esse resultado&quot;. Os argument matchers permitem maior flexibilidade em situações onde você pode se dar a esse luxo, ou os argumentos do método mockado são menos importantes no seu teste, ou você simplesmente não é capaz de prever os valores. O Mockito possui dezenas de matchers prontos para uso: <em>anyInt(), any(Class<T>), isNull(), notNull(), same()</em>. Para a lista completa, consulte os métodos disponíveis na classe <em>Matchers</em> (os métodos estarão disponíveis quando você importar estáticamente a classe Mockito, que por sua vez extende Matchers) e <em>AdditionalMatchers</em>.</p>
+<p>Um detalhe importante: se o método que estamos configurando possui mais de um argumento, e queremos utilizar argument matchers, teremos que utilizá-los em <strong>todos</strong> os argumentos. Vamos imaginar que nossa interface AddressSearchService possui um método que devolve o CEP a partir de um logradouro, uma cidade e um estado:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">AddressSearchService</span> </span>{
+
+    <span class="hljs-comment">//codigo omitido</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">searchZipCodeByAddress</span><span class="hljs-params">(String street, String city, String state)</span></span>;
+}
+</code></pre>
+<p>E queremos mockar esse método para nossos testes:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> AddressSearchService mockAddressSearchService;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> AddressSearch addressSearch;
+
+    <span class="hljs-meta">@Before</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// codigo omitido</span>
+
+        <span class="hljs-comment">// essa configuração não funciona!</span>
+        when(mockAddressSearchService.searchZipCodeByAddress(anyString(), <span class="hljs-string">"São Paulo"</span>, <span class="hljs-string">"SP"</span>))
+            .thenReturn(<span class="hljs-string">"12345678"</span>);
+
+        <span class="hljs-comment">// correto - matchers em todos os argumentos</span>
+        when(mockAddressSearchService.searchZipCodeByAddress(anyString(), eq(<span class="hljs-string">"São Paulo"</span>), eq(<span class="hljs-string">"SP"</span>))
+            .thenReturn(<span class="hljs-string">"12345678"</span>);
+    }
+
+    <span class="hljs-comment">// codigo omitido</span>
+}
+</code></pre>
+<h4>Argument matchers do Hamcrest</h4>
+<p>O <a href="http://hamcrest.org/">Hamcrest</a> é um framework de argument matchers bastante utilizado em conjunto com o Junit. O Mockito fornece matchers iguais/equivalentes à maioria dos existentes no Hamcrest, mas se você preferir utilizar essa biblioteca (por exemplo, por ter implementado matchers customizados orientados ao domínio da sua aplicação), é fácil integrá-los ao Mockito. Existe um matcher especial chamado <em>argThat()</em>, cujo parâmetro é um Matcher do Hamcrest.</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.junit.Assert.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.hamcrest.Matchers.*;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+<span class="hljs-keyword">import</span> org.mockito.InjectMocks;
+<span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> AddressSearchService mockAddressSearchService;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> AddressSearch addressSearch;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldFindAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        String zipCode = <span class="hljs-string">"12345678"</span>;
+
+        String addressResult = <span class="hljs-string">"Rua Beira Rio|São Paulo|SP|12345678"</span>;
+
+        when(mockAddressSearchService.searchByZipCode(argThat(equalTo(zipCode)))) <span class="hljs-comment">// equalTo é um matcher do Hamcrest</span>
+            .thenReturn(addressResult);
+
+        <span class="hljs-comment">// codigo omitido</span>
+    }
+}
+</code></pre>
+<p>Até aqui, aprendemos como configurar o método de um mock para devolver a resposta que queremos. Mas o que acontece se um método <strong>não configurado</strong> for invocado?</p>
+<h4>Respostas</h4>
+<p>Esse detalhe é uma diferença importante quando comparamos o Mockito com outros frameworks; bibliotecas como o <a href="http://www.jmock.org/" target="_blank">JMock</a> ou o <a href="http://easymock.org/" target="_blank">EasyMock</a> lançam exceções quando métodos não configurados são invocados; o Mockito possui uma abstração chamada <em>Answer</em> que representa o retorno de método de um mock. Vamos entender mais detalhadamente como isso funciona.</p>
+<h5>Resposta &quot;padrão&quot;</h5>
+<p>Até aqui, declaramos nosso mock da seguinte forma:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> AddressSearchService mockAddressSearchService;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> AddressSearch addressSearch;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldFindAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        Address address = addressSearch.findBy(<span class="hljs-keyword">new</span> ZipCode(<span class="hljs-string">"12345678"</span>));
+    }
+}
+</code></pre>
+<p>A declaração acima configura nosso mock com o Answer &quot;padrão&quot;. O comportamento dessa resposta é: se algum método <strong>não configurado</strong> desse mock for invocado,</p>
+<ul>
+<li>Se o método retornar algum tipo primitivo ou um tipo wrapper, devolve um retorno apropriado e consistente (exemplo: se o método retornar um int ou Integer, devolve 0; se retornar long ou Long, devolve 0; se retornar boolean ou Boolean, devolve false);</li>
+<li>Se o método retornar uma <em>Collection</em>, devolve uma coleção vazia (usando os tipos mais comuns. exemplo: por padrão devolve ArrayList se o método retorna uma Collection ou List; se o método devolver um Set, retorna um HashSet; se o método devolver um Map, retorna um HashMap);</li>
+<li>Se o método invocado for o <em>toString()</em>, devolve uma descrição do mock;</li>
+<li>Para qualquer outro caso, devolve <em>null</em>.</li>
+</ul>
+<p>Outras respostas estão disponíveis. Podemos mudar o Answer utilizado pelo nosso mock, usando o parâmetro <em>answer</em> da anotação @Mock. Vamos explorar outra opção:</p>
+<h5>RETURNS_SMART_NULLS</h5>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>(answer = Answers.RETURNS_SMART_NULLS)
+    <span class="hljs-keyword">private</span> AddressSearchService mockAddressSearchService;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> AddressSearch addressSearch;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldFindAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        Address address = addressSearch.findBy(<span class="hljs-keyword">new</span> ZipCode(<span class="hljs-string">"12345678"</span>));
+    }
+}
+</code></pre>
+<p>Dessa vez, estamos utilizando o Answer <em>RETURNS_SMART_NULLS</em>. O comportamento dessa resposta é diferente: se algum método <strong>não configurado</strong> desse mock for invocado,</p>
+<ul>
+<li>Se o método retornar algum tipo primitivo ou um tipo wrapper, devolve um retorno apropriado e consistente (exemplo: se o método retornar um int ou Integer, devolve 0; se retornar long ou Long, devolve 0; se retornar boolean ou Boolean, devolve false);</li>
+<li>Se o método retornar uma <em>Collection</em>, devolve uma coleção vazia (usando os tipos mais comuns);</li>
+<li>Se o método retornar um <em>array</em>, devolve uma array vazio;</li>
+<li>Se o método retornar uma <em>String</em>, devolve uma String vazia;</li>
+<li>Se o método invocado for o <em>toString()</em>, devolve uma descrição do mock;</li>
+<li>Para qualquer outro caso, devolve um <em>&quot;smart null&quot;</em>.</li>
+</ul>
+<p>E o que é um &quot;smart null&quot;? É um objeto que irá lançar uma <em>SmartNullPointerException</em> quando o seu código tentar utilizá-lo. A vantagem aqui é que a mensagem gerada pelo Mockito (e exibida no relatório de erro do Junit) irá lhe mostrar exatamente qual chamada de método originou esse NullPointerException, e como você deve configurá-lo para que isso não aconteça; com a resposta padrão você teria que procurar o problema no seu código de teste.</p>
+<pre class="highlight"><code class="hljs java">org.mockito.exceptions.verification.SmartNullPointerException:
+You have a NullPointerException here:
+-&gt; at com.elo7.mockito.AddressSearch.findBy(AddressSearch.java:<span class="hljs-number">12</span>)
+because <span class="hljs-keyword">this</span> method call was *not* stubbed correctly:
+-&gt; at com.elo7.mockito.AddressSearch.findBy(AddressSearch.java:<span class="hljs-number">12</span>)
+mockAddressSearchService.searchByZipCode(
+    <span class="hljs-string">"12345678"</span>
+);
+</code></pre>
+<p>Uma observação importante: o RETURNS_SMART_NULLS será a resposta padrão a partir da versão 2 do Mockito (no momento da escrita desse post (abril/2016), essa versão ainda está em beta)</p>
+<h5>RETURNS_DEEP_STUBS</h5>
+<p>Nesse exemplo, vamos criar uma nova implementação do serviço de busca de CEP, consultando um serviço REST que expõe uma consulta de endereços a partir de um CEP. O endpoint desse serviço também devolve os campos do endereço separados por colunas, o que atende o contrato da nossa interface AddressSearchService. Eis nosso código:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WebServiceAddressSearchService</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">AddressSearchService</span> </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> RestClient restClient;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">WebServiceAddressSearchService</span><span class="hljs-params">(RestClient restClient)</span> </span>{
+        <span class="hljs-keyword">this</span>.restClient = restClient;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">searchByZipCode</span><span class="hljs-params">(String zipCode)</span> </span>{
+        <span class="hljs-keyword">return</span> (String) restClient.target(<span class="hljs-string">"http://my.service"</span>)
+            .path(<span class="hljs-string">"postal_code"</span>)
+            .path(zipCode)
+            .request()
+            .get();
+    }
+}
+</code></pre>
+<p>O objeto RestClient é responsável por realizar a requisição HTTP propriamente dita; para nós os detalhes dessa implementação não são importantes. O que nos importa aqui é que as operações desse objeto são expostas através de uma <em>interface fluente</em>. Como podemos testar esse código?</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WebServiceAddressSearchServiceTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> RestClient mockRestClient;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> WebServiceAddressSearchService webServiceAddressSearchService;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldGetAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        String zipCode = <span class="hljs-string">"12345678"</span>;
+
+        String expected = <span class="hljs-string">"Rua Beira Rio|São Paulo|SP|12345678"</span>;
+
+        when(mockRestClient.target(<span class="hljs-string">"http://my.service"</span>)
+            .path(<span class="hljs-string">"postal_code"</span>)
+            .path(zipCode)
+            .request()
+            .get())
+        .thenReturn(expected);
+
+        String result = webServiceAddressSearchService.searchByZipCode(zipCode);
+
+        assertEquals(expected, result);
+    }
+}
+</code></pre>
+<p>Estamos configurando toda a cadeia de métodos que utilizamos do RestClient, e configurando a resposta final do método &quot;.get()&quot;. Isso irá funcionar? NÃO. O retorno do método &quot;mockRestClient.target(&quot;http://my.service&quot;)&quot; será nulo, e não conseguiremos prosseguir em toda a cadeia de invocações. O que precisamos aqui é que o método &quot;target&quot; devolva um novo mock; após isso precisamos de um novo mock para o retorno do método &quot;path&quot;, e assim sucessivamente até alcançarmos o método &quot;.get()&quot;. Esse é um complicador adicional de mockarmos objetos com interfaces fluentes (outro exemplo seriam objetos Builder), mas o Mockito pode nos ajudar nessa situação. Podemos utilizar o Answer <em>RETURNS_DEEP_STUBS</em>:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WebServiceAddressSearchServiceTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>(answer = Answers.RETURNS_DEEP_STUBS)
+    <span class="hljs-keyword">private</span> RestClient mockRestClient;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> WebServiceAddressSearchService webServiceAddressSearchService;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldGetAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        String zipCode = <span class="hljs-string">"12345678"</span>;
+
+        String expected = <span class="hljs-string">"Rua Beira Rio|São Paulo|SP|12345678"</span>;
+
+        when(mockRestClient.target(<span class="hljs-string">"http://my.service"</span>) <span class="hljs-comment">// retorna um novo mock</span>
+            .path(<span class="hljs-string">"postal_code"</span>) <span class="hljs-comment">// retorna um novo mock</span>
+            .path(zipCode) <span class="hljs-comment">// retorna um novo mock</span>
+            .request() <span class="hljs-comment">// retorna um novo mock</span>
+            .get()) <span class="hljs-comment">// método que iremos configurar</span>
+        .thenReturn(expected);
+
+        String result = webServiceAddressSearchService.searchByZipCode(zipCode);
+
+        assertEquals(expected, result);
+    }
+}
+</code></pre>
+<p>Outro Answer com comportamento parecido é o <em>RETURNS_MOCKS</em>. A diferença entre este e o RETURNS_DEEP_STUBS é que o RETURNS_MOCKS, inicialmente, tenta criar o retorno do método de forma semelhante ao RETURNS_SMART_NULLS (valor padrão para tipos primitivos, coleções e arrays vazios, etc); não sendo possível, é retornado um novo mock. O RETURNS_DEEP_STUBS, ao contrário, SEMPRE tenta criar um novo mock para o retorno do método.</p>
+<p>Uma observação importante é que, até a versão do Mockito com a qual esse post foi escrito (1.10.19), estes dois Answers não funcionam com retornos de tipos genéricos (é um bug já reportado para os desenvolvedores do Mockito).</p>
+<p>O caso de uma interface fluente é um uso válido para o RETURNS_DEEP_STUBS, mas reflita se você realmente necessita dele ao implementar os seus testes. Um exemplo onde você poderia ficar tentado ao utilizar esse recurso é um código como o abaixo:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{
+
+    <span class="hljs-keyword">private</span> Address address;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Address <span class="hljs-title">getAddress</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> address;
+    }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Address</span> </span>{
+
+    <span class="hljs-keyword">private</span> ZipCode zipCode;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ZipCode <span class="hljs-title">getZipCode</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> zipCode;
+    }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ZipCode</span> </span>{
+
+    <span class="hljs-keyword">private</span> String value;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getValue</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> value;
+    }
+}
+
+<span class="hljs-comment">// em algum outro lugar que utiliza uma instância de Person</span>
+
+Person person ... <span class="hljs-comment">//código omitido; obtém uma instancia de Person de alguma forma</span>
+String zipCode = person.getAddress().getZipCode().getValue();
+
+</code></pre>
+<p>Digamos que no seu teste surja a necessidade de mockar essa cadeia de métodos até obtermos o zipCode. Poderíamos criar um mock da classe Person com o answer RETURN_DEEP_STUBS e configurar o retorno do método &quot;getValue&quot; da classe ZipCode. Funcionaria sem problemas. O detalhe é que o código acima apresenta um problema de design: ele viola a <a href="https://en.wikipedia.org/wiki/Law_of_Demeter" target="_blank">Lei de Demeter</a>, pois o seu código cliente conhece a estrutura interna do objeto Person. Lembre-se que os testes de unidade fornecem feedback sobre o design do seu código; no exemplo acima, poderíamos refatorar para algo como isto:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{
+
+    <span class="hljs-keyword">private</span> Address address;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getZipCode</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> address.getZipCode();
+    }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Address</span> </span>{
+
+    <span class="hljs-keyword">private</span> ZipCode zipCode;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getZipCode</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> zipCode.getValue();
+    }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ZipCode</span> </span>{
+
+    <span class="hljs-keyword">private</span> String value;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getValue</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> value;
+    }
+}
+
+Person person ...
+String zipCode = person.getZipCode();
+
+</code></pre>
+<p>Agora estamos encapsulando melhor a estrutura interna de cada objeto, de modo que nosso código cliente desconhece que existe um objeto Address e um objeto ZipCode; apenas sabemos que Person tem um código postal no formato String. O RETURN_DEEP_STUBS não é mais necessário.</p>
+<p>O ponto que gostaria de reforçar com o exemplo acima é: sempre que um mock precise retornar outro mock, repense o design do seu código e avalie se isso é realmente necessário. A documentação do Mockito é um pouco mais explícita: <a href="http://site.mockito.org/mockito/docs/current/org/mockito/Mockito.html#RETURNS_DEEP_STUBS" target="_blank">sempre que um mock devolve outro mock, uma fada morre</a>.</p>
+<h5>Respostas customizadas</h5>
+<p>Caso queira implementar uma lógica em particular sobre o retorno do método, você também pode criar sua própria Answer:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> AddressSearchService mockAddressSearchService;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> AddressSearch addressSearch;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldFindAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        when(mockAddressSearchService.searchByZipCode(<span class="hljs-string">"12345678"</span>)).then(<span class="hljs-keyword">new</span> Answer&lt;String&gt;() {
+
+            <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">answer</span><span class="hljs-params">(InvocationOnMock invocation)</span> <span class="hljs-keyword">throws</span> Throwable </span>{
+                <span class="hljs-comment">// sua logica aqui. O objeto InvocationOnMock permite acessar os argumentos enviados para o mock</span>
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+            }
+        });
+    }
+}
+</code></pre>
+<p>Existem outras Answers disponibilizadas pelo Mockito para casos mais específicos (por exemplo, retornar sempre o valor do primeiro ou do segundo argumento), disponíveis na classe <em>AdditionalAnswers</em>.</p>
+<h4>Verificação de mocks</h4>
+<p>Nos exemplos acima, configuramos nossos mocks com o cenário de testes que queríamos montar, e exercitamos nosso código com os retornos de métodos que desejávamos. Nosso código interage com outros objetos; será que ele está interagindo corretamente? Para nos ajudarmos com isso podemos usar as <em>verificações</em> de mocks disponibilizadas pelo Mockito.</p>
+<p>Voltando ao nosso primeiro exemplo:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.junit.Assert.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+<span class="hljs-keyword">import</span> org.mockito.InjectMocks;
+<span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> AddressSearchService mockAddressSearchService;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> AddressSearch addressSearch;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldFindAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        String zipCode = <span class="hljs-string">"12345678"</span>;
+
+        String addressResult = <span class="hljs-string">"Rua Beira Rio|São Paulo|SP|12345678"</span>;
+
+        when(mockAddressSearchService.searchByZipCode(zipCode)).thenReturn(addressResult);
+
+        Address address = addressSearch.findBy(<span class="hljs-keyword">new</span> ZipCode(zipCode));
+
+        assertEquals(<span class="hljs-string">"Rua Beira Rio"</span>, address.getStreet());
+        assertEquals(<span class="hljs-string">"São Paulo"</span>, address.getCity());
+        assertEquals(<span class="hljs-string">"SP"</span>, address.getState());
+        assertEquals(<span class="hljs-keyword">new</span> ZipCode(<span class="hljs-string">"12345678"</span>), address.getZipCode());
+    }
+}
+</code></pre>
+<p>Podemos <strong>garantir</strong> que nosso mock foi invocado da maneira que configuramos adicionando essa linha no final do teste:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.junit.Assert.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+<span class="hljs-keyword">import</span> org.mockito.InjectMocks;
+<span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldFindAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// código omitido</span>
+
+        <span class="hljs-comment">// O método verify está na classe Mockito, que importamos estaticamente</span>
+        verify(mockAddressSearchService).searchByZipCode(zipCode);
+    }
+}
+</code></pre>
+<p>O método <em>verify</em> do Mockito, como o nome sugere, verifica se aquele método, daquele mock, foi chamado com aqueles argumentos; se não, é lançada uma exceção (quebrando o teste). Essa exceção tem uma mensagem bastante explicativa informando como a chamada de método realmente ocorreu. Por exemplo, nosso mock está configurado com o argumento &quot;12345678&quot;; se por algum bug nosso código invocasse o método com o argumento &quot;123&quot;, a mensagem da exceção lançada pelo <em>verify</em> seria:</p>
+<pre class="highlight"><code class="hljs java">Argument(s) are different! Wanted:
+mockAddressSearchService.searchByZipCode(
+    <span class="hljs-string">"12345678"</span>
+);
+-&gt; at com.elo7.mockito.AddressSearchTest.shouldFindAddressByZipCode(AddressSearchTest.java:<span class="hljs-number">40</span>)
+Actual invocation has different arguments:
+mockAddressSearchService.searchByZipCode(
+    <span class="hljs-string">"123"</span>
+);
+</code></pre>
+<h5>Outras maneiras de utilizar a verificação</h5>
+<p>Por padrão, o <em>verify</em> confirma se o método em questão foi invocado <strong>apenas uma vez</strong>. E se não fosse o caso? Se nosso método mockado fosse invocado, digamos, duas vezes, o Mockito lançaria uma mensagem de erro com esta mensagem:</p>
+<pre class="highlight"><code class="hljs java">org.mockito.exceptions.verification.TooManyActualInvocations:
+mockAddressSearchService.searchByZipCode(
+    <span class="hljs-string">"12345678"</span>
+);
+Wanted <span class="hljs-number">1</span> time:
+-&gt; at com.elo7.mockito.AddressSearchTest.shouldFindAddressByZipCode(AddressSearchTest.java:<span class="hljs-number">42</span>)
+But was <span class="hljs-number">2</span> times. Undesired invocation:
+</code></pre>
+<p>Indicando que o método foi chamado duas vezes, ao invés de uma, e apontando a linha de código onde a segunda chamada ocorreu.</p>
+<p>Para verificações como essa e outras variações, podemos utilizar uma sobrecarga do método verify:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.junit.Assert.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+<span class="hljs-keyword">import</span> org.mockito.InjectMocks;
+<span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldFindAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        ...
+
+        <span class="hljs-comment">// O método times está na classe Mockito, que importamos estaticamente</span>
+        verify(mockAddressSearchService, times(<span class="hljs-number">2</span>)).searchByZipCode(zipCode);
+    }
+}
+</code></pre>
+<p>A verificação acima checa se método searchByZipCode foi chamado exatamente duas vezes. Existem outras variações como <em>atLeastOnce()</em> (pelo menos uma vez), <em>atLeast(número de invocações)</em> (pelo menos quantas invocações você precisar), <em>never()</em> (verifica se o método nunca foi invocado), <em>atMost(número máximo de invocações)</em>, <em>only()</em> (se <strong>apenas</strong> aquele método do objeto foi invocado). Consulte <a href="http://site.mockito.org/mockito/docs/current/org/mockito/Mockito.html#verify(T)">a documentação do Mockito</a> para mais detalhes e exemplos desses métodos.</p>
+<h4>Argument matchers</h4>
+<p>Mais acima nós exploramos o uso dos argument matchers na configuração dos nossos mocks; os mesmos conceitos se aplicam para a verificação dos métodos mockados. Podemos fazer uso dos argument matchers em conjunto com a verificação.</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.junit.Assert.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+<span class="hljs-keyword">import</span> org.mockito.InjectMocks;
+<span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressSearchTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldFindAddressByZipCode</span><span class="hljs-params">()</span> </span>{
+        String zipCode = <span class="hljs-string">"12345678"</span>;
+
+        String addressResult = <span class="hljs-string">"Rua Beira Rio|São Paulo|SP|12345678"</span>;
+
+        when(mockAddressSearchService.searchByZipCode(eq(zipCode)).thenReturn(addressResult);
+        ...
+
+        verify(mockAddressSearchService).searchByZipCode(startsWith(<span class="hljs-string">"123"</span>));
+    }
+}
+</code></pre>
+<p>No exemplo acima configuramos o método searchByZipCode para devolver uma resposta caso o argumento seja igual a &quot;12345678&quot; (usando o argument matcher <em>eq()</em>); na verificação dizemos ao Mockito para confirmar se o método foi invocado usando um argumento do tipo String iniciado com &quot;123&quot; (usando o argument matcher <em>startsWith()</em>). As mesmas regras de utilização dos argument matchers que analisamos na configuração dos mocks se aplicam para o método verify.</p>
+<h4>Verificação de ordem de métodos</h4>
+<p>Vamos imaginar um código como o exemplo abaixo:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserPasswordService</span> </span>{
+
+    <span class="hljs-keyword">private</span> UserDao userDao;
+    <span class="hljs-keyword">private</span> EmailSender emailSender;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UserPasswordService</span><span class="hljs-params">(UserDao userDao, EmailSender emailSender)</span> </span>{
+        <span class="hljs-keyword">this</span>.userDao = userDao;
+        <span class="hljs-keyword">this</span>.emailSender = emailSender;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">changePassword</span><span class="hljs-params">(User user, String newPassword)</span> </span>{
+        String encryptNewPassword = Crypto.encrypt(newPassword);
+
+        user.setPassword(encryptNewPassword);
+
+        userDao.save(user);
+
+        Email email = <span class="hljs-keyword">new</span> Email();
+        email.setReceiverAddress(user.getEmail());
+        email.setSubject(<span class="hljs-string">"Alteração de senha"</span>);
+        email.setBody(<span class="hljs-string">"Sua senha foi alterada com sucesso"</span>);
+
+        emailSender.send(email);
+    }
+}
+</code></pre>
+<p>Nossa classe UserPasswordService gerencia a alteração de senha de usuários; o método <em>changePassword</em> recebe uma instância de User e a nova senha; utilizamos uma classe utilitária para encriptar a senha utilizando algum algoritmo qualquer; usamos o UserDao para salvas as alterações na base de dados; e enviamos um email ao usuário notificando-o que a sua senha foi alterada com sucesso. Um detalhe importante da nossa implementação: o envio do email deve obrigatoriamente ocorrer APÓS a persistência, pois não queremos enviar um email notificando o usuário sobre algo que não aconteceu (afinal, poderia ocorrer um erro durante a atualização da base de dados e a senha não ser alterada). Nosso teste poderia ser algo como:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Matchers.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+<span class="hljs-keyword">import</span> org.mockito.InOrder;
+<span class="hljs-keyword">import</span> org.mockito.InjectMocks;
+<span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserPasswordServiceTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> UserDao mockUserDao;
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> EmailSender mockEmailSender;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> UserPasswordService userPasswordService;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldSaveNewPasswordAndSendEmailToUser</span><span class="hljs-params">()</span> </span>{
+        User user = <span class="hljs-keyword">new</span> User();
+
+        userPasswordService.changePassword(user, <span class="hljs-string">"newPassword"</span>);
+
+        verify(mockUserDao).save(user);
+        verify(mockEmailSender).send(notNull(Email.class));
+    }
+}
+</code></pre>
+<p>Nosso teste está apenas validando se a interação com os outros objetos está funcionando adequadamente. Estamos verificando se o usuário foi salvo adequadamente na nossa base de dados (através do método UserDao.save), e se o email foi enviado (através do método EmailSender.send recebendo uma instância da classe Email). Dissemos que a ordem dos métodos é importante, mas se invertermos nosso código:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserPasswordService</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">changePassword</span><span class="hljs-params">(User user, String newPassword)</span> </span>{
+        <span class="hljs-comment">// código omitido</span>
+
+        emailSender.send(email);
+        userDao.save(user);
+    }
+}
+</code></pre>
+<p>Nossas verificações de mock continuam passando sem nenhum problema! Porque, afinal, os métodos foram invocados! Em um cenário como esse, precisamos garantir que os métodos foram utilizados na ordem que precisamos. Para nos ajudar, podemos utilizar um objeto do Mockito chamado <em>InOrder</em>:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Matchers.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+<span class="hljs-keyword">import</span> org.mockito.InOrder;
+<span class="hljs-keyword">import</span> org.mockito.InjectMocks;
+<span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserPasswordServiceTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> UserDao mockUserDao;
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> EmailSender mockEmailSender;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> UserPasswordService userPasswordService;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldSaveNewPasswordAndSendEmailToUser</span><span class="hljs-params">()</span> </span>{
+        User user = <span class="hljs-keyword">new</span> User();
+
+        <span class="hljs-comment">// o método inOrder está na classe Mockito, que importamos estáticamente</span>
+        InOrder inOrder = inOrder(mockUserDao, mockEmailSender);
+
+        inOrder.verify(mockUserDao).save(user);
+        inOrder.verify(mockEmailSender).send(notNull(Email.class));
+    }
+}
+</code></pre>
+<p>Com o InOrder, podemos garantir exatamente a ordem de invocação; o Mockito irá lançar um erro se os métodos não foram invocados na ordem em que estão sendo verificados. No exemplo mais acima, onde invertemos a ordem de chamadas no código, a mensagem de erro seria:</p>
+<pre class="highlight"><code class="hljs java">org.mockito.exceptions.verification.VerificationInOrderFailure:
+Verification in order failure
+Wanted but not invoked:
+mockEmailSender.send(
+    com.elo7.mockito.Email@<span class="hljs-number">3532</span>ec19
+);
+-&gt; at com.elo7.mockito.UserPasswordServiceTest.shouldSaveNewPasswordAndSendEmailToUser(UserPasswordServiceTest.java:<span class="hljs-number">34</span>)
+Wanted anywhere AFTER following interaction:
+mockUserDao.save(
+    com.elo7.mockito.User@<span class="hljs-number">3532</span>ec19
+);
+-&gt; at com.elo7.mockito.UserPasswordService.changePassword(UserPasswordService.java:<span class="hljs-number">19</span>)
+</code></pre>
+<p>A mensagem de erro indica que a invocação do EmailSender.send era esperada APÓS a chamada do método UserDao.save. Agora sabemos que a ordem de invocações dos métodos do nosso código está errada.</p>
+<p>É importante lembrar que é perigoso nosso código depender desse tipo de detalhe; seria muito fácil para alguém que não tem o entendimento da regra de domínio da aplicação introduzir um potencial bug invertendo a ordem dos métodos (alteração aparentemente inocente). Mas o Java é uma linguagem baseada no paradigma imperativo, então esse tipo de implementação é praticamente inevitável (em outras linguagens baseadas no paradigma funcional poderíamos, por exemplo, enviar um bloco de código para ser executado como um callback pelo próprio método UserDao.save, após a persistência ser realizada com sucesso; claro que em Java também poderíamos fazer dessa forma, apenas não é usual).</p>
+<h4>Captura de argumentos</h4>
+<p>No exemplo acima, utilizamos a classe Email. Uma classe simples:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Email</span> </span>{
+
+    <span class="hljs-keyword">private</span> String receiverAddress;
+    <span class="hljs-keyword">private</span> String subject;
+    <span class="hljs-keyword">private</span> String body;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setReceiverAddress</span><span class="hljs-params">(String receiverAddress)</span> </span>{
+        <span class="hljs-keyword">this</span>.receiverAddress = receiverAddress;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getReceiverAddress</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> receiverAddress;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setSubject</span><span class="hljs-params">(String subject)</span> </span>{
+        <span class="hljs-keyword">this</span>.subject = subject;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getSubject</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> subject;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setBody</span><span class="hljs-params">(String body)</span> </span>{
+        <span class="hljs-keyword">this</span>.body = body;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getBody</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> body;
+    }
+
+}
+</code></pre>
+<p>No nosso código, criamos uma instância de Email e enviamos para a classe EmailSender através do método <em>send</em>. Um detalhe interessante é que nossa verificação garante que enviamos uma instância não-nula de Email, mas não que essa instância está preenchida da maneira que gostaríamos. Se um bug for introduzido no código:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserPasswordService</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">changePassword</span><span class="hljs-params">(User user, String newPassword)</span> </span>{
+        <span class="hljs-comment">// código omitido</span>
+
+        Email email = <span class="hljs-keyword">new</span> Email();
+        email.setReceiverAddress(user.getName()); <span class="hljs-comment">// Trocamos o getEmail por getName!</span>
+        email.setSubject(<span class="hljs-string">"Alteração de senha"</span>);
+        email.setBody(<span class="hljs-string">"Sua senha foi alterada com sucesso"</span>);
+
+        emailSender.send(email);
+    }
+}
+</code></pre>
+<p>Nosso teste continua passando!</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Matchers.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+<span class="hljs-keyword">import</span> org.mockito.InOrder;
+<span class="hljs-keyword">import</span> org.mockito.InjectMocks;
+<span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserPasswordServiceTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldSaveNewPasswordAndSendEmailToUser</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// código omitido</span>
+
+        InOrder inOrder = inOrder(mockUserDao, mockEmailSender);
+
+        inOrder.verify(mockUserDao).save(user);
+
+        <span class="hljs-comment">//Essa verificação passa sem problema. Afinal, a ordem das chamadas está correta, e passamos uma instância não-nula de Email, certo?</span>
+        inOrder.verify(mockEmailSender).send(notNull(Email.class));
+    }
+}
+</code></pre>
+<p>E agora? Nosso problema é que precisamos acessar a instância de Email que foi enviada para o método <em>send</em> para validarmos o seu estado; não é algo tão difícil de se resolver. Poderíamos implementar o método equals do objeto Email para comparar os campos relevantes entre duas instâncias e utilizar o matcher <em>eq()</em>.</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Email</span> </span>{
+
+    <span class="hljs-comment">//código omitido</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">equals</span><span class="hljs-params">(Object obj)</span> </span>{
+        <span class="hljs-keyword">if</span> (obj <span class="hljs-keyword">instanceof</span> Email) {
+            Email that = (Email) obj;
+
+            <span class="hljs-keyword">return</span> Objects.equals(<span class="hljs-keyword">this</span>.receiverAddress, that.receiverAddress)
+                &amp;&amp; Objects.equals(<span class="hljs-keyword">this</span>.subject, that.subject)
+                &amp;&amp; Objects.equals(<span class="hljs-keyword">this</span>.body, that.body);
+
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+        }
+    }
+
+}
+</code></pre>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Matchers.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+<span class="hljs-keyword">import</span> org.mockito.InOrder;
+<span class="hljs-keyword">import</span> org.mockito.InjectMocks;
+<span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserPasswordServiceTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldSaveNewPasswordAndSendEmailToUser</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// código omitido</span>
+
+        Email email = <span class="hljs-keyword">new</span> Email();
+        email.setReceiverAddress(user.getEmail()); <span class="hljs-comment">// nosso código ainda está utilizando user.getName()</span>
+        email.setSubject(<span class="hljs-string">"Alteração de senha"</span>);
+        email.setBody(<span class="hljs-string">"Sua senha foi alterada com sucesso"</span>);
+
+        <span class="hljs-comment">//a verificação quebra pois os dados do Email enviado para o método serão diferentes dessa instância</span>
+        inOrder.verify(mockEmailSender).send(eq(email));
+    }
+}
+</code></pre>
+<p>Normalmente essa é uma boa solução, mas a implementação do equals do Email pode ficar complicada se surgirem novos campos, e nosso teste irá depender da regra de igualdade do objeto envolvido, o que nem sempre é o desejado. Outra possibilidade é usarmos um argument matcher chamado <em>refEq</em> que compara dois objetos via reflection:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Matchers.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+<span class="hljs-keyword">import</span> org.mockito.InOrder;
+<span class="hljs-keyword">import</span> org.mockito.InjectMocks;
+<span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserPasswordServiceTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldSaveNewPasswordAndSendEmailToUser</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// código omitido</span>
+
+        Email email = <span class="hljs-keyword">new</span> Email();
+        email.setReceiverAddress(user.getEmail()); <span class="hljs-comment">// nosso código ainda está utilizando user.getName()</span>
+        email.setSubject(<span class="hljs-string">"Alteração de senha"</span>);
+        email.setBody(<span class="hljs-string">"Sua senha foi alterada com sucesso"</span>);
+
+        <span class="hljs-comment">//a verificação quebra pois a comparação do campo receiverAddress irá indicar que são diferentes</span>
+        inOrder.verify(mockEmailSender).send(refEq(email));
+    }
+}
+</code></pre>
+<p>O matcher <em>refEq</em> também resolve nosso problema, mas é desencorajado pelo Mockito porque seu uso pode obscurecer o propósito do teste (está claro pra você como a igualdade do objeto é resolvida?).</p>
+<p>Um terceiro modo seria criarmos nosso próprio argument matcher para termos acesso à instância de Email enviada ao método send:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Matchers.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+<span class="hljs-keyword">import</span> org.mockito.InOrder;
+<span class="hljs-keyword">import</span> org.mockito.InjectMocks;
+<span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserPasswordServiceTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldSaveNewPasswordAndSendEmailToUser</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// código omitido</span>
+
+        inOrder.verify(mockUserEmailSender).send(<span class="hljs-keyword">new</span> ArgumentMatcher&lt;Email&gt;() {
+
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">matches</span><span class="hljs-params">(Object argument)</span> </span>{
+                Email email = (Email) argument; <span class="hljs-comment">// instância de Email enviada ao método send; podemos validar se o estado do objeto é o que desejamos</span>
+
+                <span class="hljs-keyword">return</span> email.getReceiverAddress().equals(user.getEmail())
+                    &amp;&amp; email.getSubject().equals(<span class="hljs-string">"Alteração de senha"</span>)
+                    &amp;&amp; email.getBody().equals(<span class="hljs-string">"Sua senha foi alterada com sucesso"</span>);
+            }
+        });
+    }
+}
+</code></pre>
+<p>Essa abordagem é desencorajada pelo Mockito porque a criação de um ArgumentMatcher, feita como no exemplo acima, pode afetar a legibilidade do teste; normalmente implementar o equals do objeto é uma solução melhor, mas sugiro que considere a criação de matchers customizados, orientados ao modelo da sua aplicação (são úteis especialmente quando desejamos reaproveitar a validação).</p>
+<p>As três soluções acima resolvem o nosso problema, que é garantirmos o estado do Email, e todas tem o seu lado positivo e negativo. Mas existe uma quarta possibilidade que na minha opinião é a mais elegante, além de ser a maneira recomendada pelo Mockito: o uso de uma classe especial para esse propósito, chamada <em>ArgumentCaptor</em>.</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Matchers.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.junit.Assert.*;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+<span class="hljs-keyword">import</span> org.mockito.InOrder;
+<span class="hljs-keyword">import</span> org.mockito.InjectMocks;
+<span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserPasswordServiceTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldSaveNewPasswordAndSendEmailToUser</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// código omitido</span>
+
+        <span class="hljs-comment">// Um ArgumentCaptor é criado pelo método de fábrica forClass; passe o tipo do argumento que você quer capturar</span>
+        ArgumentCaptor&lt;Email&gt; emailCaptor = ArgumentCaptor.forClass(Email.class);
+
+        <span class="hljs-comment">// Usamos o método capture() na verificação; esse método irá obter e armazenar a instância do argumento enviado para o método send</span>
+        inOrder.verify(mockUserEmailSender).send(emailCaptor.capture());
+
+        <span class="hljs-comment">// Agora podemos obter a instância de Email que foi criada dentro nosso código</span>
+        Email email = emailCaptor.getValue();
+
+        <span class="hljs-comment">// E podemos validar se o Email realmente está correto</span>
+        assertEquals(user.getEmail(), email.getReceiverAddress()) <span class="hljs-comment">// falha aqui, pois o código utiliza email.getName()</span>
+        assertEquals(<span class="hljs-string">"Alteração de senha"</span>, email.getSubject());
+        assertEquals(<span class="hljs-string">"Sua senha foi alterada com sucesso"</span>, email.getBody());
+    }
+}
+</code></pre>
+<p>Também podemos criar um ArgumentCaptor utilizando a anotação <em>@Captor</em>:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Matchers.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.junit.Assert.*;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+<span class="hljs-keyword">import</span> org.mockito.InOrder;
+<span class="hljs-keyword">import</span> org.mockito.InjectMocks;
+<span class="hljs-keyword">import</span> org.mockito.Mock;
+<span class="hljs-keyword">import</span> org.mockito.runners.MockitoJUnitRunner;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserPasswordServiceTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> UserDao mockUserDao;
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> EmailSender mockEmailSender;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> UserPasswordService userPasswordService;
+
+    <span class="hljs-meta">@Captor</span>
+    <span class="hljs-keyword">private</span> ArgumentCaptor&lt;Email&gt; emailCaptor;
+
+}
+</code></pre>
+<p>Para obter o Email capturado na chamada do método utilizamos o método <em>getValue()</em> do ArgumentCaptor; se o método fosse chamado mais de uma vez, e fosse necessário validarmos todas as invocações, isso também seria possível, pois o ArgumentCaptor possui outro método chamado <em>getAllValues()</em> que devolve uma coleção com todos os argumentos capturados (em todas as invocações do método mockado).</p>
+<h4>Precisamos verificar?</h4>
+<p>Uma discussão recorrente no universo dos mocks é sobre a necessidade de verificação. Afinal, configuramos nossos mocks tendo um cenário de testes em mente, e nosso código interage com os métodos mockados. Podemos inferir que, se nosso teste passa, então os mocks estão se comportando da maneira correta. Ou seja, se nosso teste está passando, em teoria nossos mocks <strong>já estão verificados</strong>. Então, precisamos do método <em>verify</em>?</p>
+<p>Pessoalmente, eu utilizo verificações somente em interações mais complicadas entre objetos, como chamar o método &quot;a&quot; ou &quot;b&quot; dependendo de alguma validação, métodos que são invocados com argumentos diferentes dos que tenho acesso direto no teste, e outras situações do tipo. O fato é que é muito simples introduzir um bug com alterações aparentemente inocentes, e a verificação é a melhor maneira de confirmar que a interação entre nosso código e nossas dependências está acontecendo como queremos.</p>
+<p>Sempre que precisar dessa garantia, ou quiser deixar explícito no teste que o comportamento testado depende da interação com outro objeto, recomendo que utilize o <em>verify</em>.</p>
+<h2>Objetos espiões</h2>
+<p>Além dos mocks, outro personagem bastante comum em testes é o objeto <strong>spy</strong>. Não vou me concentrar aqui nas diferenças teóricas entre um mock e um spy, mas uma pequena explicação conceitual (superficial, admito) pode nos ajudar: um spy é essencialmente um objeto que &quot;engole&quot; uma <strong>instância real</strong> do tipo &quot;espionado&quot;, de modo que podemos utilizar normalmente esse objeto com o seu comportamento verdadeiro (é uma diferença fundamental em relação ao mock, que apenas sabe fazer o que lhe é &quot;ensinado&quot;). O termo &quot;espião&quot; se refere justamente a esse detalhe: podemos observar como nosso teste interagiu com esse objeto (como fizemos mais acima com as verificações), apesar de estarmos utilizando o seu real comportamento. Além disso, o spy também pode ter seus métodos configurados para devolver respostas pré-fabricadas, assim como os mocks.</p>
+<p>Ou seja, com um spy podemos utilizar tanto o comportamento real do objeto quanto configurar (&quot;mockar&quot;) os métodos que forem necessários para o nosso teste. Isso é chamado de &quot;partial mock&quot;, e é assim que o Mockito se refere a estes objetos.</p>
+<h4>Criando um Spy no Mockito</h4>
+<p>Para entendermos o funcionamento do spy (e demonstrar melhor a explicação acima), vamos utilizar objetos conhecidos da api do Java: List e ArrayList.</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.junit.Assert.*;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+
+<span class="hljs-keyword">import</span> java.util.ArrayList;
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-keyword">import</span> org.junit.Test;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SpySampleTest</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{
+
+        List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;(); <span class="hljs-comment">// instância real</span>
+        List&lt;String&gt; spyList = spy(list); <span class="hljs-comment">// método spy -&gt; importado estáticamente na classe Mockito</span>
+
+        spyList.add(<span class="hljs-string">"one"</span>); <span class="hljs-comment">//usa o comportamento real do método add</span>
+        spyList.add(<span class="hljs-string">"two"</span>);
+
+        assertEquals(<span class="hljs-number">2</span>, spyList.size()); <span class="hljs-comment">// o objeto spy é alterado</span>
+
+        assertEquals(<span class="hljs-number">0</span>, list.size()); <span class="hljs-comment">// o objeto real NÃO é alterado. Por que?</span>
+    }
+}
+</code></pre>
+<p>Explicando em detalhes os comentários do código, iniciamos o teste criando uma instância de ArrayList, e em seguida passamos esse objeto para o método <em>spy</em> da classe Mockito. Esse método cria o objeto espião encapsulando a instância real do objeto ao qual o spy faz referência. Quando utilizamos o método &quot;add&quot;, estamos utilizando de fato o método da classe ArrayList, então podemos esperar com segurança que a lista tenha dois elementos. Mas o objeto original (a variável &quot;list&quot;) não foi alterada!</p>
+<p>Isso é um detalhe de implementação importante no Mockito: ao criar um spy, a partir de uma instância, o Mockito cria uma <strong>cópia do objeto</strong>, de modo que alterações no objeto real não são refletidos no spy e vice-versa. É importante ser cuidadoso com esse detalhe; o ideal é que, uma vez criado o spy, você interaja com ele no seu teste, uma vez que, pela definição do que é um spy, você pode assumir que ele tem o mesmo comportamento real do objeto.</p>
+<p>Uma outra maneira de declarar spies é utilizando anotações:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SpySampleTest</span> </span>{
+
+    <span class="hljs-meta">@Spy</span>
+    <span class="hljs-keyword">private</span> List&lt;String&gt; spyList = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{
+        ...
+    }
+}
+</code></pre>
+<p>Atributos anotados com @Spy também são elegíveis para serem injetados dentro do objeto anotado com @InjectMocks (com as mesmas considerações da anotação @Mock que analisamos antes).</p>
+<p>Um detalhe importante sobre essas duas abordagens é que estamos inicializando um objeto que por sua vez é utilizado pelo Mockito na criação do spy. Poderíamos não fazer isso e criar o spy apenas através do tipo (seja utilizando Mockito.spy(MyType.class) ou no exemplo acima, não inicializando a variável &quot;spyList&quot;). Se você não fornecer a instância real, o Mockito tentará criá-la usando o construtor padrão do tipo; a criação do spy irá falhar se este construtor não existir, ou o tipo declarado for uma classe interna, classe abstrata ou interface.</p>
+<h4>Configurando um Spy</h4>
+<p>Como dissemos antes, um spy é um &quot;partial mock&quot;; podemos configurar os métodos que desejamos com respostas pré-configuradas do mesmo modo que faríamos com um mock. Mas existem algumas diferenças na DSL do Mockito. Com o mesmo exemplo anterior, vamos tentar configurar o método &quot;get&quot; da interface List:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SpySampleTest</span> </span>{
+
+    <span class="hljs-meta">@Spy</span>
+    <span class="hljs-keyword">private</span> List&lt;String&gt; spyList = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{
+        when(spyList.get(<span class="hljs-number">0</span>)).thenReturn(<span class="hljs-string">"element"</span>); <span class="hljs-comment">//configurando com o método when, idêntico a como fizemos com os mocks</span>
+
+        String value = spyList.get(<span class="hljs-number">0</span>);
+
+        assertEquals(<span class="hljs-string">"element"</span>, value);
+    }
+}
+</code></pre>
+<p>No exemplo acima, configuramos nosso spy utilizando a DSL do Mockito da mesma maneira que fizemos com os mocks, através do método <em>when</em>. Mas este código NÃO funcionará. Por que? Porque a invocação do método &quot;spyList.get(0)&quot; irá invocar o comportamento real existente na classe ArrayList, e o comportamento é lançar uma exceção se aquele índice não existir na lista! Para configurar um spy, devemos utilizar um método diferente:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> org.mockito.Mockito.*;
+
+<span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SpySampleTest</span> </span>{
+
+    <span class="hljs-meta">@Spy</span>
+    <span class="hljs-keyword">private</span> List&lt;String&gt; spyList = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{
+        doReturn(<span class="hljs-string">"element"</span>).when(spyList).get(<span class="hljs-number">0</span>); <span class="hljs-comment">// o método doReturn também está na classe Mockito</span>
+
+        String value = spyList.get(<span class="hljs-number">0</span>);
+
+        assertEquals(<span class="hljs-string">"element"</span>, value);
+    }
+}
+</code></pre>
+<p>Agora o nosso teste passa sem problema. O método <em>doReturn</em> é o método correto a ser utilizado ao trabalhar com um spy; ele pode ser utilizado também com um mock mas não é recomendado, pois sua legibilidade não é tão clara quanto a do método <em>when</em>, de modo que o doReturn deve ser usado em raras ou específicas situações (o mesmo se aplica aos outros métodos iniciados com &quot;do…&quot;: <em>doThrow</em>, <em>doAnswer</em>, <em>doCallRealMethod</em>, <em>doNothing</em>).</p>
+<h4>Verificações de métodos do spy</h4>
+<p>O método verify funciona para spies exatamente da mesma forma que analisamos para os mocks. Você pode verificar inclusive as invocações de métodos &quot;não mockados&quot;.</p>
+<h4>Devemos usar um spy?</h4>
+<p>A documentação do Mockito indica que o spy é uma prática a ser evitada. Uma boa prática da orientação a objetos é o <a href="https://en.wikipedia.org/wiki/Single_responsibility_principle" target="_blank">príncipio da responsabilidade única</a>, que consiste em criar objetos coesos com uma única responsabilidade; o fato de você precisar utilizar um &quot;partial mock&quot; (e não utilizar o comportamento real do objeto) <em>pode</em> (ênfase no &quot;pode&quot;) indicar que algum eventual comportamento complexo foi movido para um método específico. Esta abordagem parece boa porque, aparentemente, o seu código está &quot;mais fácil de testar&quot;; mas será que essa complexidade não deveria estar representada em OUTRO objeto?</p>
+<p>Nos casos de objetos com menor granularidade (digamos, uma classe de modelo), eu prefiro sempre utilizar objetos reais. Se o objeto faz parte do contexto do teste, não tem dependências externas e eu posso criar esse objeto facilmente (com um simples &quot;new&quot;), eu considero que o teste fica mais claro e mais simples de ser entendido. Mas eventualmente esse objeto pode ter algum método cuja implementação não é conveniente para o nosso teste; para esse tipo de caso, eu prefiro utilizar o Spy.</p>
+<p>Um exemplo: em uma aplicação e-commerce, um objeto que provavelmente teríamos é o que representa o &quot;carrinho de compras&quot;; digamos que internamente esse objeto possui uma lista de produtos, entre outras coisas. Digamos que esse mesmo objeto possui um método que retorne o valor total do carrinho, somando o valor de todos os produtos, custo do frete, algum eventual cupom de desconto inserido pelo cliente…Em algum teste que faz uso do &quot;carrinho de compras&quot; e da lista de produtos, pode ser mais legível instanciá-lo e preencher os produtos manualmente (pode ser mais legível do que utilizar um mock), mas talvez toda essa lógica que envolve o &quot;valor total&quot; não seja relevante (mesmo que você precise utilizar esse método). Neste caso, poderíamos fazer uso do comportamento verdadeiro do &quot;carrinho de compras&quot; e configurar os métodos que necessitarmos com os valores pré-estabelecidos no nosso teste.</p>
+<p>Essa observação do Mockito é relevante e deve ser levada em consideração mas, obviamente, você não deve vê-la como uma regra escrita na pedra. Deixe que o seu teste forneça feedback sobre o seu design e refatore onde fizer sentido.</p>
+<h2>Outras dicas</h2>
+<h4>Mock com mais de uma interface</h4>
+<p>Temos as interfaces abaixo:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">FooService</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span>;
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">BarService</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">bar</span><span class="hljs-params">()</span></span>;
+}
+</code></pre>
+<p>E este código:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyType</span> </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> FooService myService;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyType</span><span class="hljs-params">(FooService myService)</span> </span>{
+        <span class="hljs-keyword">this</span>.myService = myService;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">process</span><span class="hljs-params">()</span> </span>{
+        myService.foo();
+
+        <span class="hljs-keyword">if</span> (myService <span class="hljs-keyword">instanceof</span> BarService) {
+            ((BarService) myService).bar();
+        }
+    }
+}
+</code></pre>
+<p>Nosso maior problema aqui é a verificação de tipo realizada com o &quot;instanceof&quot; do Java. É um código estranho (e não incomum!), afinal FooService não tem nenhuma relação de tipo com BarService (não fazem parte da mesma hierarquia). Um teste possível para essa classe poderia ser:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTypeTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>
+    <span class="hljs-keyword">private</span> FooService mockFooService;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> MyType myType;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{
+        myType.process();
+
+        verify(mockFooService).foo();
+    }
+}
+</code></pre>
+<p>Esse teste irá passar, mas a execução não vai entrar no &quot;if&quot; da verificação pelo instanceof; afinal, um FooService não é um BarService. Como podemos testar esse trecho do código?</p>
+<p>Poderíamos alterar a declaração do BarService para:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">BarService</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">FooService</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">bar</span><span class="hljs-params">()</span></span>;
+}
+</code></pre>
+<p>E injetar um mock de BarService. Isso resolveria, mas essa relação faz sentido (um BarService É UM FooService)? Mesmo que sim, e se não pudéssemos alterar o código (se fossem interfaces de uma biblioteca de terceiros)?</p>
+<p>Poderíamos criar um objeto para os propósito do nosso teste que resolvesse essa questão (uma prática conhecida como &quot;objeto stub&quot;):</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyStub</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">FooService</span>, <span class="hljs-title">BarService</span> </span>{ <span class="hljs-comment">//implementando as duas interfaces</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">bar</span><span class="hljs-params">()</span> </span>{
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span> </span>{
+    }
+}
+</code></pre>
+<p>E injetarmos uma instância de MyStub dentro do nosso código. Essa abordagem também resolveria nosso problema mas parece que estamos fazendo &quot;código demais&quot;. Como o Mockito pode nos ajudar nessa situação?</p>
+<p>No início do post, dissemos que um mock, entre outras coisas, é <strong>um objeto criado em tempo de execução</strong>. Criar um mock é o equivalente a criarmos dinamicamente um objeto como o <em>MyStub</em> acima; então, também podemos criar um mock que &quot;implemente&quot; mais de uma interface!</p>
+<p>A anotação @Mock possui um parâmetro chamado <em>extraInterfaces</em> que podemos utilizar para esse fim:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@RunWith</span>(MockitoJUnitRunner.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTypeTest</span> </span>{
+
+    <span class="hljs-meta">@Mock</span>(extraInterfaces = BarService.class)
+    <span class="hljs-keyword">private</span> FooService mockFooService;
+
+    <span class="hljs-meta">@InjectMocks</span>
+    <span class="hljs-keyword">private</span> MyType myType;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{
+        myType.process();
+
+        verify(mockFooService).foo();
+
+        verify((BarService) mockFooService).bar(); <span class="hljs-comment">// podemos inclusive fazer o cast, pois agora a variável mockFooService É UM BarService</span>
+    }
+}
+</code></pre>
+<p>Esse parâmetro é um array de interfaces; você pode passar quantas forem necessárias. Esse recurso também funciona se o tipo declarado da variável for um tipo concreto.</p>
+<p>Lembrando: aquele código é realmente uma prática que você NÃO deve utilizar (viola o <a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle" target="_blank">príncipio da substituição de Liskov</a>), mas não é raro encontrá-lo em códigos legados :(.</p>
+<h2>Configuração de métodos void</h2>
+<p>Para esse exemplo vou usar a interface FooService que declaramos no exemplo anterior. Digamos que queremos configurar o lançamento de uma exceção quando o método &quot;FooService.foo()&quot; for invocado:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@Mock</span>
+<span class="hljs-keyword">private</span> FooService mockFooService;
+
+<span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{
+    when(mockFooService.foo())... <span class="hljs-comment">//foo() é um método void -&gt; é impossível para o Mockito continuar</span>
+}
+</code></pre>
+<p>O parâmetro do método <em>when</em> é o <strong>tipo</strong> do objeto retornado pelo método a ser configurado; a partir dele completamos a configuração com os métodos thenReturn(o tipo esperado), thenThrow, etc. Se o método que desejamos configurar tem o seu retorno do tipo <em>void</em>, é impossível ao Mockito continuar a cadeia de métodos. A conclusão é: essa DSL de configuração de métodos &quot;when().then*()&quot; <strong>funciona apenas com métodos de retorno não-void</strong>. A solução é outra parte da API do Mockito que já vimos antes com os spies: a família de métodos <em>do*</em>:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@Mock</span>
+<span class="hljs-keyword">private</span> FooService mockFooService;
+
+<span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{
+    doThrow(<span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">"error"</span>)).when(mockFooService).foo();
+}
+</code></pre>
+<p>Como comentei antes, os métodos <em>doReturn</em>, <em>doNothing</em>, <em>doAnswer</em> e <em>doThrow</em> não são tão legíveis quanto a estrutura &quot;when().then*()&quot;, e devem ser usados em casos raros e específicos; o exemplo acima é um desses cenários.</p>
+<p>Um detalhe a respeito da configuração de métodos void: pessoalmente eu só os configuro quando desejo lançar alguma exceção. Há quem goste de configurar o mock para deixar explícito que aquela invocação do método não terá efeito:</p>
+<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@Mock</span>
+<span class="hljs-keyword">private</span> FooService mockFooService;
+
+<span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{
+    doNothing().when(mockFooService).foo();
+}
+</code></pre>
+<p>É uma preocupação justa, mas acho desnecessário; o comportamento padrão da invocação de um método void é justamente não fazer nada :).</p>
+<h2>Conclusão</h2>
+<p>Apesar do post longo, espero ter conseguido abordar as principais funcionalidades e recursos mais avançados do Mockito. Espero que tenha gostado, e que este post seja útil para você. Em caso de dúvidas ou críticas, sinta-se à vontade para utilizar a caixa de comentários!</p>
+<p>Até a próxima!</p>
+
+
+			<ul class='tag-list'>
+			
+				<li>
+					<a href='/tags/java/'>java</a>
+				</li>
+			
+				<li>
+					<a href='/tags/mockito/'>mockito</a>
+				</li>
+			
+				<li>
+					<a href='/tags/tdd/'>tdd</a>
+				</li>
+			
+			</ul>
+			<section class='share'>
+				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+				<div class='social-share'>
+					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/testes-codigo-mockito/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+						Compartilhar no facebook
+					</a>
+					<a href='https://twitter.com/intent/tweet?text=Testes de código com Mockito&url=https://elo7.dev/testes-codigo-mockito/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+						Compartilhar no twitter
+					</a>
+					<a href='https://elo7.dev/testes-codigo-mockito/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+						Copiar URL
+					</a>
+					<span class='copy-success'>Link copiado</span>
+					<input type='url' value='https://elo7.dev/testes-codigo-mockito/?utm_source=share&utm_medium=copy' class='link-input'>
+				</div>
+			</section>
+		</div>
+
+		<meta itemprop='headline' content='No trabalho da Engenharia do Elo7, valorizamos bastante a qualidade do código que produzimos. Isso passa por várias etapas: boas práticas de código, programação pareada, revisões cuidadosas e, claro, testes. Muitos testes...'/>
+		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop='name' content='Elo7 Tech'/>
+			<meta itemprop="url" content='https://elo7.dev'/>
+			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+				<meta itemprop='width' content='100px'/>
+				<meta itemprop='height' content='100px'/>
+			</span>
+		</span>
+		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+		<div id='disqus_thread'></div>
+
+		<script>
+			var disqus_shortname = 'engenhariaelo7';
+			var disqus_identifier = '02/05/2016:/testes-codigo-mockito/';
+			var disqus_url = 'https://elo7.dev/testes-codigo-mockito/';
+
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Habilite o JavaScript para ver os comentários</noscript>
+	</div>
+</article>
+<script async src="/js/post.js"></script>
+
+		
+	</main>
+	<footer itemscope itemtype="http://schema.org/Organization">
+		<a rel="home" itemprop="url" href="https://elo7.dev/" >
+			elo7.dev © 2019
+		</a>
+		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<script async src="https://www.google-analytics.com/analytics.js"></script>
+	<script async src="/js/analytics.js"></script>
+	<script async src="/js/github.js"></script>
+	<script async src="/js/vendor/events-amd.js"></script>
+	<script async src="/js/vendor/ajax.js"></script>
+	<script async src="/js/vendor/doc.js"></script>
+	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

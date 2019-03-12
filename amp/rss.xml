@@ -1,0 +1,2154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<channel>
+		<title>Elo7 Tech</title>
+		<link>https://elo7.dev/feed.xml</link>
+		<atom:link href="https://elo7.dev/rss.xml" rel="self" type="application/rss+xml" />
+		<description>Blog de tecnologia do Elo7, com postagens dos próprios colaboradores mostrando como é o dia a dia de um colaborador fora de série</description>
+		<lastBuildDate>Tue, 12 Mar 2019 12:02:47 +0000</lastBuildDate>
+		<language>pt-BR</language>
+		
+			<item>
+				<title>Intersection Observer API</title>
+				<link>https://elo7.dev/intersection-observer/</link>
+				<guid>https://elo7.dev/intersection-observer/</guid>
+				<pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[alinelee ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[intersection-observer]]></category>
+				
+					<category><![CDATA[API]]></category>
+				
+				<description><![CDATA[
+					
+					Entenda como funciona a API Intersection Observer e saiba como nós aplicamos essa API aqui no Elo7.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Programação Reativa - Parte 4</title>
+				<link>https://elo7.dev/programacao-reativa-parte-4/</link>
+				<guid>https://elo7.dev/programacao-reativa-parte-4/</guid>
+				<pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[ljtfreitas ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+					<category><![CDATA[programacao-reativa]]></category>
+				
+				<description><![CDATA[
+					
+					Continuando a série sobre Programação Reativa: sistemas reativos!
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Tirando projetos do papel</title>
+				<link>https://elo7.dev/tirando-projetos-do-papel/</link>
+				<guid>https://elo7.dev/tirando-projetos-do-papel/</guid>
+				<pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[fernandabernardo ]]></dc:creator>
+				<category><![CDATA[cultura]]></category>
+				
+					<category><![CDATA[ideia]]></category>
+				
+					<category><![CDATA[projeto]]></category>
+				
+					<category><![CDATA[planejamento]]></category>
+				
+				<description><![CDATA[
+					
+					Geralmente, temos diversas ideias ao longo do dia, mas entre ter a ideia e ter um projeto concluído existe uma distância gigantesca. E como fazer para tirar essas ideias do papel? Nesse post vou falar um pouco sobre como sair dessa zona de conforto.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Como o design pode contribuir com a entregabilidade dos emails?</title>
+				<link>https://elo7.dev/design-e-entregabilidade-de-emails/</link>
+				<guid>https://elo7.dev/design-e-entregabilidade-de-emails/</guid>
+				<pubDate>Mon, 17 Dec 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[kkstv ]]></dc:creator>
+				<category><![CDATA[design]]></category>
+				
+					<category><![CDATA[design]]></category>
+				
+					<category><![CDATA[html]]></category>
+				
+				<description><![CDATA[
+					
+					Qual a relação entre o design e a entregabilidade dos emails? Descubra aqui! :)
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Techtalk - Jogos: indo além do simples CSS</title>
+				<link>https://elo7.dev/techtalk-jogos-indo-alem-do-simples-css/</link>
+				<guid>https://elo7.dev/techtalk-jogos-indo-alem-do-simples-css/</guid>
+				<pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[fernandabernardo ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[css]]></category>
+				
+					<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[tech-talk]]></category>
+				
+				<description><![CDATA[
+					
+					Há quem pense que o CSS serve somente para aplicar estilos a determinados elementos, e realmente seu principal objetivo é esse! Mas alguém já pensou que seria possível capturar eventos, como um evento de clique por exemplo, e gerar algum tipo de animação com isso? E falar que com isso é possível criar um jogo? Neste talk explicarei como criar um jogo simples, sem uma linha de javascript, usando apenas HTML e CSS. Além de muitas de suas funcionalidades: pseudo-elementos, pseudo-classes, animations, entre outras.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Programação Reativa - Parte 3</title>
+				<link>https://elo7.dev/programacao-reativa-parte-3/</link>
+				<guid>https://elo7.dev/programacao-reativa-parte-3/</guid>
+				<pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[ljtfreitas ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+					<category><![CDATA[programacao-reativa]]></category>
+				
+				<description><![CDATA[
+					
+					Terceiro capítulo da Jornada Reativa! Falaremos agora sobre coisas interessantes: código assíncrono, execução em paralelo e backpressure!
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Javascript e acessibilidade</title>
+				<link>https://elo7.dev/javascript-e-a11y/</link>
+				<guid>https://elo7.dev/javascript-e-a11y/</guid>
+				<pubDate>Mon, 10 Sep 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[luiz ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[acessibilidade]]></category>
+				
+					<category><![CDATA[html]]></category>
+				
+					<category><![CDATA[javascript]]></category>
+				
+					<category><![CDATA[css]]></category>
+				
+				<description><![CDATA[
+					
+					Javascript: herói ou vilão da acessibilidade na web? Neste post, vamos discutir que cuidados precisamos tomar para que o Javascript não se torne fogo amigo na luta por uma web mais acessível.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>API Persistente com Kotlin, Spring Boot, MySQL, JPA e Hibernate</title>
+				<link>https://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</link>
+				<guid>https://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</guid>
+				<pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[davidrobert ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[kotlin]]></category>
+				
+					<category><![CDATA[api]]></category>
+				
+					<category><![CDATA[rest]]></category>
+				
+					<category><![CDATA[restful]]></category>
+				
+					<category><![CDATA[spring]]></category>
+				
+					<category><![CDATA[spring boot]]></category>
+				
+					<category><![CDATA[mysql]]></category>
+				
+					<category><![CDATA[jpa]]></category>
+				
+					<category><![CDATA[hibernate]]></category>
+				
+				<description><![CDATA[
+					
+					Neste post, você aprenderá a criar uma API do Restful com o Kotlin, Spring Boot e JPA
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Vaga Engenheiro de Software/DevOps</title>
+				<link>https://elo7.dev/vagas-devops/</link>
+				<guid>https://elo7.dev/vagas-devops/</guid>
+				<pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[jlmfonseca ]]></dc:creator>
+				<category><![CDATA[vagas]]></category>
+				
+					<category><![CDATA[devops]]></category>
+				
+					<category><![CDATA[back-end]]></category>
+				
+				<description><![CDATA[
+					
+					O Elo7, o maior marketplace de produtos criativos da América Latina, está à procura de Engenheiros de Software/DevOps para fazer parte do nosso time.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Boas práticas na utilização do Kubernetes em produção</title>
+				<link>https://elo7.dev/boas-praticas-na-utilizacao-k8s/</link>
+				<guid>https://elo7.dev/boas-praticas-na-utilizacao-k8s/</guid>
+				<pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[marcusrios ]]></dc:creator>
+				<category><![CDATA[devops]]></category>
+				
+					<category><![CDATA[devops]]></category>
+				
+					<category><![CDATA[kubernetes]]></category>
+				
+					<category><![CDATA[containers]]></category>
+				
+					<category><![CDATA[AWS]]></category>
+				
+				<description><![CDATA[
+					
+					Neste post discutiremos alguns pontos de atenção importantes e necessários ao implementar o Kubernetes em ambientes de produção.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Desenvolvedor Mobile Júnior/Pleno</title>
+				<link>https://elo7.dev/vagas-desenvolverdor-mobile/</link>
+				<guid>https://elo7.dev/vagas-desenvolverdor-mobile/</guid>
+				<pubDate>Mon, 20 Aug 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[tisvasconcelos ]]></dc:creator>
+				<category><![CDATA[vagas]]></category>
+				
+					<category><![CDATA[mobile]]></category>
+				
+					<category><![CDATA[vagas]]></category>
+				
+					<category><![CDATA[android]]></category>
+				
+					<category><![CDATA[ios]]></category>
+				
+					<category><![CDATA[aplicativos]]></category>
+				
+				<description><![CDATA[
+					
+					O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Estamos à procura de desenvolvedores Mobile para fazer parte do nosso time.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Implementando um serviço Web RESTful em Kotlin com Spring Boot</title>
+				<link>https://elo7.dev/web-restful-em-kotlin-com-springboot/</link>
+				<guid>https://elo7.dev/web-restful-em-kotlin-com-springboot/</guid>
+				<pubDate>Mon, 13 Aug 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[davidrobert ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[api]]></category>
+				
+					<category><![CDATA[kotlin]]></category>
+				
+					<category><![CDATA[REST]]></category>
+				
+					<category><![CDATA[RESTful]]></category>
+				
+					<category><![CDATA[spring]]></category>
+				
+					<category><![CDATA[gradle]]></category>
+				
+				<description><![CDATA[
+					
+					Este post demonstra como implementar um serviço RESTful em Kotlin utilizando Spring Boot
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Conhecendo o Dust.js, uma biblioteca de template para javascript</title>
+				<link>https://elo7.dev/conheca-o-dustjs/</link>
+				<guid>https://elo7.dev/conheca-o-dustjs/</guid>
+				<pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[tcelestino ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[js templates]]></category>
+				
+					<category><![CDATA[isomorfismo]]></category>
+				
+				<description><![CDATA[
+					
+					Nesse primeiro post, conheça sobre o Dust.js, biblioteca para trabalhar com templates no cliente e no servidor.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Properties dinâmicos com Spring Cloud Config</title>
+				<link>https://elo7.dev/spring-cloud-config/</link>
+				<guid>https://elo7.dev/spring-cloud-config/</guid>
+				<pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[denis.oliveira ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+					<category><![CDATA[spring boot]]></category>
+				
+					<category><![CDATA[spring cloud config]]></category>
+				
+					<category><![CDATA[micro serviços]]></category>
+				
+					<category><![CDATA[infraestrutura]]></category>
+				
+				<description><![CDATA[
+					
+					Spring Cloud Config permite que suas configurações sejam atualizadas dinamicamente sem a necessidade de restart da aplicação, para um Cluster / ELB de máquinas ou apenas uma máquina. Isso possibilita que mudanças de configuração sejam aplicadas quase instantaneamente.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Técnicas para codificar um e-mail - parte 4</title>
+				<link>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-4/</link>
+				<guid>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-4/</guid>
+				<pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[erikatakahara ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[e-mail]]></category>
+				
+					<category><![CDATA[html]]></category>
+				
+					<category><![CDATA[css]]></category>
+				
+				<description><![CDATA[
+					
+					Você já teve que fazer um layout de e-mail com uma fonte diferente do padrão? Neste post iremos abordar como fazer isso, além de comentar sobre algumas dicas gerais.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Pareamento quase 100% do tempo, como é isso?</title>
+				<link>https://elo7.dev/pareamento/</link>
+				<guid>https://elo7.dev/pareamento/</guid>
+				<pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[fernandabernardo ]]></dc:creator>
+				<category><![CDATA[cultura]]></category>
+				
+					<category><![CDATA[agile]]></category>
+				
+					<category><![CDATA[cultura]]></category>
+				
+					<category><![CDATA[metodologias]]></category>
+				
+					<category><![CDATA[processos]]></category>
+				
+					<category><![CDATA[pareamento]]></category>
+				
+				<description><![CDATA[
+					
+					Já ouviu falar de pareamento? Todos os dias e não aquele uma vez por ano? Sabe como isso funciona? Nesse post falarei como fazemos isso no time de front end aqui do Elo7 e como há uma rotação de pessoas, o fluxo de tarefas e o que achamos bom e ruim dessa cultura.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Programação Reativa - Parte 2</title>
+				<link>https://elo7.dev/programacao-reativa-parte-2/</link>
+				<guid>https://elo7.dev/programacao-reativa-parte-2/</guid>
+				<pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[ljtfreitas ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+					<category><![CDATA[programacao-reativa]]></category>
+				
+				<description><![CDATA[
+					
+					Continuando a série sobre Programação Reativa, agora com um pouco de código!
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Rodando seus testes no Circle CI</title>
+				<link>https://elo7.dev/rodando-seus-testes-no-circle-ci/</link>
+				<guid>https://elo7.dev/rodando-seus-testes-no-circle-ci/</guid>
+				<pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[thiagoandrad ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[testes]]></category>
+				
+					<category><![CDATA[integracao continua]]></category>
+				
+					<category><![CDATA[circle ci]]></category>
+				
+				<description><![CDATA[
+					
+					Integrar os testes a um servidor de integração contínua é uma tarefa importante para os sistemas hoje em dia. Nesse post vamos abordar o Circle CI como opção para essa tarefa.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Características de Big Data</title>
+				<link>https://elo7.dev/caracteristicas-do-big-data/</link>
+				<guid>https://elo7.dev/caracteristicas-do-big-data/</guid>
+				<pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[ericvinicius ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[big data]]></category>
+				
+					<category><![CDATA[data science]]></category>
+				
+				<description><![CDATA[
+					
+					Uma pequena introdução sobre Big Data no Elo7
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Técnicas para codificar um e-mail - parte 3</title>
+				<link>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</link>
+				<guid>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</guid>
+				<pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[erikatakahara ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[e-mail]]></category>
+				
+					<category><![CDATA[html]]></category>
+				
+					<category><![CDATA[css]]></category>
+				
+					<category><![CDATA[responsivo]]></category>
+				
+					<category><![CDATA[mobile]]></category>
+				
+				<description><![CDATA[
+					
+					Já teve problemas ao visualizar um e-mail no celular? Aquelas letras pequenas, scroll lateral e colunas quebradas? Neste post iremos abordar como criar colunas nos e-mails e como deixá-las responsivas para melhor visualização em dispositivos móveis.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Serverless e AWS Lambda</title>
+				<link>https://elo7.dev/serverless/</link>
+				<guid>https://elo7.dev/serverless/</guid>
+				<pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[cristianoperez ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[serverless]]></category>
+				
+					<category><![CDATA[aws]]></category>
+				
+					<category><![CDATA[lambda]]></category>
+				
+					<category><![CDATA[aws lambda]]></category>
+				
+				<description><![CDATA[
+					
+					Serverless. O que é? Onde vive? Do que se alimenta?
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Credential Managament API</title>
+				<link>https://elo7.dev/credential-management-api/</link>
+				<guid>https://elo7.dev/credential-management-api/</guid>
+				<pubDate>Mon, 19 Mar 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[tcelestino ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[javascript]]></category>
+				
+					<category><![CDATA[web]]></category>
+				
+					<category><![CDATA[webapi]]></category>
+				
+				<description><![CDATA[
+					
+					Conheça a Credential Managament API e veja como implementá-la em seu projeto.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Programação Reativa - Parte 1</title>
+				<link>https://elo7.dev/programacao-reativa/</link>
+				<guid>https://elo7.dev/programacao-reativa/</guid>
+				<pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[ljtfreitas ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+					<category><![CDATA[programacao-reativa]]></category>
+				
+				<description><![CDATA[
+					
+					Você ouviu falar ou leu a respeito de uma tal &quot;programação reativa&quot;, e não sabe bem do que se trata? Este post é para você.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Otimização de queries lentas em bancos relacionais</title>
+				<link>https://elo7.dev/otimizacao-bd/</link>
+				<guid>https://elo7.dev/otimizacao-bd/</guid>
+				<pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[victorkendy ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[sql]]></category>
+				
+					<category><![CDATA[optimization]]></category>
+				
+					<category><![CDATA[banco de dados]]></category>
+				
+					<category><![CDATA[query]]></category>
+				
+					<category><![CDATA[otimizacao]]></category>
+				
+					<category><![CDATA[relacional]]></category>
+				
+					<category><![CDATA[mysql]]></category>
+				
+				<description><![CDATA[
+					
+					O banco relacional é uma das ferramentas mais utilizadas para o armazenamento de dados em aplicações, porém a performance dessas ferramentas pode sofrer caso os dados sejam inseridos sem o devido cuidado. Nesse post teremos uma introdução prática aos índices como uma forma de otimização de buscas.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Testes mais fluidos com AssertJ</title>
+				<link>https://elo7.dev/testes-mais-fluidos-com-assertj/</link>
+				<guid>https://elo7.dev/testes-mais-fluidos-com-assertj/</guid>
+				<pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[fabioueno ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+					<category><![CDATA[tdd]]></category>
+				
+					<category><![CDATA[assertj]]></category>
+				
+				<description><![CDATA[
+					
+					Diversos posts falam sobre a importância dos testes, mas o foco aqui será como melhorar a compreensão e legibilidade de nossos testes utilizando o AssertJ!
+				]]></description>
+			</item>
+		
+			<item>
+				<title>CSS Basics - Margin x Padding</title>
+				<link>https://elo7.dev/css-basics-margin-padding/</link>
+				<guid>https://elo7.dev/css-basics-margin-padding/</guid>
+				<pubDate>Mon, 19 Feb 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[fernandabernardo ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[css]]></category>
+				
+					<category><![CDATA[margin]]></category>
+				
+					<category><![CDATA[padding]]></category>
+				
+					<category><![CDATA[box sizing]]></category>
+				
+				<description><![CDATA[
+					
+					Como funcionam as propriedades de espaçamento de CSS? Elas sempre funcionam como o esperado? Nesse post falaremos sobre as propriedades margin e padding e como elas funcionam em algumas situações.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Controlando e melhorando a performance do build no Travis CI</title>
+				<link>https://elo7.dev/travis-build-stages/</link>
+				<guid>https://elo7.dev/travis-build-stages/</guid>
+				<pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[williammizuta ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[travis ci]]></category>
+				
+					<category><![CDATA[integracao continua]]></category>
+				
+					<category><![CDATA[testes]]></category>
+				
+				<description><![CDATA[
+					
+					Aprenda como criar fluxos de forma simples e flexível em uma das ferramentas mais famosas de Integração Contínua: o Travis CI. Além disso, veja  como podemos otimizar o seu tempo de execução.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Um pouco sobre acessibilidade, CSS e Javascript</title>
+				<link>https://elo7.dev/um-pouco-sobre-css-js-a11y/</link>
+				<guid>https://elo7.dev/um-pouco-sobre-css-js-a11y/</guid>
+				<pubDate>Mon, 05 Feb 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[luiz ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[acessibilidade]]></category>
+				
+					<category><![CDATA[html]]></category>
+				
+					<category><![CDATA[css]]></category>
+				
+					<category><![CDATA[javascript]]></category>
+				
+				<description><![CDATA[
+					
+					Um HTML semântico é uma boa base para um site acessível e algumas técnicas de CSS e Javascript podem melhorar ainda mais a experiência. Por outro lado, podem deixar sua página extremamente inacessível. Vamos discutir alguns casos nesse post.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Técnicas para codificar um e-mail - parte 2</title>
+				<link>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-2/</link>
+				<guid>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-2/</guid>
+				<pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[erikatakahara ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[e-mail]]></category>
+				
+					<category><![CDATA[html]]></category>
+				
+					<category><![CDATA[css]]></category>
+				
+				<description><![CDATA[
+					
+					Continuando com a série de posts sobre codificar e-mails, você já teve problemas para adicionar espaçamentos? Ou com cliente de e-mail que não lê corretamente o que foi codificado? Nesse segundo post, vamos abordar diversas técnicas.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Subindo uma API REST em Clojure</title>
+				<link>https://elo7.dev/subindo-uma-api-rest-em-clojure/</link>
+				<guid>https://elo7.dev/subindo-uma-api-rest-em-clojure/</guid>
+				<pubDate>Mon, 22 Jan 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[ericdallo ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[API]]></category>
+				
+					<category><![CDATA[REST]]></category>
+				
+					<category><![CDATA[clojure]]></category>
+				
+					<category><![CDATA[back-end]]></category>
+				
+				<description><![CDATA[
+					
+					Clojure é uma linguagem já conhecida para os amantes do paradigma funcional, neste post, demonstro alguns detalhes de uma biblioteca que faz uma ponte entre esta linguagem e o mundo WEB. Venha aprender como subir uma API REST em 10 minutos!
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Princípios de Processamento de Imagens: Uma introdução à Convolução</title>
+				<link>https://elo7.dev/convolucao/</link>
+				<guid>https://elo7.dev/convolucao/</guid>
+				<pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[abarbosa94 igorbonadio ]]></dc:creator>
+				<category><![CDATA[data-science]]></category>
+				
+					<category><![CDATA[data science]]></category>
+				
+					<category><![CDATA[machine learning]]></category>
+				
+					<category><![CDATA[processamento de imagens]]></category>
+				
+				<description><![CDATA[
+					
+					Apresentaremos uma técnica chamada convolução, que é base de diversos algoritmos de processamento de imagens.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Vaga Data Engineer</title>
+				<link>https://elo7.dev/vaga-data-engineer/</link>
+				<guid>https://elo7.dev/vaga-data-engineer/</guid>
+				<pubDate>Tue, 09 Jan 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[davidrobert ]]></dc:creator>
+				<category><![CDATA[vagas]]></category>
+				
+					<category><![CDATA[engineering]]></category>
+				
+					<category><![CDATA[information-technology]]></category>
+				
+					<category><![CDATA[vagas]]></category>
+				
+				<description><![CDATA[
+					
+					O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Estamos à procura de desenvolvedores _Data Engineer_ para fazer parte do nosso time.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Front-End - Coisas de que nós nos orgulhamos em 2017!</title>
+				<link>https://elo7.dev/retrospectiva-front-end-2017/</link>
+				<guid>https://elo7.dev/retrospectiva-front-end-2017/</guid>
+				<pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[alinelee ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[acessibilidade]]></category>
+				
+					<category><![CDATA[css]]></category>
+				
+					<category><![CDATA[html]]></category>
+				
+					<category><![CDATA[javascript]]></category>
+				
+					<category><![CDATA[pwa]]></category>
+				
+					<category><![CDATA[retrospectiva]]></category>
+				
+					<category><![CDATA[webapi]]></category>
+				
+				<description><![CDATA[
+					
+					2017 foi um ano recheado de projetos interessantes e desafiantes para nós. Neste post vou fazer um resumão deles
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Vaga Search Developer - Information Retrieval</title>
+				<link>https://elo7.dev/vagas-search-2017-12/</link>
+				<guid>https://elo7.dev/vagas-search-2017-12/</guid>
+				<pubDate>Thu, 21 Dec 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[davidrobert ]]></dc:creator>
+				<category><![CDATA[vagas]]></category>
+				
+					<category><![CDATA[search]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+					<category><![CDATA[solr]]></category>
+				
+					<category><![CDATA[lucene]]></category>
+				
+					<category><![CDATA[machine learning]]></category>
+				
+					<category><![CDATA[back-end]]></category>
+				
+				<description><![CDATA[
+					
+					Você está interessado e tem paixão por sistemas de busca? O propósito da vaga de Software Engineer com especialidade em Busca é encontrar profissionais com alto conhecimento em Information Retrieval e search engine para complementarem nosso time.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>A cultura por trás do time fora de série!</title>
+				<link>https://elo7.dev/a-cultura-por-tras-do-time-fora-de-serie/</link>
+				<guid>https://elo7.dev/a-cultura-por-tras-do-time-fora-de-serie/</guid>
+				<pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[leonardosouza ]]></dc:creator>
+				<category><![CDATA[cultura]]></category>
+				
+					<category><![CDATA[agile]]></category>
+				
+					<category><![CDATA[cultura]]></category>
+				
+					<category><![CDATA[metodologias]]></category>
+				
+					<category><![CDATA[processos]]></category>
+				
+					<category><![CDATA[carreira]]></category>
+				
+				<description><![CDATA[
+					
+					Um resumo sobre a cultura do time de engenharia do Elo7
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Arquiteturas para aplicações realtime utilizando MQTT</title>
+				<link>https://elo7.dev/arquiteturas-para-aplica%C3%A7%C3%B5es-realtime-utilizando-mqtt/</link>
+				<guid>https://elo7.dev/arquiteturas-para-aplica%C3%A7%C3%B5es-realtime-utilizando-mqtt/</guid>
+				<pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[cristianoperez ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[mqtt]]></category>
+				
+					<category><![CDATA[websocket]]></category>
+				
+					<category><![CDATA[arquitetura]]></category>
+				
+					<category><![CDATA[polling]]></category>
+				
+					<category><![CDATA[http]]></category>
+				
+					<category><![CDATA[pub-sub]]></category>
+				
+				<description><![CDATA[
+					
+					Vamos descrever os diferentes tipos de arquiteturas para a criação de aplicações realtime, como Short Polling, Long Polling, WebSocket + HTTP e suas vantagens e desvantagens em relação a WebSocket + MQTT usada no Talk7.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Vaga Data Scientist</title>
+				<link>https://elo7.dev/vagas-data-scientist-cientista-de-dados/</link>
+				<guid>https://elo7.dev/vagas-data-scientist-cientista-de-dados/</guid>
+				<pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[davidrobert ]]></dc:creator>
+				<category><![CDATA[vagas]]></category>
+				
+					<category><![CDATA[data scientist]]></category>
+				
+					<category><![CDATA[deep learning]]></category>
+				
+					<category><![CDATA[big data]]></category>
+				
+					<category><![CDATA[machine learning]]></category>
+				
+					<category><![CDATA[python]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+				<description><![CDATA[
+					
+					O Elo7, maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar seus novos projetos. Estamos à procura de profissionais de pesquisa e desenvolvimento para nosso time de Data Science.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Novidades do JUnit 5 - parte 2</title>
+				<link>https://elo7.dev/novidades-do-junit-5-parte-2/</link>
+				<guid>https://elo7.dev/novidades-do-junit-5-parte-2/</guid>
+				<pubDate>Mon, 20 Nov 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[ljtfreitas ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+					<category><![CDATA[junit]]></category>
+				
+					<category><![CDATA[tdd]]></category>
+				
+				<description><![CDATA[
+					
+					Neste post, vamos continuar a explorar as mudanças da nova versão do JUnit. No post anterior, vimos os principais novos recursos. Agora, vou comentar sobre a migração dos nossos testes já existentes.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Orquestrando containers</title>
+				<link>https://elo7.dev/orquestrando-containers/</link>
+				<guid>https://elo7.dev/orquestrando-containers/</guid>
+				<pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[lucasvasconcelos ]]></dc:creator>
+				<category><![CDATA[devops]]></category>
+				
+					<category><![CDATA[devops]]></category>
+				
+					<category><![CDATA[kubernetes]]></category>
+				
+					<category><![CDATA[containers]]></category>
+				
+					<category><![CDATA[orquestracao]]></category>
+				
+					<category><![CDATA[infra]]></category>
+				
+				<description><![CDATA[
+					
+					Neste post mostraremos como decidimos utilizar o Kubernetes para orquestrar nossos containers e quais os pontos de atenção ao utilizar uma ferramenta desse tipo.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Novidades do JUnit 5 - parte 1</title>
+				<link>https://elo7.dev/novidades-do-junit-5-parte-1/</link>
+				<guid>https://elo7.dev/novidades-do-junit-5-parte-1/</guid>
+				<pubDate>Mon, 06 Nov 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[ljtfreitas ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+					<category><![CDATA[junit]]></category>
+				
+					<category><![CDATA[tdd]]></category>
+				
+				<description><![CDATA[
+					
+					Recentemente (setembro/2017), foi lançado o JUnit 5, a nova versão do principal framework para testes de código na plataforma Java. Neste post, vamos conhecer algumas novidades e mudanças desse novo release.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Testando acessibilidade</title>
+				<link>https://elo7.dev/testando-acessibilidade/</link>
+				<guid>https://elo7.dev/testando-acessibilidade/</guid>
+				<pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[luiz ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[acessibilidade]]></category>
+				
+					<category><![CDATA[testes]]></category>
+				
+					<category><![CDATA[ux]]></category>
+				
+				<description><![CDATA[
+					
+					Acessibilidade é um tema que tem ganho cada vez mais atenção. Vemos cada vez mais conteúdo e dicas sobre como tornar sua aplicação mais acessível. Mas como garantir que nossas medidas para incluir acessibilidade estão surtindo efeito?
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Otimização de busca em faixas de valores</title>
+				<link>https://elo7.dev/otimizacao-de-busca-em-faixas-de-valores/</link>
+				<guid>https://elo7.dev/otimizacao-de-busca-em-faixas-de-valores/</guid>
+				<pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[ftfarias ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[algoritmo]]></category>
+				
+					<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[python]]></category>
+				
+					<category><![CDATA[otimizacao]]></category>
+				
+					<category><![CDATA[busca]]></category>
+				
+				<description><![CDATA[
+					
+					Explicamos como utilizamos um método de bissecção para otimizar a busca de valores em uma coleção de faixas de CEP, aumentando em mais de 100 vezes a performance do algoritimo.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Minimizando código duplicado com React Native no Elo7</title>
+				<link>https://elo7.dev/minimizando-codigo-duplicado-com-react-native/</link>
+				<guid>https://elo7.dev/minimizando-codigo-duplicado-com-react-native/</guid>
+				<pubDate>Mon, 16 Oct 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[aterribili ]]></dc:creator>
+				<category><![CDATA[mobile]]></category>
+				
+					<category><![CDATA[react-native]]></category>
+				
+					<category><![CDATA[ios]]></category>
+				
+					<category><![CDATA[android]]></category>
+				
+				<description><![CDATA[
+					
+					Neste post explico como aplicamos o uso de React Native no Elo7.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Técnicas para codificar um e-mail</title>
+				<link>https://elo7.dev/tecnicas-para-codificar-um-e-mail/</link>
+				<guid>https://elo7.dev/tecnicas-para-codificar-um-e-mail/</guid>
+				<pubDate>Mon, 09 Oct 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[erikatakahara ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[e-mail]]></category>
+				
+					<category><![CDATA[html]]></category>
+				
+					<category><![CDATA[css]]></category>
+				
+					<category><![CDATA[marketing]]></category>
+				
+					<category><![CDATA[transacional]]></category>
+				
+					<category><![CDATA[layout]]></category>
+				
+				<description><![CDATA[
+					
+					Todo desenvolvedor front-end já passou por problemas ao codificar um e-mail, principalmente quando se trata de compatibilidade com todos os clientes, como o Yahoo, Gmail, Outlook, etc. Neste post, iremos abordar algumas técnicas e quais são os principais pontos de atenção ao desenvolver esse tipo de layout.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Desmistificando o Encoding</title>
+				<link>https://elo7.dev/encoding/</link>
+				<guid>https://elo7.dev/encoding/</guid>
+				<pubDate>Mon, 02 Oct 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[mariofts ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[encoding]]></category>
+				
+					<category><![CDATA[web]]></category>
+				
+				<description><![CDATA[
+					
+					Já reparou como é difícil fazer acentos, emojis e outros caracteres estranhos serem exibidos corretamente nos seus programas? Vamos entender um pouco sobre como funciona o armazenamento de caracteres e como fazer software que suporte múltiplas línguas da maneira correta.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Customizando campos de formulário com o mask-amd</title>
+				<link>https://elo7.dev/customizando-campos-de-formulario-com-elo7-mask-amd/</link>
+				<guid>https://elo7.dev/customizando-campos-de-formulario-com-elo7-mask-amd/</guid>
+				<pubDate>Mon, 25 Sep 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[rapahaeru ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[html]]></category>
+				
+					<category><![CDATA[javascript]]></category>
+				
+					<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[libs]]></category>
+				
+				<description><![CDATA[
+					
+					Que tal otimizar seu tempo e seu HTML com uma biblioteca focada diretamente no que é preciso? Direto ao ponto, a mask-amd tem um único objetivo: formatar os campos do seu formulário.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Terraformando tudo - parte 3</title>
+				<link>https://elo7.dev/terraformando-tudo-3/</link>
+				<guid>https://elo7.dev/terraformando-tudo-3/</guid>
+				<pubDate>Mon, 18 Sep 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[lucasvasconcelos ]]></dc:creator>
+				<category><![CDATA[devops]]></category>
+				
+					<category><![CDATA[devops]]></category>
+				
+					<category><![CDATA[terraform]]></category>
+				
+					<category><![CDATA[iac]]></category>
+				
+					<category><![CDATA[infrastructure as code]]></category>
+				
+					<category><![CDATA[infra]]></category>
+				
+				<description><![CDATA[
+					
+					Terceiro post da série &#x27;Terraformando Tudo&#x27;, que conta a nossa trajetória em busca da codificação da nossa infraestrutura. Neste post mostraremos como &quot;terraformar&quot; uma infra já existente.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Web Share API</title>
+				<link>https://elo7.dev/web-share-api/</link>
+				<guid>https://elo7.dev/web-share-api/</guid>
+				<pubDate>Mon, 11 Sep 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[tcelestino ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[javascript]]></category>
+				
+					<category><![CDATA[mobile]]></category>
+				
+					<category><![CDATA[web]]></category>
+				
+					<category><![CDATA[webapi]]></category>
+				
+				<description><![CDATA[
+					
+					Conheça mais uma API JavaScript que pretende melhorar a experiência do usuário quando precisar compartilhar links da Web para aplicativos nativos.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Flink vs Spark</title>
+				<link>https://elo7.dev/flink-spark/</link>
+				<guid>https://elo7.dev/flink-spark/</guid>
+				<pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[mikedias gmcoringa ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[spark]]></category>
+				
+					<category><![CDATA[flink]]></category>
+				
+					<category><![CDATA[big data]]></category>
+				
+				<description><![CDATA[
+					
+					O título do post é polêmico para chamar sua atenção, mas a ideia deste post é mostrar a nossa visão sobre essas duas excelentes ferramentas: Apache Flink e Apache Spark.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Jest - Testar seu código Javascript nunca foi tão fácil!</title>
+				<link>https://elo7.dev/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/</link>
+				<guid>https://elo7.dev/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/</guid>
+				<pubDate>Mon, 28 Aug 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[leonardosouza ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[javascript]]></category>
+				
+					<category><![CDATA[tests]]></category>
+				
+					<category><![CDATA[tdd]]></category>
+				
+				<description><![CDATA[
+					
+					A grande maioria dos desenvolvedores que conheço não gosta de testar software pelo simples fato de que executar uma bateria de testes de forma manual é extremamente cansativo. Com isso, nós desenvolvedores criamos o péssimo hábito de testar superficialmente tudo que produzimos...
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Testes de código com Mockito (2) - Novidades da nova versão</title>
+				<link>https://elo7.dev/testes-codigo-mockito-2/</link>
+				<guid>https://elo7.dev/testes-codigo-mockito-2/</guid>
+				<pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[ljtfreitas ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+					<category><![CDATA[mockito]]></category>
+				
+					<category><![CDATA[tdd]]></category>
+				
+				<description><![CDATA[
+					
+					Há algum tempo, escrevi sobre o funcionamento e os principais recursos do Mockito. Neste post, vamos conhecer as novidades da nova versão do framework.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Design de Produto no Elo7</title>
+				<link>https://elo7.dev/design-de-produto-no-elo7/</link>
+				<guid>https://elo7.dev/design-de-produto-no-elo7/</guid>
+				<pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[macadantas ]]></dc:creator>
+				<category><![CDATA[design]]></category>
+				
+					<category><![CDATA[design de produto]]></category>
+				
+					<category><![CDATA[ux design]]></category>
+				
+					<category><![CDATA[ui design]]></category>
+				
+					<category><![CDATA[user testing]]></category>
+				
+				<description><![CDATA[
+					
+					Conheça o trabalho do time de design de produto no Elo7
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Frameworks e bibliotecas JavaScript: quando e qual usar</title>
+				<link>https://elo7.dev/frameworks-js/</link>
+				<guid>https://elo7.dev/frameworks-js/</guid>
+				<pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[williammizuta ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[javascript]]></category>
+				
+					<category><![CDATA[frameworks javascript]]></category>
+				
+					<category><![CDATA[bibliotecas javascript]]></category>
+				
+					<category><![CDATA[performance front-end]]></category>
+				
+				<description><![CDATA[
+					
+					Será que realmente precisamos usar um framework ou uma biblioteca JavaScript? E como decidir qual devemos usar no projeto?
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Terraformando tudo - parte 2</title>
+				<link>https://elo7.dev/terraformando-tudo-2/</link>
+				<guid>https://elo7.dev/terraformando-tudo-2/</guid>
+				<pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[lucasvasconcelos ]]></dc:creator>
+				<category><![CDATA[devops]]></category>
+				
+					<category><![CDATA[devops]]></category>
+				
+					<category><![CDATA[terraform]]></category>
+				
+					<category><![CDATA[iac]]></category>
+				
+					<category><![CDATA[infrastructure as code]]></category>
+				
+					<category><![CDATA[infra]]></category>
+				
+				<description><![CDATA[
+					
+					Segundo post da série &#x27;Terraformando Tudo&#x27;, que conta a nossa trajetória em busca da codificação da nossa infraestrutura. Neste post contamos o que fizemos para mitigar possíveis desastres e como controlamos N desenvolvedores alterando N Terraform configurations. Vamos lá?
+				]]></description>
+			</item>
+		
+			<item>
+				<title>CSS Basics - Display</title>
+				<link>https://elo7.dev/css-basics-display/</link>
+				<guid>https://elo7.dev/css-basics-display/</guid>
+				<pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[fernandabernardo ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[css]]></category>
+				
+					<category><![CDATA[display]]></category>
+				
+					<category><![CDATA[posicionamento]]></category>
+				
+				<description><![CDATA[
+					
+					O que cada um dos atributos da propriedade display realmente significa? O objetivo deste post é abordar qual é o melhor uso para cada um deles, e quais são as mudanças de layout causadas por cada possível valor.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Microserviços e REST (sério?)</title>
+				<link>https://elo7.dev/microservicos-rest/</link>
+				<guid>https://elo7.dev/microservicos-rest/</guid>
+				<pubDate>Mon, 17 Jul 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[ljtfreitas newton-beck ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[microservices]]></category>
+				
+					<category><![CDATA[rest]]></category>
+				
+					<category><![CDATA[rpc]]></category>
+				
+					<category><![CDATA[arquitetura de software]]></category>
+				
+				<description><![CDATA[
+					
+					Microserviços e REST estão na moda. Vamos discutir um pouco sobre essas duas palavrinhas.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Javascript Isomórfico - parte 2</title>
+				<link>https://elo7.dev/isomorfismo-parte-2/</link>
+				<guid>https://elo7.dev/isomorfismo-parte-2/</guid>
+				<pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[fernandabernardo ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[javascript]]></category>
+				
+					<category><![CDATA[isomorfico]]></category>
+				
+				<description><![CDATA[
+					
+					Continuando com a série de posts sobre javascript isomórfico, agora falando um pouco mais sobre frameworks e onde usá-los.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Google I/O - Web</title>
+				<link>https://elo7.dev/google-io-3/</link>
+				<guid>https://elo7.dev/google-io-3/</guid>
+				<pubDate>Mon, 26 Jun 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[davidrobert ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[google io]]></category>
+				
+					<category><![CDATA[web]]></category>
+				
+					<category><![CDATA[pwa]]></category>
+				
+					<category><![CDATA[amp]]></category>
+				
+					<category><![CDATA[chrome]]></category>
+				
+					<category><![CDATA[devtools]]></category>
+				
+				<description><![CDATA[
+					
+					Durante diversas sessões os palestrantes incentivaram fortemente o uso de AMP e PWA, além de reforçarem que Mobile Web é mainstream.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Google I/O - Android</title>
+				<link>https://elo7.dev/google-io-2/</link>
+				<guid>https://elo7.dev/google-io-2/</guid>
+				<pubDate>Mon, 19 Jun 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[davidrobert ]]></dc:creator>
+				<category><![CDATA[mobile]]></category>
+				
+					<category><![CDATA[google io]]></category>
+				
+					<category><![CDATA[android]]></category>
+				
+					<category><![CDATA[android o]]></category>
+				
+					<category><![CDATA[android studio]]></category>
+				
+					<category><![CDATA[kotlin]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+					<category><![CDATA[instant app]]></category>
+				
+					<category><![CDATA[smart lock]]></category>
+				
+					<category><![CDATA[android vitals]]></category>
+				
+					<category><![CDATA[autofill]]></category>
+				
+					<category><![CDATA[auto backup]]></category>
+				
+				<description><![CDATA[
+					
+					A principal novidade sobre a plataforma Android foi o suporte à linguagem de programação Kotlin.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Vaga Software Engineer - Search</title>
+				<link>https://elo7.dev/vagas-search/</link>
+				<guid>https://elo7.dev/vagas-search/</guid>
+				<pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[fernandabernardo ]]></dc:creator>
+				<category><![CDATA[vagas]]></category>
+				
+					<category><![CDATA[search]]></category>
+				
+					<category><![CDATA[back-end]]></category>
+				
+				<description><![CDATA[
+					
+					O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Estamos à procura de desenvolvedores especialistas em busca para fazer parte do nosso time.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Vaga Mobile Developer</title>
+				<link>https://elo7.dev/vagas-mobile/</link>
+				<guid>https://elo7.dev/vagas-mobile/</guid>
+				<pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[fernandabernardo ]]></dc:creator>
+				<category><![CDATA[vagas]]></category>
+				
+					<category><![CDATA[mobile]]></category>
+				
+					<category><![CDATA[vagas]]></category>
+				
+				<description><![CDATA[
+					
+					O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Estamos à procura de desenvolvedores Mobile para fazer parte do nosso time.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>As &quot;states&quot; e &quot;properties&quot; do atributo role no WAI-ARIA</title>
+				<link>https://elo7.dev/wai-aria-states-properties/</link>
+				<guid>https://elo7.dev/wai-aria-states-properties/</guid>
+				<pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[rapahaeru ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[html]]></category>
+				
+					<category><![CDATA[semantica]]></category>
+				
+					<category><![CDATA[acessibilidade]]></category>
+				
+				<description><![CDATA[
+					
+					Os termos &quot;estados&quot; e &quot;propriedades&quot; referem-se a características semelhantes. Ambos fornecem informações específicas sobre um objeto, e ambos fazem parte da definição da natureza das roles. Verificaremos como e quando utilizadar cada atributo.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Google I/O - Inteligência Artificial</title>
+				<link>https://elo7.dev/google-io/</link>
+				<guid>https://elo7.dev/google-io/</guid>
+				<pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[davidrobert ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[google io]]></category>
+				
+					<category><![CDATA[inteligencia artificial]]></category>
+				
+					<category><![CDATA[ai]]></category>
+				
+					<category><![CDATA[mobile]]></category>
+				
+					<category><![CDATA[google.ai]]></category>
+				
+					<category><![CDATA[google assistent]]></category>
+				
+					<category><![CDATA[google lens]]></category>
+				
+					<category><![CDATA[google home]]></category>
+				
+					<category><![CDATA[android o]]></category>
+				
+					<category><![CDATA[api.ai]]></category>
+				
+					<category><![CDATA[tensorflow]]></category>
+				
+					<category><![CDATA[tensorflow lite]]></category>
+				
+					<category><![CDATA[tensor processing units]]></category>
+				
+					<category><![CDATA[tpu]]></category>
+				
+					<category><![CDATA[cloud tpus]]></category>
+				
+					<category><![CDATA[google tango]]></category>
+				
+				<description><![CDATA[
+					
+					Inteligência artificial foi um dos grandes temas do Google I/O. Atualmente, todos os produtos da Google estão utilizando alguma camada de inteligência artificial, e vão usar cada vez mais no futuro.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Nightfall - Injetando dependências no Spark (Parte 1)</title>
+				<link>https://elo7.dev/nightfall/</link>
+				<guid>https://elo7.dev/nightfall/</guid>
+				<pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[gadsc ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[spark]]></category>
+				
+					<category><![CDATA[big data]]></category>
+				
+					<category><![CDATA[dependency injection]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+					<category><![CDATA[kafka]]></category>
+				
+				<description><![CDATA[
+					
+					Conheça o Nightfall, um projeto criado pela Engenharia do Elo7 para simplificar a criação de streams e batches no Spark, fornecendo injeção de dependências, configuração e facilidades na criação de tasks.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Vaga Data Scientist</title>
+				<link>https://elo7.dev/vagas-data-scientist/</link>
+				<guid>https://elo7.dev/vagas-data-scientist/</guid>
+				<pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[davidrobert ]]></dc:creator>
+				<category><![CDATA[vagas]]></category>
+				
+					<category><![CDATA[data scientist]]></category>
+				
+					<category><![CDATA[deep learning]]></category>
+				
+					<category><![CDATA[big data]]></category>
+				
+					<category><![CDATA[machine learning]]></category>
+				
+					<category><![CDATA[python]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+				<description><![CDATA[
+					
+					O Elo7, maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar seus novos projetos. Estamos à procura de profissionais de pesquisa e desenvolvimento para nosso time de Data Science.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Posicionando elementos com CSS</title>
+				<link>https://elo7.dev/posicionando-com-css/</link>
+				<guid>https://elo7.dev/posicionando-com-css/</guid>
+				<pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[alinelee ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[float]]></category>
+				
+					<category><![CDATA[inline-block]]></category>
+				
+					<category><![CDATA[flex]]></category>
+				
+					<category><![CDATA[alinhamento vertical]]></category>
+				
+					<category><![CDATA[css]]></category>
+				
+					<category><![CDATA[posicionamento]]></category>
+				
+				<description><![CDATA[
+					
+					Posicionando elementos na tela com css utilizando diferentes técnicas e ponderando pontos positivos e negativos de cada uma.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Migrando para HTTPS</title>
+				<link>https://elo7.dev/https-only/</link>
+				<guid>https://elo7.dev/https-only/</guid>
+				<pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[edsonmarquezani ]]></dc:creator>
+				<category><![CDATA[devops]]></category>
+				
+					<category><![CDATA[https]]></category>
+				
+					<category><![CDATA[http2]]></category>
+				
+				<description><![CDATA[
+					
+					Recentemente, o Elo7 passou a ser servido unicamente em HTTPS. Essa mudança, que pode parecer simples à primeira vista, tem uma série de motivos e também implicações, que serão discutidas neste artigo.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Os papéis do WAI-ARIA no HTML</title>
+				<link>https://elo7.dev/wai-aria-roles/</link>
+				<guid>https://elo7.dev/wai-aria-roles/</guid>
+				<pubDate>Mon, 17 Apr 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[rapahaeru ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[html]]></category>
+				
+					<category><![CDATA[semantica]]></category>
+				
+					<category><![CDATA[acessibilidade]]></category>
+				
+				<description><![CDATA[
+					
+					O ARIA se divide semanticamente em três partes: seus papéis (roles), estados (states) e suas propriedades (properties). Nesse post vamos focar nas roles (papéis) e entender o seu real papel no HTML.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Um apanhado geral sobre o WAI-ARIA</title>
+				<link>https://elo7.dev/wai-aria-apanhado-geral/</link>
+				<guid>https://elo7.dev/wai-aria-apanhado-geral/</guid>
+				<pubDate>Mon, 03 Apr 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[rapahaeru ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[html]]></category>
+				
+					<category><![CDATA[semantica]]></category>
+				
+					<category><![CDATA[acessibilidade]]></category>
+				
+				<description><![CDATA[
+					
+					O que o desenvolvedor atual está fazendo para tornar seu conteúdo mais acessível para pessoas com algum tipo de deficiência? Com a evolução da web, a usabilidade melhorou muito, porém usuários de tecnologias assistivas correm risco de serem excluídos por conta das lacunas de acessibilidade que surgem com as páginas mais dinâmicas. Como leitores de tela normalmente sofrem com JavaScript, surge uma nova maneira de criar interfaces dinâmicas que são acessíveis a mais usuários.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Introdução ao Java - parte 2</title>
+				<link>https://elo7.dev/introducao-ao-java-2/</link>
+				<guid>https://elo7.dev/introducao-ao-java-2/</guid>
+				<pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[tcelestino ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[java basico]]></category>
+				
+					<category><![CDATA[controle de fluxo]]></category>
+				
+					<category><![CDATA[expressoes booleanas]]></category>
+				
+				<description><![CDATA[
+					
+					Entenda como controlar o fluxo de funcionamento do seu código usando expressão booleana e do funcionamento do &quot;if&quot;, &quot;else&quot;, &quot;for&quot;, &quot;while&quot; e de alguns operadores.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Elo7 + Analytics = Elytics</title>
+				<link>https://elo7.dev/elo7-analytics-elytics/</link>
+				<guid>https://elo7.dev/elo7-analytics-elytics/</guid>
+				<pubDate>Mon, 06 Mar 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[mikedias ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[analytics]]></category>
+				
+					<category><![CDATA[kafka]]></category>
+				
+					<category><![CDATA[flink]]></category>
+				
+					<category><![CDATA[elasticsearch]]></category>
+				
+					<category><![CDATA[kibana]]></category>
+				
+				<description><![CDATA[
+					
+					Métricas, métricas, métricas! Aqui no Elo7, tanto as métricas de sistema (cpu, mémoria, disco, logs, etc) quanto as métricas de negócio (pedidos, carrinhos, mensagens) importam bastante. Tudo o que acontece no site é capturado, metrificado e monitorado em tempo real para que nós possamos saber se estamos indo bem ou mal e para onde devemos seguir. Para que isso seja possível nós criamos o Elytics (Elo7 + Analytics).
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Terraformando tudo - parte 1</title>
+				<link>https://elo7.dev/terraformando-tudo-1/</link>
+				<guid>https://elo7.dev/terraformando-tudo-1/</guid>
+				<pubDate>Mon, 13 Feb 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[lucasvasconcelos ]]></dc:creator>
+				<category><![CDATA[devops]]></category>
+				
+					<category><![CDATA[devops]]></category>
+				
+					<category><![CDATA[terraform]]></category>
+				
+					<category><![CDATA[iac]]></category>
+				
+					<category><![CDATA[infrastructure as code]]></category>
+				
+					<category><![CDATA[infra]]></category>
+				
+				<description><![CDATA[
+					
+					Início da série de posts &#x27;Terraformando Tudo&#x27;, que conta a nossa trajetória em busca da codificação da nossa infraestrutura. Esse primeiro post mostra nossas premissas para o projeto e como escolhemos o Terraform como ferramenta para nos auxiliar nesse caminho.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Javascript Isomórfico</title>
+				<link>https://elo7.dev/isomorfismo/</link>
+				<guid>https://elo7.dev/isomorfismo/</guid>
+				<pubDate>Mon, 30 Jan 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[fernandabernardo ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[javascript]]></category>
+				
+					<category><![CDATA[isomorfico]]></category>
+				
+				<description><![CDATA[
+					
+					Novos frameworks são criados a todo momento e um novo nome está criando mais força no mundo Javascript: isomorfismo.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>A importância da semântica no HTML - parte II</title>
+				<link>https://elo7.dev/html-semantico-2/</link>
+				<guid>https://elo7.dev/html-semantico-2/</guid>
+				<pubDate>Mon, 16 Jan 2017 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[rapahaeru ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[html]]></category>
+				
+					<category><![CDATA[semantica]]></category>
+				
+					<category><![CDATA[seo]]></category>
+				
+					<category><![CDATA[acessibilidade]]></category>
+				
+					<category><![CDATA[front-end]]></category>
+				
+				<description><![CDATA[
+					
+					Neste segundo post da série sobre a importância da semântica para os usuários e desenvolvedores, trataremos sobre como podemos melhorar nosso conteúdo de forma que os buscadores entendam o que realmente estamos oferecendo, com a menor possibilidade de ruídos de informação possível. Saberemos de maneira prática como podemos melhorar a disponibilidade de nosso conteúdo.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Vaga de estágio em desenvolvimento de software</title>
+				<link>https://elo7.dev/vagas-estagio/</link>
+				<guid>https://elo7.dev/vagas-estagio/</guid>
+				<pubDate>Mon, 26 Dec 2016 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[davidrobert ]]></dc:creator>
+				<category><![CDATA[vagas]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+					<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[front-end]]></category>
+				
+				<description><![CDATA[
+					
+					O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Temos a seguinte vaga para o time da engenharia...
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Introdução à programação funcional com Java 8</title>
+				<link>https://elo7.dev/introducao-a-programacao-funcional-com-java8/</link>
+				<guid>https://elo7.dev/introducao-a-programacao-funcional-com-java8/</guid>
+				<pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[diegocesar ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+					<category><![CDATA[java8]]></category>
+				
+					<category><![CDATA[back-end]]></category>
+				
+				<description><![CDATA[
+					
+					Disponível desde 2014, o Java 8 ainda deixa muitas dúvidas, principalmente quanto às novidades em relação à sua versão anterior. Nesse post vou falar sobre as principais novidades do Java 8.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>A tecnologia por trás de progressive web apps</title>
+				<link>https://elo7.dev/a-tecnologia-por-tras-de-progressive-web-apps/</link>
+				<guid>https://elo7.dev/a-tecnologia-por-tras-de-progressive-web-apps/</guid>
+				<pubDate>Mon, 10 Oct 2016 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[luiz ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[javascript]]></category>
+				
+					<category><![CDATA[progressive webapps]]></category>
+				
+					<category><![CDATA[pwa]]></category>
+				
+					<category><![CDATA[service workers]]></category>
+				
+				<description><![CDATA[
+					
+					Se você trabalha com web, provavelmente já deve ter ouvido falar no termo progressive web app. Essa é uma tendência que vem aparecendo muito forte, impulsionada principalmente pelo Google. O objetivo deste post vai ser explorar um pouco mais o lado técnico dessa tendência: como a tecnologia evoluiu para chegarmos nesse ponto, o que temos de ferramentas e o que ainda está por vir.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Gestão de logs</title>
+				<link>https://elo7.dev/gestao-de-logs/</link>
+				<guid>https://elo7.dev/gestao-de-logs/</guid>
+				<pubDate>Mon, 10 Oct 2016 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[edsonmarquezani ]]></dc:creator>
+				<category><![CDATA[devops]]></category>
+				
+					<category><![CDATA[logs]]></category>
+				
+					<category><![CDATA[graylog]]></category>
+				
+				<description><![CDATA[
+					
+					Logs são parte fundamental de qualquer aplicação, e sua importância é notada especialmente nos momentos mais difíceis. Neste artigo veremos como gerenciar esses dados de forma eficaz e versátil, provendo robustez e, ainda assim, facilitando o dia-a-dia de nossas colabores aqui no Elo7.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Introdução ao Java</title>
+				<link>https://elo7.dev/introducao-ao-java/</link>
+				<guid>https://elo7.dev/introducao-ao-java/</guid>
+				<pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[tcelestino ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+				<description><![CDATA[
+					
+					O primeiro post de uma série sobre como começar a codificar algo em Java. Nesse primeiro post você vai entender como que funciona a execução do Java no computador, além de entender sobre tipos primitivos.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>A importância da semântica no HTML - parte I</title>
+				<link>https://elo7.dev/html-semantico-1/</link>
+				<guid>https://elo7.dev/html-semantico-1/</guid>
+				<pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[rapahaeru ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[html]]></category>
+				
+					<category><![CDATA[semantica]]></category>
+				
+					<category><![CDATA[seo]]></category>
+				
+					<category><![CDATA[acessibilidade]]></category>
+				
+					<category><![CDATA[front-end]]></category>
+				
+				<description><![CDATA[
+					
+					Para fazer seu conteúdo ser encontrado com a quantidade de informações geradas nos dias de hoje, se torna fundamental sabermos utilizar o conceito da semântica.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Desmistificando o Dagger 2</title>
+				<link>https://elo7.dev/desmistificando-dagger2/</link>
+				<guid>https://elo7.dev/desmistificando-dagger2/</guid>
+				<pubDate>Wed, 20 Jul 2016 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[rsicarelli ]]></dc:creator>
+				<category><![CDATA[mobile]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+					<category><![CDATA[android]]></category>
+				
+					<category><![CDATA[dependency-inversion]]></category>
+				
+					<category><![CDATA[dagger2]]></category>
+				
+				<description><![CDATA[
+					
+					Uma das bibliotecas mais famosas e mais faladas no Android e também é a que gera mais dúvidas em sua implementação. Iremos tornar fácil a compreensão dessa poderosa ferramenta.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Slides do evento Software Fora de série - #elo7tech</title>
+				<link>https://elo7.dev/slides-evento-software-fora-de-serie/</link>
+				<guid>https://elo7.dev/slides-evento-software-fora-de-serie/</guid>
+				<pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[davidrobert ]]></dc:creator>
+				<category><![CDATA[eventos]]></category>
+				
+					<category><![CDATA[agile]]></category>
+				
+					<category><![CDATA[amazon elastic compute cloud]]></category>
+				
+					<category><![CDATA[android]]></category>
+				
+					<category><![CDATA[arquitetura de software]]></category>
+				
+					<category><![CDATA[aws]]></category>
+				
+					<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[big data]]></category>
+				
+					<category><![CDATA[design]]></category>
+				
+					<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[ios]]></category>
+				
+					<category><![CDATA[mobile]]></category>
+				
+					<category><![CDATA[produtividade]]></category>
+				
+					<category><![CDATA[programacao]]></category>
+				
+					<category><![CDATA[software]]></category>
+				
+					<category><![CDATA[talk7]]></category>
+				
+					<category><![CDATA[ux]]></category>
+				
+					<category><![CDATA[web services]]></category>
+				
+				<description><![CDATA[
+					
+					Em 11 de junho de 2016 ocorreu o evento Software Fora de Série onde diferentes times da engenharia do Elo7 palestraram. Nesse post se encontram todos as apresentações utilizados no evento.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Testes de código com Mockito</title>
+				<link>https://elo7.dev/testes-codigo-mockito/</link>
+				<guid>https://elo7.dev/testes-codigo-mockito/</guid>
+				<pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[ljtfreitas ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+					<category><![CDATA[mockito]]></category>
+				
+					<category><![CDATA[tdd]]></category>
+				
+				<description><![CDATA[
+					
+					No trabalho da Engenharia do Elo7, valorizamos bastante a qualidade do código que produzimos. Isso passa por várias etapas: boas práticas de código, programação pareada, revisões cuidadosas e, claro, testes. Muitos testes...
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Vaga Engenheiro de Software/Java</title>
+				<link>https://elo7.dev/vagas-java-post/</link>
+				<guid>https://elo7.dev/vagas-java-post/</guid>
+				<pubDate>Fri, 15 Apr 2016 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[davidrobert ]]></dc:creator>
+				<category><![CDATA[vagas]]></category>
+				
+					<category><![CDATA[java]]></category>
+				
+					<category><![CDATA[back-end]]></category>
+				
+				<description><![CDATA[
+					
+					O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Estamos à procura de desenvolvedores Java para fazer parte do nosso time.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Vaga Engenheiro de Software/DevOps</title>
+				<link>https://elo7.dev/vagas-devops-post/</link>
+				<guid>https://elo7.dev/vagas-devops-post/</guid>
+				<pubDate>Mon, 04 Apr 2016 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[sardinha ]]></dc:creator>
+				<category><![CDATA[vagas]]></category>
+				
+					<category><![CDATA[devops]]></category>
+				
+					<category><![CDATA[back-end]]></category>
+				
+				<description><![CDATA[
+					
+					O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Estamos à procura de desenvolvedores DevOps para fazer parte do nosso time.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Cobertura de testes</title>
+				<link>https://elo7.dev/cobertura-de-testes/</link>
+				<guid>https://elo7.dev/cobertura-de-testes/</guid>
+				<pubDate>Mon, 15 Feb 2016 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[adolfoweloy ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[tests]]></category>
+				
+					<category><![CDATA[eclemma]]></category>
+				
+				<description><![CDATA[
+					
+					Quando se fala em cobertura de testes, pode vir a mente a idéia de relatórios contendo números de várias métricas de software em busca de apresentar a qualidade geral de um sistema. Muitos já devem ter se perguntado qual o verdadeiro valor desses números...
+				]]></description>
+			</item>
+		
+			<item>
+				<title>ECMAScript 2015 no Elo7 – Proxy</title>
+				<link>https://elo7.dev/ecmascript-post/</link>
+				<guid>https://elo7.dev/ecmascript-post/</guid>
+				<pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[erikatakahara ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[ecmascript]]></category>
+				
+					<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[javascript]]></category>
+				
+				<description><![CDATA[
+					
+					Já faz algum tempo que ouvimos falar de ECMAScript 2015  (também conhecido como ECMAScript 6) com todas as suas novidades como map reduce, escopos, promises, etc. Mas infelizmente não podemos utilizá-las porque temos problema de compatibilidade entre os navegadores, ora por versão, ora por falta da implementação da especificação...
+				]]></description>
+			</item>
+		
+			<item>
+				<title>CSS4 - Seletores nível 4</title>
+				<link>https://elo7.dev/css4-selectors/</link>
+				<guid>https://elo7.dev/css4-selectors/</guid>
+				<pubDate>Mon, 16 Nov 2015 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[fellyph ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[css]]></category>
+				
+					<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[tech-talk]]></category>
+				
+				<description><![CDATA[
+					
+					O CSS3 já está aí com força total, mas poucos sabem que o CSS4 já está em rascunho desde 2011 e muitas funções hoje são usadas sem você saber. Um dos focos dessa versão são os novos seletores. Neste post irei falar um pouco sobre o que vem por aí...
+				]]></description>
+			</item>
+		
+			<item>
+				<title>O universo soturno da compatibilidade cross-browser</title>
+				<link>https://elo7.dev/compatibilidade-cross-browser/</link>
+				<guid>https://elo7.dev/compatibilidade-cross-browser/</guid>
+				<pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[mottam ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[browsers]]></category>
+				
+				<description><![CDATA[
+					
+					Em um mundo ideal, todos os browsers apresentariam o mesmo comportamento no carregamento e renderização das páginas da web. Para o terror de muitos desenvolvedores, existem determinadas situações em que uma implementação funciona perfeitamente no navegador utilizado na hora de testar o código, contudo ao abrir a mesma página com o mesmo código em outro, o site está quebrado...
+				]]></description>
+			</item>
+		
+			<item>
+				<title>iOS - Vamos falar um pouco de arquitetura</title>
+				<link>https://elo7.dev/ios-arquitetura/</link>
+				<guid>https://elo7.dev/ios-arquitetura/</guid>
+				<pubDate>Wed, 27 May 2015 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[aterribili ]]></dc:creator>
+				<category><![CDATA[mobile]]></category>
+				
+					<category><![CDATA[ios]]></category>
+				
+					<category><![CDATA[objective-c]]></category>
+				
+					<category><![CDATA[acceptance]]></category>
+				
+					<category><![CDATA[tests]]></category>
+				
+					<category><![CDATA[swift]]></category>
+				
+				<description><![CDATA[
+					
+					Nós, aqui na Elo7, acabamos de tirar do forno nossa primeira versão do aplicativo para iOS (iPhones) para compradores. Já tínhamos a versão web mobile do Elo7, durante o desenvolvimento do aplicativo  iOS, levantamos algumas perguntas que nos levaram a decidir adotar uma arquitetura híbrida...
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Gerenciamento de dependências front-end com bower</title>
+				<link>https://elo7.dev/gerenciamento-dependencias-bower/</link>
+				<guid>https://elo7.dev/gerenciamento-dependencias-bower/</guid>
+				<pubDate>Thu, 05 Mar 2015 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[williammizuta ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[bower]]></category>
+				
+					<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[gerenciamento de dependencias]]></category>
+				
+					<category><![CDATA[produtividade]]></category>
+				
+				<description><![CDATA[
+					
+					Durante o desenvolvimento de um projeto, nos deparamos com diversos problemas que não são exclusivos do mesmo. Muitos destes problemas, como persistência de dados, troca de mensagens assíncronas, transação e segurança, já possuem soluções que foram compiladas em bibliotecas para facilitar o nosso dia-a-dia ao resolver diversos problemas, tanto no back-end quando no front-end.
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Metodologia ágil no Elo7</title>
+				<link>https://elo7.dev/metodologia-agil/</link>
+				<guid>https://elo7.dev/metodologia-agil/</guid>
+				<pubDate>Mon, 17 Nov 2014 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[gustavomaia ]]></dc:creator>
+				<category><![CDATA[cultura]]></category>
+				
+					<category><![CDATA[agile]]></category>
+				
+					<category><![CDATA[cultura]]></category>
+				
+					<category><![CDATA[metodologias]]></category>
+				
+					<category><![CDATA[processos]]></category>
+				
+				<description><![CDATA[
+					
+					Atualmente no mercado existem diversas metodologias de desenvolvimento de software, como:  RUP (Processo unificado da Rational), XP (Programação extrema), Scrum...
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Elo7 no TDC 2014</title>
+				<link>https://elo7.dev/tdc/</link>
+				<guid>https://elo7.dev/tdc/</guid>
+				<pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[fellyph ]]></dc:creator>
+				<category><![CDATA[eventos]]></category>
+				
+					<category><![CDATA[eventos]]></category>
+				
+					<category><![CDATA[tdc]]></category>
+				
+				<description><![CDATA[
+					
+					O TDC2014 trouxe trilhas tradicionais, cobrindo várias tecnologias e assuntos relacionados, como: Java, .NET, Ruby, Android, Cloud, Python, Empreendedorismo, Agile, Web e Testes...
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Tech Talks Elo7</title>
+				<link>https://elo7.dev/tech-talks/</link>
+				<guid>https://elo7.dev/tech-talks/</guid>
+				<pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[erikatakahara ]]></dc:creator>
+				<category><![CDATA[front-end]]></category>
+				
+					<category><![CDATA[otimizacao]]></category>
+				
+					<category><![CDATA[tech-talk]]></category>
+				
+				<description><![CDATA[
+					
+					No Elo7 temos uma série de iniciativas legais que realizamos em nosso dia-a-dia: Tech Talks, Dojos, Grupos de estudos, café da manhã com vendedores, craft day, além de aplicar...
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Configuring Eclipse scala project with SBT</title>
+				<link>https://elo7.dev/eclipse-scala-sbt/</link>
+				<guid>https://elo7.dev/eclipse-scala-sbt/</guid>
+				<pubDate>Tue, 13 Aug 2013 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[davidrobert ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[bootstrapping]]></category>
+				
+					<category><![CDATA[eclipse]]></category>
+				
+					<category><![CDATA[sbt]]></category>
+				
+					<category><![CDATA[scala]]></category>
+				
+					<category><![CDATA[simple-build-tool]]></category>
+				
+				<description><![CDATA[
+					
+					Recently we started a new project here in Elo7 and this is a quick guide to help you to configure a new Scala project using SBT to manage your project dependencies and Eclipse as your IDE...
+				]]></description>
+			</item>
+		
+			<item>
+				<title>e-DNE Correios</title>
+				<link>https://elo7.dev/edne-correios/</link>
+				<guid>https://elo7.dev/edne-correios/</guid>
+				<pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[brunobuccoloelo7 ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[cep]]></category>
+				
+					<category><![CDATA[correios]]></category>
+				
+					<category><![CDATA[edne]]></category>
+				
+					<category><![CDATA[importacao]]></category>
+				
+					<category><![CDATA[open-source]]></category>
+				
+					<category><![CDATA[ruby]]></category>
+				
+				<description><![CDATA[
+					
+					O e-DNE é um banco de dados que contém todos os CEPs do Brasil. No entanto, essa base é disponibilizada apenas para download. Então criamos uma ferramenta para importar...
+				]]></description>
+			</item>
+		
+			<item>
+				<title>Auto scale Sidekiq workers on Amazon EC2</title>
+				<link>https://elo7.dev/sidekiq-workers/</link>
+				<guid>https://elo7.dev/sidekiq-workers/</guid>
+				<pubDate>Mon, 24 Jun 2013 00:00:00 +0000</pubDate>
+				<dc:creator><![CDATA[pablocantero ]]></dc:creator>
+				<category><![CDATA[back-end]]></category>
+				
+					<category><![CDATA[amazon elastic compute cloud]]></category>
+				
+					<category><![CDATA[amazon web services]]></category>
+				
+					<category><![CDATA[auto scaling]]></category>
+				
+					<category><![CDATA[cloudwatch]]></category>
+				
+					<category><![CDATA[netflix]]></category>
+				
+				<description><![CDATA[
+					
+					We use Sidekiq to process messages from images conversion to shipping tickets&#x27; generation...
+				]]></description>
+			</item>
+		
+	</channel>
+</rss>

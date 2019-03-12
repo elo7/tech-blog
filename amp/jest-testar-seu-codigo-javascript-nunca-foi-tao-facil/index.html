@@ -1,0 +1,960 @@
+<!doctype html>
+<html amp lang='pt-br'>
+<head>
+	<meta charset='utf-8'>
+	<script async src='https://cdn.ampproject.org/v0.js'></script>
+	<script async custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
+	<script async custom-element='amp-image-lightbox' src='https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js'></script>
+	<script async custom-element='amp-analytics' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js'></script>
+	<title>Elo7 Tech - Jest - Testar seu código Javascript nunca foi tão fácil!</title>
+	<meta name='description' content='A grande maioria dos desenvolvedores que conheço não gosta de testar software pelo simples fato de que executar uma bateria de testes de forma manual é extremamente cansativo. Com isso, nós desenvolvedores criamos o péssimo hábito de testar superficialmente tudo que produzimos...'>
+	<link rel='canonical' href='https://elo7.dev/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/' />
+	<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>
+	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+	<style amp-custom>
+		body {
+			background-color: white;
+			font-family: 'Open Sans', sans-serif;
+			color: #666;
+		}
+
+		h1 {
+			color: #333;
+			font-size: 1.5em;
+			margin-bottom: 0;
+		}
+
+		h2, h3 {
+			color: #444;
+			font-size: 1.2em;
+		}
+
+		h3 {
+			font-weight: 300;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		p, li {
+			font-size: 0.9em;
+		}
+
+		ul {
+			padding-left: 1.5em;
+		}
+
+		article {
+			line-height: 1.8;
+			text-align: justify;
+		}
+
+		blockquote {
+			margin: 1em;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			font-size: 0.9em;
+			width: 100%;
+			text-align: left;
+		}
+
+		table thead th {
+			background-color: #4a4a4a;
+			color: white;
+		}
+
+		table th, table td {
+			padding: 0.2em 0.5em;
+		}
+
+		tr:nth-child(even) td {
+			background-color: #f3f3f3;
+		}
+
+		table th:not(:first-child), table td:not(:first-child) {
+			text-align: right;
+		}
+
+		body > header {
+			height: 60px;
+			box-sizing: border-box;
+			background-color: #FDC24F;
+			text-align: center;
+			padding-top: 0.8em;
+			padding-bottom: 0.8em;
+			position: sticky;
+			top: 0;
+			z-index: 10;
+		}
+
+		body > header a {
+			background: url('//images.elo7.com.br/assets/v3/desktop/svg/logo-elo7.svg') no-repeat;
+			background-size: 90px 35px;
+			width: 90px;
+			height: 35px;
+			display: inline-block;
+			filter: brightness(100);
+		}
+
+		.post-content, footer {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+
+		.post-content .content a, .post-content .content a:visited, .post-content .content a:hover {
+			cursor: pointer;
+			color: #000;
+			font-weight: 500;
+			text-decoration: underline;
+			word-break: break-word;
+		}
+
+		.post-content .post-image {
+			text-align: center;
+			display: block;
+		}
+
+		.post-content p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		main {
+			background-color: #ecebeb;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+
+		.post-card, .post-content, .publisher-info {
+			background: white;
+			margin-left: 2%;
+			padding: 1em;
+			margin-right: 3%;
+			box-shadow: rgba(72, 72, 72, 0.23) 0 0 5px;
+		}
+
+		.publisher-info {
+			margin-bottom: 1em;
+		}
+
+		.publisher-info h1 {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+		}
+
+		.card-devops {
+			border-left: 5px solid #7d7873;
+		}
+
+		.card-eventos {
+			border-left: 5px solid #fdb933;
+		}
+
+		.card-front-end {
+			border-left: 5px solid #c15eb4;
+		}
+
+		.card-back-end {
+			border-left: 5px solid #359c9c;
+		}
+
+		.card-mobile {
+			border-left: 5px solid #fa9c5e;
+		}
+
+		.card-vagas {
+			border-left: 5px solid #99c799;
+		}
+
+		.card-design {
+			border-left: 5px solid #7c9ec4;
+		}
+
+		.card-cultura {
+			border-left: 5px solid #f44336;
+		}
+
+		.post-card:not(:last-of-type) {
+			margin-bottom: 1em;
+		}
+
+		.post-card .title {
+			margin-top: 0;
+			margin-bottom: 0.5em;
+			text-align: left;
+		}
+
+		.post-card .title a {
+			color: inherit;
+		}
+
+		.author, .date {
+			color: #888;
+			margin-bottom: 0;
+			margin-top: 0;
+			font-size: 0.9em;
+		}
+
+		.author a {
+			color: inherit;
+			margin-bottom: 1.5em;
+		}
+
+		#sidebar {
+			width: 60vw;
+			background-color: #4a4a4a;
+			color: #fff;
+			padding-right: 1em;
+			padding-left: 1em;
+		}
+
+		#sidebar li {
+			margin-bottom: 0.5em;
+		}
+
+		#sidebar ul {
+			margin-bottom: 1.5em;
+			list-style: none;
+			padding: 0;
+		}
+
+		#sidebar h2 {
+			margin-bottom: 0;
+		}
+
+		#sidebar a {
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		#sidebar a, #sidebar h2 {
+			color: inherit;
+		}
+
+		.sidebar-trigger {
+			position: absolute;
+			left: 5%;
+			background-color: transparent;
+			border: none;
+			color: #fff;
+			font-size: 1.8em;
+			padding: 0;
+		}
+
+		.category {
+			background-color: #73bebe;
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 0.8em;
+			padding: .5em;
+			border-radius: 3px;
+			display: inline-block;
+			margin-top: 2.3em;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			font-weight: 300;
+		}
+
+		.category:hover {
+			background-color: #73bebe;
+		}
+
+		.post-link {
+			border: 1px solid #fba702;
+			border-radius: 3px;
+			color: #fba702;
+			display: inline-block;
+			float: right;
+			margin-top: 1em;
+			padding: 0.8em;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s, color 0.3s;
+			font-size: 0.9em;
+		}
+
+		.post-link:hover {
+			background-color: #fba702;
+			color: #ffffff;
+		}
+
+		.social {
+			content: '';
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			background-position: center;
+			text-indent: -9999px;
+			margin-right: 0.5em;
+			background-size: contain;
+			vertical-align: top;
+		}
+
+		.social.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.social.linkedin {
+			background-image: url('/images/ico/ic-linkedin.svg');
+		}
+
+		.social.github {
+			background-image: url('/images/ico/ic-github.svg');
+		}
+
+		footer {
+			background-color: #4a4a4a;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		footer a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 0.8em;
+		}
+
+		.footer-social {
+			line-height: 0;
+		}
+
+		.footer-social a {
+			background-size: 2em 2em;
+			background-repeat: no-repeat;
+			display: inline-block;
+			height: 2em;
+			width: 2em;
+			overflow: hidden;
+			text-indent: -9999px;
+		}
+
+		.footer-social a + a {
+			margin-left: 0.5em;
+		}
+
+		.footer-social .github {
+			background-image: url('/images/github_icon.svg');
+		}
+		.footer-social .email {
+			background-image: url('/images/email_icon.png');
+		}
+
+		.footer-social .rss {
+			background-image: url('/images/ico/feed.svg');
+		}
+
+		.footer-social .twitter {
+            background-image: url('/images/ico/ic-negative-twitter.svg');
+        }
+
+		.share {
+			position: relative;
+			text-align: right;
+			margin-top: 1em;
+		}
+
+		.share .link-share {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				text-indent: -9999px;
+				margin-left: 0.5em;
+				text-align: left;
+		}
+
+		.share .link-share.facebook {
+			background-image: url('/images/ico/ic-facebook.svg');
+		}
+
+		.share .link-share.twitter {
+			background-image: url('/images/ico/ic-twitter.svg');
+		}
+
+		.link-input {
+			opacity: 0;
+			position: absolute;
+			left: -9999px;
+		}
+
+		.copy-success {
+			font-size: 0.75em;
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			top: 125%;
+			transition: opacity ease-in-out 250ms;
+			text-align: center;
+		}
+
+		.copy-success.active {
+			opacity: 1;
+		}
+
+		code {
+			background-color: #ececec;
+			padding: 0.1em 0.2em;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.highlight code {
+			overflow: auto;
+		}
+
+		.hljs {
+			display: block;
+			padding: 0.5em 1em;
+			background: #23241f;
+		}
+
+		.hljs,
+		.hljs-tag,
+		.css .hljs-rules,
+		.css .hljs-value,
+		.css .hljs-function
+		.hljs-preprocessor,
+		.hljs-pragma {
+			color: #f8f8f2;
+		}
+
+		.hljs-strongemphasis,
+		.hljs-strong,
+		.hljs-emphasis {
+			color: #a8a8a2;
+		}
+
+		.hljs-bullet,
+		.hljs-blockquote,
+		.hljs-horizontal_rule,
+		.hljs-number,
+		.hljs-regexp,
+		.alias .hljs-keyword,
+		.hljs-literal,
+		.hljs-hexcolor {
+			color: #ae81ff;
+		}
+
+		.hljs-tag .hljs-value,
+		.hljs-code,
+		.hljs-title,
+		.css .hljs-class,
+		.hljs-class .hljs-title:last-child {
+			color: #a6e22e;
+		}
+
+		.hljs-link_url {
+			font-size: 80%;
+		}
+
+		.hljs-strong,
+		.hljs-strongemphasis {
+			font-weight: bold;
+		}
+
+		.hljs-emphasis,
+		.hljs-strongemphasis,
+		.hljs-class .hljs-title:last-child {
+			font-style: italic;
+		}
+
+		.hljs-keyword,
+		.hljs-function,
+		.hljs-change,
+		.hljs-winutils,
+		.hljs-flow,
+		.lisp .hljs-title,
+		.clojure .hljs-built_in,
+		.nginx .hljs-title,
+		.tex .hljs-special,
+		.hljs-header,
+		.hljs-attribute,
+		.hljs-symbol,
+		.hljs-symbol .hljs-string,
+		.hljs-tag .hljs-title,
+		.hljs-value,
+		.alias .hljs-keyword:first-child,
+		.css .hljs-tag,
+		.css .unit,
+		.css .hljs-important {
+			color: #F92672;
+		}
+
+		.hljs-function .hljs-keyword,
+		.hljs-class .hljs-keyword:first-child,
+		.hljs-constant,
+		.css .hljs-attribute {
+			color: #66d9ef;
+		}
+
+		.hljs-variable,
+		.hljs-params,
+		.hljs-class .hljs-title {
+			color: #f8f8f2;
+		}
+
+		.hljs-string,
+		.css .hljs-id,
+		.hljs-subst,
+		.haskell .hljs-type,
+		.ruby .hljs-class .hljs-parent,
+		.hljs-built_in,
+		.sql .hljs-aggregate,
+		.django .hljs-template_tag,
+		.django .hljs-variable,
+		.smalltalk .hljs-class,
+		.django .hljs-filter .hljs-argument,
+		.smalltalk .hljs-localvars,
+		.smalltalk .hljs-array,
+		.hljs-attr_selector,
+		.hljs-pseudo,
+		.hljs-addition,
+		.hljs-stream,
+		.hljs-envvar,
+		.apache .hljs-tag,
+		.apache .hljs-cbracket,
+		.tex .hljs-command,
+		.hljs-prompt,
+		.hljs-link_label,
+		.hljs-link_url {
+			color: #e6db74;
+		}
+
+		.hljs-comment,
+		.hljs-javadoc,
+		.java .hljs-annotation,
+		.python .hljs-decorator,
+		.hljs-template_comment,
+		.hljs-pi,
+		.hljs-doctype,
+		.hljs-deletion,
+		.hljs-shebang,
+		.apache .hljs-sqbracket,
+		.tex .hljs-formula {
+			color: #75715e;
+		}
+
+		.coffeescript .javascript,
+		.javascript .xml,
+		.tex .hljs-formula,
+		.xml .javascript,
+		.xml .vbscript,
+		.xml .css,
+		.xml .hljs-cdata,
+		.xml .php,
+		.php .xml {
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body itemscope itemtype='http://schema.org/WebPage'>
+	<amp-sidebar id='sidebar' layout='nodisplay'>
+		<h2>Categorias</h2>
+		<ul>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/back-end/'>
+						<span itemprop='name'>back-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/cultura/'>
+						<span itemprop='name'>cultura</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/data-science/'>
+						<span itemprop='name'>data-science</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/design/'>
+						<span itemprop='name'>design</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/devops/'>
+						<span itemprop='name'>devops</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/eventos/'>
+						<span itemprop='name'>eventos</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/talks/'>
+						<span itemprop='name'>talks</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/front-end/'>
+						<span itemprop='name'>front-end</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/mobile/'>
+						<span itemprop='name'>mobile</span>
+					</a>
+				</li>
+			
+				<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+					<a itemprop='url' href='/amp/vagas/'>
+						<span itemprop='name'>vagas</span>
+					</a>
+				</li>
+			
+		</ul>
+		<h2>Veja também</h2>
+		<ul>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+					<span itemprop='name'>A engenharia</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://carreira.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Carreiras</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='http://eventos.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Nossos eventos</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a itemprop='url' href='https://www.elo7.com.br/' target='_blank'>
+					<span itemprop='name'>Elo7</span>
+				</a>
+			</li>
+			<li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+				<a rel='external' itemprop='url' href='https://github.com/elo7/tech-blog'>Github</a>
+			</li>
+		</ul>
+		</ul>
+	</amp-sidebar>
+	<header>
+		<button class='sidebar-trigger' on='tap:sidebar'>☰</button>
+		<a rel='home' itemprop='url' href='/amp/home/' class='logo'></a></header>
+
+	<main itemscope itemtype='http://schema.org/Blog'>
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card post-content'>
+	<h1 itemprop='name' class='title'>Jest - Testar seu código Javascript nunca foi tão fácil!</h1>
+	<div class='post-meta'>
+		<p class='date'>
+			Publicado em: <time datetime='28/08/2017' itemprop='datePublished'>28/08/2017</time>
+			<meta itemprop='dateModified' content='28/08/2017'>
+		</p>
+
+		<article>
+			
+				<a data-author='leonardosouza' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/amp/leonardosouza/' class='author'>
+					<meta itemprop='url' content='/amp/leonardosouza'>
+					<span itemprop='name' class='publisher' data-author='leonardosouza'>@leonardosouza</span>
+					<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+				</a>
+			
+		</article>
+	</div>
+	<div class='content' itemprop='articleBody'>
+		<p>Trabalhar com desenvolvimento de software é algo que está longe de ser fácil, pois além da parte técnica (que evolui a passadas largas), todo profissional precisa estar minimamente antenado a ponto de perceber qual das suas posturas em relação à execução de suas atividades podem literalmente travá-lo (dentro da carreira) ou levá-lo a outro patamar. Dentre as muitas características valorizadas atualmente pelo mercado, uma importantissíma é ser um profissional adaptável a mudanças, pelo simples fato que <strong>o mundo muda muito rapidamente</strong>, e o jeito que trabalhavámos no passado já não serve e/ou se encaixa com o presente.</p>
+<p>Fazendo uma breve reflexão sobre isso, eu me lembro de uma época onde a minha maior gana era produzir o máximo de código que conseguisse por dia. Para mim a efetividade do trabalho e percepção de valor do mesmo estava intrinsecamente ligada à <strong>quantidade</strong>, e não à <strong>qualidade</strong>, do código que eu escrevia.</p>
+<p>Então, posso dizer que já &quot;fui um desses&quot;... um cara que rapidamente escrevia uma funcionalidade enorme, com trezentas e tantas linhas de código e, no momento que julgava estar com tudo pronto, abria meu navegador para então executar os meus testes <strong>(manuais)</strong> no software que acabara de construir. E era aí que iniciava-se um ciclo, onde eu encontrava alguns bugs, corrigia-os e testava tudo novamente! Então novos bugs eram encontrados, fazia outras tantas correções até que PÁ... o produto estava <strong>finalmente pronto</strong> (pelo menos no meu ponto de vista) para ir pra produção. Agora, o caminho natural era apenas esperar a validação final do meu trabalho, que seria feita por outro profissional, o famigerado Analista de Qualidade (ou QA).</p>
+<p>Essa passagem da minha história é mais comum do que parece, então não ache estranho se isso lhe soou familiar, pois certamente ela deve acontecer até hoje com muitos desenvolvedores por aí (e isso pode até incluir você). Assim sendo, acho que vale ressaltar aqui que estamos em um outro momento, onde o <strong>desenvolvimento de software amadureceu</strong>, e a realidade é que atualmente não basta apenas escrever software. Arregaçar as mangas e implementar <strong>os testes</strong>, com foco total na <strong>qualidade</strong> do que se está produzindo é primordial.</p>
+<h2>Começando com testes automatizados</h2>
+<p>A <strong>grande maioria</strong> dos desenvolvedores que conheço <strong>não gosta de testar software</strong> pelo simples fato de que executar uma bateria de <strong>testes de forma manual</strong> é extremamente cansativo. Com isso, nós desenvolvedores criamos o péssimo hábito de <strong>testar superficialmente</strong> tudo que produzimos, e pela força dos processos inseridos nas empresas acabamos <strong>delegando para um terceiro</strong> a responsabilidade de testar o que acabamos de desenvolver. Mudar essa realidade é complicado, mas não impossível, e certamente uma boa maneira de mudarmos esse paradigma é tornar o <strong>processo de &quot;testar&quot; natural e agradável</strong> ao desenvolvedor. Agora, meu caro, eu te pergunto: que tal utilizar o <strong>seu melhor skill</strong> (que é programar) para tornar os processos de teste manuais em <strong>rotinas automatizadas</strong>? Parece uma boa, não? Pois bem, esse será <strong>nosso desafio</strong> daqui para frente.</p>
+<p>Para quem está iniciando nesta jornada, a curva de aprendizado pode parecer um tanto quanto assustadora, e o maior desafio, sem dúvida, é equalizar a sua aparente <strong>falta de conhecimento sobre o tema</strong> a uma nova <strong>filosofia que guiará todo o seu processo de trabalho</strong>. Somado a isso, surgirão uma série de decisões que você precisará tomar para a saída do que eu costumo chamar de &quot;zero absoluto&quot;. As perguntas que certamente vêm à tona nesse momento são: <strong>por onde devemos começar e qual caminho devemos seguir???</strong></p>
+<p>Bom, eu acredito que o principal objetivo, inicialmente, seja conseguir configurar corretamente uma <strong>stack mínima para rodar seus testes</strong>. Para isso, existe uma quantidade razoável de <strong>perguntas</strong> que precisam de <strong>respostas</strong>, a fim de nortear o que deve ser feito. Veja se elas fazem sentido para você:</p>
+<ul>
+<li>
+<p>Que <strong>tipo de teste</strong> eu preciso para o meu software? <a href="http://blog.caelum.com.br/unidade-integracao-ou-sistema-qual-teste-fazer/"><strong>Unitário</strong></a>, de <a href="http://blog.caelum.com.br/unidade-integracao-ou-sistema-qual-teste-fazer/"><strong>Integração</strong></a> ou de <a href="http://blog.caelum.com.br/unidade-integracao-ou-sistema-qual-teste-fazer/"><strong>Aceitação</strong></a>?</p>
+</li>
+<li>
+<p>Qual <strong>mindset</strong> eu devo utilizar para guiar os meus testes? <a href="http://tdd.caelum.com.br/"><strong>TDD</strong></a>, <a href="https://tableless.com.br/introducao-ao-behavior-driven-development/"><strong>BDD</strong></a> ou um <strong>misto de ambos</strong>?</p>
+</li>
+<li>
+<p>Qual biblioteca para de asserção (<strong>expect/should/assertion</strong>) deve ser empregada?</p>
+</li>
+<li>
+<p>E testes que dependem de <strong>respostas assíncronas</strong>? Como tratar estes casos? <strong>Spies, stubs e mocks</strong> seria uma opção?</p>
+</li>
+<li>
+<p>Será que, além dos testes, seria interessante ter uma idéia sobre o <strong>percentual de cobertura</strong> de tudo que esta sendo testado?</p>
+</li>
+</ul>
+<p>Analisando as perguntas e as prováveis respostas, eu consegui encontrar muitas ferramentas que usaria para responder cada uma delas:</p>
+<ul>
+<li>
+<p><a href="https://mochajs.org/"><strong>Mocha</strong></a>, <a href="https://jasmine.github.io/"><strong>Jasmine</strong></a>, ... (testing frameworks)</p>
+</li>
+<li>
+<p><a href="http://chaijs.com/"><strong>Chai.js</strong></a>, <a href="https://shouldjs.github.io/"><strong>Should.js</strong></a>, ... (para expect/should/assertion)</p>
+</li>
+<li>
+<p><a href="http://sinonjs.org/"><strong>Sinon.js</strong></a>, <a href="https://github.com/testdouble/testdouble.js/"><strong>TestDouble.js</strong></a>, ... (para spies, stubs e mocks)</p>
+</li>
+<li>
+<p><a href="https://istanbul.js.org/"><strong>Istanbul.js</strong></a>, <a href="http://blanketjs.org/"><strong>Blanket.js</strong></a>, <a href="https://tntim96.github.io/JSCover/"><strong>JsCover</strong></a>, ... (para code coverage)</p>
+</li>
+</ul>
+<p>Hummm... bom, chegando nesse ponto, deu para perceber que existe um certo nível de complexidade para configurar essa stack. O simples fato de decidir quais ferramentas utilizar (caso alguma escolha não seja a mais acertada) pode trazer consequências futuras para a manutenabilidade dessa stack, uma vez que trocar uma peça que não funcione tão bem pode impactar em uma quantidade significativa de testes já escritos.</p>
+<h2>Nossa, que complexo, quero desistir!</h2>
+<p>É, meu amigo, se você chegou até esse ponto, já deve ter sacado o tamanho da dor que é simplemente configurar uma stack para testes. Com tantas opções e decisões para serem tomadas, isso por si só já seria o suficiente para que essa tarefa seja postergada ao infinito e tornando-se então o famoso <a href="https://agilecoachninja.wordpress.com/2016/03/08/debito-tecnico-divida-tecnica/"><strong>débito técnico</strong></a> do seu projeto.</p>
+<p>Era exatamente isso que você precisava fazer...até ontem. A boa notícia é que hoje é um belo dia e você já tem opções bem mais elegantes para execução dos seus testes. Então não desista, pois daqui pra frente você vai poder focar no melhor do seu trabalho, que é escrever testes e produzir código de qualidade, sem se preocupar com essa barrreira de entrada!</p>
+<h2>Rumo a vitória com Jest!</h2>
+<p><a href="https://facebook.github.io/jest/"><strong>Jest</strong></a> é um projeto open-source para testes Javascript mantido pelo Facebook, que nasceu com uma filosofia ímpar: prover a seus usuários uma stack completa de testes com zero esforço de configuração.</p>
+<p>Além dessa marcante característica, ele possui algumas outras, como:</p>
+<ul>
+<li>
+<p><strong>Feedback instantâneo</strong> - monitora alteração nos seus arquivos, e assim que percebe uma mudança dispara os testes</p>
+</li>
+<li>
+<p><strong>Geração de snapshots</strong> - em aplicações escritas em React, snapshots de código podem ser gerados/atualizados para confrontar mudanças que podem quebrar os componentes que compõe a interface final do usuário</p>
+</li>
+<li>
+<p><strong>Ultra Rápido</strong> - testes rodam paralelamente sem interferir um nos outros \o/</p>
+</li>
+<li>
+<p><strong>Code Coverage</strong> - no <a href="https://facebook.github.io/jest/"><strong>Jest</strong></a>, o relatório de cobertura de código é embutido e habilitado através de uma simples configuração, que pode ser facilmente adicionada utilizando <code>npm scripts</code>.</p>
+</li>
+</ul>
+<p>Parece bom demais pra ser verdade, né!? Mas acredite, isso vai facilitar e muito a sua vida.</p>
+<h2>Ah não pode ser... venha Jest, que hoje quero lhe usar!!!</h2>
+<p>Começar a escrever seus testes com <a href="https://facebook.github.io/jest/"><strong>Jest</strong></a> é realmente muito fácil. A seguir vou descrever os passos necessários para deixar tudo funcionando.</p>
+<p>Vamos começar <strong>instalando o <a href="https://facebook.github.io/jest/"><strong>Jest</strong></a></strong>. Nesse ponto é importante que você entenda que o <a href="https://facebook.github.io/jest/"><strong>Jest</strong></a> é distruído como um módulo da plataforma <strong>node.js</strong>. Portanto, é vital certificar-se que esse último está instalado. Você pode abrir seu terminal e digitar o seguinte comando para isso:</p>
+<pre class="highlight"><code class="hljs bash">node -v
+</code></pre>
+<p>Se tudo estiver certo o número da versão instalada do <strong>node.js</strong> no seu computador será exibida! Caso negativo, você pode dar uma olhadinha <a href="https://nodejs.org/en/download/"><strong>neste site</strong></a> e proceder com o processo de instalação de acordo com o seu sistema operacional preferido.</p>
+<p>Além da plataforma instalada, precisamos de outra ferramenta para gerenciamento dos módulos. Aqui temos 2 opções, o bom e velho <a href="https://www.npmjs.com/"><strong>npm</strong></a> ou o novissímo <a href="https://yarnpkg.com/pt-BR/"><strong>yarn</strong></a>.</p>
+<p>Neste post, nossa opção para gerenciamento dos módulos será feita pelo <a href="https://yarnpkg.com/pt-BR/"><strong>yarn</strong></a>. Então antes de continuarmos, você precisa garantir que ele esteja instalado no seu ambiente, processo que é muito simples, bastando rodar o seguinte comando (caso você seja usuário da plataforma macOS):</p>
+<pre class="highlight"><code class="hljs bash">brew install yarn
+</code></pre>
+<p><strong>Dica 1</strong>: caso você seja usuário macOS e não tenha o <a href="https://brew.sh/index_pt-br.html"><strong>Homebrew</strong></a> instalado em seu ambiente a intrução anterior falhará. Caso isso ocorra, rode o seguinte comando e tente novamente:</p>
+<pre class="highlight"><code class="hljs bash">/usr/bin/ruby -e <span class="hljs-string">"<span class="hljs-variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span>
+</code></pre>
+<p><strong>Dica 2</strong>: caso você não seja um usuário macOS, sabia que o <a href="https://yarnpkg.com/pt-BR/"><strong>yarn</strong></a> está disponível para todas os principais sistemas operacionais. Siga os passos para instalação no seu sistema operacional <a href="https://yarnpkg.com/pt-BR/docs/install"><strong>neste site</strong></a>:</p>
+<p>Ufa! Agora sim, vamos finalmente instalar o Jest!</p>
+<h2>O processo de instalação</h2>
+<p>Com os pré-requisitos acertados, a instalação é mole. Preparado? Então vamos lá!</p>
+<p>Abra seu terminal e crie uma pasta, acessando-a em seguida:</p>
+<pre class="highlight"><code class="hljs bash">mkdir elo7-jest-demo &amp;&amp; <span class="hljs-built_in">cd</span> elo7-jest-demo
+</code></pre>
+<p>Agora instale o <a href="https://facebook.github.io/jest/"><strong>Jest</strong></a> usando o <a href="https://yarnpkg.com/pt-BR/"><strong>yarn</strong></a>:</p>
+<pre class="highlight"><code class="hljs bash">yarn add jest
+</code></pre>
+<p>Após rodar este comando, você pode conferir o conteúdo deste diretório e encontrará a seguinte estrutura:</p>
+<pre class="highlight"><code class="hljs bash">├── package.json
+├── yarn.lock
+└── node_modules
+</code></pre>
+<p>Feito isso, vamos alterar nosso arquivo <code>package.json</code>, adicionando a chave <code>test</code> com o valor <code>jest</code> dentro do objeto <code>scripts</code>. Desta forma:</p>
+<pre class="highlight"><code class="hljs json">{
+  <span class="hljs-attr">"scripts"</span>: {
+    <span class="hljs-attr">"test"</span>: <span class="hljs-string">"jest"</span>
+  },
+  <span class="hljs-attr">"dependencies"</span>: {
+    <span class="hljs-attr">"jest"</span>: <span class="hljs-string">"^20.0.4"</span>
+  }
+}
+</code></pre>
+<p>Essa alteração importante no <code>package.json</code> serve para registrar uma espécie de atalho para execução dos seus testes. Logo abaixo, chegará o momento em que vamos utilizá-lo.</p>
+<h2>Escrevendo nossos testes</h2>
+<p>Vamos agora escrever nosso primeiro teste. Utilizaremos o mantra do TDD, que será o seguinte:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-0' role='button' tabindex='0' src='../../images/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil-1.png' layout='fixed' height='272' width='272' alt='Alt &quot;TDD&quot;'></amp-img><amp-image-lightbox id='lightbox-0' layout='nodisplay'></amp-image-lightbox></div></p>
+<ol>
+<li>RED: escreva um teste que falhe;</li>
+<li>GREEN: construa um código que funcione;</li>
+<li>REFACTOR: melhore seu código, eliminando a redundância.</li>
+</ol>
+<p>Seguindo a temática do Elo7, vamos supor que você tenha como missão implementar uma das rotinas mais básicas do sistema, que é adicionar um ou mais produtos no carrinho. Para isso, além do <code>Carrinho</code>, vamos precisar de um <code>Produto</code>. Vamos começar criando o arquivo <code>carrinho.test.js</code>:</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">const</span> Carrinho = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./carrinho'</span>);
+
+test(<span class="hljs-string">'deve verificar se um carrinho está vazio'</span>, () =&gt; {
+  <span class="hljs-keyword">const</span> carrinho = <span class="hljs-keyword">new</span> Carrinho();
+  expect( carrinho.totalDeItens() ).toBe(<span class="hljs-number">0</span>);
+});
+</code></pre>
+<p>É bem fácil entender o teste acima. Primeiramente importamos o arquivo <code>carrinho.js</code>, utilizando a função <code>require</code>. Nosso teste simplesmente vai verificar que, uma vez instanciado um <code>Carrinho</code>, se o número <code>totalDeItens</code> é estritamente igual a <code>0</code>.</p>
+<p>Já podemos rodá-lo, utilizando o seguinte comando no terminal:</p>
+<pre class="highlight"><code class="hljs bash">yarn run <span class="hljs-built_in">test</span>
+</code></pre>
+<p>O resultado será o seguinte:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-1' role='button' tabindex='0' src='../../images/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil-2.png' layout='fixed' height='136' width='272' alt='Alt &quot;Falha 1&quot;'></amp-img><amp-image-lightbox id='lightbox-1' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Bom, deu para perceber que algo não deu certo. O teste falhou pois não conseguimos importar o módulo <code>carrinho.js</code>. Cabe aqui já deixar avisado que o papel final desse arquivo é criar um objeto que representará um carrinho. Então utilizaremos aqui um padrão já bastante conhecido para isto, o <a href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/#constructorpatternjavascript"><code>Constructor Pattern</code></a>:</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Carrinho</span>(<span class="hljs-params"></span>) </span>{
+
+}
+
+<span class="hljs-built_in">module</span>.exports = Carrinho;
+</code></pre>
+<p>Agora, é rodar o teste de novo com <code>yarn run test</code> para ver o resultado:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-2' role='button' tabindex='0' src='../../images/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil-3.png' layout='fixed' height='175' width='272' alt='Alt &quot;Falha 2&quot;'></amp-img><amp-image-lightbox id='lightbox-2' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Hummm, continuamos com uma falha. Ela está ocorrendo pois ainda não implementamos o método que vai obter o <code>totalDeItens</code> do <code>Carrinho</code>. Vamos alterar o arquivo <code>carrinho.js</code> de novo:</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Carrinho</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">this</span>.itens = [];
+}
+
+Carrinho.prototype.totalDeItens = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.itens.length;
+}
+
+<span class="hljs-built_in">module</span>.exports = Carrinho;
+</code></pre>
+<p>Fizemos uma alteração simples aqui. Adicionamos no construtor do objeto <code>Carrinho</code> a propriedade <code>itens</code> como uma lista vazia. Futuramente, teremos uma forma de <code>adicionar</code> itens a esta lista, mais no momento o que precisamos realmente é saber a quantidade <code>totalDeItens</code> da mesma. Já implementamos isso, simplesmente retornando o <code>length</code> da propriedade <code>itens</code> do <code>Carrinho</code>. Vamos rodar os testes de novo usando <code>yarn run test</code> e ver se deu tudo certo:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-3' role='button' tabindex='0' src='../../images/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil-4.png' layout='fixed' height='115' width='272' alt='Alt &quot;Sucesso 3&quot;'></amp-img><amp-image-lightbox id='lightbox-3' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Muito bom! Nosso primeiro teste está rodando. Então vamos vamos passar para o próximo. Nossa missão agora é verificar se, ao adicionar um <code>Produto</code> no <code>Carrinho</code>, sua quantidade <code>totalDeItens</code> será alterada. Seguindo as práticas do TDD, vamos adicionar um novo teste, rodá-lo e seguir os feedbacks até que tudo esteja OK. Abra novamente o arquivo <code>carinho.test.js</code>:</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">const</span> Carrinho = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./carrinho'</span>);
+<span class="hljs-keyword">const</span> Produto = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./produto'</span>); <span class="hljs-comment">// aqui importamos o Produto</span>
+
+test(<span class="hljs-string">'deve verificar se um carrinho está vazio'</span>, () =&gt; {
+  <span class="hljs-keyword">const</span> carrinho = <span class="hljs-keyword">new</span> Carrinho();
+  expect( carrinho.totalDeItens() ).toBe(<span class="hljs-number">0</span>);
+});
+
+<span class="hljs-comment">// abaixo adicionamos um novo teste</span>
+test(<span class="hljs-string">'deve adicionar um produto ao carrinho'</span>, () =&gt; {
+  <span class="hljs-keyword">let</span> produto = <span class="hljs-keyword">new</span> Produto(<span class="hljs-string">'Convite Passaporte'</span>, <span class="hljs-number">7.50</span>, <span class="hljs-number">5</span>);
+  <span class="hljs-keyword">let</span> carrinho = <span class="hljs-keyword">new</span> Carrinho();
+  carrinho.adicionar(produto);
+  expect( carrinho.totalDeItens() ).toBe(<span class="hljs-number">1</span>);
+});
+
+</code></pre>
+<p>Uma vez implementado, vamos rodar os testes com <code>yarn run test</code>. O resultado será o seguinte:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-4' role='button' tabindex='0' src='../../images/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil-5.png' layout='fixed' height='143' width='272' alt='Alt &quot;Falha 4&quot;'></amp-img><amp-image-lightbox id='lightbox-4' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Conforme esperado, o novo teste está quebrando. Isso ocorreu pois uma nova dependência foi adicionada, o módulo <code>produto.js</code>. Bom essa é mole de resolver, vamos implementá-lo:</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Produto</span>(<span class="hljs-params">nome, preco, qtd</span>) </span>{
+  <span class="hljs-keyword">this</span>.nome = nome;
+  <span class="hljs-keyword">this</span>.preco = preco;
+  <span class="hljs-keyword">this</span>.qtd = qtd;
+}
+
+<span class="hljs-built_in">module</span>.exports = Produto;
+</code></pre>
+<p>Já aproveitei para adicionar ao construtor de <code>Produto</code> as propriedades <code>nome</code>, <code>preco</code> e <code>qtd</code>. Já que são esses dados iniciais que representam um produto (além de poderem ser utilizados futuramente em novos testes). Rodando os testes novamente temos:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-5' role='button' tabindex='0' src='../../images/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil-6.png' layout='fixed' height='182' width='272' alt='Alt &quot;Falha 5&quot;'></amp-img><amp-image-lightbox id='lightbox-5' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Os testes falharam novamente, agora o problema é que o nosso <code>Carrinho</code> não implementa o método de <code>adicionar</code>. Vamos resolver isso abrindo o arquivo <code>carrinho.js</code>:</p>
+<pre class="highlight"><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Carrinho</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">this</span>.itens = [];
+}
+
+Carrinho.prototype.totalDeItens = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.itens.length;
+}
+
+<span class="hljs-comment">// adicionamos aqui o método adicionar</span>
+Carrinho.prototype.adicionar = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">produto</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.itens.push(produto);
+}
+
+<span class="hljs-built_in">module</span>.exports = Carrinho;
+</code></pre>
+<p>Ahaaa! Bom trabalho, agora os testes estão rodando 100% novamente:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-6' role='button' tabindex='0' src='../../images/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil-7.png' layout='fixed' height='130' width='272' alt='Alt &quot;Sucesso 6&quot;'></amp-img><amp-image-lightbox id='lightbox-6' layout='nodisplay'></amp-image-lightbox></div></p>
+<h2>Truques finais</h2>
+<p>Para finalizar, vamos adicionar 2 pequenos detalhes em nosso arquivo <code>package.json</code> para deixar o <code>Jest</code> mais esperto.</p>
+<pre class="highlight"><code class="hljs json">{
+  <span class="hljs-attr">"scripts"</span>: {
+    <span class="hljs-attr">"test"</span>: <span class="hljs-string">"jest --watch"</span>,
+    <span class="hljs-attr">"coverage"</span>: <span class="hljs-string">"jest --coverage"</span>
+  },
+  <span class="hljs-attr">"dependencies"</span>: {
+    <span class="hljs-attr">"jest"</span>: <span class="hljs-string">"^20.0.4"</span>
+  }
+}
+</code></pre>
+<p>Conforme você deve ter percebido, adicionamos a flag <code>--watch</code> no script de <code>test</code>. A vantagem dessa flag é que, a partir de agora, quando novos testes forem adicionados e/ou modificados (bem como os arquivos) os testes rodarão automaticamente. Inclusive, alguns atalhos serão habilitados (letras <code>p</code>, <code>t</code>, <code>q</code>) facilitando a filtragem de arquivos e testes específicos, permitindo ainda que esses testes possam ser facilmente finalizados ou até mesmo rodados outra vez simplesmente pressionando a tecla <code>Enter</code>. Rode novamente no terminal <code>yarn run test</code> para ver a diferença:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-7' role='button' tabindex='0' src='../../images/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil-8.png' layout='fixed' height='190' width='272' alt='Alt &quot;Watch Mode&quot;'></amp-img><amp-image-lightbox id='lightbox-7' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Outro recurso bacana é a flag <code>--coverage</code>. Ela exibe na tela uma grade indicando todos os arquivos cobertos pelos testes do seu projeto, e o percentual de cobertura de cada um. Rode <code>yarn run coverage</code> para conferir o resultado:</p>
+<p><div class='post-image'><amp-img on='tap:lightbox-8' role='button' tabindex='0' src='../../images/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil-9.png' layout='fixed' height='177' width='272' alt='Alt &quot;Coverage Mode&quot;'></amp-img><amp-image-lightbox id='lightbox-8' layout='nodisplay'></amp-image-lightbox></div></p>
+<p>Ah e você pode conferir outros recursos também visitando a documentação na página do <a href="https://facebook.github.io/jest/docs/en/cli.html"><strong>Jest CLI Options</strong></a>.</p>
+<h2>Conclusão</h2>
+<p>Procurei te guiar até aqui para poder mostrar que testes de software, além de necessários, podem ser divertidos. Superada a primeira barreira de entrada, que é configurar a stack de testes (e o <a href="https://facebook.github.io/jest/"><strong>Jest</strong></a> foi campeão neste ponto), o próximo desafio é adquirir uma mentalidade para esse fim. As práticas de TDD podem ser uma boa para quem está iniciando, e a minha dica sempre é para que você tente a partir dessa base adicionar novos testes para praticar. Vou deixar de brinde alguns desafios aqui:</p>
+<ol>
+<li>
+<p>Adicione um teste para calcular o subtotal de cada produto adicionado ao carrinho. Para isso basta fazer uma multiplicação simples do preço vezes a quantidade.</p>
+</li>
+<li>
+<p>Adicione 3 produtos no carrinho com preços e quantidade diferentes, e calcule o preço total do carrinho a partir dos subtotais de cada produto.</p>
+</li>
+<li>
+<p>Adicione um novo objeto para representar o frete de envio, e faça um novo teste considerando o total do carrinho mais o preço do frete.</p>
+</li>
+</ol>
+<p>Bom, acho que é isso. A mensagem final é:</p>
+<blockquote>
+<p><em><strong>testar seu software</strong>, além de necessário é <strong>sua responsabilidade</strong>, portanto, não delegue-o a terceiros!</em></p>
+</blockquote>
+<p>Caso este artigo tenha sido útil para você, por favor <strong>colabore compartilhando-o</strong> em suas redes sociais! Ah e não deixe de nos contar suas experiências nos comentários logo abaixo!</p>
+
+		<section class='share'>
+			<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/amp/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+				Compartilhar no facebook
+			</a>
+			<a href='https://twitter.com/intent/tweet?text=Jest - Testar seu código Javascript nunca foi tão fácil!&url=https://elo7.dev/amp/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+				Compartilhar no twitter
+			</a>
+		</section>
+	</div>
+	<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
+		<link href="/images/ico/elo7.png" itemprop="url"/>
+		<meta itemprop='width' content='100px'/>
+		<meta itemprop='height' content='100px'/>
+	</span>
+
+	<meta itemprop='headline' content='A grande maioria dos desenvolvedores que conheço não gosta de testar software pelo simples fato de que executar uma bateria de testes de forma manual é extremamente cansativo. Com isso, nós desenvolvedores criamos o péssimo hábito de testar superficialmente tudo que produzimos...'/>
+	<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop='name' content='Elo7 Tech'/>
+		<meta itemprop="url" content='https://elo7.dev'/>
+		<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+			<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
+			<meta itemprop='width' content='100px'/>
+			<meta itemprop='height' content='100px'/>
+		</span>
+	</span>
+	<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+</article>
+	</main>
+	<footer itemscope itemtype='http://schema.org/Organization'>
+		<a rel='home' itemprop='url' href='/amp/home/'>elo7.dev © 2019</a>
+		<meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+		<section class='footer-social'>
+			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
+			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+		</section>
+	</footer>
+	<amp-analytics type='googleanalytics'>
+		<script type='application/json'>
+			{
+				"vars": {
+					"account": "UA-3692628-29"
+				},
+				"triggers": {
+					"trackPageview": {
+						"on": "visible",
+						"request": "pageview"
+					}
+				}
+			}
+		</script>
+	</amp-analytics>
+</body>
+</html>
