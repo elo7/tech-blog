@@ -151,7 +151,7 @@ const docpadConfig = function() {
 						}
 						return 'images/cover/elo7.png';
 					},
-					
+
 					toJSON(object) {
 						return JSON.stringify(object);
 					}
@@ -179,7 +179,7 @@ const docpadConfig = function() {
 			static: {
 				templateData: {
 					site: {
-						url: 'https://engenharia.elo7.com.br'
+						url: 'https://elo7.dev'
 					}
 				}
 			}

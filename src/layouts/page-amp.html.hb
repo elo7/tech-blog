@@ -603,7 +603,7 @@
 		{{{replaceImagesToAmpTags content}}}
 	</main>
 	<footer itemscope itemtype='http://schema.org/Organization'>
-		<a rel='home' itemprop='url' href='/amp/home/'>engenharia.elo7.com.br © 2017</a>
+		<a rel='home' itemprop='url' href='/amp/home/'>elo7.dev © 2019</a>
 		<meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
 		<section class='footer-social'>
 			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
