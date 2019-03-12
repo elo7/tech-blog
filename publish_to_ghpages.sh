@@ -6,6 +6,9 @@ then
     exit 1;
 fi
 
+echo "Npm install"
+npm install
+
 echo "Installing Hugo"
 mkdir hugo
 cd hugo
