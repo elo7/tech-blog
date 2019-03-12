@@ -1,0 +1,17 @@
+<nav class='container pagination'>
+    {{ if .Paginator.HasPrev }}
+        <a class='back btn' href='{{ .Paginator.Prev.URL }}'>anterior</a>
+    {{ else }}
+        <span class='back disabled'>anterior</span>
+    {{ end }}
+
+    <span>
+        Página {{ .Paginator.PageNumber }} de {{ .Paginator.TotalPages }}
+    </span>
+
+    {{ if .Paginator.HasNext }}
+        <a class='next btn' href='{{ .Paginator.Next.URL }}'>próximo</a>
+    {{ else }}
+        <span class='next disabled'>próximo</span>
+    {{ end }}
+</nav>

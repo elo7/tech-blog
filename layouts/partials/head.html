@@ -1,0 +1,61 @@
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='{{ .Site.Params.description }}'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,{{ range .Params.Tags }}{{ . }},{{ end }}'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - {{ if .IsHome }}Home{{ else }}{{ .Title }}{{ end }}'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - {{ if .IsHome }}Home{{ else }}{{ .Title }}{{ end }}'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='{{ .Site.BaseURL }}images/cover/{{if .Params.cover }}{{.Params.cover}}{{else}}elo7.png{{end}}'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - {{ if .IsHome }}Home{{ else }}{{ .Title }}{{ end }}'>
+	<meta property='og:url' content='{{ .Permalink }}'>
+	<meta property='og:description' content='{{ .Site.Params.description }}'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - {{ if .IsHome }}Home{{ else }}{{ .Title }}{{ end }}'>
+	<meta property='twitter:domain' content='{{ .Site.BaseURL }}'>
+	<meta property='twitter:url' content='{{ .Permalink }}'>
+	<meta property='twitter:description' content='{{ .Site.Params.description }}'>
+	<meta property='twitter:image' content='{{"images/ico/elo7.png" | absURL}}'>
+
+	<link rel='canonical' href='{{ .Permalink }}'>
+	<title>Elo7 Tech - {{ if .IsHome }}Home{{ else }}{{ .Title }}{{ end }}</title>
+	<link rel='stylesheet' href='{{ "css/reset.css" | absURL }}'>
+	<link rel='stylesheet' href='{{ "css/vendor/highlight.css" | absURL }}' >
+	<link rel='stylesheet' href='{{ "css/main.css" | absURL}}' >
+	<link rel='stylesheet' href='{{ "css/posts.css" | absURL}}' >
+	<link rel='stylesheet' href='{{ "css/post.css" | absURL}}' >
+	<link rel='stylesheet' href='{{ "css/publisher.css" | absURL}}' >
+	<link rel='icon' href='{{ "images/favicon/favicon-16.png" | absURL }}' sizes='16x16'>
+	<link rel='icon' href='{{ "images/favicon/favicon-32.png" | absURL }}' sizes='32x32'>
+	<link rel='icon' href='{{ "images/favicon/favicon-48.png" | absURL }}' sizes='48x48'>
+	<link rel='icon' href='{{ "images/favicon/favicon-64.png" | absURL }}' sizes='64x64'>
+	<link rel='icon' href='{{ "images/favicon/favicon-96.png" | absURL }}' sizes='96x96'>
+	<link rel='icon' href='{{ "images/favicon/favicon-128.png" | absURL }}' sizes='128x128'>
+	<link rel='icon' href='{{ "images/favicon/favicon-160.png" | absURL }}' sizes='160x160'>
+	<link rel='icon' href='{{ "images/favicon/favicon-192.png" | absURL }}' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='{{ "images/favicon/favicon-180.png" | absURL }}'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='{{ "images/favicon/favicon-152.png" | absURL }}'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='{{ "images/favicon/favicon-144.png" | absURL }}'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='{{ "images/favicon/favicon-120.png" | absURL }}'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='{{ "images/favicon/favicon-114.png" | absURL }}'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='{{ "images/favicon/favicon-76.png" | absURL }}'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='{{ "images/favicon/favicon-72.png" | absURL }}'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='{{ "images/favicon/favicon-60.png" | absURL }}'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='{{ "images/favicon/favicon-57.png" | absURL }}'>
+	<link rel='apple-touch-icon-precomposed' href='{{ "images/favicon/favicon-precomposed.png" | absURL }}'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>

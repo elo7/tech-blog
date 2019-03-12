@@ -1,21 +1,12 @@
 node_modules
 package-lock.json
 
-out
-src/assets/js/vendor
-amp/
+static/js/vendor/
 .DS_Store
-.idea/
-
-back-end.html.hb
-devops.html.hb
-eventos.html.hb
-front-end.html.hb
-mobile.html.hb
-vagas.html.hb
-design.html.hb
-cultura.html.hb
-data-science.html.hb
-talks.html.hb
 
 .idea/
+public
+
+*.css
+*.css.map
+.sass-cache

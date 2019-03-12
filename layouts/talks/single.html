@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    {{ partial "head.html" . }}
+    <link rel='stylesheet' href='{{ "css/talks.css" | absURL}}' >
+    <body>
+        {{ partial "header.html" . }}
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <section class="talk-container">
+                <h1 class="title">{{ .Params.title }}</h1>
+                <div>
+                    {{ range .Params.speakers }}
+                        <a data-author='{{ . }}' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/{{ . }}/' class='author'>
+                            <meta itemprop='url' content='/autor/{{ . }}'>
+                            <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                            <p itemprop='name' class='publisher' data-author='{{ . }}'>@{{ . }}</p>
+                        </a>
+                    {{ end }}
+                    {{ partial "date.html" . }}
+                </div>
+                <p class='description' itemprop='description'>
+                    {{ .Params.description }}
+                </p>
+                <div class="slides">
+                    {{ .Params.embeded_slides | safeHTML }}
+                </div>
+                <section class='share'>
+                    <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                    <div class='social-share'>
+                        <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href={{.Permalink}}&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                            Compartilhar no facebook
+                        </a>
+                        <a href='https://twitter.com/intent/tweet?text={{.Title | urlize }}&url={{.Permalink}}&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                            Compartilhar no twitter
+                        </a>
+                        <a href='{{.Permalink}}?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                            Copiar URL
+                        </a>
+                        <span class='copy-success'>Link copiado</span>
+                        <input type='url' value='{{.Permalink}}?utm_source=share&utm_medium=copy' class='link-input'>
+                    </div>
+                </section>
+            </section>
+        </main>
+
+        {{ partial "footer.html" . }}
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

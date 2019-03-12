@@ -1,0 +1,44 @@
+<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-{{ .context.Params.category | urlize }}'>
+    <header>
+        <a href='{{ .context.Permalink }}' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/{{if .context.Params.cover }}{{ .context.Params.cover }}{{ else }}elo7.png{{ end }}' alt='{{ .context.Title }}' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/{{ .context.Params.category }}/' class='category {{.context.Params.category}}'>{{ .context.Params.category }}</a>
+        <div class='post-meta'>
+            <a href='{{ .context.Permalink }}' class='link'>
+                {{ if .page.IsHome }}
+                    <h1 itemprop='name' class='title'>{{ .context.Title }}</h1>
+                {{ else }}
+                    <h2 itemprop='name' class='title'>{{ .context.Title }}</h2>
+                {{ end }}
+            </a>
+            {{ range .context.Params.authors }}
+                <a href='/autor/{{ . }}/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@{{ . }}</p>
+                </a>
+            {{ end }}
+            {{ partial "date.html" .context }}
+        </div>
+        {{ with .context.Params.description }}
+            <p class=' description' itemprop='description'>
+                {{ . }}
+            </p>
+            <meta itemprop='headline' content='{{ . | truncate 110 }}' >
+        {{ end }}
+        <a href='{{ .context.Permalink }}' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
