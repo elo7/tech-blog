@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://engenharia.elo7.com.br/sitemap.xml
+Sitemap: https://elo7.dev/sitemap.xml
