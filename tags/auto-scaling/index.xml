@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Auto Scaling on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/auto-scaling/</link>
+    <description>Recent content in Auto Scaling on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 24 Jun 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/auto-scaling/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Auto scale Sidekiq workers on Amazon EC2</title>
+      <link>http://elo7.dev/sidekiq-workers/</link>
+      <pubDate>Mon, 24 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/sidekiq-workers/</guid>
+      <description>We use Sidekiq to process messages from images conversion to shipping tickets&amp;rsquo; generation.
+The total size of our queues decreases and increases drastically during the day. When it happens we have to increase or decrease our workers by adding or removing new EC2 instances.
+Amazon Auto Scale I will not get into the details of Amazon Auto Scaling, as it deserves an entire post about it.
+Roughly you have to create an Auto Scaling Group, Launch Configuration and Scaling Up/Down policies.</description>
+    </item>
+    
+  </channel>
+</rss>

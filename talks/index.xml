@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Talks on Tech Blog Elo7</title>
+    <link>http://elo7.dev/talks/</link>
+    <description>Recent content in Talks on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 04 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/talks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A experiência do usuário no mundo web de hoje e quais são as novas apis web</title>
+      <link>http://elo7.dev/talks/experiencia-do-usuario-no-mundo-web/</link>
+      <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/talks/experiencia-do-usuario-no-mundo-web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Evolução cultural: Criando times de alto desempenho no Elo7</title>
+      <link>http://elo7.dev/talks/criando-times-de-alto-desempenho/</link>
+      <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/talks/criando-times-de-alto-desempenho/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Incorporando acessibilidade no seu projeto</title>
+      <link>http://elo7.dev/talks/incorporando-acessibilidade-no-seu-projeto/</link>
+      <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/talks/incorporando-acessibilidade-no-seu-projeto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Introdução ao Kotlin</title>
+      <link>http://elo7.dev/talks/introducao-ao-kotlin.html/</link>
+      <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/talks/introducao-ao-kotlin.html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Perceived Performance</title>
+      <link>http://elo7.dev/talks/perceived-performance/</link>
+      <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/talks/perceived-performance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Isomorfismo pra quê?</title>
+      <link>http://elo7.dev/talks/javascript-isomorfico/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/talks/javascript-isomorfico/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

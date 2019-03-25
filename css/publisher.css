@@ -1,0 +1,80 @@
+.publisher-info {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: solid 1em #F8F8F8; }
+  .publisher-info .avatar {
+    padding-right: 1em; }
+
+.container.publisher-container {
+  padding: 0;
+  margin: 2em 5% 0; }
+
+.avatar {
+  box-sizing: border-box; }
+  .avatar img {
+    border-radius: 50%;
+    height: auto;
+    max-width: 100%; }
+
+.info {
+  padding-left: 5%;
+  box-sizing: border-box;
+  flex: 1 0 50%; }
+  .info .name {
+    display: block;
+    color: #333;
+    font-size: 2.5em;
+    font-weight: 300;
+    margin-bottom: 0.5em; }
+  .info .social {
+    content: '';
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-position: center;
+    text-indent: -9999px;
+    margin-right: 0.5em;
+    background-size: contain;
+    vertical-align: top; }
+    .info .social.twitter {
+      background-image: url("/images/ico/ic-twitter.svg"); }
+    .info .social.linkedin {
+      background-image: url("/images/ico/ic-linkedin.svg"); }
+    .info .social.github {
+      background-image: url("/images/ico/ic-github.svg"); }
+
+.publisher-description {
+  color: #888;
+  padding-left: 5%;
+  padding-right: 5%;
+  text-align: justify;
+  line-height: 1.2em;
+  width: 100%;
+  margin-top: 1em; }
+
+@media (min-width: 800px) {
+  .publisher-info {
+    padding: 2em;
+    margin: 2em 15% 0;
+    background-color: #FFF;
+    flex-direction: row-reverse;
+    border-bottom: none; }
+    .publisher-info .avatar {
+      padding-right: 2em; }
+  .info {
+    display: inline-block;
+    padding-right: 0;
+    padding-left: 0; }
+  .hide.avatar ~ .publisher-description {
+    padding-left: 0;
+    margin-top: 1em; }
+  .publisher-description {
+    padding-left: calc(100px + 2em);
+    padding-right: 0;
+    margin-top: 0; }
+  .container.publisher-container {
+    margin-left: 15%;
+    margin-right: 15%; } }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Intersection Observer on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/intersection-observer/</link>
+    <description>Recent content in Intersection Observer on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/intersection-observer/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Intersection Observer API</title>
+      <link>http://elo7.dev/intersection-observer/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/intersection-observer/</guid>
+      <description>Nos últimos meses nós conseguimos usufruir bastante da Intersection Observer API que está disponível desde a versão 51 do Chrome.
+Implementamos carregamento assíncrono de imagens, paginação infinita, carrosséis entre outras ações na tela dependendo da visibilidade que algum elemento possui.
+O que é, o que faz, pra que serve? O Intersection Observer é uma API que atua como uma sentinela te avisando sempre que certo elemento passar a ficar dentro da área visível da página.</description>
+    </item>
+    
+  </channel>
+</rss>

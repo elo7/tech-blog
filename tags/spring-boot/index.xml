@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring Boot on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/spring-boot/</link>
+    <description>Recent content in Spring Boot on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 03 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>API Persistente com Kotlin, Spring Boot, MySQL, JPA e Hibernate</title>
+      <link>http://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</link>
+      <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</guid>
+      <description>Kotlin vem ganhando muita popularidade nos últimos tempos devido a seus recursos de produtividade e a possibilidade de utilização na plataforma Android.
+Devido à crescente popularidade do Kotlin, o Spring Framework também introduziu um suporte dedicado ao Kotlin.
+Neste post, você aprenderá a criar uma API do CRUD Restful com o Kotlin, Spring Boot e JPA.
+O que vamos construir? Neste post criaremos APIs Restful para armazenar dados de livros e categorias.</description>
+    </item>
+    
+    <item>
+      <title>Properties dinâmicos com Spring Cloud Config</title>
+      <link>http://elo7.dev/spring-cloud-config/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/spring-cloud-config/</guid>
+      <description>O problema existente hoje&amp;hellip; Bom, primeiramente posso dizer que pensei nesse tema por já ter presenciado, algumas vezes, problemas em ambiente de produção, devido a configurações com valores incorretos ou mesmo falta delas por esquecimento.
+Agora imagine isso ocorrendo no final de um deploy no ambiente de produção, e pior, com os arquivos de configurações (no caso de aplicações Java, normalmente arquivos properties) dentro da aplicação. Um novo deploy teria que ser feito em N máquinas.</description>
+    </item>
+    
+  </channel>
+</rss>

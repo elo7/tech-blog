@@ -1,287 +1,314 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="O que cada um dos atributos da propriedade display realmente significa? O objetivo deste post é abordar qual é o melhor uso para cada um deles, e quais são as mudanças de layout causadas por cada possível valor.">
-	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
-	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
-	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
-	<meta name="theme-color" content="#FDC24F">
-	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,css,display,posicionamento">
-	<meta name="language" content="pt-br">
-	<meta name="title" content="Elo7 Tech - CSS Basics - Display">
-	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - CSS Basics - Display">
-	<meta name="mobile-web-app-capable" content="yes">
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,css,display,posicionamento,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - CSS Basics - Display'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - CSS Basics - Display'>
+	<meta name='mobile-web-app-capable' content='yes'>
 
-	<meta property="fb:app_id" content="644444999041914">
-	<meta property="fb:admins" content="100003324447975">
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
 
-	<meta property="og:site_name" content="Elo7 Tech">
-	<meta property="og:image" content="https://elo7.dev/images/cover/display.jpg">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="Elo7 Tech - CSS Basics - Display">
-	<meta property="og:url" content="https://elo7.dev/css-basics-display/">
-	<meta property="og:description" content="O que cada um dos atributos da propriedade display realmente significa? O objetivo deste post é abordar qual é o melhor uso para cada um deles, e quais são as mudanças de layout causadas por cada possível valor.">
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='http://elo7.dev/images/cover/display.jpg'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - CSS Basics - Display'>
+	<meta property='og:url' content='http://elo7.dev/css-basics-display/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
 
-	<meta name="twitter:widgets:csp" content="on">
-	<meta name="twitter:card" content="summary_large_image">
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
 
-	<meta property="twitter:title" content="Elo7 Tech - CSS Basics - Display">
-	<meta property="twitter:domain" content="https://elo7.dev">
-	<meta property="twitter:url" content="https://elo7.dev/css-basics-display/">
-	<meta property="twitter:description" content="O que cada um dos atributos da propriedade display realmente significa? O objetivo deste post é abordar qual é o melhor uso para cada um deles, e quais são as mudanças de layout causadas por cada possível valor.">
-	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+	<meta property='twitter:title' content='Elo7 Tech - CSS Basics - Display'>
+	<meta property='twitter:domain' content='http://elo7.dev/'>
+	<meta property='twitter:url' content='http://elo7.dev/css-basics-display/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='http://elo7.dev/images/ico/elo7.png'>
 
-	<link rel="canonical" href="https://elo7.dev/css-basics-display/">
-	
-		<link rel='amphtml' href='https://elo7.dev/amp/css-basics-display/' />
-	
-
+	<link rel='canonical' href='http://elo7.dev/css-basics-display/'>
 	<title>Elo7 Tech - CSS Basics - Display</title>
-	<link rel="stylesheet" href="/reset.css">
-	<link rel="stylesheet" href="/main.css">
-	<link rel="stylesheet" href="/posts.css">
-	<link rel="stylesheet" href="/post.css">
-	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
-	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
-	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
-	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
-	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
-	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
-	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
-	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
-	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
-	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
-	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
-	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
-	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
-	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
-	<script src="/js/vendor/async-define.js"></script>
+	<link rel='stylesheet' href='http://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='http://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='http://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='http://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='http://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='http://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='http://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='http://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='http://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='http://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='http://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='http://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
 </head>
-<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
-	<header class="left-pane">
-		<div class="logo-container">
-			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
-		</div>
-		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
-			<input id="categories-switch" type="checkbox" class="categories-switch">
-			<label for="categories-switch" class="selectable">
-				<h2 class="nav-title">Categorias</h2>
-			</label>
-			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
-				
-					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Back-end</span>
-					</a>
-				
-					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Cultura</span>
-					</a>
-				
-					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Data Science</span>
-					</a>
-				
-					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Design</span>
-					</a>
-				
-					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Devops</span>
-					</a>
-				
-					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Eventos</span>
-					</a>
-				
-					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Palestras</span>
-					</a>
-				
-					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Front-end</span>
-					</a>
-				
-					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Mobile</span>
-					</a>
-				
-					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Vagas</span>
-					</a>
-				
-			</nav>
-		</div>
-		<div class="navigation">
-			<input id="more-switch" type="checkbox" class="more-switch">
-			<label for="more-switch" class="selectable">
-				<h2 class="nav-title">Veja também</h2>
-			</label>
-			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
-					<span itemprop="name">A engenharia</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
-					<span itemprop="name">Carreiras</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
-					<span itemprop="name">Nossos eventos</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
-					<span itemprop="name">Elo7</span>
-				</a>
-			</nav>
-		</div>
-		<div class='social'>
-			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
-			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
-			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
-			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
-		</div>
-	</header>
-	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
-		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
-	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-		<img src='https://elo7.dev/images/cover/display.jpg' alt='' itemprop="url">
-	</figure>
-	<div class='post-content'>
-		<h1 itemprop='name' class='title'>CSS Basics - Display</h1>
-		<div class='post-meta'>
-			<p class='date'>
-				Publicado em: <time datetime='24/07/2017' itemprop='datePublished'>24/07/2017</time>
-				<meta itemprop='dateModified' content='24/07/2017'>
-			</p>
 
-			<article>
-				
-					<a data-author='fernandabernardo' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/fernandabernardo/' class='author'>
-						<meta itemprop='url' content='/fernandabernardo'>
-						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
-						<p itemprop='name' class='publisher' data-author='fernandabernardo'>@fernandabernardo</p>
-					</a>
-				
+    <body>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='http://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/data-science' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Data Science</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://eventos.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Nossos eventos</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='http://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
 
-				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
-			</article>
-		</div>
-		<div itemprop='articleBody'>
-			<p>Este será o primeiro de uma série de posts sobre <strong>CSS Básico</strong>. A ideia desses posts é explicar como funciona cada uma das propriedades do CSS que na teoria &quot;todo mundo conhece&quot;. Vamos entender como usar cada uma delas sem ficarmos apenas &quot;chutando&quot; até descobrir o que funciona e nunca mais mexer. Nesse primeiro post falaremos sobre a propriedade <strong>display</strong>.</p>
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/display.jpg' alt='CSS Basics - Display' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>CSS Basics - Display</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2017-07-24 00:00:00 &#43;0000 UTC'
+    aria-label='24 de julho de 2017'>
+    24/07/2017
+    <meta itemprop='datePublished' content='Mon Jul 24 2017 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Jul 24 2017 00:00:00 GMT&#43;0000 (UTC)'>
+</time>
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='fernandabernardo' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/fernandabernardo/' class='author'>
+                                    <meta itemprop='url' content='/autor/fernandabernardo'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='fernandabernardo'>@fernandabernardo</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Este será o primeiro de uma série de posts sobre <strong>CSS Básico</strong>. A ideia desses posts é explicar como funciona cada uma das propriedades do CSS que na teoria &ldquo;todo mundo conhece&rdquo;. Vamos entender como usar cada uma delas sem ficarmos apenas &ldquo;chutando&rdquo; até descobrir o que funciona e nunca mais mexer. Nesse primeiro post falaremos sobre a propriedade <strong>display</strong>.</p>
+
 <p>A propriedade <em>display</em> é muito importante para o controle do layout, pois indica a caixa de renderização para cada elemento. Cada elemento HTML possui um valor padrão de <em>display</em>, sendo em sua maioria <em>block</em> ou <em>inline</em>.</p>
-<h2>Block</h2>
+
+<h2 id="block">Block</h2>
+
 <p>Os elementos que possuem essa propriedade são considerados elementos de bloco. Esses elementos possuem uma quebra de linha (espaço em branco) acima e abaixo, e não permitem que outros elementos sejam posicionados ao lado deles.</p>
+
 <p>Os elementos mais comuns que possuem <code>display: block</code> como padrão são: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;form&gt;</code> e as novas tags do HTML5: <code>&lt;header&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code>, entre outros.</p>
-<p data-height="300" data-theme-id="23784" data-slug-hash="egmXBo" data-default-tab="css,result" data-user="FernandaBernardo" data-embed-version="2" data-pen-title="Display Block" class="codepen">Veja o exemplo <a href="http://codepen.io/FernandaBernardo/pen/egmXBo/">Display Block</a> by Fernanda Bernardo (<a href="http://codepen.io/FernandaBernardo">@FernandaBernardo</a>) no <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<p><p data-height="300" data-theme-id="23784" data-slug-hash="egmXBo" data-default-tab="css,result" data-user="FernandaBernardo" data-embed-version="2" data-pen-title="Display Block" class="codepen">Veja o exemplo <a href="http://codepen.io/FernandaBernardo/pen/egmXBo/">Display Block</a> by Fernanda Bernardo (<a href="http://codepen.io/FernandaBernardo">@FernandaBernardo</a>) no <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script></p>
+
 <p>Uma forma de posicionar elementos ao lado de um elemento com <code>display: block</code> é usando propriedades que tiram o elemento do fluxo normal da página. Como, por exemplo, <code>float</code> e <code>position: absolute</code>. Mas essas propriedades ficam como assunto para futuros posts.</p>
-<h2>Inline</h2>
+
+<h2 id="inline">Inline</h2>
+
 <p>Os elementos que possuem essa propriedade são considerados elementos de linha. Isso significa que são renderizados dentro do bloco na mesma linha, ou seja, não tem quebra. <code>&lt;span&gt;</code> é o mais conhecido deles, junto com <code>&lt;a&gt;</code>, <code>&lt;b&gt;</code> e <code>&lt;i&gt;</code>. Esses elementos podem ser colocados dentro de um parágrafo (que é um bloco), sem quebrar seu fluxo.</p>
-<p data-height="300" data-theme-id="23784" data-slug-hash="WRbmOK" data-default-tab="html,result" data-user="FernandaBernardo" data-embed-version="2" data-pen-title="Display Inline" class="codepen">Veja o exemplo <a href="http://codepen.io/FernandaBernardo/pen/WRbmOK/">Display Inline</a> by Fernanda Bernardo (<a href="http://codepen.io/FernandaBernardo">@FernandaBernardo</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-<h2>None</h2>
+
+<p><p data-height="300" data-theme-id="23784" data-slug-hash="WRbmOK" data-default-tab="html,result" data-user="FernandaBernardo" data-embed-version="2" data-pen-title="Display Inline" class="codepen">Veja o exemplo <a href="http://codepen.io/FernandaBernardo/pen/WRbmOK/">Display Inline</a> by Fernanda Bernardo (<a href="http://codepen.io/FernandaBernardo">@FernandaBernardo</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script></p>
+
+<h2 id="none">None</h2>
+
 <p>Este valor é usado para esconder algum elemento. Existem elementos que possuem esse valor de <em>display</em> por padrão, por exemplo, o <code>&lt;script&gt;</code>.</p>
-<p data-height="300" data-theme-id="23784" data-slug-hash="ygywPw" data-default-tab="html,result" data-user="FernandaBernardo" data-embed-version="2" data-pen-title="Display None" class="codepen">Veja o exemplo <a href="http://codepen.io/FernandaBernardo/pen/ygywPw/">Display None</a> by Fernanda Bernardo (<a href="http://codepen.io/FernandaBernardo">@FernandaBernardo</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<p><p data-height="300" data-theme-id="23784" data-slug-hash="ygywPw" data-default-tab="html,result" data-user="FernandaBernardo" data-embed-version="2" data-pen-title="Display None" class="codepen">Veja o exemplo <a href="http://codepen.io/FernandaBernardo/pen/ygywPw/">Display None</a> by Fernanda Bernardo (<a href="http://codepen.io/FernandaBernardo">@FernandaBernardo</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script></p>
+
 <p>Uma diferença que causa bastante dúvida quando temos o <code>display: none</code>, é quando esse é comparado com o <code>visibility: hidden</code>. A diferença entre eles é que o <em>display</em> realmente retira todo o elemento da tela, como se ele não existisse; já com <em>visibility</em>, o elemento não aparece mas continua ocupando o espaço como se estivesse visível.</p>
-<h2>Inline-block</h2>
-<p>Esses elementos possuem uma mistura de propriedades. Como o próprio nome diz, tem a característica de ser em linha como um elemento <em>inline</em> e de ser um elemento em bloco como o <em>block</em>. A diferença entre um elemento <em>inline</em> e um <em>inline-block</em> está em elementos <em>inline-block</em> respeitarem os tamanhos personalizáveis, como <em>width</em>, <em>height</em>… Enquanto os que são <em>inline</em> não respeitam, apenas levam em consideração o <em>line-height</em>.</p>
-<p data-height="300" data-theme-id="23784" data-slug-hash="GrgeQM" data-default-tab="css,result" data-user="FernandaBernardo" data-embed-version="2" data-pen-title="Display Inline-Block" class="codepen">Veja o exemplo <a href="http://codepen.io/FernandaBernardo/pen/GrgeQM/">Display Inline-Block</a> by Fernanda Bernardo (<a href="http://codepen.io/FernandaBernardo">@FernandaBernardo</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-<h1>Table</h1>
+
+<h2 id="inline-block">Inline-block</h2>
+
+<p>Esses elementos possuem uma mistura de propriedades. Como o próprio nome diz, tem a característica de ser em linha como um elemento <em>inline</em> e de ser um elemento em bloco como o <em>block</em>. A diferença entre um elemento <em>inline</em> e um <em>inline-block</em> está em elementos <em>inline-block</em> respeitarem os tamanhos personalizáveis, como <em>width</em>, *height*… Enquanto os que são <em>inline</em> não respeitam, apenas levam em consideração o <em>line-height</em>.</p>
+
+<p><p data-height="300" data-theme-id="23784" data-slug-hash="GrgeQM" data-default-tab="css,result" data-user="FernandaBernardo" data-embed-version="2" data-pen-title="Display Inline-Block" class="codepen">Veja o exemplo <a href="http://codepen.io/FernandaBernardo/pen/GrgeQM/">Display Inline-Block</a> by Fernanda Bernardo (<a href="http://codepen.io/FernandaBernardo">@FernandaBernardo</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script></p>
+
+<h1 id="table">Table</h1>
+
 <p>Como o próprio nome já diz, esse tipo de display serve para que um elemento se pareça como uma tabela. Apenas essa frase já é suficiente para perceber um problema: se estamos querendo mostrar um elemento qualquer como uma tabela, será que ele não deveria ser uma tabela de fato? Isso pode inclusive gerar um problema de acessibilidade, mas cada caso deve ser analisado isoladamente. Além do <code>display: table</code> que seria o semelhante à tag <code>&lt;table&gt;</code> do HTML, existem também os displays: <code>table-row</code> e <code>table-cell</code> que se comparam às tags <code>&lt;tr&gt;</code> e <code>&lt;td&gt;</code>.</p>
-<p data-height="300" data-theme-id="23784" data-slug-hash="JEdxXv" data-default-tab="css,result" data-user="FernandaBernardo" data-embed-version="2" data-pen-title="Display table" class="codepen">Veja o exemplo <a href="http://codepen.io/FernandaBernardo/pen/JEdxXv/">Display table</a> by Fernanda Bernardo (<a href="http://codepen.io/FernandaBernardo">@FernandaBernardo</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<p><p data-height="300" data-theme-id="23784" data-slug-hash="JEdxXv" data-default-tab="css,result" data-user="FernandaBernardo" data-embed-version="2" data-pen-title="Display table" class="codepen">Veja o exemplo <a href="http://codepen.io/FernandaBernardo/pen/JEdxXv/">Display table</a> by Fernanda Bernardo (<a href="http://codepen.io/FernandaBernardo">@FernandaBernardo</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script></p>
+
 <p>Nesse post, falamos um pouco sobre como funcionam alguns atributos da propriedade <code>display</code>, e como usá-los. Nos próximos posts abordarei outras propriedades comuns e também novas especificações.</p>
 
 
-			<ul class='tag-list'>
-			
-				<li>
-					<a href='/tags/css/'>css</a>
-				</li>
-			
-				<li>
-					<a href='/tags/display/'>display</a>
-				</li>
-			
-				<li>
-					<a href='/tags/posicionamento/'>posicionamento</a>
-				</li>
-			
-			</ul>
-			<section class='share'>
-				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
-				<div class='social-share'>
-					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/css-basics-display/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
-						Compartilhar no facebook
-					</a>
-					<a href='https://twitter.com/intent/tweet?text=CSS Basics - Display&url=https://elo7.dev/css-basics-display/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
-						Compartilhar no twitter
-					</a>
-					<a href='https://elo7.dev/css-basics-display/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
-						Copiar URL
-					</a>
-					<span class='copy-success'>Link copiado</span>
-					<input type='url' value='https://elo7.dev/css-basics-display/?utm_source=share&utm_medium=copy' class='link-input'>
-				</div>
-			</section>
-		</div>
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/css/'>css</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/display/'>display</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/posicionamento/'>posicionamento</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=http%3a%2f%2felo7.dev%2fcss-basics-display%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=css-basics-display&url=http%3a%2f%2felo7.dev%2fcss-basics-display%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='http://elo7.dev/css-basics-display/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='http://elo7.dev/css-basics-display/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='O que cada um dos atributos da propriedade display realmente significa? O objetivo deste post é abordar qual é o melhor uso para cada um deles, e quais são as mudanças de layout causadas por cada possível valor.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='http://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
 
-		<meta itemprop='headline' content='O que cada um dos atributos da propriedade display realmente significa? O objetivo deste post é abordar qual é o melhor uso para cada um deles, e quais são as mudanças de layout causadas por cada possível valor.'/>
-		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
-			<meta itemprop='name' content='Elo7 Tech'/>
-			<meta itemprop="url" content='https://elo7.dev'/>
-			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
-				<meta itemprop='width' content='100px'/>
-				<meta itemprop='height' content='100px'/>
-			</span>
-		</span>
-		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
 
-		<div id='disqus_thread'></div>
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='http://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
-		<script>
-			var disqus_shortname = 'engenhariaelo7';
-			var disqus_identifier = '24/07/2017:/css-basics-display/';
-			var disqus_url = 'https://elo7.dev/css-basics-display/';
 
-			(function() {
-				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-			})();
-		</script>
-		<noscript>Habilite o JavaScript para ver os comentários</noscript>
-	</div>
-</article>
-<script async src="/js/post.js"></script>
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2017-07-24 00:00:00 \x2b0000 UTC:\/css-basics-display\/';
+            var disqus_url = 'http:\/\/elo7.dev\/css-basics-display\/';
 
-		
-	</main>
-	<footer itemscope itemtype="http://schema.org/Organization">
-		<a rel="home" itemprop="url" href="https://elo7.dev/" >
-			elo7.dev © 2019
-		</a>
-		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
-		<section class='footer-social'>
-			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
-			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
-			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
-			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
-		</section>
-	</footer>
-	<script async src="https://www.google-analytics.com/analytics.js"></script>
-	<script async src="/js/analytics.js"></script>
-	<script async src="/js/github.js"></script>
-	<script async src="/js/vendor/events-amd.js"></script>
-	<script async src="/js/vendor/ajax.js"></script>
-	<script async src="/js/vendor/doc.js"></script>
-	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
 </html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Retrospectiva on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/retrospectiva/</link>
+    <description>Recent content in Retrospectiva on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 08 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/retrospectiva/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Front-End - Coisas de que nós nos orgulhamos em 2017!</title>
+      <link>http://elo7.dev/retrospectiva-front-end-2017/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/retrospectiva-front-end-2017/</guid>
+      <description>2017 foi um ano recheado de projetos interessantes e desafiantes para nós. Neste post vou fazer um resumão deles.
+Web APIs A tendência de tornar a web cada vez mais amigável aos usuários, muitas vezes de forma bem parecida ao que acontece com os aplicativos, se mostrou bem forte. E nós temos diversas ferramentas nos navegadores para implementar isso: as Web APIs.
+Foi muito divertido testar e implementar algumas delas:</description>
+    </item>
+    
+  </channel>
+</rss>

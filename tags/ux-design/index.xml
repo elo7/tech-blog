@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ux Design on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/ux-design/</link>
+    <description>Recent content in Ux Design on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 14 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/ux-design/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Design de Produto no Elo7</title>
+      <link>http://elo7.dev/design-de-produto-no-elo7/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/design-de-produto-no-elo7/</guid>
+      <description>Conheça o trabalho do time de design de produto no Elo7! Vamos apresentar uma visão geral do trabalho deste pequeno, porém orgulhoso time :)
+O time de design de produto do Elo7 atua na elaboração de soluções para a interface dos nossos produtos (especialmente o nosso site - o marketplace e o Talk7), bem como a busca da experiência mais agradável possível para os nossos usuários. Atualmente, somos uma equipe enxuta, formada por 3 membros, mas estamos sempre trabalhando em colaboração com outras equipes, tanto de desenvolvimento quanto de produto.</description>
+    </item>
+    
+  </channel>
+</rss>

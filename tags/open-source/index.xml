@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/open-source/</link>
+    <description>Recent content in Open Source on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Tue, 23 Jul 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>e-DNE Correios</title>
+      <link>http://elo7.dev/edne-correios/</link>
+      <pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/edne-correios/</guid>
+      <description>O e-DNE é um banco de dados que contém todos os CEPs do Brasil.
+No entanto, essa base é disponibilizada apenas para download. Então criamos uma ferramenta para importar essa base para nosso banco de dados. Você pode baixar o código no Github ou seguir os passos pra instalação.
+Instalação Baixe o projeto usando Git:
+git clone git@github.com:elo7/edne-correios.git  Baixe as dependências do projeto:
+bundle install  Preparando o banco de dados Primeiramente vamos importar as informações dos Correios em um banco de dados temporário.</description>
+    </item>
+    
+  </channel>
+</rss>

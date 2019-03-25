@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Junit on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/junit/</link>
+    <description>Recent content in Junit on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 20 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/junit/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Novidades do JUnit 5 - parte 2</title>
+      <link>http://elo7.dev/novidades-do-junit-5-parte-2/</link>
+      <pubDate>Mon, 20 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/novidades-do-junit-5-parte-2/</guid>
+      <description>Em setembro/2017, após pouco mais de um ano de versões milestones e testes, foi lançado o JUnit 5, a nova versão do principal framework para testes de código na plataforma Java. Escrevi um post sobre as principais novas funcionalidades e recursos. Váááárias coisas legais, mas o que fazemos com os testes que já existem no nosso projeto?
+Adorei o JUnit 5! Mas&amp;hellip;e os meus testes já escritos nas versões anteriores do JUnit?</description>
+    </item>
+    
+    <item>
+      <title>Novidades do JUnit 5 - parte 1</title>
+      <link>http://elo7.dev/novidades-do-junit-5-parte-1/</link>
+      <pubDate>Mon, 06 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/novidades-do-junit-5-parte-1/</guid>
+      <description>Em setembro/2017, após pouco mais de um ano de versões milestones e testes, foi lançado o JUnit 5, a nova versão do principal framework para testes de código na plataforma Java. Essa versão traz várias novas funcionalidades excelentes e algumas mudanças drásticas em relação às versões anteriores.
+Este é o primeiro post de uma série sobre o JUnit 5. Aqui, vou tratar das principais mudanças e recursos nesse novo release.</description>
+    </item>
+    
+  </channel>
+</rss>

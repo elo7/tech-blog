@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Clojure on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/clojure/</link>
+    <description>Recent content in Clojure on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 22 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/clojure/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Subindo uma API REST em Clojure</title>
+      <link>http://elo7.dev/subindo-uma-api-rest-em-clojure/</link>
+      <pubDate>Mon, 22 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/subindo-uma-api-rest-em-clojure/</guid>
+      <description>Clojure é uma linguagem funcional e dinâmica que roda na JVM e que vem crescendo bastante no mercado de trabalho. Ela é tão performática quanto qualquer programa que roda em Java e muito menos verbosa. Isso facilita e muito na manutenção do código, influenciando no custo do desenvolvimento. Caso não esteja muito familiarizado com esta linguagem incrível, recomendo a leitura do livro Clojure for the Brave and True onde ensina desde o básico sobre Clojure.</description>
+    </item>
+    
+  </channel>
+</rss>

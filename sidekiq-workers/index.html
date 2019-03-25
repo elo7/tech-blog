@@ -1,330 +1,365 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="We use Sidekiq to process messages from images conversion to shipping tickets&#x27; generation...">
-	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
-	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
-	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
-	<meta name="theme-color" content="#FDC24F">
-	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,amazon elastic compute cloud,amazon web services,auto scaling,cloudwatch,netflix">
-	<meta name="language" content="pt-br">
-	<meta name="title" content="Elo7 Tech - Auto scale Sidekiq workers on Amazon EC2">
-	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Auto scale Sidekiq workers on Amazon EC2">
-	<meta name="mobile-web-app-capable" content="yes">
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,amazon elastic compute cloud,amazon web services,auto scaling,cloudwatch,netflix,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Auto scale Sidekiq workers on Amazon EC2'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Auto scale Sidekiq workers on Amazon EC2'>
+	<meta name='mobile-web-app-capable' content='yes'>
 
-	<meta property="fb:app_id" content="644444999041914">
-	<meta property="fb:admins" content="100003324447975">
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
 
-	<meta property="og:site_name" content="Elo7 Tech">
-	<meta property="og:image" content="https://elo7.dev/images/cover/elo7.png">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="Elo7 Tech - Auto scale Sidekiq workers on Amazon EC2">
-	<meta property="og:url" content="https://elo7.dev/sidekiq-workers/">
-	<meta property="og:description" content="We use Sidekiq to process messages from images conversion to shipping tickets&#x27; generation...">
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='http://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Auto scale Sidekiq workers on Amazon EC2'>
+	<meta property='og:url' content='http://elo7.dev/sidekiq-workers/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
 
-	<meta name="twitter:widgets:csp" content="on">
-	<meta name="twitter:card" content="summary_large_image">
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
 
-	<meta property="twitter:title" content="Elo7 Tech - Auto scale Sidekiq workers on Amazon EC2">
-	<meta property="twitter:domain" content="https://elo7.dev">
-	<meta property="twitter:url" content="https://elo7.dev/sidekiq-workers/">
-	<meta property="twitter:description" content="We use Sidekiq to process messages from images conversion to shipping tickets&#x27; generation...">
-	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+	<meta property='twitter:title' content='Elo7 Tech - Auto scale Sidekiq workers on Amazon EC2'>
+	<meta property='twitter:domain' content='http://elo7.dev/'>
+	<meta property='twitter:url' content='http://elo7.dev/sidekiq-workers/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='http://elo7.dev/images/ico/elo7.png'>
 
-	<link rel="canonical" href="https://elo7.dev/sidekiq-workers/">
-	
-		<link rel='amphtml' href='https://elo7.dev/amp/sidekiq-workers/' />
-	
-
+	<link rel='canonical' href='http://elo7.dev/sidekiq-workers/'>
 	<title>Elo7 Tech - Auto scale Sidekiq workers on Amazon EC2</title>
-	<link rel="stylesheet" href="/reset.css">
-	<link rel="stylesheet" href="/main.css">
-	<link rel="stylesheet" href="/posts.css">
-	<link rel="stylesheet" href="/post.css">
-	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
-	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
-	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
-	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
-	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
-	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
-	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
-	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
-	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
-	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
-	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
-	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
-	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
-	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
-	<script src="/js/vendor/async-define.js"></script>
+	<link rel='stylesheet' href='http://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='http://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='http://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='http://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='http://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='http://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='http://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='http://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='http://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='http://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='http://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='http://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
 </head>
-<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
-	<header class="left-pane">
-		<div class="logo-container">
-			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
-		</div>
-		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
-			<input id="categories-switch" type="checkbox" class="categories-switch">
-			<label for="categories-switch" class="selectable">
-				<h2 class="nav-title">Categorias</h2>
-			</label>
-			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
-				
-					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Back-end</span>
-					</a>
-				
-					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Cultura</span>
-					</a>
-				
-					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Data Science</span>
-					</a>
-				
-					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Design</span>
-					</a>
-				
-					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Devops</span>
-					</a>
-				
-					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Eventos</span>
-					</a>
-				
-					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Palestras</span>
-					</a>
-				
-					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Front-end</span>
-					</a>
-				
-					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Mobile</span>
-					</a>
-				
-					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Vagas</span>
-					</a>
-				
-			</nav>
-		</div>
-		<div class="navigation">
-			<input id="more-switch" type="checkbox" class="more-switch">
-			<label for="more-switch" class="selectable">
-				<h2 class="nav-title">Veja também</h2>
-			</label>
-			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
-					<span itemprop="name">A engenharia</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
-					<span itemprop="name">Carreiras</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
-					<span itemprop="name">Nossos eventos</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
-					<span itemprop="name">Elo7</span>
-				</a>
-			</nav>
-		</div>
-		<div class='social'>
-			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
-			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
-			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
-			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
-		</div>
-	</header>
-	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
-		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
-	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-		<img src='https://elo7.dev/images/cover/elo7.png' alt='' itemprop="url">
-	</figure>
-	<div class='post-content'>
-		<h1 itemprop='name' class='title'>Auto scale Sidekiq workers on Amazon EC2</h1>
-		<div class='post-meta'>
-			<p class='date'>
-				Publicado em: <time datetime='24/06/2013' itemprop='datePublished'>24/06/2013</time>
-				<meta itemprop='dateModified' content='24/06/2013'>
-			</p>
 
-			<article>
-				
-					<a data-author='pablocantero' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/pablocantero/' class='author'>
-						<meta itemprop='url' content='/pablocantero'>
-						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
-						<p itemprop='name' class='publisher' data-author='pablocantero'>@pablocantero</p>
-					</a>
-				
+    <body>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='http://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/data-science' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Data Science</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://eventos.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Nossos eventos</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='http://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
 
-				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
-			</article>
-		</div>
-		<div itemprop='articleBody'>
-			<p>We use <a href="https://github.com/mperham/sidekiq">Sidekiq</a> to process messages from images conversion to shipping tickets' generation.</p>
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Auto scale Sidekiq workers on Amazon EC2' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Auto scale Sidekiq workers on Amazon EC2</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2013-06-24 00:00:00 &#43;0000 UTC'
+    aria-label='24 de junho de 2013'>
+    24/06/2013
+    <meta itemprop='datePublished' content='Mon Jun 24 2013 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Jun 24 2013 00:00:00 GMT&#43;0000 (UTC)'>
+</time>
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='pablocantero' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/pablocantero/' class='author'>
+                                    <meta itemprop='url' content='/autor/pablocantero'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='pablocantero'>@pablocantero</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>We use <a href="https://github.com/mperham/sidekiq">Sidekiq</a> to process messages from images conversion to shipping tickets&rsquo; generation.</p>
+
 <p>The total size of our queues decreases and increases drastically during the day. When it happens we have to increase or decrease our workers by adding or removing new EC2 instances.</p>
-<h2>Amazon Auto Scale</h2>
+
+<h2 id="amazon-auto-scale">Amazon Auto Scale</h2>
+
 <p>I will not get into the details of <a href="http://aws.amazon.com/autoscaling/">Amazon Auto Scaling</a>, as it deserves an entire post about it.</p>
+
 <p>Roughly you have to create an Auto Scaling Group, Launch Configuration and Scaling Up/Down policies.</p>
+
 <p>Remember that Amazon Auto Scaling will not remove your instances automatically. If you create Scaling Up policies, you will need to create Scaling Down as well to remove them.</p>
-<h3>Netflix Asgard</h3>
-<p>Instead of creating your own Auto Scale scripts with <a href="http://aws.amazon.com/sdkforruby/">AWS-SDK</a>, I recommend <a href="https://github.com/Netflix/asgard">Netflix Asgard</a>. It isn't a killer tool, but it works.</p>
-<h4>Asgard considerations</h4>
-<p>It doesn't work well with other Tomcat apps. To work properly on Tomcat, it must be the ROOT app. Another option is to run it as a <a href="https://github.com/Netflix/asgard/wiki/Quick-Start-Guide">standalone app</a>, this is how we use it.</p>
-<pre class="highlight"><code class="hljs bash">    JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home java -Xmx1024M -XX:MaxPermSize=128m -jar asgard-standalone.jar <span class="hljs-string">""</span> localhost 8888
+
+<h3 id="netflix-asgard">Netflix Asgard</h3>
+
+<p>Instead of creating your own Auto Scale scripts with <a href="http://aws.amazon.com/sdkforruby/">AWS-SDK</a>, I recommend <a href="https://github.com/Netflix/asgard">Netflix Asgard</a>. It isn&rsquo;t a killer tool, but it works.</p>
+
+<h4 id="asgard-considerations">Asgard considerations</h4>
+
+<p>It doesn&rsquo;t work well with other Tomcat apps. To work properly on Tomcat, it must be the ROOT app. Another option is to run it as a <a href="https://github.com/Netflix/asgard/wiki/Quick-Start-Guide">standalone app</a>, this is how we use it.</p>
+
+<pre><code class="language-bash">    JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home java -Xmx1024M -XX:MaxPermSize=128m -jar asgard-standalone.jar &quot;&quot; localhost 8888
 </code></pre>
+
 <p>(it works better on Java 6)</p>
-<h2>Queue Size Metric</h2>
+
+<h2 id="queue-size-metric">Queue Size Metric</h2>
+
 <p>To trigger your Scale Up/Down policies based on the Queue Size, you have to publish a new <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html">Custom Metric on CloudWatch</a>.</p>
-<h3>Get the Queue Size</h3>
-<pre class="highlight"><code class="hljs ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">"sidekiq"</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SidekiqMetric</span></span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">queue_size</span></span>
+
+<h3 id="get-the-queue-size">Get the Queue Size</h3>
+
+<pre><code class="language-ruby">require &quot;sidekiq&quot;
+class SidekiqMetric
+  def queue_size
     stats = Sidekiq::Stats.new
-    stats.queues.values.inject <span class="hljs-number">0</span>, <span class="hljs-symbol">:+</span>
-  <span class="hljs-keyword">end</span>
-<span class="hljs-keyword">end</span>
+    stats.queues.values.inject 0, :+
+  end
+end
 </code></pre>
-<h3>Publish the Queue Size</h3>
-<pre class="highlight"><code class="hljs ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">"aws-sdk"</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">QueueSizeMetric</span></span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">initialize</span></span>
-    AWS.config <span class="hljs-symbol">access_key_id:</span> <span class="hljs-string">"…"</span>, <span class="hljs-symbol">secret_access_key:</span> <span class="hljs-string">"…"</span>
-  <span class="hljs-keyword">end</span>
 
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">put</span></span>
-    metric = AWS::CloudWatch::Metric.new <span class="hljs-string">"Worker"</span>, <span class="hljs-string">"QueueSize"</span>
+<h3 id="publish-the-queue-size">Publish the Queue Size</h3>
+
+<pre><code>require &quot;aws-sdk&quot;
+class QueueSizeMetric
+  def initialize
+    AWS.config access_key_id: &quot;…&quot;, secret_access_key: &quot;…&quot;
+  end
+
+  def put
+    metric = AWS::CloudWatch::Metric.new &quot;Worker&quot;, &quot;QueueSize&quot;
     size   = SidekiqMetric.new.queue_size
-    metric.put_data [{<span class="hljs-symbol">value:</span> size}]
-  <span class="hljs-keyword">end</span>
-<span class="hljs-keyword">end</span>
+    metric.put_data [{value: size}]
+  end
+end
 </code></pre>
-<p>That's it… When you create your Scale Policies, you just have to set up the metric namespace to &quot;Worker&quot; and name to &quot;QueueSize&quot;.</p>
-<h2>Update the metric</h2>
+
+<p>That&rsquo;s it… When you create your Scale Policies, you just have to set up the metric namespace to &ldquo;Worker&rdquo; and name to &ldquo;QueueSize&rdquo;.</p>
+
+<h2 id="update-the-metric">Update the metric</h2>
+
 <p>We use the <a href="https://github.com/javan/whenever">whenever gem</a> to create a cron job to update the queue size every minute.</p>
-<h4># schedule.rb</h4>
-</code>
-<pre class="highlight"><code class="hljs ruby">every <span class="hljs-number">1</span>.minutes <span class="hljs-keyword">do</span>
-  command <span class="hljs-string">"cd /home/ubuntu/queues/current &amp;&amp; bundle exec rake update_queue_size_metric"</span>
-<span class="hljs-keyword">end</span>
+
+<h4 id="schedule-rb"># schedule.rb</h4>
+
+<p></code></p>
+
+<pre><code class="language-ruby">every 1.minutes do
+  command &quot;cd /home/ubuntu/queues/current &amp;&amp; bundle exec rake update_queue_size_metric&quot;
+end
 </code></pre>
-<h4># RakeFile</h4>
-<pre class="highlight"><code class="hljs ruby">task <span class="hljs-symbol">:update_queue_size_metric</span> <span class="hljs-keyword">do</span>
+
+<h4 id="rakefile"># RakeFile</h4>
+
+<pre><code class="language-ruby">task :update_queue_size_metric do
   QueueSizeMetric.new.put
-<span class="hljs-keyword">end</span>
+end
 </code></pre>
+
 <p>Another options is to use a worker to update the metrics.</p>
-<h4># app/workers/queue_size_metric_worker.rb</h4>
-<pre class="highlight"><code class="hljs ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">QueueSizeMetricWorker</span></span>
-  <span class="hljs-keyword">include</span> Sidekiq::Worker  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">perform</span></span>
+
+<h4 id="app-workers-queue-size-metric-worker-rb"># app/workers/queue_size_metric_worker.rb</h4>
+
+<pre><code class="language-ruby">class QueueSizeMetricWorker
+  include Sidekiq::Worker  def perform
     QueueSizeMetric.new.put
-    QueueSizeMetricWorker.perform_in <span class="hljs-number">1</span>.minute
-  <span class="hljs-keyword">end</span>
-<span class="hljs-keyword">end</span>
+    QueueSizeMetricWorker.perform_in 1.minute
+  end
+end
 </code></pre>
 
 
-			<ul class='tag-list'>
-			
-				<li>
-					<a href='/tags/amazon-elastic-compute-cloud/'>amazon elastic compute cloud</a>
-				</li>
-			
-				<li>
-					<a href='/tags/amazon-web-services/'>amazon web services</a>
-				</li>
-			
-				<li>
-					<a href='/tags/auto-scaling/'>auto scaling</a>
-				</li>
-			
-				<li>
-					<a href='/tags/cloudwatch/'>cloudwatch</a>
-				</li>
-			
-				<li>
-					<a href='/tags/netflix/'>netflix</a>
-				</li>
-			
-			</ul>
-			<section class='share'>
-				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
-				<div class='social-share'>
-					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/sidekiq-workers/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
-						Compartilhar no facebook
-					</a>
-					<a href='https://twitter.com/intent/tweet?text=Auto scale Sidekiq workers on Amazon EC2&url=https://elo7.dev/sidekiq-workers/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
-						Compartilhar no twitter
-					</a>
-					<a href='https://elo7.dev/sidekiq-workers/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
-						Copiar URL
-					</a>
-					<span class='copy-success'>Link copiado</span>
-					<input type='url' value='https://elo7.dev/sidekiq-workers/?utm_source=share&utm_medium=copy' class='link-input'>
-				</div>
-			</section>
-		</div>
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/amazon-elastic-compute-cloud/'>amazon elastic compute cloud</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/amazon-web-services/'>amazon web services</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/auto-scaling/'>auto scaling</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/cloudwatch/'>cloudwatch</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/netflix/'>netflix</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=http%3a%2f%2felo7.dev%2fsidekiq-workers%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=auto-scale-sidekiq-workers-on-amazon-ec2&url=http%3a%2f%2felo7.dev%2fsidekiq-workers%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='http://elo7.dev/sidekiq-workers/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='http://elo7.dev/sidekiq-workers/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='We use Sidekiq to process messages from images conversion to shipping tickets&#39; generation...'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='http://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
 
-		<meta itemprop='headline' content='We use Sidekiq to process messages from images conversion to shipping tickets&#x27; generation...'/>
-		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
-			<meta itemprop='name' content='Elo7 Tech'/>
-			<meta itemprop="url" content='https://elo7.dev'/>
-			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
-				<meta itemprop='width' content='100px'/>
-				<meta itemprop='height' content='100px'/>
-			</span>
-		</span>
-		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
 
-		<div id='disqus_thread'></div>
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='http://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
-		<script>
-			var disqus_shortname = 'engenhariaelo7';
-			var disqus_identifier = '24/06/2013:/sidekiq-workers/';
-			var disqus_url = 'https://elo7.dev/sidekiq-workers/';
 
-			(function() {
-				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-			})();
-		</script>
-		<noscript>Habilite o JavaScript para ver os comentários</noscript>
-	</div>
-</article>
-<script async src="/js/post.js"></script>
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2013-06-24 00:00:00 \x2b0000 UTC:\/sidekiq-workers\/';
+            var disqus_url = 'http:\/\/elo7.dev\/sidekiq-workers\/';
 
-		
-	</main>
-	<footer itemscope itemtype="http://schema.org/Organization">
-		<a rel="home" itemprop="url" href="https://elo7.dev/" >
-			elo7.dev © 2019
-		</a>
-		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
-		<section class='footer-social'>
-			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
-			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
-			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
-			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
-		</section>
-	</footer>
-	<script async src="https://www.google-analytics.com/analytics.js"></script>
-	<script async src="/js/analytics.js"></script>
-	<script async src="/js/github.js"></script>
-	<script async src="/js/vendor/events-amd.js"></script>
-	<script async src="/js/vendor/ajax.js"></script>
-	<script async src="/js/vendor/doc.js"></script>
-	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
 </html>

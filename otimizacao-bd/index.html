@@ -1,401 +1,438 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="O banco relacional é uma das ferramentas mais utilizadas para o armazenamento de dados em aplicações, porém a performance dessas ferramentas pode sofrer caso os dados sejam inseridos sem o devido cuidado. Nesse post teremos uma introdução prática aos índices como uma forma de otimização de buscas.">
-	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
-	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
-	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
-	<meta name="theme-color" content="#FDC24F">
-	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,sql,optimization,banco de dados,query,otimizacao,relacional,mysql">
-	<meta name="language" content="pt-br">
-	<meta name="title" content="Elo7 Tech - Otimização de queries lentas em bancos relacionais">
-	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Otimização de queries lentas em bancos relacionais">
-	<meta name="mobile-web-app-capable" content="yes">
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,sql,optimization,banco de dados,query,otimizacao,relacional,mysql,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Otimização de queries lentas em bancos relacionais'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Otimização de queries lentas em bancos relacionais'>
+	<meta name='mobile-web-app-capable' content='yes'>
 
-	<meta property="fb:app_id" content="644444999041914">
-	<meta property="fb:admins" content="100003324447975">
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
 
-	<meta property="og:site_name" content="Elo7 Tech">
-	<meta property="og:image" content="https://elo7.dev/images/cover/elo7.png">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="Elo7 Tech - Otimização de queries lentas em bancos relacionais">
-	<meta property="og:url" content="https://elo7.dev/otimizacao-bd/">
-	<meta property="og:description" content="O banco relacional é uma das ferramentas mais utilizadas para o armazenamento de dados em aplicações, porém a performance dessas ferramentas pode sofrer caso os dados sejam inseridos sem o devido cuidado. Nesse post teremos uma introdução prática aos índices como uma forma de otimização de buscas.">
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='http://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Otimização de queries lentas em bancos relacionais'>
+	<meta property='og:url' content='http://elo7.dev/otimizacao-bd/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
 
-	<meta name="twitter:widgets:csp" content="on">
-	<meta name="twitter:card" content="summary_large_image">
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
 
-	<meta property="twitter:title" content="Elo7 Tech - Otimização de queries lentas em bancos relacionais">
-	<meta property="twitter:domain" content="https://elo7.dev">
-	<meta property="twitter:url" content="https://elo7.dev/otimizacao-bd/">
-	<meta property="twitter:description" content="O banco relacional é uma das ferramentas mais utilizadas para o armazenamento de dados em aplicações, porém a performance dessas ferramentas pode sofrer caso os dados sejam inseridos sem o devido cuidado. Nesse post teremos uma introdução prática aos índices como uma forma de otimização de buscas.">
-	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+	<meta property='twitter:title' content='Elo7 Tech - Otimização de queries lentas em bancos relacionais'>
+	<meta property='twitter:domain' content='http://elo7.dev/'>
+	<meta property='twitter:url' content='http://elo7.dev/otimizacao-bd/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='http://elo7.dev/images/ico/elo7.png'>
 
-	<link rel="canonical" href="https://elo7.dev/otimizacao-bd/">
-	
-		<link rel='amphtml' href='https://elo7.dev/amp/otimizacao-bd/' />
-	
-
+	<link rel='canonical' href='http://elo7.dev/otimizacao-bd/'>
 	<title>Elo7 Tech - Otimização de queries lentas em bancos relacionais</title>
-	<link rel="stylesheet" href="/reset.css">
-	<link rel="stylesheet" href="/main.css">
-	<link rel="stylesheet" href="/posts.css">
-	<link rel="stylesheet" href="/post.css">
-	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
-	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
-	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
-	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
-	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
-	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
-	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
-	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
-	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
-	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
-	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
-	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
-	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
-	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
-	<script src="/js/vendor/async-define.js"></script>
+	<link rel='stylesheet' href='http://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='http://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='http://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='http://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='http://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='http://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='http://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='http://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='http://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='http://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='http://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='http://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
 </head>
-<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
-	<header class="left-pane">
-		<div class="logo-container">
-			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
-		</div>
-		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
-			<input id="categories-switch" type="checkbox" class="categories-switch">
-			<label for="categories-switch" class="selectable">
-				<h2 class="nav-title">Categorias</h2>
-			</label>
-			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
-				
-					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Back-end</span>
-					</a>
-				
-					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Cultura</span>
-					</a>
-				
-					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Data Science</span>
-					</a>
-				
-					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Design</span>
-					</a>
-				
-					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Devops</span>
-					</a>
-				
-					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Eventos</span>
-					</a>
-				
-					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Palestras</span>
-					</a>
-				
-					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Front-end</span>
-					</a>
-				
-					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Mobile</span>
-					</a>
-				
-					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Vagas</span>
-					</a>
-				
-			</nav>
-		</div>
-		<div class="navigation">
-			<input id="more-switch" type="checkbox" class="more-switch">
-			<label for="more-switch" class="selectable">
-				<h2 class="nav-title">Veja também</h2>
-			</label>
-			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
-					<span itemprop="name">A engenharia</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
-					<span itemprop="name">Carreiras</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
-					<span itemprop="name">Nossos eventos</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
-					<span itemprop="name">Elo7</span>
-				</a>
-			</nav>
-		</div>
-		<div class='social'>
-			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
-			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
-			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
-			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
-		</div>
-	</header>
-	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
-		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
-	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-		<img src='https://elo7.dev/images/cover/elo7.png' alt='' itemprop="url">
-	</figure>
-	<div class='post-content'>
-		<h1 itemprop='name' class='title'>Otimização de queries lentas em bancos relacionais</h1>
-		<div class='post-meta'>
-			<p class='date'>
-				Publicado em: <time datetime='05/03/2018' itemprop='datePublished'>05/03/2018</time>
-				<meta itemprop='dateModified' content='05/03/2018'>
-			</p>
 
-			<article>
-				
-					<a data-author='victorkendy' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/victorkendy/' class='author'>
-						<meta itemprop='url' content='/victorkendy'>
-						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
-						<p itemprop='name' class='publisher' data-author='victorkendy'>@victorkendy</p>
-					</a>
-				
+    <body>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='http://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/data-science' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Data Science</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://eventos.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Nossos eventos</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='http://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
 
-				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
-			</article>
-		</div>
-		<div itemprop='articleBody'>
-			<p>Quando começamos a desenvolver um novo sistema, a performance do banco de dados parece não ser um problema muito importante,
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Otimização de queries lentas em bancos relacionais' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Otimização de queries lentas em bancos relacionais</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2018-03-05 00:00:00 &#43;0000 UTC'
+    aria-label='05 de março de 2018'>
+    05/03/2018
+    <meta itemprop='datePublished' content='Mon Mar 05 2018 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Mar 05 2018 00:00:00 GMT&#43;0000 (UTC)'>
+</time>
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='victorkendy' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/victorkendy/' class='author'>
+                                    <meta itemprop='url' content='/autor/victorkendy'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='victorkendy'>@victorkendy</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Quando começamos a desenvolver um novo sistema, a performance do banco de dados parece não ser um problema muito importante,
 mas com o aumento do número de usuários e, consequentemente, dos dados que precisam ser armazenados, queries que executavam
 em milisegundos passam a demorar segundos ou até mesmo minutos para serem executadas. Para ilustrar esse problema, vamos
 utilizar um exemplo simples:</p>
+
 <p>Imagine que precisamos desenvolver um cadastro simples de compradores para um comércio eletrônico. Nesse caso, poderíamos
 utilizar a tabela gerada pelo seguinte comando (todos os exemplos desse artigo utilizam o mysql, mas os conceitos
 apresentados funcionam para qualquer banco relacional):</p>
-<pre class="highlight"><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> usuario (
-  <span class="hljs-keyword">id</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT,
-  nome <span class="hljs-built_in">varchar</span>(<span class="hljs-number">100</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
-  data_nascimento datetime <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
-  PRIMARY <span class="hljs-keyword">KEY</span>(<span class="hljs-keyword">id</span>)
-) <span class="hljs-keyword">ENGINE</span>=<span class="hljs-keyword">InnoDB</span>;
+
+<pre><code class="language-sql">CREATE TABLE usuario (
+  id int(10) unsigned NOT NULL AUTO_INCREMENT,
+  nome varchar(100) NOT NULL,
+  data_nascimento datetime NOT NULL,
+  PRIMARY KEY(id)
+) ENGINE=InnoDB;
 </code></pre>
+
 <p>Precisamos listar os 20 primeiros usuários que começam, por exemplo, com a letra <code>A</code> ordenados pela data de nascimento para uma campanha de marketing que
 será realizada pelo site. Esse problema pode ser resolvido pela seguinte sql:</p>
-<pre class="highlight"><code class="hljs sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> usuario <span class="hljs-keyword">WHERE</span> nome <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'A%'</span> <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> data_nascimento <span class="hljs-keyword">limit</span> <span class="hljs-number">20</span>;
+
+<pre><code class="language-sql">SELECT * FROM usuario WHERE nome LIKE 'A%' ORDER BY data_nascimento limit 20;
 </code></pre>
+
 <p>Ao executarmos esse comando no banco de dados de desenvolvimento, que contém apenas 100 usuários, vimos que o tempo de execução é de 1ms e,
 portanto, colocamos essa query em produção. Mas assim que ela começa a ser utilizada com os dados reais, vemos que o estado do banco de dados
 passa a deteriorar: tanto o uso de CPU quanto o número de leituras do disco aumentam.</p>
-<h2>O comando EXPLAIN</h2>
+
+<h2 id="o-comando-explain">O comando EXPLAIN</h2>
+
 <p>Para descobrirmos o que aconteceu, podemos pedir para o banco de dados mostrar o plano de execução da query, uma estimativa do que será feito
 quando a query for executada com os dados atuais, utilizando o comando <a href="https://dev.mysql.com/doc/refman/5.7/en/explain.html">EXPLAIN</a>:</p>
-<pre class="highlight"><code class="hljs sql"><span class="hljs-keyword">EXPLAIN</span> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> usuario <span class="hljs-keyword">WHERE</span> nome <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'A%'</span> <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> data_nascimento <span class="hljs-keyword">limit</span> <span class="hljs-number">20</span>;
+
+<pre><code class="language-sql">EXPLAIN SELECT * FROM usuario WHERE nome LIKE 'A%' ORDER BY data_nascimento limit 20;
 </code></pre>
+
 <p>Essa é a saída do comando:</p>
-<pre class="highlight"><code class="hljs jboss-cli">+<span class="hljs-params">----</span>+<span class="hljs-params">-------------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">---------------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">-----------------------------</span>+
+
+<pre><code>+----+-------------+---------+------+---------------+------+---------+------+------+-----------------------------+
 | id | select_type | table   | type | possible_keys | key  | key_len | ref  | rows | Extra                       |
-+<span class="hljs-params">----</span>+<span class="hljs-params">-------------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">---------------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">-----------------------------</span>+
++----+-------------+---------+------+---------------+------+---------+------+------+-----------------------------+
 |  1 | SIMPLE      | usuario | ALL  | NULL          | NULL | NULL    | NULL |  100 | Using where; Using filesort |
-+<span class="hljs-params">----</span>+<span class="hljs-params">-------------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">---------------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">-----------------------------</span>+
++----+-------------+---------+------+---------------+------+---------+------+------+-----------------------------+
 </code></pre>
+
 <p>Nessa saída temos duas colunas que ajudam a explicar a performance da query: <code>type</code> e <code>rows</code>.</p>
+
 <p>A coluna <code>type</code> indica o tipo de query que será executada, no caso <code>ALL</code> significa que todas as linhas da tabela precisam ser verificadas para produzir
 o resultado (esse comportamento é conhecido como <em>full table scan</em>). No caso em que a tabela é pequena, um <em>full table scan</em> não afeta a performance do sistema,
 mas assim que a quantidade de informações cresce, o banco de dados é forçado a ler possivelmente milhões de registros para gerar o resultado da busca.</p>
+
 <p>Já <code>rows</code> indica uma estimativa para o número de linhas que serão lidas pelo banco para atender a query. É importante ressaltar que o número é apenas
 uma estimativa, que pode ser maior ou menor do que o número de linhas que serão de fato lidas quando a query for executada. Como o type da query é <code>ALL</code>,
 <code>rows</code> indicará o número aproximado de linhas da tabela usuario.</p>
+
 <p>Pelas informações disponibilizadas pelo <code>EXPLAIN</code>, podemos ver que a performance da query só vai piorar conforme o número de registros na tabela aumenta.</p>
-<h2>Utilizando índices para melhorar a performance</h2>
+
+<h2 id="utilizando-índices-para-melhorar-a-performance">Utilizando índices para melhorar a performance</h2>
+
 <p>Agora que sabemos que o problema de performance da query é causado pelo <em>full table scan</em> em uma tabela muito grande, podemos otimizar a query utilizando índices.</p>
+
 <p>Existem dois principais tipos de índice mais utilizados pelos bancos relacionais:</p>
+
 <ul>
-<li>
-<p>Árvores B+ (BTREE): esse índice mantém os dados indexados em ordem crescente, dessa forma ele pode ser utilizado em buscas que contenham condições de igualdades
-ou intervalos (buscas utilizando <code>&gt;=</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&lt;</code> ou <code>BETWEEN</code>);</p>
-</li>
-<li>
-<p>Hash: esse índice mantém os dados em uma tabela de hash, portanto ele consegue ajudar apenas em buscas de igualdade.</p>
-</li>
+<li><p>Árvores B+ (BTREE): esse índice mantém os dados indexados em ordem crescente, dessa forma ele pode ser utilizado em buscas que contenham condições de igualdades
+ou intervalos (buscas utilizando <code>&gt;=</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&lt;</code> ou <code>BETWEEN</code>);</p></li>
+
+<li><p>Hash: esse índice mantém os dados em uma tabela de hash, portanto ele consegue ajudar apenas em buscas de igualdade.</p></li>
 </ul>
+
 <p>No MySQL, dependendo da configuração, o único tipo de índice disponível é o BTREE que pode ser criado utilizando o seguinte comando:</p>
-<pre class="highlight"><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">INDEX</span> nome_do_indice <span class="hljs-keyword">ON</span> nome_da_tabela (coluna_indexada1,coluna_indexada2,...);
+
+<pre><code class="language-sql">CREATE INDEX nome_do_indice ON nome_da_tabela (coluna_indexada1,coluna_indexada2,...);
 </code></pre>
+
 <p>Como queremos otimizar uma busca na coluna <code>nome</code> da tabela <code>usuario</code>, podemos criar o seguinte índice:</p>
-<pre class="highlight"><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">INDEX</span> usuario_nome <span class="hljs-keyword">ON</span> usuario (nome);
+
+<pre><code class="language-sql">CREATE INDEX usuario_nome ON usuario (nome);
 </code></pre>
+
 <p>Esse comando criará um índice do tipo BTREE (padrão) na tabela usuario. Após a criação do índice, podemos executar novamente o explain:</p>
-<pre class="highlight"><code class="hljs jboss-cli">+<span class="hljs-params">----</span>+<span class="hljs-params">-------------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">---------------</span>+<span class="hljs-params">--------------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">-------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">-----------------------------</span>+
+
+<pre><code>+----+-------------+---------+------+---------------+--------------+---------+-------+------+-----------------------------+
 | id | select_type | table   | type | possible_keys | key          | key_len | ref   | rows | Extra                       |
-+<span class="hljs-params">----</span>+<span class="hljs-params">-------------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">---------------</span>+<span class="hljs-params">--------------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">-------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">-----------------------------</span>+
++----+-------------+---------+------+---------------+--------------+---------+-------+------+-----------------------------+
 |  1 | SIMPLE      | usuario | ref  | usuario_nome  | usuario_nome | 102     | const |    5 | Using where; Using filesort |
-+<span class="hljs-params">----</span>+<span class="hljs-params">-------------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">---------------</span>+<span class="hljs-params">--------------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">-------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">-----------------------------</span>+
++----+-------------+---------+------+---------------+--------------+---------+-------+------+-----------------------------+
 </code></pre>
+
 <p>Repare que dessa vez o tipo de query mudou de <code>ALL</code> para <code>ref</code>, o que indica que o banco de dados não está mais fazendo um <em>full table
 scan</em>, além disso, agora temos mais duas colunas interessantes:</p>
+
 <ul>
-<li>
-<p>possible_keys: indica quais são os possíveis índices que o banco pode usar para realizar a busca.</p>
-</li>
-<li>
-<p>key: indica qual é a chave que será de fato utilizada na execução da busca, ou NULL para <em>full table scan</em>.</p>
-</li>
+<li><p>possible_keys: indica quais são os possíveis índices que o banco pode usar para realizar a busca.</p></li>
+
+<li><p>key: indica qual é a chave que será de fato utilizada na execução da busca, ou NULL para <em>full table scan</em>.</p></li>
 </ul>
+
 <p>Observe também que o valor da coluna <code>rows</code> agora é uma fração do número de linhas da tabela, o que indica que agora o banco precisa ler menos
 registros para gerar o resultado final.</p>
-<h2>Utilizando índices para a ordenação</h2>
-<p>Com a criação do índice, a query passou a scannear apenas as linhas que contém usuários que começam com a letra 'A', mas se o banco tiver muitos usuários,
+
+<h2 id="utilizando-índices-para-a-ordenação">Utilizando índices para a ordenação</h2>
+
+<p>Com a criação do índice, a query passou a scannear apenas as linhas que contém usuários que começam com a letra &lsquo;A&rsquo;, mas se o banco tiver muitos usuários,
 mesmo essa busca menor ainda será pesada, pois o resultado ainda precisa ser ordenado. Podemos verificar que o MySQL fará a ordenação da query pelo valor
 <code>Using filesort</code> da coluna <code>Extra</code> do comando <code>EXPLAIN</code>.</p>
+
 <p>Assim como as condições do <code>WHERE</code>, a ordenação também pode ser otimizada através de índices. Como os dados do índice do tipo BTREE são mantidos ordenados,
 essa ordenação pode ser utilizada pelo banco se as colunas do <code>order by</code> estiverem presentes no índice. No exemplo desse post, a ordenação é feita
 pela coluna <code>data_nascimento</code>, então o índice precisa conter as colunas nome (para a condição do <code>WHERE</code>) e data_nascimento (para a ordenação).</p>
-<pre class="highlight"><code class="hljs sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">INDEX</span> usuario_nome <span class="hljs-keyword">ON</span> usuario;
-<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">INDEX</span> usuario_nome <span class="hljs-keyword">ON</span> usuario (nome, data_nascimento);
+
+<pre><code class="language-sql">DROP INDEX usuario_nome ON usuario;
+CREATE INDEX usuario_nome ON usuario (nome, data_nascimento);
 </code></pre>
+
 <p>Depois dessa modificação, podemos verificar que a saída do <code>EXPLAIN</code> agora não contém o <code>Using filesort</code>, ou seja, o banco não precisa mais calcular a ordenação
 dos dados, ele pode usar a ordenação do índice.</p>
-<pre class="highlight"><code class="hljs jboss-cli">+<span class="hljs-params">----</span>+<span class="hljs-params">-------------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">---------------</span>+<span class="hljs-params">--------------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">-------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">-------------</span>+
+
+<pre><code>+----+-------------+---------+------+---------------+--------------+---------+-------+------+-------------+
 | id | select_type | table   | type | possible_keys | key          | key_len | ref   | rows | Extra       |
-+<span class="hljs-params">----</span>+<span class="hljs-params">-------------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">---------------</span>+<span class="hljs-params">--------------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">-------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">-------------</span>+
++----+-------------+---------+------+---------------+--------------+---------+-------+------+-------------+
 |  1 | SIMPLE      | usuario | ref  | usuario_nome  | usuario_nome | 102     | const |    5 | Using where |
-+<span class="hljs-params">----</span>+<span class="hljs-params">-------------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">---------------</span>+<span class="hljs-params">--------------</span>+<span class="hljs-params">---------</span>+<span class="hljs-params">-------</span>+<span class="hljs-params">------</span>+<span class="hljs-params">-------------</span>+
++----+-------------+---------+------+---------------+--------------+---------+-------+------+-------------+
 </code></pre>
-<h2>Cuidados com índices</h2>
+
+<h2 id="cuidados-com-índices">Cuidados com índices</h2>
+
 <p>A utilização de índices tem o potencial de melhorar muito a performance de uma aplicação que depende de um banco de dados relacional, mas alguns cuidados devem ser tomados
 em seu uso:</p>
+
 <ul>
-<li>
-<p>Índices fazem com que inserts e updates na tabela indexada fiquem mais lentos. Como o banco é obrigado a manter uma estrututra de dados extra com uma parte dos dados inseridos,
-todo insert ou update precisa também atualizar os dados do índice;</p>
-</li>
-<li>
-<p>Índices ocupam espaço em disco e na memória do banco de dados, portanto crie-os de acordo com a necessidade da aplicação. Não adianta tentar criar índices para todas as
-combinações possíveis de campos da tabela;</p>
-</li>
-<li>
-<p>Utilize os campos mais a esquerda na declaração do índice em suas queries. O índice criado como exemplo nesse post, <code>CREATE INDEX usuario_nome ON usuario (nome, data_nascimento)</code>,
+<li><p>Índices fazem com que inserts e updates na tabela indexada fiquem mais lentos. Como o banco é obrigado a manter uma estrututra de dados extra com uma parte dos dados inseridos,
+todo insert ou update precisa também atualizar os dados do índice;</p></li>
+
+<li><p>Índices ocupam espaço em disco e na memória do banco de dados, portanto crie-os de acordo com a necessidade da aplicação. Não adianta tentar criar índices para todas as
+combinações possíveis de campos da tabela;</p></li>
+
+<li><p>Utilize os campos mais a esquerda na declaração do índice em suas queries. O índice criado como exemplo nesse post, <code>CREATE INDEX usuario_nome ON usuario (nome, data_nascimento)</code>,
 pode ser utilizado para otimizar queries que filtram apenas <code>nome</code> ou <code>nome</code> e <code>data_nascimento</code>, mas se tentarmos filtrar apenas por <code>data_nascimento</code>, o banco fará um <em>full table scan</em>. Por exemplo, as seguintes queries conseguem utilizar o índice:</p>
-</li>
-</ul>
-<pre class="highlight"><code class="hljs sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> usuario <span class="hljs-keyword">WHERE</span> nome <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'A%'</span>;
-<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> usuario <span class="hljs-keyword">WHERE</span> nome <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'A%'</span> <span class="hljs-keyword">AND</span> data_nascimento &gt; <span class="hljs-string">'2017-01-01'</span>;
+
+<pre><code>SELECT * FROM usuario WHERE nome LIKE 'A%';
+SELECT * FROM usuario WHERE nome LIKE 'A%' AND data_nascimento &gt; '2017-01-01';
 </code></pre>
+
 <p>mas a query abaixo, não:</p>
-<pre class="highlight"><code class="hljs sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> usuario <span class="hljs-keyword">WHERE</span> data_nascimento &gt; <span class="hljs-string">'2017-01-01'</span>;
-</code></pre>
-<ul>
-<li>No MySQL, o índice não é utilizado em buscas em que a condição no campo do índice é &lt;&gt; (diferente). Por exemplo, se a condição fosse <code>nome &lt;&gt; 'Alberto'</code> o índice não seria utilizado.</li>
+
+<pre><code>SELECT * FROM usuario WHERE data_nascimento &gt; '2017-01-01';
+</code></pre></li>
+
+<li><p>No MySQL, o índice não é utilizado em buscas em que a condição no campo do índice é &lt;&gt; (diferente). Por exemplo, se a condição fosse <code>nome &lt;&gt; 'Alberto'</code> o índice não seria utilizado.</p></li>
 </ul>
-<h2>Conclusão</h2>
+
+<h2 id="conclusão">Conclusão</h2>
+
 <p>Nesse post vimos como utilizar melhor os índices para melhorar a nossa performance. O que você usa para melhorar a performance quando o assunto é banco de dados? Já tomava esse cuidado com os índices? Comente aqui no post o que achou :)</p>
 
 
-			<ul class='tag-list'>
-			
-				<li>
-					<a href='/tags/sql/'>sql</a>
-				</li>
-			
-				<li>
-					<a href='/tags/optimization/'>optimization</a>
-				</li>
-			
-				<li>
-					<a href='/tags/banco-de-dados/'>banco de dados</a>
-				</li>
-			
-				<li>
-					<a href='/tags/query/'>query</a>
-				</li>
-			
-				<li>
-					<a href='/tags/otimizacao/'>otimizacao</a>
-				</li>
-			
-				<li>
-					<a href='/tags/relacional/'>relacional</a>
-				</li>
-			
-				<li>
-					<a href='/tags/mysql/'>mysql</a>
-				</li>
-			
-			</ul>
-			<section class='share'>
-				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
-				<div class='social-share'>
-					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/otimizacao-bd/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
-						Compartilhar no facebook
-					</a>
-					<a href='https://twitter.com/intent/tweet?text=Otimização de queries lentas em bancos relacionais&url=https://elo7.dev/otimizacao-bd/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
-						Compartilhar no twitter
-					</a>
-					<a href='https://elo7.dev/otimizacao-bd/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
-						Copiar URL
-					</a>
-					<span class='copy-success'>Link copiado</span>
-					<input type='url' value='https://elo7.dev/otimizacao-bd/?utm_source=share&utm_medium=copy' class='link-input'>
-				</div>
-			</section>
-		</div>
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/sql/'>sql</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/optimization/'>optimization</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/banco-de-dados/'>banco de dados</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/query/'>query</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/otimizacao/'>otimizacao</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/relacional/'>relacional</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/mysql/'>mysql</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=http%3a%2f%2felo7.dev%2fotimizacao-bd%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=otimiza%25C3%25A7%25C3%25A3o-de-queries-lentas-em-bancos-relacionais&url=http%3a%2f%2felo7.dev%2fotimizacao-bd%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='http://elo7.dev/otimizacao-bd/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='http://elo7.dev/otimizacao-bd/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='O banco relacional é uma das ferramentas mais utilizadas para o armazenamento de dados em aplicações, porém a performance dessas ferramentas pode sofrer caso os dados sejam inseridos sem o devido cuidado. Nesse post teremos uma introdução prática aos índices como uma forma de otimização de buscas.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='http://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
 
-		<meta itemprop='headline' content='O banco relacional é uma das ferramentas mais utilizadas para o armazenamento de dados em aplicações, porém a performance dessas ferramentas pode sofrer caso os dados sejam inseridos sem o devido cuidado. Nesse post teremos uma introdução prática aos índices como uma forma de otimização de buscas.'/>
-		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
-			<meta itemprop='name' content='Elo7 Tech'/>
-			<meta itemprop="url" content='https://elo7.dev'/>
-			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
-				<meta itemprop='width' content='100px'/>
-				<meta itemprop='height' content='100px'/>
-			</span>
-		</span>
-		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
 
-		<div id='disqus_thread'></div>
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='http://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
-		<script>
-			var disqus_shortname = 'engenhariaelo7';
-			var disqus_identifier = '05/03/2018:/otimizacao-bd/';
-			var disqus_url = 'https://elo7.dev/otimizacao-bd/';
 
-			(function() {
-				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-			})();
-		</script>
-		<noscript>Habilite o JavaScript para ver os comentários</noscript>
-	</div>
-</article>
-<script async src="/js/post.js"></script>
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2018-03-05 00:00:00 \x2b0000 UTC:\/otimizacao-bd\/';
+            var disqus_url = 'http:\/\/elo7.dev\/otimizacao-bd\/';
 
-		
-	</main>
-	<footer itemscope itemtype="http://schema.org/Organization">
-		<a rel="home" itemprop="url" href="https://elo7.dev/" >
-			elo7.dev © 2019
-		</a>
-		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
-		<section class='footer-social'>
-			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
-			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
-			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
-			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
-		</section>
-	</footer>
-	<script async src="https://www.google-analytics.com/analytics.js"></script>
-	<script async src="/js/analytics.js"></script>
-	<script async src="/js/github.js"></script>
-	<script async src="/js/vendor/events-amd.js"></script>
-	<script async src="/js/vendor/ajax.js"></script>
-	<script async src="/js/vendor/doc.js"></script>
-	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
 </html>

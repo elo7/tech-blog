@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/web/</link>
+    <description>Recent content in Web on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 19 Mar 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Credential Managament API</title>
+      <link>http://elo7.dev/credential-management-api/</link>
+      <pubDate>Mon, 19 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/credential-management-api/</guid>
+      <description>Hoje em dia passamos muito tempo em redes sociais, fóruns, blogs e sites de comércio eletrônico, sabemos então o quanto é chato ter que ficar anotando dados de login e senha deste serviços. E como você sabe, por questões de segurança, não devemos usar os mesmos dados para acessar diferentes serviços. Para resolver este problema, existem diversas aplicações que gerenciam essas informações, como: LastPass, 1Password, bitwarden, Dashlane, entre outros. Os principais navegadores do mercado também possuem recursos para fazer esse gerenciamento.</description>
+    </item>
+    
+    <item>
+      <title>Desmistificando o Encoding</title>
+      <link>http://elo7.dev/encoding/</link>
+      <pubDate>Mon, 02 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/encoding/</guid>
+      <description>Já reparou como é difícil fazer acentos, emojis e outros caracteres estranhos serem exibidos corretamente nos seus programas? Vamos entender um pouco sobre como funciona o armazenamento de caracteres e como fazer software que suporte múltiplas línguas da maneira correta. Sim, é muito mais que termos vários arquivos com as mensagens traduzidas&amp;hellip;
+Encoding é o mecanismo que define como representamos diversos símbolos e letras de diferentes alfabetos de maneira binária.</description>
+    </item>
+    
+    <item>
+      <title>Web Share API</title>
+      <link>http://elo7.dev/web-share-api/</link>
+      <pubDate>Mon, 11 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/web-share-api/</guid>
+      <description>Vivemos atualmente a era da informação, onde estamos conectados o tempo todo a redes sociais (Facebook, Twitter, LinkedIn), programas de conversação (WhatsApp, Telegram e Slack) e outras ferramentas que permitem o compartilhamento de informações. Através destes softwares, podemos compartilhar com nossos amigos de tudo: fotos, textos, um link para uma notícia importante ou até mesmo aquele produto que gostamos. Como desenvolvedor web, você provavelmente já precisou adicionar em seus projetos algum recurso para compartilhamento de terceiros.</description>
+    </item>
+    
+    <item>
+      <title>Google I/O - Web</title>
+      <link>http://elo7.dev/google-io-3/</link>
+      <pubDate>Mon, 26 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/google-io-3/</guid>
+      <description>Durante várias sessões, os palestrantes incentivaram fortemente o uso de AMP (Accelerated Mobile Pages) e PWA (Progressive Web Apps), além de reforçarem que Mobile Web é mainstream.
+Um Product Manager do Twitter apresentou casos de sucesso com PWA, onde seu uso trouxe um incremento de 65% de pages/sessions, e 75% mais tweets.
+Forbes, Expedia, Pinterest, Lyft, Airbnb, Trivago, Lacôme, entre outros já utilizam PWAs. Na Lacôme, houve um incremento de 53% de tempo de sessão após a adoção da tecnologia.</description>
+    </item>
+    
+  </channel>
+</rss>

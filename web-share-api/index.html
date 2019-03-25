@@ -1,272 +1,303 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Conheça mais uma API JavaScript que pretende melhorar a experiência do usuário quando precisar compartilhar links da Web para aplicativos nativos.">
-	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
-	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
-	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
-	<meta name="theme-color" content="#FDC24F">
-	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,javascript,mobile,web,webapi">
-	<meta name="language" content="pt-br">
-	<meta name="title" content="Elo7 Tech - Web Share API">
-	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Web Share API">
-	<meta name="mobile-web-app-capable" content="yes">
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,javascript,mobile,web,webapi,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Web Share API'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Web Share API'>
+	<meta name='mobile-web-app-capable' content='yes'>
 
-	<meta property="fb:app_id" content="644444999041914">
-	<meta property="fb:admins" content="100003324447975">
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
 
-	<meta property="og:site_name" content="Elo7 Tech">
-	<meta property="og:image" content="https://elo7.dev/images/cover/web-share-api.png">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="Elo7 Tech - Web Share API">
-	<meta property="og:url" content="https://elo7.dev/web-share-api/">
-	<meta property="og:description" content="Conheça mais uma API JavaScript que pretende melhorar a experiência do usuário quando precisar compartilhar links da Web para aplicativos nativos.">
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='http://elo7.dev/images/cover/web-share-api.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Web Share API'>
+	<meta property='og:url' content='http://elo7.dev/web-share-api/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
 
-	<meta name="twitter:widgets:csp" content="on">
-	<meta name="twitter:card" content="summary_large_image">
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
 
-	<meta property="twitter:title" content="Elo7 Tech - Web Share API">
-	<meta property="twitter:domain" content="https://elo7.dev">
-	<meta property="twitter:url" content="https://elo7.dev/web-share-api/">
-	<meta property="twitter:description" content="Conheça mais uma API JavaScript que pretende melhorar a experiência do usuário quando precisar compartilhar links da Web para aplicativos nativos.">
-	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+	<meta property='twitter:title' content='Elo7 Tech - Web Share API'>
+	<meta property='twitter:domain' content='http://elo7.dev/'>
+	<meta property='twitter:url' content='http://elo7.dev/web-share-api/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='http://elo7.dev/images/ico/elo7.png'>
 
-	<link rel="canonical" href="https://elo7.dev/web-share-api/">
-	
-		<link rel='amphtml' href='https://elo7.dev/amp/web-share-api/' />
-	
-
+	<link rel='canonical' href='http://elo7.dev/web-share-api/'>
 	<title>Elo7 Tech - Web Share API</title>
-	<link rel="stylesheet" href="/reset.css">
-	<link rel="stylesheet" href="/main.css">
-	<link rel="stylesheet" href="/posts.css">
-	<link rel="stylesheet" href="/post.css">
-	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
-	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
-	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
-	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
-	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
-	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
-	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
-	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
-	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
-	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
-	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
-	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
-	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
-	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
-	<script src="/js/vendor/async-define.js"></script>
+	<link rel='stylesheet' href='http://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='http://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='http://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='http://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='http://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='http://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='http://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='http://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='http://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='http://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='http://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='http://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
 </head>
-<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
-	<header class="left-pane">
-		<div class="logo-container">
-			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
-		</div>
-		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
-			<input id="categories-switch" type="checkbox" class="categories-switch">
-			<label for="categories-switch" class="selectable">
-				<h2 class="nav-title">Categorias</h2>
-			</label>
-			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
-				
-					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Back-end</span>
-					</a>
-				
-					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Cultura</span>
-					</a>
-				
-					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Data Science</span>
-					</a>
-				
-					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Design</span>
-					</a>
-				
-					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Devops</span>
-					</a>
-				
-					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Eventos</span>
-					</a>
-				
-					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Palestras</span>
-					</a>
-				
-					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Front-end</span>
-					</a>
-				
-					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Mobile</span>
-					</a>
-				
-					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Vagas</span>
-					</a>
-				
-			</nav>
-		</div>
-		<div class="navigation">
-			<input id="more-switch" type="checkbox" class="more-switch">
-			<label for="more-switch" class="selectable">
-				<h2 class="nav-title">Veja também</h2>
-			</label>
-			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
-					<span itemprop="name">A engenharia</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
-					<span itemprop="name">Carreiras</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
-					<span itemprop="name">Nossos eventos</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
-					<span itemprop="name">Elo7</span>
-				</a>
-			</nav>
-		</div>
-		<div class='social'>
-			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
-			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
-			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
-			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
-		</div>
-	</header>
-	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
-		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
-	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-		<img src='https://elo7.dev/images/cover/web-share-api.png' alt='' itemprop="url">
-	</figure>
-	<div class='post-content'>
-		<h1 itemprop='name' class='title'>Web Share API</h1>
-		<div class='post-meta'>
-			<p class='date'>
-				Publicado em: <time datetime='11/09/2017' itemprop='datePublished'>11/09/2017</time>
-				<meta itemprop='dateModified' content='11/09/2017'>
-			</p>
 
-			<article>
-				
-					<a data-author='tcelestino' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/tcelestino/' class='author'>
-						<meta itemprop='url' content='/tcelestino'>
-						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
-						<p itemprop='name' class='publisher' data-author='tcelestino'>@tcelestino</p>
-					</a>
-				
+    <body>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='http://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/data-science' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Data Science</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://eventos.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Nossos eventos</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='http://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
 
-				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
-			</article>
-		</div>
-		<div itemprop='articleBody'>
-			<p>Vivemos atualmente a era da informação, onde estamos conectados o tempo todo a redes sociais (Facebook, Twitter, LinkedIn), programas de conversação (WhatsApp, Telegram e Slack) e outras ferramentas que permitem o compartilhamento de informações. Através destes softwares, podemos compartilhar com nossos amigos de tudo: fotos, textos, um link para uma notícia importante ou até mesmo aquele produto que gostamos. Como desenvolvedor web, você provavelmente já precisou adicionar em seus projetos algum recurso para compartilhamento de terceiros. Muitas vezes, a quantidade de código gerado que é inserido pode influenciar no funcionamento da página, como por exemplo no tempo de carregamento. Aqui no Elo7, já usamos plugins (Facebook Share, por exemplo), mas hoje utilizamos o compartilhamento via URL, que é baseado em <em>query string</em>. Com isso, evitamos a inserção de códigos desnecessários nas páginas, o que resulta em melhor performance de carregamento.</p>
-<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.facebook.com/dialog/share?app_id=APP_ID&amp;amp;href=https%3A%2F%2Fwww.elo7.com.br%2Fkit-decoracao-ursinho-frete-gratis&amp;amp;display=popup"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"noopener"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-share"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Clique para compartilhar no Facebook"</span>&gt;</span>Compartilhar<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/web-share-api.png' alt='Web Share API' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Web Share API</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2017-09-11 00:00:00 &#43;0000 UTC'
+    aria-label='11 de setembro de 2017'>
+    11/09/2017
+    <meta itemprop='datePublished' content='Mon Sep 11 2017 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Sep 11 2017 00:00:00 GMT&#43;0000 (UTC)'>
+</time>
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='tcelestino' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/tcelestino/' class='author'>
+                                    <meta itemprop='url' content='/autor/tcelestino'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='tcelestino'>@tcelestino</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Vivemos atualmente a era da informação, onde estamos conectados o tempo todo a redes sociais (Facebook, Twitter, LinkedIn), programas de conversação (WhatsApp, Telegram e Slack) e outras ferramentas que permitem o compartilhamento de informações. Através destes softwares, podemos compartilhar com nossos amigos de tudo: fotos, textos, um link para uma notícia importante ou até mesmo aquele produto que gostamos. Como desenvolvedor web, você provavelmente já precisou adicionar em seus projetos algum recurso para compartilhamento de terceiros. Muitas vezes, a quantidade de código gerado que é inserido pode influenciar no funcionamento da página, como por exemplo no tempo de carregamento. Aqui no Elo7, já usamos plugins (Facebook Share, por exemplo), mas hoje utilizamos o compartilhamento via URL, que é baseado em <em>query string</em>. Com isso, evitamos a inserção de códigos desnecessários nas páginas, o que resulta em melhor performance de carregamento.</p>
+
+<pre><code class="language-html">&lt;a href=&quot;https://www.facebook.com/dialog/share?app_id=APP_ID&amp;amp;href=https%3A%2F%2Fwww.elo7.com.br%2Fkit-decoracao-ursinho-frete-gratis&amp;amp;display=popup&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot; class=&quot;btn-share&quot; title=&quot;Clique para compartilhar no Facebook&quot;&gt;Compartilhar&lt;/a&gt;
 </code></pre>
+
 <div style='text-align: center; font-style: italic'>Código de exemplo de como usamos o compartilhamento via query string no Facebook</div>
+
 <p>E se existisse a possibilidade de compartilhar conteúdo diretamente da web para aplicativos nativos? Sim, isso é possível usando uma nova API Javascript chamada <a href="https://wicg.github.io/web-share/">Web Share API</a>, que já está <a href="https://developers.google.com/web/updates/2017/09/nic61">disponível na última versão do Chrome para Android</a>. Firefox e Safari pretendem implementá-la em breve, enquanto a Microsoft ainda não se pronunciou sobre a adoção no Edge. Isso não quer dizer que você não possa implementar para o futuro próximo.</p>
+
 <div style='text-align: center; font-style: italic'><iframe src="https://giphy.com/embed/26zz3WzwwLTbnYXUk" width="270" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><br><br>Compartilhando um link usando URL Intent</div>
-<h2>Um pouco de história</h2>
+
+<h2 id="um-pouco-de-história">Um pouco de história</h2>
+
 <p>No Android, utilizávamos o <a href="https://www.chromium.org/developers/web-intents-in-chrome">Web Intents</a> desde a versão 18 do Chrome. Já no iOS, a implementação utilizava <a href="https://css-tricks.com/create-url-scheme/">Custom URL Schemes</a>. E no Firefox OS, a tecnologia era a dos <a href="https://developer.mozilla.org/en-US/docs/Archive/Firefox_OS/API/Web_Activities">Web Activies</a>. Como se pode notar, existiam diversas formas de implementação que demandavam muito tempo e paciência do desenvolvedor. Pensando em facilitar a implementação desse recurso, o time do Google Chrome resolveu criar uma nova abordagem, assim surgindo a ideia da Web Share API.</p>
+
 <p>A Web Share API é baseada no uso de <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>, e sua implementação é realmente bem simples!</p>
-<h2>Implementando Web Share API</h2>
-<p>Como falei anteriormente, aqui no Elo7 implementamos em nossas páginas o compartilhamento utilizando <em>query strings</em>. Na discussão do time de front-end sobre a adoção da Web Share API, concluímos que seria melhor mantermos a implementação atual (utilizando <em>query strings</em>) como <em>fallback</em> para os casos onde os navegadores não tenham suporte nativo a Web Share API. Quando implementamos a funcionalidade da primeira vez, era possível utilizá-la participando do programa <a href="https://github.com/GoogleChrome/OriginTrials">Origin Trials</a> do Google Chrome. No momento, a Web Share API não está mais disponível por lá, mas caso você esteja curioso, saiba que existem outras API's interessantes que podem ser lançadas em breve, como: WebUSB, WebVR, getInstalledRelatedApps, entre outras. Vale a pena conferir!</p>
+
+<h2 id="implementando-web-share-api">Implementando Web Share API</h2>
+
+<p>Como falei anteriormente, aqui no Elo7 implementamos em nossas páginas o compartilhamento utilizando <em>query strings</em>. Na discussão do time de front-end sobre a adoção da Web Share API, concluímos que seria melhor mantermos a implementação atual (utilizando <em>query strings</em>) como <em>fallback</em> para os casos onde os navegadores não tenham suporte nativo a Web Share API. Quando implementamos a funcionalidade da primeira vez, era possível utilizá-la participando do programa <a href="https://github.com/GoogleChrome/OriginTrials">Origin Trials</a> do Google Chrome. No momento, a Web Share API não está mais disponível por lá, mas caso você esteja curioso, saiba que existem outras API&rsquo;s interessantes que podem ser lançadas em breve, como: WebUSB, WebVR, getInstalledRelatedApps, entre outras. Vale a pena conferir!</p>
+
 <p>Utilizar a Web Share API é bem simples! Vamos criar um arquivo, chamá-lo de index.html contendo o seguinte código:</p>
-<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Usando a Web Share API<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'button'</span> <span class="hljs-attr">title</span>=<span class="hljs-string">'Clique e compartilhe'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'share'</span>&gt;</span>Compartilhar<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-      (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.share'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
-          <span class="hljs-keyword">if</span>(navigator &amp;&amp; navigator.share) {
+
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Usando a Web Share API&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;button type='button' title='Clique e compartilhe' class='share'&gt;Compartilhar&lt;/button&gt;
+    &lt;script&gt;
+      (function() {
+        document.querySelector('.share').addEventListener('click', function(evt) {
+          if(navigator &amp;&amp; navigator.share) {
             navigator.share({
-              <span class="hljs-attr">title</span>: <span class="hljs-built_in">document</span>.title,
-              <span class="hljs-attr">text</span>: <span class="hljs-string">'Usando Web Share API'</span>,
-              <span class="hljs-attr">url</span>: <span class="hljs-built_in">window</span>.location.href
-            }).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-              <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Funcionou!!'</span>);
-            }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
-              <span class="hljs-built_in">console</span>.error(err);
+              title: document.title,
+              text: 'Usando Web Share API',
+              url: window.location.href
+            }).then(function() {
+              console.log('Funcionou!!');
+            }).catch(function(err) {
+              console.error(err);
             });
           }
           evt.preventDefault();
         });
       })();
-    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
+
 <p>Ao clicar no link compartilhar, teremos a seguinte tela:</p>
+
 <div style='text-align: center; font-style: italic;'><iframe src="https://giphy.com/embed/26zza3FAMBhksoHFC" width="270" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><br><br>Compartilhamento usando Web Share API</div>
-<h2>Entendendo o código</h2>
+
+<h2 id="entendendo-o-código">Entendendo o código</h2>
+
 <p>Vamos entender um pouco mais sobre como que funciona nosso código de exemplo.</p>
+
 <p>A Web Share API está disponível através do método <code>share</code> do objeto <code>navigator</code>. Precisamos verificar se ela está disponível no navegador, por isso usamos o <code>if</code>. Caso não esteja disponível, chamamos nosso <em>fallback</em>.</p>
-<pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">if</span>(navigator &amp;&amp; navigator.share) {
+
+<pre><code class="language-javascript">if(navigator &amp;&amp; navigator.share) {
   navigator.share({
-    <span class="hljs-attr">title</span>: <span class="hljs-built_in">document</span>.title,
-    <span class="hljs-attr">text</span>: <span class="hljs-string">'Usando a Web Share API'</span>,
-    <span class="hljs-attr">url</span>: <span class="hljs-built_in">window</span>.location.href
-  }).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Funcionou!!'</span>);
-  }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) </span>{
-    <span class="hljs-built_in">console</span>.error(error);
+    title: document.title,
+    text: 'Usando a Web Share API',
+    url: window.location.href
+  }).then(function() {
+    console.log('Funcionou!!');
+  }).catch(function(error) {
+    console.error(error);
   })
-} <span class="hljs-keyword">else</span> {
-  <span class="hljs-comment">// fallback</span>
+} else {
+  // fallback
 }
 </code></pre>
+
 <p>Como falei anteriormente, a Web Share API é baseada em <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>, então ao compartilhar uma informação temos dois comportamentos mapeados. Caso o compartilhamento seja realizado com sucesso, é executado o trecho de código implementado no método <code>then</code>. A título de exemplo, quando isso ocorre no Elo7, enviamos essa informação para o nosso Google Analytics. Caso aconteça um erro durante o processo, o que está implementado dentro do método <code>catch</code> será executado e assim podemos adicionar uma estratégia de fallback para o usuário. Vale ressaltar aqui que o <code>catch</code> não tem nenhuma relação com a disponibilidade da Web Share API no navegador do usuário.</p>
+
 <p>Hoje em dia, grande parte das novas APIs JavaScript são baseadas no uso de Promises, portanto recomendo que você comece a estudá-la para enriquecer ainda mais os seus projetos.</p>
+
 <p>Passando pela verificação, caso o navegador tenha suporte, passamos para a API um objeto com os seguintes valores:</p>
-<pre class="highlight"><code class="hljs javascript">navigator.share({
-  <span class="hljs-attr">title</span>: <span class="hljs-built_in">document</span>.title,
-  <span class="hljs-attr">text</span>: <span class="hljs-string">'Usando a Web Share API'</span>,
-  <span class="hljs-attr">url</span>: <span class="hljs-built_in">window</span>.location.href
+
+<pre><code class="language-javascript">navigator.share({
+  title: document.title,
+  text: 'Usando a Web Share API',
+  url: window.location.href
 })
 </code></pre>
+
 <ul>
 <li>title: título que será usado no compartilhamento do link;</li>
 <li>text: texto que será adicionando no campo de texto (opcional);</li>
 <li>url: link para onde o usuário será redirecionado ao clicar.</li>
 </ul>
-<h2>Usando canonical URL</h2>
-<p>Muitos sites utilizam um domínio específico (http://m.site.com.br) para ser acessado em dispositivos móveis ou até mesmo URL's baseadas no contexto do usuário. Com isso, é preciso pensar bastante na URL que será compartilhada para entregar uma boa experiência para o usuário. Existe a possibilidade de compartilhar o link correto usando <a href="https://en.wikipedia.org/wiki/Canonical_link_element">canonical URL</a>. Atualizando nosso <code>index.html</code>, ficaria assim:</p>
-<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Usando a Web Share API<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"canonical"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://engenharia.elo7.com.br/web-share-api"</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'button'</span> <span class="hljs-attr">title</span>=<span class="hljs-string">'Clique e compartilhe'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'share'</span>&gt;</span>Compartilhar<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
 
-      (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-        <span class="hljs-keyword">var</span> $canonical = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'link[rel=canonical]'</span>);
+<h2 id="usando-canonical-url">Usando canonical URL</h2>
 
-        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.share'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
-          <span class="hljs-keyword">if</span>(navigator &amp;&amp; navigator.share) {
+<p>Muitos sites utilizam um domínio específico (<a href="http://m.site.com.br">http://m.site.com.br</a>) para ser acessado em dispositivos móveis ou até mesmo URL&rsquo;s baseadas no contexto do usuário. Com isso, é preciso pensar bastante na URL que será compartilhada para entregar uma boa experiência para o usuário. Existe a possibilidade de compartilhar o link correto usando <a href="https://en.wikipedia.org/wiki/Canonical_link_element">canonical URL</a>. Atualizando nosso <code>index.html</code>, ficaria assim:</p>
+
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Usando a Web Share API&lt;/title&gt;
+    &lt;link rel=&quot;canonical&quot; href=&quot;https://engenharia.elo7.com.br/web-share-api&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;button type='button' title='Clique e compartilhe' class='share'&gt;Compartilhar&lt;/button&gt;
+    &lt;script&gt;
+
+      (function() {
+        var $canonical = document.querySelector('link[rel=canonical]');
+
+        document.querySelector('.share').addEventListener('click', function(evt) {
+          if(navigator &amp;&amp; navigator.share) {
             navigator.share({
-              <span class="hljs-attr">title</span>: <span class="hljs-built_in">document</span>.title,
-              <span class="hljs-attr">text</span>: <span class="hljs-string">'Usando Web Share API'</span>,
-              <span class="hljs-attr">url</span>: $canonical ? $canonical.getAttribute(<span class="hljs-string">'href'</span>) : <span class="hljs-built_in">window</span>.location.href
-            }).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-              <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Funcionou!!'</span>);
-            }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
-              <span class="hljs-built_in">console</span>.error(error);
+              title: document.title,
+              text: 'Usando Web Share API',
+              url: $canonical ? $canonical.getAttribute('href') : window.location.href
+            }).then(function() {
+              console.log('Funcionou!!');
+            }).catch(function(err) {
+              console.error(error);
             });
           }
 
@@ -274,21 +305,29 @@
         });
 
       })();
-    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
+
 <p>Com isso, garantimos que estamos compartilhando o link real da página.</p>
-<h2>Notas</h2>
+
+<h2 id="notas">Notas</h2>
+
 <p>Apesar da implementação ser simples, para usar a API é preciso ter algumas atenções:</p>
+
 <ul>
 <li>Seu servidor precisa ter HTTPS habilitado;</li>
 <li>Os valores passados para API precisam ser no formato de texto;</li>
 <li>Você só pode executar a API a partir de uma ação do usuário. E não pode chama-la no <code>onload</code> da página.</li>
 </ul>
-<h2>Conclusão</h2>
+
+<h2 id="conclusão">Conclusão</h2>
+
 <p>A Web Share API tem um enorme potencial e certamente será utilizada pelos desenvolvedores para entregar uma experiência aprimorada a seus usuários. Essa tendência deve ser puxada pelo desenvolvimento de Web Apps que utilizam o <a href="/a-tecnologia-por-tras-de-progressive-web-apps/">conceito Progressive Web Apps (PWA)</a>, para entregar em mobile browsers a mesma fluidez que os Apps Nativos possuem. Outra vantagem é que através de sua utilização, não haverá mais a necessidade de utilizar códigos de terceiros (a não ser que você precise implementar uma estratégia de <em>fallback</em>) para compartilhar de conteúdo na web.</p>
-<h2>Referências</h2>
+
+<h2 id="referências">Referências</h2>
+
 <ul>
 <li><a href="https://wicg.github.io/web-share/">Web Share API Draft - W3C</a></li>
 <li><a href="https://developers.google.com/web/updates/2016/10/navigator-share">Introducing the Web Share API</a></li>
@@ -296,93 +335,94 @@
 </ul>
 
 
-			<ul class='tag-list'>
-			
-				<li>
-					<a href='/tags/javascript/'>javascript</a>
-				</li>
-			
-				<li>
-					<a href='/tags/mobile/'>mobile</a>
-				</li>
-			
-				<li>
-					<a href='/tags/web/'>web</a>
-				</li>
-			
-				<li>
-					<a href='/tags/webapi/'>webapi</a>
-				</li>
-			
-			</ul>
-			<section class='share'>
-				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
-				<div class='social-share'>
-					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/web-share-api/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
-						Compartilhar no facebook
-					</a>
-					<a href='https://twitter.com/intent/tweet?text=Web Share API&url=https://elo7.dev/web-share-api/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
-						Compartilhar no twitter
-					</a>
-					<a href='https://elo7.dev/web-share-api/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
-						Copiar URL
-					</a>
-					<span class='copy-success'>Link copiado</span>
-					<input type='url' value='https://elo7.dev/web-share-api/?utm_source=share&utm_medium=copy' class='link-input'>
-				</div>
-			</section>
-		</div>
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/javascript/'>javascript</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/mobile/'>mobile</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/web/'>web</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/webapi/'>webapi</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=http%3a%2f%2felo7.dev%2fweb-share-api%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=web-share-api&url=http%3a%2f%2felo7.dev%2fweb-share-api%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='http://elo7.dev/web-share-api/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='http://elo7.dev/web-share-api/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Conheça mais uma API JavaScript que pretende melhorar a experiência do usuário quando precisar compartilhar links da Web para aplicativos nativos.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='http://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
 
-		<meta itemprop='headline' content='Conheça mais uma API JavaScript que pretende melhorar a experiência do usuário quando precisar compartilhar links da Web para aplicativos nativos.'/>
-		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
-			<meta itemprop='name' content='Elo7 Tech'/>
-			<meta itemprop="url" content='https://elo7.dev'/>
-			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
-				<meta itemprop='width' content='100px'/>
-				<meta itemprop='height' content='100px'/>
-			</span>
-		</span>
-		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
 
-		<div id='disqus_thread'></div>
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='http://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
-		<script>
-			var disqus_shortname = 'engenhariaelo7';
-			var disqus_identifier = '11/09/2017:/web-share-api/';
-			var disqus_url = 'https://elo7.dev/web-share-api/';
 
-			(function() {
-				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-			})();
-		</script>
-		<noscript>Habilite o JavaScript para ver os comentários</noscript>
-	</div>
-</article>
-<script async src="/js/post.js"></script>
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2017-09-11 00:00:00 \x2b0000 UTC:\/web-share-api\/';
+            var disqus_url = 'http:\/\/elo7.dev\/web-share-api\/';
 
-		
-	</main>
-	<footer itemscope itemtype="http://schema.org/Organization">
-		<a rel="home" itemprop="url" href="https://elo7.dev/" >
-			elo7.dev © 2019
-		</a>
-		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
-		<section class='footer-social'>
-			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
-			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
-			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
-			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
-		</section>
-	</footer>
-	<script async src="https://www.google-analytics.com/analytics.js"></script>
-	<script async src="/js/analytics.js"></script>
-	<script async src="/js/github.js"></script>
-	<script async src="/js/vendor/events-amd.js"></script>
-	<script async src="/js/vendor/ajax.js"></script>
-	<script async src="/js/vendor/doc.js"></script>
-	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
 </html>

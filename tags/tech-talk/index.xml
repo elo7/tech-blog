@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tech Talk on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/tech-talk/</link>
+    <description>Recent content in Tech Talk on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 01 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/tech-talk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Techtalk - Jogos: indo além do simples CSS</title>
+      <link>http://elo7.dev/techtalk-jogos-indo-alem-do-simples-css/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/techtalk-jogos-indo-alem-do-simples-css/</guid>
+      <description>Naturalmente, quando pensamos em jogos, pensamos em animações, eventos, vários tipos de interações&amp;hellip; E na hora de desenvolver, mais naturalmente ainda pensamos em uma linguagem de programação, já que ela possibilita executar tudo isso. Mas você já pensou em fazer um jogo usando apenas HTML (uma linguagem de estrutura) e CSS (uma linguagem de estilos)? Sem uma linha de Javascript? Sim, sim, isso é possível! Veja a minha talk e descubra como isso é possível ;D</description>
+    </item>
+    
+    <item>
+      <title>CSS4 - Seletores nível 4</title>
+      <link>http://elo7.dev/css4-selectors/</link>
+      <pubDate>Mon, 16 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/css4-selectors/</guid>
+      <description>O CSS3 já está aí com força total, mas poucos sabem que o CSS4 já está em rascunho desde 2011 e muitas funções hoje são usadas sem você saber. Um dos focos dessa versão são os novos seletores. Neste post irei falar um pouco sobre o que vem por aí, este tema foi uma apresentação realizada em um TechTalk do Elo7 e os slides estão no final do post.</description>
+    </item>
+    
+    <item>
+      <title>Tech Talks Elo7</title>
+      <link>http://elo7.dev/tech-talks/</link>
+      <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/tech-talks/</guid>
+      <description>No Elo7 temos uma série de iniciativas legais que realizamos em nosso dia-a-dia: Tech Talks, Dojos, Grupos de estudos, café da manhã com vendedores, craft day, além de aplicar as metodologias ágil no nosso dia a dia.
+Neste nosso primeiro post gostaria de falar um pouco sobre os Tech Talks. Semanalmente um integrante de um time faz uma apresentação sobre um determinado tema durante uma hora, relacionado a uma tecnologia que utilizamos no nosso dia-a-dia ou que podemos aplicar algum dia.</description>
+    </item>
+    
+  </channel>
+</rss>

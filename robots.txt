@@ -1,4 +1,1 @@
 User-agent: *
-Disallow:
-
-Sitemap: https://elo7.dev/sitemap.xml

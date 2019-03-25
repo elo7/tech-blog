@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devops on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/devops/</link>
+    <description>Recent content in Devops on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 03 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vaga Engenheiro de Software/DevOps</title>
+      <link>http://elo7.dev/vagas-devops/</link>
+      <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/vagas-devops/</guid>
+      <description>O Elo7 é o maior site de compra e venda de produtos criativos e autorais da América Latina. Aqui você compra diretamente de milhares de pessoas que transformam idéias criativas em produtos únicos. Além de comprar ou vender, você pode também apreciar o trabalho criativo de artesãos, artistas, designers e todos aqueles que criam manualmente produtos diferenciados e de qualidade.
+Utilizamos práticas ágeis de desenvolvimento e gostamos de ter um ambiente bem descontraído.</description>
+    </item>
+    
+    <item>
+      <title>Boas práticas na utilização do Kubernetes em produção</title>
+      <link>http://elo7.dev/boas-praticas-na-utilizacao-k8s/</link>
+      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/boas-praticas-na-utilizacao-k8s/</guid>
+      <description>O Kubernetes é uma ferramenta para orquestração de containers extremamente consolidada no mercado e com muitos recursos que facilitam a administração, diminuindo o overhead operacional de se manter ambientes com containers. Contudo, quando falamos de ambientes de produção, alguns pontos como segurança, disponibilidade, escalabilidade e outros precisam ser tratados com muito afinco para que tenhamos uma plataforma resiliente e preparada para receber grandes cargas de trabalho. A ideia desse post é apresentar alguns dos vários pontos de atenção que precisamos ter na hora de implementar/utilizar nosso cluster.</description>
+    </item>
+    
+    <item>
+      <title>Orquestrando containers</title>
+      <link>http://elo7.dev/orquestrando-containers/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/orquestrando-containers/</guid>
+      <description>Olar, amigos. Prontos para mais um post de infra aqui no nosso blog?
+O objetivo deste post é mostrar o porquê de termos escolhido o Kubernetes (spoiler :P) como solução definitiva para orquestração dos nossos containers. Não entraremos no mérito dos motivos para orquestrar algo, pois consideramos que isso já está bem difundido em nosso meio.
+Para te situar, querido leitor, antes de começarmos a falar de Kubernetes e outras soluções de orquestração, vamos fazer um overview do nosso cenário até então.</description>
+    </item>
+    
+    <item>
+      <title>Terraformando tudo - parte 3</title>
+      <link>http://elo7.dev/terraformando-tudo-3/</link>
+      <pubDate>Mon, 18 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/terraformando-tudo-3/</guid>
+      <description>Veja os outros posts da série: - Terraformando tudo - parte 1 - Terraformando tudo - parte 2
+Olár!
+Como foi prometido no segundo post, estamos aqui novamente. Agora, para responder uma das perguntas que sempre são feitas na hora de adotar uma nova ferramenta: &amp;ldquo;E o legado?&amp;rdquo;
+No contexto de Infraestrutura como Código, o legado é a infra já existente. No caso do Elo7, são todos os recursos criados &amp;ldquo;na base do mouse&amp;rdquo; pelo console da AWS.</description>
+    </item>
+    
+    <item>
+      <title>Terraformando tudo - parte 2</title>
+      <link>http://elo7.dev/terraformando-tudo-2/</link>
+      <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/terraformando-tudo-2/</guid>
+      <description>Veja os outros posts da série: - Terraformando tudo - parte 1 - Terraformando tudo - parte 3
+Olá!
+Estamos aqui novamente para dar continuidade na série de posts Terraformando Tudo. Nesse segundo post da série (se não leu o primeiro, leia aqui), vamos falar mais um pouco sobre os códigos do Terraform, ou Terraform configuration (como o próprio projeto chama uma porção de código executável do Terraform). Também vamos mostrar como o Terraform controla o estado de seus resources e como mitigar as chances de desastres em um cenário onde podem haver diversas pessoas trabalhando no mesmo repositório de configurations</description>
+    </item>
+    
+    <item>
+      <title>Terraformando tudo - parte 1</title>
+      <link>http://elo7.dev/terraformando-tudo-1/</link>
+      <pubDate>Mon, 13 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/terraformando-tudo-1/</guid>
+      <description>Veja os outros posts da série: - Terraformando tudo - parte 2 - Terraformando tudo - parte 3
+Infrastructure as Code no Elo7 Esse post dá início a uma série de posts intitulada Terraformando tudo. Nessa série iremos mostrar o caminho que trilhamos (e os percalços que tivemos) no Elo7 e o que ainda falta para concluir nosso objetivo de ter toda nossa infraestrutura sendo gerenciada por código, ou seja, termos Infrastructure as Code.</description>
+    </item>
+    
+    <item>
+      <title>Vaga Engenheiro de Software/DevOps</title>
+      <link>http://elo7.dev/vagas-devops-post/</link>
+      <pubDate>Mon, 04 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/vagas-devops-post/</guid>
+      <description>O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Temos a seguinte vaga para o time da engenharia:
+Utilizamos práticas ágeis de desenvolvimento e gostamos de ter um ambiente bem descontraído.Atualmente temos um cenário com diversas tecnologias (AWS, Docker, CoreOS) e linguagens (Java, Ruby, Scala) que nos leva à necessidade de possuir profissionais versáteis, capazes de utilizar essas ferramentas com boas práticas, autonomia e algumas vezes antes de elas serem amadurecidas no mercado.</description>
+    </item>
+    
+  </channel>
+</rss>

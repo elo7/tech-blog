@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Isomorfico on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/isomorfico/</link>
+    <description>Recent content in Isomorfico on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 10 Jul 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/isomorfico/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Javascript Isomórfico - parte 2</title>
+      <link>http://elo7.dev/isomorfismo-parte-2/</link>
+      <pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/isomorfismo-parte-2/</guid>
+      <description>Continuando o post sobre Javascript isomórfico, depois de explicar toda a história e o conceito de isomorfismo, vamos entrar em uma parte mais prática. Quais empresas usam, o resultado da implementação e alguns frameworks existentes no mercado serão alguns dos tópicos deste post.
+Quem usa? Algumas empresas como Airbnb, Facebook, PayPal, Walmart, Netflix, Autodesk, além do próprio Elo7.
+Como tudo começou? Em 2011, Charlie Robbins, da Nodejitsu, escreveu um post apresentando a arquitetura isomórfica.</description>
+    </item>
+    
+    <item>
+      <title>Javascript Isomórfico</title>
+      <link>http://elo7.dev/isomorfismo/</link>
+      <pubDate>Mon, 30 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/isomorfismo/</guid>
+      <description>Novos frameworks são criados a todo momento e um novo nome está criando mais força no mundo Javascript: isomorfismo. Farei uma série de posts para explicar melhor esse conceito e algumas aplicações dele com o uso de frameworks. Nesse primeiro post, será abordada uma parte mais teórica sobre o que é isomorfismo.
+Voltando no tempo Antes de falar de fato do isomorfismo, é interessante pensar em o que aconteceu na história para surgir a necessidade de utilizar um código Javascript isomórfico.</description>
+    </item>
+    
+  </channel>
+</rss>

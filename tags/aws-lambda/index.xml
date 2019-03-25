@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aws Lambda on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/aws-lambda/</link>
+    <description>Recent content in Aws Lambda on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 26 Mar 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/aws-lambda/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Serverless e AWS Lambda</title>
+      <link>http://elo7.dev/serverless/</link>
+      <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/serverless/</guid>
+      <description>Todos os dias surgem novas buzzwords no mercado, cada uma relacionada a uma nova tecnologia/metodologia que promete revolucionar o modo de fazer as coisas; uma das mais recentes é a Serverless. Ao longo desse post vou tentar descrever o que é essa nova buzzword e vai de você analisar se faz sentido ou não aplicá-la ao seu projeto.
+Serverless Serverless permite a você construir e executar aplicações sem ter que gerenciar nenhuma infraestrutura.</description>
+    </item>
+    
+  </channel>
+</rss>

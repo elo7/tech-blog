@@ -1,209 +1,234 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Durante o desenvolvimento de um projeto, nos deparamos com diversos problemas que não são exclusivos do mesmo. Muitos destes problemas, como persistência de dados, troca de mensagens assíncronas, transação e segurança, já possuem soluções que foram compiladas em bibliotecas para facilitar o nosso dia-a-dia ao resolver diversos problemas, tanto no back-end quando no front-end.">
-	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
-	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
-	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
-	<meta name="theme-color" content="#FDC24F">
-	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,bower,front-end,gerenciamento de dependencias,produtividade">
-	<meta name="language" content="pt-br">
-	<meta name="title" content="Elo7 Tech - Gerenciamento de dependências front-end com bower">
-	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Gerenciamento de dependências front-end com bower">
-	<meta name="mobile-web-app-capable" content="yes">
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,bower,front-end,gerenciamento de dependencias,produtividade,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Gerenciamento de dependências front-end com bower'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Gerenciamento de dependências front-end com bower'>
+	<meta name='mobile-web-app-capable' content='yes'>
 
-	<meta property="fb:app_id" content="644444999041914">
-	<meta property="fb:admins" content="100003324447975">
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
 
-	<meta property="og:site_name" content="Elo7 Tech">
-	<meta property="og:image" content="https://elo7.dev/images/cover/elo7.png">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="Elo7 Tech - Gerenciamento de dependências front-end com bower">
-	<meta property="og:url" content="https://elo7.dev/gerenciamento-dependencias-bower/">
-	<meta property="og:description" content="Durante o desenvolvimento de um projeto, nos deparamos com diversos problemas que não são exclusivos do mesmo. Muitos destes problemas, como persistência de dados, troca de mensagens assíncronas, transação e segurança, já possuem soluções que foram compiladas em bibliotecas para facilitar o nosso dia-a-dia ao resolver diversos problemas, tanto no back-end quando no front-end.">
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='http://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Gerenciamento de dependências front-end com bower'>
+	<meta property='og:url' content='http://elo7.dev/gerenciamento-dependencias-bower/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
 
-	<meta name="twitter:widgets:csp" content="on">
-	<meta name="twitter:card" content="summary_large_image">
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
 
-	<meta property="twitter:title" content="Elo7 Tech - Gerenciamento de dependências front-end com bower">
-	<meta property="twitter:domain" content="https://elo7.dev">
-	<meta property="twitter:url" content="https://elo7.dev/gerenciamento-dependencias-bower/">
-	<meta property="twitter:description" content="Durante o desenvolvimento de um projeto, nos deparamos com diversos problemas que não são exclusivos do mesmo. Muitos destes problemas, como persistência de dados, troca de mensagens assíncronas, transação e segurança, já possuem soluções que foram compiladas em bibliotecas para facilitar o nosso dia-a-dia ao resolver diversos problemas, tanto no back-end quando no front-end.">
-	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+	<meta property='twitter:title' content='Elo7 Tech - Gerenciamento de dependências front-end com bower'>
+	<meta property='twitter:domain' content='http://elo7.dev/'>
+	<meta property='twitter:url' content='http://elo7.dev/gerenciamento-dependencias-bower/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='http://elo7.dev/images/ico/elo7.png'>
 
-	<link rel="canonical" href="https://elo7.dev/gerenciamento-dependencias-bower/">
-	
-		<link rel='amphtml' href='https://elo7.dev/amp/gerenciamento-dependencias-bower/' />
-	
-
+	<link rel='canonical' href='http://elo7.dev/gerenciamento-dependencias-bower/'>
 	<title>Elo7 Tech - Gerenciamento de dependências front-end com bower</title>
-	<link rel="stylesheet" href="/reset.css">
-	<link rel="stylesheet" href="/main.css">
-	<link rel="stylesheet" href="/posts.css">
-	<link rel="stylesheet" href="/post.css">
-	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
-	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
-	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
-	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
-	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
-	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
-	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
-	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
-	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
-	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
-	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
-	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
-	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
-	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
-	<script src="/js/vendor/async-define.js"></script>
+	<link rel='stylesheet' href='http://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='http://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='http://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='http://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='http://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='http://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='http://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='http://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='http://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='http://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='http://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='http://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
 </head>
-<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
-	<header class="left-pane">
-		<div class="logo-container">
-			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
-		</div>
-		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
-			<input id="categories-switch" type="checkbox" class="categories-switch">
-			<label for="categories-switch" class="selectable">
-				<h2 class="nav-title">Categorias</h2>
-			</label>
-			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
-				
-					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Back-end</span>
-					</a>
-				
-					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Cultura</span>
-					</a>
-				
-					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Data Science</span>
-					</a>
-				
-					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Design</span>
-					</a>
-				
-					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Devops</span>
-					</a>
-				
-					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Eventos</span>
-					</a>
-				
-					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Palestras</span>
-					</a>
-				
-					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Front-end</span>
-					</a>
-				
-					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Mobile</span>
-					</a>
-				
-					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Vagas</span>
-					</a>
-				
-			</nav>
-		</div>
-		<div class="navigation">
-			<input id="more-switch" type="checkbox" class="more-switch">
-			<label for="more-switch" class="selectable">
-				<h2 class="nav-title">Veja também</h2>
-			</label>
-			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
-					<span itemprop="name">A engenharia</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
-					<span itemprop="name">Carreiras</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
-					<span itemprop="name">Nossos eventos</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
-					<span itemprop="name">Elo7</span>
-				</a>
-			</nav>
-		</div>
-		<div class='social'>
-			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
-			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
-			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
-			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
-		</div>
-	</header>
-	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
-		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
-	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-		<img src='https://elo7.dev/images/cover/elo7.png' alt='' itemprop="url">
-	</figure>
-	<div class='post-content'>
-		<h1 itemprop='name' class='title'>Gerenciamento de dependências front-end com bower</h1>
-		<div class='post-meta'>
-			<p class='date'>
-				Publicado em: <time datetime='05/03/2015' itemprop='datePublished'>05/03/2015</time>
-				<meta itemprop='dateModified' content='05/03/2015'>
-			</p>
 
-			<article>
-				
-					<a data-author='williammizuta' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/williammizuta/' class='author'>
-						<meta itemprop='url' content='/williammizuta'>
-						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
-						<p itemprop='name' class='publisher' data-author='williammizuta'>@williammizuta</p>
-					</a>
-				
+    <body>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='http://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/data-science' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Data Science</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://eventos.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Nossos eventos</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='http://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
 
-				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
-			</article>
-		</div>
-		<div itemprop='articleBody'>
-			<p><img src="../images/gerenciamento-dependencias-bower-1.png" alt="Bower logo"></p>
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Gerenciamento de dependências front-end com bower' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Gerenciamento de dependências front-end com bower</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2015-03-05 00:00:00 &#43;0000 UTC'
+    aria-label='05 de março de 2015'>
+    05/03/2015
+    <meta itemprop='datePublished' content='Thu Mar 05 2015 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Thu Mar 05 2015 00:00:00 GMT&#43;0000 (UTC)'>
+</time>
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='williammizuta' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/williammizuta/' class='author'>
+                                    <meta itemprop='url' content='/autor/williammizuta'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='williammizuta'>@williammizuta</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p><img src="../images/gerenciamento-dependencias-bower-1.png" alt="Bower logo" /></p>
+
 <p>Durante o desenvolvimento de um projeto, nos deparamos com diversos problemas que não são exclusivos do mesmo. Muitos destes problemas, como persistência de dados, troca de mensagens assíncronas, transação e segurança, já possuem soluções que foram compiladas em bibliotecas para facilitar o nosso dia-a-dia ao resolver diversos problemas, tanto no back-end quando no front-end.</p>
+
 <p>Só que essas bibliotecas também podem depender de outras bibliotecas. Então, ao importar uma delas para o nosso projeto, precisamos também importar as suas dependências e as bibliotecas as quais elas necessitam. Além disso, nós podemos querer alterar a versão de uma dependência devido a bugs resolvidos ou a novas funcionalidades.</p>
+
 <p>Enquanto o projeto tem poucas <strong>dependências</strong>, é possível gerenciar estes projetos manualmente, mas com o crescer do projeto e das suas dependências, este gerenciamento manual custará cada vez mais tempo. Para solucionar este problema, existem ferramentas que nos ajudam a gerenciar as dependências de um projeto. No back-end, existem várias ferramentas que nos ajudam a resolver este problema, como é o caso do gradle, do ivy e do maven para Java, sbt para Scala, bundler para Ruby, npm para JavaScript entre outros.</p>
+
 <p>E o mundo front-end? Será que precisamos uma ferramenta que gerencie as dependências? Imagine um caso onde utilizamos jQuery em nosso projeto e queremos utilizar um plugin que necessita dele. Porém ao importar o plugin, verificamos que a funcionalidade não está funcionando e verificando melhor descobrimos que o plugin necessita de uma versão diferente da que estamos utilizando em nosso projeto. Será que existe alguma forma mais simples de resolver este problema? Se tivéssemos uma ferramenta que gerenciasse nossas dependências ao adicionar o plugin, também já seria adicionado uma versão compatível do jQuery.</p>
+
 <p>Existem algumas ferramentas que já resolvem este problema para as dependências Front-End. A mais conhecida e utilizada entre elas é o <a title="Bower" href="http://bower.io/" target="_blank"><strong>Bower</strong></a>, a qual descreveremos a seguir.</p>
-<h2>Instalação</h2>
+
+<h2 id="instalação">Instalação</h2>
+
 <p>Para usar o Bower é necessário que tenhamos o node instalado junto com o npm. Com isso, basta rodarmos <strong><code>npm install -g bower</code></strong> que teremos o bower em nosso projeto.</p>
-<h2>Instalando pacotes</h2>
+
+<h2 id="instalando-pacotes">Instalando pacotes</h2>
+
 <p>Imagine que você já tem um projeto configurado com o bower. Você pode baixar um exemplo clicando <a title="aqui" href="https://s3.amazonaws.com/files.elo7.com.br/craftedbits/bower/aprendendo-bower.zip" target="_blank">aqui</a>. Ao descompactar, você notará que tem um arquivo chamado <strong>bower.json</strong> na raiz do projeto semelhante ao seguinte:</p>
-<pre class="highlight"><code class="hljs json">{
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"aprendendo-bower"</span>,
-  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"0.0.0"</span>,
-  <span class="hljs-attr">"authors"</span>: [
-      <span class="hljs-string">"Elo7 &lt;blog@elo7.com&gt;"</span>
+
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;aprendendo-bower&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;authors&quot;: [
+      &quot;Elo7 &lt;blog@elo7.com&gt;&quot;
   ],
-  <span class="hljs-attr">"dependencies"</span>: {
-      <span class="hljs-attr">"jquery"</span>: <span class="hljs-string">"~2.1.3"</span>
+  &quot;dependencies&quot;: {
+      &quot;jquery&quot;: &quot;~2.1.3&quot;
   },
-  <span class="hljs-attr">"devDependencies"</span>: {
-      <span class="hljs-attr">"cucumber"</span>: <span class="hljs-string">"~0.4.7"</span>
+  &quot;devDependencies&quot;: {
+      &quot;cucumber&quot;: &quot;~0.4.7&quot;
   }
 }
 </code></pre>
+
 <p>Execute o comando <code>bower install</code> na raiz do projeto, a ferramenta irá gerar uma pasta chamada <strong>bower_components</strong> que, seguindo o exemplo acima, irá conter as bibliotecas cucumber e jquery.</p>
+
 <p><em>Oba! Consegui baixar bibliotecas do projeto! Mas afinal, o que aconteceu?</em></p>
-<p>O arquivo bower.json é responsável pelas configurações do nosso projeto, é nele que adicionamos as dependências do nosso projeto. Se observarmos o arquivo podemos notar que temos uma configuração &quot;dependencies&quot; onde é declarado a dependência do &quot;jquery&quot;, e uma outra configuração chamada  &quot;devDependencies&quot; com a declaração da dependência do &quot;cucumber&quot;.</p>
+
+<p>O arquivo bower.json é responsável pelas configurações do nosso projeto, é nele que adicionamos as dependências do nosso projeto. Se observarmos o arquivo podemos notar que temos uma configuração &ldquo;dependencies&rdquo; onde é declarado a dependência do &ldquo;jquery&rdquo;, e uma outra configuração chamada  &rdquo;devDependencies&rdquo; com a declaração da dependência do &ldquo;cucumber&rdquo;.</p>
+
 <p>Portanto ao executar o <code>bower install</code>, a ferramenta irá ler o arquivo e verificar a versão e os arquivos a qual ele deve baixar.</p>
-<h2>Adicionando novas dependências</h2>
-<p>Supondo que você queira adicionar mais uma dependência, por exemplo, o &quot;backbone&quot;, como adicionaria esta dependência ao projeto? Neste caso você pode adicionar na mão alterando o arquivo bower.json ou utilizar o comando <code>bower install backbone</code>, este comando irá baixar mais uma biblioteca à sua pasta &quot;bower_components&quot;, entretanto esta nova dependência não estará descrita dentro do bower.json. Para adicionar automaticamente, precisamos passar um argumento a mais no comando para dizer para o bower que a nova instalação deve ser salva no arquivo bower.json. Se a sua dependência for apenas para desenvolvimento, o argumento é <strong><code>--save-dev</code></strong>; se for de produção, <strong><code>--save</code></strong>. Portanto, para dizer que o backbone é uma dependência de produção, rodamos o comando <code>bower install backbone --save</code>.</p>
+
+<h2 id="adicionando-novas-dependências">Adicionando novas dependências</h2>
+
+<p>Supondo que você queira adicionar mais uma dependência, por exemplo, o &ldquo;backbone&rdquo;, como adicionaria esta dependência ao projeto? Neste caso você pode adicionar na mão alterando o arquivo bower.json ou utilizar o comando <code>bower install backbone</code>, este comando irá baixar mais uma biblioteca à sua pasta &ldquo;bower_components&rdquo;, entretanto esta nova dependência não estará descrita dentro do bower.json. Para adicionar automaticamente, precisamos passar um argumento a mais no comando para dizer para o bower que a nova instalação deve ser salva no arquivo bower.json. Se a sua dependência for apenas para desenvolvimento, o argumento é <strong><code>--save-dev</code></strong>; se for de produção, <strong><code>--save</code></strong>. Portanto, para dizer que o backbone é uma dependência de produção, rodamos o comando <code>bower install backbone --save</code>.</p>
+
 <p>Ao rodar o comando acima, verificamos que o bower abaixou a biblioteca backbone dentro da pasta bower_components. Mas, não foi só isso que ele abaixou. Ele também instalou uma biblioteca chamada undescore que é necessária para o backbone, ou seja, uma dependência da dependência instalada automaticamente.</p>
+
 <p>Ao final teremos a seguinte estrutura:</p>
-<pre class="highlight"><code class="hljs bash">├── bower.json
+
+<pre><code class="language-bash">├── bower.json
 └── bower_components
     ├── backbone
     ├── cucumber
@@ -211,116 +236,124 @@
     └── underscore
 
 </code></pre>
+
 <p>E o seguinte arquivo bower.json:</p>
-<pre class="highlight"><code class="hljs json">{
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"aprendendo-bower"</span>,
-  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"0.0.0"</span>,
-  <span class="hljs-attr">"authors"</span>: [
-      <span class="hljs-string">"Elo7 &lt;blog@elo7.com&gt;"</span>
+
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;aprendendo-bower&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;authors&quot;: [
+      &quot;Elo7 &lt;blog@elo7.com&gt;&quot;
   ],
-  <span class="hljs-attr">"dependencies"</span>: {
-      <span class="hljs-attr">"jquery"</span>: <span class="hljs-string">"~2.1.3"</span>,
-      <span class="hljs-attr">"backbone"</span>: <span class="hljs-string">"~1.1.2"</span>
+  &quot;dependencies&quot;: {
+      &quot;jquery&quot;: &quot;~2.1.3&quot;,
+      &quot;backbone&quot;: &quot;~1.1.2&quot;
   },
-  <span class="hljs-attr">"devDependencies"</span>: {
-      <span class="hljs-attr">"cucumber"</span>: <span class="hljs-string">"~0.4.7"</span>
+  &quot;devDependencies&quot;: {
+      &quot;cucumber&quot;: &quot;~0.4.7&quot;
   }
 }
 </code></pre>
-<h3>Como posso saber se a biblioteca é compatível com o bower?</h3>
+
+<h3 id="como-posso-saber-se-a-biblioteca-é-compatível-com-o-bower">Como posso saber se a biblioteca é compatível com o bower?</h3>
+
 <p>Você pode pesquisar utilizado o comando para busca de pacotes disponíveis na ferramenta, para buscar basta utilizar o comando <code>bower search &lt;nome-do-pacote&gt;</code> e será listado uma lista que contêm este termo.</p>
-<h3>Mas como começamos um projeto do zero?</h3>
+
+<h3 id="mas-como-começamos-um-projeto-do-zero">Mas como começamos um projeto do zero?</h3>
+
 <p>Para isso basta executar o comando <strong>bower init</strong> dentro da raiz do projeto, este comando irá gerar as configurações iniciais do projeto a partir das informações que serão solicitadas durante o processo, como o nome, descrição, versão, etc. Ao final, as configurações serão exibidas e pede-se para confirmar se as mesmas estão corretas para gerar o arquivo <a href="https://github.com/bower/bower.json-spec">bower.json</a>.</p>
+
 <p><strong>Erika Takahara e William Mizuta</strong></p>
 
 
-			<ul class='tag-list'>
-			
-				<li>
-					<a href='/tags/bower/'>bower</a>
-				</li>
-			
-				<li>
-					<a href='/tags/front-end/'>front-end</a>
-				</li>
-			
-				<li>
-					<a href='/tags/gerenciamento-de-dependencias/'>gerenciamento de dependencias</a>
-				</li>
-			
-				<li>
-					<a href='/tags/produtividade/'>produtividade</a>
-				</li>
-			
-			</ul>
-			<section class='share'>
-				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
-				<div class='social-share'>
-					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/gerenciamento-dependencias-bower/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
-						Compartilhar no facebook
-					</a>
-					<a href='https://twitter.com/intent/tweet?text=Gerenciamento de dependências front-end com bower&url=https://elo7.dev/gerenciamento-dependencias-bower/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
-						Compartilhar no twitter
-					</a>
-					<a href='https://elo7.dev/gerenciamento-dependencias-bower/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
-						Copiar URL
-					</a>
-					<span class='copy-success'>Link copiado</span>
-					<input type='url' value='https://elo7.dev/gerenciamento-dependencias-bower/?utm_source=share&utm_medium=copy' class='link-input'>
-				</div>
-			</section>
-		</div>
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/bower/'>bower</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/front-end/'>front-end</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/gerenciamento-de-dependencias/'>gerenciamento de dependencias</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/produtividade/'>produtividade</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=http%3a%2f%2felo7.dev%2fgerenciamento-dependencias-bower%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=gerenciamento-de-depend%25C3%25AAncias-front-end-com-bower&url=http%3a%2f%2felo7.dev%2fgerenciamento-dependencias-bower%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='http://elo7.dev/gerenciamento-dependencias-bower/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='http://elo7.dev/gerenciamento-dependencias-bower/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Durante o desenvolvimento de um projeto, nos deparamos com diversos problemas que não são exclusivos do mesmo. Muitos destes problemas, como persistência de dados, troca de mensagens assíncronas, transação e segurança, já possuem soluções que foram compiladas em bibliotecas para facilitar o nosso dia-a-dia ao resolver diversos problemas, tanto no back-end quando no front-end.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='http://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
 
-		<meta itemprop='headline' content='Durante o desenvolvimento de um projeto, nos deparamos com diversos problemas que não são exclusivos do mesmo. Muitos destes problemas, como persistência de dados, troca de mensagens assíncronas, transação e segurança, já possuem soluções que foram compiladas em bibliotecas para facilitar o nosso dia-a-dia ao resolver diversos problemas, tanto no back-end quando no front-end.'/>
-		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
-			<meta itemprop='name' content='Elo7 Tech'/>
-			<meta itemprop="url" content='https://elo7.dev'/>
-			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
-				<meta itemprop='width' content='100px'/>
-				<meta itemprop='height' content='100px'/>
-			</span>
-		</span>
-		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
 
-		<div id='disqus_thread'></div>
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='http://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
-		<script>
-			var disqus_shortname = 'engenhariaelo7';
-			var disqus_identifier = '05/03/2015:/gerenciamento-dependencias-bower/';
-			var disqus_url = 'https://elo7.dev/gerenciamento-dependencias-bower/';
 
-			(function() {
-				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-			})();
-		</script>
-		<noscript>Habilite o JavaScript para ver os comentários</noscript>
-	</div>
-</article>
-<script async src="/js/post.js"></script>
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2015-03-05 00:00:00 \x2b0000 UTC:\/gerenciamento-dependencias-bower\/';
+            var disqus_url = 'http:\/\/elo7.dev\/gerenciamento-dependencias-bower\/';
 
-		
-	</main>
-	<footer itemscope itemtype="http://schema.org/Organization">
-		<a rel="home" itemprop="url" href="https://elo7.dev/" >
-			elo7.dev © 2019
-		</a>
-		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
-		<section class='footer-social'>
-			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
-			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
-			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
-			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
-		</section>
-	</footer>
-	<script async src="https://www.google-analytics.com/analytics.js"></script>
-	<script async src="/js/analytics.js"></script>
-	<script async src="/js/github.js"></script>
-	<script async src="/js/vendor/events-amd.js"></script>
-	<script async src="/js/vendor/ajax.js"></script>
-	<script async src="/js/vendor/doc.js"></script>
-	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
 </html>

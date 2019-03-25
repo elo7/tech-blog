@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Layout on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/layout/</link>
+    <description>Recent content in Layout on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 09 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/layout/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Técnicas para codificar um e-mail</title>
+      <link>http://elo7.dev/tecnicas-para-codificar-um-e-mail/</link>
+      <pubDate>Mon, 09 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/tecnicas-para-codificar-um-e-mail/</guid>
+      <description>No início da minha carreira como desenvolvedora front-end, tive que codificar o meu primeiro e-mail marketing (aqueles e-mails promocionais que você geralmente recebe de um e-commerce). Como não conhecia muito sobre como funcionavam os clientes de e-mail, fiz o código como se estivesse codificando um site: usei várias propriedade de css, abusei da propriedade float (que na época era moda), usei classes e coloquei todo o css dentro da tag style.</description>
+    </item>
+    
+  </channel>
+</rss>

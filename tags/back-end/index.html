@@ -1,614 +1,695 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
-	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
-	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
-	<meta name="theme-color" content="#FDC24F">
-	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,">
-	<meta name="language" content="pt-br">
-	<meta name="title" content="Elo7 Tech - Tag: back-end">
-	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Tag: back-end">
-	<meta name="mobile-web-app-capable" content="yes">
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Back End'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Back End'>
+	<meta name='mobile-web-app-capable' content='yes'>
 
-	<meta property="fb:app_id" content="644444999041914">
-	<meta property="fb:admins" content="100003324447975">
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
 
-	<meta property="og:site_name" content="Elo7 Tech">
-	<meta property="og:image" content="https://elo7.dev/images/cover/elo7.png">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="Elo7 Tech - Tag: back-end">
-	<meta property="og:url" content="https://elo7.dev/tags/back-end/">
-	<meta property="og:description" content="">
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='http://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Back End'>
+	<meta property='og:url' content='http://elo7.dev/tags/back-end/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
 
-	<meta name="twitter:widgets:csp" content="on">
-	<meta name="twitter:card" content="summary_large_image">
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
 
-	<meta property="twitter:title" content="Elo7 Tech - Tag: back-end">
-	<meta property="twitter:domain" content="https://elo7.dev">
-	<meta property="twitter:url" content="https://elo7.dev/tags/back-end/">
-	<meta property="twitter:description" content="">
-	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+	<meta property='twitter:title' content='Elo7 Tech - Back End'>
+	<meta property='twitter:domain' content='http://elo7.dev/'>
+	<meta property='twitter:url' content='http://elo7.dev/tags/back-end/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='http://elo7.dev/images/ico/elo7.png'>
 
-	<link rel="canonical" href="https://elo7.dev/tags/back-end/">
-	
-
-	<title>Elo7 Tech - Tag: back-end</title>
-	<link rel="stylesheet" href="/reset.css">
-	<link rel="stylesheet" href="/main.css">
-	<link rel="stylesheet" href="/posts.css">
-	<link rel="stylesheet" href="/post.css">
-	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
-	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
-	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
-	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
-	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
-	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
-	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
-	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
-	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
-	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
-	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
-	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
-	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
-	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
-	<script src="/js/vendor/async-define.js"></script>
+	<link rel='canonical' href='http://elo7.dev/tags/back-end/'>
+	<title>Elo7 Tech - Back End</title>
+	<link rel='stylesheet' href='http://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='http://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='http://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='http://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='http://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='http://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='http://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='http://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='http://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='http://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='http://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='http://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
 </head>
-<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
-	<header class="left-pane">
-		<div class="logo-container">
-			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
-		</div>
-		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
-			<input id="categories-switch" type="checkbox" class="categories-switch">
-			<label for="categories-switch" class="selectable">
-				<h2 class="nav-title">Categorias</h2>
-			</label>
-			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
-				
-					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Back-end</span>
-					</a>
-				
-					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Cultura</span>
-					</a>
-				
-					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Data Science</span>
-					</a>
-				
-					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Design</span>
-					</a>
-				
-					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Devops</span>
-					</a>
-				
-					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Eventos</span>
-					</a>
-				
-					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Palestras</span>
-					</a>
-				
-					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Front-end</span>
-					</a>
-				
-					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Mobile</span>
-					</a>
-				
-					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Vagas</span>
-					</a>
-				
-			</nav>
-		</div>
-		<div class="navigation">
-			<input id="more-switch" type="checkbox" class="more-switch">
-			<label for="more-switch" class="selectable">
-				<h2 class="nav-title">Veja também</h2>
-			</label>
-			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
-					<span itemprop="name">A engenharia</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
-					<span itemprop="name">Carreiras</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
-					<span itemprop="name">Nossos eventos</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
-					<span itemprop="name">Elo7</span>
-				</a>
-			</nav>
-		</div>
-		<div class='social'>
-			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
-			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
-			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
-			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
-		</div>
-	</header>
-	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
-		<section class="posts-container">
-	<h1 class='title'>#back-end</h1>
+
+    <body>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='http://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/data-science' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Data Science</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://eventos.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Nossos eventos</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='http://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label="Conteúdo principal" itemscope itemtype="http://schema.org/Blog">
+            
+            
+
+            <section class='container posts-container' itemscope itemtype='http://schema.org/Blog'>
+                <h1 class='title'>#back end</h1>
+                
+                    <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-vagas'>
+    <header>
+        <a href='http://elo7.dev/vagas-devops/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/elo7.png' alt='Vaga Engenheiro de Software/DevOps' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/vagas/' class='category vagas'>vagas</a>
+        <div class='post-meta'>
+            <a href='http://elo7.dev/vagas-devops/' class='link'>
+                
+                    <h2 itemprop='name' class='title'>Vaga Engenheiro de Software/DevOps</h2>
+                
+            </a>
+            
+                <a href='/autor/jlmfonseca/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@jlmfonseca</p>
+                </a>
+            
+            <time class='date'
+    datetime='2018-09-03 00:00:00 &#43;0000 UTC'
+    aria-label='03 de setembro de 2018'>
+    03/09/2018
+    <meta itemprop='datePublished' content='Mon Sep 03 2018 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Sep 03 2018 00:00:00 GMT&#43;0000 (UTC)'>
+</time>
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                O Elo7, o maior marketplace de produtos criativos da América Latina, está à procura de Engenheiros de Software/DevOps para fazer parte do nosso time.
+            </p>
+            <meta itemprop='headline' content='O Elo7, o maior marketplace de produtos criativos da América Latina, está à procura de Engenheiros de …' >
+        
+        <a href='http://elo7.dev/vagas-devops/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+                
+                    <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-back-end'>
+    <header>
+        <a href='http://elo7.dev/subindo-uma-api-rest-em-clojure/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/elo7.png' alt='Subindo uma API REST em Clojure' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/back-end/' class='category back-end'>back-end</a>
+        <div class='post-meta'>
+            <a href='http://elo7.dev/subindo-uma-api-rest-em-clojure/' class='link'>
+                
+                    <h2 itemprop='name' class='title'>Subindo uma API REST em Clojure</h2>
+                
+            </a>
+            
+                <a href='/autor/ericdallo/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@ericdallo</p>
+                </a>
+            
+            <time class='date'
+    datetime='2018-01-22 00:00:00 &#43;0000 UTC'
+    aria-label='22 de janeiro de 2018'>
+    22/01/2018
+    <meta itemprop='datePublished' content='Mon Jan 22 2018 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Jan 22 2018 00:00:00 GMT&#43;0000 (UTC)'>
+</time>
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                Clojure é uma linguagem já conhecida para os amantes do paradigma funcional, neste post, demonstro alguns detalhes de uma biblioteca que faz uma ponte entre esta linguagem e o mundo WEB. Venha aprender como subir uma API REST em 10 minutos!
+            </p>
+            <meta itemprop='headline' content='Clojure é uma linguagem já conhecida para os amantes do paradigma funcional, neste post, demonstro alguns …' >
+        
+        <a href='http://elo7.dev/subindo-uma-api-rest-em-clojure/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+                
+                    <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-vagas'>
+    <header>
+        <a href='http://elo7.dev/vagas-search-2017-12/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/elo7.png' alt='Vaga Search Developer - Information Retrieval' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/vagas/' class='category vagas'>vagas</a>
+        <div class='post-meta'>
+            <a href='http://elo7.dev/vagas-search-2017-12/' class='link'>
+                
+                    <h2 itemprop='name' class='title'>Vaga Search Developer - Information Retrieval</h2>
+                
+            </a>
+            
+                <a href='/autor/davidrobert/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@davidrobert</p>
+                </a>
+            
+            <time class='date'
+    datetime='2017-12-21 00:00:00 &#43;0000 UTC'
+    aria-label='21 de dezembro de 2017'>
+    21/12/2017
+    <meta itemprop='datePublished' content='Thu Dec 21 2017 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Thu Dec 21 2017 00:00:00 GMT&#43;0000 (UTC)'>
+</time>
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                Você está interessado e tem paixão por sistemas de busca? O propósito da vaga de Software Engineer com especialidade em Busca é encontrar profissionais com alto conhecimento em Information Retrieval e search engine para complementarem nosso time.
+            </p>
+            <meta itemprop='headline' content='Você está interessado e tem paixão por sistemas de busca? O propósito da vaga de Software Engineer com …' >
+        
+        <a href='http://elo7.dev/vagas-search-2017-12/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+                
+                    <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-back-end'>
+    <header>
+        <a href='http://elo7.dev/otimizacao-de-busca-em-faixas-de-valores/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/elo7.png' alt='Otimização de busca em faixas de valores' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/back-end/' class='category back-end'>back-end</a>
+        <div class='post-meta'>
+            <a href='http://elo7.dev/otimizacao-de-busca-em-faixas-de-valores/' class='link'>
+                
+                    <h2 itemprop='name' class='title'>Otimização de busca em faixas de valores</h2>
+                
+            </a>
+            
+                <a href='/autor/ftfarias/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@ftfarias</p>
+                </a>
+            
+            <time class='date'
+    datetime='2017-10-23 00:00:00 &#43;0000 UTC'
+    aria-label='23 de outubro de 2017'>
+    23/10/2017
+    <meta itemprop='datePublished' content='Mon Oct 23 2017 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Oct 23 2017 00:00:00 GMT&#43;0000 (UTC)'>
+</time>
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                Explicamos como utilizamos um método de bissecção para otimizar a busca de valores em uma coleção de faixas de CEP, aumentando em mais de 100 vezes a performance do algoritimo.
+            </p>
+            <meta itemprop='headline' content='Explicamos como utilizamos um método de bissecção para otimizar a busca de valores em uma coleção de faixas de …' >
+        
+        <a href='http://elo7.dev/otimizacao-de-busca-em-faixas-de-valores/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+                
+                    <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-vagas'>
+    <header>
+        <a href='http://elo7.dev/vagas-search/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/elo7.png' alt='Vaga Software Engineer - Search' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/vagas/' class='category vagas'>vagas</a>
+        <div class='post-meta'>
+            <a href='http://elo7.dev/vagas-search/' class='link'>
+                
+                    <h2 itemprop='name' class='title'>Vaga Software Engineer - Search</h2>
+                
+            </a>
+            
+                <a href='/autor/fernandabernardo/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@fernandabernardo</p>
+                </a>
+            
+            <time class='date'
+    datetime='2017-06-14 00:00:00 &#43;0000 UTC'
+    aria-label='14 de junho de 2017'>
+    14/06/2017
+    <meta itemprop='datePublished' content='Wed Jun 14 2017 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Wed Jun 14 2017 00:00:00 GMT&#43;0000 (UTC)'>
+</time>
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Estamos à procura de desenvolvedores especialistas em busca para fazer parte do nosso time.
+            </p>
+            <meta itemprop='headline' content='O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para …' >
+        
+        <a href='http://elo7.dev/vagas-search/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+                
+                    <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-vagas'>
+    <header>
+        <a href='http://elo7.dev/vagas-estagio/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/elo7.png' alt='Vaga de estágio em desenvolvimento de software' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/vagas/' class='category vagas'>vagas</a>
+        <div class='post-meta'>
+            <a href='http://elo7.dev/vagas-estagio/' class='link'>
+                
+                    <h2 itemprop='name' class='title'>Vaga de estágio em desenvolvimento de software</h2>
+                
+            </a>
+            
+                <a href='/autor/davidrobert/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@davidrobert</p>
+                </a>
+            
+            <time class='date'
+    datetime='2016-12-26 00:00:00 &#43;0000 UTC'
+    aria-label='26 de dezembro de 2016'>
+    26/12/2016
+    <meta itemprop='datePublished' content='Mon Dec 26 2016 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Dec 26 2016 00:00:00 GMT&#43;0000 (UTC)'>
+</time>
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Temos a seguinte vaga para o time da engenharia...
+            </p>
+            <meta itemprop='headline' content='O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para …' >
+        
+        <a href='http://elo7.dev/vagas-estagio/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+                
+                    <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-back-end'>
+    <header>
+        <a href='http://elo7.dev/introducao-a-programacao-funcional-com-java8/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/elo7.png' alt='Introdução à programação funcional com Java 8' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/back-end/' class='category back-end'>back-end</a>
+        <div class='post-meta'>
+            <a href='http://elo7.dev/introducao-a-programacao-funcional-com-java8/' class='link'>
+                
+                    <h2 itemprop='name' class='title'>Introdução à programação funcional com Java 8</h2>
+                
+            </a>
+            
+                <a href='/autor/diegocesar/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@diegocesar</p>
+                </a>
+            
+            <time class='date'
+    datetime='2016-12-05 00:00:00 &#43;0000 UTC'
+    aria-label='05 de dezembro de 2016'>
+    05/12/2016
+    <meta itemprop='datePublished' content='Mon Dec 05 2016 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Dec 05 2016 00:00:00 GMT&#43;0000 (UTC)'>
+</time>
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                Disponível desde 2014, o Java 8 ainda deixa muitas dúvidas, principalmente quanto às novidades em relação à sua versão anterior. Nesse post vou falar sobre as principais novidades do Java 8.
+            </p>
+            <meta itemprop='headline' content='Disponível desde 2014, o Java 8 ainda deixa muitas dúvidas, principalmente quanto às novidades em relação à …' >
+        
+        <a href='http://elo7.dev/introducao-a-programacao-funcional-com-java8/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+                
+                    <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-eventos'>
+    <header>
+        <a href='http://elo7.dev/slides-evento-software-fora-de-serie/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/elo7.png' alt='Slides do evento Software Fora de série - #elo7tech' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/eventos/' class='category eventos'>eventos</a>
+        <div class='post-meta'>
+            <a href='http://elo7.dev/slides-evento-software-fora-de-serie/' class='link'>
+                
+                    <h2 itemprop='name' class='title'>Slides do evento Software Fora de série - #elo7tech</h2>
+                
+            </a>
+            
+                <a href='/autor/davidrobert/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@davidrobert</p>
+                </a>
+            
+            <time class='date'
+    datetime='2016-06-14 00:00:00 &#43;0000 UTC'
+    aria-label='14 de junho de 2016'>
+    14/06/2016
+    <meta itemprop='datePublished' content='Tue Jun 14 2016 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Tue Jun 14 2016 00:00:00 GMT&#43;0000 (UTC)'>
+</time>
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                Em 11 de junho de 2016 ocorreu o evento Software Fora de Série onde diferentes times da engenharia do Elo7 palestraram. Nesse post se encontram todos as apresentações utilizados no evento.
+            </p>
+            <meta itemprop='headline' content='Em 11 de junho de 2016 ocorreu o evento Software Fora de Série onde diferentes times da engenharia do Elo7 …' >
+        
+        <a href='http://elo7.dev/slides-evento-software-fora-de-serie/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+                
+                    <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-vagas'>
+    <header>
+        <a href='http://elo7.dev/vagas-java-post/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/elo7.png' alt='Vaga Engenheiro de Software/Java' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/vagas/' class='category vagas'>vagas</a>
+        <div class='post-meta'>
+            <a href='http://elo7.dev/vagas-java-post/' class='link'>
+                
+                    <h2 itemprop='name' class='title'>Vaga Engenheiro de Software/Java</h2>
+                
+            </a>
+            
+                <a href='/autor/davidrobert/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@davidrobert</p>
+                </a>
+            
+            <time class='date'
+    datetime='2016-04-15 00:00:00 &#43;0000 UTC'
+    aria-label='15 de abril de 2016'>
+    15/04/2016
+    <meta itemprop='datePublished' content='Fri Apr 15 2016 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Fri Apr 15 2016 00:00:00 GMT&#43;0000 (UTC)'>
+</time>
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Estamos à procura de desenvolvedores Java para fazer parte do nosso time.
+            </p>
+            <meta itemprop='headline' content='O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para …' >
+        
+        <a href='http://elo7.dev/vagas-java-post/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+                
+                    <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-vagas'>
+    <header>
+        <a href='http://elo7.dev/vagas-devops-post/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/elo7.png' alt='Vaga Engenheiro de Software/DevOps' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/vagas/' class='category vagas'>vagas</a>
+        <div class='post-meta'>
+            <a href='http://elo7.dev/vagas-devops-post/' class='link'>
+                
+                    <h2 itemprop='name' class='title'>Vaga Engenheiro de Software/DevOps</h2>
+                
+            </a>
+            
+                <a href='/autor/sardinha/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@sardinha</p>
+                </a>
+            
+            <time class='date'
+    datetime='2016-04-04 00:00:00 &#43;0000 UTC'
+    aria-label='04 de abril de 2016'>
+    04/04/2016
+    <meta itemprop='datePublished' content='Mon Apr 04 2016 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Apr 04 2016 00:00:00 GMT&#43;0000 (UTC)'>
+</time>
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Estamos à procura de desenvolvedores DevOps para fazer parte do nosso time.
+            </p>
+            <meta itemprop='headline' content='O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para …' >
+        
+        <a href='http://elo7.dev/vagas-devops-post/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+                
+
+            </section>
+
+            <nav class='container pagination'>
     
-		<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-vagas">
-			<header>
-				<a href="/vagas-devops/" class="link">
-					<h2 itemprop='name' class="title">Vaga Engenheiro de Software/DevOps</h2>
-				</a>
-			</header>
-			<div class="post-meta">
-				
-					<a href="/jlmfonseca/" class="author" itemprop='author' itemscope itemtype="http://schema.org/Person">
-						<p itemprop='name'>@jlmfonseca</p>
-					</a>
-				
-				<time datetime="03/09/2018" class="date">
-					03/09/2018
-					<meta itemprop="datePublished" content='Mon Sep 03 2018 00:00:00 GMT+0000 (UTC)'/>
-				</time>
-			</div>
+        <span class='back disabled'>anterior</span>
+    
 
-			
-				<p class="description" itemprop="description">
-					O Elo7, o maior marketplace de produtos criativos da América Latina, está à procura de Engenheiros de Software/DevOps para fazer parte do nosso time.
-				</p>
-				<meta itemprop='headline' content='O Elo7, o maior marketplace de produtos criativos da América Latina, está à procura de Engenheiros de Softw...' >
-			
+    <span>
+        Página 1 de 1
+    </span>
 
-			<a href="/vagas/" class="category vagas">vagas</a>
-			<a href="/vagas-devops/" class="link post-link">Continue lendo</a>
+    
+        <span class='next disabled'>próximo</span>
+    
+</nav>
 
-			<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
-				<link href="/images/ico/elo7.png" itemprop="url"/>
-				<meta itemprop='width' content='100px'/>
-				<meta itemprop='height' content='100px'/>
-			</span>
-			<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
-			<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
-				<meta itemprop='name' content='Elo7 Tech'/>
-				<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-					<link href="/images/ico/logo-elo7.png" itemprop="url"/>
-					<meta itemprop='width' content='100px'/>
-					<meta itemprop='height' content='100px'/>
-				</span>
-			</span>
-		</article>
-	
-		<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-back-end">
-			<header>
-				<a href="/subindo-uma-api-rest-em-clojure/" class="link">
-					<h2 itemprop='name' class="title">Subindo uma API REST em Clojure</h2>
-				</a>
-			</header>
-			<div class="post-meta">
-				
-					<a href="/ericdallo/" class="author" itemprop='author' itemscope itemtype="http://schema.org/Person">
-						<p itemprop='name'>@ericdallo</p>
-					</a>
-				
-				<time datetime="22/01/2018" class="date">
-					22/01/2018
-					<meta itemprop="datePublished" content='Mon Jan 22 2018 00:00:00 GMT+0000 (UTC)'/>
-				</time>
-			</div>
+        </main>
 
-			
-				<p class="description" itemprop="description">
-					Clojure é uma linguagem já conhecida para os amantes do paradigma funcional, neste post, demonstro alguns detalhes de uma biblioteca que faz uma ponte entre esta linguagem e o mundo WEB. Venha aprender como subir uma API REST em 10 minutos!
-				</p>
-				<meta itemprop='headline' content='Clojure é uma linguagem já conhecida para os amantes do paradigma funcional, neste post, demonstro alguns d...' >
-			
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='http://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
-			<a href="/back-end/" class="category back-end">back-end</a>
-			<a href="/subindo-uma-api-rest-em-clojure/" class="link post-link">Continue lendo</a>
-
-			<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
-				<link href="/images/ico/elo7.png" itemprop="url"/>
-				<meta itemprop='width' content='100px'/>
-				<meta itemprop='height' content='100px'/>
-			</span>
-			<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
-			<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
-				<meta itemprop='name' content='Elo7 Tech'/>
-				<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-					<link href="/images/ico/logo-elo7.png" itemprop="url"/>
-					<meta itemprop='width' content='100px'/>
-					<meta itemprop='height' content='100px'/>
-				</span>
-			</span>
-		</article>
-	
-		<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-vagas">
-			<header>
-				<a href="/vagas-search-2017-12/" class="link">
-					<h2 itemprop='name' class="title">Vaga Search Developer - Information Retrieval</h2>
-				</a>
-			</header>
-			<div class="post-meta">
-				
-					<a href="/davidrobert/" class="author" itemprop='author' itemscope itemtype="http://schema.org/Person">
-						<p itemprop='name'>@davidrobert</p>
-					</a>
-				
-				<time datetime="21/12/2017" class="date">
-					21/12/2017
-					<meta itemprop="datePublished" content='Thu Dec 21 2017 00:00:00 GMT+0000 (UTC)'/>
-				</time>
-			</div>
-
-			
-				<p class="description" itemprop="description">
-					Você está interessado e tem paixão por sistemas de busca? O propósito da vaga de Software Engineer com especialidade em Busca é encontrar profissionais com alto conhecimento em Information Retrieval e search engine para complementarem nosso time.
-				</p>
-				<meta itemprop='headline' content='Você está interessado e tem paixão por sistemas de busca? O propósito da vaga de Software Engineer com espe...' >
-			
-
-			<a href="/vagas/" class="category vagas">vagas</a>
-			<a href="/vagas-search-2017-12/" class="link post-link">Continue lendo</a>
-
-			<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
-				<link href="/images/ico/elo7.png" itemprop="url"/>
-				<meta itemprop='width' content='100px'/>
-				<meta itemprop='height' content='100px'/>
-			</span>
-			<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
-			<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
-				<meta itemprop='name' content='Elo7 Tech'/>
-				<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-					<link href="/images/ico/logo-elo7.png" itemprop="url"/>
-					<meta itemprop='width' content='100px'/>
-					<meta itemprop='height' content='100px'/>
-				</span>
-			</span>
-		</article>
-	
-		<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-back-end">
-			<header>
-				<a href="/otimizacao-de-busca-em-faixas-de-valores/" class="link">
-					<h2 itemprop='name' class="title">Otimização de busca em faixas de valores</h2>
-				</a>
-			</header>
-			<div class="post-meta">
-				
-					<a href="/ftfarias/" class="author" itemprop='author' itemscope itemtype="http://schema.org/Person">
-						<p itemprop='name'>@ftfarias</p>
-					</a>
-				
-				<time datetime="23/10/2017" class="date">
-					23/10/2017
-					<meta itemprop="datePublished" content='Mon Oct 23 2017 00:00:00 GMT+0000 (UTC)'/>
-				</time>
-			</div>
-
-			
-				<p class="description" itemprop="description">
-					Explicamos como utilizamos um método de bissecção para otimizar a busca de valores em uma coleção de faixas de CEP, aumentando em mais de 100 vezes a performance do algoritimo.
-				</p>
-				<meta itemprop='headline' content='Explicamos como utilizamos um método de bissecção para otimizar a busca de valores em uma coleção de faixas...' >
-			
-
-			<a href="/back-end/" class="category back-end">back-end</a>
-			<a href="/otimizacao-de-busca-em-faixas-de-valores/" class="link post-link">Continue lendo</a>
-
-			<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
-				<link href="/images/ico/elo7.png" itemprop="url"/>
-				<meta itemprop='width' content='100px'/>
-				<meta itemprop='height' content='100px'/>
-			</span>
-			<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
-			<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
-				<meta itemprop='name' content='Elo7 Tech'/>
-				<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-					<link href="/images/ico/logo-elo7.png" itemprop="url"/>
-					<meta itemprop='width' content='100px'/>
-					<meta itemprop='height' content='100px'/>
-				</span>
-			</span>
-		</article>
-	
-		<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-vagas">
-			<header>
-				<a href="/vagas-search/" class="link">
-					<h2 itemprop='name' class="title">Vaga Software Engineer - Search</h2>
-				</a>
-			</header>
-			<div class="post-meta">
-				
-					<a href="/fernandabernardo/" class="author" itemprop='author' itemscope itemtype="http://schema.org/Person">
-						<p itemprop='name'>@fernandabernardo</p>
-					</a>
-				
-				<time datetime="14/06/2017" class="date">
-					14/06/2017
-					<meta itemprop="datePublished" content='Wed Jun 14 2017 00:00:00 GMT+0000 (UTC)'/>
-				</time>
-			</div>
-
-			
-				<p class="description" itemprop="description">
-					O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Estamos à procura de desenvolvedores especialistas em busca para fazer parte do nosso time.
-				</p>
-				<meta itemprop='headline' content='O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para...' >
-			
-
-			<a href="/vagas/" class="category vagas">vagas</a>
-			<a href="/vagas-search/" class="link post-link">Continue lendo</a>
-
-			<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
-				<link href="/images/ico/elo7.png" itemprop="url"/>
-				<meta itemprop='width' content='100px'/>
-				<meta itemprop='height' content='100px'/>
-			</span>
-			<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
-			<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
-				<meta itemprop='name' content='Elo7 Tech'/>
-				<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-					<link href="/images/ico/logo-elo7.png" itemprop="url"/>
-					<meta itemprop='width' content='100px'/>
-					<meta itemprop='height' content='100px'/>
-				</span>
-			</span>
-		</article>
-	
-		<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-vagas">
-			<header>
-				<a href="/vagas-estagio/" class="link">
-					<h2 itemprop='name' class="title">Vaga de estágio em desenvolvimento de software</h2>
-				</a>
-			</header>
-			<div class="post-meta">
-				
-					<a href="/davidrobert/" class="author" itemprop='author' itemscope itemtype="http://schema.org/Person">
-						<p itemprop='name'>@davidrobert</p>
-					</a>
-				
-				<time datetime="26/12/2016" class="date">
-					26/12/2016
-					<meta itemprop="datePublished" content='Mon Dec 26 2016 00:00:00 GMT+0000 (UTC)'/>
-				</time>
-			</div>
-
-			
-				<p class="description" itemprop="description">
-					O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Temos a seguinte vaga para o time da engenharia...
-				</p>
-				<meta itemprop='headline' content='O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para...' >
-			
-
-			<a href="/vagas/" class="category vagas">vagas</a>
-			<a href="/vagas-estagio/" class="link post-link">Continue lendo</a>
-
-			<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
-				<link href="/images/ico/elo7.png" itemprop="url"/>
-				<meta itemprop='width' content='100px'/>
-				<meta itemprop='height' content='100px'/>
-			</span>
-			<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
-			<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
-				<meta itemprop='name' content='Elo7 Tech'/>
-				<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-					<link href="/images/ico/logo-elo7.png" itemprop="url"/>
-					<meta itemprop='width' content='100px'/>
-					<meta itemprop='height' content='100px'/>
-				</span>
-			</span>
-		</article>
-	
-		<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-back-end">
-			<header>
-				<a href="/introducao-a-programacao-funcional-com-java8/" class="link">
-					<h2 itemprop='name' class="title">Introdução à programação funcional com Java 8</h2>
-				</a>
-			</header>
-			<div class="post-meta">
-				
-					<a href="/diegocesar/" class="author" itemprop='author' itemscope itemtype="http://schema.org/Person">
-						<p itemprop='name'>@diegocesar</p>
-					</a>
-				
-				<time datetime="05/12/2016" class="date">
-					05/12/2016
-					<meta itemprop="datePublished" content='Mon Dec 05 2016 00:00:00 GMT+0000 (UTC)'/>
-				</time>
-			</div>
-
-			
-				<p class="description" itemprop="description">
-					Disponível desde 2014, o Java 8 ainda deixa muitas dúvidas, principalmente quanto às novidades em relação à sua versão anterior. Nesse post vou falar sobre as principais novidades do Java 8.
-				</p>
-				<meta itemprop='headline' content='Disponível desde 2014, o Java 8 ainda deixa muitas dúvidas, principalmente quanto às novidades em relação à...' >
-			
-
-			<a href="/back-end/" class="category back-end">back-end</a>
-			<a href="/introducao-a-programacao-funcional-com-java8/" class="link post-link">Continue lendo</a>
-
-			<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
-				<link href="/images/ico/elo7.png" itemprop="url"/>
-				<meta itemprop='width' content='100px'/>
-				<meta itemprop='height' content='100px'/>
-			</span>
-			<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
-			<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
-				<meta itemprop='name' content='Elo7 Tech'/>
-				<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-					<link href="/images/ico/logo-elo7.png" itemprop="url"/>
-					<meta itemprop='width' content='100px'/>
-					<meta itemprop='height' content='100px'/>
-				</span>
-			</span>
-		</article>
-	
-		<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-eventos">
-			<header>
-				<a href="/slides-evento-software-fora-de-serie/" class="link">
-					<h2 itemprop='name' class="title">Slides do evento Software Fora de série - #elo7tech</h2>
-				</a>
-			</header>
-			<div class="post-meta">
-				
-					<a href="/davidrobert/" class="author" itemprop='author' itemscope itemtype="http://schema.org/Person">
-						<p itemprop='name'>@davidrobert</p>
-					</a>
-				
-				<time datetime="14/06/2016" class="date">
-					14/06/2016
-					<meta itemprop="datePublished" content='Tue Jun 14 2016 00:00:00 GMT+0000 (UTC)'/>
-				</time>
-			</div>
-
-			
-				<p class="description" itemprop="description">
-					Em 11 de junho de 2016 ocorreu o evento Software Fora de Série onde diferentes times da engenharia do Elo7 palestraram. Nesse post se encontram todos as apresentações utilizados no evento.
-				</p>
-				<meta itemprop='headline' content='Em 11 de junho de 2016 ocorreu o evento Software Fora de Série onde diferentes times da engenharia do Elo7 ...' >
-			
-
-			<a href="/eventos/" class="category eventos">eventos</a>
-			<a href="/slides-evento-software-fora-de-serie/" class="link post-link">Continue lendo</a>
-
-			<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
-				<link href="/images/ico/elo7.png" itemprop="url"/>
-				<meta itemprop='width' content='100px'/>
-				<meta itemprop='height' content='100px'/>
-			</span>
-			<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
-			<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
-				<meta itemprop='name' content='Elo7 Tech'/>
-				<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-					<link href="/images/ico/logo-elo7.png" itemprop="url"/>
-					<meta itemprop='width' content='100px'/>
-					<meta itemprop='height' content='100px'/>
-				</span>
-			</span>
-		</article>
-	
-		<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-vagas">
-			<header>
-				<a href="/vagas-java-post/" class="link">
-					<h2 itemprop='name' class="title">Vaga Engenheiro de Software/Java</h2>
-				</a>
-			</header>
-			<div class="post-meta">
-				
-					<a href="/davidrobert/" class="author" itemprop='author' itemscope itemtype="http://schema.org/Person">
-						<p itemprop='name'>@davidrobert</p>
-					</a>
-				
-				<time datetime="15/04/2016" class="date">
-					15/04/2016
-					<meta itemprop="datePublished" content='Fri Apr 15 2016 00:00:00 GMT+0000 (UTC)'/>
-				</time>
-			</div>
-
-			
-				<p class="description" itemprop="description">
-					O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Estamos à procura de desenvolvedores Java para fazer parte do nosso time.
-				</p>
-				<meta itemprop='headline' content='O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para...' >
-			
-
-			<a href="/vagas/" class="category vagas">vagas</a>
-			<a href="/vagas-java-post/" class="link post-link">Continue lendo</a>
-
-			<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
-				<link href="/images/ico/elo7.png" itemprop="url"/>
-				<meta itemprop='width' content='100px'/>
-				<meta itemprop='height' content='100px'/>
-			</span>
-			<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
-			<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
-				<meta itemprop='name' content='Elo7 Tech'/>
-				<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-					<link href="/images/ico/logo-elo7.png" itemprop="url"/>
-					<meta itemprop='width' content='100px'/>
-					<meta itemprop='height' content='100px'/>
-				</span>
-			</span>
-		</article>
-	
-		<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="post-card card-vagas">
-			<header>
-				<a href="/vagas-devops-post/" class="link">
-					<h2 itemprop='name' class="title">Vaga Engenheiro de Software/DevOps</h2>
-				</a>
-			</header>
-			<div class="post-meta">
-				
-					<a href="/sardinha/" class="author" itemprop='author' itemscope itemtype="http://schema.org/Person">
-						<p itemprop='name'>@sardinha</p>
-					</a>
-				
-				<time datetime="04/04/2016" class="date">
-					04/04/2016
-					<meta itemprop="datePublished" content='Mon Apr 04 2016 00:00:00 GMT+0000 (UTC)'/>
-				</time>
-			</div>
-
-			
-				<p class="description" itemprop="description">
-					O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Estamos à procura de desenvolvedores DevOps para fazer parte do nosso time.
-				</p>
-				<meta itemprop='headline' content='O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para...' >
-			
-
-			<a href="/vagas/" class="category vagas">vagas</a>
-			<a href="/vagas-devops-post/" class="link post-link">Continue lendo</a>
-
-			<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <!--Change for a post image-->
-				<link href="/images/ico/elo7.png" itemprop="url"/>
-				<meta itemprop='width' content='100px'/>
-				<meta itemprop='height' content='100px'/>
-			</span>
-			<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
-			<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
-				<meta itemprop='name' content='Elo7 Tech'/>
-				<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-					<link href="/images/ico/logo-elo7.png" itemprop="url"/>
-					<meta itemprop='width' content='100px'/>
-					<meta itemprop='height' content='100px'/>
-				</span>
-			</span>
-		</article>
-	
-</section>
-
-		
-	</main>
-	<footer itemscope itemtype="http://schema.org/Organization">
-		<a rel="home" itemprop="url" href="https://elo7.dev/" >
-			elo7.dev © 2019
-		</a>
-		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
-		<section class='footer-social'>
-			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
-			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
-			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
-			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
-		</section>
-	</footer>
-	<script async src="https://www.google-analytics.com/analytics.js"></script>
-	<script async src="/js/analytics.js"></script>
-	<script async src="/js/github.js"></script>
-	<script async src="/js/vendor/events-amd.js"></script>
-	<script async src="/js/vendor/ajax.js"></script>
-	<script async src="/js/vendor/doc.js"></script>
-	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
+    </body>
 </html>

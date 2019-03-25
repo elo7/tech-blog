@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jpa on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/jpa/</link>
+    <description>Recent content in Jpa on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 03 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/jpa/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>API Persistente com Kotlin, Spring Boot, MySQL, JPA e Hibernate</title>
+      <link>http://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</link>
+      <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</guid>
+      <description>Kotlin vem ganhando muita popularidade nos últimos tempos devido a seus recursos de produtividade e a possibilidade de utilização na plataforma Android.
+Devido à crescente popularidade do Kotlin, o Spring Framework também introduziu um suporte dedicado ao Kotlin.
+Neste post, você aprenderá a criar uma API do CRUD Restful com o Kotlin, Spring Boot e JPA.
+O que vamos construir? Neste post criaremos APIs Restful para armazenar dados de livros e categorias.</description>
+    </item>
+    
+  </channel>
+</rss>

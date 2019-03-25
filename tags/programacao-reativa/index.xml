@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programacao Reativa on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/programacao-reativa/</link>
+    <description>Recent content in Programacao Reativa on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 18 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/programacao-reativa/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Programação Reativa - Parte 4</title>
+      <link>http://elo7.dev/programacao-reativa-parte-4/</link>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/programacao-reativa-parte-4/</guid>
+      <description>Nos três posts anteriores, vimos os fundamentos principais da programação reativa, incluindo muitos exemplos de código, processamento concorrente e contrapressão. Que lindo! Mas serão esses conceitos aplicáveis para aplicações de grande porte e sistemas inteiros? Esse post irá explorar os detalhes de uma verdadeira aplicação reativa.
+Caso você não tenha lido os posts anteriores, uma recapitulação:
+ O que é programação reativa? Exemplos de código com o RxJava Processamento concorrente, paralelismo e backpressure  Por que queremos um sistema &amp;ldquo;reativo&amp;rdquo;?</description>
+    </item>
+    
+    <item>
+      <title>Programação Reativa - Parte 3</title>
+      <link>http://elo7.dev/programacao-reativa-parte-3/</link>
+      <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/programacao-reativa-parte-3/</guid>
+      <description>Nos dois posts anteriores sobre Programação Reativa, estudamos os fundamentos desse paradigma e vimos muitos exemplos de código usando o RxJava. Nesse capítulo, vamos nos focar na abstração sobre a execução assícrona e parelela que os frameworks Rx fornecem, e especialmente em um conceito que é um dos pilares do modelo reativo: a contrapressão ou backpressure.
+ “A dúvida é o princípio da sabedoria. (Aristóteles)”
+ Processamento assíncrono Um dos assuntos que mais causam discussão a respeito da programação reativa é questão do processamento assíncrono.</description>
+    </item>
+    
+    <item>
+      <title>Programação Reativa - Parte 2</title>
+      <link>http://elo7.dev/programacao-reativa-parte-2/</link>
+      <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/programacao-reativa-parte-2/</guid>
+      <description>No post anterior, vimos os fundamentos da programação reativa, incluindo o funcionamento básico sobre os quais os frameworks da família ReactiveX são implementados. Nessa segunda fase da nossa &amp;ldquo;jornada reativa&amp;rdquo;, começaremos a estudar os principais recursos e funcionalidades do RxJava, e então estaremos mais preparados para aplicar esses conceitos - não apenas em &amp;ldquo;programas&amp;rdquo; mas em &amp;ldquo;sistemas&amp;rdquo;, os chamados sistemas reativos.
+Os exemplos deste post estão implementados com o RxJava (a versão 2, compatível com o Reactive Streams, que tem algumas diferenças para a versão anterior).</description>
+    </item>
+    
+    <item>
+      <title>Programação Reativa - Parte 1</title>
+      <link>http://elo7.dev/programacao-reativa/</link>
+      <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/programacao-reativa/</guid>
+      <description>Em tempos recentes, a expressão &amp;ldquo;programação reativa&amp;rdquo; tem ganhado (ainda mais) força nas discussões do mundo do software. Apesar de não ser algo necessariamente &amp;ldquo;novo&amp;rdquo; (nem um pouco, na verdade) e se basear em conceitos e padrões já existentes, a tal &amp;ldquo;programação reativa&amp;rdquo; tem ganho muito destaque e há um bom número de frameworks que suportam esse paradigma em diversas linguagens. Mas será apenas mais uma &amp;ldquo;buzzword&amp;rdquo; ou algo realmente útil?</description>
+    </item>
+    
+  </channel>
+</rss>

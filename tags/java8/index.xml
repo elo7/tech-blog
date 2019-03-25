@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java8 on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/java8/</link>
+    <description>Recent content in Java8 on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 05 Dec 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/java8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introdução à programação funcional com Java 8</title>
+      <link>http://elo7.dev/introducao-a-programacao-funcional-com-java8/</link>
+      <pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/introducao-a-programacao-funcional-com-java8/</guid>
+      <description>Disponível desde 2014, o Java 8 ainda deixa muitas dúvidas, principalmente quanto às novidades em relação à sua versão anterior e a incorporação de conceitos de programação funcional. Nesse post vou falar sobre as principais novidades do Java 8 relativas a esse aspecto. É importante observar que o Java 8 foi desenvolvido pensando na retrocompatibilidade, ou seja, aplicações desenvolvidas na versão 7 funcionarão perfeitamente nas versões mais atuais da linguagem.</description>
+    </item>
+    
+  </channel>
+</rss>

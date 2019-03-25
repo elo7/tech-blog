@@ -1,0 +1,58 @@
+$font-size: (
+	smallest: 0.7,
+	small: 0.85,
+	normal: 1,
+	big: 1.15,
+	biggest: 1.3,
+);
+
+$font-weight: (
+	normal: 300,
+	bold: 500,
+);
+
+@font-face {
+	font-family: 'museo_sans';
+	src:
+		url('//images.elo7.com.br/assets/v3/fonts/museo-sans-300-webfont.eot');
+	src:
+		url('//images.elo7.com.br/assets/v3/fonts/museo-sans-300-webfont.eot?#iefix')
+		format('embedded-opentype'),
+		url('//images.elo7.com.br/assets/v3/fonts/museo-sans-300-webfont.woff2')
+		format('woff2'),
+		url('//images.elo7.com.br/assets/v3/fonts/museo-sans-300-webfont.woff')
+		format('woff'),
+		url('//images.elo7.com.br/assets/v3/fonts/museo-sans-300-webfont.ttf')
+		format('truetype'),
+		url('//images.elo7.com.br/assets/v3/fonts/museo-sans-300-webfont.svg#museo_sans300')
+		format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'museo_sans';
+	src:
+		url('//images.elo7.com.br/assets/v3/fonts/museo-sans-500-webfont.eot');
+	src:
+		url('//images.elo7.com.br/assets/v3/fonts/museo-sans-500-webfont.eot?#iefix')
+		format('embedded-opentype'),
+		url('//images.elo7.com.br/assets/v3/fonts/museo-sans-500-webfont.woff2')
+		format('woff2'),
+		url('//images.elo7.com.br/assets/v3/fonts/museo-sans-500-webfont.woff')
+		format('woff'),
+		url('//images.elo7.com.br/assets/v3/fonts/museo-sans-500-webfont.ttf')
+		format('truetype'),
+		url('//images.elo7.com.br/assets/v3/fonts/museo-sans-500-webfont.svg#museo_sans500')
+		format('svg');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@mixin font-size($unit, $size) {
+	@if $unit == 'rem' {
+		@include rem-fallback('font-size', map-get($font-size, $size));
+	} @else {
+		font-size: map-get($font-size, $size) + $unit;
+	}
+}

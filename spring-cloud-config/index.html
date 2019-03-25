@@ -1,419 +1,476 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Spring Cloud Config permite que suas configurações sejam atualizadas dinamicamente sem a necessidade de restart da aplicação, para um Cluster / ELB de máquinas ou apenas uma máquina. Isso possibilita que mudanças de configuração sejam aplicadas quase instantaneamente.">
-	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
-	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
-	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
-	<meta name="theme-color" content="#FDC24F">
-	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,java,spring boot,spring cloud config,micro serviços,infraestrutura">
-	<meta name="language" content="pt-br">
-	<meta name="title" content="Elo7 Tech - Properties dinâmicos com Spring Cloud Config">
-	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Properties dinâmicos com Spring Cloud Config">
-	<meta name="mobile-web-app-capable" content="yes">
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,java,spring boot,spring cloud config,micro serviços,infraestrutura,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Properties dinâmicos com Spring Cloud Config'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Properties dinâmicos com Spring Cloud Config'>
+	<meta name='mobile-web-app-capable' content='yes'>
 
-	<meta property="fb:app_id" content="644444999041914">
-	<meta property="fb:admins" content="100003324447975">
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
 
-	<meta property="og:site_name" content="Elo7 Tech">
-	<meta property="og:image" content="https://elo7.dev/images/cover/elo7.png">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="Elo7 Tech - Properties dinâmicos com Spring Cloud Config">
-	<meta property="og:url" content="https://elo7.dev/spring-cloud-config/">
-	<meta property="og:description" content="Spring Cloud Config permite que suas configurações sejam atualizadas dinamicamente sem a necessidade de restart da aplicação, para um Cluster / ELB de máquinas ou apenas uma máquina. Isso possibilita que mudanças de configuração sejam aplicadas quase instantaneamente.">
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='http://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Properties dinâmicos com Spring Cloud Config'>
+	<meta property='og:url' content='http://elo7.dev/spring-cloud-config/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
 
-	<meta name="twitter:widgets:csp" content="on">
-	<meta name="twitter:card" content="summary_large_image">
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
 
-	<meta property="twitter:title" content="Elo7 Tech - Properties dinâmicos com Spring Cloud Config">
-	<meta property="twitter:domain" content="https://elo7.dev">
-	<meta property="twitter:url" content="https://elo7.dev/spring-cloud-config/">
-	<meta property="twitter:description" content="Spring Cloud Config permite que suas configurações sejam atualizadas dinamicamente sem a necessidade de restart da aplicação, para um Cluster / ELB de máquinas ou apenas uma máquina. Isso possibilita que mudanças de configuração sejam aplicadas quase instantaneamente.">
-	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+	<meta property='twitter:title' content='Elo7 Tech - Properties dinâmicos com Spring Cloud Config'>
+	<meta property='twitter:domain' content='http://elo7.dev/'>
+	<meta property='twitter:url' content='http://elo7.dev/spring-cloud-config/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='http://elo7.dev/images/ico/elo7.png'>
 
-	<link rel="canonical" href="https://elo7.dev/spring-cloud-config/">
-	
-		<link rel='amphtml' href='https://elo7.dev/amp/spring-cloud-config/' />
-	
-
+	<link rel='canonical' href='http://elo7.dev/spring-cloud-config/'>
 	<title>Elo7 Tech - Properties dinâmicos com Spring Cloud Config</title>
-	<link rel="stylesheet" href="/reset.css">
-	<link rel="stylesheet" href="/main.css">
-	<link rel="stylesheet" href="/posts.css">
-	<link rel="stylesheet" href="/post.css">
-	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
-	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
-	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
-	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
-	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
-	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
-	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
-	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
-	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
-	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
-	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
-	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
-	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
-	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
-	<script src="/js/vendor/async-define.js"></script>
+	<link rel='stylesheet' href='http://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='http://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='http://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='http://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='http://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='http://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='http://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='http://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='http://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='http://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='http://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='http://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
 </head>
-<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
-	<header class="left-pane">
-		<div class="logo-container">
-			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
-		</div>
-		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
-			<input id="categories-switch" type="checkbox" class="categories-switch">
-			<label for="categories-switch" class="selectable">
-				<h2 class="nav-title">Categorias</h2>
-			</label>
-			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
-				
-					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Back-end</span>
-					</a>
-				
-					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Cultura</span>
-					</a>
-				
-					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Data Science</span>
-					</a>
-				
-					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Design</span>
-					</a>
-				
-					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Devops</span>
-					</a>
-				
-					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Eventos</span>
-					</a>
-				
-					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Palestras</span>
-					</a>
-				
-					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Front-end</span>
-					</a>
-				
-					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Mobile</span>
-					</a>
-				
-					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Vagas</span>
-					</a>
-				
-			</nav>
-		</div>
-		<div class="navigation">
-			<input id="more-switch" type="checkbox" class="more-switch">
-			<label for="more-switch" class="selectable">
-				<h2 class="nav-title">Veja também</h2>
-			</label>
-			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
-					<span itemprop="name">A engenharia</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
-					<span itemprop="name">Carreiras</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
-					<span itemprop="name">Nossos eventos</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
-					<span itemprop="name">Elo7</span>
-				</a>
-			</nav>
-		</div>
-		<div class='social'>
-			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
-			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
-			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
-			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
-		</div>
-	</header>
-	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
-		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
-	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-		<img src='https://elo7.dev/images/cover/elo7.png' alt='' itemprop="url">
-	</figure>
-	<div class='post-content'>
-		<h1 itemprop='name' class='title'>Properties dinâmicos com Spring Cloud Config</h1>
-		<div class='post-meta'>
-			<p class='date'>
-				Publicado em: <time datetime='16/07/2018' itemprop='datePublished'>16/07/2018</time>
-				<meta itemprop='dateModified' content='16/07/2018'>
-			</p>
 
-			<article>
-				
-					<a data-author='denis.oliveira' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/denis.oliveira/' class='author'>
-						<meta itemprop='url' content='/denis.oliveira'>
-						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
-						<p itemprop='name' class='publisher' data-author='denis.oliveira'>@denis.oliveira</p>
-					</a>
-				
+    <body>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='http://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/data-science' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Data Science</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://eventos.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Nossos eventos</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='http://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
 
-				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
-			</article>
-		</div>
-		<div itemprop='articleBody'>
-			<h2>O problema existente hoje...</h2>
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Properties dinâmicos com Spring Cloud Config' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Properties dinâmicos com Spring Cloud Config</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2018-07-16 00:00:00 &#43;0000 UTC'
+    aria-label='16 de julho de 2018'>
+    16/07/2018
+    <meta itemprop='datePublished' content='Mon Jul 16 2018 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Jul 16 2018 00:00:00 GMT&#43;0000 (UTC)'>
+</time>
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='denis-schimidt' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/denis-schimidt/' class='author'>
+                                    <meta itemprop='url' content='/autor/denis-schimidt'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='denis-schimidt'>@denis-schimidt</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<h2 id="o-problema-existente-hoje">O problema existente hoje&hellip;</h2>
+
 <p>Bom, primeiramente posso dizer que pensei nesse tema por já ter presenciado, algumas vezes, problemas em ambiente de produção, devido a configurações com <strong>valores incorretos</strong> ou mesmo <strong>falta</strong> delas por esquecimento.</p>
+
 <p>Agora imagine isso ocorrendo no final de um deploy no ambiente de produção, e pior, com os arquivos de configurações (no caso de aplicações Java, normalmente arquivos <em>properties</em>) dentro da aplicação. Um novo deploy teria que ser feito em N máquinas. Caso o arquivo de configurações estivesse fora da aplicação, externalizado, o mesmo teria que ser alterado em todas as máquinas, exigiindo um <em>restart</em> das aplicações, ou um novo <em>deploy</em> teria que ser executado.</p>
+
 <p>Mas não apenas isso: a configuração poderia ser algum parâmetro relacionado ao negócio, como por exemplo, um valor X utilizado em alguma operação, e que repentinamente teria que ser mudado e novamente não seria algo simples.</p>
+
 <p>Pensando em resolver esse problema, eis que surge o Spring Cloud Config. A idéia dele é simples. Um repositório de configurações centralizado, que pode utilizar o <em>git</em> para versionamento de arquivos (que podem estar em serviços como GitHub ou GitLab, ou simplesmente arquivos locais), e que, quando o conteúdo do arquivo for modificado e versionado com um <em>commit/push</em>, os mesmos fossem alterados dinamicamente (através de uma URI HTTP POST) na minha aplicação sem <em>restart</em> ou mesmo <em>deploy</em> em todas as máquinas.</p>
-<h2>Como funciona de forma geral</h2>
+
+<h2 id="como-funciona-de-forma-geral">Como funciona de forma geral</h2>
+
 <p>Abaixo a imagem ilustra de forma geral como o Spring Cloud Config funciona.</p>
-<p><img src="../images/spring-cloud-config-1.jpg" alt="Funcionamento Spring Cloud"></p>
+
+<p><img src="../images/spring-cloud-config-1.jpg" alt="Funcionamento Spring Cloud" /></p>
+
 <p>Inicialmente temos o Config Server, que basicamente lê as configurações contidas em algum lugar, seja um arquivo (gerenciado pelo <em>git</em>, podendo estar armazenado em algum serviço como GitHub ou GitLab, mas não obrigatoriamente) e as disponibiliza para os microserviços ou outros tipos de aplicações. Após qualquer mudança feita em um desses arquivos (<em>commit</em>), as novas configurações estarão automaticamente disponíveis para aplicações clientes (microserviços). Porém, para que o microserviço de fato use essa alteração sem <em>restart</em> é necesssário fazer uma chamada <em>http post</em> como veremos mais a frente.</p>
-<h2>Vamos ao que interesse, ou seja, código</h2>
+
+<h2 id="vamos-ao-que-interesse-ou-seja-código">Vamos ao que interesse, ou seja, código</h2>
+
 <p>Chega de falatório e vamos ao código.</p>
+
 <p>Primeiramente crie seu repositório (no exemplo vou utilizar o GitHub para hospedagem), seguindo a seguinte regra. O nome do seu arquivo de configurações precisa
 coincidir com o nome da aplicação cliente, definido no arquivo <em>bootstrap.properties</em> pela propriedade “spring.application.name”.
 Por exemplo:</p>
-<pre class="highlight"><code class="hljs properties"><span class="hljs-meta">spring.application.name</span>=<span class="hljs-string">hello-world</span>
+
+<pre><code class="language-properties">spring.application.name=hello-world
 </code></pre>
+
 <p>Nesse exemplo, meu arquivo irá chamar-se hello-world.properties.</p>
-<hr>
-<h2>Criando o Config Server</h2>
+
+<hr />
+
+<h2 id="criando-o-config-server">Criando o Config Server</h2>
+
 <p>Uma vez criado o repositório, precisamos criar uma aplicação Spring Boot que será o Config Server.</p>
-<h3>Usando o Spring Initializr</h3>
+
+<h3 id="usando-o-spring-initializr">Usando o Spring Initializr</h3>
+
 <p>O ideal é que o Config Server seja um projeto Spring Boot independente de todas as outras aplicações existentes, visto que ele será responsável por gerenciar a configurações de todas elas.</p>
+
 <p>Caso use o <a href="https://start.spring.io/">Spring INITIALIZR</a> para criar um novo projeto Spring, basta adicionar a opção <strong>Config Server</strong> que ele
 irá gerar o projeto já configurado.</p>
-<p><img src="../images/spring-cloud-config-2.png" alt="Tela Spring Initializr"></p>
-<h3>Adicionando manualmente em um projeto Spring já existente</h3>
-<p>Caso opte por essa segunda opção, basta adicionar as seguintes dependências.</p>
-<p>No Maven</p>
-<pre class="highlight"><code class="hljs xml">   <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
-       <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-           <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-           <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-config-server<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-       <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
-   <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
 
-   <span class="hljs-tag">&lt;<span class="hljs-name">dependencyManagement</span>&gt;</span>
-       <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
-           <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-               <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-               <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-dependencies<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-               <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>Finchley.M8<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
-               <span class="hljs-tag">&lt;<span class="hljs-name">type</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">type</span>&gt;</span>
-               <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>import<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
-           <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
-       <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
-   <span class="hljs-tag">&lt;/<span class="hljs-name">dependencyManagement</span>&gt;</span>
+<p><img src="../images/spring-cloud-config-2.png" alt="Tela Spring Initializr" /></p>
+
+<h3 id="adicionando-manualmente-em-um-projeto-spring-já-existente">Adicionando manualmente em um projeto Spring já existente</h3>
+
+<p>Caso opte por essa segunda opção, basta adicionar as seguintes dependências.</p>
+
+<p>No Maven</p>
+
+<pre><code class="language-xml">   &lt;dependencies&gt;
+       &lt;dependency&gt;
+           &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+           &lt;artifactId&gt;spring-cloud-config-server&lt;/artifactId&gt;
+       &lt;/dependency&gt;
+   &lt;/dependencies&gt;
+
+   &lt;dependencyManagement&gt;
+       &lt;dependencies&gt;
+           &lt;dependency&gt;
+               &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+               &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
+               &lt;version&gt;Finchley.M8&lt;/version&gt;
+               &lt;type&gt;pom&lt;/type&gt;
+               &lt;scope&gt;import&lt;/scope&gt;
+           &lt;/dependency&gt;
+       &lt;/dependencies&gt;
+   &lt;/dependencyManagement&gt;
 
    ...
-   <span class="hljs-tag">&lt;<span class="hljs-name">repositories</span>&gt;</span>
-       <span class="hljs-tag">&lt;<span class="hljs-name">repository</span>&gt;</span>
-           <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>spring-milestones<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-           <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>Spring Milestones<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-           <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>https://repo.spring.io/libs-milestone<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span>
-           <span class="hljs-tag">&lt;<span class="hljs-name">snapshots</span>&gt;</span>
-               <span class="hljs-tag">&lt;<span class="hljs-name">enabled</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">enabled</span>&gt;</span>
-           <span class="hljs-tag">&lt;/<span class="hljs-name">snapshots</span>&gt;</span>
-       <span class="hljs-tag">&lt;/<span class="hljs-name">repository</span>&gt;</span>
-   <span class="hljs-tag">&lt;/<span class="hljs-name">repositories</span>&gt;</span>
+   &lt;repositories&gt;
+       &lt;repository&gt;
+           &lt;id&gt;spring-milestones&lt;/id&gt;
+           &lt;name&gt;Spring Milestones&lt;/name&gt;
+           &lt;url&gt;https://repo.spring.io/libs-milestone&lt;/url&gt;
+           &lt;snapshots&gt;
+               &lt;enabled&gt;false&lt;/enabled&gt;
+           &lt;/snapshots&gt;
+       &lt;/repository&gt;
+   &lt;/repositories&gt;
 </code></pre>
+
 <p>No Gradle</p>
-<pre class="highlight"><code class="hljs groovy">dependencies {
-   compile(<span class="hljs-string">'org.springframework.cloud:spring-cloud-config-server'</span>)
+
+<pre><code class="language-groovy">dependencies {
+   compile('org.springframework.cloud:spring-cloud-config-server')
 }
 
 dependencyManagement {
    imports {
-       mavenBom <span class="hljs-string">"org.springframework.cloud:spring-cloud-dependencies:Finchley.M8"</span>
+       mavenBom &quot;org.springframework.cloud:spring-cloud-dependencies:Finchley.M8&quot;
    }
 }
 
 repositories {
    maven {
-       url <span class="hljs-string">'https://repo.spring.io/libs-milestone'</span>
+       url 'https://repo.spring.io/libs-milestone'
    }
 }
 </code></pre>
-<p>Uma vez configurado as dependências, vamos criar o <em>config server</em>. Basta adicionar <strong>@EnableConfigServer</strong> em uma aplicação Spring Boot e pronto: um servidor de configurações será criado.</p>
-<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@EnableConfigServer</span>
-<span class="hljs-meta">@SpringBootApplication</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConfigServiceApplication</span> </span>{
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+<p>Uma vez configurado as dependências, vamos criar o <em>config server</em>. Basta adicionar <strong>@EnableConfigServer</strong> em uma aplicação Spring Boot e pronto: um servidor de configurações será criado.</p>
+
+<pre><code class="language-java">@EnableConfigServer
+@SpringBootApplication
+public class ConfigServiceApplication {
+
+    public static void main(String[] args) {
         SpringApplication.run(ConfigServiceApplication.class, args);
     }
 }
 </code></pre>
+
 <p>Feito isso, precisamos configurar onde o <em>back-end</em> de configurações que será utilizado. No nosso exemplo, utilizei o GitHub, e o local do repositório deve estar configurado da seguinte forma:</p>
-<pre class="highlight"><code class="hljs properties"><span class="hljs-meta">spring.cloud.config.server.git.uri</span>=<span class="hljs-string">https://github.com/denis-schimidt/dynamic-configs</span>
+
+<pre><code class="language-properties">spring.cloud.config.server.git.uri=https://github.com/denis-schimidt/dynamic-configs
 </code></pre>
+
 <p>Dessa forma, nosso servidor estará pronto para obter os arquivos de propriedades a partir da URL do repostório, e a cada <em>commit</em> e <em>push</em> realizado, automaticamente detectará isso e disponibilizará para as aplicações clientes.</p>
+
 <p>Nesse momento, se uma aplicação cliente fizesse <em>restart</em>, ela já teria suas configurações atualizados. Porém a idéia é poder fazer isso sem <em>restart</em>, como veremos mais a frente.</p>
+
 <p>Outro ponto importante é que as configurações obtidas a partir do servidor sobrescrevem todos as configurações definidas na aplicação cliente (application.properties).</p>
+
 <p>É possível verificar seus properties carregados via <em>http get</em> (browser ou curl) pela URI <code>http://localhost:&lt;port&gt;/&lt;client-aplication-name&gt;/&lt;profile&gt;</code>, como mostrado abaixo:</p>
-<p><img src="../images/spring-cloud-config-3.png" alt="Acessando Configs via CURL"></p>
-<h2>Configurando o Config Server no client</h2>
+
+<p><img src="../images/spring-cloud-config-3.png" alt="Acessando Configs via CURL" /></p>
+
+<h2 id="configurando-o-config-server-no-client">Configurando o Config Server no client</h2>
+
 <p>Assim, finalmente chegamos a aplicação cliente, que utiliza as configurações. A diferença para as dependências do servidor é o artefato <em>spring-cloud-config-client</em> (ao invés do <em>spring-cloud-config-server</em>).</p>
+
 <p>A anotação <strong>@RefreshScope</strong> propicia essa atualização. No exemplo abaixo o valor na propriedade “message” será recuperado a partir do servidor de configurações, e caso a propriedade não exista (ou o servidor não esteja disponível), o valor “Hello default” será usado.</p>
-<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@RefreshScope</span>
-<span class="hljs-meta">@RestController</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloWorldController</span> </span>{
-    <span class="hljs-meta">@Value</span>(<span class="hljs-string">"${message:Hello default}"</span>)
-    <span class="hljs-keyword">private</span> String message;
 
-    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"/message"</span>)
-    <span class="hljs-function">String <span class="hljs-title">getMessage</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.message;
+<pre><code class="language-java">@RefreshScope
+@RestController
+public class HelloWorldController {
+    @Value(&quot;${message:Hello default}&quot;)
+    private String message;
+
+    @GetMapping(&quot;/message&quot;)
+    String getMessage() {
+        return this.message;
     }
 }
 </code></pre>
+
 <p>Para atualizarmos o cliente sem <em>restart</em> usamos o seguinte comando e ele responderá quais configurações foram atualizados, como exibido abaixo:</p>
-<pre class="highlight"><code class="hljs bash"><span class="hljs-comment">### Chamada http post ao Actuator da aplicação cliente</span>
-curl -X POST localhost:8080/&lt;client-application-context&gt;/actuator/refresh -H <span class="hljs-string">"Content-Type: application/json"</span>
+
+<pre><code class="language-bash">### Chamada http post ao Actuator da aplicação cliente
+curl -X POST localhost:8080/&lt;client-application-context&gt;/actuator/refresh -H &quot;Content-Type: application/json&quot;
 </code></pre>
-<pre class="highlight"><code class="hljs bash"><span class="hljs-comment">### Resposta da chamada hhtp post, indicando o que foi atualizado</span>
-[<span class="hljs-string">"config.client.version"</span>, <span class="hljs-string">"message"</span>]
+
+<pre><code class="language-bash">### Resposta da chamada hhtp post, indicando o que foi atualizado
+[&quot;config.client.version&quot;, &quot;message&quot;]
 </code></pre>
+
 <p>Uma vez feito isso, basta dar o famoso F5 na página da aplicação cliente e tudo estará atualizado dinamicamente.</p>
-<h2>Testes Integrados</h2>
+
+<h2 id="testes-integrados">Testes Integrados</h2>
+
 <p>Podemos, para finalizar, garantirmos com testes de integração (usando as classes disponíveis no Spring Boot), o funcionamento das configurações no cliente, como no exemplo a seguir. No teste, inicialmente usamos um valor previamente definido na aplicação cliente e através do <em>TestPropertyValues</em>, <em>ConfigurableEnviroment</em> e <em>ContextRefresher</em> é possível validar se o valor de fato está sendo atualizado.</p>
-<pre class="highlight"><code class="hljs java"><span class="hljs-meta">@RunWith</span>(SpringRunner.class)
-<span class="hljs-meta">@SpringBootTest</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConfigClientApplicationTest</span> </span>{
 
-    <span class="hljs-meta">@Autowired</span>
-    <span class="hljs-keyword">private</span> ConfigurableEnvironment environment;
+<pre><code class="language-java">@RunWith(SpringRunner.class)
+@SpringBootTest
+public class ConfigClientApplicationTest {
 
-    <span class="hljs-meta">@Autowired</span>
-    <span class="hljs-keyword">private</span> HelloWorldController controller;
+    @Autowired
+    private ConfigurableEnvironment environment;
 
-    <span class="hljs-meta">@Autowired</span>
-    <span class="hljs-keyword">private</span> ContextRefresher refresher;
+    @Autowired
+    private HelloWorldController controller;
 
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">contextLoads</span><span class="hljs-params">()</span> </span>{
-        assertThat(controller.getMessage()).isNotEqualTo(<span class="hljs-string">"Hello test"</span>);
+    @Autowired
+    private ContextRefresher refresher;
+
+    @Test
+    public void contextLoads() {
+        assertThat(controller.getMessage()).isNotEqualTo(&quot;Hello test&quot;);
         TestPropertyValues
-            .of(<span class="hljs-string">"message:Hello test"</span>)
+            .of(&quot;message:Hello test&quot;)
             .applyTo(environment);
-        assertThat(controller.getMessage()).isNotEqualTo(<span class="hljs-string">"Hello test"</span>);
+        assertThat(controller.getMessage()).isNotEqualTo(&quot;Hello test&quot;);
         refresher.refresh();
-        assertThat(controller.getMessage()).isEqualTo(<span class="hljs-string">"Hello test"</span>);
+        assertThat(controller.getMessage()).isEqualTo(&quot;Hello test&quot;);
     }
 
 }
 </code></pre>
-<h2>Conclusão</h2>
+
+<h2 id="conclusão">Conclusão</h2>
+
 <p>Podemos ver nesse post, de forma geral, como termos configurações centralizadas usando o Spring Cloud Config, em conjunto com aplicações Spring Boot e seus benefícios.</p>
+
 <p>Caso queiram ver o código, o mesmo está disponibilizado no github <a href="https://github.com/denis-schimidt/spring-cloud-config/">spring-cloud-config</a> e suas
 <a href="https://github.com/denis-schimidt/dynamic-configs">configurações</a>.</p>
+
 <p>Bom amigos, é isso. Caso tenham dúvidas, sugestões estamos a disposição. Até a próxima!</p>
 
 
-			<ul class='tag-list'>
-			
-				<li>
-					<a href='/tags/java/'>java</a>
-				</li>
-			
-				<li>
-					<a href='/tags/spring-boot/'>spring boot</a>
-				</li>
-			
-				<li>
-					<a href='/tags/spring-cloud-config/'>spring cloud config</a>
-				</li>
-			
-				<li>
-					<a href='/tags/micro-serviços/'>micro serviços</a>
-				</li>
-			
-				<li>
-					<a href='/tags/infraestrutura/'>infraestrutura</a>
-				</li>
-			
-			</ul>
-			<section class='share'>
-				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
-				<div class='social-share'>
-					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/spring-cloud-config/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
-						Compartilhar no facebook
-					</a>
-					<a href='https://twitter.com/intent/tweet?text=Properties dinâmicos com Spring Cloud Config&url=https://elo7.dev/spring-cloud-config/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
-						Compartilhar no twitter
-					</a>
-					<a href='https://elo7.dev/spring-cloud-config/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
-						Copiar URL
-					</a>
-					<span class='copy-success'>Link copiado</span>
-					<input type='url' value='https://elo7.dev/spring-cloud-config/?utm_source=share&utm_medium=copy' class='link-input'>
-				</div>
-			</section>
-		</div>
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/java/'>java</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/spring-boot/'>spring boot</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/spring-cloud-config/'>spring cloud config</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/micro-servi%C3%A7os/'>micro serviços</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/infraestrutura/'>infraestrutura</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=http%3a%2f%2felo7.dev%2fspring-cloud-config%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=properties-din%25C3%25A2micos-com-spring-cloud-config&url=http%3a%2f%2felo7.dev%2fspring-cloud-config%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='http://elo7.dev/spring-cloud-config/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='http://elo7.dev/spring-cloud-config/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Spring Cloud Config permite que suas configurações sejam atualizadas dinamicamente sem a necessidade de restart da aplicação, para um Cluster / ELB de máquinas ou apenas uma máquina. Isso possibilita que mudanças de configuração sejam aplicadas quase instantaneamente.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='http://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
 
-		<meta itemprop='headline' content='Spring Cloud Config permite que suas configurações sejam atualizadas dinamicamente sem a necessidade de restart da aplicação, para um Cluster / ELB de máquinas ou apenas uma máquina. Isso possibilita que mudanças de configuração sejam aplicadas quase instantaneamente.'/>
-		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
-			<meta itemprop='name' content='Elo7 Tech'/>
-			<meta itemprop="url" content='https://elo7.dev'/>
-			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
-				<meta itemprop='width' content='100px'/>
-				<meta itemprop='height' content='100px'/>
-			</span>
-		</span>
-		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
 
-		<div id='disqus_thread'></div>
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='http://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
-		<script>
-			var disqus_shortname = 'engenhariaelo7';
-			var disqus_identifier = '16/07/2018:/spring-cloud-config/';
-			var disqus_url = 'https://elo7.dev/spring-cloud-config/';
 
-			(function() {
-				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-			})();
-		</script>
-		<noscript>Habilite o JavaScript para ver os comentários</noscript>
-	</div>
-</article>
-<script async src="/js/post.js"></script>
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2018-07-16 00:00:00 \x2b0000 UTC:\/spring-cloud-config\/';
+            var disqus_url = 'http:\/\/elo7.dev\/spring-cloud-config\/';
 
-		
-	</main>
-	<footer itemscope itemtype="http://schema.org/Organization">
-		<a rel="home" itemprop="url" href="https://elo7.dev/" >
-			elo7.dev © 2019
-		</a>
-		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
-		<section class='footer-social'>
-			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
-			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
-			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
-			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
-		</section>
-	</footer>
-	<script async src="https://www.google-analytics.com/analytics.js"></script>
-	<script async src="/js/analytics.js"></script>
-	<script async src="/js/github.js"></script>
-	<script async src="/js/vendor/events-amd.js"></script>
-	<script async src="/js/vendor/ajax.js"></script>
-	<script async src="/js/vendor/doc.js"></script>
-	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
 </html>

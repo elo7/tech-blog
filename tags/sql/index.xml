@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sql on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/sql/</link>
+    <description>Recent content in Sql on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 05 Mar 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Otimização de queries lentas em bancos relacionais</title>
+      <link>http://elo7.dev/otimizacao-bd/</link>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/otimizacao-bd/</guid>
+      <description>Quando começamos a desenvolver um novo sistema, a performance do banco de dados parece não ser um problema muito importante, mas com o aumento do número de usuários e, consequentemente, dos dados que precisam ser armazenados, queries que executavam em milisegundos passam a demorar segundos ou até mesmo minutos para serem executadas. Para ilustrar esse problema, vamos utilizar um exemplo simples:
+Imagine que precisamos desenvolver um cadastro simples de compradores para um comércio eletrônico.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,359 +1,400 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Um HTML semântico é uma boa base para um site acessível e algumas técnicas de CSS e Javascript podem melhorar ainda mais a experiência. Por outro lado, podem deixar sua página extremamente inacessível. Vamos discutir alguns casos nesse post.">
-	<meta name="google-site-verification" content="NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw">
-	<meta name="google-site-verification" content="cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM" />
-	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
-	<meta name="theme-color" content="#FDC24F">
-	<meta name="keywords" content="Elo7,tecnologia,post,desenvolvimento,blog,acessibilidade,html,css,javascript">
-	<meta name="language" content="pt-br">
-	<meta name="title" content="Elo7 Tech - Um pouco sobre acessibilidade, CSS e Javascript">
-	<meta name="apple-mobile-web-app-title" content="Elo7 Tech - Um pouco sobre acessibilidade, CSS e Javascript">
-	<meta name="mobile-web-app-capable" content="yes">
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,acessibilidade,html,css,javascript,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Um pouco sobre acessibilidade, CSS e Javascript'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Um pouco sobre acessibilidade, CSS e Javascript'>
+	<meta name='mobile-web-app-capable' content='yes'>
 
-	<meta property="fb:app_id" content="644444999041914">
-	<meta property="fb:admins" content="100003324447975">
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
 
-	<meta property="og:site_name" content="Elo7 Tech">
-	<meta property="og:image" content="https://elo7.dev/images/cover/um-pouco-sobre-css-js-a11y-cover.png">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="Elo7 Tech - Um pouco sobre acessibilidade, CSS e Javascript">
-	<meta property="og:url" content="https://elo7.dev/um-pouco-sobre-css-js-a11y/">
-	<meta property="og:description" content="Um HTML semântico é uma boa base para um site acessível e algumas técnicas de CSS e Javascript podem melhorar ainda mais a experiência. Por outro lado, podem deixar sua página extremamente inacessível. Vamos discutir alguns casos nesse post.">
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='http://elo7.dev/images/cover/um-pouco-sobre-css-js-a11y-cover.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Um pouco sobre acessibilidade, CSS e Javascript'>
+	<meta property='og:url' content='http://elo7.dev/um-pouco-sobre-css-js-a11y/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
 
-	<meta name="twitter:widgets:csp" content="on">
-	<meta name="twitter:card" content="summary_large_image">
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
 
-	<meta property="twitter:title" content="Elo7 Tech - Um pouco sobre acessibilidade, CSS e Javascript">
-	<meta property="twitter:domain" content="https://elo7.dev">
-	<meta property="twitter:url" content="https://elo7.dev/um-pouco-sobre-css-js-a11y/">
-	<meta property="twitter:description" content="Um HTML semântico é uma boa base para um site acessível e algumas técnicas de CSS e Javascript podem melhorar ainda mais a experiência. Por outro lado, podem deixar sua página extremamente inacessível. Vamos discutir alguns casos nesse post.">
-	<meta property="twitter:image" content="https://elo7.dev/images/ico/elo7.png">
+	<meta property='twitter:title' content='Elo7 Tech - Um pouco sobre acessibilidade, CSS e Javascript'>
+	<meta property='twitter:domain' content='http://elo7.dev/'>
+	<meta property='twitter:url' content='http://elo7.dev/um-pouco-sobre-css-js-a11y/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='http://elo7.dev/images/ico/elo7.png'>
 
-	<link rel="canonical" href="https://elo7.dev/um-pouco-sobre-css-js-a11y/">
-	
-		<link rel='amphtml' href='https://elo7.dev/amp/um-pouco-sobre-css-js-a11y/' />
-	
-
+	<link rel='canonical' href='http://elo7.dev/um-pouco-sobre-css-js-a11y/'>
 	<title>Elo7 Tech - Um pouco sobre acessibilidade, CSS e Javascript</title>
-	<link rel="stylesheet" href="/reset.css">
-	<link rel="stylesheet" href="/main.css">
-	<link rel="stylesheet" href="/posts.css">
-	<link rel="stylesheet" href="/post.css">
-	<link rel="icon" href="/images/favicon/favicon-16.png" sizes="16x16">
-	<link rel="icon" href="/images/favicon/favicon-32.png" sizes="32x32">
-	<link rel="icon" href="/images/favicon/favicon-48.png" sizes="48x48">
-	<link rel="icon" href="/images/favicon/favicon-64.png" sizes="64x64">
-	<link rel="icon" href="/images/favicon/favicon-96.png" sizes="96x96">
-	<link rel="icon" href="/images/favicon/favicon-128.png" sizes="128x128">
-	<link rel="icon" href="/images/favicon/favicon-160.png" sizes="160x160">
-	<link rel="icon" href="/images/favicon/favicon-192.png" sizes="192x192">
-	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon/favicon-180.png">
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/favicon-152.png">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/favicon-144.png">
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/favicon-120.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/favicon-114.png">
-	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/favicon-76.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/favicon-72.png">
-	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/favicon-60.png">
-	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/favicon-57.png">
-	<link rel="apple-touch-icon-precomposed" href="/images/favicon/favicon-precomposed.png">
-	<script>window.addEventListener("error", window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
-	<script src="/js/vendor/async-define.js"></script>
+	<link rel='stylesheet' href='http://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='http://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='http://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='http://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='http://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='http://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='http://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='http://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='http://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='http://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='http://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='http://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='http://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='http://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
 </head>
-<body itemscope itemtype="http://schema.org/WebPage" data-env="production" data-ga-code="UA-3692628-29" class="">
-	<header class="left-pane">
-		<div class="logo-container">
-			<a rel="home" itemprop="url" href="/" class="logo">Tech Blog Elo7</a>
-		</div>
-		<div itemscope itemtype="http://schema.org/SiteNavigationElement" class="navigation">
-			<input id="categories-switch" type="checkbox" class="categories-switch">
-			<label for="categories-switch" class="selectable">
-				<h2 class="nav-title">Categorias</h2>
-			</label>
-			<nav aria-label="Navegue pelas categorias do nosso blog" class="nav-list nav-category">
-				
-					<a itemprop="url" href="/back-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Back-end</span>
-					</a>
-				
-					<a itemprop="url" href="/cultura/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Cultura</span>
-					</a>
-				
-					<a itemprop="url" href="/data-science/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Data Science</span>
-					</a>
-				
-					<a itemprop="url" href="/design/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Design</span>
-					</a>
-				
-					<a itemprop="url" href="/devops/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Devops</span>
-					</a>
-				
-					<a itemprop="url" href="/eventos/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Eventos</span>
-					</a>
-				
-					<a itemprop="url" href="/talks/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Palestras</span>
-					</a>
-				
-					<a itemprop="url" href="/front-end/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Front-end</span>
-					</a>
-				
-					<a itemprop="url" href="/mobile/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Mobile</span>
-					</a>
-				
-					<a itemprop="url" href="/vagas/" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<span itemprop="name">Vagas</span>
-					</a>
-				
-			</nav>
-		</div>
-		<div class="navigation">
-			<input id="more-switch" type="checkbox" class="more-switch">
-			<label for="more-switch" class="selectable">
-				<h2 class="nav-title">Veja também</h2>
-			</label>
-			<nav class="nav-list nav-more" aria-label="Navegue pelos links relacionados ao Elo7">
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/engenharia/" target="_blank">
-					<span itemprop="name">A engenharia</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://carreira.elo7.com.br/" target="_blank">
-					<span itemprop="name">Carreiras</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://eventos.elo7.com.br/" target="_blank">
-					<span itemprop="name">Nossos eventos</span>
-				</a>
-				<a itemscope itemtype="http://schema.org/SiteNavigationElement" itemprop="url" href="http://elo7.com.br/" target="_blank">
-					<span itemprop="name">Elo7</span>
-				</a>
-			</nav>
-		</div>
-		<div class='social'>
-			<a title="Github do Elo7" rel="external" itemprop="url" href="https://github.com/elo7" target="_blank" class="github">Github do Elo7</a>
-			<a title="Twitter do Elo7" rel="external" itemprop="url" href="https://twitter.com/elo7tech" target="_blank" class="twitter">Twitter do Elo7</a>
-			<a title='RSS do Elo7' rel="external" itemprop="url" href="https://elo7.dev/rss.xml" target="_blank" class="rss">RSS do Elo7</a>
-			<a title='Newsletter do Elo7' rel="external" itemprop="url" href="http://eepurl.com/cVUwvH" target="_blank" class="email">Newsletter do Elo7</a>
-		</div>
-	</header>
-	<main aria-label="Main content" itemscope itemtype="http://schema.org/Blog">
-		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
-	<figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-		<img src='https://elo7.dev/images/cover/um-pouco-sobre-css-js-a11y-cover.png' alt='' itemprop="url">
-	</figure>
-	<div class='post-content'>
-		<h1 itemprop='name' class='title'>Um pouco sobre acessibilidade, CSS e Javascript</h1>
-		<div class='post-meta'>
-			<p class='date'>
-				Publicado em: <time datetime='05/02/2018' itemprop='datePublished'>05/02/2018</time>
-				<meta itemprop='dateModified' content='05/02/2018'>
-			</p>
 
-			<article>
-				
-					<a data-author='luiz' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/luiz/' class='author'>
-						<meta itemprop='url' content='/luiz'>
-						<img class='hide avatar' width='50px' height='50px' itemprop='image'>
-						<p itemprop='name' class='publisher' data-author='luiz'>@luiz</p>
-					</a>
-				
+    <body>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='http://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/data-science' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Data Science</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://eventos.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Nossos eventos</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='http://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
 
-				<meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
-			</article>
-		</div>
-		<div itemprop='articleBody'>
-			<p>Quando se fala em acessibilidade na Web, normalmente as questões giram em torno de recursos mais avançados de navegação, como pop-ups, formulários com AJAX e menus, que exigem código CSS e Javascript para serem implementados. Isso porque, do lado do HTML, as coisas são <em>um pouco</em> mais simples. <a href="/html-semantico-1/">Ao escrever um HTML semântico, já ganhamos uma página bastante acessível</a>.</p>
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/um-pouco-sobre-css-js-a11y-cover.png' alt='Um pouco sobre acessibilidade, CSS e Javascript' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Um pouco sobre acessibilidade, CSS e Javascript</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2018-02-05 00:00:00 &#43;0000 UTC'
+    aria-label='05 de fevereiro de 2018'>
+    05/02/2018
+    <meta itemprop='datePublished' content='Mon Feb 05 2018 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Feb 05 2018 00:00:00 GMT&#43;0000 (UTC)'>
+</time>
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='luiz' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/luiz/' class='author'>
+                                    <meta itemprop='url' content='/autor/luiz'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='luiz'>@luiz</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Quando se fala em acessibilidade na Web, normalmente as questões giram em torno de recursos mais avançados de navegação, como pop-ups, formulários com AJAX e menus, que exigem código CSS e Javascript para serem implementados. Isso porque, do lado do HTML, as coisas são <em>um pouco</em> mais simples. <a href="/html-semantico-1/">Ao escrever um HTML semântico, já ganhamos uma página bastante acessível</a>.</p>
+
 <p>Podemos notar isso com formulários, por exemplo. Ao usar os controles de formulário nativos e a validação HTML5, junto com as tags <code>&lt;label&gt;</code>, <code>&lt;fieldset&gt;</code> e <code>&lt;legend&gt;</code>, nossos formulários já são bastante acessíveis.</p>
-<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>Dados pessoais<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+
+<pre><code class="language-html">&lt;form&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Dados pessoais&lt;/legend&gt;
+    &lt;label&gt;
       Nome
-      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">required</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+      &lt;input type=&quot;text&quot; required&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
       E-mail
-      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">required</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>Endereço<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+      &lt;input type=&quot;email&quot; required&gt;
+    &lt;/label&gt;
+  &lt;/fieldset&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Endereço&lt;/legend&gt;
+    &lt;label&gt;
       Logradouro
-      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+      &lt;input type=&quot;text&quot;&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
       CEP
-      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">required</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">"[0-9]{5}-[0-9]{3}"</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Enviar<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+      &lt;input type=&quot;text&quot; required pattern=&quot;[0-9]{5}-[0-9]{3}&quot;&gt;
+    &lt;/label&gt;
+  &lt;/fieldset&gt;
+  &lt;button type=&quot;submit&quot;&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
 </code></pre>
+
 <p>No exemplo de formulário acima, o uso das tags <code>&lt;fieldset&gt;</code> e <code>&lt;legend&gt;</code> ajuda o usuário a ter mais contexto na hora de preencher cada campo, tanto visual quanto auditivamente (com um leitor de tela). Deixar o contexto claro, por sua vez, ajuda usuários com déficit de atenção ou problemas de memória, ou ainda você mesmo, quando está distraído fazendo várias coisas ao mesmo tempo ou é interrompido por alguém ao seu lado.</p>
+
 <p>Escrever um HTML semântico e usar componentes nativos do navegador evita muitos problemas de acessibilidade pois <strong>os navegadores são feitos para serem acessíveis</strong>; os desenvolvedores de navegador já têm que se preocupar em fazer componentes acessíveis; o mesmo acontece com os desenvolvedores de sistemas operacionais. Por isso, quando conseguimos usar o que já vem implementado no navegador, evitamos bastante dor de cabeça!</p>
+
 <p>Porém, nem sempre o que precisamos já está implementado nativamente. Para colocarmos menus <em>drop-down</em> em nossas páginas, por exemplo, precisamos recorrer a CSS e Javascript.</p>
-<p><img src="../images/um-pouco-sobre-css-js-a11y-1.png" alt="Menu drop-down com opções para o vendedor no site do Elo7"></p>
+
+<p><img src="../images/um-pouco-sobre-css-js-a11y-1.png" alt="Menu drop-down com opções para o vendedor no site do Elo7" /></p>
+
 <p>Outro exemplo são caixas de diálogo; neste caso, existe o componente nativo, mas a aparência não é muito customizável, o que leva à necessidade de reimplementá-lo com HTML, CSS e Javascript.</p>
-<p><img src="../images/um-pouco-sobre-css-js-a11y-2.png" alt="Caixa de confirmação customizada no site do Elo7"></p>
+
+<p><img src="../images/um-pouco-sobre-css-js-a11y-2.png" alt="Caixa de confirmação customizada no site do Elo7" /></p>
+
 <p>Nesses casos, como o próprio desenvolvedor front-end está implementando o componente, cabe a ele garantir que este seja acessível. Isso pode ser bem complicado em alguns casos; por outro lado, com o controle total do componente em mãos, o desenvolvedor pode implementar soluções extremamente acessíveis.</p>
-<h2>Quando o CSS atrapalha</h2>
+
+<h2 id="quando-o-css-atrapalha">Quando o CSS atrapalha</h2>
+
 <p>CSS é bastante poderoso, e permite, em conjunto com o HTML, <a href="https://pt.slideshare.net/fehbernardo/jogos-com-css-65475375">até mesmo a criação de jogos inteiros</a>. Com esse poder, conseguimos construir componentes visuais que antes só eram possíveis com a ajuda de Javascript, como <a href="http://www.devmedia.com.br/menu-em-css-menu-dropdown-horizontal-com-html5-e-css3/37205">menus <em>drop-down</em></a> e <a href="https://tableless.com.br/simples-modal-com-css-responsivo/">caixas de diálogo customizadas</a>.</p>
+
 <p>Porém, componentes criados apenas com HTML e CSS <strong>não são automaticamente acessíveis</strong>. Quando implementamos uma solução mais complexa usando essas tecnologias, precisamos tomar o cuidado de passar mais informações para o navegador para que ele informe ao usuário o que está acontecendo na página. É aí que entra <a href="/wai-aria-apanhado-geral/">a especificação WAI-ARIA</a>.</p>
+
 <p>Um exemplo simples de truque poderoso de CSS é o <em>checkbox hack</em>, que podemos usar para esconder/mostrar dinamicamente elementos na tela. No Elo7, usamos essa técnica para fazer o menu <em>drop-down</em> do vendedor, mostrado anteriormente. No HTML, usamos um <em>checkbox</em> associado a um <em>label</em> e um elemento que queremos esconder/mostrar (no exemplo abaixo, a lista com a classe <code>opcoes</code>):</p>
-<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'checkbox'</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'mais-opcoes'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'checkbox-hack'</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">'mais-opcoes'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'label-menu'</span>&gt;</span>Mais opções<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'menu'</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Copiar<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Compartilhar<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+<pre><code class="language-html">&lt;input type='checkbox' id='mais-opcoes' class='checkbox-hack'&gt;
+&lt;label for='mais-opcoes' class='label-menu'&gt;Mais opções&lt;/label&gt;
+&lt;ul class='menu'&gt;
+  &lt;li&gt;Copiar&lt;/li&gt;
+  &lt;li&gt;Compartilhar&lt;/li&gt;
   ...
-<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+&lt;/ul&gt;
 </code></pre>
+
 <p>No CSS, escondemos o <em>checkbox</em> e fazemos com que o elemento desejado só fique visível quando o <em>checkbox</em> estiver marcado, usando, para isso, a pseudoclasse <code>:checked</code>:</p>
-<pre class="highlight"><code class="hljs css"><span class="hljs-selector-class">.checkbox-hack</span>, <span class="hljs-selector-class">.menu</span> {
-  <span class="hljs-attribute">display</span>: none;
+
+<pre><code class="language-css">.checkbox-hack, .menu {
+  display: none;
 }
 
-<span class="hljs-selector-class">.checkbox-hack</span><span class="hljs-selector-pseudo">:checked</span> + <span class="hljs-selector-class">.label-menu</span> + <span class="hljs-selector-class">.menu</span> {
-  <span class="hljs-attribute">display</span>: block;
+.checkbox-hack:checked + .label-menu + .menu {
+  display: block;
 }
 </code></pre>
+
 <p>Ao clicar no <em>label</em>, a lista aparece ou desaparece, conforme o estado do <em>checkbox</em>. <a href="https://codepen.io/lreal/pen/dZRYmR">Clique aqui para ver esse código funcionando no seu navegador</a>.</p>
+
 <p>Com um pouco mais de estilização, temos um menu funcional para a maioria dos usuários. Porém, para aqueles que dependem do teclado ou de um leitor de tela para navegar, essa lista de opções é muito difícil de ser acessada! Primeiro, não conseguimos acessá-la apenas com o teclado, pois o elemento <code>&lt;label&gt;</code> não recebe o foco conforme navegamos com a tecla <code>Tab</code>. Segundo, para um programa leitor de tela, o elemento <code>&lt;label&gt;</code> nada mais é do que um rótulo para um campo de formulário, nada mais. Portanto, ele não consegue falar para o usuário que há um menu escondido ali, que o usuário pode clicar nele para mostrar um novo conteúdo na tela.</p>
+
 <p>Então, assim como a estilização é importante para olharmos e entendermos que esse <em>label</em> representa um menu, a marcação semântica é importante para os leitores de tela. Também é importante não escondermos o <em>checkbox</em> totalmente, para podermos interagir com ele por teclado. Tendo isso em mente, podemos melhorar nossa marcação com da seguinte forma:</p>
-<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'checkbox'</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'mais-opcoes'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'checkbox-hack'</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">'true'</span> <span class="hljs-attr">role</span>=<span class="hljs-string">'button'</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">'mais-opcoes'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'label-menu'</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">'true'</span>&gt;</span>Mais opções<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'menu'</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Copiar<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Compartilhar<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+<pre><code class="language-html">&lt;input type='checkbox' id='mais-opcoes' class='checkbox-hack' aria-haspopup='true' role='button'&gt;
+&lt;label for='mais-opcoes' class='label-menu' aria-hidden='true'&gt;Mais opções&lt;/label&gt;
+&lt;ul class='menu'&gt;
+  &lt;li&gt;Copiar&lt;/li&gt;
+  &lt;li&gt;Compartilhar&lt;/li&gt;
   ...
-<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+&lt;/ul&gt;
 </code></pre>
-<p>Repare que colocamos os atributos do WAI-ARIA no <em>checkbox</em> e ainda colocamos <code>aria-hidden=true</code> no <em>label</em>. Como queremos que o <em>checkbox</em> possa ser ativado pelo teclado, é nele que devem ficar as marcações de semântica adicionais; a declaração <code>aria-hidden=true</code> no <em>label</em> garante que o texto &quot;Mais opções&quot; não é lido duas vezes, já que o leitor de tela automaticamente lê o rótulo de um campo de formulário (o <em>checkbox</em>, no caso) quando o usuário seleciona ele. Para conseguir ativar o <em>checkbox</em> por teclado sem que isso atrapalhe o layout, podemos escondê-lo de outras formas, como a abaixo:</p>
-<pre class="highlight"><code class="hljs css"><span class="hljs-selector-class">.checkbox-hack</span> {
-  <span class="hljs-attribute">position</span>: absolute;
-  <span class="hljs-attribute">left</span>: -<span class="hljs-number">9999px</span>;
+
+<p>Repare que colocamos os atributos do WAI-ARIA no <em>checkbox</em> e ainda colocamos <code>aria-hidden=true</code> no <em>label</em>. Como queremos que o <em>checkbox</em> possa ser ativado pelo teclado, é nele que devem ficar as marcações de semântica adicionais; a declaração <code>aria-hidden=true</code> no <em>label</em> garante que o texto &ldquo;Mais opções&rdquo; não é lido duas vezes, já que o leitor de tela automaticamente lê o rótulo de um campo de formulário (o <em>checkbox</em>, no caso) quando o usuário seleciona ele. Para conseguir ativar o <em>checkbox</em> por teclado sem que isso atrapalhe o layout, podemos escondê-lo de outras formas, como a abaixo:</p>
+
+<pre><code class="language-css">.checkbox-hack {
+  position: absolute;
+  left: -9999px;
 }
 </code></pre>
+
 <p><a href="https://codepen.io/lreal/pen/qVjNEO">Confira aqui essa versão com uma estilização visual mínima</a>. Se você acessar essa página de demonstração com um leitor de tela, poderá verificar que o checkbox passa a ser lido como um botão de pop-up, indicando para o usuário que ele pode clicar nesse componente da tela para acessar um menu com mais opções, justamente o que queremos que ele faça com esse componente.</p>
-<h2>Quando o Javascript ajuda</h2>
+
+<h2 id="quando-o-javascript-ajuda">Quando o Javascript ajuda</h2>
+
 <p>A solução acima já melhora bastante a acessibilidade de um <em>checkbox hack</em>, porém ainda falha num quesito de acessibilidade. Nada indica para o usuário que o menu está aberto ou fechado; ele precisa navegar para descobrir o estado da página, o que não é muito agradável. Para corrigir esse problema, podemos recorrer novamente aos atributos do WAI-ARIA, mais especificamente ao atributo <code>aria-expanded</code>.</p>
+
 <p>O atributo <code>aria-expanded</code> serve justamente para indicar o estado de um elemento colapsável na tela, como um menu <em>drop-down</em> ou um item de um <a href="https://en.wikipedia.org/wiki/Accordion_(GUI)">acordeon</a>. Pode assumir os valores <code>true</code>, indicando que o elemento está expandido, ou <code>false</code>, indicando que está colapsado. Sendo assim, o atributo precisa <strong>mudar de valor dinamicamente</strong> de acordo com a interação do usuário, algo que só conseguimos com Javascript.</p>
+
 <p>No nosso exemplo do <em>checkbox hack</em>, podemos adicionar o atributo <code>aria-expanded</code> com o valor <code>false</code> no <em>checkbox</em>, já que o menu está fechado no carregamento da página. Depois disso, podemos adicionar via Javascript um <em>listener</em> que altera o valor do atributo <code>aria-expanded</code> de acordo com o estado do <em>checkbox</em>:</p>
-<pre class="highlight"><code class="hljs javascript"><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'mais-opcoes'</span>).addEventListener(<span class="hljs-string">'change'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
-  <span class="hljs-keyword">this</span>.setAttribute(<span class="hljs-string">'aria-expanded'</span>, <span class="hljs-keyword">this</span>.checked);
+
+<pre><code class="language-javascript">document.getElementById('mais-opcoes').addEventListener('change', function(e) {
+  this.setAttribute('aria-expanded', this.checked);
 });
 </code></pre>
+
 <p>Melhor ainda: podemos generalizar o código acima, fazendo com que ele já cuide de todos os <em>checkboxes</em> com a classe <code>checkbox-hack</code>:</p>
-<pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">var</span> hacks = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'.checkbox-hack'</span>);
-<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; hacks.length; i++) {
-  hacks[i].addEventListener(<span class="hljs-string">'change'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
-    <span class="hljs-keyword">this</span>.setAttribute(<span class="hljs-string">'aria-expanded'</span>, <span class="hljs-keyword">this</span>.checked);
+
+<pre><code class="language-javascript">var hacks = document.querySelectorAll('.checkbox-hack');
+for (var i = 0; i &lt; hacks.length; i++) {
+  hacks[i].addEventListener('change', function(e) {
+    this.setAttribute('aria-expanded', this.checked);
   });
 }
 </code></pre>
+
 <p><a href="https://codepen.io/lreal/pen/KyxMRb">Veja o resultado final</a>. Note que o código acima pode, junto com o código CSS anterior, ser reaproveitado entre páginas e até projetos, garantindo uma implementação mais acessível de um truque bastante útil de código.</p>
-<h2>Conclusão</h2>
+
+<h2 id="conclusão">Conclusão</h2>
+
 <p>Apesar de parecer relativamente inofensivo, CSS pode causar alguns problemas sérios de acessibilidade, como vimos neste post com o <em>checkbox hack</em> e também problemas de contraste, movimento excessivo na tela, dentre outros. Em alguns desses casos, um HTML mais semântico e um pouco de Javascript podem fazer toda a diferença para o usuário. Em todo o caso, <strong>quanto mais sofisticada nossa interface, maior nossa responsabilidade de mantê-la acessível</strong>.</p>
+
 <p>Num próximo post, veremos, de certa forma, o caso contrário: como o CSS pode ajudar a deixar sua página mais acessível e como o Javascript pode acabar atrapalhando bastante seu usuário. Se tiver mais exemplos de casos como esses, compartilhe conosco nos comentários!</p>
 
 
-			<ul class='tag-list'>
-			
-				<li>
-					<a href='/tags/acessibilidade/'>acessibilidade</a>
-				</li>
-			
-				<li>
-					<a href='/tags/html/'>html</a>
-				</li>
-			
-				<li>
-					<a href='/tags/css/'>css</a>
-				</li>
-			
-				<li>
-					<a href='/tags/javascript/'>javascript</a>
-				</li>
-			
-			</ul>
-			<section class='share'>
-				<a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
-				<div class='social-share'>
-					<a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https://elo7.dev/um-pouco-sobre-css-js-a11y/&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
-						Compartilhar no facebook
-					</a>
-					<a href='https://twitter.com/intent/tweet?text=Um pouco sobre acessibilidade, CSS e Javascript&url=https://elo7.dev/um-pouco-sobre-css-js-a11y/&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
-						Compartilhar no twitter
-					</a>
-					<a href='https://elo7.dev/um-pouco-sobre-css-js-a11y/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
-						Copiar URL
-					</a>
-					<span class='copy-success'>Link copiado</span>
-					<input type='url' value='https://elo7.dev/um-pouco-sobre-css-js-a11y/?utm_source=share&utm_medium=copy' class='link-input'>
-				</div>
-			</section>
-		</div>
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/acessibilidade/'>acessibilidade</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/html/'>html</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/css/'>css</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/javascript/'>javascript</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=http%3a%2f%2felo7.dev%2fum-pouco-sobre-css-js-a11y%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=um-pouco-sobre-acessibilidade-css-e-javascript&url=http%3a%2f%2felo7.dev%2fum-pouco-sobre-css-js-a11y%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='http://elo7.dev/um-pouco-sobre-css-js-a11y/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='http://elo7.dev/um-pouco-sobre-css-js-a11y/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Um HTML semântico é uma boa base para um site acessível e algumas técnicas de CSS e Javascript podem melhorar ainda mais a experiência. Por outro lado, podem deixar sua página extremamente inacessível. Vamos discutir alguns casos nesse post.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='http://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
 
-		<meta itemprop='headline' content='Um HTML semântico é uma boa base para um site acessível e algumas técnicas de CSS e Javascript podem melhorar ainda mais a experiência. Por outro lado, podem deixar sua página extremamente inacessível. Vamos discutir alguns casos nesse post.'/>
-		<span itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
-			<meta itemprop='name' content='Elo7 Tech'/>
-			<meta itemprop="url" content='https://elo7.dev'/>
-			<span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-				<link href="https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png" itemprop="url"/>
-				<meta itemprop='width' content='100px'/>
-				<meta itemprop='height' content='100px'/>
-			</span>
-		</span>
-		<meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
 
-		<div id='disqus_thread'></div>
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='http://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
-		<script>
-			var disqus_shortname = 'engenhariaelo7';
-			var disqus_identifier = '05/02/2018:/um-pouco-sobre-css-js-a11y/';
-			var disqus_url = 'https://elo7.dev/um-pouco-sobre-css-js-a11y/';
 
-			(function() {
-				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-			})();
-		</script>
-		<noscript>Habilite o JavaScript para ver os comentários</noscript>
-	</div>
-</article>
-<script async src="/js/post.js"></script>
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2018-02-05 00:00:00 \x2b0000 UTC:\/um-pouco-sobre-css-js-a11y\/';
+            var disqus_url = 'http:\/\/elo7.dev\/um-pouco-sobre-css-js-a11y\/';
 
-		
-	</main>
-	<footer itemscope itemtype="http://schema.org/Organization">
-		<a rel="home" itemprop="url" href="https://elo7.dev/" >
-			elo7.dev © 2019
-		</a>
-		<meta itemprop="name" content="Elo7 Serviços de Informática SA"/>
-		<section class='footer-social'>
-			<a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
-			<a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
-			<a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/rss.xml' target='_blank' class='rss'>RSS do Elo7</a>
-			<a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
-		</section>
-	</footer>
-	<script async src="https://www.google-analytics.com/analytics.js"></script>
-	<script async src="/js/analytics.js"></script>
-	<script async src="/js/github.js"></script>
-	<script async src="/js/vendor/events-amd.js"></script>
-	<script async src="/js/vendor/ajax.js"></script>
-	<script async src="/js/vendor/doc.js"></script>
-	<script async type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
 </html>

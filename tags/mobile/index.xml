@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mobile on Tech Blog Elo7</title>
+    <link>http://elo7.dev/tags/mobile/</link>
+    <description>Recent content in Mobile on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 20 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://elo7.dev/tags/mobile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Desenvolvedor Mobile Júnior/Pleno</title>
+      <link>http://elo7.dev/vagas-desenvolverdor-mobile/</link>
+      <pubDate>Mon, 20 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/vagas-desenvolverdor-mobile/</guid>
+      <description>O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos.
+Utilizamos práticas ágeis de desenvolvimento e gostamos de ter um ambiente bem descontraído. O nosso time de aplicativos nativos trabalha principalmente no desenvolvimento dos nossos apps Android e iOS do Elo7 e do Talk7 utilizando as tecnologias Java, Objective-C, Swift e React Native. Somos um time Fullstack participando do desenvolvimento de APIs e de WebView utilizadas em nossos apps híbridos.</description>
+    </item>
+    
+    <item>
+      <title>Técnicas para codificar um e-mail - parte 3</title>
+      <link>http://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</link>
+      <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</guid>
+      <description>No segundo post da série, aprendemos a lidar com espaçamento nos e-mails. Neste, iremos abordar como criar conteúdo em colunas e como deixá-las responsivas.
+Finalmente chegamos ao conteúdo! Para começar, vamos criar uma nova tabela. É possível usar a mesma tabela do container e alterar o bgcolor para mudar a cor da célula em vez da tabela. Mas aconselho a criar uma nova para evitar problemas com o colspan e rowspan, porque essas propriedades causam problemas para manter a estrutura correta à medida que são criadas novas células.</description>
+    </item>
+    
+    <item>
+      <title>Web Share API</title>
+      <link>http://elo7.dev/web-share-api/</link>
+      <pubDate>Mon, 11 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/web-share-api/</guid>
+      <description>Vivemos atualmente a era da informação, onde estamos conectados o tempo todo a redes sociais (Facebook, Twitter, LinkedIn), programas de conversação (WhatsApp, Telegram e Slack) e outras ferramentas que permitem o compartilhamento de informações. Através destes softwares, podemos compartilhar com nossos amigos de tudo: fotos, textos, um link para uma notícia importante ou até mesmo aquele produto que gostamos. Como desenvolvedor web, você provavelmente já precisou adicionar em seus projetos algum recurso para compartilhamento de terceiros.</description>
+    </item>
+    
+    <item>
+      <title>Vaga Mobile Developer</title>
+      <link>http://elo7.dev/vagas-mobile/</link>
+      <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/vagas-mobile/</guid>
+      <description>O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos.
+Utilizamos práticas ágeis de desenvolvimento e gostamos de ter um ambiente bem descontraído. O nosso time de aplicativos nativos trabalha principalmente no desenvolvimento dos nossos apps Android e iOS do Elo7 e do Talk7 utilizando as tecnologias Java, Objective-C, Swift e React Native. Também cuidamos de todo o ambiente ao redor que pode facilitar o desenvolvimento, influenciar o usuário, detectar bugs e automatizar processos.</description>
+    </item>
+    
+    <item>
+      <title>Google I/O - Inteligência Artificial</title>
+      <link>http://elo7.dev/google-io/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/google-io/</guid>
+      <description>No geral o Google I/O 2017 foi bem denso em conteúdo. Ocorreram 155 sessões, 100 office hours, 85 code labs e 19 sandboxes!
+Inteligência artificial foi um dos grandes temas da conferência. Atualmente, todos os produtos da Google estão utilizando alguma camada de inteligência artificial, e vão usar cada vez mais no futuro.
+Mobile First to AI First A empresa está lançando uma nova iniciativa chamada Google.ai para compartilhar documentos de pesquisa, ferramentas e diversos outros tópicos sobre inteligência artificial.</description>
+    </item>
+    
+    <item>
+      <title>Slides do evento Software Fora de série - #elo7tech</title>
+      <link>http://elo7.dev/slides-evento-software-fora-de-serie/</link>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://elo7.dev/slides-evento-software-fora-de-serie/</guid>
+      <description>Todos os slides do evento Software Fora de Série:
+Carlos Curioni e David Robert Talk7 - Da concepção ao desenvolvimento de um aplicativo de mensagens 
+Mario Amaral A arquitetura de um chat integrado ao checkout 
+Alexandre Gama Back-end de extrema performance 
+Rafael Monteiro Automatizando a implantação e operação de aplicações conteinerizadas no AWS 
+Fernanda Bernardo e Andre Barro A influência dos usuários no desenvolvimento do Talk7</description>
+    </item>
+    
+  </channel>
+</rss>
