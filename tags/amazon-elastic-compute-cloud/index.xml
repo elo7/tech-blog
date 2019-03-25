@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Amazon Elastic Compute Cloud on Tech Blog Elo7</title>
-    <link>http://elo7.dev/tags/amazon-elastic-compute-cloud/</link>
+    <link>https://elo7.dev/tags/amazon-elastic-compute-cloud/</link>
     <description>Recent content in Amazon Elastic Compute Cloud on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Tue, 14 Jun 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/tags/amazon-elastic-compute-cloud/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/tags/amazon-elastic-compute-cloud/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Slides do evento Software Fora de série - #elo7tech</title>
-      <link>http://elo7.dev/slides-evento-software-fora-de-serie/</link>
+      <link>https://elo7.dev/slides-evento-software-fora-de-serie/</link>
       <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/slides-evento-software-fora-de-serie/</guid>
+      <guid>https://elo7.dev/slides-evento-software-fora-de-serie/</guid>
       <description>Todos os slides do evento Software Fora de Série:
 Carlos Curioni e David Robert Talk7 - Da concepção ao desenvolvimento de um aplicativo de mensagens 
 Mario Amaral A arquitetura de um chat integrado ao checkout 
@@ -27,10 +27,10 @@ Fernanda Bernardo e Andre Barro A influência dos usuários no desenvolvimento
     
     <item>
       <title>Auto scale Sidekiq workers on Amazon EC2</title>
-      <link>http://elo7.dev/sidekiq-workers/</link>
+      <link>https://elo7.dev/sidekiq-workers/</link>
       <pubDate>Mon, 24 Jun 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/sidekiq-workers/</guid>
+      <guid>https://elo7.dev/sidekiq-workers/</guid>
       <description>We use Sidekiq to process messages from images conversion to shipping tickets&amp;rsquo; generation.
 The total size of our queues decreases and increases drastically during the day. When it happens we have to increase or decrease our workers by adding or removing new EC2 instances.
 Amazon Auto Scale I will not get into the details of Amazon Auto Scaling, as it deserves an entire post about it.

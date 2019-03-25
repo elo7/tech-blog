@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java on Tech Blog Elo7</title>
-    <link>http://elo7.dev/tags/java/</link>
+    <link>https://elo7.dev/tags/java/</link>
     <description>Recent content in Java on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 18 Feb 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/tags/java/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Programação Reativa - Parte 4</title>
-      <link>http://elo7.dev/programacao-reativa-parte-4/</link>
+      <link>https://elo7.dev/programacao-reativa-parte-4/</link>
       <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/programacao-reativa-parte-4/</guid>
+      <guid>https://elo7.dev/programacao-reativa-parte-4/</guid>
       <description>Nos três posts anteriores, vimos os fundamentos principais da programação reativa, incluindo muitos exemplos de código, processamento concorrente e contrapressão. Que lindo! Mas serão esses conceitos aplicáveis para aplicações de grande porte e sistemas inteiros? Esse post irá explorar os detalhes de uma verdadeira aplicação reativa.
 Caso você não tenha lido os posts anteriores, uma recapitulação:
  O que é programação reativa? Exemplos de código com o RxJava Processamento concorrente, paralelismo e backpressure  Por que queremos um sistema &amp;ldquo;reativo&amp;rdquo;?</description>
@@ -24,10 +24,10 @@ Caso você não tenha lido os posts anteriores, uma recapitulação:
     
     <item>
       <title>Programação Reativa - Parte 3</title>
-      <link>http://elo7.dev/programacao-reativa-parte-3/</link>
+      <link>https://elo7.dev/programacao-reativa-parte-3/</link>
       <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/programacao-reativa-parte-3/</guid>
+      <guid>https://elo7.dev/programacao-reativa-parte-3/</guid>
       <description>Nos dois posts anteriores sobre Programação Reativa, estudamos os fundamentos desse paradigma e vimos muitos exemplos de código usando o RxJava. Nesse capítulo, vamos nos focar na abstração sobre a execução assícrona e parelela que os frameworks Rx fornecem, e especialmente em um conceito que é um dos pilares do modelo reativo: a contrapressão ou backpressure.
  “A dúvida é o princípio da sabedoria. (Aristóteles)”
  Processamento assíncrono Um dos assuntos que mais causam discussão a respeito da programação reativa é questão do processamento assíncrono.</description>
@@ -35,88 +35,88 @@ Caso você não tenha lido os posts anteriores, uma recapitulação:
     
     <item>
       <title>Properties dinâmicos com Spring Cloud Config</title>
-      <link>http://elo7.dev/spring-cloud-config/</link>
+      <link>https://elo7.dev/spring-cloud-config/</link>
       <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/spring-cloud-config/</guid>
+      <guid>https://elo7.dev/spring-cloud-config/</guid>
       <description>O problema existente hoje&amp;hellip; Bom, primeiramente posso dizer que pensei nesse tema por já ter presenciado, algumas vezes, problemas em ambiente de produção, devido a configurações com valores incorretos ou mesmo falta delas por esquecimento.
 Agora imagine isso ocorrendo no final de um deploy no ambiente de produção, e pior, com os arquivos de configurações (no caso de aplicações Java, normalmente arquivos properties) dentro da aplicação. Um novo deploy teria que ser feito em N máquinas.</description>
     </item>
     
     <item>
       <title>Programação Reativa - Parte 2</title>
-      <link>http://elo7.dev/programacao-reativa-parte-2/</link>
+      <link>https://elo7.dev/programacao-reativa-parte-2/</link>
       <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/programacao-reativa-parte-2/</guid>
+      <guid>https://elo7.dev/programacao-reativa-parte-2/</guid>
       <description>No post anterior, vimos os fundamentos da programação reativa, incluindo o funcionamento básico sobre os quais os frameworks da família ReactiveX são implementados. Nessa segunda fase da nossa &amp;ldquo;jornada reativa&amp;rdquo;, começaremos a estudar os principais recursos e funcionalidades do RxJava, e então estaremos mais preparados para aplicar esses conceitos - não apenas em &amp;ldquo;programas&amp;rdquo; mas em &amp;ldquo;sistemas&amp;rdquo;, os chamados sistemas reativos.
 Os exemplos deste post estão implementados com o RxJava (a versão 2, compatível com o Reactive Streams, que tem algumas diferenças para a versão anterior).</description>
     </item>
     
     <item>
       <title>Programação Reativa - Parte 1</title>
-      <link>http://elo7.dev/programacao-reativa/</link>
+      <link>https://elo7.dev/programacao-reativa/</link>
       <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/programacao-reativa/</guid>
+      <guid>https://elo7.dev/programacao-reativa/</guid>
       <description>Em tempos recentes, a expressão &amp;ldquo;programação reativa&amp;rdquo; tem ganhado (ainda mais) força nas discussões do mundo do software. Apesar de não ser algo necessariamente &amp;ldquo;novo&amp;rdquo; (nem um pouco, na verdade) e se basear em conceitos e padrões já existentes, a tal &amp;ldquo;programação reativa&amp;rdquo; tem ganho muito destaque e há um bom número de frameworks que suportam esse paradigma em diversas linguagens. Mas será apenas mais uma &amp;ldquo;buzzword&amp;rdquo; ou algo realmente útil?</description>
     </item>
     
     <item>
       <title>Testes mais fluidos com AssertJ</title>
-      <link>http://elo7.dev/testes-mais-fluidos-com-assertj/</link>
+      <link>https://elo7.dev/testes-mais-fluidos-com-assertj/</link>
       <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/testes-mais-fluidos-com-assertj/</guid>
+      <guid>https://elo7.dev/testes-mais-fluidos-com-assertj/</guid>
       <description>Em um post anterior, o Leonardo Souza explicou como é a cultura da empresa e comentou sobre o hackday, um dia em que os desenvolvedores podem trabalhar em suas próprias ideias. Eu entrei para a empresa em outubro e nos meus primeiros meses fiquei auxiliando nas ideias de outras pessoas, pois ainda não tinha nenhuma ideia. Pouco tempo depois, a ThoughtWorks lançou a décima-sétima edição do seu radar e, para minha surpresa, na área de linguagens e frameworks para se adotar estava apenas Python 3.</description>
     </item>
     
     <item>
       <title>Vaga Search Developer - Information Retrieval</title>
-      <link>http://elo7.dev/vagas-search-2017-12/</link>
+      <link>https://elo7.dev/vagas-search-2017-12/</link>
       <pubDate>Thu, 21 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/vagas-search-2017-12/</guid>
+      <guid>https://elo7.dev/vagas-search-2017-12/</guid>
       <description>O Elo7 é um marketplace que busca conectar milhões de usuários a produtos feitos sob encomenda por milhares de vendedores para oferecer uma experiência de compra única na internet. O objetivo do Elo7 é oferecer as melhores ferramentas para compra e venda de produtos personalizados.
 Nosso ambiente é colaborativo e gostamos de incentivar aprendizado e distribuição de conhecimento. Em nosso dia-a-dia utilizamos pair-programming com objetivo de garantir esses pontos, além da qualidade da solução.</description>
     </item>
     
     <item>
       <title>Vaga Data Scientist</title>
-      <link>http://elo7.dev/vagas-data-scientist-cientista-de-dados/</link>
+      <link>https://elo7.dev/vagas-data-scientist-cientista-de-dados/</link>
       <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/vagas-data-scientist-cientista-de-dados/</guid>
+      <guid>https://elo7.dev/vagas-data-scientist-cientista-de-dados/</guid>
       <description>O Elo7 é um marketplace que busca conectar milhões de usuários a produtos feitos sob encomenda por milhares de vendedores para oferecer uma experiência de compra única na internet. O objetivo do Elo7 é oferecer as melhores ferramentas para compra e venda de produtos personalizados.
 Nosso ambiente é colaborativo e gostamos de incentivar aprendizado e distribuição de conhecimento. Em nosso dia-a-dia utilizamos pair-programming com objetivo de garantir esses pontos, além da qualidade da solução.</description>
     </item>
     
     <item>
       <title>Novidades do JUnit 5 - parte 2</title>
-      <link>http://elo7.dev/novidades-do-junit-5-parte-2/</link>
+      <link>https://elo7.dev/novidades-do-junit-5-parte-2/</link>
       <pubDate>Mon, 20 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/novidades-do-junit-5-parte-2/</guid>
+      <guid>https://elo7.dev/novidades-do-junit-5-parte-2/</guid>
       <description>Em setembro/2017, após pouco mais de um ano de versões milestones e testes, foi lançado o JUnit 5, a nova versão do principal framework para testes de código na plataforma Java. Escrevi um post sobre as principais novas funcionalidades e recursos. Váááárias coisas legais, mas o que fazemos com os testes que já existem no nosso projeto?
 Adorei o JUnit 5! Mas&amp;hellip;e os meus testes já escritos nas versões anteriores do JUnit?</description>
     </item>
     
     <item>
       <title>Novidades do JUnit 5 - parte 1</title>
-      <link>http://elo7.dev/novidades-do-junit-5-parte-1/</link>
+      <link>https://elo7.dev/novidades-do-junit-5-parte-1/</link>
       <pubDate>Mon, 06 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/novidades-do-junit-5-parte-1/</guid>
+      <guid>https://elo7.dev/novidades-do-junit-5-parte-1/</guid>
       <description>Em setembro/2017, após pouco mais de um ano de versões milestones e testes, foi lançado o JUnit 5, a nova versão do principal framework para testes de código na plataforma Java. Essa versão traz várias novas funcionalidades excelentes e algumas mudanças drásticas em relação às versões anteriores.
 Este é o primeiro post de uma série sobre o JUnit 5. Aqui, vou tratar das principais mudanças e recursos nesse novo release.</description>
     </item>
     
     <item>
       <title>Testes de código com Mockito (2) - Novidades da nova versão</title>
-      <link>http://elo7.dev/testes-codigo-mockito-2/</link>
+      <link>https://elo7.dev/testes-codigo-mockito-2/</link>
       <pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/testes-codigo-mockito-2/</guid>
+      <guid>https://elo7.dev/testes-codigo-mockito-2/</guid>
       <description>Há algum tempo, escrevi um post sobre o funcionamento e os principais recursos do Mockito. Na ocasião em que o post foi escrito, a versão 2 do framework ainda estava em beta, e, nesse tempo, não apenas foi oficialmente lançada como ocorreram vários releases subsequentes (no momento em que escrevo, a última versão é a 2.7.22).
 Neste post, vou demonstrar as principais novidades e funcionalidades dessa nova versão.
 Construção de mocks/proxy de objetos e classes final A principal alteração interna da versão 2 do Mockito foi a mudança da biblioteca utilizada para construção de mocks/proxificação de objetos.</description>
@@ -124,40 +124,40 @@ Construção de mocks/proxy de objetos e classes final A principal alteração i
     
     <item>
       <title>Google I/O - Android</title>
-      <link>http://elo7.dev/google-io-2/</link>
+      <link>https://elo7.dev/google-io-2/</link>
       <pubDate>Mon, 19 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/google-io-2/</guid>
+      <guid>https://elo7.dev/google-io-2/</guid>
       <description>A principal novidade sobre a plataforma Android foi o suporte à linguagem de programação Kotlin.
  https://android-developers.googleblog.com/2017/05/android-announces-support-for-kotlin.html https://kotlinlang.org/ Introduction to Kotlin (Google I/O &amp;lsquo;17) https://www.youtube.com/watch?v=X1RVYt2QKQE  O suporte oficial à linguagem Kotlin está disponível no Android Studio a partir da versão 3.0. Essa versão disponibiliza o suporte nativo da IDE ao Kotlin, com 100% de interoperabilidade com Java (provida pelo compilador do Kotlin) e conversão de código legado (para aqueles que gostam de se aventurar).</description>
     </item>
     
     <item>
       <title>Nightfall - Injetando dependências no Spark (Parte 1)</title>
-      <link>http://elo7.dev/nightfall/</link>
+      <link>https://elo7.dev/nightfall/</link>
       <pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/nightfall/</guid>
+      <guid>https://elo7.dev/nightfall/</guid>
       <description>O início Começamos a utilizar o Spark no Elo7 para processar métricas em tempo real, enviando eventos assíncronos do nosso site para serem consumidos em um sistema de agregação. Essa foi uma forma de remover o acoplamento entre as métricas e o negócio.
 Mas o que é Spark? Spark é uma plataforma para computação distribuída, que extende o modelo de MapReduce. É uma ferramenta de propósito geral e projetada para alta performance, incluindo queries iterativas e processamento em batch e streaming.</description>
     </item>
     
     <item>
       <title>Vaga Data Scientist</title>
-      <link>http://elo7.dev/vagas-data-scientist/</link>
+      <link>https://elo7.dev/vagas-data-scientist/</link>
       <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/vagas-data-scientist/</guid>
+      <guid>https://elo7.dev/vagas-data-scientist/</guid>
       <description>O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos.
 Utilizamos práticas ágeis de desenvolvimento e gostamos de ter um ambiente bem descontraído. Atualmente temos um cenário com diversas tecnologias (AWS, Docker) e linguagens (Java, Python, Ruby e Scala) que nos leva à necessidade de possuir profissionais versáteis, capazes de utilizar essas ferramentas com boas práticas, autonomia e algumas vezes antes de elas serem amadurecidas no mercado.</description>
     </item>
     
     <item>
       <title>Vaga de estágio em desenvolvimento de software</title>
-      <link>http://elo7.dev/vagas-estagio/</link>
+      <link>https://elo7.dev/vagas-estagio/</link>
       <pubDate>Mon, 26 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/vagas-estagio/</guid>
+      <guid>https://elo7.dev/vagas-estagio/</guid>
       <description>Procuramos estagiários com os seguintes requisitos:
  Gostar de programar! Orientação a objetos Conhecimento em Java ou C Conhecimento de HTML, CSS e JavaScript Disposto a aprender e compartilhar conhecimento! Cursando faculdade ou técnico  Desejável experiência também em:
  Boas práticas de programação Conhecimento em Java para web (VRaptor ou Spring) Design Patterns  Vaga para 6 horas diárias.
@@ -167,19 +167,19 @@ Envie um e-mail com o título: Estágio Desenvolvimento para: jobs+estagio@elo7.
     
     <item>
       <title>Introdução à programação funcional com Java 8</title>
-      <link>http://elo7.dev/introducao-a-programacao-funcional-com-java8/</link>
+      <link>https://elo7.dev/introducao-a-programacao-funcional-com-java8/</link>
       <pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/introducao-a-programacao-funcional-com-java8/</guid>
+      <guid>https://elo7.dev/introducao-a-programacao-funcional-com-java8/</guid>
       <description>Disponível desde 2014, o Java 8 ainda deixa muitas dúvidas, principalmente quanto às novidades em relação à sua versão anterior e a incorporação de conceitos de programação funcional. Nesse post vou falar sobre as principais novidades do Java 8 relativas a esse aspecto. É importante observar que o Java 8 foi desenvolvido pensando na retrocompatibilidade, ou seja, aplicações desenvolvidas na versão 7 funcionarão perfeitamente nas versões mais atuais da linguagem.</description>
     </item>
     
     <item>
       <title>Introdução ao Java</title>
-      <link>http://elo7.dev/introducao-ao-java/</link>
+      <link>https://elo7.dev/introducao-ao-java/</link>
       <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/introducao-ao-java/</guid>
+      <guid>https://elo7.dev/introducao-ao-java/</guid>
       <description>Entrei para o time de front-end do Elo7 tem alguns meses e digo que fiquei &amp;ldquo;assustado&amp;rdquo; quando vi que o time mexia muito com código Java. Meu susto maior é que minha única experiência com a linguagem foi na época da faculdade, chegando apenas a desenvolver o iSnake. Tirando isso, posso dizer que minha experiência é null.
 Mas chega de história e vamos ao que interessa!
 Instalando o Java Antes de começar a escrever algum código, vamos precisar verificar se já temos o Java instalado.</description>
@@ -187,10 +187,10 @@ Instalando o Java Antes de começar a escrever algum código, vamos precisar ver
     
     <item>
       <title>Desmistificando o Dagger 2</title>
-      <link>http://elo7.dev/desmistificando-dagger2/</link>
+      <link>https://elo7.dev/desmistificando-dagger2/</link>
       <pubDate>Wed, 20 Jul 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/desmistificando-dagger2/</guid>
+      <guid>https://elo7.dev/desmistificando-dagger2/</guid>
       <description>Sem dúvidas, uma das bibliotecas mais famosas da “atualidade” (embora tenha vários anos de vida) no universo Android, mas que mesmo assim nos causa muita confusão e dúvida.
 Até mesmo para engenheiros experientes, o Dagger 2 causa um pouco de “medo” para implementar.
 Mas a parte boa é que ele é muito simples! Vamos juntos tentar dissecar o problema até que você tenha o famoso Eureka!
@@ -199,10 +199,10 @@ Inversion of Control e Dependency Inversion Para entender bem o Dagger 2, precis
     
     <item>
       <title>Testes de código com Mockito</title>
-      <link>http://elo7.dev/testes-codigo-mockito/</link>
+      <link>https://elo7.dev/testes-codigo-mockito/</link>
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/testes-codigo-mockito/</guid>
+      <guid>https://elo7.dev/testes-codigo-mockito/</guid>
       <description>No trabalho da Engenharia do Elo7, valorizamos bastante a qualidade do código que produzimos. Isso passa por várias etapas: boas práticas de código, programação pareada, revisões cuidadosas e, claro, testes. Muitos testes.
 Para as aplicações baseadas em Java (nossa principal linguagem), utilizamos o Mockito como ferramenta de criação de _objetos mocks_. Neste post, vamos explorar as principais funcionalidades e alguns recursos avançados desse framework.
 O básico Não é o objetivo desse post explicar em detalhes a idéia de &amp;ldquo;mock&amp;rdquo;, mas podemos arranhar a superfície desse conceito: pense em um mock como um objeto criado em tempo de execução, que devolve respostas pré-configuradas.</description>
@@ -210,10 +210,10 @@ O básico Não é o objetivo desse post explicar em detalhes a idéia de &amp;ld
     
     <item>
       <title>Vaga Engenheiro de Software/Java</title>
-      <link>http://elo7.dev/vagas-java-post/</link>
+      <link>https://elo7.dev/vagas-java-post/</link>
       <pubDate>Fri, 15 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/vagas-java-post/</guid>
+      <guid>https://elo7.dev/vagas-java-post/</guid>
       <description>Desenvolvedor(a) de Software Java Sênior Procuramos desenvolvedores Java com bons conhecimentos em:
  Orientação a objetos e boas práticas de programação Java para web (Spring, Vraptor, JSP) APIs Rest (Integração e criação) Processamentos assíncronos  Desejável experiência também em:
  Arquitetura de sistemas Desenho de APIs Oauth2 Integração Contínua e Jenkins Cultura Devops  **Curtiu o desafio? Quer fazer parte deste time #foradesérie? Envie um e-mail com o título: Desenvolvedor Java para: jobs+devjava@elo7.</description>

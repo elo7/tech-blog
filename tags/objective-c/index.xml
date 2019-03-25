@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Objective C on Tech Blog Elo7</title>
-    <link>http://elo7.dev/tags/objective-c/</link>
+    <link>https://elo7.dev/tags/objective-c/</link>
     <description>Recent content in Objective C on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Wed, 27 May 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/tags/objective-c/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/tags/objective-c/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>iOS - Vamos falar um pouco de arquitetura</title>
-      <link>http://elo7.dev/ios-arquitetura/</link>
+      <link>https://elo7.dev/ios-arquitetura/</link>
       <pubDate>Wed, 27 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/ios-arquitetura/</guid>
+      <guid>https://elo7.dev/ios-arquitetura/</guid>
       <description>Fala galera, tudo tranquilo? Me chamo Abner Terribili, sou novo no time de Engenharia aqui na Elo7, e atualmente estou no time de mobile. Espero ter boas participações aqui no blog. 🙂
 Nós, aqui na Elo7, acabamos de tirar do forno nossa primeira versão do aplicativo para iOS (iPhones) para compradores.
 E hoje, vou abrir para vocês um pouco da arquitetura que decidimos adotar, claro, elencando alguns dos motivos para determinadas decisões.</description>

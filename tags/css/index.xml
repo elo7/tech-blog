@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Css on Tech Blog Elo7</title>
-    <link>http://elo7.dev/tags/css/</link>
+    <link>https://elo7.dev/tags/css/</link>
     <description>Recent content in Css on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 01 Oct 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/tags/css/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/tags/css/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Techtalk - Jogos: indo além do simples CSS</title>
-      <link>http://elo7.dev/techtalk-jogos-indo-alem-do-simples-css/</link>
+      <link>https://elo7.dev/techtalk-jogos-indo-alem-do-simples-css/</link>
       <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/techtalk-jogos-indo-alem-do-simples-css/</guid>
+      <guid>https://elo7.dev/techtalk-jogos-indo-alem-do-simples-css/</guid>
       <description>Naturalmente, quando pensamos em jogos, pensamos em animações, eventos, vários tipos de interações&amp;hellip; E na hora de desenvolver, mais naturalmente ainda pensamos em uma linguagem de programação, já que ela possibilita executar tudo isso. Mas você já pensou em fazer um jogo usando apenas HTML (uma linguagem de estrutura) e CSS (uma linguagem de estilos)? Sem uma linha de Javascript? Sim, sim, isso é possível! Veja a minha talk e descubra como isso é possível ;D</description>
     </item>
     
     <item>
       <title>Javascript e acessibilidade</title>
-      <link>http://elo7.dev/javascript-e-a11y/</link>
+      <link>https://elo7.dev/javascript-e-a11y/</link>
       <pubDate>Mon, 10 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/javascript-e-a11y/</guid>
+      <guid>https://elo7.dev/javascript-e-a11y/</guid>
       <description>Se temos uma web rica em termos de experiência do usuário, muito se deve ao Javascript, que nos permite criar componentes dinâmicos e torna a web uma plataforma muito mais interativa. Porém, com grandes poderes, vêm grandes responsabilidades e, se não tomarmos cuidado, dependendo da solução que implementarmos, podemos prejudicar a usabilidade e a acessibilidade das nossas interfaces. Num post anterior, vimos que até o CSS pode atrapalhar em alguns casos, quem dirá o Javascript!</description>
     </item>
     
     <item>
       <title>Técnicas para codificar um e-mail - parte 4</title>
-      <link>http://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-4/</link>
+      <link>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-4/</link>
       <pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-4/</guid>
+      <guid>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-4/</guid>
       <description>No terceiro post da série, aprendemos a criar e-mails com conteúdos em colunas e a como deixá-las responsivas. Nesse, iremos comentar sobre algumas dicas gerais e sobre fontes customizadas.
 Table x Div Por que ainda usamos a table ao invés de div? A div é bem mais simples e não precisa criar linhas e colunas como a tabela, então por que não usar div&#39;s?
 Apesar das div&#39;s serem bem aceitas para a maior parte dos clientes de e-mail, ela ainda não é bem suportada para o Outlook 2007/2010/2013, nos quais algumas propriedades de CSS só funcionam para td.</description>
@@ -42,50 +42,50 @@ Apesar das div&#39;s serem bem aceitas para a maior parte dos clientes de e-mail
     
     <item>
       <title>Técnicas para codificar um e-mail - parte 3</title>
-      <link>http://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</link>
+      <link>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</link>
       <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</guid>
+      <guid>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</guid>
       <description>No segundo post da série, aprendemos a lidar com espaçamento nos e-mails. Neste, iremos abordar como criar conteúdo em colunas e como deixá-las responsivas.
 Finalmente chegamos ao conteúdo! Para começar, vamos criar uma nova tabela. É possível usar a mesma tabela do container e alterar o bgcolor para mudar a cor da célula em vez da tabela. Mas aconselho a criar uma nova para evitar problemas com o colspan e rowspan, porque essas propriedades causam problemas para manter a estrutura correta à medida que são criadas novas células.</description>
     </item>
     
     <item>
       <title>CSS Basics - Margin x Padding</title>
-      <link>http://elo7.dev/css-basics-margin-padding/</link>
+      <link>https://elo7.dev/css-basics-margin-padding/</link>
       <pubDate>Mon, 19 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/css-basics-margin-padding/</guid>
+      <guid>https://elo7.dev/css-basics-margin-padding/</guid>
       <description>Depois de falar sobre a propriedade display no post anterior, continuaremos falando sobre outras propriedades básicas do CSS. Nesse post conheça um pouco mais sobre as propriedades de espaçamento margin e padding.
 Diferença Para começar, qual a principal diferença entre margin e padding? Ao utilizar a propriedade margin, você está acrescentando um espaço externo ao elemento, ou seja, para fora (a distância entre um elemento e outro). Enquanto o padding acrescenta um espaço interno ao elemento, para dentro (a distância entre o conteúdo e a borda).</description>
     </item>
     
     <item>
       <title>Um pouco sobre acessibilidade, CSS e Javascript</title>
-      <link>http://elo7.dev/um-pouco-sobre-css-js-a11y/</link>
+      <link>https://elo7.dev/um-pouco-sobre-css-js-a11y/</link>
       <pubDate>Mon, 05 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/um-pouco-sobre-css-js-a11y/</guid>
+      <guid>https://elo7.dev/um-pouco-sobre-css-js-a11y/</guid>
       <description>Quando se fala em acessibilidade na Web, normalmente as questões giram em torno de recursos mais avançados de navegação, como pop-ups, formulários com AJAX e menus, que exigem código CSS e Javascript para serem implementados. Isso porque, do lado do HTML, as coisas são um pouco mais simples. Ao escrever um HTML semântico, já ganhamos uma página bastante acessível.
 Podemos notar isso com formulários, por exemplo. Ao usar os controles de formulário nativos e a validação HTML5, junto com as tags &amp;lt;label&amp;gt;, &amp;lt;fieldset&amp;gt; e &amp;lt;legend&amp;gt;, nossos formulários já são bastante acessíveis.</description>
     </item>
     
     <item>
       <title>Técnicas para codificar um e-mail - parte 2</title>
-      <link>http://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-2/</link>
+      <link>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-2/</link>
       <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-2/</guid>
+      <guid>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-2/</guid>
       <description>No primeiro post da série, aprendemos a criar uma base para codificação de e-mail. Neste, iremos abordar as diversas formas de trabalhar com os espaçamentos.
 Para começar, vamos adicionar um cabeçalho ao nosso e-mail. Criaremos uma tabela e, dentro dela, adicionaremos um título para o nosso e-mail. Para ficar igual ao layout proposto no primeiro post da série, vamos adicionar o atributo bgcolor para alterar a cor do fundo para marrom claro:</description>
     </item>
     
     <item>
       <title>Front-End - Coisas de que nós nos orgulhamos em 2017!</title>
-      <link>http://elo7.dev/retrospectiva-front-end-2017/</link>
+      <link>https://elo7.dev/retrospectiva-front-end-2017/</link>
       <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/retrospectiva-front-end-2017/</guid>
+      <guid>https://elo7.dev/retrospectiva-front-end-2017/</guid>
       <description>2017 foi um ano recheado de projetos interessantes e desafiantes para nós. Neste post vou fazer um resumão deles.
 Web APIs A tendência de tornar a web cada vez mais amigável aos usuários, muitas vezes de forma bem parecida ao que acontece com os aplicativos, se mostrou bem forte. E nós temos diversas ferramentas nos navegadores para implementar isso: as Web APIs.
 Foi muito divertido testar e implementar algumas delas:</description>
@@ -93,39 +93,39 @@ Foi muito divertido testar e implementar algumas delas:</description>
     
     <item>
       <title>Técnicas para codificar um e-mail</title>
-      <link>http://elo7.dev/tecnicas-para-codificar-um-e-mail/</link>
+      <link>https://elo7.dev/tecnicas-para-codificar-um-e-mail/</link>
       <pubDate>Mon, 09 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/tecnicas-para-codificar-um-e-mail/</guid>
+      <guid>https://elo7.dev/tecnicas-para-codificar-um-e-mail/</guid>
       <description>No início da minha carreira como desenvolvedora front-end, tive que codificar o meu primeiro e-mail marketing (aqueles e-mails promocionais que você geralmente recebe de um e-commerce). Como não conhecia muito sobre como funcionavam os clientes de e-mail, fiz o código como se estivesse codificando um site: usei várias propriedade de css, abusei da propriedade float (que na época era moda), usei classes e coloquei todo o css dentro da tag style.</description>
     </item>
     
     <item>
       <title>CSS Basics - Display</title>
-      <link>http://elo7.dev/css-basics-display/</link>
+      <link>https://elo7.dev/css-basics-display/</link>
       <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/css-basics-display/</guid>
+      <guid>https://elo7.dev/css-basics-display/</guid>
       <description>Este será o primeiro de uma série de posts sobre CSS Básico. A ideia desses posts é explicar como funciona cada uma das propriedades do CSS que na teoria &amp;ldquo;todo mundo conhece&amp;rdquo;. Vamos entender como usar cada uma delas sem ficarmos apenas &amp;ldquo;chutando&amp;rdquo; até descobrir o que funciona e nunca mais mexer. Nesse primeiro post falaremos sobre a propriedade display.
 A propriedade display é muito importante para o controle do layout, pois indica a caixa de renderização para cada elemento.</description>
     </item>
     
     <item>
       <title>Posicionando elementos com CSS</title>
-      <link>http://elo7.dev/posicionando-com-css/</link>
+      <link>https://elo7.dev/posicionando-com-css/</link>
       <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/posicionando-com-css/</guid>
+      <guid>https://elo7.dev/posicionando-com-css/</guid>
       <description>Posicionar elementos na tela em layout responsivo pode ser uma das partes mais chatas na construção de um site. Muitas vezes decidir qual método utilizar, considerando suas vantagens e desvantagens, é a chave para uma economia valiosa de tempo no desenvolvimento.
 Vamos considerar que queremos exibir uma simples galeria de imagens a qual deve exibir cinco imagens posicionadas em uma linha, não permitindo que as imagens fiquem esticadas. Caso a tela seja pequena demais elas devem diminuir de tamanho proporcionalmente.</description>
     </item>
     
     <item>
       <title>CSS4 - Seletores nível 4</title>
-      <link>http://elo7.dev/css4-selectors/</link>
+      <link>https://elo7.dev/css4-selectors/</link>
       <pubDate>Mon, 16 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/css4-selectors/</guid>
+      <guid>https://elo7.dev/css4-selectors/</guid>
       <description>O CSS3 já está aí com força total, mas poucos sabem que o CSS4 já está em rascunho desde 2011 e muitas funções hoje são usadas sem você saber. Um dos focos dessa versão são os novos seletores. Neste post irei falar um pouco sobre o que vem por aí, este tema foi uma apresentação realizada em um TechTalk do Elo7 e os slides estão no final do post.</description>
     </item>
     

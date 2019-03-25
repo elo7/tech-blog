@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Front End on Tech Blog Elo7</title>
-    <link>http://elo7.dev/tags/front-end/</link>
+    <link>https://elo7.dev/tags/front-end/</link>
     <description>Recent content in Front End on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 01 Oct 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/tags/front-end/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/tags/front-end/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Techtalk - Jogos: indo além do simples CSS</title>
-      <link>http://elo7.dev/techtalk-jogos-indo-alem-do-simples-css/</link>
+      <link>https://elo7.dev/techtalk-jogos-indo-alem-do-simples-css/</link>
       <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/techtalk-jogos-indo-alem-do-simples-css/</guid>
+      <guid>https://elo7.dev/techtalk-jogos-indo-alem-do-simples-css/</guid>
       <description>Naturalmente, quando pensamos em jogos, pensamos em animações, eventos, vários tipos de interações&amp;hellip; E na hora de desenvolver, mais naturalmente ainda pensamos em uma linguagem de programação, já que ela possibilita executar tudo isso. Mas você já pensou em fazer um jogo usando apenas HTML (uma linguagem de estrutura) e CSS (uma linguagem de estilos)? Sem uma linha de Javascript? Sim, sim, isso é possível! Veja a minha talk e descubra como isso é possível ;D</description>
     </item>
     
     <item>
       <title>Conhecendo o Dust.js, uma biblioteca de template para javascript</title>
-      <link>http://elo7.dev/conheca-o-dustjs/</link>
+      <link>https://elo7.dev/conheca-o-dustjs/</link>
       <pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/conheca-o-dustjs/</guid>
+      <guid>https://elo7.dev/conheca-o-dustjs/</guid>
       <description>O time de front-end do Elo7 está sempre buscando novas tecnologias para compor o fluxo de trabalho, mesmo que algumas dessas tecnologias não estejam nos holofotes da comunidade. Acreditamos que independente do hype, temos como principal foco a resolução de nossas necessidades e é por isso que neste post vamos falar sobre o Dust.js, uma bibloteca javascript para trabalhar com templates, desenvolvido pelo Linkedin e que usamos em nosso serviço de templates.</description>
     </item>
     
     <item>
       <title>Customizando campos de formulário com o mask-amd</title>
-      <link>http://elo7.dev/customizando-campos-de-formulario-com-elo7-mask-amd/</link>
+      <link>https://elo7.dev/customizando-campos-de-formulario-com-elo7-mask-amd/</link>
       <pubDate>Mon, 25 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/customizando-campos-de-formulario-com-elo7-mask-amd/</guid>
+      <guid>https://elo7.dev/customizando-campos-de-formulario-com-elo7-mask-amd/</guid>
       <description>Sempre procuramos uma biblioteca que seja bem focada no problema que queremos resolver e frequentemente encontramos aqueles pacotes com várias funcionalidades. Normalmente, utilizamos apenas um recurso (ou alguns) da biblioteca que escolhemos utilizar.
 É importante mencionar o peso inútil no final do carregamento da página, agora imagine quando você utiliza várias bibliotecas em seu site.
 Esse tipo de situação é muito comum e, pensando nesse problema, nós do Elo7 resolvemos escrever nossas próprias bibliotecas, diretas no que necessitamos na casa, e isso vem sendo bem bacana pois, além de otimizar nossas aplicações, ainda as disponibilizamos para comunidade.</description>
@@ -42,10 +42,10 @@ Esse tipo de situação é muito comum e, pensando nesse problema, nós do Elo7 
     
     <item>
       <title>A importância da semântica no HTML - parte II</title>
-      <link>http://elo7.dev/html-semantico-2/</link>
+      <link>https://elo7.dev/html-semantico-2/</link>
       <pubDate>Mon, 16 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/html-semantico-2/</guid>
+      <guid>https://elo7.dev/html-semantico-2/</guid>
       <description>Neste segundo post da série sobre a importância da semântica para os usuários e desenvolvedores, trataremos sobre como podemos melhorar nosso conteúdo de forma que os buscadores entendam o que realmente estamos oferecendo, com a menor possibilidade de ruídos de informação possível. Saberemos de maneira prática como podemos melhorar a disponibilidade de nosso conteúdo.
 Caso não tenha lido o nosso primeiro post, basta acessar aqui.
 Dando significado ao HTML Lembram do uso da palavra “lembrança” que utilizamos no post anterior?</description>
@@ -53,10 +53,10 @@ Dando significado ao HTML Lembram do uso da palavra “lembrança” que utiliza
     
     <item>
       <title>Vaga de estágio em desenvolvimento de software</title>
-      <link>http://elo7.dev/vagas-estagio/</link>
+      <link>https://elo7.dev/vagas-estagio/</link>
       <pubDate>Mon, 26 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/vagas-estagio/</guid>
+      <guid>https://elo7.dev/vagas-estagio/</guid>
       <description>Procuramos estagiários com os seguintes requisitos:
  Gostar de programar! Orientação a objetos Conhecimento em Java ou C Conhecimento de HTML, CSS e JavaScript Disposto a aprender e compartilhar conhecimento! Cursando faculdade ou técnico  Desejável experiência também em:
  Boas práticas de programação Conhecimento em Java para web (VRaptor ou Spring) Design Patterns  Vaga para 6 horas diárias.
@@ -66,20 +66,20 @@ Envie um e-mail com o título: Estágio Desenvolvimento para: jobs+estagio@elo7.
     
     <item>
       <title>A importância da semântica no HTML - parte I</title>
-      <link>http://elo7.dev/html-semantico-1/</link>
+      <link>https://elo7.dev/html-semantico-1/</link>
       <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/html-semantico-1/</guid>
+      <guid>https://elo7.dev/html-semantico-1/</guid>
       <description>Antigamente a informação era armazenada em papéis, rochas e até paredes. A única forma de encontrar o que queríamos era indo até o local no qual a mensagem estava armazenada. Hoje existe todo um mundo digital que gera terabytes de dados por segundo.
 E para onde vai toda essa informação? Será que ficou mais fácil encontrar o que se deseja? O problema atual não é a escassez, mas a porção de ruído proveniente de uma quantidade exorbitante de dados.</description>
     </item>
     
     <item>
       <title>Slides do evento Software Fora de série - #elo7tech</title>
-      <link>http://elo7.dev/slides-evento-software-fora-de-serie/</link>
+      <link>https://elo7.dev/slides-evento-software-fora-de-serie/</link>
       <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/slides-evento-software-fora-de-serie/</guid>
+      <guid>https://elo7.dev/slides-evento-software-fora-de-serie/</guid>
       <description>Todos os slides do evento Software Fora de Série:
 Carlos Curioni e David Robert Talk7 - Da concepção ao desenvolvimento de um aplicativo de mensagens 
 Mario Amaral A arquitetura de um chat integrado ao checkout 
@@ -90,28 +90,28 @@ Fernanda Bernardo e Andre Barro A influência dos usuários no desenvolvimento
     
     <item>
       <title>ECMAScript 2015 no Elo7 – Proxy</title>
-      <link>http://elo7.dev/ecmascript-post/</link>
+      <link>https://elo7.dev/ecmascript-post/</link>
       <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/ecmascript-post/</guid>
+      <guid>https://elo7.dev/ecmascript-post/</guid>
       <description>Já faz algum tempo que ouvimos falar de ECMAScript 2015 (também conhecido como ECMAScript 6) com todas as suas novidades como map reduce, escopos, promises, etc. Mas infelizmente não podemos utilizá-las porque temos problema de compatibilidade entre os navegadores, ora por versão, ora por falta da implementação da especificação. Assim como todas as especificações (ECMA, CSS, HTML), as adoções são feitas aos poucos pelos navegadores. Com o tempo a aceitação se torna maior, até que um belo dia a especificação se torna recomendada e viável.</description>
     </item>
     
     <item>
       <title>CSS4 - Seletores nível 4</title>
-      <link>http://elo7.dev/css4-selectors/</link>
+      <link>https://elo7.dev/css4-selectors/</link>
       <pubDate>Mon, 16 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/css4-selectors/</guid>
+      <guid>https://elo7.dev/css4-selectors/</guid>
       <description>O CSS3 já está aí com força total, mas poucos sabem que o CSS4 já está em rascunho desde 2011 e muitas funções hoje são usadas sem você saber. Um dos focos dessa versão são os novos seletores. Neste post irei falar um pouco sobre o que vem por aí, este tema foi uma apresentação realizada em um TechTalk do Elo7 e os slides estão no final do post.</description>
     </item>
     
     <item>
       <title>Gerenciamento de dependências front-end com bower</title>
-      <link>http://elo7.dev/gerenciamento-dependencias-bower/</link>
+      <link>https://elo7.dev/gerenciamento-dependencias-bower/</link>
       <pubDate>Thu, 05 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/gerenciamento-dependencias-bower/</guid>
+      <guid>https://elo7.dev/gerenciamento-dependencias-bower/</guid>
       <description>Durante o desenvolvimento de um projeto, nos deparamos com diversos problemas que não são exclusivos do mesmo. Muitos destes problemas, como persistência de dados, troca de mensagens assíncronas, transação e segurança, já possuem soluções que foram compiladas em bibliotecas para facilitar o nosso dia-a-dia ao resolver diversos problemas, tanto no back-end quando no front-end.
 Só que essas bibliotecas também podem depender de outras bibliotecas. Então, ao importar uma delas para o nosso projeto, precisamos também importar as suas dependências e as bibliotecas as quais elas necessitam.</description>
     </item>

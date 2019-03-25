@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Progressive Webapps on Tech Blog Elo7</title>
-    <link>http://elo7.dev/tags/progressive-webapps/</link>
+    <link>https://elo7.dev/tags/progressive-webapps/</link>
     <description>Recent content in Progressive Webapps on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 10 Oct 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/tags/progressive-webapps/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/tags/progressive-webapps/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A tecnologia por trás de progressive web apps</title>
-      <link>http://elo7.dev/a-tecnologia-por-tras-de-progressive-web-apps/</link>
+      <link>https://elo7.dev/a-tecnologia-por-tras-de-progressive-web-apps/</link>
       <pubDate>Mon, 10 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/a-tecnologia-por-tras-de-progressive-web-apps/</guid>
+      <guid>https://elo7.dev/a-tecnologia-por-tras-de-progressive-web-apps/</guid>
       <description>Se você trabalha com web, provavelmente já deve ter ouvido falar no termo progressive web app. Essa é uma tendência que vem aparecendo muito forte, impulsionada principalmente pelo Google, que até já organizou um evento especificamente sobre esse tema.
 O Fabricio Teixeira já escreveu um post explicando bem o conceito de progressive web apps. O objetivo aqui, então, vai ser explorar um pouco mais o lado técnico dessa tendência: como a tecnologia evoluiu para chegarmos nesse ponto, o que temos de ferramentas e o que ainda está por vir.</description>
     </item>

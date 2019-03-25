@@ -2,93 +2,93 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Category on Tech Blog Elo7</title>
-    <link>http://elo7.dev/category/</link>
+    <link>https://elo7.dev/category/</link>
     <description>Recent content in Category on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 18 Feb 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/category/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/category/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Back End</title>
-      <link>http://elo7.dev/categoria/back-end/</link>
+      <link>https://elo7.dev/categoria/back-end/</link>
       <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/categoria/back-end/</guid>
+      <guid>https://elo7.dev/categoria/back-end/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cultura</title>
-      <link>http://elo7.dev/categoria/cultura/</link>
+      <link>https://elo7.dev/categoria/cultura/</link>
       <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/categoria/cultura/</guid>
+      <guid>https://elo7.dev/categoria/cultura/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data Science</title>
-      <link>http://elo7.dev/categoria/data-science/</link>
+      <link>https://elo7.dev/categoria/data-science/</link>
       <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/categoria/data-science/</guid>
+      <guid>https://elo7.dev/categoria/data-science/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Design</title>
-      <link>http://elo7.dev/categoria/design/</link>
+      <link>https://elo7.dev/categoria/design/</link>
       <pubDate>Mon, 17 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/categoria/design/</guid>
+      <guid>https://elo7.dev/categoria/design/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Devops</title>
-      <link>http://elo7.dev/categoria/devops/</link>
+      <link>https://elo7.dev/categoria/devops/</link>
       <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/categoria/devops/</guid>
+      <guid>https://elo7.dev/categoria/devops/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Eventos</title>
-      <link>http://elo7.dev/categoria/eventos/</link>
+      <link>https://elo7.dev/categoria/eventos/</link>
       <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/categoria/eventos/</guid>
+      <guid>https://elo7.dev/categoria/eventos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Front End</title>
-      <link>http://elo7.dev/categoria/front-end/</link>
+      <link>https://elo7.dev/categoria/front-end/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/categoria/front-end/</guid>
+      <guid>https://elo7.dev/categoria/front-end/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mobile</title>
-      <link>http://elo7.dev/categoria/mobile/</link>
+      <link>https://elo7.dev/categoria/mobile/</link>
       <pubDate>Mon, 16 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/categoria/mobile/</guid>
+      <guid>https://elo7.dev/categoria/mobile/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Vagas</title>
-      <link>http://elo7.dev/categoria/vagas/</link>
+      <link>https://elo7.dev/categoria/vagas/</link>
       <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/categoria/vagas/</guid>
+      <guid>https://elo7.dev/categoria/vagas/</guid>
       <description></description>
     </item>
     

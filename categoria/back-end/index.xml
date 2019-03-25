@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Back End on Tech Blog Elo7</title>
-    <link>http://elo7.dev/categoria/back-end/</link>
+    <link>https://elo7.dev/categoria/back-end/</link>
     <description>Recent content in Back End on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 18 Feb 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/categoria/back-end/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/categoria/back-end/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Programação Reativa - Parte 4</title>
-      <link>http://elo7.dev/programacao-reativa-parte-4/</link>
+      <link>https://elo7.dev/programacao-reativa-parte-4/</link>
       <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/programacao-reativa-parte-4/</guid>
+      <guid>https://elo7.dev/programacao-reativa-parte-4/</guid>
       <description>Nos três posts anteriores, vimos os fundamentos principais da programação reativa, incluindo muitos exemplos de código, processamento concorrente e contrapressão. Que lindo! Mas serão esses conceitos aplicáveis para aplicações de grande porte e sistemas inteiros? Esse post irá explorar os detalhes de uma verdadeira aplicação reativa.
 Caso você não tenha lido os posts anteriores, uma recapitulação:
  O que é programação reativa? Exemplos de código com o RxJava Processamento concorrente, paralelismo e backpressure  Por que queremos um sistema &amp;ldquo;reativo&amp;rdquo;?</description>
@@ -24,10 +24,10 @@ Caso você não tenha lido os posts anteriores, uma recapitulação:
     
     <item>
       <title>Programação Reativa - Parte 3</title>
-      <link>http://elo7.dev/programacao-reativa-parte-3/</link>
+      <link>https://elo7.dev/programacao-reativa-parte-3/</link>
       <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/programacao-reativa-parte-3/</guid>
+      <guid>https://elo7.dev/programacao-reativa-parte-3/</guid>
       <description>Nos dois posts anteriores sobre Programação Reativa, estudamos os fundamentos desse paradigma e vimos muitos exemplos de código usando o RxJava. Nesse capítulo, vamos nos focar na abstração sobre a execução assícrona e parelela que os frameworks Rx fornecem, e especialmente em um conceito que é um dos pilares do modelo reativo: a contrapressão ou backpressure.
  “A dúvida é o princípio da sabedoria. (Aristóteles)”
  Processamento assíncrono Um dos assuntos que mais causam discussão a respeito da programação reativa é questão do processamento assíncrono.</description>
@@ -35,10 +35,10 @@ Caso você não tenha lido os posts anteriores, uma recapitulação:
     
     <item>
       <title>API Persistente com Kotlin, Spring Boot, MySQL, JPA e Hibernate</title>
-      <link>http://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</link>
+      <link>https://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</link>
       <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</guid>
+      <guid>https://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</guid>
       <description>Kotlin vem ganhando muita popularidade nos últimos tempos devido a seus recursos de produtividade e a possibilidade de utilização na plataforma Android.
 Devido à crescente popularidade do Kotlin, o Spring Framework também introduziu um suporte dedicado ao Kotlin.
 Neste post, você aprenderá a criar uma API do CRUD Restful com o Kotlin, Spring Boot e JPA.
@@ -47,10 +47,10 @@ O que vamos construir? Neste post criaremos APIs Restful para armazenar dados de
     
     <item>
       <title>Implementando um serviço Web RESTful em Kotlin com Spring Boot</title>
-      <link>http://elo7.dev/web-restful-em-kotlin-com-springboot/</link>
+      <link>https://elo7.dev/web-restful-em-kotlin-com-springboot/</link>
       <pubDate>Mon, 13 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/web-restful-em-kotlin-com-springboot/</guid>
+      <guid>https://elo7.dev/web-restful-em-kotlin-com-springboot/</guid>
       <description>Este post nos guia pelo processo de criar um REST controller simples com o Spring Boot.
 O Kotlin funciona muito bem em conjunto com Spring Boot. Existem algumas pequenas diferenças, no entanto, quando se trata de definir a configuração do Gradle e a estrutura do layout do projeto, bem como o código de inicialização.
 Neste tutorial, vamos percorrer as etapas necessárias. Para obter uma explicação mais detalhada sobre os serviços Spring Boot e RESTful, consulte Construindo um Serviço Web RESTful.</description>
@@ -58,154 +58,154 @@ Neste tutorial, vamos percorrer as etapas necessárias. Para obter uma explicaç
     
     <item>
       <title>Properties dinâmicos com Spring Cloud Config</title>
-      <link>http://elo7.dev/spring-cloud-config/</link>
+      <link>https://elo7.dev/spring-cloud-config/</link>
       <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/spring-cloud-config/</guid>
+      <guid>https://elo7.dev/spring-cloud-config/</guid>
       <description>O problema existente hoje&amp;hellip; Bom, primeiramente posso dizer que pensei nesse tema por já ter presenciado, algumas vezes, problemas em ambiente de produção, devido a configurações com valores incorretos ou mesmo falta delas por esquecimento.
 Agora imagine isso ocorrendo no final de um deploy no ambiente de produção, e pior, com os arquivos de configurações (no caso de aplicações Java, normalmente arquivos properties) dentro da aplicação. Um novo deploy teria que ser feito em N máquinas.</description>
     </item>
     
     <item>
       <title>Programação Reativa - Parte 2</title>
-      <link>http://elo7.dev/programacao-reativa-parte-2/</link>
+      <link>https://elo7.dev/programacao-reativa-parte-2/</link>
       <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/programacao-reativa-parte-2/</guid>
+      <guid>https://elo7.dev/programacao-reativa-parte-2/</guid>
       <description>No post anterior, vimos os fundamentos da programação reativa, incluindo o funcionamento básico sobre os quais os frameworks da família ReactiveX são implementados. Nessa segunda fase da nossa &amp;ldquo;jornada reativa&amp;rdquo;, começaremos a estudar os principais recursos e funcionalidades do RxJava, e então estaremos mais preparados para aplicar esses conceitos - não apenas em &amp;ldquo;programas&amp;rdquo; mas em &amp;ldquo;sistemas&amp;rdquo;, os chamados sistemas reativos.
 Os exemplos deste post estão implementados com o RxJava (a versão 2, compatível com o Reactive Streams, que tem algumas diferenças para a versão anterior).</description>
     </item>
     
     <item>
       <title>Rodando seus testes no Circle CI</title>
-      <link>http://elo7.dev/rodando-seus-testes-no-circle-ci/</link>
+      <link>https://elo7.dev/rodando-seus-testes-no-circle-ci/</link>
       <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/rodando-seus-testes-no-circle-ci/</guid>
+      <guid>https://elo7.dev/rodando-seus-testes-no-circle-ci/</guid>
       <description>Em nossos projetos, testar e manter tudo funcionando antes de subir para produção é uma tarefa constante dentro do fluxo de trabalho. A cada modificação de código podemos quebrar algo, fazendo então com que os desenvolvedores adotem estratégias, como a criação de testes, para diminuir possíveis bugs. Hoje, com o uso muito comum do GIT para versionar nossos códigos, muitas ferramentas de integração surgiram como Circle CI, Travis, Jenkins, GO CD e outras, onde seus testes podem rodar e dar um feedback rápido do seu código.</description>
     </item>
     
     <item>
       <title>Características de Big Data</title>
-      <link>http://elo7.dev/caracteristicas-do-big-data/</link>
+      <link>https://elo7.dev/caracteristicas-do-big-data/</link>
       <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/caracteristicas-do-big-data/</guid>
+      <guid>https://elo7.dev/caracteristicas-do-big-data/</guid>
       <description>Este é só o primeiro post de uma série de publicações sobre a área de Big Data que iremos lançar aqui no blog. Nessa série iremos mostrar como utilizamos o Big Data aqui no Elo7, entre outras características que foram muito importantes para a construção da nossa arquitetura atual.
 Primeiramente&amp;hellip; O que é Big Data? Basicamente, um conjunto de dados que podem ser analisados computacionalmente para revelar padrões, tendências e associações.</description>
     </item>
     
     <item>
       <title>Serverless e AWS Lambda</title>
-      <link>http://elo7.dev/serverless/</link>
+      <link>https://elo7.dev/serverless/</link>
       <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/serverless/</guid>
+      <guid>https://elo7.dev/serverless/</guid>
       <description>Todos os dias surgem novas buzzwords no mercado, cada uma relacionada a uma nova tecnologia/metodologia que promete revolucionar o modo de fazer as coisas; uma das mais recentes é a Serverless. Ao longo desse post vou tentar descrever o que é essa nova buzzword e vai de você analisar se faz sentido ou não aplicá-la ao seu projeto.
 Serverless Serverless permite a você construir e executar aplicações sem ter que gerenciar nenhuma infraestrutura.</description>
     </item>
     
     <item>
       <title>Programação Reativa - Parte 1</title>
-      <link>http://elo7.dev/programacao-reativa/</link>
+      <link>https://elo7.dev/programacao-reativa/</link>
       <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/programacao-reativa/</guid>
+      <guid>https://elo7.dev/programacao-reativa/</guid>
       <description>Em tempos recentes, a expressão &amp;ldquo;programação reativa&amp;rdquo; tem ganhado (ainda mais) força nas discussões do mundo do software. Apesar de não ser algo necessariamente &amp;ldquo;novo&amp;rdquo; (nem um pouco, na verdade) e se basear em conceitos e padrões já existentes, a tal &amp;ldquo;programação reativa&amp;rdquo; tem ganho muito destaque e há um bom número de frameworks que suportam esse paradigma em diversas linguagens. Mas será apenas mais uma &amp;ldquo;buzzword&amp;rdquo; ou algo realmente útil?</description>
     </item>
     
     <item>
       <title>Otimização de queries lentas em bancos relacionais</title>
-      <link>http://elo7.dev/otimizacao-bd/</link>
+      <link>https://elo7.dev/otimizacao-bd/</link>
       <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/otimizacao-bd/</guid>
+      <guid>https://elo7.dev/otimizacao-bd/</guid>
       <description>Quando começamos a desenvolver um novo sistema, a performance do banco de dados parece não ser um problema muito importante, mas com o aumento do número de usuários e, consequentemente, dos dados que precisam ser armazenados, queries que executavam em milisegundos passam a demorar segundos ou até mesmo minutos para serem executadas. Para ilustrar esse problema, vamos utilizar um exemplo simples:
 Imagine que precisamos desenvolver um cadastro simples de compradores para um comércio eletrônico.</description>
     </item>
     
     <item>
       <title>Testes mais fluidos com AssertJ</title>
-      <link>http://elo7.dev/testes-mais-fluidos-com-assertj/</link>
+      <link>https://elo7.dev/testes-mais-fluidos-com-assertj/</link>
       <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/testes-mais-fluidos-com-assertj/</guid>
+      <guid>https://elo7.dev/testes-mais-fluidos-com-assertj/</guid>
       <description>Em um post anterior, o Leonardo Souza explicou como é a cultura da empresa e comentou sobre o hackday, um dia em que os desenvolvedores podem trabalhar em suas próprias ideias. Eu entrei para a empresa em outubro e nos meus primeiros meses fiquei auxiliando nas ideias de outras pessoas, pois ainda não tinha nenhuma ideia. Pouco tempo depois, a ThoughtWorks lançou a décima-sétima edição do seu radar e, para minha surpresa, na área de linguagens e frameworks para se adotar estava apenas Python 3.</description>
     </item>
     
     <item>
       <title>Subindo uma API REST em Clojure</title>
-      <link>http://elo7.dev/subindo-uma-api-rest-em-clojure/</link>
+      <link>https://elo7.dev/subindo-uma-api-rest-em-clojure/</link>
       <pubDate>Mon, 22 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/subindo-uma-api-rest-em-clojure/</guid>
+      <guid>https://elo7.dev/subindo-uma-api-rest-em-clojure/</guid>
       <description>Clojure é uma linguagem funcional e dinâmica que roda na JVM e que vem crescendo bastante no mercado de trabalho. Ela é tão performática quanto qualquer programa que roda em Java e muito menos verbosa. Isso facilita e muito na manutenção do código, influenciando no custo do desenvolvimento. Caso não esteja muito familiarizado com esta linguagem incrível, recomendo a leitura do livro Clojure for the Brave and True onde ensina desde o básico sobre Clojure.</description>
     </item>
     
     <item>
       <title>Arquiteturas para aplicações realtime utilizando MQTT</title>
-      <link>http://elo7.dev/arquiteturas-para-aplica%C3%A7%C3%B5es-realtime-utilizando-mqtt/</link>
+      <link>https://elo7.dev/arquiteturas-para-aplica%C3%A7%C3%B5es-realtime-utilizando-mqtt/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/arquiteturas-para-aplica%C3%A7%C3%B5es-realtime-utilizando-mqtt/</guid>
+      <guid>https://elo7.dev/arquiteturas-para-aplica%C3%A7%C3%B5es-realtime-utilizando-mqtt/</guid>
       <description>Neste post vamos explicar alguns modelos arquiteturais para desenvolver um chat em realtime que deve atender às seguintes especificações: * Mensagem 1-N: apenas o usuário que recebeu a mensagem deve receber a notificação de nova mensagem; * Realtime: o chat do destinatário deve ser atualizado sem nenhuma ação por parte do usuário; * Lightspeed: todo o processo de envio e recebimento deve ser rápido e consumir o mínimo possível de recursos de todos os componentes (remetente, destinatário e servidor).</description>
     </item>
     
     <item>
       <title>Novidades do JUnit 5 - parte 2</title>
-      <link>http://elo7.dev/novidades-do-junit-5-parte-2/</link>
+      <link>https://elo7.dev/novidades-do-junit-5-parte-2/</link>
       <pubDate>Mon, 20 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/novidades-do-junit-5-parte-2/</guid>
+      <guid>https://elo7.dev/novidades-do-junit-5-parte-2/</guid>
       <description>Em setembro/2017, após pouco mais de um ano de versões milestones e testes, foi lançado o JUnit 5, a nova versão do principal framework para testes de código na plataforma Java. Escrevi um post sobre as principais novas funcionalidades e recursos. Váááárias coisas legais, mas o que fazemos com os testes que já existem no nosso projeto?
 Adorei o JUnit 5! Mas&amp;hellip;e os meus testes já escritos nas versões anteriores do JUnit?</description>
     </item>
     
     <item>
       <title>Novidades do JUnit 5 - parte 1</title>
-      <link>http://elo7.dev/novidades-do-junit-5-parte-1/</link>
+      <link>https://elo7.dev/novidades-do-junit-5-parte-1/</link>
       <pubDate>Mon, 06 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/novidades-do-junit-5-parte-1/</guid>
+      <guid>https://elo7.dev/novidades-do-junit-5-parte-1/</guid>
       <description>Em setembro/2017, após pouco mais de um ano de versões milestones e testes, foi lançado o JUnit 5, a nova versão do principal framework para testes de código na plataforma Java. Essa versão traz várias novas funcionalidades excelentes e algumas mudanças drásticas em relação às versões anteriores.
 Este é o primeiro post de uma série sobre o JUnit 5. Aqui, vou tratar das principais mudanças e recursos nesse novo release.</description>
     </item>
     
     <item>
       <title>Otimização de busca em faixas de valores</title>
-      <link>http://elo7.dev/otimizacao-de-busca-em-faixas-de-valores/</link>
+      <link>https://elo7.dev/otimizacao-de-busca-em-faixas-de-valores/</link>
       <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/otimizacao-de-busca-em-faixas-de-valores/</guid>
+      <guid>https://elo7.dev/otimizacao-de-busca-em-faixas-de-valores/</guid>
       <description>Recentemente, nossa equipe fez algumas análises de frete e um dos desafios foi classificar todos os fretes de 2016 de acordo com as faixas dos Correios, que separam as regiões do Brasil em várias categorias: Locais, Divisa, Capitais e Interior. Cada categoria é subdividida em grupos, sendo de 1 a 4 ou de 1 a 6.
 Para descobrir qual a categoria de um frete, temos que consultar diversas tabelas, em geral em um formato CSV ou planilha:</description>
     </item>
     
     <item>
       <title>Desmistificando o Encoding</title>
-      <link>http://elo7.dev/encoding/</link>
+      <link>https://elo7.dev/encoding/</link>
       <pubDate>Mon, 02 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/encoding/</guid>
+      <guid>https://elo7.dev/encoding/</guid>
       <description>Já reparou como é difícil fazer acentos, emojis e outros caracteres estranhos serem exibidos corretamente nos seus programas? Vamos entender um pouco sobre como funciona o armazenamento de caracteres e como fazer software que suporte múltiplas línguas da maneira correta. Sim, é muito mais que termos vários arquivos com as mensagens traduzidas&amp;hellip;
 Encoding é o mecanismo que define como representamos diversos símbolos e letras de diferentes alfabetos de maneira binária.</description>
     </item>
     
     <item>
       <title>Flink vs Spark</title>
-      <link>http://elo7.dev/flink-spark/</link>
+      <link>https://elo7.dev/flink-spark/</link>
       <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/flink-spark/</guid>
+      <guid>https://elo7.dev/flink-spark/</guid>
       <description>O título do post é polêmico para chamar sua atenção, mas a ideia deste post é mostrar a nossa visão sobre essas duas excelentes ferramentas: Apache Flink e Apache Spark. Nós não entraremos em detalhes profundos de cada ferramenta, nem faremos qualquer tipo de benchmark. Nós vamos apenas apontar as características que são relevantes para o nosso dia a dia. Se você não conhece o Flink ou o Spark, na homepage dos projetos há uma introdução bacana sobre cada um deles.</description>
     </item>
     
     <item>
       <title>Testes de código com Mockito (2) - Novidades da nova versão</title>
-      <link>http://elo7.dev/testes-codigo-mockito-2/</link>
+      <link>https://elo7.dev/testes-codigo-mockito-2/</link>
       <pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/testes-codigo-mockito-2/</guid>
+      <guid>https://elo7.dev/testes-codigo-mockito-2/</guid>
       <description>Há algum tempo, escrevi um post sobre o funcionamento e os principais recursos do Mockito. Na ocasião em que o post foi escrito, a versão 2 do framework ainda estava em beta, e, nesse tempo, não apenas foi oficialmente lançada como ocorreram vários releases subsequentes (no momento em que escrevo, a última versão é a 2.7.22).
 Neste post, vou demonstrar as principais novidades e funcionalidades dessa nova versão.
 Construção de mocks/proxy de objetos e classes final A principal alteração interna da versão 2 do Mockito foi a mudança da biblioteca utilizada para construção de mocks/proxificação de objetos.</description>
@@ -213,19 +213,19 @@ Construção de mocks/proxy de objetos e classes final A principal alteração i
     
     <item>
       <title>Microserviços e REST (sério?)</title>
-      <link>http://elo7.dev/microservicos-rest/</link>
+      <link>https://elo7.dev/microservicos-rest/</link>
       <pubDate>Mon, 17 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/microservicos-rest/</guid>
+      <guid>https://elo7.dev/microservicos-rest/</guid>
       <description>No trabalho da Engenharia do Elo7, temos múltiplas equipes dedicadas à nossa principal aplicação (o site do Elo7), segmentadas em diferentes domínios do negócio (carrinho de compras, pagamentos, integrações com Correios, etc). Também temos equipes focadas no uso de tecnologias específicas, como front-end, ferramentas de busca e plataformas mobile. O trabalho desenvolvido por todas essas equipes é inter-relacionado, sendo comum que diferentes aplicações, de diferentes times, precisem conversar entre si.</description>
     </item>
     
     <item>
       <title>Google I/O - Inteligência Artificial</title>
-      <link>http://elo7.dev/google-io/</link>
+      <link>https://elo7.dev/google-io/</link>
       <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/google-io/</guid>
+      <guid>https://elo7.dev/google-io/</guid>
       <description>No geral o Google I/O 2017 foi bem denso em conteúdo. Ocorreram 155 sessões, 100 office hours, 85 code labs e 19 sandboxes!
 Inteligência artificial foi um dos grandes temas da conferência. Atualmente, todos os produtos da Google estão utilizando alguma camada de inteligência artificial, e vão usar cada vez mais no futuro.
 Mobile First to AI First A empresa está lançando uma nova iniciativa chamada Google.ai para compartilhar documentos de pesquisa, ferramentas e diversos outros tópicos sobre inteligência artificial.</description>
@@ -233,49 +233,49 @@ Mobile First to AI First A empresa está lançando uma nova iniciativa chamada G
     
     <item>
       <title>Nightfall - Injetando dependências no Spark (Parte 1)</title>
-      <link>http://elo7.dev/nightfall/</link>
+      <link>https://elo7.dev/nightfall/</link>
       <pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/nightfall/</guid>
+      <guid>https://elo7.dev/nightfall/</guid>
       <description>O início Começamos a utilizar o Spark no Elo7 para processar métricas em tempo real, enviando eventos assíncronos do nosso site para serem consumidos em um sistema de agregação. Essa foi uma forma de remover o acoplamento entre as métricas e o negócio.
 Mas o que é Spark? Spark é uma plataforma para computação distribuída, que extende o modelo de MapReduce. É uma ferramenta de propósito geral e projetada para alta performance, incluindo queries iterativas e processamento em batch e streaming.</description>
     </item>
     
     <item>
       <title>Introdução ao Java - parte 2</title>
-      <link>http://elo7.dev/introducao-ao-java-2/</link>
+      <link>https://elo7.dev/introducao-ao-java-2/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/introducao-ao-java-2/</guid>
+      <guid>https://elo7.dev/introducao-ao-java-2/</guid>
       <description>No primeiro post da série de introdução ao Java, mostrei como configurar e executar nosso código Java. Continuando, nesse post vou apresentar alguns conceitos que serão necessários para lidarmos com o controle de fluxo na lógica de funcionamento dos nossos códigos. Sim, vamos continuar no básico, porém essencial para os próximos posts. Mas vamos deixar de conversa e partir para o que mais interessa: código!
 Lidando com o controle de fluxo Se você já iniciou algum estudo em qualquer linguagem de programação, acredito que já tenha ouvido falar de &amp;ldquo;if&amp;rdquo;, &amp;ldquo;else&amp;rdquo;, &amp;ldquo;while&amp;rdquo; e &amp;ldquo;for&amp;rdquo;.</description>
     </item>
     
     <item>
       <title>Elo7 &#43; Analytics = Elytics</title>
-      <link>http://elo7.dev/elo7-analytics-elytics/</link>
+      <link>https://elo7.dev/elo7-analytics-elytics/</link>
       <pubDate>Mon, 06 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/elo7-analytics-elytics/</guid>
+      <guid>https://elo7.dev/elo7-analytics-elytics/</guid>
       <description>Métricas, métricas, métricas! Aqui no Elo7, tanto as métricas de sistema (cpu, mémoria, disco, logs, etc) quanto as métricas de negócio (pedidos, carrinhos, mensagens) importam bastante. Tudo o que acontece no site é capturado, metrificado e monitorado em tempo real para que nós possamos saber se estamos indo bem ou mal e para onde devemos seguir. Para que isso seja possível nós criamos o Elytics (Elo7 + Analytics).
 O que é o Elytics?</description>
     </item>
     
     <item>
       <title>Introdução à programação funcional com Java 8</title>
-      <link>http://elo7.dev/introducao-a-programacao-funcional-com-java8/</link>
+      <link>https://elo7.dev/introducao-a-programacao-funcional-com-java8/</link>
       <pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/introducao-a-programacao-funcional-com-java8/</guid>
+      <guid>https://elo7.dev/introducao-a-programacao-funcional-com-java8/</guid>
       <description>Disponível desde 2014, o Java 8 ainda deixa muitas dúvidas, principalmente quanto às novidades em relação à sua versão anterior e a incorporação de conceitos de programação funcional. Nesse post vou falar sobre as principais novidades do Java 8 relativas a esse aspecto. É importante observar que o Java 8 foi desenvolvido pensando na retrocompatibilidade, ou seja, aplicações desenvolvidas na versão 7 funcionarão perfeitamente nas versões mais atuais da linguagem.</description>
     </item>
     
     <item>
       <title>Introdução ao Java</title>
-      <link>http://elo7.dev/introducao-ao-java/</link>
+      <link>https://elo7.dev/introducao-ao-java/</link>
       <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/introducao-ao-java/</guid>
+      <guid>https://elo7.dev/introducao-ao-java/</guid>
       <description>Entrei para o time de front-end do Elo7 tem alguns meses e digo que fiquei &amp;ldquo;assustado&amp;rdquo; quando vi que o time mexia muito com código Java. Meu susto maior é que minha única experiência com a linguagem foi na época da faculdade, chegando apenas a desenvolver o iSnake. Tirando isso, posso dizer que minha experiência é null.
 Mas chega de história e vamos ao que interessa!
 Instalando o Java Antes de começar a escrever algum código, vamos precisar verificar se já temos o Java instalado.</description>
@@ -283,10 +283,10 @@ Instalando o Java Antes de começar a escrever algum código, vamos precisar ver
     
     <item>
       <title>Testes de código com Mockito</title>
-      <link>http://elo7.dev/testes-codigo-mockito/</link>
+      <link>https://elo7.dev/testes-codigo-mockito/</link>
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/testes-codigo-mockito/</guid>
+      <guid>https://elo7.dev/testes-codigo-mockito/</guid>
       <description>No trabalho da Engenharia do Elo7, valorizamos bastante a qualidade do código que produzimos. Isso passa por várias etapas: boas práticas de código, programação pareada, revisões cuidadosas e, claro, testes. Muitos testes.
 Para as aplicações baseadas em Java (nossa principal linguagem), utilizamos o Mockito como ferramenta de criação de _objetos mocks_. Neste post, vamos explorar as principais funcionalidades e alguns recursos avançados desse framework.
 O básico Não é o objetivo desse post explicar em detalhes a idéia de &amp;ldquo;mock&amp;rdquo;, mas podemos arranhar a superfície desse conceito: pense em um mock como um objeto criado em tempo de execução, que devolve respostas pré-configuradas.</description>
@@ -294,19 +294,19 @@ O básico Não é o objetivo desse post explicar em detalhes a idéia de &amp;ld
     
     <item>
       <title>Cobertura de testes</title>
-      <link>http://elo7.dev/cobertura-de-testes/</link>
+      <link>https://elo7.dev/cobertura-de-testes/</link>
       <pubDate>Mon, 15 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/cobertura-de-testes/</guid>
+      <guid>https://elo7.dev/cobertura-de-testes/</guid>
       <description>Experiências com ferramenta de cobertura de testes Quando se fala em cobertura de testes, pode vir a mente a idéia de relatórios contendo números de várias métricas de software em busca de apresentar a qualidade geral de um sistema. Muitos já devem ter se perguntado qual o verdadeiro valor desses números. Algumas métricas combinadas, realmente podem ajudar, porém uma métrica analisada sozinha como um número alto de cobertura de testes não significa qualidade.</description>
     </item>
     
     <item>
       <title>Configuring Eclipse scala project with SBT</title>
-      <link>http://elo7.dev/eclipse-scala-sbt/</link>
+      <link>https://elo7.dev/eclipse-scala-sbt/</link>
       <pubDate>Tue, 13 Aug 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/eclipse-scala-sbt/</guid>
+      <guid>https://elo7.dev/eclipse-scala-sbt/</guid>
       <description>Recently we started a new project here in Elo7 and this is a quick guide to help you to configure a new Scala project using SBT to manage your project dependencies and Eclipse as your IDE.
 So&amp;hellip; what is SBT?  &amp;ldquo;sbt is a build tool for Scala and Java projects that aims to do the basics well&amp;amp;&amp;rdquo; from scala-sbt.org
  It manages your dependencies (using Apache Ivy) and supports mixed projects with Scala and Java.</description>
@@ -314,10 +314,10 @@ So&amp;hellip; what is SBT?  &amp;ldquo;sbt is a build tool for Scala and Java p
     
     <item>
       <title>e-DNE Correios</title>
-      <link>http://elo7.dev/edne-correios/</link>
+      <link>https://elo7.dev/edne-correios/</link>
       <pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/edne-correios/</guid>
+      <guid>https://elo7.dev/edne-correios/</guid>
       <description>O e-DNE é um banco de dados que contém todos os CEPs do Brasil.
 No entanto, essa base é disponibilizada apenas para download. Então criamos uma ferramenta para importar essa base para nosso banco de dados. Você pode baixar o código no Github ou seguir os passos pra instalação.
 Instalação Baixe o projeto usando Git:
@@ -327,10 +327,10 @@ bundle install  Preparando o banco de dados Primeiramente vamos importar as info
     
     <item>
       <title>Auto scale Sidekiq workers on Amazon EC2</title>
-      <link>http://elo7.dev/sidekiq-workers/</link>
+      <link>https://elo7.dev/sidekiq-workers/</link>
       <pubDate>Mon, 24 Jun 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/sidekiq-workers/</guid>
+      <guid>https://elo7.dev/sidekiq-workers/</guid>
       <description>We use Sidekiq to process messages from images conversion to shipping tickets&amp;rsquo; generation.
 The total size of our queues decreases and increases drastically during the day. When it happens we have to increase or decrease our workers by adding or removing new EC2 instances.
 Amazon Auto Scale I will not get into the details of Amazon Auto Scaling, as it deserves an entire post about it.

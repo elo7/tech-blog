@@ -2,49 +2,49 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on Tech Blog Elo7</title>
-    <link>http://elo7.dev/tags/javascript/</link>
+    <link>https://elo7.dev/tags/javascript/</link>
     <description>Recent content in Javascript on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 10 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Javascript e acessibilidade</title>
-      <link>http://elo7.dev/javascript-e-a11y/</link>
+      <link>https://elo7.dev/javascript-e-a11y/</link>
       <pubDate>Mon, 10 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/javascript-e-a11y/</guid>
+      <guid>https://elo7.dev/javascript-e-a11y/</guid>
       <description>Se temos uma web rica em termos de experiência do usuário, muito se deve ao Javascript, que nos permite criar componentes dinâmicos e torna a web uma plataforma muito mais interativa. Porém, com grandes poderes, vêm grandes responsabilidades e, se não tomarmos cuidado, dependendo da solução que implementarmos, podemos prejudicar a usabilidade e a acessibilidade das nossas interfaces. Num post anterior, vimos que até o CSS pode atrapalhar em alguns casos, quem dirá o Javascript!</description>
     </item>
     
     <item>
       <title>Credential Managament API</title>
-      <link>http://elo7.dev/credential-management-api/</link>
+      <link>https://elo7.dev/credential-management-api/</link>
       <pubDate>Mon, 19 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/credential-management-api/</guid>
+      <guid>https://elo7.dev/credential-management-api/</guid>
       <description>Hoje em dia passamos muito tempo em redes sociais, fóruns, blogs e sites de comércio eletrônico, sabemos então o quanto é chato ter que ficar anotando dados de login e senha deste serviços. E como você sabe, por questões de segurança, não devemos usar os mesmos dados para acessar diferentes serviços. Para resolver este problema, existem diversas aplicações que gerenciam essas informações, como: LastPass, 1Password, bitwarden, Dashlane, entre outros. Os principais navegadores do mercado também possuem recursos para fazer esse gerenciamento.</description>
     </item>
     
     <item>
       <title>Um pouco sobre acessibilidade, CSS e Javascript</title>
-      <link>http://elo7.dev/um-pouco-sobre-css-js-a11y/</link>
+      <link>https://elo7.dev/um-pouco-sobre-css-js-a11y/</link>
       <pubDate>Mon, 05 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/um-pouco-sobre-css-js-a11y/</guid>
+      <guid>https://elo7.dev/um-pouco-sobre-css-js-a11y/</guid>
       <description>Quando se fala em acessibilidade na Web, normalmente as questões giram em torno de recursos mais avançados de navegação, como pop-ups, formulários com AJAX e menus, que exigem código CSS e Javascript para serem implementados. Isso porque, do lado do HTML, as coisas são um pouco mais simples. Ao escrever um HTML semântico, já ganhamos uma página bastante acessível.
 Podemos notar isso com formulários, por exemplo. Ao usar os controles de formulário nativos e a validação HTML5, junto com as tags &amp;lt;label&amp;gt;, &amp;lt;fieldset&amp;gt; e &amp;lt;legend&amp;gt;, nossos formulários já são bastante acessíveis.</description>
     </item>
     
     <item>
       <title>Front-End - Coisas de que nós nos orgulhamos em 2017!</title>
-      <link>http://elo7.dev/retrospectiva-front-end-2017/</link>
+      <link>https://elo7.dev/retrospectiva-front-end-2017/</link>
       <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/retrospectiva-front-end-2017/</guid>
+      <guid>https://elo7.dev/retrospectiva-front-end-2017/</guid>
       <description>2017 foi um ano recheado de projetos interessantes e desafiantes para nós. Neste post vou fazer um resumão deles.
 Web APIs A tendência de tornar a web cada vez mais amigável aos usuários, muitas vezes de forma bem parecida ao que acontece com os aplicativos, se mostrou bem forte. E nós temos diversas ferramentas nos navegadores para implementar isso: as Web APIs.
 Foi muito divertido testar e implementar algumas delas:</description>
@@ -52,10 +52,10 @@ Foi muito divertido testar e implementar algumas delas:</description>
     
     <item>
       <title>Customizando campos de formulário com o mask-amd</title>
-      <link>http://elo7.dev/customizando-campos-de-formulario-com-elo7-mask-amd/</link>
+      <link>https://elo7.dev/customizando-campos-de-formulario-com-elo7-mask-amd/</link>
       <pubDate>Mon, 25 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/customizando-campos-de-formulario-com-elo7-mask-amd/</guid>
+      <guid>https://elo7.dev/customizando-campos-de-formulario-com-elo7-mask-amd/</guid>
       <description>Sempre procuramos uma biblioteca que seja bem focada no problema que queremos resolver e frequentemente encontramos aqueles pacotes com várias funcionalidades. Normalmente, utilizamos apenas um recurso (ou alguns) da biblioteca que escolhemos utilizar.
 É importante mencionar o peso inútil no final do carregamento da página, agora imagine quando você utiliza várias bibliotecas em seu site.
 Esse tipo de situação é muito comum e, pensando nesse problema, nós do Elo7 resolvemos escrever nossas próprias bibliotecas, diretas no que necessitamos na casa, e isso vem sendo bem bacana pois, além de otimizar nossas aplicações, ainda as disponibilizamos para comunidade.</description>
@@ -63,37 +63,37 @@ Esse tipo de situação é muito comum e, pensando nesse problema, nós do Elo7 
     
     <item>
       <title>Web Share API</title>
-      <link>http://elo7.dev/web-share-api/</link>
+      <link>https://elo7.dev/web-share-api/</link>
       <pubDate>Mon, 11 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/web-share-api/</guid>
+      <guid>https://elo7.dev/web-share-api/</guid>
       <description>Vivemos atualmente a era da informação, onde estamos conectados o tempo todo a redes sociais (Facebook, Twitter, LinkedIn), programas de conversação (WhatsApp, Telegram e Slack) e outras ferramentas que permitem o compartilhamento de informações. Através destes softwares, podemos compartilhar com nossos amigos de tudo: fotos, textos, um link para uma notícia importante ou até mesmo aquele produto que gostamos. Como desenvolvedor web, você provavelmente já precisou adicionar em seus projetos algum recurso para compartilhamento de terceiros.</description>
     </item>
     
     <item>
       <title>Jest - Testar seu código Javascript nunca foi tão fácil!</title>
-      <link>http://elo7.dev/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/</link>
+      <link>https://elo7.dev/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/</link>
       <pubDate>Mon, 28 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/</guid>
+      <guid>https://elo7.dev/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/</guid>
       <description>Trabalhar com desenvolvimento de software é algo que está longe de ser fácil, pois além da parte técnica (que evolui a passadas largas), todo profissional precisa estar minimamente antenado a ponto de perceber qual das suas posturas em relação à execução de suas atividades podem literalmente travá-lo (dentro da carreira) ou levá-lo a outro patamar. Dentre as muitas características valorizadas atualmente pelo mercado, uma importantissíma é ser um profissional adaptável a mudanças, pelo simples fato que o mundo muda muito rapidamente, e o jeito que trabalhavámos no passado já não serve e/ou se encaixa com o presente.</description>
     </item>
     
     <item>
       <title>Frameworks e bibliotecas JavaScript: quando e qual usar</title>
-      <link>http://elo7.dev/frameworks-js/</link>
+      <link>https://elo7.dev/frameworks-js/</link>
       <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/frameworks-js/</guid>
+      <guid>https://elo7.dev/frameworks-js/</guid>
       <description>Recentemente, temos ouvido cada vez mais sobre frameworks e bibliotecas JavaScript, tanto os que já existem há algum tempo como os que acabaram de surgir: jQuery, Zepto, Ember, Backbone, AngularJS, React, Vue.js&amp;hellip; mas será que precisamos usar algum deles? Se sim, qual devemos escolher para nossa aplicação? Neste post, vou apresentar porque no Elo7 decidimos por não adotar nenhum desses frameworks ou bibliotecas, e quais foram as consequências dessa decisão.</description>
     </item>
     
     <item>
       <title>Javascript Isomórfico - parte 2</title>
-      <link>http://elo7.dev/isomorfismo-parte-2/</link>
+      <link>https://elo7.dev/isomorfismo-parte-2/</link>
       <pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/isomorfismo-parte-2/</guid>
+      <guid>https://elo7.dev/isomorfismo-parte-2/</guid>
       <description>Continuando o post sobre Javascript isomórfico, depois de explicar toda a história e o conceito de isomorfismo, vamos entrar em uma parte mais prática. Quais empresas usam, o resultado da implementação e alguns frameworks existentes no mercado serão alguns dos tópicos deste post.
 Quem usa? Algumas empresas como Airbnb, Facebook, PayPal, Walmart, Netflix, Autodesk, além do próprio Elo7.
 Como tudo começou? Em 2011, Charlie Robbins, da Nodejitsu, escreveu um post apresentando a arquitetura isomórfica.</description>
@@ -101,30 +101,30 @@ Como tudo começou? Em 2011, Charlie Robbins, da Nodejitsu, escreveu um post apr
     
     <item>
       <title>Javascript Isomórfico</title>
-      <link>http://elo7.dev/isomorfismo/</link>
+      <link>https://elo7.dev/isomorfismo/</link>
       <pubDate>Mon, 30 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/isomorfismo/</guid>
+      <guid>https://elo7.dev/isomorfismo/</guid>
       <description>Novos frameworks são criados a todo momento e um novo nome está criando mais força no mundo Javascript: isomorfismo. Farei uma série de posts para explicar melhor esse conceito e algumas aplicações dele com o uso de frameworks. Nesse primeiro post, será abordada uma parte mais teórica sobre o que é isomorfismo.
 Voltando no tempo Antes de falar de fato do isomorfismo, é interessante pensar em o que aconteceu na história para surgir a necessidade de utilizar um código Javascript isomórfico.</description>
     </item>
     
     <item>
       <title>A tecnologia por trás de progressive web apps</title>
-      <link>http://elo7.dev/a-tecnologia-por-tras-de-progressive-web-apps/</link>
+      <link>https://elo7.dev/a-tecnologia-por-tras-de-progressive-web-apps/</link>
       <pubDate>Mon, 10 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/a-tecnologia-por-tras-de-progressive-web-apps/</guid>
+      <guid>https://elo7.dev/a-tecnologia-por-tras-de-progressive-web-apps/</guid>
       <description>Se você trabalha com web, provavelmente já deve ter ouvido falar no termo progressive web app. Essa é uma tendência que vem aparecendo muito forte, impulsionada principalmente pelo Google, que até já organizou um evento especificamente sobre esse tema.
 O Fabricio Teixeira já escreveu um post explicando bem o conceito de progressive web apps. O objetivo aqui, então, vai ser explorar um pouco mais o lado técnico dessa tendência: como a tecnologia evoluiu para chegarmos nesse ponto, o que temos de ferramentas e o que ainda está por vir.</description>
     </item>
     
     <item>
       <title>ECMAScript 2015 no Elo7 – Proxy</title>
-      <link>http://elo7.dev/ecmascript-post/</link>
+      <link>https://elo7.dev/ecmascript-post/</link>
       <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/ecmascript-post/</guid>
+      <guid>https://elo7.dev/ecmascript-post/</guid>
       <description>Já faz algum tempo que ouvimos falar de ECMAScript 2015 (também conhecido como ECMAScript 6) com todas as suas novidades como map reduce, escopos, promises, etc. Mas infelizmente não podemos utilizá-las porque temos problema de compatibilidade entre os navegadores, ora por versão, ora por falta da implementação da especificação. Assim como todas as especificações (ECMA, CSS, HTML), as adoções são feitas aos poucos pelos navegadores. Com o tempo a aceitação se torna maior, até que um belo dia a especificação se torna recomendada e viável.</description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Solr on Tech Blog Elo7</title>
-    <link>http://elo7.dev/tags/solr/</link>
+    <link>https://elo7.dev/tags/solr/</link>
     <description>Recent content in Solr on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Thu, 21 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/tags/solr/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/tags/solr/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Vaga Search Developer - Information Retrieval</title>
-      <link>http://elo7.dev/vagas-search-2017-12/</link>
+      <link>https://elo7.dev/vagas-search-2017-12/</link>
       <pubDate>Thu, 21 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/vagas-search-2017-12/</guid>
+      <guid>https://elo7.dev/vagas-search-2017-12/</guid>
       <description>O Elo7 é um marketplace que busca conectar milhões de usuários a produtos feitos sob encomenda por milhares de vendedores para oferecer uma experiência de compra única na internet. O objetivo do Elo7 é oferecer as melhores ferramentas para compra e venda de produtos personalizados.
 Nosso ambiente é colaborativo e gostamos de incentivar aprendizado e distribuição de conhecimento. Em nosso dia-a-dia utilizamos pair-programming com objetivo de garantir esses pontos, além da qualidade da solução.</description>
     </item>

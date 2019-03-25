@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Planejamento on Tech Blog Elo7</title>
-    <link>http://elo7.dev/tags/planejamento/</link>
+    <link>https://elo7.dev/tags/planejamento/</link>
     <description>Recent content in Planejamento on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 04 Feb 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/tags/planejamento/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/tags/planejamento/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Tirando projetos do papel</title>
-      <link>http://elo7.dev/tirando-projetos-do-papel/</link>
+      <link>https://elo7.dev/tirando-projetos-do-papel/</link>
       <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/tirando-projetos-do-papel/</guid>
+      <guid>https://elo7.dev/tirando-projetos-do-papel/</guid>
       <description>Geralmente, temos diversas ideias ao longo do dia, mas entre ter a ideia e ter um projeto concluído existe uma distância gigantesca. E quando eu falo projeto, pode ser um código para facilitar a vida do desenvolvedor, um post, um vídeo, uma ideia de negócio, enfim, qualquer coisa que tenha que sair do formato de ideia para o mundo real.
 Um dos primeiros impedimentos para que uma ideia não saia do papel é o seguinte pensamento: &amp;ldquo;Mas a minha ideia não é boa o suficiente&amp;rdquo;.</description>
     </item>

@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Otimizacao on Tech Blog Elo7</title>
-    <link>http://elo7.dev/tags/otimizacao/</link>
+    <link>https://elo7.dev/tags/otimizacao/</link>
     <description>Recent content in Otimizacao on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 05 Mar 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/tags/otimizacao/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/tags/otimizacao/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Otimização de queries lentas em bancos relacionais</title>
-      <link>http://elo7.dev/otimizacao-bd/</link>
+      <link>https://elo7.dev/otimizacao-bd/</link>
       <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/otimizacao-bd/</guid>
+      <guid>https://elo7.dev/otimizacao-bd/</guid>
       <description>Quando começamos a desenvolver um novo sistema, a performance do banco de dados parece não ser um problema muito importante, mas com o aumento do número de usuários e, consequentemente, dos dados que precisam ser armazenados, queries que executavam em milisegundos passam a demorar segundos ou até mesmo minutos para serem executadas. Para ilustrar esse problema, vamos utilizar um exemplo simples:
 Imagine que precisamos desenvolver um cadastro simples de compradores para um comércio eletrônico.</description>
     </item>
     
     <item>
       <title>Otimização de busca em faixas de valores</title>
-      <link>http://elo7.dev/otimizacao-de-busca-em-faixas-de-valores/</link>
+      <link>https://elo7.dev/otimizacao-de-busca-em-faixas-de-valores/</link>
       <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/otimizacao-de-busca-em-faixas-de-valores/</guid>
+      <guid>https://elo7.dev/otimizacao-de-busca-em-faixas-de-valores/</guid>
       <description>Recentemente, nossa equipe fez algumas análises de frete e um dos desafios foi classificar todos os fretes de 2016 de acordo com as faixas dos Correios, que separam as regiões do Brasil em várias categorias: Locais, Divisa, Capitais e Interior. Cada categoria é subdividida em grupos, sendo de 1 a 4 ou de 1 a 6.
 Para descobrir qual a categoria de um frete, temos que consultar diversas tabelas, em geral em um formato CSV ou planilha:</description>
     </item>
     
     <item>
       <title>Tech Talks Elo7</title>
-      <link>http://elo7.dev/tech-talks/</link>
+      <link>https://elo7.dev/tech-talks/</link>
       <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/tech-talks/</guid>
+      <guid>https://elo7.dev/tech-talks/</guid>
       <description>No Elo7 temos uma série de iniciativas legais que realizamos em nosso dia-a-dia: Tech Talks, Dojos, Grupos de estudos, café da manhã com vendedores, craft day, além de aplicar as metodologias ágil no nosso dia a dia.
 Neste nosso primeiro post gostaria de falar um pouco sobre os Tech Talks. Semanalmente um integrante de um time faz uma apresentação sobre um determinado tema durante uma hora, relacionado a uma tecnologia que utilizamos no nosso dia-a-dia ou que podemos aplicar algum dia.</description>
     </item>

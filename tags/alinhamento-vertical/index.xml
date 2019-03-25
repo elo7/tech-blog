@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Alinhamento Vertical on Tech Blog Elo7</title>
-    <link>http://elo7.dev/tags/alinhamento-vertical/</link>
+    <link>https://elo7.dev/tags/alinhamento-vertical/</link>
     <description>Recent content in Alinhamento Vertical on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 15 May 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/tags/alinhamento-vertical/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/tags/alinhamento-vertical/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Posicionando elementos com CSS</title>
-      <link>http://elo7.dev/posicionando-com-css/</link>
+      <link>https://elo7.dev/posicionando-com-css/</link>
       <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/posicionando-com-css/</guid>
+      <guid>https://elo7.dev/posicionando-com-css/</guid>
       <description>Posicionar elementos na tela em layout responsivo pode ser uma das partes mais chatas na construção de um site. Muitas vezes decidir qual método utilizar, considerando suas vantagens e desvantagens, é a chave para uma economia valiosa de tempo no desenvolvimento.
 Vamos considerar que queremos exibir uma simples galeria de imagens a qual deve exibir cinco imagens posicionadas em uma linha, não permitindo que as imagens fiquem esticadas. Caso a tela seja pequena demais elas devem diminuir de tamanho proporcionalmente.</description>
     </item>

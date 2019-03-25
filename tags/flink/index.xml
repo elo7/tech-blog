@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Flink on Tech Blog Elo7</title>
-    <link>http://elo7.dev/tags/flink/</link>
+    <link>https://elo7.dev/tags/flink/</link>
     <description>Recent content in Flink on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Sun, 03 Sep 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/tags/flink/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/tags/flink/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Flink vs Spark</title>
-      <link>http://elo7.dev/flink-spark/</link>
+      <link>https://elo7.dev/flink-spark/</link>
       <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/flink-spark/</guid>
+      <guid>https://elo7.dev/flink-spark/</guid>
       <description>O título do post é polêmico para chamar sua atenção, mas a ideia deste post é mostrar a nossa visão sobre essas duas excelentes ferramentas: Apache Flink e Apache Spark. Nós não entraremos em detalhes profundos de cada ferramenta, nem faremos qualquer tipo de benchmark. Nós vamos apenas apontar as características que são relevantes para o nosso dia a dia. Se você não conhece o Flink ou o Spark, na homepage dos projetos há uma introdução bacana sobre cada um deles.</description>
     </item>
     
     <item>
       <title>Elo7 &#43; Analytics = Elytics</title>
-      <link>http://elo7.dev/elo7-analytics-elytics/</link>
+      <link>https://elo7.dev/elo7-analytics-elytics/</link>
       <pubDate>Mon, 06 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/elo7-analytics-elytics/</guid>
+      <guid>https://elo7.dev/elo7-analytics-elytics/</guid>
       <description>Métricas, métricas, métricas! Aqui no Elo7, tanto as métricas de sistema (cpu, mémoria, disco, logs, etc) quanto as métricas de negócio (pedidos, carrinhos, mensagens) importam bastante. Tudo o que acontece no site é capturado, metrificado e monitorado em tempo real para que nós possamos saber se estamos indo bem ou mal e para onde devemos seguir. Para que isso seja possível nós criamos o Elytics (Elo7 + Analytics).
 O que é o Elytics?</description>
     </item>

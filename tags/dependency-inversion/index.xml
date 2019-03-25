@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dependency Inversion on Tech Blog Elo7</title>
-    <link>http://elo7.dev/tags/dependency-inversion/</link>
+    <link>https://elo7.dev/tags/dependency-inversion/</link>
     <description>Recent content in Dependency Inversion on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Wed, 20 Jul 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/tags/dependency-inversion/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/tags/dependency-inversion/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Desmistificando o Dagger 2</title>
-      <link>http://elo7.dev/desmistificando-dagger2/</link>
+      <link>https://elo7.dev/desmistificando-dagger2/</link>
       <pubDate>Wed, 20 Jul 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/desmistificando-dagger2/</guid>
+      <guid>https://elo7.dev/desmistificando-dagger2/</guid>
       <description>Sem dúvidas, uma das bibliotecas mais famosas da “atualidade” (embora tenha vários anos de vida) no universo Android, mas que mesmo assim nos causa muita confusão e dúvida.
 Até mesmo para engenheiros experientes, o Dagger 2 causa um pouco de “medo” para implementar.
 Mas a parte boa é que ele é muito simples! Vamos juntos tentar dissecar o problema até que você tenha o famoso Eureka!

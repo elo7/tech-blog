@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ux on Tech Blog Elo7</title>
-    <link>http://elo7.dev/tags/ux/</link>
+    <link>https://elo7.dev/tags/ux/</link>
     <description>Recent content in Ux on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 30 Oct 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/tags/ux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/tags/ux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Testando acessibilidade</title>
-      <link>http://elo7.dev/testando-acessibilidade/</link>
+      <link>https://elo7.dev/testando-acessibilidade/</link>
       <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/testando-acessibilidade/</guid>
+      <guid>https://elo7.dev/testando-acessibilidade/</guid>
       <description>Assim como muitos times front-end no mercado afora, nosso time despertou para a questão de acessibilidade recentemente. E, nesse processo, tivemos muitos aprendizados, e descobrimos que, quando se fala de acessibilidade, uma questão essencial é: como testar? Vejamos como foi esse processo aqui.
 Acessibilidade: o início Começamos a abordar a questão de acessibilidade por iniciativa de alguns indivíduos do time. A Aline Lee usou o hackday (tempo reservado em cada sprint para o time de engenharia se aperfeiçoar e inovar) para investigar e melhorar a acessibilidade por teclado no cabeçalho do site.</description>
     </item>
     
     <item>
       <title>Slides do evento Software Fora de série - #elo7tech</title>
-      <link>http://elo7.dev/slides-evento-software-fora-de-serie/</link>
+      <link>https://elo7.dev/slides-evento-software-fora-de-serie/</link>
       <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/slides-evento-software-fora-de-serie/</guid>
+      <guid>https://elo7.dev/slides-evento-software-fora-de-serie/</guid>
       <description>Todos os slides do evento Software Fora de Série:
 Carlos Curioni e David Robert Talk7 - Da concepção ao desenvolvimento de um aplicativo de mensagens 
 Mario Amaral A arquitetura de um chat integrado ao checkout 

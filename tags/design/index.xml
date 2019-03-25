@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Design on Tech Blog Elo7</title>
-    <link>http://elo7.dev/tags/design/</link>
+    <link>https://elo7.dev/tags/design/</link>
     <description>Recent content in Design on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 17 Dec 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/tags/design/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/tags/design/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Como o design pode contribuir com a entregabilidade dos emails?</title>
-      <link>http://elo7.dev/design-e-entregabilidade-de-emails/</link>
+      <link>https://elo7.dev/design-e-entregabilidade-de-emails/</link>
       <pubDate>Mon, 17 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/design-e-entregabilidade-de-emails/</guid>
+      <guid>https://elo7.dev/design-e-entregabilidade-de-emails/</guid>
       <description>Antes de tudo, uma pergunta importante: você sabe qual a diferença entre entrega e entregabilidade? Não?! Calma, eu explico!
 Há quem diga que essas duas palavrinhas são diferentes formas de descrever uma mesma ação. Adianto: ledo engano! Muito embora sejam parecidas, têm conceitos (um pouco) distintos.
 Quando falamos de entrega, estamos nos referindo ao número de emails enviados pela plataforma de disparo de email marketing que chegaram aos provedores - Gmail, Hotmail.</description>
@@ -24,10 +24,10 @@ Quando falamos de entrega, estamos nos referindo ao número de emails enviados p
     
     <item>
       <title>Slides do evento Software Fora de série - #elo7tech</title>
-      <link>http://elo7.dev/slides-evento-software-fora-de-serie/</link>
+      <link>https://elo7.dev/slides-evento-software-fora-de-serie/</link>
       <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/slides-evento-software-fora-de-serie/</guid>
+      <guid>https://elo7.dev/slides-evento-software-fora-de-serie/</guid>
       <description>Todos os slides do evento Software Fora de Série:
 Carlos Curioni e David Robert Talk7 - Da concepção ao desenvolvimento de um aplicativo de mensagens 
 Mario Amaral A arquitetura de um chat integrado ao checkout 

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Api on Tech Blog Elo7</title>
-    <link>http://elo7.dev/tags/api/</link>
+    <link>https://elo7.dev/tags/api/</link>
     <description>Recent content in Api on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/tags/api/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/tags/api/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Intersection Observer API</title>
-      <link>http://elo7.dev/intersection-observer/</link>
+      <link>https://elo7.dev/intersection-observer/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/intersection-observer/</guid>
+      <guid>https://elo7.dev/intersection-observer/</guid>
       <description>Nos últimos meses nós conseguimos usufruir bastante da Intersection Observer API que está disponível desde a versão 51 do Chrome.
 Implementamos carregamento assíncrono de imagens, paginação infinita, carrosséis entre outras ações na tela dependendo da visibilidade que algum elemento possui.
 O que é, o que faz, pra que serve? O Intersection Observer é uma API que atua como uma sentinela te avisando sempre que certo elemento passar a ficar dentro da área visível da página.</description>
@@ -24,10 +24,10 @@ O que é, o que faz, pra que serve? O Intersection Observer é uma API que atua 
     
     <item>
       <title>API Persistente com Kotlin, Spring Boot, MySQL, JPA e Hibernate</title>
-      <link>http://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</link>
+      <link>https://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</link>
       <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</guid>
+      <guid>https://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</guid>
       <description>Kotlin vem ganhando muita popularidade nos últimos tempos devido a seus recursos de produtividade e a possibilidade de utilização na plataforma Android.
 Devido à crescente popularidade do Kotlin, o Spring Framework também introduziu um suporte dedicado ao Kotlin.
 Neste post, você aprenderá a criar uma API do CRUD Restful com o Kotlin, Spring Boot e JPA.
@@ -36,10 +36,10 @@ O que vamos construir? Neste post criaremos APIs Restful para armazenar dados de
     
     <item>
       <title>Implementando um serviço Web RESTful em Kotlin com Spring Boot</title>
-      <link>http://elo7.dev/web-restful-em-kotlin-com-springboot/</link>
+      <link>https://elo7.dev/web-restful-em-kotlin-com-springboot/</link>
       <pubDate>Mon, 13 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/web-restful-em-kotlin-com-springboot/</guid>
+      <guid>https://elo7.dev/web-restful-em-kotlin-com-springboot/</guid>
       <description>Este post nos guia pelo processo de criar um REST controller simples com o Spring Boot.
 O Kotlin funciona muito bem em conjunto com Spring Boot. Existem algumas pequenas diferenças, no entanto, quando se trata de definir a configuração do Gradle e a estrutura do layout do projeto, bem como o código de inicialização.
 Neste tutorial, vamos percorrer as etapas necessárias. Para obter uma explicação mais detalhada sobre os serviços Spring Boot e RESTful, consulte Construindo um Serviço Web RESTful.</description>
@@ -47,10 +47,10 @@ Neste tutorial, vamos percorrer as etapas necessárias. Para obter uma explicaç
     
     <item>
       <title>Subindo uma API REST em Clojure</title>
-      <link>http://elo7.dev/subindo-uma-api-rest-em-clojure/</link>
+      <link>https://elo7.dev/subindo-uma-api-rest-em-clojure/</link>
       <pubDate>Mon, 22 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/subindo-uma-api-rest-em-clojure/</guid>
+      <guid>https://elo7.dev/subindo-uma-api-rest-em-clojure/</guid>
       <description>Clojure é uma linguagem funcional e dinâmica que roda na JVM e que vem crescendo bastante no mercado de trabalho. Ela é tão performática quanto qualquer programa que roda em Java e muito menos verbosa. Isso facilita e muito na manutenção do código, influenciando no custo do desenvolvimento. Caso não esteja muito familiarizado com esta linguagem incrível, recomendo a leitura do livro Clojure for the Brave and True onde ensina desde o básico sobre Clojure.</description>
     </item>
     

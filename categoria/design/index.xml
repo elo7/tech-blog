@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Design on Tech Blog Elo7</title>
-    <link>http://elo7.dev/categoria/design/</link>
+    <link>https://elo7.dev/categoria/design/</link>
     <description>Recent content in Design on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 17 Dec 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://elo7.dev/categoria/design/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://elo7.dev/categoria/design/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Como o design pode contribuir com a entregabilidade dos emails?</title>
-      <link>http://elo7.dev/design-e-entregabilidade-de-emails/</link>
+      <link>https://elo7.dev/design-e-entregabilidade-de-emails/</link>
       <pubDate>Mon, 17 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/design-e-entregabilidade-de-emails/</guid>
+      <guid>https://elo7.dev/design-e-entregabilidade-de-emails/</guid>
       <description>Antes de tudo, uma pergunta importante: você sabe qual a diferença entre entrega e entregabilidade? Não?! Calma, eu explico!
 Há quem diga que essas duas palavrinhas são diferentes formas de descrever uma mesma ação. Adianto: ledo engano! Muito embora sejam parecidas, têm conceitos (um pouco) distintos.
 Quando falamos de entrega, estamos nos referindo ao número de emails enviados pela plataforma de disparo de email marketing que chegaram aos provedores - Gmail, Hotmail.</description>
@@ -24,10 +24,10 @@ Quando falamos de entrega, estamos nos referindo ao número de emails enviados p
     
     <item>
       <title>Design de Produto no Elo7</title>
-      <link>http://elo7.dev/design-de-produto-no-elo7/</link>
+      <link>https://elo7.dev/design-de-produto-no-elo7/</link>
       <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://elo7.dev/design-de-produto-no-elo7/</guid>
+      <guid>https://elo7.dev/design-de-produto-no-elo7/</guid>
       <description>Conheça o trabalho do time de design de produto no Elo7! Vamos apresentar uma visão geral do trabalho deste pequeno, porém orgulhoso time :)
 O time de design de produto do Elo7 atua na elaboração de soluções para a interface dos nossos produtos (especialmente o nosso site - o marketplace e o Talk7), bem como a busca da experiência mais agradável possível para os nossos usuários. Atualmente, somos uma equipe enxuta, formada por 3 membros, mas estamos sempre trabalhando em colaboração com outras equipes, tanto de desenvolvimento quanto de produto.</description>
     </item>
