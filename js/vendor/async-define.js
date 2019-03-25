@@ -27,19 +27,69 @@
 
     Advantages:
 
-    - Very small (~400 bytes w/ gzip and no debug) so you can inline it on every page.
+    - Very small (~400 bytes w/ gzip) so you can inline it on every page.
     - Don't expect your modules to be loaded in a specific order.
     - Allows asynchronous loading of your files for maximum performance.
     - Very simple.
 
  */
-(function(debug) {
-    if(typeof define == 'undefined') {
+(function() {
+    if (typeof DEVELOPMENT === "undefined") DEVELOPMENT = true;
+    if (typeof PRODUCTION === "undefined") PRODUCTION = false;
+
+    if (typeof define == 'undefined') {
         // object with all executes modules (module_name => module_value)
         var modules = {};
 
         // (dependency_name => [modules])
         var define_queue = {};
+
+        if (DEVELOPMENT) {
+            var debug_timer = null;
+
+            function _log_debug(msg) {
+                console.log('%c[async-define]%c ' + msg, 'color: #fdb933', 'color: #2ca75d');
+            }
+
+            function _get_queue_module_names(module_queue) {
+                var dependencies_names = [];
+                for (var dependency_iterator = 0; dependency_iterator < module_queue.length; dependency_iterator++) {
+                    dependencies_names.push(module_queue[dependency_iterator][1]);
+                }
+                return dependencies_names;
+            }
+
+            function _build_modules_not_loaded_log_message(modules_not_loaded) {
+                var log_message = 'Modules not loaded yet:\n';
+                for (var module_not_loaded_iterator = 0; module_not_loaded_iterator < modules_not_loaded.length; module_not_loaded_iterator++) {
+                    var module_not_loaded = modules_not_loaded[module_not_loaded_iterator];
+                    var dependencies_names = _get_queue_module_names(define_queue[module_not_loaded]);
+                    log_message += ' - ' + module_not_loaded + ': waited by [' + dependencies_names.join(', ') + ']\n';
+                }
+                return log_message;
+            }
+
+            function _set_debug_timer() {
+                if (debug_timer === null) {
+                    _log_debug('A new module was registered; will monitor if it loads correctly.');
+                    debug_timer = setInterval(function() {
+                        var modules_not_loaded = [];
+                        for (var module in define_queue) {
+                            if (define_queue[module].length > 0) {
+                                modules_not_loaded.push(module);
+                            }
+                        }
+                        if (modules_not_loaded.length > 0) {
+                            _log_debug(_build_modules_not_loaded_log_message(modules_not_loaded));
+                        } else {
+                            _log_debug('All modules loaded.');
+                            clearInterval(debug_timer);
+                            debug_timer = null;
+                        }
+                    }, 1000);
+                }
+            }
+        }
 
         // the 'define' function
         function _define(/* <exports>, name, dependencies, factory */) {
@@ -63,40 +113,38 @@
                 dependencies_iterator = 0,
                 config_dependencies_index = -1;
 
+            if (DEVELOPMENT) {
+                _set_debug_timer();
+            }
+
             // config dependecies
-            if(_define.prototype.config_dependencies && _define.prototype.config_dependencies.constructor === Array) {
+            if (_define.prototype.config_dependencies && _define.prototype.config_dependencies.constructor === Array) {
                 var config_dependencies = _define.prototype.config_dependencies || [];
 
                 var config_dependencies_size = config_dependencies.length;
-                for(; config_dependencies_iterator < config_dependencies_size; config_dependencies_iterator++) {
-                    if(name == config_dependencies[config_dependencies_iterator]) {
+                for (; config_dependencies_iterator < config_dependencies_size; config_dependencies_iterator++) {
+                    if (name === config_dependencies[config_dependencies_iterator]) {
                         config_dependencies_index = config_dependencies_iterator;
                     }
                 }
-                if(config_dependencies_index != -1) {
+                if (config_dependencies_index !== -1) {
                     config_dependencies.splice(config_dependencies_index, 1)
                 } else {
                     dependencies = dependencies.concat(config_dependencies);
                 }
             }
-            debug && console.log('registering', name);
 
             // find params
             for (; dependencies_iterator < dependencies.length; dependencies_iterator++) {
                 dependency_name = dependencies[dependencies_iterator];
-                debug && console.log('dependency found on', dependency_name);
 
                 // if this dependency exists, push it to param injection
                 if (modules.hasOwnProperty(dependency_name)) {
-                    debug && console.log('dependency is already loaded; continuing');
                     params.push(modules[dependency_name]);
                 } else if (dependency_name === 'exports') {
-                    debug && console.log('pushing exports');
                     params.push(exports);
                 } else {
-                    debug && console.log('dependency not loaded; waiting on it');
-
-                    if (argc != 4) { // if 4 values, is reexecuting
+                    if (argc !== 4) { // if 4 values, is reexecuting
                         // no module found. save these arguments for future execution.
                         define_queue[dependency_name] = define_queue[dependency_name] || [];
                         define_queue[dependency_name].push([exports, name, dependencies, factory]);
@@ -108,18 +156,14 @@
 
             // all dependencies are satisfied, so proceed
             if (dependencies_satisfied) {
-                debug && console.log('all dependencies for', name, 'were satisfied; instantiating');
-
-                if(!modules.hasOwnProperty(name)) {
+                if (!modules.hasOwnProperty(name)) {
                     // execute this module
                     result = factory.apply(this, params);
 
                     if (result) {
-                        debug && console.log('module returned value');
                         modules[name] = result;
                     } else {
                         // assuming result is in exports object
-                        debug && console.log('module did not return value; assuming exports was used');
                         modules[name] = exports;
                     }
                 }
@@ -144,4 +188,4 @@
         define = _define;
         undefine = _undefine;
     }
-})(false);
+})();

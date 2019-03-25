@@ -108,7 +108,7 @@ define("ajax", [], function() {
 			}
 		} else if ((parseError || !isSuccess(xhr.status)) && isFunction(callbacks.error)) {
 			if (lastChance) {
-				callbacks.error(xhr.statusText, xhr);
+				callbacks.error(xhr.statusText || xhr.responseText, xhr);
 			}
 		}
 

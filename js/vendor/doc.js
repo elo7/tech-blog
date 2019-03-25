@@ -378,20 +378,26 @@ define('doc', ['event'], function(event) {
 				return !this.isPresent();
 			},
 
-			'on' : function(eventName, command, named) {
-				this.each(function(el) {
-					event.addEvent(el, eventName, command, named);
-				});
-				event.boundEvents = event.boundEvents || {},
-					event.boundEvents[eventName] = event.boundEvents[eventName] || [],
-					boundElements = event.boundEvents[eventName];
+			'on': function (eventsName, command, namedOrConfigs) {
+				var eventName = eventsName.split(' ');
+				event.boundEvents = event.boundEvents || {};
 
-				this.each(function(el) {
-					if (boundElements.indexOf(el) === -1) {
-						boundElements.push(el);
-					}
-				});
+				for (var i = 0; i < eventName.length; i++) {
+					var name = eventName[i];
 
+					this.each(function(el) {
+						event.addEvent(el, name, command, namedOrConfigs);
+					});
+
+					event.boundEvents[name] = event.boundEvents[name] || [];
+					boundElements = event.boundEvents[name];
+
+					this.each(function(el) {
+						if (boundElements.indexOf(el) === -1) {
+							boundElements.push(el);
+						}
+					});
+				}
 				return this;
 			},
 
