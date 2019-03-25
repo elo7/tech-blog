@@ -7,7 +7,7 @@ O blog usa como ferramenta o [Hugo](https://gohugo.io/), um gerador de sites est
 
 ## Criando Posts
 
-Para criar um post, basta adicionar um novo arquivo dentro da pasta ``content/posts`` com o padrão de nomenclatura ``<nomedopost>.md``. O layout para o post deve ser:
+Para criar um post, basta adicionar um novo arquivo dentro da pasta ``content/posts`` com o padrão de nomenclatura ``<nome-do-post>.md``. O layout para o post deve ser:
 ```html
 ---
 date: 2016-07-18
@@ -23,7 +23,7 @@ description: Alguma descrição do post que irá aparecer na home...
 ---
 ```
 
-Para adicionar imagens ao seu post, adicione cada uma das imagens na pasta ``content/images``. Sua imagem deve ser ``.png`` ou ``.jpg`` e o nome deve seguir o padrão: ``<nomedopost>-<numerodaimagem>.<extensão>``. Para referenciá-las no post, use URLs absolutas como ``../images/titulo-post-1.png``.
+Para adicionar imagens ao seu post, adicione cada uma das imagens na pasta ``content/images``. Sua imagem deve ser ``.png`` ou ``.jpg`` e o nome deve seguir o padrão: ``<nome-do-post>-<numerodaimagem>.<extensão>``. Para referenciá-las no post, use URLs absolutas como ``../images/titulo-post-1.png``.
 
 ## Criando sua página de autor
 Se você ainda não tem a sua página de autor, crie um arquivo ``<seugithub>.md`` na pasta ``content/authors/``.
@@ -74,12 +74,6 @@ trecho do código
 brew install hugo
 npm install
 npm start
-```
-
-- Para que o CSS funcione, é necessário rodar esse comando:
-
-```
-npm run dev
 ```
 
 ### Labels do PR

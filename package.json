@@ -3,14 +3,13 @@
   "version": "0.1.0",
   "description": "Tech Blog",
   "dependencies": {
-    "define-async": "1.2.0",
-    "elo7-ajax-amd": "1.3.5",
-    "elo7-doc-amd": "1.3.1",
-    "elo7-events-amd": "1.1.3",
-    "highlightjs": "9.10.0",
+    "define-async": "1.3.2",
+    "elo7-ajax-amd": "1.3.6",
+    "elo7-doc-amd": "1.5.1",
+    "elo7-events-amd": "1.2.1",
+    "highlightjs": "9.12.0",
     "node-sass": "4.11.0"
   },
-  "main": "node_modules/.bin/docpad-server",
   "scripts": {
     "copy:ajax-amd": "cp node_modules/elo7-ajax-amd/ajax.js static/js/vendor/ajax.js",
     "copy:doc-amd": "cp node_modules/elo7-doc-amd/doc.js static/js/vendor/doc.js",
@@ -21,6 +20,7 @@
     "copy": "npm run copy:ajax-amd && npm run copy:events-amd && npm run copy:async-amd && npm run copy:doc-amd && npm run copy:highlightjs && npm run copy:highlightcss",
     "precopy": "mkdir -p static/js/vendor && mkdir -p static/css/vendor",
     "postinstall": "npm run copy",
+    "prestart": "npm run build",
     "start": "hugo server -D",
     "build": "node-sass static/css/ -o static/css/",
     "dev": "nodemon -e scss --exec 'npm run build'",
