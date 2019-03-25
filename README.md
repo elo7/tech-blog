@@ -79,7 +79,7 @@ npm start
 - Para que o CSS funcione, é necessário rodar esse comando:
 
 ```
-npm run sass
+npm run dev
 ```
 
 ### Labels do PR
