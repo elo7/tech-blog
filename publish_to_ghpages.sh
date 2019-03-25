@@ -16,6 +16,7 @@ git worktree prune
 rm -rf .git/worktrees/public/
 
 echo "Checking out gh-pages branch into public"
+git fetch origin
 git worktree add -B test-pages public origin/test-pages
 
 echo "Removing existing files"
