@@ -1,6 +1,6 @@
 ---
 date: 2017-10-23
-category: back-end
+category: big-data
 layout: post
 title: Otimização de busca em faixas de valores
 description: Explicamos como utilizamos um método de bissecção para otimizar a busca de valores em uma coleção de faixas de CEP, aumentando em mais de 100 vezes a performance do algoritimo.
