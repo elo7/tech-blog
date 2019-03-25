@@ -1,4 +1,4 @@
-baseURL = "http://elo7.dev/"
+baseURL = "https://elo7.dev/"
 languageCode = "pt-BR"
 title = "Tech Blog Elo7"
 enableRobotsTXT = true
