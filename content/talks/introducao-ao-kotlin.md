@@ -1,5 +1,5 @@
 ---
-title: Introdução ao Kotlin
+title: Introdução ao Kotlin
 speakers: [davidrobert]
 layout: talk
 date: 2019-02-04
