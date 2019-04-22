@@ -460,7 +460,16 @@ public class ConfigClientApplicationTest {
 <script async src='/js/vendor/events-amd.js'></script>
 <script async src='/js/vendor/ajax.js'></script>
 <script async src='/js/vendor/doc.js'></script>
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 <script src='/js/vendor/highlight.js'></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
