@@ -86,16 +86,6 @@ Os exemplos deste post estão implementados com o RxJava (a versão 2, compatív
     </item>
     
     <item>
-      <title>Características de Big Data</title>
-      <link>https://elo7.dev/caracteristicas-do-big-data/</link>
-      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://elo7.dev/caracteristicas-do-big-data/</guid>
-      <description>Este é só o primeiro post de uma série de publicações sobre a área de Big Data que iremos lançar aqui no blog. Nessa série iremos mostrar como utilizamos o Big Data aqui no Elo7, entre outras características que foram muito importantes para a construção da nossa arquitetura atual.
-Primeiramente&amp;hellip; O que é Big Data? Basicamente, um conjunto de dados que podem ser analisados computacionalmente para revelar padrões, tendências e associações.</description>
-    </item>
-    
-    <item>
       <title>Serverless e AWS Lambda</title>
       <link>https://elo7.dev/serverless/</link>
       <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
@@ -172,16 +162,6 @@ Este é o primeiro post de uma série sobre o JUnit 5. Aqui, vou tratar das prin
     </item>
     
     <item>
-      <title>Otimização de busca em faixas de valores</title>
-      <link>https://elo7.dev/otimizacao-de-busca-em-faixas-de-valores/</link>
-      <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://elo7.dev/otimizacao-de-busca-em-faixas-de-valores/</guid>
-      <description>Recentemente, nossa equipe fez algumas análises de frete e um dos desafios foi classificar todos os fretes de 2016 de acordo com as faixas dos Correios, que separam as regiões do Brasil em várias categorias: Locais, Divisa, Capitais e Interior. Cada categoria é subdividida em grupos, sendo de 1 a 4 ou de 1 a 6.
-Para descobrir qual a categoria de um frete, temos que consultar diversas tabelas, em geral em um formato CSV ou planilha:</description>
-    </item>
-    
-    <item>
       <title>Desmistificando o Encoding</title>
       <link>https://elo7.dev/encoding/</link>
       <pubDate>Mon, 02 Oct 2017 00:00:00 +0000</pubDate>
@@ -189,15 +169,6 @@ Para descobrir qual a categoria de um frete, temos que consultar diversas tabela
       <guid>https://elo7.dev/encoding/</guid>
       <description>Já reparou como é difícil fazer acentos, emojis e outros caracteres estranhos serem exibidos corretamente nos seus programas? Vamos entender um pouco sobre como funciona o armazenamento de caracteres e como fazer software que suporte múltiplas línguas da maneira correta. Sim, é muito mais que termos vários arquivos com as mensagens traduzidas&amp;hellip;
 Encoding é o mecanismo que define como representamos diversos símbolos e letras de diferentes alfabetos de maneira binária.</description>
-    </item>
-    
-    <item>
-      <title>Flink vs Spark</title>
-      <link>https://elo7.dev/flink-spark/</link>
-      <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://elo7.dev/flink-spark/</guid>
-      <description>O título do post é polêmico para chamar sua atenção, mas a ideia deste post é mostrar a nossa visão sobre essas duas excelentes ferramentas: Apache Flink e Apache Spark. Nós não entraremos em detalhes profundos de cada ferramenta, nem faremos qualquer tipo de benchmark. Nós vamos apenas apontar as características que são relevantes para o nosso dia a dia. Se você não conhece o Flink ou o Spark, na homepage dos projetos há uma introdução bacana sobre cada um deles.</description>
     </item>
     
     <item>
@@ -221,27 +192,6 @@ Construção de mocks/proxy de objetos e classes final A principal alteração i
     </item>
     
     <item>
-      <title>Google I/O - Inteligência Artificial</title>
-      <link>https://elo7.dev/google-io/</link>
-      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://elo7.dev/google-io/</guid>
-      <description>No geral o Google I/O 2017 foi bem denso em conteúdo. Ocorreram 155 sessões, 100 office hours, 85 code labs e 19 sandboxes!
-Inteligência artificial foi um dos grandes temas da conferência. Atualmente, todos os produtos da Google estão utilizando alguma camada de inteligência artificial, e vão usar cada vez mais no futuro.
-Mobile First to AI First A empresa está lançando uma nova iniciativa chamada Google.ai para compartilhar documentos de pesquisa, ferramentas e diversos outros tópicos sobre inteligência artificial.</description>
-    </item>
-    
-    <item>
-      <title>Nightfall - Injetando dependências no Spark (Parte 1)</title>
-      <link>https://elo7.dev/nightfall/</link>
-      <pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://elo7.dev/nightfall/</guid>
-      <description>O início Começamos a utilizar o Spark no Elo7 para processar métricas em tempo real, enviando eventos assíncronos do nosso site para serem consumidos em um sistema de agregação. Essa foi uma forma de remover o acoplamento entre as métricas e o negócio.
-Mas o que é Spark? Spark é uma plataforma para computação distribuída, que extende o modelo de MapReduce. É uma ferramenta de propósito geral e projetada para alta performance, incluindo queries iterativas e processamento em batch e streaming.</description>
-    </item>
-    
-    <item>
       <title>Introdução ao Java - parte 2</title>
       <link>https://elo7.dev/introducao-ao-java-2/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
@@ -249,16 +199,6 @@ Mas o que é Spark? Spark é uma plataforma para computação distribuída, que 
       <guid>https://elo7.dev/introducao-ao-java-2/</guid>
       <description>No primeiro post da série de introdução ao Java, mostrei como configurar e executar nosso código Java. Continuando, nesse post vou apresentar alguns conceitos que serão necessários para lidarmos com o controle de fluxo na lógica de funcionamento dos nossos códigos. Sim, vamos continuar no básico, porém essencial para os próximos posts. Mas vamos deixar de conversa e partir para o que mais interessa: código!
 Lidando com o controle de fluxo Se você já iniciou algum estudo em qualquer linguagem de programação, acredito que já tenha ouvido falar de &amp;ldquo;if&amp;rdquo;, &amp;ldquo;else&amp;rdquo;, &amp;ldquo;while&amp;rdquo; e &amp;ldquo;for&amp;rdquo;.</description>
-    </item>
-    
-    <item>
-      <title>Elo7 &#43; Analytics = Elytics</title>
-      <link>https://elo7.dev/elo7-analytics-elytics/</link>
-      <pubDate>Mon, 06 Mar 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://elo7.dev/elo7-analytics-elytics/</guid>
-      <description>Métricas, métricas, métricas! Aqui no Elo7, tanto as métricas de sistema (cpu, mémoria, disco, logs, etc) quanto as métricas de negócio (pedidos, carrinhos, mensagens) importam bastante. Tudo o que acontece no site é capturado, metrificado e monitorado em tempo real para que nós possamos saber se estamos indo bem ou mal e para onde devemos seguir. Para que isso seja possível nós criamos o Elytics (Elo7 + Analytics).
-O que é o Elytics?</description>
     </item>
     
     <item>
