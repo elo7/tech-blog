@@ -1,6 +1,6 @@
 ---
 date: 2017-03-06
-category: back-end
+category: big-data
 tags:
   - analytics
   - kafka

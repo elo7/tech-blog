@@ -1,6 +1,6 @@
 ---
 date: 2018-01-15
-category: data-science
+category: machine-learning
 tags:
   - data science
   - machine learning

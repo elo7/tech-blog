@@ -1,7 +1,7 @@
 ---
 title: Google I/O - Inteligência Artificial
 date: 2017-06-09
-category: back-end
+category: machine-learning
 layout: post
 description: Inteligência artificial foi um dos grandes temas do Google I/O. Atualmente, todos os produtos da Google estão utilizando alguma camada de inteligência artificial, e vão usar cada vez mais no futuro.
 authors: [davidrobert]
@@ -11,7 +11,7 @@ tags:
   - ai
   - mobile
   - google.ai
-  - google assistent
+  - google assistant
   - google lens
   - google home
   - android o
@@ -40,16 +40,16 @@ A Google está efetivamente transformando sua plataforma de computação em nuve
 
 - [https://blog.google/topics/google-cloud/google-cloud-offer-tpus-machine-learning/](https://blog.google/topics/google-cloud/google-cloud-offer-tpus-machine-learning/)
 
-O **Google Assistent** teve melhorias significativas. O Google Assistent começou no celular Pixel e já está em mais de 100 milhões de dispositivos Android. A nova versão do assistente agora pode analisar o mundo à sua volta com a ajuda da câmera do smartphone. Usando tecnologia **Google Lens**, o assistente irá analisar o seu entorno e exibir conteúdo relevante na tela do dispositivo. Será possível ver a classificação de um restaurante ao direcionar a câmera do telefone para a loja, apontar para uma flor e identificar a espécie, ou até encontrar a música de uma banda ou vídeos apontando Lens para um cartaz de show. Um outro exemplo apresentado foi reconhecer as credenciais de login WiFi em uma imagem e o assistente usar essa informação para fazer login na rede.
+O **Google Assistant** teve melhorias significativas. O Google Assistant começou no celular Pixel e já está em mais de 100 milhões de dispositivos Android. A nova versão do assistente agora pode analisar o mundo à sua volta com a ajuda da câmera do smartphone. Usando tecnologia **Google Lens**, o assistente irá analisar o seu entorno e exibir conteúdo relevante na tela do dispositivo. Será possível ver a classificação de um restaurante ao direcionar a câmera do telefone para a loja, apontar para uma flor e identificar a espécie, ou até encontrar a música de uma banda ou vídeos apontando Lens para um cartaz de show. Um outro exemplo apresentado foi reconhecer as credenciais de login WiFi em uma imagem e o assistente usar essa informação para fazer login na rede.
 
 Além disso, novos recursos estão tornando o assistente mais conversacional:
 
 - Outros idiomas estão sendo incorporados a plataforma (inclusive o Português);
 - Agora é possível digitar uma consulta em vez de dizê-la em voz alta;
-- O Google Assistent foi lançado também para a plataforma iOS (uma alternativa ao Siri);
-- Será possível usar o Google Assistent para enviar dinheiro para outras pessoas (inclusive dentro de um chat);
+- O Google Assistant foi lançado também para a plataforma iOS (uma alternativa ao Siri);
+- Será possível usar o Google Assistant para enviar dinheiro para outras pessoas (inclusive dentro de um chat);
 - Integração com o Google Home e outros devices;
-- Disponibilização do Google Assistent SDK.
+- Disponibilização do Google Assistant SDK.
 
 - [https://blog.google/products/assistant/your-assistant-getting-better-on-google-home-and-your-phone/](https://blog.google/products/assistant/your-assistant-getting-better-on-google-home-and-your-phone/)
 

@@ -1,7 +1,7 @@
 ---
 title: Características de Big Data
 date: 2018-04-23
-category: back-end
+category: big-data
 layout: post
 description: Uma pequena introdução sobre Big Data no Elo7
 authors: [ericvinicius]
