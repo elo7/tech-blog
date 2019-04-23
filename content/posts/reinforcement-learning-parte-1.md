@@ -1,6 +1,6 @@
 ---
 date: 2019-03-11
-category: artificial_intelligence
+category: machine-learning
 tags:
   - reinforcement
   - learning
@@ -13,9 +13,6 @@ title: Reinforcement Learning Parte 1 - Introdução
 description: Vamos iniciar o estudo sobre Reinforcement Learning abordando os termos mais comuns utilizados nesta área enquanto tentamos ensinar nosso agente a não cair em armadilhas.
 ---
 
-
-# Reinforcement Learning Parte 1 - Introdução
-
 Esta é a primeira parte de uma série de posts nos quais vamos concentrar nossa atenção em uma parte de Machine Learning (***ML***) chamada Aprendizado por Reforço. Esta talvez seja a parte menos conhecida de ML e é aquela que possui maior semelhança com os métodos que humanos e animais usam para aprender a realizar tareras e ela inicialmente também envolve uma menor abstração matemática para entender o funcionamento dos algoritmos.
 
 A intenção desta série é apresentar e explicar desde os princípios básicos até a demonstração do funcionamento dos principais algoritmos. Para isso vamos utilizar um pouco de matemática (tentarei explicar o melhor possível, prometo), e Python. Se você procurar em vários lugares (como o medium.com) verá que quase sempre há a referência ao livro ***Reinforcement Learning An Introduction*** dos autores *Richard S. Sutton* e *Andrew G. Barto*, pois é o livro mais influente nessa área, na minha opinião o melhor lugar para se começar. Os dois autores possuem uma longa carreira pesquisando sobre Aprendizado por Reforço e ao longo do livro apresentam bem todas as características dos artigos e propõem vários pequenos problemas a serem resolvidos. Esta obra será também nossa principal referência.
@@ -26,7 +23,7 @@ Devido a forte influência do livro a OpenAi criou a Gym, um *toolkit* de ambien
 
 Em Machine Learning os tipos de problemas abordados se dividem em três classes: Aprendizado Supervisionado (Supervised Learning); Aprendizado Não-Supervisionado (Unsupervised Learning); e Aprendizado por Reforço (Reinforcement Learning ou RL). Para ilustrar usamos uma imagem retirada daqui(http://www.cognub.com/index.php/cognitive-platform/).
 
-![Maze01]('../images/reinforcement-learning-parte-1-introducao-1.png'  style="width: 750px;")
+![Maze01](/images/reinforcement-learning-parte-1-introducao-1.png)
 
 Se você já viu algo sobre este assunto deve ter se deparado com vários termos como agente, retorno, recompensa, estado entre outros. Para nos acostumarmos com o que virá vamos deixar claro desde já os principais termos que usaremos por aqui.
 
@@ -34,7 +31,7 @@ Em reinforcement learning podemos sempre imaginar que temos um robô dentro de u
 
 Bom, vamos imaginar um jogo bem simples: nosso agente (O) está dentro de um labirinto que contém armadilhas (T) e a saída (X):
 
-![Maze02]('../images/reinforcement-learning-parte-1-introducao-2.png'  style="width: 300px;")
+![Maze02](/images/reinforcement-learning-parte-1-introducao-2.png)
 
 As regras são as seguintes:
 -  O agente inicia em um quadrado aleatório desde que não seja a saída ou uma das armadilhas;
@@ -69,7 +66,7 @@ O valor, também chamado de state-value, é definido como o valor esperado do re
 
 Também conhecido como action-state-value, é similar ao state-value, porém associado à recompensa de curto prazo. Dado um estado que disponibiliza mais de uma ação possível, aquelas que levam o agente a vencer a partida tem um valor maior que as demais. Ex: na imagem abaixo o agente está em um estado ($s\_{3,4} = s\_{linha\ 3, coluna\ 4}$) que permite as ações $a\_{cima}$, $a\_{esquerda}$ e $a\_{baixo}$. Vemos que a última leva à saída e a primeira a um estado próximo de perder, portanto temos que os valores de cada ação possivelmente respeitam: $Q(s\_{3,4},a\_{baixo}) > Q(s\_{3,4},a\_{esquerda}) > Q(s\_{3,4},a\_{cima})$.
 
-![Maze03]('../images/reinforcement-learning-parte-1-introducao-3.png'  style="width: 300px;")
+![Maze03](/images/reinforcement-learning-parte-1-introducao-3.png)
 
 ### Step e Episode
 
@@ -82,7 +79,7 @@ Conhecendo um pouco da nomenclatura já podemos ter uma ideia do que acontece em
 
 Para problemas simples como o nosso existe tal estratégia (pode existir mais de uma) e nós humanos conseguimos encontrá-la facilmente, como mostramos na figura abaixo, já ensinar um robô pode não ser tão simples.
 
-![Maze04]('../images/reinforcement-learning-parte-1-introducao-4.png'  style="width: 300px;")
+![Maze04](/images/reinforcement-learning-parte-1-introducao-4.png)
 
 Para problemas mais complexos como sair de um labirinto dinâmico, jogar xadrez, dirigir um carro ou jogar em um cassino não há tal garantia e portanto procuramos uma policy que seja aproximadamente ótima. A maneira que os algoritmos utilizam para resolver os problemas gira em torno de técnicas para estimar state-values e action-state-values através da experiência que adquirida pelo agente ao longo dos episódios.
 
