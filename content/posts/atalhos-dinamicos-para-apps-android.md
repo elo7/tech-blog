@@ -75,13 +75,16 @@ A estrutura do JSON que a API retorna, é semelhante a mostrada abaixo:
 
 ```json
 
-    [
-        {
-            "image": "https://example.com/image.png",
-            "title": "Tela Exemplo",
-            "destino": "ClasseDestino"
-        }
-    ]
+    {
+        "shortcuts":
+            [
+                {
+                    "image": "https://example.com/image.png",
+                    "title": "Tela Exemplo",
+                    "destino": "ClasseDestino"
+                }
+            ]
+    }
 
 ```
 
@@ -90,7 +93,7 @@ Podemos utilizar o seguinte modelo para implementá-lo:
 ```java
 public class ShortcutsResultModel implements Serializable {
 
-    @SerializedName("list")
+    @SerializedName("shortcuts")
     private ShortcutListModel shortcutList;
 
     public List<ShortcutModel> getShortcuts() {
