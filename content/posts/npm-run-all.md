@@ -17,7 +17,7 @@ Quando precisamos baixar dependências, compilar arquivos e gerar assets em noss
 ...
 "name": "meuprojeto",
 "scripts": {
-    "build:js": "rm -f app/assets/js/build.js app/assets/js/build.min.js && concat-cli -f app/assets/js/*.js -o app/assets/js/build.js && uglify app/assets/js/build.js -o app/assets/js/build.min.js",
+    "build:js": "concat-cli -f js/*.js -o js/build.js && uglify js/build.js -o js/build.min.js",
     ...
 },
 ...
@@ -35,7 +35,7 @@ Podemos até usar os scripts especiais `pre` e `post` (no exemplo, `prebuild:js`
 "name": "meuprojeto",
 "scripts": {
     "build:js": "npm run build:js:desktop && npm run build:js:mobile && npm run build:js:app",
-    "build:js:desktop": "rm -f app/assets/js/desktop/build.js app/assets/js/desktop/build.min.js && concat-cli -f app/assets/js/desktop/*.js -o app/assets/js/desktop/build.js && uglify app/assets/js/desktop/build.js -o app/assets/js/desktop/build.min.js",
+    "build:js:desktop": "concat-cli -f js/desktop/*.js -o js/desktop/build.js && uglify js/desktop/build.js -o js/desktop/build.min.js",
     "build:js:mobile": "...",
     ...
 },
@@ -48,11 +48,11 @@ Com isso, conseguimos melhorar um pouco a legibilidade de comandos mais complexo
 ...
 "name": "meuprojeto",
 "config": {
-    "jsdir": "app/assets/js"
+    "jsdir": "js"
 },
 "scripts": {
     "build:js": "npm run build:js:desktop --meuprojeto:jsdir=$npm_package_config_jsdir && npm run build:js:mobile --meuprojeto:jsdir=$npm_package_config_jsdir && npm run build:js:app --meuprojeto:jsdir=$npm_package_config_jsdir",
-    "build:js:desktop": "rm -f $npm_package_config_jsdir/desktop/build.js $npm_package_config_jsdir/desktop/build.min.js && concat-cli -f $npm_package_config_jsdir/desktop/*.js -o $npm_package_config_jsdir/desktop/build.js && uglify $npm_package_config_jsdir/desktop/build.js -o $npm_package_config_jsdir/desktop/build.min.js",
+    "build:js:desktop": "concat-cli -f $npm_package_config_jsdir/desktop/*.js -o $npm_package_config_jsdir/desktop/build.js && uglify $npm_package_config_jsdir/desktop/build.js -o $npm_package_config_jsdir/desktop/build.min.js",
     "build:js:mobile": "...",
     ...
 },
@@ -78,11 +78,11 @@ Uma vez instalado, teremos a nossa disposição o comando `npm-run-all` nos noss
 ...
 "name": "meuprojeto",
 "config": {
-    "jsdir": "app/assets/js"
+    "jsdir": "js"
 },
 "scripts": {
     "build:js": "npm-run-all build:js:desktop build:js:mobile build:js:app",
-    "build:js:desktop": "rm -f $npm_package_config_jsdir/desktop/build.js $npm_package_config_jsdir/desktop/build.min.js && concat-cli -f $npm_package_config_jsdir/desktop/*.js -o $npm_package_config_jsdir/desktop/build.js && uglify $npm_package_config_jsdir/desktop/build.js -o $npm_package_config_jsdir/desktop/build.min.js",
+    "build:js:desktop": "concat-cli -f $npm_package_config_jsdir/desktop/*.js -o $npm_package_config_jsdir/desktop/build.js && uglify $npm_package_config_jsdir/desktop/build.js -o $npm_package_config_jsdir/desktop/build.min.js",
     "build:js:mobile": "...",
     ...
 },
@@ -113,11 +113,11 @@ Mais interessante ainda: caso usemos a nomenclatura `script:subscript` para nome
 ...
 "name": "meuprojeto",
 "config": {
-    "jsdir": "app/assets/js"
+    "jsdir": "js"
 },
 "scripts": {
     "build:js": "npm-run-all build:js:*",
-    "build:js:desktop": "rm -f $npm_package_config_jsdir/desktop/build.js $npm_package_config_jsdir/desktop/build.min.js && concat-cli -f $npm_package_config_jsdir/desktop/*.js -o $npm_package_config_jsdir/desktop/build.js && uglify $npm_package_config_jsdir/desktop/build.js -o $npm_package_config_jsdir/desktop/build.min.js",
+    "build:js:desktop": "concat-cli -f $npm_package_config_jsdir/desktop/*.js -o $npm_package_config_jsdir/desktop/build.js && uglify $npm_package_config_jsdir/desktop/build.js -o $npm_package_config_jsdir/desktop/build.min.js",
     "build:js:mobile": "...",
     ...
 },
@@ -130,14 +130,14 @@ Os scripts serão executados na ordem em que foram especificados no `package.jso
 
 Quando dividimos nossos scripts em pequenas partes e essas partes são independentes umas das outras, ganhamos a possibilidade de executá-los em paralelo. No exemplo anterior, poderíamos executar os scripts `build:js:desktop` e `build:js:mobile` em paralelo.
 
-Sem o `npm-run-all` e em um ambiente Linux ou Mac OSX, poderíamos atingir esse objetivo da seguinte forma:
+Sem o `npm-run-all` e em um ambiente Linux ou Mac OSX, poderíamos atingir esse objetivo usando o operador `&`:
 
 ```json
 ...
 "name": "meuprojeto",
 "scripts": {
     "build:js": "npm run build:js:desktop & npm run build:js:mobile",
-    "build:js:desktop": "rm -f app/assets/js/desktop/build.js app/assets/js/desktop/build.min.js && concat-cli -f app/assets/js/desktop/*.js -o app/assets/js/desktop/build.js && uglify app/assets/js/desktop/build.js -o app/assets/js/desktop/build.min.js",
+    "build:js:desktop": "concat-cli -f js/desktop/*.js -o js/desktop/build.js && uglify js/desktop/build.js -o js/desktop/build.min.js",
     "build:js:mobile": "...",
     ...
 },
@@ -151,7 +151,7 @@ Porém, novamente estaríamos usando uma solução não portável, além de não
 "name": "meuprojeto",
 "scripts": {
     "build:js": "npm-run-all -p build:js:*",
-    "build:js:desktop": "rm -f app/assets/js/desktop/build.js app/assets/js/desktop/build.min.js && concat-cli -f app/assets/js/desktop/*.js -o app/assets/js/desktop/build.js && uglify app/assets/js/desktop/build.js -o app/assets/js/desktop/build.min.js",
+    "build:js:desktop": "concat-cli -f js/desktop/*.js -o js/desktop/build.js && uglify js/desktop/build.js -o js/desktop/build.min.js",
     "build:js:mobile": "...",
     ...
 },
@@ -169,7 +169,7 @@ A opção `-l` torna-se especialmente interessante no modo de execução paralel
 "name": "meuprojeto",
 "scripts": {
     "build:js": "npm-run-all -l -p build:js:*",
-    "build:js:desktop": "rm -f app/assets/js/desktop/build.js app/assets/js/desktop/build.min.js && concat-cli -f app/assets/js/desktop/*.js -o app/assets/js/desktop/build.js && uglify app/assets/js/desktop/build.js -o app/assets/js/desktop/build.min.js",
+    "build:js:desktop": "concat-cli -f js/desktop/*.js -o js/desktop/build.js && uglify js/desktop/build.js -o js/desktop/build.min.js",
     "build:js:mobile": "...",
     ...
 },
@@ -201,7 +201,7 @@ Para facilitar ainda mais a nossa vida, o pacote `npm-run-all` fornece mais dois
 "name": "meuprojeto",
 "scripts": {
     "build:js": "run-p -l build:js:*",
-    "build:js:desktop": "rm -f app/assets/js/desktop/build.js app/assets/js/desktop/build.min.js && concat-cli -f app/assets/js/desktop/*.js -o app/assets/js/desktop/build.js && uglify app/assets/js/desktop/build.js -o app/assets/js/desktop/build.min.js",
+    "build:js:desktop": "concat-cli -f js/desktop/*.js -o js/desktop/build.js && uglify js/desktop/build.js -o js/desktop/build.min.js",
     "build:js:mobile": "...",
     ...
 },
@@ -243,7 +243,7 @@ Contudo, recomendo quebrar o script em tarefas menores sempre que possível, par
 ...
 ```
 
-Vale observar, também, que os scripts `pre` e `post` do `npm` funcionam normalmente com o `npm-run-all`, o que significa que podemos quebrar ainda mais nossos scripts sem precisar necessariamente complicar os scripts de nível mais alto. Por exemplo, caso queiramos concatenar, compilar e minificar os arquivos Javascript no exemplo anterior, podemos fazer:
+Vale observar, também, que os scripts `pre` e `post` do **npm** funcionam normalmente com o `npm-run-all`, o que significa que podemos quebrar ainda mais nossos scripts sem precisar necessariamente complicar os scripts de nível mais alto. Por exemplo, caso queiramos concatenar, compilar e minificar os arquivos Javascript no exemplo anterior, podemos fazer:
 
 ```json
 ...
@@ -253,7 +253,7 @@ Vale observar, também, que os scripts `pre` e `post` do `npm` funcionam normalm
     "build": "run-p -l build:*",
     "prebuild:js": "concat-cli ...",
     "build:js": "babel-node ...",
-    "postbuild:js": "terser ...",
+    "postbuild:js": "uglify ...",
     "build:css": "node-sass ...",
     "md5": "...",
     "upload": "scp ..."
@@ -271,10 +271,10 @@ deploy |                                              +-> md5 +-> upload
 
 ## Conclusão
 
-Usar o `package.json` para especificar os scripts de que sua aplicação depende é uma prática cada vez comum mas que, como toda tecnologia, tem suas limitações. O `npm-run-all` soluciona algumas dessas limitações de forma bastante elegante, tornando os scripts npm ainda mais interessantes como ferramenta de desenvolvimento.
+Usar o `package.json` para especificar os scripts de que sua aplicação depende é uma prática cada vez mais comum mas que, como toda tecnologia, tem suas limitações. O `npm-run-all` soluciona algumas dessas limitações de forma bastante elegante, tornando os scripts **npm** ainda mais interessantes como ferramenta de desenvolvimento.
 
 Contudo, vale sempre o cuidado e o bom senso para não abusar de suas funcionalidades. Uma especificação de dependências entre scripts muito complexa pode tornar o projeto muito difícil de manter, e as facilidades que o `npm-run-all` traz tornam mais fácil escrever uma especificação complexa.
 
-Vale observar, também, que o `npm-run-all` não é a única ferramenta que fornece esse tipo de funcionalidade. A biblioteca `concurrently` também permite a execução paralela de scripts, com suporte a mais controle da entrada e saída dos scripts, reiniciar scripts que falharam, dentre outras funcionalidades.
+Vale observar, também, que o `npm-run-all` não é a única ferramenta que fornece esse tipo de funcionalidade. A biblioteca [concurrently](https://github.com/kimmobrunfeldt/concurrently) também permite a execução paralela de scripts, dá mais controle sobre a entrada e saída dos scripts, reinicia scripts que falharam, dentre outras funcionalidades.
 
 Você já usou ou usa o `npm-run-all`, o `concurrently` ou outra ferramenta similar? Conte para nós sua experiência!
