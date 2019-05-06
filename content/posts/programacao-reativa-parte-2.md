@@ -6,7 +6,7 @@ tags:
   - programacao-reativa
 authors: [ljtfreitas]
 layout: post
-title: Programação Reativa - Parte 2
+title: "Programação Reativa - Parte 2: RxJava"
 description: Continuando a série sobre Programação Reativa, agora com um pouco de código!
 cover: programacao-reativa-parte-2.png
 ---

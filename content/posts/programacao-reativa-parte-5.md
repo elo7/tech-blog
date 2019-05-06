@@ -6,7 +6,7 @@ tags:
   - programacao-reativa
 authors: [ljtfreitas]
 layout: post
-title: Programação Reativa - Parte 5
+title: "Programação Reativa - Parte 5: Arquiteturas não-bloqueantes"
 description: "(Mais sobre) Sistemas reativos: arquiteturas não-bloqueantes!"
 ---
 Depois de muito falarmos sobre programação reativa, no [post anterior](/programacao-reativa-parte-4) vimos os fundamentos dos "sistemas reativos", e uma expressão em especial recebeu bastante destaque: "não bloqueante".
