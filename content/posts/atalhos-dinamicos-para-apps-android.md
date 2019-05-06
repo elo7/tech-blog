@@ -8,7 +8,7 @@ authors: [andrepbap]
 layout: post
 title: Atalhos Dinâmicos para APPs Android
 description: Aprenda a facilitar o acesso às principais funcionalidades do seu APP Android.
-cover: intersection-observer.png
+cover:
 ---
 
 ## Menos passos para atingir um objetivo
