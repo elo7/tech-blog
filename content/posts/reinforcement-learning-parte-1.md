@@ -11,6 +11,7 @@ authors: [onimaru]
 layout: post
 title: Reinforcement Learning Parte 1 - Introdução
 description: Vamos iniciar o estudo sobre Reinforcement Learning abordando os termos mais comuns utilizados nesta área enquanto tentamos ensinar nosso agente a não cair em armadilhas.
+cover: reinforcement-learning-parte-1.png
 ---
 
 Esta é a primeira parte de uma série de posts nos quais vamos concentrar nossa atenção em uma parte de Machine Learning (***ML***) chamada **Aprendizado por Reforço**. Esta talvez seja a parte menos conhecida de ML e é aquela que possui maior semelhança com os métodos que humanos e animais usam para aprender a realizar tarefas, e ela inicialmente também envolve uma menor abstração matemática para entender o funcionamento dos algoritmos.
