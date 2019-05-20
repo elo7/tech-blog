@@ -6,10 +6,19 @@
     <description>Recent content in Javascript on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
-    <lastBuildDate>Mon, 10 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 25 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://elo7.dev/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Builds mais rápidos e portáveis com npm-run-all</title>
+      <link>https://elo7.dev/npm-run-all/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/npm-run-all/</guid>
+      <description>Quando precisamos baixar dependências, compilar arquivos e gerar assets em nossas aplicações, é comum utilizarmos alguma ferramenta para automatizar esse processo. Uma ferramenta que tem se tornado cada vez mais popular para esse fim são os scripts do npm. Cada um dos scripts pode ser um comando qualquer de terminal, inclusive uma combinação de comandos usando os operadores &amp;amp;&amp;amp;, | (pipe) e ;. Além disso, nos scripts do npm conseguimos chamar comandos de pacotes npm referenciados pelo nosso projeto de forma bem direta.</description>
+    </item>
     
     <item>
       <title>Javascript e acessibilidade</title>
