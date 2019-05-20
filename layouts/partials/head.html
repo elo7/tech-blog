@@ -28,7 +28,7 @@
 	<meta property='twitter:domain' content='{{ .Site.BaseURL }}'>
 	<meta property='twitter:url' content='{{ .Permalink }}'>
 	<meta property='twitter:description' content='{{ .Site.Params.description }}'>
-	<meta property='twitter:image' content='{{"images/ico/elo7.png" | absURL}}'>
+	<meta property='twitter:image' content='{{ .Site.BaseURL }}images/cover/{{if .Params.cover }}{{.Params.cover}}{{else}}elo7.png{{end}}'>
 
 	<link rel='canonical' href='{{ .Permalink }}'>
 	<title>Elo7 Tech - {{ if .IsHome }}Home{{ else }}{{ .Title }}{{ end }}</title>
