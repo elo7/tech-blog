@@ -17,7 +17,7 @@ tags:
 cover: retrospectiva-2018.jpg
 ---
 
-Antes tarde do que nunca! Já acabamos o primeiro trimestre de 2019, mas ainda dá tempo de falar sobre o que fizemos aqui no Elo7 no time de front end. E nesse post vou falar melhor sobre quais foram cada um deles.
+Antes tarde do que nunca! Já acabamos o primeiro trimestre de 2019, mas ainda dá tempo de falar sobre o que fizemos aqui no Elo7 no time de front end.
 
 ## Intersection Observer
 Começamos a usar bastante a API do *Intersection Observer*, principalmente nos nossos carrosséis de imagens ao longo do site.
@@ -28,7 +28,7 @@ A [Aline Lee](/autor/alinelee) fez [um post só sobre ele](/intersection-observe
 
 !["Compatibilidade Intersection Observer"](../images/front-end-coisas-que-nos-nos-orgulhamos-em-2018-2.png)
 
-No caso do nosso carrossel, nós utilizamos para observar quando a próxima imagem está visível para colorir a bolinha correspondente à sua posição. Para maiores detalhes de implementação, veja no [post da Aline Lee](/intersection-observer).
+No caso do nosso carrossel, nós utilizamos para observar quando a próxima imagem está visível para colorir a bolinha correspondente à sua posição.
 
 ## CSS Grid Layout
 Uma "novidade" do CSS, o *Grid Layout* veio fazendo sucesso desde quando as primeiras specs surgiram. Mas tivemos que esperar um pouco para usá-lo, por conta da sua compatibilidade com diferentes browsers.
@@ -63,7 +63,7 @@ Um outro caso que usamos, o mais convencional, foi para separar cada um dos card
 !["Exemplo do grid no site do Elo7 na lista de produtos"](../images/front-end-coisas-que-nos-nos-orgulhamos-em-2018-5.png)
 
 ## JSON-LD
-É bem importante o uso dos dados estruturados para melhorar o SEO da sua página. Mas existem algumas formas de fazer isso, mas aqui vou falar apenas de duas: **microdados** e **JSON-LD**. Usávamos a estrutura de microdados por aqui, mas por recomendação do próprio Google, migramos para o *JSON-LD*.
+É bem importante o uso dos dados estruturados para melhorar o SEO da sua página. Mas existem algumas formas de fazer isso, vou falar apenas de duas: **microdados** e **JSON-LD**. Usávamos a estrutura de microdados por aqui, mas por recomendação do próprio Google, migramos para o *JSON-LD*.
 
 Os *microdados*, são uma especificação baseada no *HTML*, e os dados estruturados são colocadas no meio do *HTML* visível para o usuário. Já no *JSON-LD*, as informações ficam em uma tag `<script>`, como no exemplo abaixo:
 
@@ -107,9 +107,13 @@ Nós começamos a utilizar esse tipo de *header* para melhorar o cache dos nosso
 
 
 ## Non-interaction
-Para coletar métricas, enviamos eventos de diversos tipos para o *Google Analytics*, pode ser que o usuário tenha visualizado alguma parte do site, ou clicado em algum lugar ou navegado, enfim, existem diversos tipos de eventos. Mas nem sempre o usuário realmente interagiu com algo, ele pode ter apenas visualizado algo e não ter feito nada e você querer enviar uma métrica para saber disso. E existe uma forma de aperfeiçoar ainda mais esses eventos e ter métricas ainda mais precisas, usando o **non-interaction**. Quando temos esses casos de eventos que são enviados para o *Analytics* que não tem nenhum tipo de interação normalmente essa métrica é contabilizada para as métricas de rejeição. Quando adicionamos o atributo `non-interaction`, essas métricas deixam de ser contabilizadas, deixando as métricas mais precisas e reais.
+Para coletar métricas, enviamos eventos de diversos tipos para o *Google Analytics*. Pode ser que o usuário tenha visualizado alguma parte do site, clicado em algum lugar ou navegado, enfim, existem diversos tipos de eventos. Há casos em que você quer obter métricas e não necessariamente o usuário interagiu com o site, ele pode ter apenas visualizado e não ter feito nada.
 
-Para conhecer mais, veja a [documentação do Google Analytics :)](https://developers.google.com/analytics/devguides/collection/analyticsjs/events?hl=pt).
+Existe uma forma de aperfeiçoar ainda mais esses eventos e ter métricas ainda mais precisas, usando o **non-interaction**. Quando não existe nenhum tipo de interação, normalmente essa métrica é contabilizada como rejeição. Ao adicionarmos o atributo `non-interaction`, essas métricas deixam de ser contabilizadas como rejeição, ficando mais precisas e reais.
+
+Para conhecer mais, veja a [documentação do Google Analytics](https://developers.google.com/analytics/devguides/collection/analyticsjs/events?hl=pt).
 
 ## Conclusão
-Essas foram as principais tecnologias que marcaram o nosso 2018, todas elas ainda estamos incrementando cada vez mais, e estamos trazendo cada vez mais tecnologias para fazer parte do nosso trabalho! O que você tem usado no seu front de interessante ou estão estudando? Compartilhe conosco ;D
+Essas foram as principais tecnologias que marcaram o nosso 2018, ainda estamos incrementando todas elas, e estamos trazendo cada vez mais tecnologias para fazer parte do nosso trabalho! 
+
+O que você tem usado no seu front de interessante ou está estudando? Compartilhe conosco ;D
