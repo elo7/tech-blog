@@ -25,7 +25,7 @@ Quando precisamos baixar dependências, compilar arquivos e gerar assets em noss
 
 Um olhar atento nos permite perceber alguns problemas com esse script:
 
-- **Só funciona em Linux e Mac OSX**: por usar o comando `rm` e o operador `&&`, o script não funciona em todas as plataformas.
+- **Só funciona em Linux e Mac OSX**: por usar o operador `&&`, o script não funciona em todas as plataformas.
 - **Pouco legível**: conforme a quantidade de comandos ou de parâmetros aumenta, fica cada vez mais difícil entender o que o comando faz.
 
 Podemos até usar os scripts especiais `pre` e `post` (no exemplo, `prebuild:js` e `postbuild:js`) para diminuir esses problemas. Porém, caso nosso script tenha mais de três passos, voltaremos a ter esses mesmos problemas. Podemos tentar dividir um script em mais partes ainda:
