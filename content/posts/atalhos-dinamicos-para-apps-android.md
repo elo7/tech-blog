@@ -13,23 +13,17 @@ cover:
 
 ## Menos passos para atingir um objetivo
 
-Funcionalidade disponibilizada a partir do Android Nougat (7.0), os atalhos facilitam o acesso às funcionalidades que os usuários do seu aplicativo mais utilizam. Prover menos passos para um objetivo, facilita o fluxo de navegação e gera mais conversão para seu produto. Nosso foco com esse artigo é explicar de forma prática como aplicamos esse conceito nos aplicativos do Elo7.
+Prover menos passos para um objetivo facilita o fluxo de navegação e gera mais conversão para seu produto. O *App Shortcuts* é uma funcionalidade disponibilizada a partir do Android Nougat (7.0), o objetivo é facilitar o acesso às principais telas do aplicativo a partir de seu ícone no menu ou área de trabalho, basta segura-lo por alguns segundos para que os atalhos para as telas correspondentes apareçam. Nosso foco com esse artigo é explicar de forma prática como aplicamos esse conceito nos aplicativos do Elo7.
 
 ## Tipos de atalho
 
-Existem duas formas de implementar os atalhos: estática e dinâmica. Na primeira, apenas definimos um arquivo XML contendo para cada representação de atalho, um título, imagem e uma intenção para a tela correspondente. Na forma dinâmica, a qual focaremos aqui, podemos inserir e excluir atalhos conforme ações de seus usuários ou novas informações que julgue pertinentes para serem disponibilizadas. No caso do Elo7, inserimos novas mensagens que chegam ao comprador ou vendedor.
-
-## Exemplo de atalhos no Elo7
-
-Aqui no Elo7, usamos os atalhos para prover um acesso rápido as principais telas de nossos aplicativos, além de mostrar as últimas mensagens recebidas por nossos clientes, como mostrado na tela abaixo.
+Existem duas formas de implementar os atalhos: estática e dinâmica. Na estática, apenas definimos um arquivo XML contendo para cada representação de atalho, um título, imagem e uma intenção para a tela correspondente. Na forma dinâmica, a qual focaremos aqui, podemos inserir e excluir atalhos conforme ações do usuário ou novas notificações. Aqui no Elo7 por exemplo, criamos atalhos dinamicamente conforme novas mensagens chegam aos nossos compradores ou vendedores. Assim como resultado, mostramos uma lista de telas que nossos usuários mais tem chances de querer acessar.
 
 ![Alt "Exemplo de atalhos"](../images/tela-atalhos-app-android.png)
 
-Com objetivo de deixar essa funcionalidade mais dinâmica, implementamos uma API que retorna um array de atalhos conforme regras definidas. A partir daqui mostraremos um exemplo semelhante a solução que implementamos.
-
 ### A fábrica de atalhos
 
-Vamos exemplificar aqui a classe responsável pela criação de todos os atalhos. O desafio que enfrentamos nela, foi fazer chamadas assíncronas para requisitar os dados a serem apresentados. A estrutura do método criador que iremos mostrar possui duas chamadas: uma para obter os atalhos e outra para construí-los requisitando seus ícones.
+Vamos exemplificar aqui a classe responsável pela criação de todos os atalhos. O desafio que enfrentamos nela foi fazer chamadas assíncronas para requisitar os dados a serem apresentados. A estrutura do método criador que iremos mostrar possui duas chamadas: uma para obter os atalhos e outra para construí-los requisitando seus ícones.
 
 ```java
     private final ShortcutManager shortcutManager;
@@ -67,7 +61,7 @@ Vamos exemplificar aqui a classe responsável pela criação de todos os atalhos
 
 Em nosso exemplo, o *client* possui um método `getShortcuts` que recebe um novo callback como parâmetro. Se você não tem muita experiência com chamadas à APIs, recomendo estudar a biblioteca Retrofit, que é a que utilizamos para fazer requisições REST. No sucesso do callback, obtemos o modelo `ShortcutsResultModel`. Detalharemos esse modelo posteriormente nesse post.
 
-A partir do Array de atalhos, pegamos os primeiros resultados e passamos como parâmetro para o método `createShortcutBuilder`, que irá preparar o construtor do atalho para posteriormente, ser possível adinioná-lo no app. O método `getMaxShortcutCountPerActivity` do `ShortcutManager`, retorna a quantidade de atalhos suportadas pelo sistema, que atualmente estão entre quatro e cinco.
+A partir do Array de atalhos, pegamos os primeiros resultados e passamos como parâmetro para o método `createShortcutBuilder`, que irá preparar o construtor do atalho para posteriormente ser possível adinioná-lo no app. O método `getMaxShortcutCountPerActivity` do `ShortcutManager`, retorna a quantidade de atalhos suportadas pelo sistema, que atualmente estão entre quatro e cinco.
 
 ### Modelo
 
@@ -126,7 +120,7 @@ public class ShortcutsResultModel implements Serializable {
 
 ### Preparando os contrutores dos atalhos
 
-Um dos problemas que enfrentamos ao inserir uma imagem remota nos atalhos, é o fato não podermos inseri-las após adicionarmos os atalhos no APP. Como alternativa, podemos criar uma lista de *Builders* para que possamos adicioná-los somente após termos todos os ícones. Abaixo, um exemplo do método `createShortcutBuilder`, que será chamado para cada atalho que será disponibilizado:
+Um dos problemas que enfrentamos ao inserir uma imagem remota nos atalhos, é o fato de não podermos inseri-las após adicionarmos os atalhos no APP. Como alternativa, podemos criar uma lista de *Builders* para que possamos adicioná-los somente após termos todos os ícones. Abaixo, um exemplo do método `createShortcutBuilder`, que será chamado para cada atalho que será disponibilizado:
 
 ```java
 
@@ -147,7 +141,7 @@ private Class<? extends Activity> getActivityByName(String activity) throws Clas
 
 ```
 
-Após criado os construtores, podemos seguir para o próximo passo, que é a obtenção das imagens dos atalhos. Para isso, vamos criar o método `setIconsAndBuildShortcuts`.
+Após a criação dos construtores, podemos seguir para o próximo passo, que é a obtenção das imagens dos atalhos. Para isso, vamos criar o método `setIconsAndBuildShortcuts`.
 
 ```java
 
@@ -226,11 +220,11 @@ setIconsAndBuildShortcuts(new SetIconsAndBuildShortcutsCallback() {
 
 Aqui começamos inicializando a variável global `numberOfCallbackCalls`. Essa variável é responsável por contar quantas vezes chamamos o callback, para dessa maneira, saber se já atribuímos todos os ícones e a partir daí, construir e finalmente adicionar os atalhos no APP.
 
-Para adicionar os atalhos, criamos uma lista local adicionando os objetos de atalhos dessa vez já construidos. Essa lista será usada como parâmetro do método `addDynamicShortcuts` do `ShortcutManager`, que por sua vez, é responsável por adicionar os atalhos.
+Para adicionar os atalhos, criamos uma lista local adicionando os objetos de atalhos dessa vez já construídos. Essa lista será usada como parâmetro do método `addDynamicShortcuts` do `ShortcutManager`, que por sua vez, é responsável por adicionar os atalhos.
 
 ## Chamando o método criador
 
-Uma dica para disponibilizar o método `create` de forma mais simples, é usar o Dagger para injetar a classe que o implementa em qualquer outra do seu código. Crie um construtor passando elementos que você precisará para, por exemplo, utilizar o `ShortcutManager` e o *client*. Exemplo:
+Uma dica para disponibilizar o método `create` de forma mais simples, é usar o Dagger para injetar a classe que o implementa em qualquer outra do seu código. Crie um construtor passando os elementos que você precisará para, por exemplo, utilizar o `ShortcutManager` e o *client*. Exemplo:
 
 ```java
 
