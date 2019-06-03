@@ -5,18 +5,18 @@
 
 <body>
     {{ partial "header.html" . }}
-    <main aria-label="Conteúdo principal" itemscope itemtype="http://schema.org/Blog">
+    <main aria-label='Conteúdo principal'>
         <h1 class='container category-title'>Meetups no Elo7</h1>
-        <section class='container events' itemscope itemtype='http://schema.org/Blog'>
+        <section class='container events'>
             {{ range .Data.Pages.ByDate }}
-                <article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="event">
+                <article class='event'>
                     <header>
-                        <img src="{{ .Params.image }}" alt="">
-                        <h2 itemprop='name' class="title">{{ .Params.name }}</h2>
+                        <img src='{{ .Params.image }}' alt=''>
+                        <h2 itemprop='name' class='title'>{{ .Params.name }}</h2>
                     </header>
                     {{ partial "date.html" . }}
 
-                    <a href='{{ .Params.link }}' class='link'>Quero ir nesse evento!</a>
+                    <a href='{{ .Params.link }}' class='link' target='_blank'>Quero ir nesse evento!</a>
                 </article>
             {{ end }}
         </section>
