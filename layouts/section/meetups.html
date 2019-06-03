@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+{{ partial "head.html" . }}
+<link rel='stylesheet' href='{{ "css/meetups.css" | absURL}}'>
+
+<body>
+    {{ partial "header.html" . }}
+    <main aria-label="Conteúdo principal" itemscope itemtype="http://schema.org/Blog">
+        <h1 class='container category-title'>Meetups no Elo7</h1>
+        <section class='container events' itemscope itemtype='http://schema.org/Blog'>
+            {{ range .Data.Pages.ByDate }}
+                <article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="event">
+                    <header>
+                        <img src="{{ .Params.image }}" alt="">
+                        <h2 itemprop='name' class="title">{{ .Params.name }}</h2>
+                    </header>
+                    {{ partial "date.html" . }}
+
+                    <a href='{{ .Params.link }}' class='link'>Quero ir nesse evento!</a>
+                </article>
+            {{ end }}
+        </section>
+    </main>
+
+    {{ partial "footer.html" . }}
+</body>
+
+</html>
