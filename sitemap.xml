@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://elo7.dev/front-end-coisas-que-nos-nos-orgulhamos-em-2018/</loc>
+    <lastmod>2019-04-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/npm-run-all/</loc>
     <lastmod>2019-03-25T00:00:00+00:00</lastmod>
   </url>
@@ -843,7 +848,7 @@
   
   <url>
     <loc>https://elo7.dev/tags/css/</loc>
-    <lastmod>2018-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1014,6 +1019,12 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/tags/etag/</loc>
+    <lastmod>2019-04-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/categoria/eventos/</loc>
     <lastmod>2016-06-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -1073,7 +1084,7 @@
   
   <url>
     <loc>https://elo7.dev/categoria/front-end/</loc>
-    <lastmod>2019-03-25T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1142,6 +1153,12 @@
   <url>
     <loc>https://elo7.dev/tags/graylog/</loc>
     <lastmod>2016-10-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://elo7.dev/tags/grid/</loc>
+    <lastmod>2019-04-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1247,7 +1264,7 @@
   
   <url>
     <loc>https://elo7.dev/tags/intersection-observer/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1289,7 +1306,7 @@
   
   <url>
     <loc>https://elo7.dev/tags/javascript/</loc>
-    <lastmod>2019-03-25T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1358,6 +1375,12 @@
   <url>
     <loc>https://elo7.dev/tags/libs/</loc>
     <lastmod>2017-09-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://elo7.dev/tags/linters/</loc>
+    <lastmod>2019-04-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1480,6 +1503,12 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/tags/non-interaction/</loc>
+    <lastmod>2019-04-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/tags/npm/</loc>
     <lastmod>2019-03-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -1557,7 +1586,7 @@
   
   <url>
     <loc>https://elo7.dev/posts/</loc>
-    <lastmod>2019-03-25T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1700,6 +1729,12 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/tags/schema/</loc>
+    <lastmod>2019-04-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/tags/search/</loc>
     <lastmod>2017-12-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -1821,7 +1856,7 @@
   
   <url>
     <loc>https://elo7.dev/</loc>
-    <lastmod>2019-03-25T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

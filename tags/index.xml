@@ -410,7 +410,7 @@
     <item>
       <title>Css</title>
       <link>https://elo7.dev/tags/css/</link>
-      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/css/</guid>
       <description></description>
@@ -597,6 +597,15 @@
     </item>
     
     <item>
+      <title>Etag</title>
+      <link>https://elo7.dev/tags/etag/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/etag/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Eventos</title>
       <link>https://elo7.dev/tags/eventos/</link>
       <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
@@ -737,6 +746,15 @@
       <pubDate>Mon, 10 Oct 2016 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/graylog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Grid</title>
+      <link>https://elo7.dev/tags/grid/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/grid/</guid>
       <description></description>
     </item>
     
@@ -887,7 +905,7 @@
     <item>
       <title>Intersection Observer</title>
       <link>https://elo7.dev/tags/intersection-observer/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/intersection-observer/</guid>
       <description></description>
@@ -950,7 +968,7 @@
     <item>
       <title>Javascript</title>
       <link>https://elo7.dev/tags/javascript/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/javascript/</guid>
       <description></description>
@@ -1043,6 +1061,15 @@
       <pubDate>Mon, 25 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/libs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linters</title>
+      <link>https://elo7.dev/tags/linters/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/linters/</guid>
       <description></description>
     </item>
     
@@ -1160,6 +1187,15 @@
       <pubDate>Mon, 24 Jun 2013 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/netflix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Non Interaction</title>
+      <link>https://elo7.dev/tags/non-interaction/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/non-interaction/</guid>
       <description></description>
     </item>
     
@@ -1457,6 +1493,15 @@
       <pubDate>Tue, 13 Aug 2013 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/scala/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Schema</title>
+      <link>https://elo7.dev/tags/schema/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/schema/</guid>
       <description></description>
     </item>
     

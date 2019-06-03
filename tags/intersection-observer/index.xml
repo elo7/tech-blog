@@ -6,10 +6,21 @@
     <description>Recent content in Intersection Observer on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://elo7.dev/tags/intersection-observer/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Front-End - Coisas de que nós nos orgulhamos em 2018!</title>
+      <link>https://elo7.dev/front-end-coisas-que-nos-nos-orgulhamos-em-2018/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/front-end-coisas-que-nos-nos-orgulhamos-em-2018/</guid>
+      <description>Antes tarde do que nunca! Já acabamos o primeiro trimestre de 2019, mas ainda dá tempo de falar sobre o que fizemos aqui no Elo7 no time de front end.
+Intersection Observer Começamos a usar bastante a API do Intersection Observer, principalmente nos nossos carrosséis de imagens ao longo do site.
+A Aline Lee fez um post só sobre ele, mas para resumir, com ele, você consegue observar um determinado elemento, que te avisa sempre que este aparece na área visível da página.</description>
+    </item>
     
     <item>
       <title>Intersection Observer API</title>
