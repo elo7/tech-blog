@@ -6,8 +6,8 @@ tags:
   - shortcut
 authors: [andrepbap]
 layout: post
-title: Atalhos Dinâmicos para APPs Android
-description: Aprenda a facilitar o acesso às principais funcionalidades do seu APP Android.
+title: Atalhos Dinâmicos Contruidos por API para apps Android
+description: Nesse post iremos mostrar como facilitar o acesso às principais funcionalidades do seu app Android através de atalhos. Além disso ensinaremos como obter esses dados através de uma API, eliminando a necessidade de atualizar o app para modificá-los.
 cover:
 ---
 
@@ -17,7 +17,7 @@ Prover menos passos para um objetivo facilita o fluxo de navegação e gera mais
 
 ## Tipos de atalho
 
-Existem duas formas de implementar os atalhos: estática e dinâmica. Na estática, apenas definimos um arquivo XML contendo para cada representação de atalho, um título, imagem e uma intenção para a tela correspondente. Na forma dinâmica, a qual focaremos aqui, podemos inserir e excluir atalhos conforme ações do usuário ou novas notificações. Aqui no Elo7 por exemplo, criamos atalhos dinamicamente conforme novas mensagens chegam aos nossos compradores ou vendedores. Assim como resultado, mostramos uma lista de telas que nossos usuários mais tem chances de querer acessar.
+Existem duas formas de implementar os atalhos: estática e dinâmica. Na estática, apenas definimos um arquivo XML contendo para cada representação de atalho, um título, imagem e uma intenção para a tela correspondente. Na forma dinâmica, a qual focaremos aqui, podemos inserir e excluir atalhos conforme ações do usuário ou novas notificações. Aqui no Elo7 por exemplo, aproveitamos essa versatilidade e criamos um *endpoint* para retornar esses objetos. Com isso, conseguimos, por exemplo, mostrar atalhos diferentes por usuário ou modificar seus títulos e ícones sem que o usuário precise atualizar o aplicativo.
 
 ![Alt "Exemplo de atalhos"](../images/tela-atalhos-app-android.png)
 
@@ -39,15 +39,18 @@ Vamos exemplificar aqui a classe responsável pela criação de todos os atalhos
 
                 // Prepara atalhos para construção
 
+                // Mais adiante mostraremos a implementação desse modelo
                 List<ShortcutsResultModel.ShortcutModel> shortcuts = shortcutsResultModel.getShortcuts();
 
                 for (ShortcutsResultModel.ShortcutModel shortcutModel :
                         shortcuts.subList(0, Math.min(shortcutManager.getMaxShortcutCountPerActivity(), shortcuts.size()))) {
 
+                    // Explicaremos esse método adiante
                     createShortcutBuilder(shortcutModel);
                     shortcutModelList.add(shortcutModel);
                 }
 
+                // Explicaremos esse método adiante
                 setIconsAndBuildShortcuts(new SetIconsAndBuildShortcutsCallback() {
 
                     // Constroi após retorno dos ícones
@@ -59,7 +62,7 @@ Vamos exemplificar aqui a classe responsável pela criação de todos os atalhos
     }
 ```
 
-Em nosso exemplo, o *client* possui um método `getShortcuts` que recebe um novo callback como parâmetro. Se você não tem muita experiência com chamadas à APIs, recomendo estudar a biblioteca Retrofit, que é a que utilizamos para fazer requisições REST. No sucesso do callback, obtemos o modelo `ShortcutsResultModel`. Detalharemos esse modelo posteriormente nesse post.
+Em nosso exemplo, o *client* possui um método `getShortcuts` que recebe um novo callback como parâmetro. Se você não tem muita experiência com chamadas à APIs, recomendo estudar a biblioteca [Retrofit](https://square.github.io/retrofit/), que é a que utilizamos para fazer requisições REST. No sucesso do callback, obtemos o modelo `ShortcutsResultModel`. Detalharemos esse modelo posteriormente nesse post.
 
 A partir do Array de atalhos, pegamos os primeiros resultados e passamos como parâmetro para o método `createShortcutBuilder`, que irá preparar o construtor do atalho para posteriormente ser possível adinioná-lo no app. O método `getMaxShortcutCountPerActivity` do `ShortcutManager`, retorna a quantidade de atalhos suportadas pelo sistema, que atualmente estão entre quatro e cinco.
 
@@ -254,5 +257,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
 Caso não esteja familiarizado com o Dagger e queira saber mais, temos um post explicando sobre ele aqui no nosso blog: https://elo7.dev/desmistificando-dagger2/
 
 ## Conclusão
+
+A forma dinâmica de construção dos atalhos tráz inúmeras possibilidades de implementação. Aproveitar essa flexibilidade obtendo dados através de uma API, é uma ótima maneira para fazer que usuários estejam sempre atualizados, além de possibilitar entregar informações customizadas dependendo do comportamento que a pessoa tem no aplicativo.
 
 A utilização dos atalhos ainda é desconhecida por boa parte dos usuários, porém existe um potencial muito grande em sua utilização. São de fácil implementação e podem trazer um ganho de produtividade para os usuários do seu aplicativo. Enquanto essa funcionalidade não se populariza, cabe ao desenvolvedor que o utiliza o divulgar como funcionalidade de seu produto.
