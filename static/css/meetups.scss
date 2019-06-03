@@ -1,0 +1,74 @@
+@import 'colors';
+@import 'share';
+
+.events {
+	display: grid;
+	grid-gap: 2em;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.category-title {
+	color: map-get($colors-text, darker);
+	font-size: 2.5em;
+	margin-bottom: 1rem;
+	margin-top: 0.5rem;
+}
+
+.event {
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	h2 {
+		color: #333;
+		display: inline-block;
+		font-size: 1.6em;
+		line-height: 1.2;
+		margin-left: 1rem;
+		margin-right: 1rem;
+		margin-top: 0.5rem;
+		text-decoration: none;
+	}
+
+	img {
+		max-height: 250px;
+		width: 100%;
+	}
+
+	.date {
+		display: block;
+		margin-left: 1rem;
+		margin-top: 0.5rem;
+
+		&::before {
+			background-image: url('/images/ico/calendar.png');
+			background-repeat: no-repeat;
+			background-size: contain;
+			content: '';
+			display: inline-block;
+			height: 15px;
+			margin-right: 0.2em;
+			vertical-align: middle;
+			width: 15px;
+		}
+	}
+
+	.link {
+		border: 1px solid #fba702;
+		border-radius: 3px;
+		color: #fba702;
+		display: block;
+		margin: 1rem;
+		padding: 0.8em;
+		text-align: center;
+		text-decoration: none;
+		transition: background-color 0.3s, color 0.3s;
+		font-size: 0.9em;
+
+		&:hover {
+			background-color: darken($yellow-default, 10);
+			color: map-get($colors-text, white);
+		}
+	}
+}
