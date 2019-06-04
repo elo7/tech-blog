@@ -2,7 +2,7 @@
 <html>
     {{ partial "head.html" . }}
     <link rel='stylesheet' href='{{ "css/talks.css" | absURL}}' >
-    <body>
+    <body data-env='{{ .Site.Params.env}}' data-ga-code='{{ .Site.Params.gaCode }}'>
         {{ partial "header.html" . }}
         <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
             <section class="talk-container">

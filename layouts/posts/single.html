@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     {{ partial "head.html" . }}
-    <body>
+    <body data-env='{{ .Site.Params.env}}' data-ga-code='{{ .Site.Params.gaCode }}'>
         {{ partial "header.html" . }}
         <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
             <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
