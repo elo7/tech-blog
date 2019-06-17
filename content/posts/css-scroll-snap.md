@@ -5,11 +5,12 @@ tags:
   - css-scroll-snap
   - CSS
   - scroll
+  - css basics
 authors: [alinelee]
 layout: post
 title: CSS Scroll Snap
 description: Um caso de uso do Css Scroll Snap aplicados à carrosséis de imagens.
-cover: intersection-observer.png
+cover: css-scroll-snap-header.png
 ---
 
 Há algum tempo eu escrevi um post falando sobre o IntersectionObserver e como utiliza-lo para enriquecer um carrossel de fotos, você pode [ler ele aqui](https://elo7.dev/intersection-observer/). Mas ficou faltando uma funcionalidade muito utilizada em carrosséis, o scroll que ajusta as imagens na tela, mostrando ao usuário sempre a imagem posicionada centralizada certinha.
@@ -90,6 +91,9 @@ Caso o efeito desejado seja que as imagens scrolladas não colem nas bordas é p
 
 ## scroll-snap-stop
 
+É possível observar nos exemplos anteriores que a funcionalidade só se faz presente quando se para de scrollar, mas até esse momento é possível passar por vários `snap points`.
+
+Caso algum desses pontos seja muito importante e não devesse ser pulado é possível utilizar a propriedade `scroll-snap-stop: always`, deste modo esta será uma parada obrigatória. Entretanto a compatibilidade dessa propriedade até o momento é bem baixa... E nos meus testes no `chrome` que aparentemente já possui suporte não funcionou =(.
 
 
 ## Compatibilidade
