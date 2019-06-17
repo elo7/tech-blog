@@ -3,7 +3,7 @@
 {{ partial "head.html" . }}
 <link rel='stylesheet' href='{{ "css/meetups.css" | absURL}}'>
 
-<body>
+<body data-env='{{ .Site.Params.env}}' data-ga-code='{{ .Site.Params.gaCode }}'>
     {{ partial "header.html" . }}
     <main aria-label='Conteúdo principal'>
         <h1 class='container category-title'>Meetups no Elo7</h1>
