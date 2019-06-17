@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+{{ partial "head.html" . }}
+<link rel='stylesheet' href='{{ "css/meetups.css" | absURL}}'>
+
+<body data-env='{{ .Site.Params.env}}' data-ga-code='{{ .Site.Params.gaCode }}'>
+    {{ partial "header.html" . }}
+    <main aria-label='Conteúdo principal'>
+        <h1 class='container category-title'>Resultados da Busca</h1>
+        <section class='container search'>
+        </section>
+    </main>
+
+    {{ partial "footer.html" . }}
+
+    <script src='/js/search.js'></script>
+</body>
+
+</html>
