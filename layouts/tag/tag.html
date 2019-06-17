@@ -2,6 +2,7 @@
 <html>
     {{ partial "head.html" . }}
     <body data-env='{{ .Site.Params.env}}' data-ga-code='{{ .Site.Params.gaCode }}'>
+        <meta name='page_type' content='tag'>
         {{ partial "header.html" . }}
         <main aria-label="Conteúdo principal" itemscope itemtype="http://schema.org/Blog">
             {{ $paginator := .Paginate (where .Data.Pages "Type" "posts") }}
