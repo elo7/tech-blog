@@ -66,6 +66,15 @@
     </item>
     
     <item>
+      <title>Reinforcement Learning Parte 1 - Introdução</title>
+      <link>https://elo7.dev/reinforcement-learning-parte-1/</link>
+      <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/reinforcement-learning-parte-1/</guid>
+      <description>Esta é a primeira parte de uma série de posts nos quais vamos concentrar nossa atenção em uma parte de Machine Learning (ML) chamada Aprendizado por Reforço. Esta talvez seja a parte menos conhecida de ML e é aquela que possui maior semelhança com os métodos que humanos e animais usam para aprender a realizar tarefas, e ela inicialmente também envolve uma menor abstração matemática para entender o funcionamento dos algoritmos.</description>
+    </item>
+    
+    <item>
       <title>Front-End - Coisas de que nós nos orgulhamos em 2018!</title>
       <link>https://elo7.dev/front-end-coisas-que-nos-nos-orgulhamos-em-2018/</link>
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
@@ -1327,6 +1336,15 @@ Roughly you have to create an Auto Scaling Group, Launch Configuration and Scali
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/autor/jlmfonseca/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Junior A. Koch</title>
+      <link>https://elo7.dev/autor/onimaru/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/autor/onimaru/</guid>
       <description></description>
     </item>
     

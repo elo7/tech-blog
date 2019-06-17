@@ -33,6 +33,11 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/reinforcement-learning-parte-1/</loc>
+    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/front-end-coisas-que-nos-nos-orgulhamos-em-2018/</loc>
     <lastmod>2019-04-08T00:00:00+00:00</lastmod>
   </url>
@@ -688,6 +693,12 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/tags/artificial/</loc>
+    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/tags/assertj/</loc>
     <lastmod>2018-02-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -1293,6 +1304,12 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/tags/intelligence/</loc>
+    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/tags/intersection-observer/</loc>
     <lastmod>2019-04-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -1357,6 +1374,10 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/autor/onimaru/</loc>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/tags/junit/</loc>
     <lastmod>2017-11-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -1399,6 +1420,12 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/tags/learning/</loc>
+    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/autor/leonardosouza/</loc>
   </url>
   
@@ -1435,8 +1462,14 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/tags/machine/</loc>
+    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/categoria/machine-learning/</loc>
-    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1622,7 +1655,7 @@
   
   <url>
     <loc>https://elo7.dev/posts/</loc>
-    <lastmod>2019-04-08T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1699,6 +1732,12 @@
   <url>
     <loc>https://elo7.dev/tags/react-native/</loc>
     <lastmod>2017-10-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://elo7.dev/tags/reinforcement/</loc>
+    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
