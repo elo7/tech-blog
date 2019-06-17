@@ -1,5 +1,5 @@
 	---
-date: 2019-03-11
+date: 2019-06-17
 category: machine-learning
 tags:
   - reinforcement
