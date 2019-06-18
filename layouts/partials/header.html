@@ -2,8 +2,8 @@
     <div class='logo-container'>
         <a rel='home' itemprop='url' href='{{ .Site.BaseURL }}' class='logo'>Tech Blog Elo7</a>
     </div>
-    <form action='/busca'>
-        <input placeholder='Busca'>
+    <form action='/busca' method='GET'>
+        <input placeholder='Busca' name='query'>
         <input type='submit'>
     </form>
     <div class='navigation'>

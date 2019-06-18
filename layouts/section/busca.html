@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 {{ partial "head.html" . }}
-<link rel='stylesheet' href='{{ "css/meetups.css" | absURL}}'>
+<link rel='stylesheet' href='{{ "css/search.css" | absURL}}'>
 
 <body data-env='{{ .Site.Params.env}}' data-ga-code='{{ .Site.Params.gaCode }}'>
     {{ partial "header.html" . }}
@@ -9,6 +9,11 @@
         <h1 class='container category-title'>Resultados da Busca</h1>
         <section class='container search'>
         </section>
+
+        <template id='search-post'>
+            <a class='link-search'></a>
+            <p class='description'>
+        </template>
     </main>
 
     {{ partial "footer.html" . }}
