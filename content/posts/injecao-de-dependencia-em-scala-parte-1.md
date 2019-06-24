@@ -13,7 +13,7 @@ description: Este artigo de duas partes irá abordar diferentes formas de resolv
 
 ## _Scala no Elo7_
 
-_Antes restrito às áreas de Data Science e Data Engineering da empresa, o uso de Scala está sendo expandido para outras áreas de backend aqui no Elo7 em 2019. Como compartilhar conhecimento faz parte do nosso DNA, iremos realizar posts contando as experiências que temos com a linguagem, e contando um pouco sobre como resolvemos diferentes situações que aparecem no dia-a-dia._
+_Antes restrito basicamente às áreas de Data Science e Data Engineering da empresa, o uso de Scala está sendo expandido para outras áreas de backend aqui no Elo7 em 2019. Como compartilhar conhecimento faz parte do nosso DNA, iremos realizar posts contando as experiências que temos com a linguagem, e contando um pouco sobre como resolvemos diferentes situações que aparecem no dia-a-dia._
 
 ## Injeção de dependência
 
