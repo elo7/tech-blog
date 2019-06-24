@@ -13,13 +13,11 @@ description: Este artigo de duas partes irá abordar diferentes formas de resolv
 
 ## _Scala no Elo7_
 
-_Este ano, aqui no Elo7, começamos a adotar a utilização de Scala em algumas APIs do site. Como a utilização ainda está sendo disseminada por aqui, estamos utilizando as primeiras aplicações que criamos como forma de estabelecer certos padrões de codificação e formas fáceis de resolver problemas no dia-a-dia._
-
-_Até aí, sem problemas. Isso acontece em diversas empresas quando uma nova linguagem está sendo introduzida. Só que o Scala é uma linguagem funcional, e isso traz não só diversas opções novas para os desenvolvedores, como também dúvidas de como resolver alguns problemas._
+_Antes restrito às áreas de Data Science e Data Engineering da empresa, o uso de Scala está sendo expandido para outras áreas de backend aqui no Elo7 em 2019. Como compartilhar conhecimento faz parte do nosso DNA, iremos realizar posts contando as experiências que temos com a linguagem, e contando um pouco sobre como resolvemos diferentes situações que aparecem no dia-a-dia._
 
 ## Injeção de dependência
 
-Um desses problemas é a injeção de dependência (ou DI, como vou chamar daqui em diante). Apesar de ser uma linguagem funcional, o Scala ainda traz diversas características de Orientação a Objetos. Isso significa que modelos clássicos de DI, como a injeção das dependências por meio do construtor, funcionam!
+ Injeção de dependência (ou DI) é um dos padrões mais básicos utilizados por desenvolvedores em diferentes linguagens. Apesar de ser uma linguagem funcional, o Scala ainda traz diversas características de Orientação a Objetos. Isso significa que modelos clássicos de DI, como a injeção das dependências por meio do construtor, funcionam!
 
 ```scala
 case class UserInfo(account: String, password: String)
@@ -39,7 +37,7 @@ class LoginFacade(userService: UserService) {
 }
 
 class Application extends App {
-   val loginFacade = new LoginFacade(new UserServiceComponent())   
+   val loginFacade = new LoginFacade(new UserServiceComponent())
    println(loginFacade.login("Rodrigo", "123"))
 }
 ```
@@ -50,7 +48,7 @@ Mais clássico impossível, certo? Neste padrão, deixamos explícito no constru
 class HomeController {
   val loginFacade = new LoginFacade(new UserServiceComponent())
 
-  def authenticateUser(usuario: String, senha: String): String = {  
+  def authenticateUser(usuario: String, senha: String): String = {
     if (loginFacade.login(usuario, senha)) {
       s"Olá, $usuario"
     } else {
@@ -69,7 +67,7 @@ Um velho conhecido dos programadores Java é o Guice, framework de injeção de 
 lazy  val  root  = (project in file("."))
   .settings(
     name :=  "artigo-di",
-    libraryDependencies ++=  Seq( 
+    libraryDependencies ++=  Seq(
       "com.google.inject"  %  "guice"  %  "4.2.2",
       scalaTest %  Test
   )
@@ -96,7 +94,7 @@ Desta forma, instruímos ao Guice que será necessário buscar em seu registro u
 
 ```scala
 class HomeController(facade: LoginFacadeT) {
-  def authenticateUser(usuario: String, senha: String): String = {  
+  def authenticateUser(usuario: String, senha: String): String = {
     if (facade.login(usuario, senha)) {
       s"Olá, $usuario"
     } else {
@@ -111,7 +109,7 @@ Por fim, devemos adicionar uma classe que implemente a interface `AbstractModule
 
 ```scala
 class DependencyInjectionWithGuiceModule extends AbstractModule {
-    override def configure(): Unit = { 
+    override def configure(): Unit = {
         bind(classOf[UserService]).to(classOf[BasicUserService])
         bind(classOf[LoginFacadeT]).to(classOf[LoginFacade])
     }
@@ -120,8 +118,8 @@ class DependencyInjectionWithGuiceModule extends AbstractModule {
 Finalmente, chegou a hora de ligar todos os pontos na nossa aplicação. O resultado fica assim:
 
 ```scala
-object DependencyInjectionWithGuice extends App {    
-    val injector = Guice.createInjector(new DependencyInjectionWithGuiceModule())    
+object DependencyInjectionWithGuice extends App {
+    val injector = Guice.createInjector(new DependencyInjectionWithGuiceModule())
     lazy val loginFacade: LoginFacadeT = injector.getInstance(classOf[LoginFacadeT])
 
     val homeController = new HomeController(loginFacade)
