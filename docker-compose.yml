@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  tech-blog:
+    build: .
+    image: registry.docker.elo7aws.com.br/tech-blog:latest
+    container_name: tech-blog
+    ports:
+      - 3000:3000
+    environment:
+      PORT: 3000

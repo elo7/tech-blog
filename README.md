@@ -68,12 +68,18 @@ trecho do código
 
 ### Build e Desenvolvimento
 
+#### Local
 - Para rodar o projeto na sua máquina, é necessário ter instalado o npm e seguir os seguintes passos:
 
 ```
 brew install hugo
 npm install
 npm start
+```
+
+#### Com docker-compose
+```shell
+docker-compose up --build
 ```
 
 ### Labels do PR
