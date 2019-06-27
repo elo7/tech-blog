@@ -13,11 +13,11 @@ description: Este artigo de duas partes irá abordar diferentes formas de resolv
 
 ## _Scala no Elo7_
 
-_Antes restrito basicamente às áreas de Data Science e Data Engineering da empresa, o uso de Scala está sendo expandido para outras áreas de backend aqui no Elo7 em 2019. Como compartilhar conhecimento faz parte do nosso DNA, iremos realizar posts contando as experiências que temos com a linguagem, e contando um pouco sobre como resolvemos diferentes situações que aparecem no dia-a-dia._
+_Antes restrito basicamente às áreas de Data Science e Data Engineering da empresa, o uso de Scala está sendo expandido para outras áreas de backend aqui no Elo7 em 2019. Como compartilhar conhecimento faz parte do nosso DNA, iremos realizar posts contando as experiências que temos com a linguagem e um pouco sobre como resolvemos diferentes situações que aparecem no dia-a-dia._
 
 ## Injeção de dependência
 
- Injeção de dependência (ou DI) é um dos padrões mais básicos utilizados por desenvolvedores em diferentes linguagens. Apesar de ser uma linguagem funcional, o Scala ainda traz diversas características de Orientação a Objetos. Isso significa que modelos clássicos de DI, como a injeção das dependências por meio do construtor, funcionam!
+ Injeção de dependência (ou DI) é um dos padrões mais básicos utilizados por desenvolvedores em diferentes linguagens, e no Scala não poderia ser diferente. Apesar de ser uma linguagem funcional, a linguagem ainda traz diversas características de Orientação a Objetos. E isso significa que modelos clássicos de DI, como a injeção das dependências por meio do construtor, funcionam!
 
 ```scala
 case class UserInfo(account: String, password: String)
@@ -42,13 +42,13 @@ class Application extends App {
 }
 ```
 
-Mais clássico impossível, certo? Neste padrão, deixamos explícito no construtor da classe `LoginFacade` que ela possui uma dependência com uma implementação de `UserService`, mas há alguns problemas aí: neste exemplo, toda a execução e definição do serviço está no método main, mas e se o método `login` fosse utilizado dentro de um contexto que possuísse alguma regra de negócio, exemplo:
+Mais clássico impossível, certo? Neste padrão, deixamos explícito no construtor da classe `LoginFacade` que ela possui uma dependência com uma implementação de `UserService`, mas há alguns problemas aí: toda a execução e definição do serviço está no método main, mas e se o método `login` fosse utilizado dentro de um contexto mais complexo?
 
 ```scala
 class HomeController {
   val loginFacade = new LoginFacade(new UserServiceComponent())
 
-  def authenticateUser(usuario: String, senha: String): String = {
+  def autenticarUsuario(usuario: String, senha: String): String = {
     if (loginFacade.login(usuario, senha)) {
       s"Olá, $usuario"
     } else {
@@ -58,10 +58,12 @@ class HomeController {
 }
 ```
 
-No mundo real, apesar de simples, este método precisaria de testes unitários. Mas como fazer para simular o comportamento da `LoginFacade`, já que a instância está presa à implementação da classe `UserServiceComponent`?. Podemos, é claro, injetar a instância da dependência via construtor, mas isso só passaria o problema para outra camada.  Felizmente, há diferentes soluções para este problema.
+Com certeza precisaríamos escrever testes unitários para o método `autenticarUsuario`. Mas como fazer para simular o comportamento da `LoginFacade`, já que a instância está presa à implementação da classe `UserServiceComponent`?. Podemos, é claro, injetar a instância da dependência via construtor, mas isso só passaria o problema para outra camada.  Felizmente, há diferentes soluções para este problema.
 
 ### Guice ou (O jeito Java de injetar dependências)
-Um velho conhecido dos programadores Java é o Guice, framework de injeção de dependência criado pelo Google. Através do uso de annotations e algumas interfaces, é possível injetar suas dependências de forma dinâmica. Para usá-lo na nossa aplicação Scala, tudo o que temos que fazer é adicionar uma dependência ao pacote  `com.google.inject:guice` no nosso arquivo build.sbt
+Um velho conhecido dos programadores Java é o Guice, framework de injeção de dependência criado pelo Google. Através do uso de annotations e algumas interfaces, é possível injetar suas dependências de forma dinâmica.
+
+Para usá-lo na nossa aplicação Scala, tudo o que temos que fazer é adicionar uma dependência ao pacote  `com.google.inject:guice` no nosso arquivo build.sbt
 
 ```scala
 lazy  val  root  = (project in file("."))
@@ -76,7 +78,6 @@ lazy  val  root  = (project in file("."))
 Como dito anteriormente, o Guice adiciona várias algumas interfaces e _annotations_ que nos ajudam no processo. Chegou a hora de implementá-los!
 
 A primeira classe que temos que alterar, é a `LoginFacade`, anotando o seu construtor com a _annotation_ `com.google.inject.Inject`
-
 
 
 ```scala
@@ -94,7 +95,7 @@ Desta forma, instruímos ao Guice que será necessário buscar em seu registro u
 
 ```scala
 class HomeController(facade: LoginFacadeT) {
-  def authenticateUser(usuario: String, senha: String): String = {
+  def autenticarUsuario(usuario: String, senha: String): String = {
     if (facade.login(usuario, senha)) {
       s"Olá, $usuario"
     } else {
@@ -127,7 +128,7 @@ object DependencyInjectionWithGuice extends App {
 }
 ```
 
-Desta forma, desacoplamos completamente nosso código. Para realizar teste unitários, basta provermos _mocks_ das interfaces que criamos e registrá-los em um módulo a parte.
+Desta forma, desacoplamos completamente nosso código. Para realizar teste unitários, basta implementarmos _mocks_ das interfaces que criamos e registrá-los em um módulo a parte.
 
 ## Na próxima parte..
 
