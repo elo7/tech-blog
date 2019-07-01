@@ -11,7 +11,7 @@ description: Vamos entender como o Change Data Capture (CDC) funciona e sua apli
 cover: cdc.png
 ---
 
-A atual popularidade do termo _Big Data_ veio acompanhado de diversas _buzzwords_, entre elas o _Change Data Capture_, ou simplesmente CDC. Porém esse _design pattern_ é tão antigo quanto os RDBMS, pois os dois estão estritamente ligados.
+A atual popularidade do termo _Big Data_ veio acompanhada de diversas _buzzwords_, entre elas o _Change Data Capture_, ou simplesmente CDC. Porém esse _design pattern_ é tão antigo quanto os RDBMS, pois os dois estão estritamente ligados.
 
 Como o próprio nome diz, o CDC nada mais é do que uma forma de capturar as mudanças nos dados. Vamos imaginar a seguinte tabela de `produto`
 
