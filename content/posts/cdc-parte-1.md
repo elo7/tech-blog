@@ -99,7 +99,7 @@ UPDATE produto SET preco = 59.99 WHERE id = 1;
 |   1  |  Amigurumi do Batman     | 79.99 |  30      |   2019-06-01 19:27:00    | 2019-06-02 19:27:00 |
 |   1  |  Amigurumi do Batman     | 59.99 |  30      |   2019-06-02 19:27:00    | NULL                |
 
-Podemos ver que a _trigger_ atualizou a coluna `data_fim` do registro anterior e adicionou um novo registro com as atualizações. Dessa forma, temos todos os dados de alterações que ocorreram no produto e, com algumas _queries_, podemos responder nossas perguntas. Sempre que quisermos o último snapshot do produto, podemos fazer a query `WHERE data_fim = NULL`, ou usuar a combinação das duas colunas _(data\_inicio e data\_fim)_ para obter o estado do produto em um determinado dia/horário.
+Podemos ver que a _trigger_ atualizou a coluna `data_fim` do registro anterior e adicionou um novo registro com as atualizações. Dessa forma, temos todos os dados de alterações que ocorreram no produto e, com algumas _queries_, podemos responder nossas perguntas. Sempre que quisermos o último snapshot do produto, podemos fazer a query `WHERE data_fim = NULL`, ou usar a combinação das duas colunas _(data\_inicio e data\_fim)_ para obter o estado do produto em um determinado dia/horário.
 
 Essa abordagem é bem simples e pode funcionar para muitos casos, mas ela possui um grande problema: **todas as mudanças ficam visíveis apenas no nível do banco de dados, ou seja, a única interação possível com a tabela `historico_produto` é utilizando _queries_ SQL**. É praticamente impossível um sistema externo reagir à uma mudança no produto. _(seria possível apenas fazendo pooling na tabela, mas convenhamos: não é uma boa ideia né?)_
 
