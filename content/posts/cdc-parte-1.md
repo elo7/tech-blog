@@ -179,7 +179,7 @@ Incrementando o fluxo mostrado acima com o Debezium, teríamos uma arquitetura p
 
 5 - O Debezium lê o _binlog_ do banco de origem _(5.1)_ e produz um evento no Kafka _(5.2)_ representando aquela alteração.
 
-Usando o CDC para obter os eventos diretamente do banco de dados, conseguimos o benefício da consistência dos dados com a facilidade de mensageria por eventos, habilitando assim, sistemas externos reagirem às ações que ocorreram sem perder a consistência e com baixo acoplamento. Se fizemos uma associação entre as operações SQL na tabela `Produto` e os eventos, podemos definir a seguinte regra:
+Usando o CDC para obter os eventos diretamente do banco de dados, conseguimos o benefício da consistência dos dados com a facilidade de mensageria por eventos, habilitando assim, sistemas externos reagirem às ações que ocorreram, sem perder a consistência e com baixo acoplamento. Se fizemos uma associação entre as operações SQL na tabela `produto` e os eventos, podemos definir a seguinte regra:
 
 | Operação SQL | Evento |
 |------|-------|
