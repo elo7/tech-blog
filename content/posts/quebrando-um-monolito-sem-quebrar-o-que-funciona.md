@@ -63,6 +63,6 @@ Ao extrair para um sistema que consiga disponibilizar o dado para leitura, possi
 
 Um ponto que pode não ter ficado claro é que **esta não é uma estratégia para quebrar todas as _features_ do monolito** e isso é bom do ponto de vista da flexibilidade. Não queremos ter uma _solução monolítica_, queremos algo flexível, queremos ir para o micro. Talvez tenham mais casos parecidos que impliquem numa solução parecida, mas não obriga que todas as _features_ sejam extraídas da mesma forma. Além do que, ao extrair a primeira _feature_ muitas lições serão aprendidas para ter maturidade de evoluir todo esse processo. Aqui já estamos falando de uma questão de mudança de mindset e de cultura.
 
-Em breve vou falar sobre mais alguns conceitos para que a parte prática tenha embasamento. 
+Ainda serão abordados mais alguns conceitos para que a parte prática tenha embasamento.
 
 Até mais :)
