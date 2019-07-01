@@ -8,7 +8,7 @@ authors: [andrepbap]
 layout: post
 title: Atalhos Dinâmicos Contruidos por API para apps Android
 description: Nesse post iremos mostrar como facilitar o acesso às principais funcionalidades do seu app Android através de atalhos. Além disso ensinaremos como obter esses dados através de uma API, eliminando a necessidade de atualizar o app para modificá-los.
-cover: elo7.png
+cover: atalhos-dinamicos-android.png
 ---
 
 ## Menos passos para atingir um objetivo
