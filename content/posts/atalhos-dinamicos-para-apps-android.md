@@ -8,7 +8,7 @@ authors: [andrepbap]
 layout: post
 title: Atalhos Dinâmicos Contruidos por API para apps Android
 description: Nesse post iremos mostrar como facilitar o acesso às principais funcionalidades do seu app Android através de atalhos. Além disso ensinaremos como obter esses dados através de uma API, eliminando a necessidade de atualizar o app para modificá-los.
-cover:
+cover: elo7.png
 ---
 
 ## Menos passos para atingir um objetivo
@@ -17,7 +17,7 @@ Prover menos passos para um objetivo facilita o fluxo de navegação e gera mais
 
 ## Tipos de atalho
 
-Existem duas formas de implementar os atalhos: estática e dinâmica. Na estática, apenas definimos um arquivo XML contendo para cada representação de atalho, um título, imagem e uma intenção para a tela correspondente. Na forma dinâmica, a qual focaremos aqui, podemos inserir e excluir atalhos conforme ações do usuário ou novas notificações. Aqui no Elo7, por exemplo, aproveitamos essa versatilidade e criamos um *endpoint* para retornar esses objetos. Com isso, conseguimos, por exemplo, mostrar atalhos diferentes por usuário ou modificar seus títulos e ícones sem que o usuário precise atualizar o aplicativo.
+Existem duas formas de implementar os atalhos: estática e dinâmica. Na estática, apenas definimos um arquivo XML contendo para cada representação de atalho, um título, imagem e uma intenção para a tela correspondente. Na forma dinâmica, a qual focaremos aqui, podemos inserir e excluir atalhos conforme ações do usuário ou novas notificações. Aqui no Elo7, por exemplo, aproveitamos essa versatilidade e criamos um *endpoint* para retornar esses objetos. Com isso, conseguimos mostrar atalhos diferentes por usuário ou modificar seus títulos e ícones sem que seja necessário atualizar o aplicativo.
 
 ![Alt "Exemplo de atalhos"](../images/tela-atalhos-app-android.png)
 
@@ -123,7 +123,7 @@ public class ShortcutsResultModel implements Serializable {
 
 ### Preparando os contrutores dos atalhos
 
-Um dos problemas que enfrentamos ao inserir uma imagem remota nos atalhos, é o fato de não podermos inserí-las após adicionarmos os atalhos no APP. Como alternativa, podemos criar uma lista de *Builders* para que possamos adicioná-los somente após termos todos os ícones. Abaixo, um exemplo do método `createShortcutBuilder`, que será chamado para cada atalho que será disponibilizado:
+Um dos problemas que enfrentamos ao inserir uma imagem remota nos atalhos, é o fato de não podermos inserí-las após adicionarmos os atalhos no app. Como alternativa, podemos criar uma lista de *Builders* para que possamos adicioná-los somente após termos todos os ícones. Abaixo, um exemplo do método `createShortcutBuilder`, que será chamado para cada atalho que será disponibilizado:
 
 ```java
 
@@ -221,13 +221,13 @@ setIconsAndBuildShortcuts(new SetIconsAndBuildShortcutsCallback() {
 
 ```
 
-Aqui começamos inicializando a variável global `numberOfCallbackCalls`. Essa variável é responsável por contar quantas vezes chamamos o callback, para dessa maneira, saber se já atribuímos todos os ícones e a partir daí, construir e finalmente adicionar os atalhos no APP.
+Aqui começamos inicializando a variável global `numberOfCallbackCalls`. Essa variável é responsável por contar quantas vezes chamamos o callback, para dessa maneira, saber se já atribuímos todos os ícones e a partir daí, construir e finalmente adicionar os atalhos no app.
 
 Para adicionar os atalhos, criamos uma lista local adicionando os objetos de atalhos dessa vez já construídos. Essa lista será usada como parâmetro do método `addDynamicShortcuts` do `ShortcutManager`, que por sua vez, é responsável por adicionar os atalhos.
 
 ## Chamando o método criador
 
-Uma dica para disponibilizar o método `create` de forma mais simples, é usar o Dagger para injetar a classe que o implementa em qualquer outra do seu código. Crie um construtor passando os elementos que você precisará para, por exemplo, utilizar o `ShortcutManager` e o *client*. Exemplo:
+Uma dica para disponibilizar o método `create` de forma mais simples, é usar o Dagger para injetar uma instância de `ShortcutFactory` em qualquer classe do seu projeto. Crie um construtor passando os elementos que você precisará para, por exemplo, utilizar o `ShortcutManager` e o *client*. Exemplo:
 
 ```java
 
@@ -254,7 +254,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
 
 ```
 
-Caso não esteja familiarizado com o Dagger e queira saber mais, temos um post explicando sobre ele aqui no nosso blog: https://elo7.dev/desmistificando-dagger2/
+Caso não esteja familiarizado com o Dagger e queira saber mais, [temos um post explicando sobre ele aqui no nosso blog](https://elo7.dev/desmistificando-dagger2/).
 
 ## Conclusão
 
