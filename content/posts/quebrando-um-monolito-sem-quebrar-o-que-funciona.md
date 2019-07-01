@@ -20,11 +20,15 @@ Mostrarei alguns conceitos que ajudaram a guiar nossas escolhas. E, num post fut
 
 Imagine o cenário em que existe um monolito responsável por quase todas as _features_ da empresa. Ele tem um banco de dados, possui uma base de código consideravelmente grande e antiga, escalabilidade sem muita flexibilidade (você não pode escalar apenas uma _feature_). Ou seja, todos os problemas clássicos que um monolito pode apresentar. 
 
-Quebrar esse sistema traz várias considerações. O primeiro ponto real talvez seja: o pessoal de produto vai apoiar uma refatoração desse nível? 
+Quebrar esse sistema traz várias considerações. O primeiro ponto real talvez seja: o time de produto vai apoiar uma refatoração desse nível?
 
 ![Monolito](../images/quebrando-um-monolito-sem-quebrar-o-que-funciona-monolito.gif)
 
-Aqui podemos pensar em mostrar quais vantagens uma estrutura de microsserviços proporciona: produtividade ao evoluir _features_ de maneira independente. 
+O _backlog_ poderá ficar comprometido com menos entregas no processo de reestruturação da arquitetura. Ou ainda, o risco de cada time seguir um caminho completamente diferente do outro, deixando de lado qualquer tipo de padronização. Antes o monolito obrigava uma mesma linguagem, talvez até um mesmo framework. 
+Isso pode ser visto como bom e ruim: bom que há um padrão e ruim que não há flexibilidade. 
+O meio termo, neste caso, pode ser um acordo para utilizar linguagens pré-determinadas e usar novas tecnologias quando tiver uma razão significativa. 
+É necessário ficar atendo para não criar um ambiente caótico. 
+Ainda podemos pensar em mostrar quais vantagens uma estrutura de microsserviços proporciona: produtividade ao evoluir _features_ de maneira independente, assim como melhor escalabilidade das aplicações.
 
 Os engenheiros certamente serão os mais afetados: novos desafios, novos problemas, e ao mesmo tempo soluções mais modernas para lidar evolução da plataforma.
 
