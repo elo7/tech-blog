@@ -31,7 +31,7 @@ INSERT INTO `produto` (nome, preco, quantidade, data_atualizacao) VALUES ('Amigu
 |------|-------|--------|--------|---------|
 |   1  |  Amigurumi do Batman     | 79.99 |  30      |   2019-06-01 15:30:00     |
 
-Suponhamos que o vendedor queira atualizar o valor do produto para `59.99`. Após a operação de _update_, teremos o seguinte status:
+Suponhamos que o vendedor queira atualizar o valor do produto para `59.99`. Após a operação de _update_, teremos o seguinte estado:
 ```sql
 UPDATE `produto` SET preco = 59.99 WHERE id = 1;
 ```
@@ -41,13 +41,13 @@ UPDATE `produto` SET preco = 59.99 WHERE id = 1;
 
 Até aí nenhuma novidade, correto? Agora imagine que queremos tirar algumas métricas com base nessa tabela, tais como:
 
-- diferença de valor quando o preço é alterado
-- velocidade em que o estoque diminui
-- em qual horário um produto é mais cadastrado/atualizado
+- Diferença de valor quando o preço é alterado
+- Velocidade em que o estoque diminui
+- Qual horário um produto é mais cadastrado/atualizado
 
 Apenas com a tabela `produto` não seria possível, pois sempre armazenamos o último estado do registro, mas não suas alterações.
 
-Para resolver esse tipo de problema, foram criadas as famosas tabelas de histórico. Geralmente são utilizadas _triggers_ do próprio BD para realizar essa tarefa. Esse padrão leva o nome de [Log Trigger](https://en.wikipedia.org/wiki/Log_trigger).
+Para resolver esse tipo de problema, foram criadas as famosas tabelas de histórico. Geralmente são utilizadas _triggers_ do próprio BD para realizar essa tarefa. Esse padrão leva o nome de [_Log Trigger_](https://en.wikipedia.org/wiki/Log_trigger).
 
 Nossa tabela `historico_produto` teria a seguinte estrutura
 ```sql
@@ -98,7 +98,7 @@ UPDATE produto SET preco = 59.99 WHERE id = 1;
 |   1  |  Amigurumi do Batman     | 79.99 |  30      |   2019-06-01 19:27:00    | 2019-06-02 19:27:00 |
 |   1  |  Amigurumi do Batman     | 59.99 |  30      |   2019-06-02 19:27:00    | NULL                |
 
-Podemos ver que a _trigger_ atualizou a coluna `data_fim` do registro anterior e adicionou um nova com as atualizações. Dessa forma, temos todos os dados de alterações que ocorreram no produto e, com algumas _queries_, podemos responder nossas perguntas. Sempre que quisermos o útimo snapshot do produto, podemos fazer a query `WHERE data_fim = NULL`, ou usuar a combinação das duas colunas _(data\_inicio e data\_fim)_ para obter o estado do produto em um determinado dia/horário.
+Podemos ver que a _trigger_ atualizou a coluna `data_fim` do registro anterior e adicionou um novo registro com as atualizações. Dessa forma, temos todos os dados de alterações que ocorreram no produto e, com algumas _queries_, podemos responder nossas perguntas. Sempre que quisermos o último snapshot do produto, podemos fazer a query `WHERE data_fim = NULL`, ou usuar a combinação das duas colunas _(data\_inicio e data\_fim)_ para obter o estado do produto em um determinado dia/horário.
 
 Essa abordagem é bem simples e pode funcionar para muitos casos, mas ela possui um grande problema: **todas as mudanças ficam visíveis apenas no nível do banco de dados, ou seja, a única interação possível com a tabela `historico_produto` é utilizando _queries_ SQL**. É praticamente impossível um sistema externo reagir à uma mudança no produto. _(seria possível apenas fazendo pooling na tabela, mas convenhamos: não é uma boa ideia né?)_
 
@@ -144,11 +144,11 @@ Dessa forma conseguimos publicar os eventos com as alterações para quem deseja
 
 Essa abordagem resolve o problema das _triggers_, possibilitando outros sistemas reagirem às mudanças nos dados. Mas ela acarreta em outros problemas:
 
-- necessita de um grande conhecimento sobre o sistema que irá emitir os eventos, sabendo exatamente onde dispará-los, caso contrário, poderá haver divergências com o banco de dados
-- os famosos "updates na mão", que não passam pelo sistema e consequentemente, não irá produzir os eventos necessários
-- arquitetura mais complexa do que as _triggers_, pois é necessário um sistema de mensageria
+- Necessita de um grande conhecimento sobre o sistema que irá emitir os eventos, sabendo exatamente onde dispará-los, caso contrário, poderá haver divergências com o banco de dados
+- Os famosos "updates na mão", que não passam pelo sistema e consequentemente, não irá produzir os eventos necessários
+- Arquitetura mais complexa do que as _triggers_, pois é necessário um sistema de mensageria
 
-Vimos que tanto a abordagem por _triggers_ quanto a por eventos tem suas limitações _(o que é perfeitamente normal, afinal, não existe bala de prata)_. Mas e se pudessemos fazer um mix das duas abordagem: pegar a consistência do banco de dados com a mensageria dos eventos? É exatamente isso que os frameworks atuais de CDC fazem. Antes de explicá-los, precisamos entender como funciona a replicação de banco de dados, ou mais especificamente, o **_binary log (aka binlog)_**.
+Vimos que tanto a abordagem por _triggers_ quanto a por eventos tem suas limitações _(o que é perfeitamente normal, afinal, não existe bala de prata)_. Mas e se pudéssemos fazer um mix das duas abordagem: pegar a consistência do banco de dados com a mensageria dos eventos? É exatamente isso que os frameworks atuais de CDC fazem. Antes de explicá-los, precisamos entender como funciona a replicação de banco de dados, ou mais especificamente, o **_binary log (aka binlog)_**.
 
 Irei explicar como funciona a replicação do MySQL, mas a maioria dos bancos RDBMS seguem o mesmo princípio. Veja a imagem abaixo:
 
@@ -160,7 +160,7 @@ Irei explicar como funciona a replicação do MySQL, mas a maioria dos bancos RD
 
 3 - A Slave possui um processo que lê o _binlog_ da Master _(3.1)_ e escreve as alterações em seu _[relay_log](https://dev.mysql.com/doc/refman/5.7/en/slave-logs-relaylog.html) (possui o mesmo formato do binlog) (3.2)_
 
-4 - A Slave possui outro pocesso que lê o _relay\_log_ _(4.1)_ e aplica as alterações em seu host _(4.2)_
+4 - A Slave possui outro processo que lê o _relay\_log_ _(4.1)_ e aplica as alterações em seu host _(4.2)_
 
 _(mais detalhes na [documentação oficial](https://dev.mysql.com/doc/internals/en/replication.html))_
 
@@ -188,7 +188,7 @@ Usando o CDC para obter os eventos diretamente do banco de dados, conseguimos o 
 |DELETE| ProdutoRemovido|
 |SELECT| Nenhum, pois não altera o estado do registro|
 
-Dessa forma, podemos obter todos os eventos de um sistema com uma única implementação, olhando somenta para o banco de dados. Além disso, os _updates_ manuais não são um problema. Mas como dito acima, toda arquitetura possui limitações, e com o CDC não seria diferente:
+Dessa forma, podemos obter todos os eventos de um sistema com uma única implementação, olhando somente para o banco de dados. Além disso, os _updates_ manuais não são um problema. Mas como dito acima, toda arquitetura possui limitações, e com o CDC não seria diferente:
 
 - os eventos terão apenas dados da tabela, ou seja, perdemos quaisquer dados extra, como por exemplo: dados do request, sessão do usuário...
 - para obter todos os detalhes das alterações, é necessário [habilitar o nível mais agressivo de _binlog_](https://debezium.io/docs/connectors/mysql/#enabling-the-binlog)
