@@ -31,7 +31,7 @@ Enquanto o programa está rodando, coisas estão acontecendo: valores estão sen
 
 Que operações seriam essas? Operações que envolvem algum tipo de **espera** por um recurso, e operações de I/O são os casos mais comuns (mas não os únicos): acesso à rede (como uma chamada à uma API), acesso a bancos de dados, acesso ao disco...em todos esses exemplos, enquanto o resultado dessas operações não retornarem, nossa `thread` estará, de fato, sem fazer nada!
 
-Não obstante, temos escritos programas exatamente iguais a esse por anos, então o que está "errado"? Nada!
+Não obstante, temos escrito programas exatamente iguais a esse por anos, então o que está "errado"? Nada!
 
 Mas analisemos as consequências práticas. Para começarmos de maneira simples, consideremos que, por uma necessidade do nosso software, precisemos executar esse código 100 vezes.
 
@@ -69,7 +69,7 @@ for (int i = 1; i <= 100; i++) {
 
 Parece melhor! E, normalmente, essa abordagem é a mais utilizada quando precisamos que nossos programas consigam fazer **mais coisas**: usamos `threads` para conseguir fazer muitas coisas ao mesmo tempo, ou executar um mesmo bloco de código muitas vezes simultaneamente, ou precisamos fazer muitas coisas diferentes em paralelo.
 
-Esse solução certamente tem o seu valor. Mas o detalhe que os sistemas reativos trazem à tona é a questão do **uso de recursos** pelas nossas aplicações: utilizar muitas `threads` nos permite fazer muitas coisas ao mesmo tempo, mas a um **custo computacional** elevado (conforme comentamos no [post anterior](/programacao-reativa-parte-4)), em termos de uso de memória e utilização da CPU.
+Essa solução certamente tem o seu valor. Mas o detalhe que os sistemas reativos trazem à tona é a questão do **uso de recursos** pelas nossas aplicações: utilizar muitas `threads` nos permite fazer muitas coisas ao mesmo tempo, mas a um **custo computacional** elevado (conforme comentamos no [post anterior](/programacao-reativa-parte-4)), em termos de uso de memória e utilização da CPU.
 
 ## Não-bloqueante
 
@@ -289,7 +289,7 @@ Operação assíncronas são equivalentes às que vimos nos exemplos anteriores:
 
 Uma operação de I/O não-bloqueante é um pouquinho mais complexa. O programa delega o controle ao **sistema operacional**, através de um [channel](https://en.wikipedia.org/wiki/Channel_I/O), que avisará o programa **quando os dados estiverem disponíveis**. O mesmo ocorre para operações de escrita: o programa pode ser avisado quando **os dados puderem ser escritos**, fazendo isso aos poucos, ao invés de escrever todos os dados de uma vez.
 
-A `thread` do programa não fica bloqueada em nenhum momento, pois não é necessário que aguarde o resultado da operação de I/O (que é executada em segundo plano pelo SO), mas é responsável por verificar o estado do **chanell**. Mas, como a `thread` já não precisar perder tempo em operações de bloqueio, ela é capaz de processar leituras e escritas em múltiplos **channels**. Ou seja, com uma única `thread`, é possível realizar várias operações de I/O simultaneamente!
+A `thread` do programa não fica bloqueada em nenhum momento, pois não é necessário que aguarde o resultado da operação de I/O (que é executada em segundo plano pelo SO), mas é responsável por verificar o estado do **chanell**. Mas, como a `thread` já não precisa perder tempo em operações de bloqueio, ela é capaz de processar leituras e escritas em múltiplos **channels**. Ou seja, com uma única `thread`, é possível realizar várias operações de I/O simultaneamente!
 
 Isso é possível por um mecanismo chamado **multiplexação**. Para ilustrar, imaginemos uma situação como um garçom em um restaurante; seria complicado manter um garçom para cada mesa, certo? Ao invés disso, um único garçom é capaz de atender vários pedidos, pelo simples fato de não permanecer "parado" em uma única mesa! Trazendo esse exemplo para o nosso contexto, a multiplexação é uma técnica que permite que uma única `thread` observe muitas operações de I/O ocorrendo simultaneamente no sistema operacional, através de [selectors](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/channels/Selector.html). Essa abordagem é **muito** mais escalável do que a execução assíncrona orientada a `threads`.
 
