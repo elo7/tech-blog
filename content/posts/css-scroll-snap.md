@@ -13,9 +13,9 @@ description: Um caso de uso do Css Scroll Snap aplicados à carrosséis de image
 cover: css-scroll-snap-header.png
 ---
 
-Há algum tempo eu escrevi um post falando sobre o IntersectionObserver e como utiliza-lo para enriquecer um carrossel de fotos, você pode [ler ele aqui](https://elo7.dev/intersection-observer/). Mas ficou faltando uma funcionalidade muito utilizada em carrosséis, o scroll que ajusta as imagens na tela, mostrando ao usuário sempre a imagem posicionada centralizada certinha.
+Há algum tempo eu escrevi um post falando sobre o IntersectionObserver e como utilizá-lo para enriquecer um carrossel de fotos, você pode [ler ele aqui](https://elo7.dev/intersection-observer/). Mas ficou faltando uma funcionalidade muito utilizada em carrosséis, o scroll que ajusta as imagens na tela, mostrando ao usuário sempre a imagem posicionada centralizada certinha.
 
-Para conseguir esse efeito existe um modulo em CSS chamado [CSS Scroll Snap](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap) que facilita e muito a implementação deixando a transição de imagens bem fluída e bonita.
+Para conseguir esse efeito existe um módulo em CSS chamado [CSS Scroll Snap](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap) que facilita e muito a implementação deixando a transição de imagens bem fluída e bonita.
 
 Nesse post eu vou mostrar um caso de uso complementando o carrossel ;)
 
@@ -43,7 +43,7 @@ No exemplo abaixo eu mostro as combinações mais utilizadas dessa propriedade, 
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Observe que no caso em que foi utilizado o `mandatory` a imagem *sempre* fica alinhada com as bordas do carrossel e que no caso do `proximity` apenas quando a imagem foi arrastada e liberada próxima das bordas que ela vai se deslocar automáticamente, possibilitando que o carrossel mostre duas imagens ao mesmo tempo.
+Observe que no caso em que foi utilizado o `mandatory` a imagem *sempre* fica alinhada com as bordas do carrossel e que no caso do `proximity` apenas quando a imagem foi arrastada e liberada próxima das bordas que ela vai se deslocar automaticamente, possibilitando que o carrossel mostre duas imagens ao mesmo tempo.
 
 No nosso caso como o scroll é no eixo `X` e o comportamento desejado é que as margens das imagens fiquem *sempre* presas às margens da tela iremos utilizar o `scroll-snap-type: x mandatory;`.
 
@@ -100,7 +100,7 @@ Caso algum desses pontos seja muito importante e não devesse ser pulado é poss
 
 Infelizmente como acontece com outras implementações de specs CSS, `Css Scroll Snap` é a nova versão do que já foi chamado de `Scroll Snap Points`.
 
-Fora a confusão que fica com os nomes é preciso ter cuidado com browsers que ainda não são compativeis com a nova versão, a situação atual é essa:
+Fora a confusão que fica com os nomes é preciso ter cuidado com browsers que ainda não são compativeis com a nova versão. A situação atual é essa:
 
 [![Alt "Compatibilidade Atual"](../images/css-scroll-snap.png)](https://caniuse.com/#feat=css-snappoints)
 
