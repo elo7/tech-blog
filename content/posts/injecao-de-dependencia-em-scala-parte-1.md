@@ -1,5 +1,5 @@
 ---
-date: 2019-06-21
+date: 2019-07-01
 category: back-end
 tags:
   - scala
@@ -9,6 +9,7 @@ authors: [rodrigovedovato]
 layout: post
 title: Injeção de Dependência em Scala - Parte 1
 description: Este artigo de duas partes irá abordar diferentes formas de resolver injeção de dependência em Scala, e como a linguagem e a programação funcional podem nos ajudar.
+cover: injecao-de-dependencia-em-scala-parte-1.png
 ---
 
 ## _Scala no Elo7_
