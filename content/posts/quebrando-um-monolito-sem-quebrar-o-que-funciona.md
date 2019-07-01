@@ -12,13 +12,13 @@ description: Como o Elo7 está lidando com a quebra do seu monolito, qual proble
 cover: airplane-horizon-plane.jpg
 # https://www.draw.io/?state=%7B%22folderId%22:%220AGcFN_sLGncmUk9PVA%22,%22action%22:%22create%22,%22userId%22:%22105537826354721787211%22%7D#G1MJRGipLfzdiZtwbrxCwFRyLrFJhfUEZG
 ---
-Gostaria de descrever como estamos lidando com a refatoração do nosso monolito para transformá-lo em microsserviços aqui no Elo7. Acredito que cada problema apresenta uma solução mais apropriada e que vai além da parte técnica - envolve questões culturais, a clareza do problema raiz pra não trocar a tecnologia (ou técnica) e continuar com o mesmo problema inicial, etc. Pretendo mostrar alguns pontos com o objetivo de dar insights e mostrar nossas experiências.
+Gostaria de descrever como estamos lidando com a refatoração do nosso monolito para transformá-lo em microsserviços aqui no Elo7. Acredito que cada problema apresenta uma solução mais apropriada e que vai além da parte técnica - envolve questões culturais, a clareza do problema raiz pra não trocar a tecnologia (ou técnica) e continuar com o mesmo problema inicial. Pretendo mostrar alguns pontos com o objetivo de dar insights e mostrar nossas experiências.
 
 Mostrarei alguns conceitos que ajudaram a guiar nossas escolhas. E, num post futuro, uma parte prática (código) de como usamos algumas ferramentas. E pra isso vou disponibilizar um repositório com um exemplo completo de como é possível implementar tudo isso.
 
 ## Contextualização
 
-Imagine o cenário em que existe um monolito responsável por quase todas as _features_ da empresa. Ele tem um banco de dados, possui uma base de código consideravelmente grande e antiga, escalabilidade sem muita flexibilidade (você não pode escalar apenas uma _feature_), etc. Ou seja, todos os problemas clássicos que um monolito pode apresentar. 
+Imagine o cenário em que existe um monolito responsável por quase todas as _features_ da empresa. Ele tem um banco de dados, possui uma base de código consideravelmente grande e antiga, escalabilidade sem muita flexibilidade (você não pode escalar apenas uma _feature_). Ou seja, todos os problemas clássicos que um monolito pode apresentar. 
 
 Quebrar esse sistema traz várias considerações. O primeiro ponto real talvez seja: o pessoal de produto vai apoiar uma refatoração desse nível? 
 
