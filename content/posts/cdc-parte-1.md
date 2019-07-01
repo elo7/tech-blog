@@ -6,8 +6,8 @@ tags:
   - debezium
 authors: [sardinha]
 layout: post
-title: Introdução ao CDC (Change Data Capture)
-description: Vamos entender como o Change Data Capture _(aka CDC)_ funciona e sua aplicabilidade para resolver nossos problemas.
+title: Introdução ao Change Data Capture (CDC)
+description: Vamos entender como o Change Data Capture (CDC) funciona e sua aplicabilidade para resolver nossos problemas.
 cover: cdc.png
 ---
 
