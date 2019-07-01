@@ -76,7 +76,7 @@ lazy  val  root  = (project in file("."))
   )
 )
 ```
-Como dito anteriormente, o Guice adiciona várias algumas interfaces e _annotations_ que nos ajudam no processo. Chegou a hora de implementá-los!
+Feito isso, chegou a hora de alterar nosso código!
 
 A primeira classe que temos que alterar, é a `LoginFacade`, anotando o seu construtor com a _annotation_ `com.google.inject.Inject`
 
