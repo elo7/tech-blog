@@ -13,11 +13,11 @@ cover:
 
 ## Menos passos para atingir um objetivo
 
-Prover menos passos para um objetivo facilita o fluxo de navegação e gera mais conversão para seu produto. O *App Shortcuts* é uma funcionalidade disponibilizada a partir do Android Nougat (7.0), o objetivo é facilitar o acesso às principais telas do aplicativo a partir de seu ícone no menu ou área de trabalho, basta segura-lo por alguns segundos para que os atalhos para as telas correspondentes apareçam. Nosso foco com esse artigo é explicar de forma prática como aplicamos esse conceito nos aplicativos do Elo7.
+Prover menos passos para um objetivo facilita o fluxo de navegação e gera mais conversão para seu produto. O *App Shortcuts* é uma funcionalidade disponibilizada a partir do Android Nougat (7.0), o objetivo é facilitar o acesso às principais telas do aplicativo a partir de seu ícone no menu ou área de trabalho, basta segurá-lo por alguns segundos para que os atalhos para as telas correspondentes apareçam. Nosso foco com esse artigo é explicar de forma prática como aplicamos esse conceito nos aplicativos do Elo7.
 
 ## Tipos de atalho
 
-Existem duas formas de implementar os atalhos: estática e dinâmica. Na estática, apenas definimos um arquivo XML contendo para cada representação de atalho, um título, imagem e uma intenção para a tela correspondente. Na forma dinâmica, a qual focaremos aqui, podemos inserir e excluir atalhos conforme ações do usuário ou novas notificações. Aqui no Elo7 por exemplo, aproveitamos essa versatilidade e criamos um *endpoint* para retornar esses objetos. Com isso, conseguimos, por exemplo, mostrar atalhos diferentes por usuário ou modificar seus títulos e ícones sem que o usuário precise atualizar o aplicativo.
+Existem duas formas de implementar os atalhos: estática e dinâmica. Na estática, apenas definimos um arquivo XML contendo para cada representação de atalho, um título, imagem e uma intenção para a tela correspondente. Na forma dinâmica, a qual focaremos aqui, podemos inserir e excluir atalhos conforme ações do usuário ou novas notificações. Aqui no Elo7, por exemplo, aproveitamos essa versatilidade e criamos um *endpoint* para retornar esses objetos. Com isso, conseguimos, por exemplo, mostrar atalhos diferentes por usuário ou modificar seus títulos e ícones sem que o usuário precise atualizar o aplicativo.
 
 ![Alt "Exemplo de atalhos"](../images/tela-atalhos-app-android.png)
 
@@ -64,7 +64,7 @@ Vamos exemplificar aqui a classe responsável pela criação de todos os atalhos
 
 Em nosso exemplo, o *client* possui um método `getShortcuts` que recebe um novo callback como parâmetro. Se você não tem muita experiência com chamadas à APIs, recomendo estudar a biblioteca [Retrofit](https://square.github.io/retrofit/), que é a que utilizamos para fazer requisições REST. No sucesso do callback, obtemos o modelo `ShortcutsResultModel`. Detalharemos esse modelo posteriormente nesse post.
 
-A partir do Array de atalhos, pegamos os primeiros resultados e passamos como parâmetro para o método `createShortcutBuilder`, que irá preparar o construtor do atalho para posteriormente ser possível adinioná-lo no app. O método `getMaxShortcutCountPerActivity` do `ShortcutManager`, retorna a quantidade de atalhos suportadas pelo sistema, que atualmente estão entre quatro e cinco.
+A partir do Array de atalhos, pegamos os primeiros resultados e passamos como parâmetro para o método `createShortcutBuilder`, que irá preparar o construtor do atalho para posteriormente ser possível adicioná-lo no app. O método `getMaxShortcutCountPerActivity` do `ShortcutManager`, retorna a quantidade de atalhos suportadas pelo sistema, que atualmente estão entre quatro e cinco.
 
 ### Modelo
 
@@ -123,7 +123,7 @@ public class ShortcutsResultModel implements Serializable {
 
 ### Preparando os contrutores dos atalhos
 
-Um dos problemas que enfrentamos ao inserir uma imagem remota nos atalhos, é o fato de não podermos inseri-las após adicionarmos os atalhos no APP. Como alternativa, podemos criar uma lista de *Builders* para que possamos adicioná-los somente após termos todos os ícones. Abaixo, um exemplo do método `createShortcutBuilder`, que será chamado para cada atalho que será disponibilizado:
+Um dos problemas que enfrentamos ao inserir uma imagem remota nos atalhos, é o fato de não podermos inserí-las após adicionarmos os atalhos no APP. Como alternativa, podemos criar uma lista de *Builders* para que possamos adicioná-los somente após termos todos os ícones. Abaixo, um exemplo do método `createShortcutBuilder`, que será chamado para cada atalho que será disponibilizado:
 
 ```java
 
@@ -186,7 +186,7 @@ private interface SetIconsAndBuildShortcutsCallback {
 
 ```
 
-Nesse método, percorremos a lista de construtores e para cada elemento, fazemos uma requisição utilizando a biblioteca Fresco para obter o ícone correspondente. Para cada resposta bem sucedida, chamamos o callback que irá continuar o fluxo no método `create`. A seguir continuaremos a implementá-lo.
+Nesse método, percorremos a lista de construtores e para cada elemento, fazemos uma requisição utilizando a biblioteca Fresco para obter o ícone correspondente. Para cada resposta bem sucedida, chamamos o callback que irá continuar o fluxo no método `create`. A seguir, continuaremos a implementá-lo.
 
 ### Finalizando a construção
 
@@ -258,6 +258,6 @@ Caso não esteja familiarizado com o Dagger e queira saber mais, temos um post e
 
 ## Conclusão
 
-A forma dinâmica de construção dos atalhos tráz inúmeras possibilidades de implementação. Aproveitar essa flexibilidade obtendo dados através de uma API, é uma ótima maneira para fazer que usuários estejam sempre atualizados, além de possibilitar entregar informações customizadas dependendo do comportamento que a pessoa tem no aplicativo.
+A forma dinâmica de construção dos atalhos traz inúmeras possibilidades de implementação. Aproveitar essa flexibilidade obtendo dados através de uma API, é uma ótima maneira para fazer que usuários estejam sempre atualizados, além de possibilitar entregar informações customizadas dependendo do comportamento que a pessoa tem no aplicativo.
 
 A utilização dos atalhos ainda é desconhecida por boa parte dos usuários, porém existe um potencial muito grande em sua utilização. São de fácil implementação e podem trazer um ganho de produtividade para os usuários do seu aplicativo. Enquanto essa funcionalidade não se populariza, cabe ao desenvolvedor que o utiliza o divulgar como funcionalidade de seu produto.
