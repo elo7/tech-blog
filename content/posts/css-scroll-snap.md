@@ -13,17 +13,17 @@ description: Um caso de uso do Css Scroll Snap aplicados à carrosséis de image
 cover: css-scroll-snap-header.png
 ---
 
-Há algum tempo eu escrevi um post falando sobre o IntersectionObserver e como utilizá-lo para enriquecer um carrossel de fotos, você pode [ler ele aqui](https://elo7.dev/intersection-observer/). Mas ficou faltando uma funcionalidade muito utilizada em carrosséis, o scroll que ajusta as imagens na tela, mostrando ao usuário sempre a imagem posicionada centralizada certinha.
+Há algum tempo eu escrevi um post falando sobre o IntersectionObserver e como utilizá-lo para enriquecer um carrossel de fotos, você pode [ler ele aqui](/intersection-observer/). Mas ficou faltando uma funcionalidade muito utilizada em carrosséis, o scroll que ajusta as imagens na tela, mostrando ao usuário sempre a imagem centralizada certinha.
 
 Para conseguir esse efeito existe um módulo em CSS chamado [CSS Scroll Snap](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap) que facilita e muito a implementação deixando a transição de imagens bem fluída e bonita.
 
 Nesse post eu vou mostrar um caso de uso complementando o carrossel ;)
 
-## Funcionamento Básico
+Apenas `duas` propriedades são necessárias para o funcionamento básico, e que neste caso já é o suficiente para o exemplo:
 
-Apenas duas propriedades são necessárias para o funcionamento básico, e que neste caso já é o suficiente para o exemplo:
+### scroll-snap-type
 
-`scroll-snap-type` - Utilizado no container das imagens, essa propriedade é responsável por configurar o comportamento do scroll.
+Utilizado no container das imagens, essa propriedade é responsável por configurar o comportamento do scroll.
 
 Possíveis valores chave:
 
@@ -47,7 +47,9 @@ Observe que no caso em que foi utilizado o `mandatory` a imagem *sempre* fica al
 
 No nosso caso como o scroll é no eixo `X` e o comportamento desejado é que as margens das imagens fiquem *sempre* presas às margens da tela iremos utilizar o `scroll-snap-type: x mandatory;`.
 
-`scroll-snap-align` - Propriedade usada nos itens e determina o alinhamento relativo ao container scrollado.
+## scroll-snap-align
+
+Propriedade usada nos itens e determina o alinhamento relativo ao container scrollado.
 
 O valores são parecidos com um alinhamento simples:
 
@@ -93,8 +95,11 @@ Caso o efeito desejado seja que as imagens scrolladas não colem nas bordas é p
 
 É possível observar nos exemplos anteriores que a funcionalidade só se faz presente quando se para de scrollar, mas até esse momento é possível passar por vários `snap points`.
 
-Caso algum desses pontos seja muito importante e não devesse ser pulado é possível utilizar a propriedade `scroll-snap-stop: always`, deste modo esta será uma parada obrigatória. Entretanto a compatibilidade dessa propriedade até o momento é bem baixa... E nos meus testes no `chrome` que aparentemente já possui suporte não funcionou =(.
+Caso algum desses pontos seja muito importante e não devesse ser pulado é possível utilizar a propriedade `scroll-snap-stop: always`, deste modo esta será uma parada obrigatória. Entretanto a compatibilidade dessa propriedade até o momento é bem baixa...
 
+[![Alt "Compatibilidade atual da propriedade scroll-snap-stop"](../images/css-scroll-snap-1.png)](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-stop)
+
+E apesar da tabela de compatibilidade incluir o `chrome` nos meus testes não funcionou =(.
 
 ## Compatibilidade
 
