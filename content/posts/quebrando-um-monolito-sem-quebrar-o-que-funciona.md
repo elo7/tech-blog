@@ -8,7 +8,7 @@ tags:
 authors: [andreformento]
 layout: post
 title: Quebrando um monolito sem quebrar o que funciona
-description: Como o Elo7 está lidando com a quebra do seu monolito, qual problema real que estamos tentando resolver e uma abordagem do assunto de maneira prática.
+description: Como o Elo7 está lidando com a quebra do seu monolito, qual problema real estamos tentando resolver e uma abordagem do assunto de maneira prática.
 cover: airplane-horizon-plane.jpg
 # https://www.draw.io/?state=%7B%22folderId%22:%220AGcFN_sLGncmUk9PVA%22,%22action%22:%22create%22,%22userId%22:%22105537826354721787211%22%7D#G1MJRGipLfzdiZtwbrxCwFRyLrFJhfUEZG
 ---
@@ -26,17 +26,17 @@ Quebrar esse sistema traz várias considerações. O primeiro ponto real talvez 
 
 O _backlog_ poderá ficar comprometido com menos entregas no processo de reestruturação da arquitetura. Ou ainda, o risco de cada time seguir um caminho completamente diferente do outro, deixando de lado qualquer tipo de padronização. Antes o monolito obrigava uma mesma linguagem, talvez até um mesmo framework. 
 Isso pode ser visto como bom e ruim: bom que há um padrão e ruim que não há flexibilidade. 
-O meio termo, neste caso, pode ser um acordo para utilizar linguagens pré-determinadas e usar novas tecnologias quando tiver uma razão significativa. 
-É necessário ficar atendo para não criar um ambiente caótico. 
-Ainda podemos pensar em mostrar quais vantagens uma estrutura de microsserviços proporciona: produtividade ao evoluir _features_ de maneira independente, assim como melhor escalabilidade das aplicações.
+O meio termo, nesse caso, pode ser um acordo para utilizar linguagens pré-determinadas e usar novas tecnologias quando houver uma razão significativa. 
+É necessário ficar atento para não criar um ambiente caótico. 
+Ainda podemos pensar em mostrar quais vantagens uma estrutura de microsserviços proporcionaria: produtividade ao evoluir _features_ de maneira independente, assim como melhor escalabilidade das aplicações.
 
 Os engenheiros certamente serão os mais afetados: novos desafios, novos problemas, e ao mesmo tempo soluções mais modernas para lidar evolução da plataforma.
 
-Existem [diversas estratégias](https://martinfowler.com/articles/break-monolith-into-microservices.html) para fazer esse tipo de migração. Seja qual for o modo, sempre é levado em consideração que o sistema atual continua em uso, evoluindo (mesmo que minimamente) e tendo correções de bugs. Às vezes separar algumas pequenas partes aos poucos costuma ser o caminho natural e que vai de encontro à cultura ágil. Veja mais sobre o [strangler pattern](https://martinfowler.com/bliki/StranglerFigApplication.html).
+Existem [diversas estratégias](https://martinfowler.com/articles/break-monolith-into-microservices.html) para fazer esse tipo de migração. Seja qual for o modo, sempre é levado em consideração que o sistema atual continuará em uso, evoluindo (mesmo que minimamente) e tendo correções de bugs. Às vezes separar algumas pequenas partes aos poucos costuma ser o caminho natural e que vai de encontro à cultura ágil. Veja mais sobre o [strangler pattern](https://martinfowler.com/bliki/StranglerFigApplication.html).
 
 ## Caso de uso
 
-Algumas _features_ de nossa aplicação podem ter diferentes necessidades para o momento de escrita e o de leitura. 
+Algumas _features_ da nossa aplicação podem ter diferentes necessidades para o momento de escrita e o de leitura. 
 
 Vejamos por exemplo um _e-commerce_. Ele possui um cadastro para vendedores disponibilizarem seus produtos com certas regras de negócio, validações, autenticação, telas específicas (UX) e uma quantidade de acessos baixíssima (somente vendedores logados) chegando à algumas dezenas por minuto. Já as leituras têm um perfil bem diferente, muito conteúdo público, bastante análise para exibir o produto mais adequado na busca, produtos similares ou complementares, recomendações, muitos acessos simultâneos - chegando a milhares de acesso por minuto. Com isso já dá pra perceber a disparidade das demandas. 
 
@@ -45,9 +45,9 @@ Seria legal permitir tecnologias distintas e também o dimensionamento da infrae
 
 ## Command Query Responsibility Segregation (CQRS)
 
-Segundo Martin Fowler, [Command Query Responsibility Segregation (CQRS)](https://martinfowler.com/bliki/CQRS.html) é um padrão em que a modelagem para a escrita pode ser diferente da modelagem para a leitura da informação. Deve-se observar que isso implica em maior complexidade (pois há dois sistemas).
+Segundo Martin Fowler, [Command Query Responsibility Segregation (CQRS)](https://martinfowler.com/bliki/CQRS.html) é um padrão em que a modelagem para a escrita pode ser diferente da modelagem para a leitura da informação. Deve-se observar que isso implica em maior complexidade.
 
-Na prática, há uma aplicação de cadastros que tem toda sua lógica para a escrita podendo ser em banco de dados ou simplesmente criando um evento em um tópico para ser processado assincronamente. Quando processado, o dado pode ficar disponível para a consumo. 
+Na prática, há uma aplicação de cadastros que tem toda sua lógica para a escrita podendo ser em banco de dados ou simplesmente criando um evento em um tópico para ser processado assincronamente. Quando processado, o dado pode ficar disponível para o consumo. 
 
 ![Fluxo do cadastro de produto](../images/quebrando-um-monolito-sem-quebrar-o-que-funciona-fluxo-de-cadastro-de-produto.png)
 
@@ -57,7 +57,7 @@ Como essa leitura pode ocorrer de várias formas (busca, recomendação, visuali
 
 ![Sistemas reagem a mudança do produto](../images/quebrando-um-monolito-sem-quebrar-o-que-funciona-sistemas-reagem-a-mudanca-do-produto.png)
 
-Todos os sistemas que precisarem do dado poderão fazer apenas consumindo o tópico. Além disso, com a técnica de usar tópicos podemos considerar que os dados estão disponíveis em tempo real e podem [reagir as mudanças](/programacao-reativa/)
+Todos os sistemas que precisarem do dado poderão fazê-lo apenas consumindo o tópico. Além disso, com a técnica de usar tópicos podemos considerar que os dados estão disponíveis em tempo real e podem [reagir as mudanças](/programacao-reativa/)
 
 ___
 
