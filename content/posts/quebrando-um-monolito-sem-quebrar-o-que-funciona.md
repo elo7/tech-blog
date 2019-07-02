@@ -47,17 +47,17 @@ Seria legal permitir tecnologias distintas e também o dimensionamento da infrae
 
 Segundo Martin Fowler, [Command Query Responsibility Segregation (CQRS)](https://martinfowler.com/bliki/CQRS.html) é um padrão em que a modelagem para a escrita pode ser diferente da modelagem para a leitura da informação. Deve-se observar que isso implica em maior complexidade.
 
-Na prática, há uma aplicação de cadastros que tem toda sua lógica para a escrita podendo ser em banco de dados ou simplesmente criando um evento em um tópico para ser processado assincronamente. Quando processado, o dado pode ficar disponível para o consumo. 
+Na prática, há uma aplicação de cadastros que tem toda sua lógica para a escrita que gera um evento. Todas as aplicações interessadas podem reagir às mudanças e consumir esse dado. Desta forma teremos uma comunicação baseada em eventos.
 
 ![Fluxo do cadastro de produto](../images/quebrando-um-monolito-sem-quebrar-o-que-funciona-fluxo-de-cadastro-de-produto.png)
 
 Ou seja, um consumidor pode colocar o dado em algum banco que servirá exclusivamente para leitura, possibilitando assim pensar na melhor ferramenta que resolve esse problema. 
 
-Como essa leitura pode ocorrer de várias formas (busca, recomendação, visualização, etc), cada uma dessas aplicações que precisar exibir o dado pode consumir desse tópico e tratar da forma mais adequada. O consumidor pode, por exemplo, ser um sistema que indexa o dado para busca (no Solr ou Elasticsearch); ou então, o time de machine learning pode criar um algoritmo que consome o dado do produto para gerar recomendações; ou ainda, o sistema que exibe a tela do produto pode consumir o dado e enriquecê-lo chamando o sistema de cálculo do preço à vista ou parcelamento do produto; e assim por diante. 
+Como essa leitura pode ocorrer de várias formas (busca, recomendação, visualização, etc), cada uma dessas aplicações que precisarem exibir os dados podem consumir esses eventos e tratar da forma mais adequada. O consumidor pode, por exemplo, ser um sistema que indexa o dado para busca (no Solr ou Elasticsearch); ou então, o time de machine learning pode criar um algoritmo que consome o dado do produto para gerar recomendações; ou ainda, o sistema que exibe a tela do produto pode consumir o dado e enriquecê-lo chamando o sistema de cálculo do preço à vista ou parcelamento do produto; e assim por diante. 
 
 ![Sistemas reagem a mudança do produto](../images/quebrando-um-monolito-sem-quebrar-o-que-funciona-sistemas-reagem-a-mudanca-do-produto.png)
 
-Todos os sistemas que precisarem do dado poderão fazê-lo apenas consumindo o tópico. Além disso, com a técnica de usar tópicos podemos considerar que os dados estão disponíveis em tempo real e podem [reagir as mudanças](/programacao-reativa/)
+Todos os sistemas que precisarem do dado poderão fazê-lo apenas consumindo o evento. Além disso, com a técnica de usar eventos podemos considerar que os dados estão disponíveis em tempo real e podem [reagir as mudanças](/programacao-reativa/)
 
 ___
 
