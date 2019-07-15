@@ -6,10 +6,22 @@
     <description>Recent content in Back End on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
-    <lastBuildDate>Mon, 01 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://elo7.dev/categoria/back-end/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Programação Reativa - Parte 5: Arquiteturas não-bloqueantes</title>
+      <link>https://elo7.dev/programacao-reativa-parte-5/</link>
+      <pubDate>Mon, 15 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/programacao-reativa-parte-5/</guid>
+      <description>Depois de muito falarmos sobre programação reativa, no post anterior vimos os fundamentos dos &amp;ldquo;sistemas reativos&amp;rdquo;, e uma expressão em especial recebeu bastante destaque: &amp;ldquo;não bloqueante&amp;rdquo;.
+Mas o que significa de fato &amp;ldquo;não bloqueante&amp;rdquo;?
+Síncrono vs assíncrono vs não-bloqueante Considere o código abaixo:
+String result = myObject.doSomething(); // alguma operação como acesso a um banco de dados, escrita em disco, comunicação pela rede... // faz algo com o resultado  O código acima é imperativo e síncrono, e também é bloqueante.</description>
+    </item>
     
     <item>
       <title>Injeção de Dependência em Scala - Parte 1</title>
@@ -30,18 +42,6 @@ Injeção de dependência Injeção de dependência (ou DI) é um dos padrões m
       <description>Nos três posts anteriores, vimos os fundamentos principais da programação reativa, incluindo muitos exemplos de código, processamento concorrente e contrapressão. Que lindo! Mas serão esses conceitos aplicáveis para aplicações de grande porte e sistemas inteiros? Esse post irá explorar os detalhes de uma verdadeira aplicação reativa.
 Caso você não tenha lido os posts anteriores, uma recapitulação:
  O que é programação reativa? Exemplos de código com o RxJava Processamento concorrente, paralelismo e backpressure  Por que queremos um sistema &amp;ldquo;reativo&amp;rdquo;?</description>
-    </item>
-    
-    <item>
-      <title>Programação Reativa - Parte 5: Arquiteturas não-bloqueantes</title>
-      <link>https://elo7.dev/programacao-reativa-parte-5/</link>
-      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://elo7.dev/programacao-reativa-parte-5/</guid>
-      <description>Depois de muito falarmos sobre programação reativa, no post anterior vimos os fundamentos dos &amp;ldquo;sistemas reativos&amp;rdquo;, e uma expressão em especial recebeu bastante destaque: &amp;ldquo;não bloqueante&amp;rdquo;.
-Mas o que significa de fato &amp;ldquo;não bloqueante&amp;rdquo;?
-Síncrono vs assíncrono vs não-bloqueante Considere o código abaixo:
-String result = myObject.doSomething(); // alguma operação como acesso a um banco de dados, escrita em disco, comunicação pela rede... // faz algo com o resultado  O código acima é imperativo e síncrono, e também é bloqueante.</description>
     </item>
     
     <item>
