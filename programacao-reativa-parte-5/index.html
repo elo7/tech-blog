@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,java,programacao-reativa,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Programação Reativa - Parte 5: Arquiteturas não-bloqueantes'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Programação Reativa - Parte 5: Arquiteturas não-bloqueantes'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Programação Reativa - Parte 5: Arquiteturas não-bloqueantes'>
+	<meta property='og:url' content='https://elo7.dev/programacao-reativa-parte-5/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Programação Reativa - Parte 5: Arquiteturas não-bloqueantes'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/programacao-reativa-parte-5/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/programacao-reativa-parte-5/'>
+	<title>Elo7 Tech - Programação Reativa - Parte 5: Arquiteturas não-bloqueantes</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Programação Reativa - Parte 5: Arquiteturas não-bloqueantes' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Programação Reativa - Parte 5: Arquiteturas não-bloqueantes</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2019-02-18 00:00:00 &#43;0000 UTC'
+    aria-label='18 de fevereiro de 2019'>
+    18/02/2019
+    <meta itemprop='datePublished' content='Mon Feb 18 2019 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Feb 18 2019 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2019-02-18'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='ljtfreitas' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/ljtfreitas/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/ljtfreitas'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='ljtfreitas'>@ljtfreitas</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Depois de muito falarmos sobre programação reativa, no <a href="/programacao-reativa-parte-4">post anterior</a> vimos os fundamentos dos &ldquo;sistemas reativos&rdquo;, e uma expressão em especial recebeu bastante destaque: &ldquo;não bloqueante&rdquo;.</p>
+
+<p>Mas o que significa de fato &ldquo;não bloqueante&rdquo;?</p>
+
+<h1 id="síncrono-vs-assíncrono-vs-não-bloqueante">Síncrono vs assíncrono vs não-bloqueante</h1>
+
+<p>Considere o código abaixo:</p>
+
+<pre><code class="language-java">String result = myObject.doSomething(); // alguma operação como acesso a um banco de dados, escrita em disco, comunicação pela rede...
+
+// faz algo com o resultado
+</code></pre>
+
+<p>O código acima é <strong>imperativo</strong> e <strong>síncrono</strong>, e também é <strong>bloqueante</strong>. Mas o que efetivamente está &ldquo;bloqueado&rdquo;? Resposta: a <strong>thread de execução</strong> do programa.</p>
+
+<p>Obviamente, nosso software <strong>precisa</strong> de uma <code>thread</code> para ser executado. Então, o que significa dizer que a <code>thread</code> está &ldquo;bloqueada&rdquo;?</p>
+
+<p>Enquanto o programa está rodando, coisas estão acontecendo: valores estão sendo atribuídos a variáveis, cálculos estão sendo realizados, entre tantas outras coisas. Enquanto isso ocorre, nossa <code>thread</code> está utilizando a CPU; o tal &ldquo;bloqueio&rdquo; da <code>thread</code> ocorre quando realizamos operações que fazem a <code>thread</code>, efetivamente, <strong>parar</strong> sua execução.</p>
+
+<p>Que operações seriam essas? Operações que envolvem algum tipo de <strong>espera</strong> por um recurso, e operações de I/O são os casos mais comuns (mas não os únicos): acesso à rede (como uma chamada à uma API), acesso a bancos de dados, acesso ao disco&hellip;em todos esses exemplos, enquanto o resultado dessas operações não retornarem, nossa <code>thread</code> estará, de fato, sem fazer nada!</p>
+
+<p>Não obstante, temos escrito programas exatamente iguais a esse por anos, então o que está &ldquo;errado&rdquo;? Nada!</p>
+
+<p>Mas analisemos as consequências práticas. Para começarmos de maneira simples, consideremos que, por uma necessidade do nosso software, precisemos executar esse código 100 vezes.</p>
+
+<h2 id="síncrono">Síncrono</h2>
+
+<p>Podemos fazer isso uma vez após a outra. É uma solução natural, afinal, nosso código precisa manter a mesma <code>thread</code> durante toda sua execução.</p>
+
+<pre><code class="language-java">for (int i = 1; i &lt;= 100; i++) {
+	String result = myObject.doSomething(); // operação bloqueante...
+
+	// ...
+}
+</code></pre>
+
+<p>&hellip;mas não parece uma abordagem muito interessante. Cada execução precisa <strong>aguardar</strong> a anterior terminar, o que limita a escalabilidade e a performance do nosso programa.</p>
+
+<h2 id="assíncrono">Assíncrono</h2>
+
+<p>Uma solução mais inteligente parece simples: podemos executar nosso código <strong>em paralelo</strong>, usando diferentes <code>threads</code>.</p>
+
+<pre><code class="language-java">for (int i = 1; i &lt;= 100; i++) {
+
+	// encapsula o código em um Runnable
+	Runnable block = () -&gt; {
+		String result = myObject.doSomething();
+
+		// ...
+	};
+
+	new Thread(block).start(); // executa o bloco em outra thread
+}
+</code></pre>
+
+<p>Parece melhor! E, normalmente, essa abordagem é a mais utilizada quando precisamos que nossos programas consigam fazer <strong>mais coisas</strong>: usamos <code>threads</code> para conseguir fazer muitas coisas ao mesmo tempo, ou executar um mesmo bloco de código muitas vezes simultaneamente, ou precisamos fazer muitas coisas diferentes em paralelo.</p>
+
+<p>Essa solução certamente tem o seu valor. Mas o detalhe que os sistemas reativos trazem à tona é a questão do <strong>uso de recursos</strong> pelas nossas aplicações: utilizar muitas <code>threads</code> nos permite fazer muitas coisas ao mesmo tempo, mas a um <strong>custo computacional</strong> elevado (conforme comentamos no <a href="/programacao-reativa-parte-4">post anterior</a>), em termos de uso de memória e utilização da CPU.</p>
+
+<h2 id="não-bloqueante">Não-bloqueante</h2>
+
+<p>Então, implementar nosso código assumindo que usaremos apenas uma <code>thread</code> para execução e que essa <code>thread</code> irá fazer coisas que vão bloquear sua execução, pode tornar as coisas complicadas caso precisemos escalar nosso programa e executá-lo muitas vezes paralelamente. A solução assíncrona parece boa, mas utilizar muitas <code>threads</code> traz uma pegadinha embutida, que é o maior consumo de recursos de <em>hardware</em>. E agora? :(</p>
+
+<p>Os sistemas reativos propõe que o software deve ser projetado para ser executado de maneira assíncrona, de modo a poder fazer muitas coisas simultaneamente; ao mesmo tempo, propôe que utilizemos um pequeno conjunto de <code>threads</code> (ou até mesmo uma única <code>thread</code>!). Para obter esse resultado, precisamos que essas <code>threads</code> <strong>nunca fiquem bloqueadas</strong> por nenhuma operação. Precisamos de <strong>arquiteturas não-bloqueantes</strong>.</p>
+
+<p>Parece legal&hellip;mas como fazemos isso?</p>
+
+<h1 id="concorrência-em-aplicações-web">Concorrência em aplicações web</h1>
+
+<p>Para exemplificar melhor as idéias comentadas acima e chegarmos à tal &ldquo;arquitetura não-bloqueante&rdquo;, a partir desse ponto vamos explorar o desenvolvimento de uma aplicação web absolutamente comum: uma aplicação que recebe uma requisição, faz &ldquo;algo&rdquo; e devolve uma resposta.</p>
+
+<p>Quando desenvolvemos software, especialmente para o contexto web (um site ou uma API, por exemplo), muitas vezes não consideramos detalhes de concorrência durante a implementação; simplesmente incluímos um código como o do nosso exemplo em algum ponto da aplicação (digamos, em um <code>controller</code>, um <code>handler</code> ou equivalente) e a coisa toda &ldquo;apenas funciona&rdquo;. E isso é uma coisa positiva, pois os servidores/frameworks costumam fazer um ótimo trabalho abstraindo esse tipo de detalhe. Mas, bom, <strong>como</strong> funciona?</p>
+
+<p>Imaginemos uma aplicação web Java típica (servlet), que utiliza um código equivalente ao exemplo anterior durante a manipulação de uma requisição HTTP.</p>
+
+<pre><code class="language-java">// em algum lugar que manipula requisições http...
+
+@WebServlet(value = &quot;/my-servlet&quot;)
+public class MyServlet extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String result = myObject.doSomething(); // alguma operação bloqueante...
+
+		// gera uma resposta com o resultado...
+		response.setStatus(200); //200 OK
+		response.getWriter().append(result);
+		response.getWriter().flush();
+
+	}
+}
+</code></pre>
+
+<p>Essa implementação traz algumas consequências equivalentes às discutidas acima: 1) estamos assumindo que a <code>thread</code> estará atrelada à requisição <strong>até o fim</strong> (o que é verdadeiro, e será garantido pelo <code>servlet container</code>); 2) essa <code>thread</code>, então, só estará disponível para outras requisições apenas após concluir a anterior; 3) essa mesma <code>thread</code>, então, só pode atender requisições <strong>uma de cada vez</strong>!</p>
+
+<p>Mas queremos que nossa aplicação possa servir múltiplas requisições simultaneamente! A solução novamente parece simples: utilizar <strong>mais threads!</strong> Novamente voltamos à essa solução: precisamos de múltiplas <code>threads</code> para adicionar paralelismo à nossa aplicação, e é exatamente isso que servidores web fazem. É esse mecanismo que permite que nossas aplicações web recebam milhares de requisições ao mesmo tempo.</p>
+
+<p>No caso dos servidores Java que implementam a especificação de <em>Servlets</em> (como o Tomcat, o Jetty e outros), esse comportamento pode se apresentar de duas maneiras:</p>
+
+<h2 id="thread-per-connection">Thread-per-connection</h2>
+
+<p>Um modelo é o <strong>thread-per-connection</strong>, que utiliza uma <code>thread</code> por conexão HTTP; se a conexão for <a href="https://en.wikipedia.org/wiki/HTTP_persistent_connection">persistente</a>, múltiplas requisições poderão ser feitas sobre a mesma conexão, e serão atendidas pela mesma <code>thread</code>; quando a conexão é enfim fechada, a <code>thread</code> está novamente disponível. O tempo demonstrou que essa abordagem não é escalável, pois <code>threads</code> são relativamente caras em relação ao uso de memória (que crescerá em proporção direta ao número de conexões no servidor). Servidores com um número fixo de <code>threads</code> podem chegar ao ponto de rejeitar requisições enquanto todas as <code>threads</code> estiverem ocupadas (problema conhecido como <em>thread starvation</em>).</p>
+
+<h2 id="thread-per-request">Thread-per-request</h2>
+
+<p>Uma evolução dessa abordagem é o modelo chamado como <strong>thread-per-request</strong>, onde uma <code>thread</code> é utilizada (associada à conexão) apenas durante o processamento da requisição; após o envio da resposta HTTP, a <code>thread</code> volta a estar disponível para atender outras requisições. Os servidores web Java populares (Tomcat, Jetty, Grizzly, etc) funcionam dessa maneira por padrão: uma <code>thread</code> estará vinculada à requisição do início ao fim, e então será liberada.</p>
+
+<p>O modelo de <em>thread-per-request</em>, com efeito, é potencialmente mais eficiente do que o <em>thread-per-connection</em>. Mesmo com um número fixo de <code>threads</code> e com o mesmo hardware, o servidor será capaz de lidar com um número muito maior de requisições.</p>
+
+<p>Parece interessante, não? Então, consideremos a seguinte situação:</p>
+
+<pre><code class="language-java">// em algum lugar que manipula requisições http...
+
+@WebServlet(value = &quot;/my-servlet&quot;)
+public class MyServlet extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String result = myObject.doSomething(); // alguma operação bloqueante e lenta...
+
+		// gera uma resposta http com o resultado...
+		response.setStatus(200);
+		response.getWriter().append(result);
+		response.getWriter().flush();
+	}
+}
+</code></pre>
+
+<p>Considere que nossa aplicação está recebendo muitas requisições: o que acontecerá se <strong>todas</strong> as <code>threads</code> do servidor estiverem bloqueadas aguardando a resposta do método <code>myObject.doSomething()</code>, enquanto novas requisições continuam chegando?&hellip;nossa aplicação ficará indisponível!</p>
+
+<p>Isso não ocorrerá imediatamente, pois quando todas as <code>threads</code> do servidor estiverem ocupadas, novas requisições são empilhadas aguardando o momento de serem atendidas, mas essa pilha tem um tamanho limitado. Após esse limite ser atingido, novas requisições serão simplesmente recusadas.</p>
+
+<h2 id="do-síncrono-para-o-assíncrono">Do síncrono para o assíncrono</h2>
+
+<p>Então, o design acima apresenta um problema: durante a manipulação da requisição, realizamos uma operação que demanda um certo intervalo de tempo, e a <code>thread</code> está bloqueada durante esse período e impedida de ser liberada para outras requisições. Temos um primeiro sinal, aqui, que bloquear a <code>thread</code> não parece algo muito legal. Talvez possamos pensar: &ldquo;precisamos tornar esse código assíncrono e liberar a thread! o método precisa executar em uma thread separada!&rdquo;; Essa é uma abordagem muito comum para esse problema. Mas será que daria certo?</p>
+
+<p>Digamos que refatoramos o código; o método &ldquo;doSomething&rdquo; agora é <strong>assíncrono</strong> e é executado em uma <code>thread</code> separada. Ao invés do resultado ser devolvido no retorno do método, refatoramos a assinatura para recebermos um <code>callback</code> como argumento:</p>
+
+<pre><code class="language-java">interface MyObject {
+
+    // nova assinatura do método; a implementação será assíncrona
+	void doSomething(Consumer&lt;String&gt; calback);
+}
+
+@WebServlet(value = &quot;/my-servlet&quot;)
+public class MyServlet extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// doSomething agora executa em outra thread :)
+		myObject.doSomething(result -&gt; {
+			// em outra thread, com o resultado
+
+			// gera uma resposta http...
+			response.setStatus(200);
+			response.getWriter().append(result);
+			response.getWriter().flush();
+		});
+
+		/*
+			a thread associada à requisição não está mais bloqueada e pode prosseguir a execução,
+			retornando ao servidor para atender outras requisições :)
+		*/
+	}
+}
+</code></pre>
+
+<p>Seria uma idéia interessante&hellip;mas esse código não funciona! O motivo é que a <code>thread</code> principal (associada à requisição) irá continuar em frente e retornar ao servidor, e a resposta será enviada nesse momento; quando a <code>thread</code> do método &ldquo;doSomething&rdquo; executar o <code>callback</code>, já não seremos capazes de escrever a resposta porque ela já foi enviada.</p>
+
+<p>Talvez possamos fazer nosso &ldquo;doSomething&rdquo; devolver um <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Future.html">Future</a>, para encapsular o processamento assíncrono?</p>
+
+<pre><code class="language-java">interface MyObject {
+
+    // a implementação irá devolver um Future e executar o código que gera o resultado em outra thread
+	Future&lt;String&gt; doSomething();
+}
+
+@WebServlet(value = &quot;/my-servlet&quot;)
+public class MyServlet extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// em algum lugar que manipula requisições http...
+		Future&lt;String&gt; promise = myObject.doSomething();
+
+		//e agora? a computação está sendo executada em outra thread...precisamos obter o resultado do Future!
+
+		// o método get() bloqueia a thread corrente! (pois deve aguardar a outra thread para obter o resultado)
+		// voltamos ao problema anterior :(
+		String result = promise.get();
+
+		// gera uma resposta http com o resultado...
+		response.setStatus(200);
+		response.getWriter().append(result);
+		response.getWriter().flush();
+	}
+}
+</code></pre>
+
+<p>Talvez possamos utilizar o <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a>, uma variação interessante do <code>Future</code> introduzida no Java 8, que funciona baseado em <code>callbacks</code>? Infelizmente, ele também não resolveria nosso problema, pois teríamos em mãos a mesma situação relacionada à <code>thread</code> que executa o <code>callback</code>.</p>
+
+<p>E agora??? :(</p>
+
+<h3 id="servlets-assíncronos">Servlets assíncronos</h3>
+
+<p>Esse não é um post necessariamente sobre Java (bom, é sim hehe) mas vejamos uma maneira elegante de resolver esse problema utilizando um recurso fornecido pela própria linguagem: <a href="https://docs.oracle.com/javaee/7/tutorial/servlets012.htm">servlets assíncronos</a>:</p>
+
+<pre><code class="language-java">interface MyObject {
+
+	// retornamos à versão bloqueante
+	String doSomething();
+}
+
+@WebServlet(value = &quot;/my-servlet&quot;)
+public class MyServlet extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// a partir do objeto de requisição (HttpServletRequest), obtemos um AsyncContext
+		final AsyncContext asyncContext = request.startAsync();
+
+		// o bloco será executado em outra thread! (o parâmetro é do tipo Runnable)
+		asyncContext.start(() -&gt; {
+			String result = myObject.doSomething(); // bloqueio de thread...mas não é a thread do servidor
+
+			// obtem a resposta associada ao contexto
+			HttpServletResponse response = asyncContext.getResponse();
+
+			// agora podemos gera uma resposta http com o resultado
+			response.setStatus(200);
+			response.getWriter().append(result);
+			response.getWriter().flush();
+		})
+
+		//a thread pode prosseguir a execução; será devolvida ao pool do servidor e estará disponível para novas requisições
+	}
+}
+</code></pre>
+
+<p>O código acima funciona sem problemas! Servlets assíncronos são um recurso bastante poderoso e útil; conseguimos executar um processamento demorado sem bloquear a <code>thread</code> do servidor web. Mas será essa a melhor solução?</p>
+
+<p>Novamente, temos a questão do uso de recursos. Criar muitas <code>threads</code> é útil para fazermos muitas coisas em paralelo, mas o outro lado da moeda é o custo computacional que isso acarreta.</p>
+
+<p>Precisamos de algo um pouco complicado: um design que permita a execução concorrente do nosso código, e que permita um alto nível de paralelismo usando um pequeno número de <code>threads</code>.</p>
+
+<h2 id="do-assíncrono-para-não-bloqueante">Do assíncrono para não-bloqueante</h2>
+
+<p>Nas abordagens acima, o bloqueio da <code>thread</code> é o nosso principal limitador de escalabilidade. Esse é um fato introduzido no código de maneira implícita e quase imperceptível, porque projetamos um design <strong>imperativo</strong>: nós <strong>dizemos</strong> explicitamente ao programa o que ele deve fazer, um passo de cada vez: chame um método, obtenha uma resposta, atribua à uma variável, chame outro método usando essa resposta&hellip;e assim vai. E um design imperativo implica que as instruções do nosso programa <strong>aguardam</strong> as coisas acontecerem e retornarem.</p>
+
+<p>De que outra maneira poderíamos implementar isso? Talvez com um design que assuma explicitamente que os dados estarão disponíveis em <strong>algum ponto do futuro</strong>.</p>
+
+<p>Esse é o detalhe mais importante que precisamos introduzir, pois &ldquo;assíncrono&rdquo; não significa necessariamente &ldquo;está rodando em outra thread&rdquo;, como normalmente associamos, e sim que o resultado de uma computação estará disponível no <strong>futuro</strong>. Desse modo, podemos implementar nosso programa orientados à disponibilidade dos dados (baseados em <strong>eventos</strong>), e aplicar as operações que desejamos conforme as coisas acontecerem. Precisaríamos utilizar alguma abstração que nos permita <strong>declarar</strong> o que nosso programa deve fazer, ao invés de dizer ao programa o que fazer.</p>
+
+<p>Dito isso, olhando em retrospectiva essa série de posts, podemos perguntar: não é exatamente isso que a programação reativa nos permite fazer?</p>
+
+<p>No <a href="/programacao-reativa">post inicial</a>, aprendemos que o fundamento-chave desse paradigma é representar as entradas de um programa (digamos, uma requisição HTTP) como um <strong>fluxo de dados</strong>, baseado em uma sequência de eventos ordenados no tempo. No <a href="/programacao-reativa-parte-2">segundo post</a>, vimos que os operadores reativos nos permitem declarar (através de funções) o que deve ser feito quando os eventos reativos ocorrerem (recapitulando, eventos <em>onNext</em>, <em>onCompleted</em> e <em>onError</em>). E no <a href="/programacao-reativa-parte-3">terceiro post</a>, aprendemos sobre <em>pipelines</em> assíncronos.</p>
+
+<p>Dito isso, correndo o risco de soar tendencioso :), a programação reativa é um modelo que parece se adequar perfeitamente aos nossos propósitos. Mas será a programação reativa &ldquo;não-bloqueante&rdquo;?</p>
+
+<h3 id="o-que-é-não-bloqueante">O que é &ldquo;não-bloqueante&rdquo;?</h3>
+
+<p>Em relação a operações de I/O, há uma diferença mais ou menos sutil entre &ldquo;assíncrono&rdquo; e &ldquo;não-bloqueante&rdquo;, de modo que esses dois termos costumam se confundir (e gerar alguma confusão). Se definirmos &ldquo;assíncrono&rdquo; como &ldquo;uma computação cujo resultado será retornada em algum momento do futuro&rdquo;, poderemos dizer que, com efeito, toda operação não-bloqueante é assíncrona, mas nem toda operação assíncrona é não-bloqueante. Por que?</p>
+
+<p>Operação assíncronas são equivalentes às que vimos nos exemplos anteriores: o programa utiliza <code>threads</code> para executar simultaneamente operações de natureza síncrona, de modo que a <code>thread</code> principal do programa possa continuar sua execução enquanto uma segunda <code>thread</code> é executada em paralelo. As linguagens de programação modernas oferecem estruturas de alto nível para realizar esse tipo de trabalho, embora eventualmente alguma complexidade se torne mais ou menos necessária (como métodos sincronizados, gerenciamento de <code>pools</code> de <code>threads</code>, etc).</p>
+
+<p>Uma operação de I/O não-bloqueante é um pouquinho mais complexa. O programa delega o controle ao <strong>sistema operacional</strong>, através de um <a href="https://en.wikipedia.org/wiki/Channel_I/O">channel</a>, que avisará o programa <strong>quando os dados estiverem disponíveis</strong>. O mesmo ocorre para operações de escrita: o programa pode ser avisado quando <strong>os dados puderem ser escritos</strong>, fazendo isso aos poucos, ao invés de escrever todos os dados de uma vez.</p>
+
+<p>A <code>thread</code> do programa não fica bloqueada em nenhum momento, pois não é necessário que aguarde o resultado da operação de I/O (que é executada em segundo plano pelo SO), mas é responsável por verificar o estado do <strong>chanell</strong>. Mas, como a <code>thread</code> já não precisa perder tempo em operações de bloqueio, ela é capaz de processar leituras e escritas em múltiplos <strong>channels</strong>. Ou seja, com uma única <code>thread</code>, é possível realizar várias operações de I/O simultaneamente!</p>
+
+<p>Isso é possível por um mecanismo chamado <strong>multiplexação</strong>. Para ilustrar, imaginemos uma situação como um garçom em um restaurante; seria complicado manter um garçom para cada mesa, certo? Ao invés disso, um único garçom é capaz de atender vários pedidos, pelo simples fato de não permanecer &ldquo;parado&rdquo; em uma única mesa! Trazendo esse exemplo para o nosso contexto, a multiplexação é uma técnica que permite que uma única <code>thread</code> observe muitas operações de I/O ocorrendo simultaneamente no sistema operacional, através de <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/channels/Selector.html">selectors</a>. Essa abordagem é <strong>muito</strong> mais escalável do que a execução assíncrona orientada a <code>threads</code>.</p>
+
+<p>Naturalmente, tudo isso envolve uma razoável complexidade de código. No caso do Java, a linguagem fornece várias abstrações no pacote <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/channels/package-summary.html">java.nio.channels</a> para lidar com I/O não-bloqueante. Esses recursos merecem um post em particular no futuro :).</p>
+
+<h3 id="a-programação-reativa-é-não-bloqueante">A programação reativa é &ldquo;não-bloqueante&rdquo;?</h3>
+
+<p>Agora que diferenciamos &ldquo;assíncrono&rdquo; de &ldquo;não-bloqueante&rdquo;, podemos responder à pergunta acima: um framework reativo, como o RxJava, é &ldquo;não-bloqueante&rdquo;? Não necessariamente, e certamente não é o caso do RxJava, pelo simples fato de que o RxJava não é um framework de I/O.</p>
+
+<p>A principal abstração para processamento assíncrono dos frameworks Rx, o <code>Scheduler</code>, é implementado no RxJava usando um <code>pool</code> de <code>threads</code>. Podemos encapsular código bloqueante simplesmente movendo-o para outra <code>thread</code> (como vimos no <a href="/programacao-reativa-parte-3">terceiro post da série</a>), mas isso é &ldquo;não-bloqueante&rdquo;? Como vimos, a resposta é &ldquo;não&rdquo;.</p>
+
+<p>Não obstante, I/O não-bloqueante envolve a observação de diversos <code>channels</code>, consumindo dados conforme estão disponíveis ou realizando operações de escrita conforme possível. Se isso lhe traz uma sensação de <em>deja vu</em>, acertou: a programação reativa se encaixa aqui de maneira muito natural, porque o I/O não-bloqueante é <strong>orientado à disponibilidade dos dados</strong>, e esse é exatamente o caso de uso onde a programação reativa pode ser útil: nosso programa pode simplesmente <strong>declarar</strong> o comportamento que será executado no momento adequado.</p>
+
+<h1 id="conclusão">Conclusão</h1>
+
+<p>Nesse post, entendemos o que diferencia um código assíncrono de uma operação não-bloqueante (também vimos código síncrono, mas esse nós já conhecíamos :)), com alguns exemplos baseados em uma aplicação Java comum. Também vimos que usar muitas <code>threads</code> é um recurso poderoso, mas que pode se tornar um limitador de escalabilidade.</p>
+
+<p>Talvez algumas coisas tenham ficado abstratas demais, então no próximo post veremos CÓDIGO! Como funciona um servidor HTTP com poucas <code>threads</code>? Por que em uma aplicação reativa devemos usar apenas operações não-bloqueantes (ou no mínimo, assíncronas)? Vamos descobrir.</p>
+
+<p>Obrigado pela leitura e qualquer dúvida ou comentário, esteja a vontade para usar a caixa de comentários! Obrigado :)</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/java/'>java</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/programacao-reativa/'>programacao-reativa</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fprogramacao-reativa-parte-5%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=programa%25C3%25A7%25C3%25A3o-reativa-parte-5-arquiteturas-n%25C3%25A3o-bloqueantes&url=https%3a%2f%2felo7.dev%2fprogramacao-reativa-parte-5%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/programacao-reativa-parte-5/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/programacao-reativa-parte-5/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='(Mais sobre) Sistemas reativos: arquiteturas não-bloqueantes!'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2019-02-18 00:00:00 \x2b0000 UTC:\/programacao-reativa-parte-5\/';
+            var disqus_url = 'https:\/\/elo7.dev\/programacao-reativa-parte-5\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

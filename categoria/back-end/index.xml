@@ -22,7 +22,7 @@ Injeção de dependência Injeção de dependência (ou DI) é um dos padrões m
     </item>
     
     <item>
-      <title>Programação Reativa - Parte 4</title>
+      <title>Programação Reativa - Parte 4: Sistemas reativos</title>
       <link>https://elo7.dev/programacao-reativa-parte-4/</link>
       <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -33,7 +33,19 @@ Caso você não tenha lido os posts anteriores, uma recapitulação:
     </item>
     
     <item>
-      <title>Programação Reativa - Parte 3</title>
+      <title>Programação Reativa - Parte 5: Arquiteturas não-bloqueantes</title>
+      <link>https://elo7.dev/programacao-reativa-parte-5/</link>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/programacao-reativa-parte-5/</guid>
+      <description>Depois de muito falarmos sobre programação reativa, no post anterior vimos os fundamentos dos &amp;ldquo;sistemas reativos&amp;rdquo;, e uma expressão em especial recebeu bastante destaque: &amp;ldquo;não bloqueante&amp;rdquo;.
+Mas o que significa de fato &amp;ldquo;não bloqueante&amp;rdquo;?
+Síncrono vs assíncrono vs não-bloqueante Considere o código abaixo:
+String result = myObject.doSomething(); // alguma operação como acesso a um banco de dados, escrita em disco, comunicação pela rede... // faz algo com o resultado  O código acima é imperativo e síncrono, e também é bloqueante.</description>
+    </item>
+    
+    <item>
+      <title>Programação Reativa - Parte 3: Processamento concorrente, paralelismo e backpressure</title>
       <link>https://elo7.dev/programacao-reativa-parte-3/</link>
       <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
       
@@ -77,7 +89,7 @@ Agora imagine isso ocorrendo no final de um deploy no ambiente de produção, e 
     </item>
     
     <item>
-      <title>Programação Reativa - Parte 2</title>
+      <title>Programação Reativa - Parte 2: RxJava</title>
       <link>https://elo7.dev/programacao-reativa-parte-2/</link>
       <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
       
@@ -106,7 +118,7 @@ Serverless Serverless permite a você construir e executar aplicações sem ter 
     </item>
     
     <item>
-      <title>Programação Reativa - Parte 1</title>
+      <title>Programação Reativa - Parte 1: O que é programação reativa?</title>
       <link>https://elo7.dev/programacao-reativa/</link>
       <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
       
