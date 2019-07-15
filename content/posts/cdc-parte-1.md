@@ -199,3 +199,6 @@ Dessa forma, podemos obter todos os eventos de um sistema com uma única impleme
 - apenas o Kafka é suportado como sistema de mensageria no Debezium
 
 No próximo _post_ iremos mostrar na prática como funciona o Debezium com MySQL e Kafka.
+
+## Outros _posts_ dessa série
+- [CDC parte 1 - Introdução ao Change Data Capture (CDC)](/cdc-parte-1) _(você está aqui)_
