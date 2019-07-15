@@ -149,6 +149,8 @@ Essa abordagem resolve o problema das _triggers_, possibilitando outros sistemas
 - Os famosos "updates na mão", que não passam pelo sistema e consequentemente, não irá produzir os eventos necessários
 - Arquitetura mais complexa do que as _triggers_, pois é necessário um sistema de mensageria
 
+O cenário acima poderia ser evitado se o sistema em questão fosse desenvolvido usando técncias de [_Event Driven_](https://www.confluent.io/blog/journey-to-event-driven-part-1-why-event-first-thinking-changes-everything). Nesse tipo de abordagem, os eventos são considerados cidadãos de primeira classe, ou seja, toda a comunicação é realizada utilizando produtores e consumidores de eventos. Não me aprofundarei mais nesse assunto, pois quero escrever um _post_ só sobre isso no futuro.
+
 Vimos que tanto a abordagem por _triggers_ quanto a por eventos tem suas limitações _(o que é perfeitamente normal, afinal, não existe bala de prata)_. Mas e se pudéssemos fazer um mix das duas abordagem: pegar a consistência do banco de dados com a mensageria dos eventos? É exatamente isso que os frameworks atuais de CDC fazem. Antes de explicá-los, precisamos entender como funciona a replicação de banco de dados, ou mais especificamente, o **_binary log (aka binlog)_**.
 
 Irei explicar como funciona a replicação do MySQL, mas a maioria dos bancos RDBMS seguem o mesmo princípio. Veja a imagem abaixo:
