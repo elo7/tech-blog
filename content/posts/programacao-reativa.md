@@ -6,7 +6,7 @@ tags:
   - programacao-reativa
 authors: [ljtfreitas]
 layout: post
-title: Programação Reativa - Parte 1
+title: "Programação Reativa - Parte 1: O que é programação reativa?"
 description: Você ouviu falar ou leu a respeito de uma tal "programação reativa", e não sabe bem do que se trata? Este post é para você.
 cover: programacao-reativa.png
 ---

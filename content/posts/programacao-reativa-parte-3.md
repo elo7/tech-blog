@@ -6,7 +6,7 @@ tags:
   - programacao-reativa
 authors: [ljtfreitas]
 layout: post
-title: Programação Reativa - Parte 3
+title: "Programação Reativa - Parte 3: Processamento concorrente, paralelismo e backpressure"
 description: "Terceiro capítulo da Jornada Reativa! Falaremos agora sobre coisas interessantes: código assíncrono, execução em paralelo e backpressure!"
 cover: programacao-reativa-parte-3.png
 ---

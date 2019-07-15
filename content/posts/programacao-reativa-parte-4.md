@@ -6,7 +6,7 @@ tags:
   - programacao-reativa
 authors: [ljtfreitas]
 layout: post
-title: Programação Reativa - Parte 4
+title: "Programação Reativa - Parte 4: Sistemas reativos"
 description: "Continuando a série sobre Programação Reativa: sistemas reativos!"
 cover: programacao-reativa-parte-4.png
 ---
