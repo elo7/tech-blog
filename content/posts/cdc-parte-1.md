@@ -84,7 +84,7 @@ END;
  ```sql
  INSERT INTO produto (nome, preco, quantidade, data_atualizacao) VALUES ('Amigurumi do Batman', 79.99, 30, now());
  ```
-O seguinte _insert_ acionará a _trigger_ `HistoricoProdutoInsert`:
+O _insert_ acima acionará a _trigger_ `HistoricoProdutoInsert`:
 
 | id | nome | preco | quantidade | data_inicio | data_fim |
 |------|-------|--------|--------|---------|---------|
