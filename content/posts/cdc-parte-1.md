@@ -4,6 +4,8 @@ category: big-data
 tags:
   - cdc
   - debezium
+  - kafka
+  - mysql
 authors: [sardinha]
 layout: post
 title: Introdução ao Change Data Capture (CDC)
@@ -201,4 +203,6 @@ Dessa forma, podemos obter todos os eventos de um sistema com uma única impleme
 No próximo _post_ iremos mostrar na prática como funciona o Debezium com MySQL e Kafka.
 
 ## Outros _posts_ dessa série
-- [CDC parte 1 - Introdução ao Change Data Capture (CDC)](/cdc-parte-1) _(você está aqui)_
+- [**CDC parte 1 - Introdução ao Change Data Capture (CDC)**](/cdc-parte-1) _(você está aqui)_
+- **CDC parte 2 - CDC na prática com Debezium + MySQL** _(irei abordar de forma prática como utilizar o Debezium para obter eventos do MySQL)_
+- **CDC parte 3 - Como usamos o CDC no Elo7** _(mostrarei como utilizamos o CDC no Elo7, dos problemas que queremos resolver até a arquitetura final da solução)_
