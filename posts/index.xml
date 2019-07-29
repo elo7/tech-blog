@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
-    <lastBuildDate>Mon, 15 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://elo7.dev/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Quebrando um monolito sem quebrar o que funciona</title>
+      <link>https://elo7.dev/quebrando-um-monolito-sem-quebrar-o-que-funciona/</link>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/quebrando-um-monolito-sem-quebrar-o-que-funciona/</guid>
+      <description>Gostaria de descrever como estamos lidando com a refatoração do nosso monolito para transformá-lo em microsserviços aqui no Elo7. Acredito que cada problema apresenta uma solução mais apropriada e que vai além da parte técnica - envolve questões culturais, a clareza do problema raiz pra não trocar a tecnologia (ou técnica) e continuar com o mesmo problema inicial. Pretendo mostrar alguns pontos com o objetivo de dar insights e mostrar nossas experiências.</description>
+    </item>
     
     <item>
       <title>Programação Reativa - Parte 5: Arquiteturas não-bloqueantes</title>

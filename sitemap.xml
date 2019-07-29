@@ -28,6 +28,11 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/quebrando-um-monolito-sem-quebrar-o-que-funciona/</loc>
+    <lastmod>2019-07-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/meetups/golang/</loc>
     <lastmod>2019-07-24T00:00:00+00:00</lastmod>
   </url>
@@ -678,6 +683,10 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/autor/andreformento/</loc>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/tags/api/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -698,6 +707,12 @@
   <url>
     <loc>https://elo7.dev/tags/arquitetura/</loc>
     <lastmod>2017-12-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://elo7.dev/tags/arquitetura-de-microsservi%C3%A7os/</loc>
+    <lastmod>2019-07-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -756,7 +771,7 @@
   
   <url>
     <loc>https://elo7.dev/categoria/back-end/</loc>
-    <lastmod>2019-07-15T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -840,7 +855,7 @@
   
   <url>
     <loc>https://elo7.dev/category/</loc>
-    <lastmod>2019-07-15T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -895,6 +910,12 @@
   <url>
     <loc>https://elo7.dev/tags/correios/</loc>
     <lastmod>2013-07-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://elo7.dev/tags/cqrs/</loc>
+    <lastmod>2019-07-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1676,7 +1697,7 @@
   
   <url>
     <loc>https://elo7.dev/posts/</loc>
-    <lastmod>2019-07-15T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1743,6 +1764,12 @@
   <url>
     <loc>https://elo7.dev/tags/python/</loc>
     <lastmod>2017-11-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://elo7.dev/tags/quebrando-monolito/</loc>
+    <lastmod>2019-07-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
