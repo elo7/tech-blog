@@ -19,7 +19,7 @@ Em 2014 foi publicado um artigo entitulado *[Generative Adversarial Nets](https:
 
 A proposta de gerar dados sintéticos não é nova, há diversas técnicas que envolvem variáveis latentes que circulam em torno desse objetivo. Entretanto, houve uma explosão de aplicações de GAN principalmente nas áreas de visão computacional e reconhecimento de voz, pois estas redes possuem características únicas que permitem identificar propriedades nos dados e as usar em outros dados, veja o exemplo que a [NVIDIA mostrou recentemente](http://openaccess.thecvf.com/content_CVPR_2019/papers/Karras_A_Style-Based_Generator_Architecture_for_Generative_Adversarial_Networks_CVPR_2019_paper.pdf):
 
-![NVIDIA](images/gan-2.png)
+![NVIDIA](../images/gan-2.png)
 
 As duas pessoas nesta imagem não existem, foram criadas artificialmente usando GAN. Impressionante, não? Segundo [Yann LeCun](https://www.quora.com/What-are-some-recent-and-potentially-upcoming-breakthroughs-in-deep-learning) (Diretor de IA no Facebook) "Isso (GAN), e suas variações que estão sendo propostas agora, é a ideia mais interessante nos últimos 10 anos em Machine Learning, na minha opinião."
 
@@ -27,19 +27,33 @@ As duas pessoas nesta imagem não existem, foram criadas artificialmente usando 
 
 A construção de GAN é bem simples na verdade. Imagine que uma criança (chamada de Gerador) deve levar um documento da escola para que seja assinado pela sua mãe (chamado de Discriminador). Chegando em casa a criança apresenta isso:
 
-![bilete](images/gan-3.png)
+![bilete](../images/gan-3.png)
 
 A mãe então analisa o documento, percebe que é falso e a criança fica de castigo. Ao longo da vida na escola esta criança tem a oportunidade de ver documentos verdadeiros e passa e entender como produzir um documento falso que pode enganar sua mãe. A qualidade da falsificação só pode ser testada se esta for colocada sob teste e portanto há um risco de penalização, o castigo. Se este processo se repete muitas vezes pode chegar o ponto em que a mãe não saberá mais diferenciar um documento falso do real.
 
 Este processo é chamado de treino adversarial, uma espécie de jogo entre dois agentes, o Gerador (falsificador) e o Discriminador (o investigador). As redes neurais construídas com base nesta estrutura são chamadas de Redes Geradoras Adversariais.
 
-Sendo um pouco mais técnico, treinamos dois modelos simultaneamente: um modelo gerador $G$ que aprende como os dados reais estão distribuídos e um modelo discriminador $D$ que estima a probabilidade de um dado ser real ou vindo de $G$. Assim, o objetivo é otimizar $G$ de modo que a estimativa de acerto de $D$ seja $\frac{1}{2}$.
+Sendo um pouco mais técnico, treinamos dois modelos simultaneamente: um modelo gerador *G* que aprende como os dados reais estão distribuídos e um modelo discriminador *D* que estima a probabilidade de um dado ser real ou vindo de *G*. Assim, o objetivo é otimizar *G* de modo que a estimativa de acerto de *D* seja $\frac{1}{2}$.
 
-Em termos de redes, para que o gerador aprenda a distribuição dos dados $p_{g}(x)$ definimos uma distribuição de ruído $p_{z}(z)$ e um mapeamento de $G(z;\theta_{g}):Z \rightarrow X$, onde $G$ deve ser diferenciável com parâmetro $\theta_{g}$ e $z$ é dita variável latente. Definimos também o mapa diferenciável $D(x;\theta_{d}): X \rightarrow [0,1]$, onde o intervalo $[0,1]$ é o espaço de probabilidade de $x$ ser real.
+Em termos de redes, para que o gerador aprenda a distribuição dos dados:
 
-Desta maneira treinamos $D$ para maximizar a probabilidade de acerto de uma amostra ser real ou falsa (vinda de $G$) e ao mesmo tempo treinamos $G$ para minimizar a probabilidade de ser descoberto, $ln(1-D(G(z)))$. Na prática Goodfellow observou que minimizar $ln(1-D(G(z)))$ faz os gradientes convergirem para zero rapidamente e maximizar $ln(D(G(z)))$ é equivalente e permite gradientes com valores mais altos. Assim a função objetivo é:
+$p_{g}(x),$
 
-$max_{G}max_{D} V(D,G) = \mathbb{E}_{x \sim p_{data}(x)} \left[ ln D(x) \right] + \mathbb{E}_{z \sim p_{z}(z)} \left[ ln D(G(z)) \right]$
+definimos uma distribuição de ruído:
+
+$p_{z}(z)$
+
+e um mapeamento de $G(z;\theta_{g}):Z \rightarrow X$,
+
+onde *G* deve ser diferenciável com parâmetro $\theta_{g}$ e *z* é dita variável latente. Definimos também o mapa diferenciável
+
+$D(x;\theta_{d}): X \rightarrow [0,1]$,
+
+onde o intervalo $[0,1]$ é o espaço de probabilidade de $x$ ser real.
+
+Desta maneira treinamos $D$ para maximizar a probabilidade de acerto de uma amostra ser real ou falsa (vinda de $G$) e ao mesmo tempo treinamos $G$ para minimizar a probabilidade de ser descoberto, $\ln(1-D(G(z)))$. Na prática Goodfellow observou que minimizar $\ln(1-D(G(z)))$ faz os gradientes convergirem para zero rapidamente e maximizar $\ln(D(G(z)))$ é equivalente e permite gradientes com valores mais altos. Assim a função objetivo é:
+
+![](../images/gan-8.png)
 
 Então está estabelecido este jogo entre Gerador e Discriminador, a função $V(D,G)$ atingirá seu valor máximo quando o equilíbrio de Nash for atingido, ou seja, quando nenhum dos dois conseguir melhorar sua performance. Assim a função acima será utilizada como função de perda do problema.
 
@@ -63,7 +77,7 @@ X_data = np.concatenate((x1.reshape(x1.shape[0],1),\
 ```
 
 Eis os dados em uma imagem:
-![dataset](images/gan-4.png)
+![dataset](../images/gan-4.png)
 
 Parece que há um padrão razoável, porém complexo. Se houvesse muito ruído seria necessário limpar os dados primeiro.
 
@@ -96,7 +110,7 @@ Agora precisamos definir a arquitetura da rede, usaremos apenas uma camada com 5
 
 O fluxo dos dados é mostrado na figura abaixo e nos dá uma ideia de como construir as redes.
 
-![arquitetura](images/gan-5.png)
+![arquitetura](../images/gan-5.png)
 
 ```python
 from torch import optim
@@ -275,9 +289,9 @@ X_fake
 
 As duas maneiras iniciais que usaremos para saber se fizemos um bom trabalho são visualizar os dados reais e falsos juntos e visualizar as perdas ao longo do treino:
 
-![Real e falso](images/gan-6.png)
+![Real e falso](../images/gan-6.png)
 
-![Perdas](images/gan-7.png)
+![Perdas](../images/gan-7.png)
 
 Os resultados parecem muitos bons para uma rede tão simples. As oscilações das perdas que podemos observar são causadas pelo processo de treino. O Discriminador treina primeiro e portanto está sempre um passo à frente do Gerador, mas é alcançado em seguida. A oscilação diminuiu muito perdo da época 200 indicando que o equilíbrio de Nash está próximo nesse jogo, não há muito mais o que melhorar após isso.
 
