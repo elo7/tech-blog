@@ -56,14 +56,14 @@ Em Javascript podemos fazer isso de uma forma mais simples, apenas passando uma 
 ```
 Para explicar melhor o assunto, usarei um exemplo um pouco mais concreto. Vamos pensar que temos uma página de produto de um *marketplace* em que precisamos exibir, além de seus atributos, alguns dados de seu vendedor. O problema que teremos que resolver, é que a única forma de pegar esses dados é através das seguintes rotas: https://api.com/product/:id e https://api.com/seller/:id, onde `:id` será substituido pelo id de cada objeto.
 
-Nesse post utilizarei Javascript puro, com exceção das classes DAO que serão responsáveis por fazer a requisição. Nelas usarei Ajax para facilitar.
+Nesse post utilizarei Javascript puro, com exceção das classes DAO que serão responsáveis por fazer a requisição. Nelas usarei uma lib para facilitar.
 
 Criaremos duas classes DAO, uma para o produto e outra para o vendedor:
 
 ``` javascript
 class ProductDAO {
     getProduct(id, callback) {
-        $.get(this._url + "product/" + id, function(data, status) {
+        $.get("https://api.com/product/" + id, function(data, status) {
             callback(data);
         });
     }
@@ -71,7 +71,7 @@ class ProductDAO {
 
 class SellerDAO {
     getSeller(id, callback) {
-        $.get(this._url + "seller/" + id, function(data, status) {
+        $.get("https://api.com/seller/" + id, function(data, status) {
             callback(data);
         });
     }
@@ -119,7 +119,7 @@ A primeira modificação que precisamos fazer para começar a usar Promise é na
 class ProductDAO {
     getProduct(id) {
         return new Promise((resolve, reject) => {
-            $.get(this._url + "product/" + id, function(data, status) {
+            $.get("https://api.com/product/" + id, function(data, status) {
                 resolve(data);
             });
         });
@@ -129,7 +129,7 @@ class ProductDAO {
 class SellerDAO {
     getSeller(id) {
         return new Promise((resolve, reject) => {
-            $.get(this._url + "seller/" + id, function(data, status) {
+            $.get("https://api.com/seller/" + id, function(data, status) {
                 resolve(data);
             });
         });
@@ -152,12 +152,10 @@ class ProductController {
             sellerDAO.getSeller(sellerId)
         ];
 
-        Promise.all(promises).then(data => {
-            console.log(data);
-
+        Promise.all(promises).then(([product, seller]) => {
             this._render({
-                product: data[0],
-                seller: data[1]
+                product,
+                seller
             });
         });
     }
@@ -170,7 +168,7 @@ class ProductController {
 
 Uma grande vantagem de usar essa abordagem, é que através do método `all` da classe Promise, podemos passar um *array* de `Promises`. Todas serão executadas e retornarão ao final através do método `then`, um *array* de resultados com os objetos na mesma ordem do *array* de origem.
 
-Ok, mas e se não conhecermos o id do vendedor? Utilizando apenas *promises* cairiamos no mesmo problema. Teríamos que colocar a requisição do vendedor dentro da resposta de produto:
+Ok, mas e se não conhecermos o id do vendedor? Utilizando apenas *promises* cairíamos no mesmo problema. Teríamos que colocar a requisição do vendedor dentro da resposta de produto:
 
 ``` javascript
 class ProductController {
@@ -181,8 +179,8 @@ class ProductController {
         productDAO.getProduct(productId).then(product => {
             sellerDAO.getSeller(product.seller).then(seller => {
                 this._render({
-                    product: product,
-                    seller: seller
+                    product,
+                    seller
                 });
             });
         });
@@ -210,8 +208,8 @@ class ProductController {
             let seller = await sellerDAO.getSeller(product.seller);
 
             return {
-                product: product,
-                seller: seller
+                product,
+                seller
             }
         }
 
@@ -227,7 +225,7 @@ class ProductController {
 }
 ```
 
-Vamos entender o exemplo acima. Criamos dentro do método `getProduct` uma função assíncrona através do marcador `async`. Em Javascript funções marcadas com `async` retornam uma `Promise`. Dentro de uma função assíncrona, podemos usar o marcador `await` para um método que retorne uma `Promise`. Esse marcador fará com que dentro dessa função, a `Promise` sejá executada de forma síncrona, retornado como resultado o próprio objeto que definimos no `resolve`.
+Vamos entender o exemplo acima. Criamos dentro do método `getProduct` uma função assíncrona através do marcador `async`. Em Javascript funções marcadas com `async` retornam uma `Promise`. Dentro de uma função assíncrona, podemos usar o marcador `await` para um método que retorne uma `Promise`. Esse marcador fará com que dentro dessa função, a `Promise` sejá executada de forma síncrona, retornando como resultado o próprio objeto que definimos no `resolve`.
 
 Dessa forma, na hora de fazer uma requisição para o `sellerDAO`, já conhecemos o objeto `product` e consequentemente, o id do vendedor relacionado a ele.
 
