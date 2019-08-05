@@ -73,7 +73,7 @@ Nosso código está correto, mas não parece muito funcional e o _setup_ do Guic
 
 ## MacWire
 A programação funcional traz consigo novas formas de pensar na solução de vários problemas já resolvidos na OOP, mas a transição do pensamento orientado a objetos para o pensamento funcional não é tão simples. Bibliotecas como o MacWire ajudam nessa transição, possibilitando que o programador continue utilizando padrões já conhecidos, mas de uma forma mais simples, suportado pelo ecossistema do Scala.
- 
+
 Para utilizar o MacWire, temos que adicionar a seguinte biblioteca às nossas dependências:
 
 ```scala
@@ -174,7 +174,7 @@ Utilizando o MacWire, nosso código fica bem mais simples de ser entendido! Mas 
 
 ## Reader Monad
 
-Se você está lendo este post, é bem possível que já tenha cruzado algumas vezes com a palavra _Monad_. Sentiu aquele arrepio na espinha? Pois é, todos nós já sentimos. Como o objetivo aqui não é explicar o que são monads, - precisaríamos uma série de posts só para isso -, vamos pensar em um _Monad_ como sendo uma caixa que armazena valores gerados por uma determinada operação e possui alguns métodos que permitem manipulá-los - se você pensou em métodos como `map` e `flatMap`, pensou certo. Como _Monads_ são mais um conceito que uma implementação propriamente dita, podemos ter diferentes _Monads_ para resolver diferentes problemas. 
+Se você está lendo este post, é bem possível que já tenha cruzado algumas vezes com a palavra _Monad_. Sentiu aquele arrepio na espinha? Pois é, todos nós já sentimos. Como o objetivo aqui não é explicar o que são monads - precisaríamos uma série de posts só para isso -, vamos pensar em um _Monad_ como sendo uma caixa que armazena valores gerados por uma determinada operação e possui alguns métodos que permitem manipulá-los - se você pensou em métodos como `map` e `flatMap`, pensou certo. Como _Monads_ são mais um conceito que uma implementação propriamente dita, podemos ter diferentes _Monads_ para resolver diferentes problemas.
 
 No Scala, usamos _Monads_ o tempo inteiro sem perceber. Quer exemplos?
 
@@ -208,7 +208,7 @@ object MacWireInjection extends App {
 }
 ```
 
-Se refletirmos um pouco sobre o que é a classe `Runtime`, veremos que ela é nada mais do que um ambiente compartilhado onde colocamos a implementação do nosso `UserService`, não? Temos, então, as duas coisas necessárias para utilizar o  _Reader Monad_: um ambiente compartilhado, e uma operação que lê usa este ambiente (login, nesse caso). _It's a match!_
+Se refletirmos um pouco sobre o que é a classe `Runtime`, veremos que ela é nada mais do que um ambiente compartilhado onde colocamos a implementação do nosso `UserService`. Temos, então, as duas coisas necessárias para utilizar o  _Reader Monad_: um ambiente compartilhado, e uma operação que lê este ambiente (login, nesse caso). _It's a match!_
 
 Poderíamos fazer uma implementação do nosso próprio Reader Monad, mas isso deixaria este post ainda mais extenso. Para facilitar nossa vida, vamos usar a biblioteca [cats](https://typelevel.org/cats/), que já tem uma implementação do Reader Monad amplamente usada. Basta adicionar a seguinte dependência:
 
@@ -262,4 +262,4 @@ object ReaderMonadInjection extends App {
   println(loginMessage)
 }
 ```
-Olhe o código final, após essa última alteração. Apesar de ainda termos alguns conceitos de Orientação a Objetos (como as traits servindo de interface, por exemplo), já estamos bem mais próximos de como códigos funcionais são escritos no dia-a-dia. Gostou? No próximo post, iremos ver como implementar todo este comportamento utilizando apenas funções! Isso mesmo, sem bibliotecas dessa vez.
+Olhe o código final após essa última alteração. Apesar de ainda termos alguns conceitos de Orientação a Objetos (como as traits servindo de interface, por exemplo), já estamos bem mais próximos de como códigos funcionais são escritos no dia-a-dia. Gostou? No próximo post, iremos ver como implementar todo este comportamento utilizando apenas funções! Isso mesmo, sem bibliotecas dessa vez.
