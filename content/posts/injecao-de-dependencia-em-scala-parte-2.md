@@ -69,10 +69,10 @@ object DependencyInjectionWithGuice extends App {
     println(homeController.authenticateUser("Rodrigo", "123"))
 }
 ```
-Nosso código está correto, mas não parece muito funcional e o _setup_ do Guice é verboso. Nessa segunda parte, iremos conhecer uma biblioteca em Scala chamada MacWire, que abstrai toda esta lógica e nos fornece uma API simples para trabalhar com injeção de dependência. Além disso, iremos conhecer o Reader Monad (utilizando a biblioteca cats)
+Nosso código está correto, mas não parece muito funcional e o _setup_ do Guice é verboso. Nessa segunda parte, iremos conhecer uma biblioteca em Scala chamada MacWire, que abstrai toda essa lógica e nos fornece uma API simples para trabalhar com injeção de dependência. Além disso, iremos conhecer o Reader Monad (utilizando a biblioteca cats).
 
 ## MacWire
-A programação funcional traz consigo novas formas de pensar na solução de vários problemas já resolvidos na OOP, mas a transição do pensamento orientado a objetos para o pensamento funcional não é tão simples. Bibliotecas como o MacWire ajudam nessa transição, possibilitando que o programador continue utilizando padrões já conhecidos, mas de uma forma mais simples, suportado pelo ecossistema do Scala.
+A programação funcional traz consigo novas formas de pensar na solução de vários problemas já resolvidos na OOP, mas a transição do pensamento orientado a objetos para o pensamento funcional não é tão simples. Bibliotecas como o MacWire ajudam nessa transição, possibilitando que o programador continue utilizando padrões já conhecidos mas de uma forma mais simples, suportada pelo ecossistema do Scala.
 
 Para utilizar o MacWire, temos que adicionar a seguinte biblioteca às nossas dependências:
 
@@ -98,7 +98,7 @@ object Runtime {
 }
 ```
 
-Tudo o que temos que fazer agora é um `import` dessa classe dentro da nossa classe principal, e colocarmos chamarmos o método `wire`, do próprio MacWire
+Tudo o que temos que fazer agora é um `import` dessa classe dentro da nossa classe principal, e colocarmos uma chamada ao método `wire`, do próprio MacWire.
 
 ```scala
 object MacWireInjection extends App {
@@ -121,7 +121,7 @@ lazy val loginFacade = wire[LoginFacade]
 lazy val homeController = wire[HomeController]
 ```
 
-Como dito anteriormente, o MacWire detecta automaticamente os tipos que precisam ser injetados.  Ao importar o object `Runtime`, definimos que a instância da trait `UserService` que devemos usar ao construir a classe `LoginFacade` é do tipo `UserServiceComponent` e, ao declararmos uma instância da classe `LoginFacade` logo acima, indicamos que ela deve ser usada na classe `HomeController`.
+Como dito anteriormente, o MacWire detecta automaticamente os tipos que precisam ser injetados. Ao importar o object `Runtime`, definimos que a instância da trait `UserService` que devemos usar ao construir a classe `LoginFacade` é do tipo `UserServiceComponent` e, ao declararmos uma instância da classe `LoginFacade` logo acima, indicamos que ela deve ser usada na classe `HomeController`.
 
 Se juntarmos todas as peças alteradas do nosso código, ele fica assim:
 
@@ -133,7 +133,7 @@ trait UserService {
 }
 
 trait LoginFacadeT {
-  def login(account: String, password: String):  Boolean
+  def login(account: String, password: String): Boolean
 }
 
 class LoginFacade (userService: UserService) extends LoginFacadeT {
@@ -143,7 +143,7 @@ class LoginFacade (userService: UserService) extends LoginFacadeT {
 }
 
 class UserServiceComponent extends UserService {
-    override def getUserInfo(account: String): UserInfo = UserInfo(account, "123")
+  override def getUserInfo(account: String): UserInfo = UserInfo(account, "123")
 }
 
 class HomeController(facade: LoginFacadeT) {
@@ -182,7 +182,7 @@ No Scala, usamos _Monads_ o tempo inteiro sem perceber. Quer exemplos?
 |--|--|
 |Option[T]|Operação que pode ou não retornar um valor|
 |Try[T]|Armazena o retorno de uma operação que pode ou não lançar uma exceção|
-|Either[A, B]|Utilizado quando uma determinada função pode retornar dois estados. Geralmente `A` representa um estado de exceção, e `B`, de sucesso|
+|Either[A, B]|Utilizado quando uma determinada função pode retornar dois estados. Geralmente `A` representa um estado de exceção e `B`, de sucesso|
 
 Com esse conceito em mente, vamos à definição do Reader Monad:
 
@@ -208,7 +208,7 @@ object MacWireInjection extends App {
 }
 ```
 
-Se refletirmos um pouco sobre o que é a classe `Runtime`, veremos que ela é nada mais do que um ambiente compartilhado onde colocamos a implementação do nosso `UserService`. Temos, então, as duas coisas necessárias para utilizar o  _Reader Monad_: um ambiente compartilhado, e uma operação que lê este ambiente (login, nesse caso). _It's a match!_
+Se refletirmos um pouco sobre o que é a classe `Runtime`, veremos que ela é nada mais do que um ambiente compartilhado onde colocamos a implementação do nosso `UserService`. Temos, então, as duas coisas necessárias para utilizar o  _Reader Monad_: um ambiente compartilhado e uma operação que lê este ambiente (login, nesse caso). _It's a match!_
 
 Poderíamos fazer uma implementação do nosso próprio Reader Monad, mas isso deixaria este post ainda mais extenso. Para facilitar nossa vida, vamos usar a biblioteca [cats](https://typelevel.org/cats/), que já tem uma implementação do Reader Monad amplamente usada. Basta adicionar a seguinte dependência:
 
@@ -222,7 +222,7 @@ Pra começar, vamos criar a classe que vai representar este estado compartilhado
 case class LoginEnv(service: UserService)
 ```
 
-Como estamos nos aproximando cada vez mais de conceitos de programação funcional, a partir deste momento vamos excluir as classes `LoginFacadeT` e `LoginFacade` pois, conceitualmente, já não faz mais sentido ter um Facade, já que não é mais a classe quem define as dependências necessárias para executar as operações, e sim a nossa função. Como iremos criar uma classe que irá conter as operações relacionadas a autenticação, iremos chamá-la de `AuthenticationOps`
+Como estamos nos aproximando cada vez mais de conceitos de programação funcional, a partir deste momento vamos excluir as classes `LoginFacadeT` e `LoginFacade` pois, conceitualmente, já não faz mais sentido ter um Facade, já que não é mais a classe quem define as dependências necessárias para executar as operações e, sim, a nossa função. Como iremos criar uma classe que irá conter as operações relacionadas a autenticação, iremos chamá-la de `AuthenticationOps`
 
 ```scala
 object AuthenticationOps {
@@ -235,7 +235,7 @@ object AuthenticationOps {
 ```
 Nossa operação `login`, portanto, é uma operação que lê o ambiente compartilhado `LoginEnv` e retorna um valor booleano, indicando se a operação foi ou não executada com sucesso.
 
-Lembra  que falamos que _Monads_ possuem métodos auxiliares, como `map`e `flatMap`que permitem manipular seu valor de saída? Isso também acontece com o Reader Monad, e iremos tirar vantagem dessa característica para executar o que a classe `HomeController` (por enquanto, vamos manter este nome) faz no método `autenticarUsuario`
+Lembra que falamos que _Monads_ possuem métodos auxiliares, como `map` e `flatMap`, que permitem manipular seu valor de saída? Isso também acontece com o Reader Monad, e iremos tirar vantagem dessa característica para executar o que a classe `HomeController` (por enquanto, vamos manter este nome) faz no método `autenticarUsuario`.
 
 ```scala
 object HomeController {
@@ -250,7 +250,7 @@ object HomeController {
   }
 }
 ```
-Neste cenário, ao invés de executarmos a operação para então gerarmos um resultado de saída, realizamos um `map` no retorno do método `AuthenticationOps.login`. Isso retorna, no final, uma operação que recebe dois parâmetros (`userName` e `password`) e retorna um `ReaderMonad[LoginEnv, String]`, que ainda precisa de um ambiente `LoginEnv`para ser executado.
+Neste cenário, em vez de executarmos a operação para então gerarmos um resultado de saída, realizamos um `map` no retorno do método `AuthenticationOps.login`. Isso retorna, no final, uma operação que recebe dois parâmetros (`userName` e `password`) e retorna um `ReaderMonad[LoginEnv, String]`, que ainda precisa de um ambiente `LoginEnv` para ser executado.
 
 Finalmente, na classe principal da nossa aplicação, criamos o contexto com as instâncias que serão utilizadas e chamamos o método `run` do nosso Reader Monad.
 
