@@ -1,5 +1,5 @@
 ---
-date: 2019-05-21
+date: 2019-08-12
 category: front-end
 tags:
   - css-scroll-snap
@@ -9,7 +9,7 @@ tags:
 authors: [alinelee]
 layout: post
 title: CSS Scroll Snap
-description: Um caso de uso do CSS Scroll Snap aplicados a carrosséis de imagens.
+description: Um caso de uso do CSS Scroll Snap aplicado a um carrossel de imagens.
 cover: css-scroll-snap-header.png
 ---
 
