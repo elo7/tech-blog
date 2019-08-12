@@ -39,6 +39,16 @@
     </item>
     
     <item>
+      <title>CSS Scroll Snap</title>
+      <link>https://elo7.dev/css-scroll-snap/</link>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/css-scroll-snap/</guid>
+      <description>Há algum tempo eu escrevi um post falando sobre o IntersectionObserver e como utilizá-lo para enriquecer um carrossel de fotos. Mas ficou faltando uma funcionalidade muito utilizada em carrosséis: o scroll que ajusta as imagens na tela, mostrando ao usuário sempre a imagem centralizada certinha.
+Para conseguir esse efeito existe um módulo em CSS chamado CSS Scroll Snap que facilita e muito a implementação, deixando a transição de imagens bem fluída e bonita.</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://elo7.dev/meetups/perifacode/</link>
       <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
