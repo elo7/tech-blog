@@ -23,24 +23,49 @@ Pensando na linguagem Java, faríamos da seguinte maneira:
 
 ``` java
 
-ClientExemplo clientExempo = new ClientExemplo();
+public interface Callback {
+    void sucesso(Object resultado);
+    void erro(Object erro);
+}
 
-clientExempo.chamadaAssincrona(new Callback() {
-    @Override
-    public void sucesso(Object resultado) {
-        // faz algo com resultado
-    }
+public class Exemplo {
+    ClientExemplo clientExempo = new ClientExemplo();
 
-    @Override
-    public void erro(Object erro) {
-        // faz algo com erro
-    }
-});
+    clientExempo.chamadaAssincrona(new Callback() {
+        @Override
+        public void sucesso(Object resultado) {
+            // faz algo com resultado
+        }
+
+        @Override
+        public void erro(Object erro) {
+            // faz algo com erro
+        }
+    });
+}
 ```
 
-Como mostra o exemplo acima, em Java o mais comum é utilizar uma interface ou classe abstrata que será passada como parâmetro de uma função assíncrona. No final da execução, o método sucesso ou erro será chamado.
+Como mostra o exemplo acima, em Java o mais comum é utilizar uma interface ou classe abstrata que será passada como parâmetro de uma função assíncrona. No final da execução, o método "sucesso" ou "erro" será chamado. Ainda é possível simplificar o exemplo fazendo com que a classe ou interface `Callback` tenha apenas uma função, dessa maneira, podemos passar como parâmetro da chamada uma função lambda, disponível a partir da versão 8 do Java:
 
-Em Javascript podemos fazer isso de uma forma mais simples, apenas passando uma função como parâmetro da função assíncrona. Exemplo:
+``` java
+public interface Callback {
+    void resultado(Object erro, Object resultado);
+}
+
+public class Exemplo {
+    ClientExemplo clientExempo = new ClientExemplo();
+
+    clientExempo.chamadaAssincrona((erro, resultado) -> {
+        if (erro) {
+            // faz algo com resultado
+            return;
+        }
+        // faz algo com erro
+    });
+}
+```
+
+Em Javascript podemos usar uma sintaxe muito parecida com o segundo exemplo, com a vantagem de não precisarmos criar uma classe ou interface para sobreeescrever na chamada. Exemplo:
 
 ``` javascript
 
@@ -111,7 +136,7 @@ O segundo ponto é o uso de Arrow Functions. Veja que ao invés de passar uma fu
 
 ## Promise
 
-Outra maneira de trabalhar com chamadas assíncronas com Javascript é através de `Promises`. Essa maneira resolve alguns problemas que enfrentamos ao utilizar callbacks. O maior ganho é evitarmos o *Callback Hell* em alguns casos.
+Outra maneira de trabalhar com chamadas assíncronas com Javascript é através de `Promises`. Essa maneira resolve alguns problemas que enfrentamos ao utilizar callbacks. O maior ganho é evitarmos o *Callback Hell*.
 
 A primeira modificação que precisamos fazer para começar a usar Promise é na classe DAO:
 
@@ -137,7 +162,9 @@ class SellerDAO {
 }
 ```
 
-Ao invés de receber um *callback* como parâmetro, agora retornamos uma `Promise`. A `Promise` recebe em seu contrutor uma função com dois parâmetro: `resolve` e `reject`. O primeiro usamos para passar em dados no caso de sucesso e o segundo para passar um erro.
+Ao invés de receber um *callback* como parâmetro, agora retornamos uma `Promise`. A `Promise` recebe em seu contrutor uma função com dois parâmetros: `resolve` e `reject`. O primeiro usamos para passar dados no caso de sucesso e o segundo para passar um erro.
+
+Para fazer uma chamada ao DAO, podemos chamar o método `then` da classe `Promise` que retornamos no `get`: `productDAO.getProduct(productId).then(product => {...}`.
 
 Vamos agora resolver parcialmente um dos problemas que o *callback* trazia, o *Callback Hell*. Nesse primeiro exemplo, assumiremos que nosso `ProductController` conhece o id do produto e do vendedor. Por enquanto, iremos apenas sincronizar a resposta de um jeito mais elegante:
 
@@ -168,7 +195,7 @@ class ProductController {
 
 Uma grande vantagem de usar essa abordagem, é que através do método `all` da classe Promise, podemos passar um *array* de `Promises`. Todas serão executadas e retornarão ao final através do método `then`, um *array* de resultados com os objetos na mesma ordem do *array* de origem.
 
-Ok, mas e se não conhecermos o id do vendedor? Utilizando apenas *promises* cairíamos no mesmo problema. Teríamos que colocar a requisição do vendedor dentro da resposta de produto:
+Ok, mas e se não conhecermos o id do vendedor? Podemos escrever um código um pouco mais enxuto, para resolver o problema:
 
 ``` javascript
 class ProductController {
@@ -176,14 +203,9 @@ class ProductController {
         let productDAO = new ProductDAO();
         let sellerDAO = new SellerDAO();
 
-        productDAO.getProduct(productId).then(product => {
-            sellerDAO.getSeller(product.seller).then(seller => {
-                this._render({
-                    product,
-                    seller
-                });
-            });
-        });
+        productDAO.getProduct(productId)
+            .then(product => Promise.all([Promise.resolve(product), sellerDAO.getSeller(product.seller)]))
+            .then(([product, seller]) => this._render({ product, seller }));
     }
 
     _render(data) {
@@ -191,7 +213,11 @@ class ProductController {
     }
 }
 ```
-Vamos passar para o último exemplo desse post, onde poderemos resolver todos os problemas que apresentei aqui.
+Nesse exemplo, fizemos a chamada ao `ProductDAO`, e dentro do seu `resolve`, com o objeto `product` já resolvido, pudermos chamar o `SellerDAO`. Nesse momento há um truque que precisamos fazer para termos o objeto `product` no resultado do `SellerDAO`, já que estaremos em outro contexto. Para isso, usamos o `Promise.resolve`. Essa função retorna uma `Promise`, da qual seu `resolve`, é o próprio objeto passado como parâmetro. Isso permite que usemos o `Promise.all` e consequentemente, obter no segundo `then`, os dois objetos de que precisamos para renderizar a página.
+
+Sei que provavelmente precisou ler mais de uma vez esse último parágrafo para entender o que foi feito. Realmente essa estratégia apesar de enxuta, não é tão trivial.
+
+Vamos agora passar para o último exemplo desse post, onde poderemos resolver todos os problemas que apresentei de uma forma mais simples.
 
 ## Async Await
 
