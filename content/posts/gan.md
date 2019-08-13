@@ -67,7 +67,7 @@ Vamos usar para esse exemplo um dataset sintético com algum ruído:
 import numpy as np
 
 noise = np.random.normal(size=1000)
-x1    = 2*np.pi*np.arange(0,1,0.001) 
+x1    = 2*np.pi*np.arange(0,1,0.001)
 x2    = x1*np.cos(2*x1) + noise*0.1
 x3    = np.exp(-x1)*x1 + noise*0.01
 
@@ -128,7 +128,7 @@ class GNet(torch.nn.Module):
         super(GNet,self).__init__()
         self.hidden = torch.nn.Linear(Z_dim, h_dim)
         self.out = torch.nn.Linear(h_dim, X_dim)
-    
+
     def forward(self,z):
         h = F.relu(self.hidden(z))
         X = torch.sigmoid(self.out(h))
@@ -140,7 +140,7 @@ class DNet(torch.nn.Module):
         super(DNet,self).__init__()
         self.hidden = torch.nn.Linear(X_dim, h_dim)
         self.out = torch.nn.Linear(h_dim, 1)
-    
+
     def forward(self,X):
         h = F.relu(self.hidden(X))
         y = torch.sigmoid(self.out(h))
@@ -155,7 +155,7 @@ G_optim = optim.Adam(G.parameters(), lr=lr)
 D_optim = optim.Adam(D.parameters(), lr=lr)
 ```
 
-No caso das funções de perda, quando o Discriminador receber um dado real vamos usar a função *log loss* (binary cross entropy)) com o *label 1* e para o dado falso o *label 0*. Assim, teremos uma função de perda para $G$ e uma para $D$ composta pela soma das perdas de dado real e dado falso. 
+No caso das funções de perda, quando o Discriminador receber um dado real vamos usar a função *log loss* (binary cross entropy)) com o *label 1* e para o dado falso o *label 0*. Assim, teremos uma função de perda para $G$ e uma para $D$ composta pela soma das perdas de dado real e dado falso.
 
 ```python
 # Labels de dados real e falso
@@ -163,7 +163,7 @@ ones  = Variable(torch.ones(batch_size, 1))
 zeros = Variable(torch.zeros(batch_size, 1))
 
 # Binary cross entropy
-D_loss_real_func = nn.BCELoss()  
+D_loss_real_func = nn.BCELoss()
 D_loss_fake_func = nn.BCELoss()
 G_loss_func = nn.BCELoss()
 ```
@@ -199,12 +199,12 @@ Definimos também algumas listas para guardar os valores das funções de perda:
 
 ```python
 G_his, D_his, D_real_his, D_fake_his = [[],[],[],[]]
-losses_his = [G_his,D_his,D_real_his,D_fake_his] 
+losses_his = [G_his,D_his,D_real_his,D_fake_his]
 ```
 
 ## Treino
 
-Estamos prontos para o treinamento em si. O Dataloader fornecerá os dados de $X_tc$ em batches até completar as $1000$ amostras e esse ciclo se repetirá por $500$ épocas (*epochs*). 
+Estamos prontos para o treinamento em si. O Dataloader fornecerá os dados de $X_tc$ em batches até completar as $1000$ amostras e esse ciclo se repetirá por $500$ épocas (*epochs*).
 
 ```python
 epochs = 500
@@ -214,8 +214,8 @@ for epoch in range(epochs):
         # Amostragem de dados
         z = Variable(torch.randn(batch_size, Z_dim))
         X = Variable(batch_x[0])
-    
-        # Dicriminador
+
+        # Discriminador
         G_sample = G(z)
         D_real = D(X)
         D_fake = D(G_sample)
@@ -226,7 +226,7 @@ for epoch in range(epochs):
         D_loss_fake = D_loss_fake_func(D_fake, zeros)
         # O erro do Discriminador é a soma dos dois anteriores
         D_loss = D_loss_real + D_loss_fake
-        
+
         D_optim.zero_grad()  # Reinicia os gradientes do otimizador
         D_loss.backward()    # Calcula os gradientes da perda
         D_optim.step()       # Faz o otimizador "passar" os gradientes pela rede
@@ -352,14 +352,11 @@ weighted avg    0.50364   0.50350   0.49854      2000
 
 Da matriz de confusão temos que:
 
-Verdadeiros negativos (TN) = 404 - 20%  
-Falsos positivos (FP)      = 596 - 30%  
-Falsos negativos (FN)      = 397 - 20%  
-Verdadeiros positivos (TP) = 603 - 30%  
-  
-O Discriminador "está confuso", na maioria das vezes ele classifica os dados como reais. Os dados reais são classificados como falsos com a mesma porcentagem que os dados realmente falsos.
+Verdadeiros negativos (TN) = 404 - 20%
+Falsos positivos (FP)      = 596 - 30%
+Falsos negativos (FN)      = 397 - 20%
+Verdadeiros positivos (TP) = 603 - 30%
 
-O relatório de classificação mostra as métricas que são consequência dos dados vistos na matriz de confusão, como a acurácia em 50%. Poderíamos pensar que este índice de acerto pode indicar um overfitting, mas não é um caso já que o Discriminador nunca vê o target real.
+O relatório de classificação mostra as métricas que são consequência dos dados vistos na matriz de confusão, como a acurácia em 50%. O Discriminador "está confuso", na maioria das vezes ele classifica os dados como reais. Os dados reais são classificados como falsos com a mesma porcentagem que os dados realmente falsos.
 
-Bom, dessa maneira construímos uma Rede Geradora Adversarial, se quiser o código todo está [aqui](https://github.com/onimaru/Generative_models/blob/master/GAN/GAN_example.ipynb).
-Um dia eu volto com mais aplicações disso, valeu.
+Bom, dessa maneira construímos uma Rede Geradora Adversarial. Se quiser, o código todo está [aqui](https://github.com/onimaru/Generative_models/blob/master/GAN/GAN_example.ipynb). Um dia eu volto com mais aplicações disso, valeu.
