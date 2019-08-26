@@ -1,6 +1,6 @@
 ---
 title: Trabalhando com JavaScript Assíncrono
-date: 2019-07-01
+date: 2019-08-26
 category: front-end
 layout: post
 description: "Aprenda as formas que o JavaScript oferece para trabalharmos com requisições assíncronas."
