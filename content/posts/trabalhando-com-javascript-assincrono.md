@@ -8,7 +8,7 @@ authors: [andrepbap]
 tags:
   - javascript
   - async
-cover:
+cover: javascript-async-cover.png
 ---
 
 Não podemos negar que JavaScript é uma linguagem extremamente versátil. Por muito tempo usada apenas em aplicações *Front-end*, hoje podemos fazer apps *full-stack* utilizando apenas essa linguagem. Essa versatilidade está fazendo com que cada vez mais desenvolvedores se tornem adeptos a ela.
