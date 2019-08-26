@@ -21,6 +21,16 @@
     </item>
     
     <item>
+      <title>Trabalhando com JavaScript Assíncrono</title>
+      <link>https://elo7.dev/trabalhando-com-javascript-assincrono/</link>
+      <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/trabalhando-com-javascript-assincrono/</guid>
+      <description>Não podemos negar que JavaScript é uma linguagem extremamente versátil. Por muito tempo usada apenas em aplicações Front-end, hoje podemos fazer apps full-stack utilizando apenas essa linguagem. Essa versatilidade está fazendo com que cada vez mais desenvolvedores se tornem adeptos a ela.
+Nesse post irei focar em um assunto muito importante para aplicações web: requisições assíncronas. Trabalhar com isso pode ser bem chato em várias linguagens, porém mostrarei aqui como o JavaScript fornece ferramentas bastante interessantes para resolver esse problema.</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://elo7.dev/meetups/aibrasilgirls/</link>
       <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
@@ -1179,6 +1189,15 @@ Roughly you have to create an Auto Scaling Group, Launch Configuration and Scali
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/autor/alinelee/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>André Baptista</title>
+      <link>https://elo7.dev/autor/andrepbap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/autor/andrepbap/</guid>
       <description></description>
     </item>
     
