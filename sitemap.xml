@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://elo7.dev/injecao-de-dependencia-em-scala-parte-2/</loc>
+    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/meetups/pydata/</loc>
     <lastmod>2019-09-04T00:00:00+00:00</lastmod>
   </url>
@@ -776,7 +781,7 @@
   
   <url>
     <loc>https://elo7.dev/categoria/back-end/</loc>
-    <lastmod>2019-07-29T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -860,7 +865,7 @@
   
   <url>
     <loc>https://elo7.dev/category/</loc>
-    <lastmod>2019-07-29T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1539,6 +1544,12 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/tags/macwire/</loc>
+    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/autor/marcusrios/</loc>
   </url>
   
@@ -1714,7 +1725,7 @@
   
   <url>
     <loc>https://elo7.dev/posts/</loc>
-    <lastmod>2019-08-26T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1744,7 +1755,7 @@
   
   <url>
     <loc>https://elo7.dev/tags/programacao-funcional/</loc>
-    <lastmod>2019-07-01T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1803,6 +1814,12 @@
   <url>
     <loc>https://elo7.dev/tags/react-native/</loc>
     <lastmod>2017-10-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://elo7.dev/tags/reader-monad/</loc>
+    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1874,7 +1891,7 @@
   
   <url>
     <loc>https://elo7.dev/tags/scala/</loc>
-    <lastmod>2019-07-01T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -2012,7 +2029,7 @@
   
   <url>
     <loc>https://elo7.dev/</loc>
-    <lastmod>2019-09-04T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

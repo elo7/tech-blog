@@ -6,10 +6,19 @@
     <description>Recent content in Scala on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
-    <lastBuildDate>Mon, 01 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://elo7.dev/tags/scala/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Injeção de Dependência em Scala - Parte 2</title>
+      <link>https://elo7.dev/injecao-de-dependencia-em-scala-parte-2/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/injecao-de-dependencia-em-scala-parte-2/</guid>
+      <description>Injeção de Dependência em Scala - Parte 2 Scala no Elo7 Antes restrito basicamente às áreas de Data Science e Data Engineering da empresa, o uso de Scala está sendo expandido para outras áreas de backend aqui no Elo7 em 2019. Como compartilhar conhecimento faz parte do nosso DNA, iremos realizar posts contando as experiências que temos com a linguagem e um pouco sobre como resolvemos diferentes situações que aparecem no dia-a-dia.</description>
+    </item>
     
     <item>
       <title>Injeção de Dependência em Scala - Parte 1</title>

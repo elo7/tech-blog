@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,scala,programacao-funcional,macwire,reader-monad,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Injeção de Dependência em Scala - Parte 2'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Injeção de Dependência em Scala - Parte 2'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/injecao-de-dependencia-em-scala-parte-1.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Injeção de Dependência em Scala - Parte 2'>
+	<meta property='og:url' content='https://elo7.dev/injecao-de-dependencia-em-scala-parte-2/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Injeção de Dependência em Scala - Parte 2'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/injecao-de-dependencia-em-scala-parte-2/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/injecao-de-dependencia-em-scala-parte-1.png'>
+
+	<link rel='canonical' href='https://elo7.dev/injecao-de-dependencia-em-scala-parte-2/'>
+	<title>Elo7 Tech - Injeção de Dependência em Scala - Parte 2</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/injecao-de-dependencia-em-scala-parte-1.png' alt='Injeção de Dependência em Scala - Parte 2' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Injeção de Dependência em Scala - Parte 2</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2019-09-07 00:00:00 &#43;0000 UTC'
+    aria-label='07 de setembro de 2019'>
+    07/09/2019
+    <meta itemprop='datePublished' content='Sat Sep 07 2019 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Sat Sep 07 2019 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2019-09-07'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='rodrigovedovato' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/rodrigovedovato/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/rodrigovedovato'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='rodrigovedovato'>@rodrigovedovato</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<h1 id="injeção-de-dependência-em-scala-parte-2">Injeção de Dependência em Scala - Parte 2</h1>
+
+<h2 id="scala-no-elo7"><em>Scala no Elo7</em></h2>
+
+<p><em>Antes restrito basicamente às áreas de Data Science e Data Engineering da empresa, o uso de Scala está sendo expandido para outras áreas de backend aqui no Elo7 em 2019. Como compartilhar conhecimento faz parte do nosso DNA, iremos realizar posts contando as experiências que temos com a linguagem e um pouco sobre como resolvemos diferentes situações que aparecem no dia-a-dia.</em></p>
+
+<h2 id="recapitulando">Recapitulando</h2>
+
+<p>Na <a href="/injecao-de-dependencia-em-scala-parte-1">primeira parte</a>, introduzimos o problema da injeção de dependência, e como podemos resolvê-lo em Scala usando o já consagrado Guice, da Google. Até o momento, nosso código está assim:</p>
+
+<pre><code class="language-scala">case class UserInfo(account: String, password: String)
+
+trait UserService {
+    def getUserInfo(account: String): UserInfo
+}
+
+class UserServiceComponent extends UserService {
+    override def getUserInfo(account: String): UserInfo = UserInfo(account, &quot;123&quot;)
+}
+
+trait  LoginFacadeT {
+  def  login(account: String, password: String):  Boolean
+}
+
+class LoginFacade @Inject()(userService: UserService) extends LoginFacadeT {
+    override def login(account: String, password: String): Boolean = {
+        userService.getUserInfo(account).password == password
+    }
+}
+
+class HomeController(facade: LoginFacadeT) {
+  def autenticarUsuario(usuario: String, senha: String): String = {
+    if (facade.login(usuario, senha)) {
+      s&quot;Olá, $usuario&quot;
+    } else {
+      &quot;Erro de login&quot;
+    }
+  }
+}
+
+class DependencyInjectionWithGuiceModule extends AbstractModule {
+    override def configure(): Unit = {
+        bind(classOf[UserService]).to(classOf[BasicUserService])
+        bind(classOf[LoginFacadeT]).to(classOf[LoginFacade])
+    }
+}
+
+object DependencyInjectionWithGuice extends App {
+    val injector = Guice.createInjector(new DependencyInjectionWithGuiceModule())
+    lazy val loginFacade: LoginFacadeT = injector.getInstance(classOf[LoginFacadeT])
+
+    val homeController = new HomeController(loginFacade)
+    println(homeController.authenticateUser(&quot;Rodrigo&quot;, &quot;123&quot;))
+}
+</code></pre>
+
+<p>Nosso código está correto, mas não parece muito funcional e o <em>setup</em> do Guice é verboso. Nessa segunda parte, iremos conhecer uma biblioteca em Scala chamada MacWire, que abstrai toda essa lógica e nos fornece uma API simples para trabalhar com injeção de dependência. Além disso, iremos conhecer o Reader Monad (utilizando a biblioteca cats).</p>
+
+<h2 id="macwire">MacWire</h2>
+
+<p>A programação funcional traz consigo novas formas de pensar na solução de vários problemas já resolvidos na OOP, mas a transição do pensamento orientado a objetos para o pensamento funcional não é tão simples. Bibliotecas como o MacWire ajudam nessa transição, possibilitando que o programador continue utilizando padrões já conhecidos mas de uma forma mais simples, suportada pelo ecossistema do Scala.</p>
+
+<p>Para utilizar o MacWire, temos que adicionar a seguinte biblioteca às nossas dependências:</p>
+
+<pre><code class="language-scala">libraryDependencies += &quot;com.softwaremill.macwire&quot; %% &quot;macros&quot; % &quot;2.3.3&quot; % &quot;provided&quot;
+</code></pre>
+
+<p>Vamos começar pela classe <code>LoginFacade</code>. Como não estamos mais utilizando o Guice, o uso da annotation <code>@Inject</code> no construtor da classe não é mais necessário.</p>
+
+<pre><code class="language-scala">class LoginFacade (userService: UserService) extends LoginFacadeT {
+  override  def  login(account: String, password: String):  Boolean  = {
+    userService.getUserInfo(account).password == password
+  }
+}
+</code></pre>
+
+<p>Também podemos remover a classe <code>DependencyInjectionWithGuiceModule</code> e, somente para facilitar a identificação, criaremos uma nova classe, chamada <code>MacWireInjection</code>, que será o <em>entrypoint</em> da nossa aplicação.</p>
+
+<p>Diferentemente do Guice, em que precisamos registrar os tipos concretos a serem mapeados pelas nossas interfaces, no MacWire essa identificação é feita de uma forma um pouco mais automática. Só precisamos criar uma classe (ou object, neste caso) onde instanciamos os tipos concretos que queremos carregar na nossa aplicação. Chamaremos a nossa classe de <code>Runtime</code>.</p>
+
+<pre><code class="language-scala">object Runtime {
+  val userService: UserService = new UserServiceComponent()
+}
+</code></pre>
+
+<p>Tudo o que temos que fazer agora é um <code>import</code> dessa classe dentro da nossa classe principal, e colocarmos uma chamada ao método <code>wire</code>, do próprio MacWire.</p>
+
+<pre><code class="language-scala">object MacWireInjection extends App {
+  import com.softwaremill.macwire._
+  import Runtime._
+
+  lazy val loginFacade = wire[LoginFacade]
+  lazy val homeController = wire[HomeController]
+
+  println(homeController.autenticarUsuario(&quot;Rodrigo&quot;, &quot;123&quot;))
+}
+</code></pre>
+
+<p>Mas como isso funciona? Vamos lá!</p>
+
+<pre><code class="language-scala">import Runtime._
+
+lazy val loginFacade = wire[LoginFacade]
+lazy val homeController = wire[HomeController]
+</code></pre>
+
+<p>Como dito anteriormente, o MacWire detecta automaticamente os tipos que precisam ser injetados. Ao importar o object <code>Runtime</code>, definimos que a instância da trait <code>UserService</code> que devemos usar ao construir a classe <code>LoginFacade</code> é do tipo <code>UserServiceComponent</code> e, ao declararmos uma instância da classe <code>LoginFacade</code> logo acima, indicamos que ela deve ser usada na classe <code>HomeController</code>.</p>
+
+<p>Se juntarmos todas as peças alteradas do nosso código, ele fica assim:</p>
+
+<pre><code class="language-scala">case class UserInfo(account: String, password: String)
+
+trait UserService {
+    def getUserInfo(account: String): UserInfo
+}
+
+trait LoginFacadeT {
+  def login(account: String, password: String): Boolean
+}
+
+class LoginFacade (userService: UserService) extends LoginFacadeT {
+  def login(account: String, password: String): Boolean = {
+    userService.getUserInfo(account).password == password
+  }
+}
+
+class UserServiceComponent extends UserService {
+  override def getUserInfo(account: String): UserInfo = UserInfo(account, &quot;123&quot;)
+}
+
+class HomeController(facade: LoginFacadeT) {
+  def autenticarUsuario(usuario: String, senha: String): String = {
+    if (facade.login(usuario, senha)) {
+      s&quot;Olá, $usuario&quot;
+    } else {
+      &quot;Erro de login&quot;
+    }
+  }
+}
+
+object Runtime {
+  val userService: UserService = new UserServiceComponent()
+}
+
+object MacWireInjection extends App {
+  import com.softwaremill.macwire._
+  import Runtime._
+
+  lazy val loginFacade = wire[LoginFacade]
+  lazy val homeController = wire[HomeController]
+
+  println(homeController.autenticarUsuario(&quot;Rodrigo&quot;, &quot;123&quot;))
+}
+</code></pre>
+
+<p>Utilizando o MacWire, nosso código fica bem mais simples de ser entendido! Mas e se quisermos deixá-lo mais funcional? É aí que entra o Reader Monad!</p>
+
+<h2 id="reader-monad">Reader Monad</h2>
+
+<p>Se você está lendo este post, é bem possível que já tenha cruzado algumas vezes com a palavra <em>Monad</em>. Sentiu aquele arrepio na espinha? Pois é, todos nós já sentimos. Como o objetivo aqui não é explicar o que são monads - precisaríamos uma série de posts só para isso -, vamos pensar em um <em>Monad</em> como sendo uma caixa que armazena valores gerados por uma determinada operação e possui alguns métodos que permitem manipulá-los - se você pensou em métodos como <code>map</code> e <code>flatMap</code>, pensou certo. Como <em>Monads</em> são mais um conceito que uma implementação propriamente dita, podemos ter diferentes <em>Monads</em> para resolver diferentes problemas.</p>
+
+<p>No Scala, usamos <em>Monads</em> o tempo inteiro sem perceber. Quer exemplos?</p>
+
+<p>|Monad|Para que serve?|
+|&ndash;|&ndash;|
+|Option[T]|Operação que pode ou não retornar um valor|
+|Try[T]|Armazena o retorno de uma operação que pode ou não lançar uma exceção|
+|Either[A, B]|Utilizado quando uma determinada função pode retornar dois estados. Geralmente <code>A</code> representa um estado de exceção e <code>B</code>, de sucesso|</p>
+
+<p>Com esse conceito em mente, vamos à definição do Reader Monad:</p>
+
+<blockquote>
+<p>O Reader Monad representa uma operação que lê valores de um ambiente compartilhado e retorna um valor qualquer</p>
+</blockquote>
+
+<h3 id="mas-como-ele-resolve-o-problema-de-injeção-de-dependência">Mas como ele resolve o problema de Injeção de Dependência?</h3>
+
+<p>Vamos olhar uma parte do código que fizemos acima, com o MacWire:</p>
+
+<pre><code class="language-scala">object Runtime {
+  val userService: UserService = new UserServiceComponent()
+}
+
+object MacWireInjection extends App {
+  import com.softwaremill.macwire._
+  import Runtime._
+
+  lazy val loginFacade = wire[LoginFacade]
+  lazy val homeController = wire[HomeController]
+
+  println(homeController.autenticarUsuario(&quot;Rodrigo&quot;, &quot;123&quot;))
+}
+</code></pre>
+
+<p>Se refletirmos um pouco sobre o que é a classe <code>Runtime</code>, veremos que ela é nada mais do que um ambiente compartilhado onde colocamos a implementação do nosso <code>UserService</code>. Temos, então, as duas coisas necessárias para utilizar o  <em>Reader Monad</em>: um ambiente compartilhado e uma operação que lê este ambiente (login, nesse caso). <em>It&rsquo;s a match!</em></p>
+
+<p>Poderíamos fazer uma implementação do nosso próprio Reader Monad, mas isso deixaria este post ainda mais extenso. Para facilitar nossa vida, vamos usar a biblioteca <a href="https://typelevel.org/cats/">cats</a>, que já tem uma implementação do Reader Monad amplamente usada. Basta adicionar a seguinte dependência:</p>
+
+<pre><code class="language-scala">libraryDependencies += &quot;org.typelevel&quot; %% &quot;cats-core&quot; % &quot;2.0.0-M1&quot;
+</code></pre>
+
+<p>Pra começar, vamos criar a classe que vai representar este estado compartilhado:</p>
+
+<pre><code class="language-scala">case class LoginEnv(service: UserService)
+</code></pre>
+
+<p>Como estamos nos aproximando cada vez mais de conceitos de programação funcional, a partir deste momento vamos excluir as classes <code>LoginFacadeT</code> e <code>LoginFacade</code> pois, conceitualmente, já não faz mais sentido ter um Facade, já que não é mais a classe quem define as dependências necessárias para executar as operações e, sim, a nossa função. Como iremos criar uma classe que irá conter as operações relacionadas a autenticação, iremos chamá-la de <code>AuthenticationOps</code></p>
+
+<pre><code class="language-scala">object AuthenticationOps {
+  def login(userName: String, password: String): Reader[LoginEnv, Boolean] = {
+    Reader[LoginEnv, Boolean] { loginEnv =&gt;
+      loginEnv.service.getUserInfo(userName).password == password
+    }
+  }
+}
+</code></pre>
+
+<p>Nossa operação <code>login</code>, portanto, é uma operação que lê o ambiente compartilhado <code>LoginEnv</code> e retorna um valor booleano, indicando se a operação foi ou não executada com sucesso.</p>
+
+<p>Lembra que falamos que <em>Monads</em> possuem métodos auxiliares, como <code>map</code> e <code>flatMap</code>, que permitem manipular seu valor de saída? Isso também acontece com o Reader Monad, e iremos tirar vantagem dessa característica para executar o que a classe <code>HomeController</code> (por enquanto, vamos manter este nome) faz no método <code>autenticarUsuario</code>.</p>
+
+<pre><code class="language-scala">object HomeController {
+  def autenticarUsuario(userName: String, password: String): Reader[LoginEnv, String] = {
+    AuthenticationOps.login(userName, password).map { isAuthorized =&gt;
+      if (isAuthorized) {
+        s&quot;Olá, ${userName}&quot;
+      } else {
+        &quot;Erro de login&quot;
+      }
+    }
+  }
+}
+</code></pre>
+
+<p>Neste cenário, em vez de executarmos a operação para então gerarmos um resultado de saída, realizamos um <code>map</code> no retorno do método <code>AuthenticationOps.login</code>. Isso retorna, no final, uma operação que recebe dois parâmetros (<code>userName</code> e <code>password</code>) e retorna um <code>ReaderMonad[LoginEnv, String]</code>, que ainda precisa de um ambiente <code>LoginEnv</code> para ser executado.</p>
+
+<p>Finalmente, na classe principal da nossa aplicação, criamos o contexto com as instâncias que serão utilizadas e chamamos o método <code>run</code> do nosso Reader Monad.</p>
+
+<pre><code class="language-scala">object ReaderMonadInjection extends App {
+  val loginEnvironment = new LoginEnv(service = new UserServiceComponent())
+  val loginMessage = HomeController.autenticarUsuario(&quot;Rodrigo&quot;, &quot;123&quot;).run(loginEnvironment)
+
+  println(loginMessage)
+}
+</code></pre>
+
+<p>Olhe o código final após essa última alteração. Apesar de ainda termos alguns conceitos de Orientação a Objetos (como as traits servindo de interface, por exemplo), já estamos bem mais próximos de como códigos funcionais são escritos no dia-a-dia. Gostou? No próximo post, iremos ver como implementar todo este comportamento utilizando apenas funções! Isso mesmo, sem bibliotecas dessa vez.</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/scala/'>scala</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/programacao-funcional/'>programacao-funcional</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/macwire/'>macwire</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/reader-monad/'>reader-monad</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2finjecao-de-dependencia-em-scala-parte-2%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=inje%25C3%25A7%25C3%25A3o-de-depend%25C3%25AAncia-em-scala-parte-2&url=https%3a%2f%2felo7.dev%2finjecao-de-dependencia-em-scala-parte-2%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/injecao-de-dependencia-em-scala-parte-2/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/injecao-de-dependencia-em-scala-parte-2/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Este artigo de duas partes irá abordar diferentes formas de resolver injeção de dependência em Scala, e como a linguagem e a programação funcional podem nos ajudar.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2019-09-07 00:00:00 \x2b0000 UTC:\/injecao-de-dependencia-em-scala-parte-2\/';
+            var disqus_url = 'https:\/\/elo7.dev\/injecao-de-dependencia-em-scala-parte-2\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>
