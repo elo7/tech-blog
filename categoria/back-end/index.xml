@@ -17,7 +17,8 @@
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/injecao-de-dependencia-em-scala-parte-2/</guid>
-      <description>Injeção de Dependência em Scala - Parte 2 Scala no Elo7 Antes restrito basicamente às áreas de Data Science e Data Engineering da empresa, o uso de Scala está sendo expandido para outras áreas de backend aqui no Elo7 em 2019. Como compartilhar conhecimento faz parte do nosso DNA, iremos realizar posts contando as experiências que temos com a linguagem e um pouco sobre como resolvemos diferentes situações que aparecem no dia-a-dia.</description>
+      <description>Scala no Elo7 Antes restrito basicamente às áreas de Data Science e Data Engineering da empresa, o uso de Scala está sendo expandido para outras áreas de backend aqui no Elo7 em 2019. Como compartilhar conhecimento faz parte do nosso DNA, iremos realizar posts contando as experiências que temos com a linguagem e um pouco sobre como resolvemos diferentes situações que aparecem no dia-a-dia.
+Recapitulando Na primeira parte, introduzimos o problema da injeção de dependência, e como podemos resolvê-lo em Scala usando o já consagrado Guice, da Google.</description>
     </item>
     
     <item>
