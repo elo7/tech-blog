@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,serverless,aws,lambda,aws lambda,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Serverless e AWS Lambda'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Serverless e AWS Lambda'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Serverless e AWS Lambda'>
+	<meta property='og:url' content='https://elo7.dev/serverless/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Serverless e AWS Lambda'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/serverless/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/serverless/'>
+	<title>Elo7 Tech - Serverless e AWS Lambda</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Serverless e AWS Lambda' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Serverless e AWS Lambda</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2018-03-26 00:00:00 &#43;0000 UTC'
+    aria-label='26 de março de 2018'>
+    26/03/2018
+    <meta itemprop='datePublished' content='Mon Mar 26 2018 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Mar 26 2018 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2018-03-26'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='cristianoperez' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/cristianoperez/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/cristianoperez'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='cristianoperez'>@cristianoperez</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Todos os dias surgem novas buzzwords no mercado, cada uma relacionada a uma nova tecnologia/metodologia que promete revolucionar o modo de fazer as coisas; uma das mais recentes é a Serverless. Ao longo desse post vou tentar descrever o que é essa nova buzzword e vai de você analisar se faz sentido ou não aplicá-la ao seu projeto.</p>
+
+<h1 id="serverless">Serverless</h1>
+
+<p>Serverless permite a você construir e executar aplicações sem ter que gerenciar nenhuma infraestrutura. Sua aplicação ainda roda em servidores, mas todo o gerenciamento vai ser feito pelo Vendor (AWS, GCP, Azure, etc). Não é mais necessário provisionar, gerenciar ou escalar servidores para executar sua aplicação. Serverless são funções executadas em containers stateless, efêmeros e gerenciados por terceiros.</p>
+
+<p>O ciclo de vida pode ser representado assim:</p>
+
+<p><img src="../images/serverless-1.jpg" alt="serverless" /></p>
+
+<ol>
+<li>O browser faz uma chamada REST para o endpoint do API Gateway</li>
+<li>O API Gateway faz a chamada da função baseado no endpoint que é chamado</li>
+<li>A função relacionada ao endpoint chamado é executada em um container que foi criado apenas para executá-la</li>
+<li>O container em qual a função foi executada é destruído</li>
+</ol>
+
+<p>Note que em nenhum momento nos preocupamos como seria executada a nossa função, apenas escrevemos o código dela e pedimos para alguém executá-la. Como ela vai fazer isso, escalar quantidade de máquinas e gerenciar a disponibilidade não é problema nosso!</p>
+
+<p>Além das vantagens infraestruturais já citadas, a vantagem da economia, pois pagamos apenas pelo o que realmente usamos.
+Em uma arquitetura tradicional, boa parte dos recursos do servidor (memória / CPU / rede / disco) ficam ociosos a maior parte do tempo, sendo utilizados apenas em momentos específicos. Estamos portanto pagando por recursos ociosos, porém não podemos nos dar ao luxo de abrir mão destes pois, em um momento de alta demanda, a falta pode tornar-se um grande problema que até mesmo pode derrubar o sistema. Um exemplo disso pode ser observado no gráfico abaixo:</p>
+
+<p><img src="../images/serverless-2.png" alt="request spikes" />
+Analisando o gráfico, podemos perceber que a linha vermelha representa a capacidade máxima provisionada, a verde o tráfego, as setas azuis são recursos ociosos que pagamos mas que só utilizamos por cerca de 10% do tempo.</p>
+
+<p>Uma arquitetura Serverless age em cima desses dois problemas: recursos ociosos e aumentos súbitos e/ou spike de requisições. Como não precisamos nos preocupar com infra/provisionamento/escalabilidade já que só é cobrado pelo o que for executado, nunca mais teremos máquinas sendo executadas com recursos ociosos. Você entrega seu código para o Vendor e ele se vira para executá-lo.</p>
+
+<h2 id="stateless">Stateless</h2>
+
+<p>Todo serverless por natureza é stateless (lembra da imagem do ciclo de vida?), então, no final da execução, nosso container é destruído, levando consigo todas as informações que foram guardadas localmente como: variáveis estáticas, arquivos da pasta /tmp e estado da memória RAM (tenha isso em mente quando for desenvolver algo que utilize serverless). Uma opção para não perdê-los seria salvá-los em outro lugar como um banco relacional, Dynamo, Redis ou até mesmo no S3.</p>
+
+<h1 id="aws-lambda">AWS Lambda</h1>
+
+<p>Como serverless por si só representa um conjunto de conceitos, precisamos de alguém para implementá-lo! Entre os serviços mais usados no mercado temos: AWS Lambda, Google Cloud Functions, Azure Functions e Apache OpenWhisk (este último open-source). Nesse post, por questões de abrangência de conhecimento da minha parte, vamos utilizar o AWS Lambda.</p>
+
+<p>Lambda traz todos os benefícios já citados: nenhum servidor para provisionar e gerenciar, escala horizontal automática, nada de pagar por recurso ocioso, tolerância a falha e alta disponibilidade. É possível criar funções utilizando Java, Python, Node, C# e Go mais recentemente. As funções podem ser executadas a partir das seguintes fontes de eventos:</p>
+
+<ol>
+<li>Resposta a eventos de outros produtos da AWS</li>
+</ol>
+
+<p>É possível executar uma função como resposta a eventos (callback) de outros produtos da AWS, como por exemplo quando queremos executar a função sempre que uma mensagem for adicionada na fila xpto do SQS, ou quando for feito um update na tabela user do DynamoDB, ou até mesmo quando for deletado um arquivo com extensão .properties do bucket data.production no S3.</p>
+
+<ol>
+<li>Chamadas REST utilizando o Amazon API Gateway</li>
+</ol>
+
+<p>É possível criar um endpoint no Amazon API Gateway e associar ele a uma função.</p>
+
+<ol>
+<li>AWS SDK</li>
+</ol>
+
+<p>Caso você já tenha um sistema e precise chamar uma função, o próprio SDK da AWS te proporciona isso.</p>
+
+<ol>
+<li>Agendamento</li>
+</ol>
+
+<p>É possível agendar funções para serem executadas em determinados horários e dias (utilizando Expressões Cron para isso).</p>
+
+<h2 id="segurança">Segurança</h2>
+
+<p>Como em todos os produtos da Amazon, é possível utilizar roles e VPC específicas para cada função.</p>
+
+<h2 id="precificação">Precificação</h2>
+
+<p>A precificação é feita baseada no número de execuções da função e sua duração.</p>
+
+<ol>
+<li>Duração</li>
+</ol>
+
+<p>A partir do momento em que a função começa a ser executada, é iniciada a cobrança, sendo que o tempo é sempre arredondado para os 100ms mais próximo. Logo, uma execução com 2ms e outra com 99ms terão o mesmo valor. E o valor também varia pela quantidade de memória alocada para a função, cerca de 0,00001667 USD a cada GB/segundo usado.</p>
+
+<ol>
+<li>Quantidade</li>
+</ol>
+
+<p>0,20 USD por 1 milhão de solicitações. Depois disso 0,0000002 USD por solicitação adicional.</p>
+
+<ol>
+<li>Free tier</li>
+</ol>
+
+<p>Para incentivar o uso do Lambda, a AWS oferece um nível grátis, 1 milhão de solicitações por mês e 400GB/segundo de memória por mês.</p>
+
+<h2 id="limites">Limites</h2>
+
+<p>A AWS colocou alguns limites que podem complicar a sua vida e devem ser levados em conta na hora do desenvolvimento. Veja abaixo:</p>
+
+<table>
+<thead>
+<tr>
+<th>Recurso</th>
+<th>Limite</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Memória</td>
+<td>128mb até 3GB</td>
+</tr>
+
+<tr>
+<td>Tempo máximo de execução</td>
+<td>300s (5min)</td>
+</tr>
+
+<tr>
+<td>Execuções paralelas</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+
+<p>A AWS quer que você utilize o Lambda porém sem canibalizar seus outros produtos, então ela colocou alguns limites que podem complicar a sua vida. Vamos ver como esses limites afetam a sua vida.</p>
+
+<ol>
+<li>Memória</li>
+</ol>
+
+<p>Este recurso deve ser configurado manualmente para cada função (não é elástico). Agora um ponto importante: quantas vezes você criou uma função sabendo quanto de memória ela consumia? Lembre-se: quanto maior a memória alocada para executar aquela função, mais caro você pagará! Facilitaria (e muito) se cada função tivesse memória elástica, sendo cobrada com base no seu uso e não em uma quantidade fixa alocada, e faria mais sentido se pudéssemos apenas limitar o tamanho máximo de consumo desta memória. Saiba que os limites no geral são o suficiente para executar as funções de propósito geral, porém, se for necessário algo mais pesado, talvez seja melhor subir uma instância EC2 de uma máquina mais potente!</p>
+
+<ol>
+<li>Tempo</li>
+</ol>
+
+<p>Como a AWS não quer ninguém utilizando o Lambda para rodar tasks grandes e pesadas ou long running applications (afinal para isso existem outros produtos), ela restringe o tempo máximo de execução em 5min. Esse tempo é configurado para cada função, podendo variar de 1s até 5min. Após o tempo limite de execução ser atingido, ela é cortada sem nenhum tipo de callback, apenas lançando uma exception no CloudWatch.</p>
+
+<ol>
+<li>Execuções paralelas</li>
+</ol>
+
+<p>Esse pode ser um dos mais problemáticos, pois como no Lambda não existe separação entre ambientes, funções executadas em prod, dev ou teste entram no mesmo contador. Imagine o cenário onde um desenvolvedor está criando uma nova funcionalidade que dispara funções lambda. Digamos que essa chamada da função fique dentro de um loop (FOR/WHILE) e, ao testar esta funcionalidade, esta função é chamada tantas vezes que ultrapassa o limite de 1000 execuções paralelas. De fato, esse teste em dev vai afetar todas as funções de prod que vão começar a ser enfileiradas ou sequer serão executadas, degradando desta forma a performance geral (incluindo o ambiente de prod). Durante a re:Invent 2017 foi anunciado algo para tentar minimizar esse problema: é possível limitar a quantidade de execuções paralelas para cada função.</p>
+
+<p>Esses são apenas alguns limites. No site da <a href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html">AWS</a> você pode encontrar todos os limites.</p>
+
+<h2 id="vendor-lock-in">Vendor lock-in</h2>
+
+<p>O primeiro passo ao utilizar uma arquitetura serverless é escolher o vendor (AWS, GCP, AZURE). Não importa muito a sua escolha, pois no final das contas você estará preso a ele, principalmente quando as funções começam a se integrar e ser ativadas por eventos de outros produtos deste vendor, como por exemplo quando utilizamos serviços úteis como filas (SQS, GCP pub/sub).</p>
+
+<p>Um ponto para se questionar é: como você pode migrar uma função do AWS Lambda para o Cloud Functions e fazer com que ele mantenha a integração com a fila do SQS que ativa esta função? A resposta é que o trigger nativo que a AWS fornece é perdido, então será necessário um certo trabalho de desenvolvimento em cima e provavelmente uma mudança no desenho da arquitetura (e muito boilerplate code) para fazer essa integração, tornando tudo muito custoso!</p>
+
+<h2 id="situações-de-uso">Situações de uso</h2>
+
+<h3 id="ideais">Ideais</h3>
+
+<ul>
+<li><p>Coisas pequenas e rápidas
+Uma rápida análise nos limites nos permite ver que esse é o público alvo do Lambda.</p></li>
+
+<li><p>Processamento assíncrono em resposta a eventos de outros produtos AWS
+A facilidade e o nível de granularidade na integração com outros produtos do vendor torna tudo muito simples.</p></li>
+
+<li><p>Operação com padrão de consumo FLAT com spikes periódicos
+Para quê manter uma grande infraestrutura de pé com o consumo de recurso na casa dos 20% se em apenas alguns momentos do dia o consumo sobe para 80~90%?</p></li>
+
+<li><p>Funcionalidades que ficam com boa parte do tempo com recurso ocioso
+Mesmo caso da anterior: tem algum sistema interno que é pouco ou quase nunca utilizado, porém a máquina está sempre rodando e gastando recursos? Talvez faça sentido ele ser um Lambda.</p></li>
+</ul>
+
+<h3 id="não-ideais">Não ideais</h3>
+
+<ul>
+<li>Para tudo</li>
+</ul>
+
+<p>Lambdas são legais, fáceis de gerenciar, de rápido desenvolvimento e sem infra para se preocupar. Mas têm um preço e, caso seja um serviço com um número de requisições muito alto, no final do mês a conta não vai fechar. Talvez faça mais sentido usar o bom e velho EC2.</p>
+
+<ul>
+<li>Processamentos longos</li>
+</ul>
+
+<p>Como já foi dito anteriormente, temos o limites de até 5min (depende do timeout que você configurou para a função) para sua função ser executada; após isso a AWS mata a execução.</p>
+
+<ul>
+<li>Processamentos com alto uso de RAM</li>
+</ul>
+
+<p>Mesmo após a mudança para 3GB no limite de RAM para cada função, existem outros serviços da Amazon que são capazes de lidar melhor com esse tipo de processamento. Aqui também temos a mesma limitação do tempo, caso sua função comece a usar mais que 3GB ou o limite que você setou para função, ela é encerrada automaticamente.</p>
+
+<ul>
+<li>Ambientes multi cloud</li>
+</ul>
+
+<p>Como uma das grandes facilidades são os triggers com outros produtos no vendor, não faz muito sentido tentar integrar AWS Lambda com GCP pub/sub.</p>
+
+<h2 id="um-novo-mundo-que-não-para-de-crescer">Um novo mundo que não para de crescer</h2>
+
+<p>Durante a re:Invent 2017, foram anunciadas uma grande quantidade de novidades para o Lambda, mostrando que a Amazon tem apostado fortemente na tecnologia. Algumas ainda estão em beta mas estarão disponíveis em breve.
+<a href="https://serverless.com/blog/ultimate-list-serverless-announcements-reinvent">Nesse link</a> temos tudo que foi anunciado e um comentário falando porque a funcionalidade é importante.</p>
+
+<h1 id="conclusão">Conclusão</h1>
+
+<p>Existem vários outros tópicos os quais não citei aqui, como o uso de logging, escrever tests, execução de deploys, boas práticas em geral, etc. Todos estes assuntos podem ser explorados em um próximo post.</p>
+
+<p>Falamos muito aqui a respeito do mundo mágico do serverless e como ele pode tornar a vida do desenvolvedor mais produtiva, pela facilidade de gerenciar e escalar as coisas quando o utilizamos. Porém isso qualquer engenheiro de vendas das plataformas citadas neste post pode te falar, então o importante é saber das limitações e restrições que existem em cada uma delas.</p>
+
+<p>Serveless é um assunto muito novo no mercado. Para você ter uma ideia, o Lambda nasceu há pouco (em meados de 2014), enquanto o Cloud Functions é mais velhinho (nascido em 2011). Apesar disso, trata-se de uma tecnologia que vem sendo utilizada em grande escala e só tende a melhorar nos próximos anos.</p>
+
+<p>Existem alguns frameworks que facilitam bastante a vida na hora de criar funções, como o <a href="https://serverless.com/">Serverless framework</a>, e que trabalham de maneira genérica para abranger os principais provedores do mercado.</p>
+
+<p>Agora é com você! Verifique se sua necessidade pode ser atendida por essa tecnologia, valide os prós e os contras para decidir se é uma boa utilizá-la ou não!</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/serverless/'>serverless</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/aws/'>aws</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/lambda/'>lambda</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/aws-lambda/'>aws lambda</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fserverless%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=serverless-e-aws-lambda&url=https%3a%2f%2felo7.dev%2fserverless%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/serverless/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/serverless/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Serverless. O que é? Onde vive? Do que se alimenta?'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2018-03-26 00:00:00 \x2b0000 UTC:\/serverless\/';
+            var disqus_url = 'https:\/\/elo7.dev\/serverless\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

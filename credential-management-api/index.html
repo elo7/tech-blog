@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,javascript,web,webapi,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Credential Managament API'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Credential Managament API'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Credential Managament API'>
+	<meta property='og:url' content='https://elo7.dev/credential-management-api/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Credential Managament API'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/credential-management-api/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/credential-management-api/'>
+	<title>Elo7 Tech - Credential Managament API</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Credential Managament API' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Credential Managament API</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2018-03-19 00:00:00 &#43;0000 UTC'
+    aria-label='19 de março de 2018'>
+    19/03/2018
+    <meta itemprop='datePublished' content='Mon Mar 19 2018 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Mar 19 2018 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2018-03-19'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='tcelestino' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/tcelestino/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/tcelestino'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='tcelestino'>@tcelestino</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Hoje em dia passamos muito tempo em redes sociais, fóruns, blogs e sites de comércio eletrônico, sabemos então o quanto é chato ter que ficar anotando dados de login e senha deste serviços. E como você sabe, por questões de segurança, não devemos usar os mesmos dados para acessar diferentes serviços. Para resolver este problema, existem diversas aplicações que gerenciam essas informações, como: <a href="https://www.lastpass.com">LastPass</a>, <a href="https://1password.com/">1Password</a>, <a href="https://bitwarden.com/">bitwarden</a>, <a href="https://www.dashlane.com/">Dashlane</a>, entre outros. Os principais navegadores do mercado também possuem recursos para fazer esse gerenciamento. Mas daí surge uma dúvida: como faríamos para informar estes dados ao navegador? É possível integrar meu sistema de login ao mesmo? Para elucidar essas questões (e se existem outras, pode deixar nos comentários logo abaixo), lhe apresento a <a href="https://www.w3.org/TR/credential-management-1/">Credential Management API</a>, que pelo próprio nome já diz, faz o gerenciamento de suas credenciais (login e senha) utilizando o navegador. No momento, apenas a versão do Chrome para desktop e Android possui a API implementada. Acredito que em breve a veremos em outros navegadores.</p>
+
+<p>A Credential Management API segue três pilares:</p>
+
+<ul>
+<li>Permite acesso com um toque com o seletor de contas;</li>
+<li>Salva e gerencia seus dados;</li>
+<li>Simplifica o fluxo de acesso.</li>
+</ul>
+
+<p>Existem diversas maneiras de melhorar o fluxo de utilização do seu site com a Credential Managament API. Um exemplo seria facilitar o processo de login automático, caso o usuário tenha múltiplas contas registradas em seu navegador.</p>
+
+<h2 id="como-usamos-no-elo7">Como usamos no Elo7</h2>
+
+<p>Antes de mostrar a implementação da API, queria exemplificar como a utilizamos aqui no <a href="https://www.elo7.com.br/?utm_source=tech-blog&amp;utm_medium=credential-management-api">Elo7</a>.</p>
+
+<p>Utilizamos a Credential Management API no sistema de login do Elo7 (na versão web mobile) e analisando os resultados através do Google Analytics, observamos que realmente nossos usuários utilizam este recurso, independente do seu nível de conhecimento.</p>
+
+<p><img src="../images/credential-management-api-1.png" alt="Alt &quot;Gráfico do Google Analytics sobre o uso da Credential Management API&quot;" />
+<div style="text-align: center; font-style: italic">Gráfico de uso da Credential Management API no Elo7</div></p>
+
+<p>Interessante os resultados, não? Bom, vamos deixar de conversa e partir para o melhor, que é a implementação!</p>
+
+<h2 id="implementando-a-api">Implementando a API</h2>
+
+<p>Como grande maioria das API&rsquo;s Javascript lançadas hoje em dia, precisamos garantir a segurança das informações. Ou seja, para usar a Credential Management API você precisa ter um servidor com uma conexão segura. Em outras palavras, é necessário que o protocolo <em>https</em> esteja habilitado em seu servidor.</p>
+
+<p>A primeira coisa que precisamos verificar é se esta API está disponível em seu navegador. Importante: nos exemplos a seguir utilizarei algumas das novidades recém adicionadas à linguagem Javascript (ES6/ES7/ES8). Caso não conheça, você pode conhecer mais <a href="http://kangax.github.io/compat-table/es2016plus/">clicando aqui</a>.</p>
+
+<p>No exemplo a seguir, utilizaremos um formulário com os seguintes campos:</p>
+
+<pre><code class="language-html">&lt;form id='login' method='POST' action='/auth/login'&gt;
+	&lt;fieldset&gt;
+		&lt;label&gt;Email: &lt;input type='email' name='name'&gt;&lt;/label&gt;
+		&lt;label&gt;Senha: &lt;input type='password' name='pass'&gt;&lt;/label&gt;
+	&lt;/fieldset&gt;
+	&lt;input type='submit' value='Logar'&gt;
+&lt;/form&gt;
+</code></pre>
+
+<pre><code class="language-javascript">'use strict';
+
+if ('credentials' in navigator) {
+	const form = document.forms.login;
+
+	form.addEventListener('submit', () =&gt; {
+		let cred = await navigator.credentials.create({
+			password: {
+				id: form.elements[0].value, // campo de email
+				password: form.elements[1].value // campo de senha
+			}
+		});
+
+		navigator.credentials
+			.store(cred)
+			.then(() =&gt; console.log('Dados foram salvos com sucesso'))
+			.catch(() =&gt; console.log('Seus dados não foram salvos'));
+	});
+}
+</code></pre>
+
+<p>No código acima, estamos criando uma <em>credential</em> de forma assíncrona quando é feito um <code>submit</code> no formulário, no qual passamos para este as informações preenchidas nos campos (email e senha). Feito isso, chamamos o método <code>navigator.credentials.store()</code>, passando como argumento/parâmetro o objeto que criamos com <code>navigator.credentials.create()</code>. Esse método retornará uma Promise. Caso você não saiba o que é uma Promise, recomendo ler a <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise">documentação</a> disponível no <a href="https://developer.mozilla.org/pt-BR/">Mozilla Developer Network (MDN)</a>. Vale lembrar que, caso aconteça o <code>catch</code> o usuário irá logar no sistema, apenas as informações (email e senha) não serão gravadas.</p>
+
+<p>Recentemente a Google atualizou diversas características desta API, adicionando novas maneiras de criar uma <em>credential</em>. Agora ela pode ser criada de forma síncrona ao instanciar o objeto <code>PasswordCredential</code> ou de forma assíncrona utilizando o método <code>navigator.credentials.create()</code>. Para maiores detalhes, <a href="https://developers.google.com/web/updates/2017/06/credential-management-updates#creating_a_passwordcredential_object">leia aqui</a>.</p>
+
+<h2 id="requisitando-as-informações">Requisitando as informações</h2>
+
+<p>Assim como salvamos, também podemos recuperar informações que já foram salvas. Para isso, vamos usar o método <code>navigator.credentials.get()</code>. Esse método retornará as informações que salvamos anteriormente no método <code>navigator.credentials.store()</code>. Caso não exista nenhuma informação, será retornado um <code>null</code>. Ou seja, você pode criar uma abordagem que faça o usuário cadastrar as informações caso o valor seja <code>null</code>, por exemplo.</p>
+
+<pre><code class="language-javascript">'use strict';
+
+if ('credentials' in navigator) {
+	//...
+
+	// recuperando dados caso já estejam existentes
+	navigator.credentials.get({
+		password: true,
+		mediation: 'silent'
+	}).then((cred) =&gt; {
+		if (cred) {
+			// faça alguma coisa
+		}
+	});
+}
+</code></pre>
+
+<p>Como podem observar, passamos para o <code>navigator.credentials.get()</code> duas informações:</p>
+
+<ul>
+<li>password: por padrão, o valor é <code>false</code>, por isso é preciso passar o valor <code>true</code> para recuperar informações;</li>
+<li>meditation: você pode passar as seguintes opções:
+
+<ul>
+<li>silent: não exibe a opção de múltiplas escolhas. Pode ser considerado como <code>true</code>;</li>
+<li>optional: exibe a escolha de múltiplas contas. Pode ser considerado como <code>false</code>;</li>
+<li>required: sempre exibe a interface de de múltiplas contas.</li>
+</ul></li>
+</ul>
+
+<p><img src="../images/credential-management-api-2.png" alt="Alt &quot;Seleção de múltiplas contas usando a Credential Management API&quot;" />
+<div style="text-align: center; font-style: italic">Seleção de múltiplas contas usando a Credential Management API</div></p>
+
+<p>Podemos usar diversas abordagens, inclusive integrando com serviços de autenticação de terceiros como o <a href="https://developers.google.com/identity/sign-in/web/sign-in">Google Sign-In</a> e <a href="https://developers.facebook.com/docs/facebook-login/">Facebook Login</a>. Para isso, existe o <code>federated</code>, no qual podemos informar qual serviço será o fornecedor desses dados. Leia mais <a href="https://developers.google.com/web/fundamentals/security/credential-management/retrieve-credentials">aqui</a>.</p>
+
+<p>Agora, vamos alterar o código para melhorar o fluxo do usuário caso ele tenha diversas contas. Lembrando que isso é um exemplo e você pode criar a sua própria abordagem a partir das necessidades de seu projeto.</p>
+
+<pre><code class="language-javascript">'use strict';
+
+if ('credentials' in navigator) {
+	//...
+
+	navigator.credentials.get({
+		password: true,
+		mediation: 'silent'
+	}).then((cred) =&gt; {
+		// caso já exista as credenciais
+		if (cred) {
+			// será repassada essas informações para a função que irá trata-las.
+			login(cred);
+		} else {
+			// não existindo as credenciais, obtemos a partir do navigator.credentials.get()
+			navigator.credentials.get({
+				password: true,
+				mediation: 'optional'
+			}).then((cred) =&gt; {
+				if(cred) {
+					login(cred);
+				}
+			}).catch((e) =&gt; console.error(e));
+		}
+	}).catch((e) =&gt; console.error(e));
+}
+</code></pre>
+
+<p>Você pode ter percebido que adicionamos uma função chamada <code>login</code> em nosso código. Mas o que vamos ter nela? Como sabe, precisamos fazer o usuário logar em nosso sistema, logo precisamos fazer uma requisição para o nosso sistema. Na nossa função, teriamos a seguinte implementação</p>
+
+<pre><code class="language-javascript">var login = (cred) =&gt; {
+	'use strict';
+
+	if (cred) {
+		let form = new FormData();
+
+		form.append('email', cred.id);
+		form.append('password', cred.password);
+
+		// simula uma rota de autenticação em nosso sistema
+		fetch('/auth/login', {
+			method: 'POST',
+			credentials: 'include',
+			body: form
+		}).then(res =&gt; {
+			// caso tenha sucesso, será redirecionado para uma rota. No caso, a página inicial
+			if (res.status === 200) {
+				window.location = '/';
+				// em caso de erro, enviamos para uma rota que irá tratar o erro
+			} else {
+				window.location = '/auth/error';
+			}
+		}).catch((e) =&gt; console.error(e));
+	} else {
+		// implementa um fallback caso o cred não tenha as infos necessárias
+	};
+}
+</code></pre>
+
+<p>No código acima, passamos para a função <code>login</code> o objeto <code>cred</code> que será usado no nosso back-end para autenticar os dados do usuário. Fazemos essa requisição AJAX usando a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">Fetch API</a>, no qual recebemos uma Promise no qual podemos implementar nossa lógica.</p>
+
+<p>Melhorando nosso código de obtenção das credenciais, podemos usar a função <code>login</code> caso o usuário já possua suas credenciais salvas ou não.</p>
+
+<pre><code class="language-javascript">navigator.credentials.get({
+	password: true,
+	mediation: 'silent'
+}).then((cred) =&gt; {
+	if (cred) {
+		login(cred);
+	} else {
+		navigator.credentials.get({
+			password: true,
+			mediation: 'optional'
+		}).then((cred) =&gt; {
+			login(cred);
+		}).catch((e) =&gt; console.error(e));
+	}
+}).catch((e) =&gt; console.error(e));
+</code></pre>
+
+<p>Agora que sabemos como salvar e obter os dados salvos com a Credentinal Management API e integrá-la a um sistema próprio de autenticação, também podemos garantir o <em>logout</em> do usuário em nosso sistema. Para isso, vamos usar o método <code>navigator.credentials.requireUserMediation()</code>. Leia mais <a href="https://developers.google.com/web/fundamentals/security/credential-management/retrieve-credentials#sign-out">sobre aqui</a>.</p>
+
+<pre><code class="language-javascript">document.querySelector('.logout').addEventListener('click', (evt) =&gt; {
+	if ('credentials' in navigator &amp;&amp; navigator.credentials.preventSilentAccess) {
+		navigator.credentials.preventSilentAccess();
+	}
+	evt.preventDefault();
+	window.location = '/auth/logout';
+});
+
+</code></pre>
+
+<p>Com isso, garantimos que o usuário não &ldquo;logará&rdquo; automaticamente quando fizer um novo acesso ao sistema.</p>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<p>A Credential Management API é uma solução que melhora bastante a usabilidade do processo de autenticação dos usuários, agilizando e mantendo as informações de forma segura. A idéia é que ela se torne muito mais interessante quando for futuramente implementada pela maioria dos navegadores existentes no mercado.</p>
+
+<p>Em caso de dúvidas, críticas e mais dicas de como implementar a API, fique livre para deixar o seu comentário. :)</p>
+
+<h2 id="referências">Referências</h2>
+
+<ul>
+<li><a href="https://developers.google.com/web/fundamentals/security/credential-management/">A Credential Management API - Google Developer</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Credential_Management_API">Credential Management API - Mozilla Developer Network</a></li>
+<li><a href="https://developers.google.com/web/fundamentals/security/credential-management/store-credentials">Store Credentials</a></li>
+<li><a href="https://developers.google.com/web/fundamentals/security/credential-management/retrieve-credentials">Sign in Users</a></li>
+</ul>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/javascript/'>javascript</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/web/'>web</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/webapi/'>webapi</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fcredential-management-api%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=credential-managament-api&url=https%3a%2f%2felo7.dev%2fcredential-management-api%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/credential-management-api/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/credential-management-api/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Conheça a Credential Managament API e veja como implementá-la em seu projeto.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2018-03-19 00:00:00 \x2b0000 UTC:\/credential-management-api\/';
+            var disqus_url = 'https:\/\/elo7.dev\/credential-management-api\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

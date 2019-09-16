@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Libs on Tech Blog Elo7</title>
+    <link>https://elo7.dev/tags/libs/</link>
+    <description>Recent content in Libs on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 25 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://elo7.dev/tags/libs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Customizando campos de formulário com o mask-amd</title>
+      <link>https://elo7.dev/customizando-campos-de-formulario-com-elo7-mask-amd/</link>
+      <pubDate>Mon, 25 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/customizando-campos-de-formulario-com-elo7-mask-amd/</guid>
+      <description>Sempre procuramos uma biblioteca que seja bem focada no problema que queremos resolver e frequentemente encontramos aqueles pacotes com várias funcionalidades. Normalmente, utilizamos apenas um recurso (ou alguns) da biblioteca que escolhemos utilizar.
+É importante mencionar o peso inútil no final do carregamento da página, agora imagine quando você utiliza várias bibliotecas em seu site.
+Esse tipo de situação é muito comum e, pensando nesse problema, nós do Elo7 resolvemos escrever nossas próprias bibliotecas, diretas no que necessitamos na casa, e isso vem sendo bem bacana pois, além de otimizar nossas aplicações, ainda as disponibilizamos para comunidade.</description>
+    </item>
+    
+  </channel>
+</rss>

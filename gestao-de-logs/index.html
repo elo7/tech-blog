@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,logs,graylog,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Gestão de logs'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Gestão de logs'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Gestão de logs'>
+	<meta property='og:url' content='https://elo7.dev/gestao-de-logs/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Gestão de logs'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/gestao-de-logs/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/gestao-de-logs/'>
+	<title>Elo7 Tech - Gestão de logs</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Gestão de logs' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Gestão de logs</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2016-10-10 00:00:00 &#43;0000 UTC'
+    aria-label='10 de outubro de 2016'>
+    10/10/2016
+    <meta itemprop='datePublished' content='Mon Oct 10 2016 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Oct 10 2016 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2016-10-10'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='edsonmarquezani' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/edsonmarquezani/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/edsonmarquezani'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='edsonmarquezani'>@edsonmarquezani</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<h2 id="introdução">Introdução</h2>
+
+<p>Aqui no <strong>Elo7</strong> nós cuidamos de nossos logs assim como cuidamos das pessoas - com muito carinho. Como toda empresa de tecnologia, nós geramos centenas de milhões de linhas de log diariamente, a partir dos mais diversos tipos de sistemas. Isso implica imediatamente em um sério problema: como gerenciar esses dados, organizá-los, salvá-los e disponibilizá-los para consulta quando necessário? Além disso, como extrair significado deles em tempo real e dar visibilidade da saúde de nossos sistemas e dos eventos que ocorrem? É disso que vamos tratar nesse artigo.</p>
+
+<h2 id="logs-na-era-pré-cloud">Logs na era pré-Cloud</h2>
+
+<p>Logs sempre estiveram por aí, desde o momento em que o primeiro programa de computador foi criado. E, embora nem sempre tão estimados assim, eles são parte importantíssima de qualquer sistema, especialmente se você precisa diagnosticar um problema, coletar reatroativamente informações de uso ou execução, rastrear usuários, ou qualquer outra coisa que envolva saber o que seu programa fez de fato (e que você pode, ou não, ter previsto que ele faria).</p>
+
+<p>Até pouco tempo atrás, o formato predominante de armazenamento e consulta de logs era o velho e bom arquivo texto e o acesso a eles costumava ser direto, conectando-se no próprio servidor (ambientes <em>on-premise</em>) e lendo seu conteúdo. Com o surgimento da computação em nuvem, especialmente soluções de plataforma e software como serviço, onde não se tem um controle direto da infra-estrutura, esse modelo tornou-se pouco prático ou até mesmo inviável. Soluções de centralização de logs, embora, de fato, já fossem adotados em ambientes on-premises de grande escala, tornaram-se algo obrigatório para essa nova realidade da computação em nuvem, ou <em>Cloud</em>. Nessa mesma linha, o surgimento e adoção de <em>containers</em> como forma de entrega das aplicações só reforça essa necessidade.</p>
+
+<h2 id="servidores-de-logs">Servidores de logs</h2>
+
+<p>Como já mencionado, servidores de logs não são exatamente uma novidade. Alguns softwares bastante tradicionais como <em>Syslog</em>, <em>Syslog-ng</em>, <em>Rsyslog</em>, entre outros, vêm sendo usados como um centralizador de logs há muito anos, recebendo logs de múltiplas origens via rede ou localmente e gerenciando seu armazenamento, filtragem, repasse, entre outras coisas. Entretanto, esses sistemas, ainda assim, não atacam um aspecto muito importante do problema: <strong>a busca e visualização desses dados</strong>.</p>
+
+<p>Nos últimos anos, tendo como ponto de apoio outras soluções de armazenamento e indexação de informações (como ferramentas baseadas no popular motor de busca <a href="https://lucene.apache.org/core/">Apache Lucene</a>, por exemplo), algumas soluções mais completas de gerenciamento e visualização de logs surgiram, como <a href="https://www.splunk.com">Splunk</a> e <a href="https://www.graylog.org/">Graylog</a>, que é um &ldquo;concorrente&rdquo; <em>open-source</em> do primeiro. Outras soluções, como <a href="https://www.elastic.co/products/kibana">Kibana</a>, também são usadas para essa finalidade, embora não sejam focadas nesse tipo de aplicação prática.</p>
+
+<h2 id="logs-fora-de-série">Logs fora de série</h2>
+
+<h3 id="graylog">Graylog</h3>
+
+<p>Aqui no <strong>Elo7</strong>, nós usamos o <em>Graylog</em> como gerenciador de logs já há algum tempo, com sucesso. Trata-se de uma solução bastante completa, possuindo, entre outras, as seguintes funcionalidades:
+- suporte a ingestão de logs via rede em diversos protocolos (<em>inputs</em>);
+- interface gráfica para consulta dos dados (incluindo suporte a criação de <em>dashboards</em> customizados);
+- suporte a fluxos de filtragem e repasse dos eventos/logs (<em>streams</em> e <em>outputs</em>);
+- suporte a módulos (para <em>inputs</em>, <em>outputs</em>, entre outras coisas).</p>
+
+<p><img src="../images/gestao-de-logs-1.png" alt="Busca de logs no Graylog" /></p>
+
+<p>Além de gerar logs em arquivo, nossas aplicações enviam os logs diretamente para o <em>Graylog</em> em alguns dos formatos suportados. Aplicações internas tendem a usar o formato <em>GELF</em> (um protocolo próprio do <em>Graylog</em>), pois temos a possibilidade de fazer essa customização. Já para aplicações terceiras de mercado, o <em>syslog</em> (o protocolo, não o serviço) tende a ser um formato mais suportado, e portanto utilizado. Por exemplo, o servidor web <em>Nginx</em> possui suporte a envio de logs em formato <em>syslog</em> nativo, sem necessidade de qualquer customização. Uma vez entregues, esses logs ficam disponíveis aos usuários para consulta a partir do <em>Graylog</em> por um período de tempo fixo, pré-estipulado, em dias.</p>
+
+<p><img src="../images/gestao-de-logs-3.png" alt="Agregação de valores no Graylog" /></p>
+
+<h3 id="elastic-search-e-mongodb">Elastic Search e MongoDB</h3>
+
+<p>Embora gerencie toda a ingestão e visualização de dados, o <em>Graylog</em> não faz a persistência deles, delegando essa tarefa para um cluster de <a href="https://www.elastic.co/products/elasticsearch">Elastic Search</a>, que fica a cargo de armazenar, indexar e oferecer uma API de consulta para os dados, utilizado pelo <em>Graylog</em> para realizar as buscas dos usuários.</p>
+
+<p>O <em>Elastic Search</em> é um motor de busca baseado no já mencionado <em>Lucene</em>, que oferece funcionalidades de particionamento, replicação, agregação dos dados, entre diversas outras. O <em>Graylog</em> cuida de criar os índices nele, rotacioná-los e purgá-los, tudo de acordo com a configuração definida pelo administrador.</p>
+
+<p>O armazenamento de dados de configuração e <em>runtime</em> do <em>Graylog</em> ficam a cargo de um banco de dados <em>MongoDB</em> (que pode estar em modo <em>replicaset</em> ou <em>standalone</em>).</p>
+
+<h3 id="melhorias">Melhorias</h3>
+
+<p>Ainda que a solução acima nos atenda satisfatoriamente, ela possui alguns pontos fracos:
+- indisponibilidades do <em>Graylog</em> gera perda de eventos, que nunca mais são recuperados - os logs enviados durante o período de indisponibilidade são simplesmente perdidos;
+- &ldquo;sincronia&rdquo; no recebimento dos dados - como o <em>Graylog</em> não controla a ingestão dos dados, um aumento abrupto na geração de logs o sobrecarrega de uma só vez, podendo derrubar o serviço, mesmo que trate-se apenas de um pico e logo em seguida o volume de logs volte ao normal;
+- efemeridade dos dados - devido à necessidade de expirarmos os dados do <em>Graylog</em> (afinal, recursos <strong>têm</strong> limite), deixamos de ter um ponto central de armazenamento desses logs, voltando a depender dos velhos arquivos texto espalhados por diversas máquinas.</p>
+
+<h3 id="kafka">Kafka</h3>
+
+<p>Embora existam uma série de alternativas possíveis pra solução dos problemas citados acima, optamos pela inclusão de um elemento a mais nessa arquitetura, que resolve ou facilita a solução de todos eles de uma só vez - o servidor de tópicos <a href="http://kafka.apache.org/">Apache Kafka</a>.</p>
+
+<p><em>Kafka</em> é, segundo a definição oficial, um servidor de <em>commit-log</em> distribuído, que oferece funcionalidades de replicação e particionamento. Na versão mais recente da nossa arquitetura, serve como ponto central da ingestão de logs, de modo que as aplicações possam enviá-los para um único local, e múltiplas fontes possam consumi-los. Além disso, serve como <em>buffer</em> dos dados, evitando a perda em caso de indisponibilidade de outros componentes mais suscetíveis a falhas, como <em>Graylog</em> e <em>Elastic Search</em>. Os dados nele também expiram, mas garantimos que fiquem disponíveis por tempo suficiente para que os outros sitemas possam se recuperar e zerar o atraso no consumo.</p>
+
+<p>Dessa forma, isolamos a função de recebimento primário dos dados em um sistema altamente dedicado, conhecido por sua robustez, e que é totalmente independente do restante da arquitetura. O <em>Graylog</em> passa a consumir os dados que estão no Kafka, que são enviados pelas aplicações. Além disso, torna-se muito mais simples e eficiente escalar o serviço para suportar a carga necessária, uma vez que ele é bastante leve e simples, por ser altamente especializado. Ao <em>Graylog</em> é deixada apenas a função de enviar os dados para indexação e oferecer uma interface de consulta amigável aos usuários.</p>
+
+<p>Diferente do <em>Graylog</em>, os dados disponíveis no <em>Kafka</em> são facilmente &ldquo;legíveis&rdquo; por outras aplicações, o que nos permite plugar nessa arquitetura outros componentes como, por exemplo, um agente externo que faz o arquivamento desses logs em um outro tipo de <em>storage</em>, como o <a href="https://aws.amazon.com/pt/s3/">Amazon S3</a>. Foi exatamente dessa forma que atendemos uma das exigências do <a href="http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l12965.htm">Marco Civil da Internet</a>, que determina que as empresas preservem os dados de acesso e transações dos usuários por determinado período de tempo, para fornecer à Justiça, caso assim determinado. Assim como nesse caso, qualquer outro sistema que precise desses dados também poderia consumi-los de forma independente.</p>
+
+<p>O desenho conceitual final da arquitetura fica como abaixo:</p>
+
+<p><img src="../images/gestao-de-logs-2.png" alt="Arquitetura Logs Elo7" /></p>
+
+<p>E você, como gerencia seus logs? Deixe um comentário abaixo!</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/logs/'>logs</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/graylog/'>graylog</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fgestao-de-logs%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=gest%25C3%25A3o-de-logs&url=https%3a%2f%2felo7.dev%2fgestao-de-logs%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/gestao-de-logs/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/gestao-de-logs/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Logs são parte fundamental de qualquer aplicação, e sua importância é notada especialmente nos momentos mais difíceis. Neste artigo veremos como gerenciar esses dados de forma eficaz e versátil, provendo robustez e, ainda assim, facilitando o dia-a-dia de nossas colabores aqui no Elo7.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2016-10-10 00:00:00 \x2b0000 UTC:\/gestao-de-logs\/';
+            var disqus_url = 'https:\/\/elo7.dev\/gestao-de-logs\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

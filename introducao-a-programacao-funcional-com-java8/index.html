@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,java,java8,back-end,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Introdução à programação funcional com Java 8'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Introdução à programação funcional com Java 8'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Introdução à programação funcional com Java 8'>
+	<meta property='og:url' content='https://elo7.dev/introducao-a-programacao-funcional-com-java8/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Introdução à programação funcional com Java 8'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/introducao-a-programacao-funcional-com-java8/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/introducao-a-programacao-funcional-com-java8/'>
+	<title>Elo7 Tech - Introdução à programação funcional com Java 8</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Introdução à programação funcional com Java 8' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Introdução à programação funcional com Java 8</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2016-12-05 00:00:00 &#43;0000 UTC'
+    aria-label='05 de dezembro de 2016'>
+    05/12/2016
+    <meta itemprop='datePublished' content='Mon Dec 05 2016 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Dec 05 2016 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2016-12-05'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='diegocesar' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/diegocesar/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/diegocesar'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='diegocesar'>@diegocesar</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Disponível desde 2014, o Java 8 ainda deixa muitas dúvidas, principalmente quanto às novidades em relação à sua versão anterior e a incorporação de conceitos de programação funcional. Nesse post vou falar sobre as principais novidades do Java 8 relativas a esse aspecto. É importante observar que o Java 8 foi desenvolvido pensando na retrocompatibilidade, ou seja, aplicações desenvolvidas na versão 7 funcionarão perfeitamente nas versões mais atuais da linguagem. Esse é um dos pontos fortes do Java, que ajudam a garantir o seu sucesso.</p>
+
+<p>Veremos a seguir um pouco sobre as principais novidades implementadas no Java 8:</p>
+
+<h2 id="lambda-expressions">Lambda expressions</h2>
+
+<p>Uma das principais e mais comentadas mudanças do Java 8 são as <strong>Lambda Expressions</strong>, que trazem um pouco do paradigma da programação funcional para o Java. <a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html">Segundo a Oracle</a>, Lambda é uma forma clara e objetiva de representar um método usando apenas uma expressão.
+É importante lembrar que as Lambda Expressions só funcionarão para <strong>interfaces funcionais</strong>, que são interfaces que possuem apenas um método.</p>
+
+<p>Exemplo:</p>
+
+<p><strong>Sem lambda =/</strong></p>
+
+<pre><code class="language-java">interface Operator {
+	abstract float calc(float number1, float number2);
+}
+
+public class Calculator {
+	public static void main(String[] args) {
+		System.out.println(
+			calculate(15, 10, new Operator(){
+				public float calc(float num1, float num2) {
+					return num1 + num2;
+				}
+			})
+		);
+	}
+
+	public static float calculate(float number1, float number2, Operator operator) {
+		return operator.calc(number1, number2);
+	}
+}
+</code></pre>
+
+<p><strong>Com lambda =D</strong></p>
+
+<pre><code class="language-java">interface Operator {
+	abstract float calc(float number1, float number2);
+}
+
+public class Calculator {
+	public static void main(String[] args) {
+		System.out.println(
+			calculate(15, 10, (number1, number2) -&gt; { return number1 + number2; })
+		);
+	}
+
+	public static float calculate(float number1, float number2, Operator operator) {
+		return operator.calc(number1, number2);
+	}
+}
+</code></pre>
+
+<p>Resultado: <code>25.0</code></p>
+
+<h2 id="stream">Stream</h2>
+
+<p>Stream é uma abstração que permite processar dados de coleções de forma declarativa usando Lambda Expressions.
+Muitas das operações que eram feitas utlizando loops complexos podem ser substituidas por streams, desta forma simplificamos o código e ganhamos em performance.</p>
+
+<p>Os passos para fazer uso do Stream são:</p>
+
+<ol>
+<li><p>Obter o Stream a partir de uma Collection:</p>
+
+<pre><code class="language-java">	List&lt;Integer&gt; numbers = Arrays.asList(3, 2, 1, 3);
+	Stream stream = numbers.stream();
+</code></pre></li>
+
+<li><p>Adicionar uma ou mais operações no pipeline como ordenações, filtros etc. Por exemplo, podemos ordenar e remover os itens duplicados de uma lista:</p>
+
+<pre><code class="language-java">	stream = stream.sorted().distinct()
+</code></pre></li>
+
+<li><p>Invocar o método collect, responsável por processar o pipeline e retornar o resultado no formato solicitado.</p>
+
+<pre><code class="language-java">	List&lt;Integer&gt; result = stream.collect(Collectors.toList());
+</code></pre></li>
+</ol>
+
+<p>Veja algumas das operações que você pode executar em um Stream:</p>
+
+<h3 id="filter">filter</h3>
+
+<p>Filtra <em>strings</em> ou <em>streams</em> de acordo com a regra passada como parâmetro. No exemplo abaixo, filtra todas as &lsquo;<em>strings</em> não vazias&rsquo;.</p>
+
+<pre><code class="language-java">public void removeEmptyStrings() {
+	List&lt;String&gt; strings = Arrays.asList(&quot;abc&quot;, &quot;&quot;, &quot;bc&quot;, &quot;abcd&quot;, &quot;&quot;, &quot;xyz&quot;, &quot;foo&quot;);
+	strings = strings.stream().filter(var -&gt; !var.isEmpty()).collect(Collectors.toList());
+}
+</code></pre>
+
+<p>Resultado: <code>[abc, bc, abcd, xyz, foo]</code></p>
+
+<h3 id="sorted">sorted</h3>
+
+<p>Tem como função ordenar os itens de um <em>Stream</em>, como no seguinte exemplo:</p>
+
+<pre><code class="language-java">public void sortListAlphabetically() {
+	List&lt;String&gt; strings = Arrays.asList(&quot;z&quot;, &quot;x&quot;, &quot;a&quot;, &quot;c&quot;, &quot;b&quot;, &quot;y&quot;);
+	strings = strings.stream().sorted().collect(Collectors.toList());
+}
+</code></pre>
+
+<p>Resultado: <code>[a, b, c, x, y, z]</code></p>
+
+<p>Também é possível ordenar utilizando regras diferentes da natural:</p>
+
+<pre><code class="language-java">public void sortNumbersReversed() {
+	List&lt;Integer&gt; numbers = Arrays.asList(3, 5, 1, 4, 2);
+	numbers = numbers.stream().sorted((num1, num2) -&gt; num2 - num1).collect(Collectors.toList());
+}
+</code></pre>
+
+<p>Resultado: <code>[5, 4, 3, 2, 1]</code></p>
+
+<h3 id="map">map</h3>
+
+<p>O map aceita uma função como argumento que pode transformar cada um dos itens em um novo elemento:</p>
+
+<pre><code class="language-java">public void countStringCharacters() {
+	List&lt;String&gt; strings = Arrays.asList(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;);
+	List&lt;Integer&gt; totals = strings.stream().map(str -&gt; str.length()).collect(Collectors.toList());
+}
+</code></pre>
+
+<p>Resultado: <code>[3, 3, 5, 4]</code></p>
+
+<h3 id="reduce">reduce</h3>
+
+<p>O objetivo do reduce, como o nome sugere, é reduzir o número de itens de um <em>Stream</em> em um único valor. Para isso, ele recebe um argumento (opcional) que será utilizado como valor inicial do segundo argumento. O próximo argumento (obrigatório) é uma função que deve receber dois parâmetros, tratá-los da maneira desejada e devolver um resultado. Este resultado será o primeiro parâmetro desta mesma função na próxima iteração e o segundo parâmetro será o próximo elemento do <em>Stream</em>.</p>
+
+<p>Exemplo: Retornar a soma dos números pares de uma lista:</p>
+
+<pre><code class="language-java">public boolean isEven(int number) {
+	return number % 2 == 0;
+}
+
+public void sumEvenNumbers() {
+	List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+	Integer result = numbers.stream().reduce(0, (total, nextNumber) -&gt; isEven(nextNumber) ? total + nextNumber : total);
+}
+</code></pre>
+
+<p>Na primeira iteração, o nosso lambda recebe no parâmetro <code>total</code> o valor inicial <code>0</code>, que foi passado como argumento para o reduce, e o <code>nextNumber</code> recebe <code>1</code>, o primeiro valor da lista. Como <code>1</code> não é um número par, devolvemos o total atual: <code>0</code> para o reduce, que inicia a próxima iteração.
+No passo seguinte, o lambda recebe o total retornado pela iteração anterior: <code>0</code> e <code>2</code> como <code>nextNumber</code>. Como <code>2</code> é um número par ele será somado ao <code>total</code> e devolvido ao reduce, portanto na próxima iteração o <code>total</code> valerá <code>2</code>.</p>
+
+<p>Resultado: <code>12</code></p>
+
+<h3 id="distinct">distinct</h3>
+
+<p>O distinct devolve um Stream sem nenhuma entrada duplicada.</p>
+
+<pre><code class="language-java">public void distinctElements() {
+	List&lt;Integer&gt; numbers = Arrays.asList(1, 1, 2, 2, 3, 3, 4, 5);
+	numbers = numbers.stream().distinct().collect(Collectors.toList());
+}
+</code></pre>
+
+<p>Resultado: <code>[1, 2, 3, 4, 5]</code></p>
+
+<h2 id="parallel-stream">Parallel Stream</h2>
+
+<p>O resultado final do Parallel Stream é o mesmo do Stream. A diferença entre eles é que, neste caso, os dados são processados de forma paralela, em várias threads, diferentemente do segundo, que é serial. O processamento paralelo por si só não garante melhora de performance, exceto em casos onde exista um grande volume de dados e múltiplos núcleos de processamento.</p>
+
+<h2 id="default-methods">Default Methods</h2>
+
+<p>O Java 8 permite a implementação de métodos padrões em interfaces utilizando a palavra chave <strong>default</strong>.
+Os métodos default são úteis para incrementar interfaces sem quebrar as classes que as implementam.</p>
+
+<pre><code class="language-java">interface Vehicle {
+	default void turnOn() {
+		System.out.println(&quot;The vehicle is turned on!&quot;);
+	}
+}
+
+class Car implements Vehicle { }
+
+public class DefaultTest {
+	public static void main (String[] args) {
+		Car myCar = new Car();
+		myCar.turnOn();
+	}
+}
+</code></pre>
+
+<p>Resultado: <code>The vehicle is turned on</code></p>
+
+<h2 id="optionals">Optionals</h2>
+
+<p>Optional é um <em>wrapper</em> ou <em>container</em> que pode conter ou não um valor. Esta classe contém métodos para verificar se um valor está presente ou não e recuperar o seu valor. Os métodos mais comuns são: <strong>of</strong>, <strong>isPresent</strong> e <strong>get</strong>.
+Optionals são úteis para evitar problemas com NullPointerException, pois deixam claro que um argumento ou retorno de método podem ou não ter um valor presente. Se antigamente ficava a cargo do programador checar se o valor é <code>null</code>, com Optionals ele praticamente fica obrigado a fazer esta checagem.</p>
+
+<pre><code class="language-java">	// Cria um Optional a partir do número 5
+	Optional&lt;Integer&gt; myOptional = Optional.of(5);
+
+	// Verifica se existe um valor definido em myOptional
+	if (myOptional.isPresent()) {
+		// Recupera o valor de myOptional e o exibe
+		System.out.println(myOptional.get());
+	}
+</code></pre>
+
+<p>Resultado: 5</p>
+
+<p>Essas são apenas algumas das principais novidades do Java 8. De acordo com os exemplos dados, é possível notar que ganhamos em produtividade quando utilizamos as novidades apresentadas. No caso da aplicação de streams, ainda ganhamos em performance, já que o processamento é executado através de um pipeline, seja este serial ou paralelo.</p>
+
+<p><a href="http://www.oracle.com/technetwork/java/javase/8-whats-new-2157071.html">Você encontra a lista completa de novas implementações no site da Oracle</a>. Consulte também a <a href="http://www.oracle.com/technetwork/java/javase/documentation/jdk8-doc-downloads-2133158.html">documentação do Java 8</a> para obter a referência completa da linguagem.</p>
+
+<p>O que achou das novidades? Você utiliza alguma novidade do Java 8 que não foi comentada aqui?</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/java/'>java</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/java8/'>java8</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/back-end/'>back-end</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fintroducao-a-programacao-funcional-com-java8%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=introdu%25C3%25A7%25C3%25A3o-%25C3%25A0-programa%25C3%25A7%25C3%25A3o-funcional-com-java-8&url=https%3a%2f%2felo7.dev%2fintroducao-a-programacao-funcional-com-java8%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/introducao-a-programacao-funcional-com-java8/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/introducao-a-programacao-funcional-com-java8/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Disponível desde 2014, o Java 8 ainda deixa muitas dúvidas, principalmente quanto às novidades em relação à sua versão anterior. Nesse post vou falar sobre as principais novidades do Java 8.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2016-12-05 00:00:00 \x2b0000 UTC:\/introducao-a-programacao-funcional-com-java8\/';
+            var disqus_url = 'https:\/\/elo7.dev\/introducao-a-programacao-funcional-com-java8\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

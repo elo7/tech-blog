@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring Cloud Config on Tech Blog Elo7</title>
+    <link>https://elo7.dev/tags/spring-cloud-config/</link>
+    <description>Recent content in Spring Cloud Config on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 16 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://elo7.dev/tags/spring-cloud-config/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Properties dinâmicos com Spring Cloud Config</title>
+      <link>https://elo7.dev/spring-cloud-config/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/spring-cloud-config/</guid>
+      <description>O problema existente hoje&amp;hellip; Bom, primeiramente posso dizer que pensei nesse tema por já ter presenciado, algumas vezes, problemas em ambiente de produção, devido a configurações com valores incorretos ou mesmo falta delas por esquecimento.
+Agora imagine isso ocorrendo no final de um deploy no ambiente de produção, e pior, com os arquivos de configurações (no caso de aplicações Java, normalmente arquivos properties) dentro da aplicação. Um novo deploy teria que ser feito em N máquinas.</description>
+    </item>
+    
+  </channel>
+</rss>

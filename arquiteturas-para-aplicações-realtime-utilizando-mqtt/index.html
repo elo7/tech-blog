@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,mqtt,websocket,arquitetura,polling,http,pub-sub,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Arquiteturas para aplicações realtime utilizando MQTT'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Arquiteturas para aplicações realtime utilizando MQTT'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Arquiteturas para aplicações realtime utilizando MQTT'>
+	<meta property='og:url' content='https://elo7.dev/arquiteturas-para-aplica%C3%A7%C3%B5es-realtime-utilizando-mqtt/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Arquiteturas para aplicações realtime utilizando MQTT'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/arquiteturas-para-aplica%C3%A7%C3%B5es-realtime-utilizando-mqtt/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/arquiteturas-para-aplica%C3%A7%C3%B5es-realtime-utilizando-mqtt/'>
+	<title>Elo7 Tech - Arquiteturas para aplicações realtime utilizando MQTT</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Arquiteturas para aplicações realtime utilizando MQTT' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Arquiteturas para aplicações realtime utilizando MQTT</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2017-12-04 00:00:00 &#43;0000 UTC'
+    aria-label='04 de dezembro de 2017'>
+    04/12/2017
+    <meta itemprop='datePublished' content='Mon Dec 04 2017 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Dec 04 2017 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2017-12-04'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='cristianoperez' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/cristianoperez/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/cristianoperez'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='cristianoperez'>@cristianoperez</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Neste post vamos explicar alguns modelos arquiteturais para desenvolver um chat em <em>realtime</em> que deve atender às seguintes especificações:
+* Mensagem 1-N: apenas o usuário que recebeu a mensagem deve receber a notificação de nova mensagem;
+* <em>Realtime</em>: o chat do destinatário deve ser atualizado sem nenhuma ação por parte do usuário;
+* <em>Lightspeed</em>: todo o processo de envio e recebimento deve ser rápido e consumir o mínimo possível de recursos de todos os componentes (remetente, destinatário e servidor).</p>
+
+<p>Quando temos como objetivo o desenvolvimento de uma aplicação <em>realtime</em> com essas características, com rápidas pesquisas (ou no caso de um leitor mais experiente, que verá essas opções como óbvias), podemos encontrar alguns modelos arquiteturais, como <em>Short Polling</em>, <em>Long Polling</em>, <em>WebSocket</em>. A seguir discutiremos as vantagens e desvantagens de cada um:</p>
+
+<h1 id="short-polling">Short Polling</h1>
+
+<p>Nesse modelo, o cliente faz requisições periódicas para o servidor. Entre as opções, é o mais fácil e rápido de ser implementado.</p>
+
+<p>Sua simplicidade pode ser vista nesse trecho de pseudo-código que simula requisições para buscar uma mensagem em uma conversa:</p>
+
+<pre><code>while (true) {
+    fetch(&quot;http://localhost:8080/conversa/1/messages&quot;).then(msgs =&gt; {
+        // trata a lista de novas mensagens
+    });
+}
+</code></pre>
+
+<p>Simples, fácil e rápido! Porém gera um enorme <em>overhead</em>, tanto no servidor como no cliente, já que o cliente faz requisições ao servidor mesmo que este não tenha nada de novo, o que acaba degradando a performance!</p>
+
+<p>Imagine agora o cenário onde cerca de 10 mil usuários estão conectados à sua aplicação. Supondo que cada usuário possua em média 3 conversas abertas, teremos o equivalente a 30 mil requisições por segundo sendo enviadas ao servidor (ou 1.8 milhões de requisições por minuto), sendo que a maioria delas não resultará em nada. Assim, no cenário descrito e com o uso de <em>Short Polling</em>, precisaremos contar com muitos recursos para atender a essa enorme quantidade de requisições ou nossos servidores ficarão indisponíveis (uma espécie de ataque DDoS, só que a nós mesmos).</p>
+
+<h1 id="long-polling">Long Polling</h1>
+
+<p>É muito parecido com o Short Polling, porém nesse cenário o servidor, em vez de retornar respostas vazias às requisições quando não há nada novo, &ldquo;segura&rdquo; cada conexão, mantendo-a aberta até efetivamente ter algo novo. Apesar de funcionar muito bem, e resultar em um número menor de requisições, você pode esgotar rapidamente os recursos (CPU/memória/threads) do servidor.</p>
+
+<h1 id="websocket-http">WebSocket + HTTP</h1>
+
+<p>Como o protocolo HTTP 1.X é stateless e de via única, fica difícil para o servidor informar o cliente que um determinado evento ocorreu e é necessário um refresh parcial ou em toda a página. Para isso existe o protocolo <em>WebSocket</em>, que resolve esse problema estabelecendo uma conexão entre cliente e o servidor. O <em>WebSocket</em> define como conectar, mas não como enviar ou receber mensagens (não é um protocolo de transporte). Então, podemos usar o protocolo HTTP para mandar mensagens por meio de uma conexão <em>WebSocket</em>.</p>
+
+<p>Assim, o servidor consegue comunicar-se com o <em>browser</em>, e o <em>browser</em> reagir sem intervenção do usuário a cada mensagem enviada pelo servidor.</p>
+
+<p>Porém, no protocolo HTTP temos um <em>overhead</em> de headers.
+<img src="../images/mqtt-6.png" alt="Lista com mais de vinte cabeçalhos enviados e recebidos numa requisição HTTP" />
+Bastante coisa não!? Um dos requisitos para desenvolvermos aplicações realtime é que elas sejam <em>Lightspeed</em>. Esse <em>overhead</em>, portanto, é prejudicial, já que aumenta consideravelmente o tamanho da mensagem e consome mais banda e bateria que o necessário (principalmente se considerarmos o desenvolvimento de <em>mobile apps</em>). Segundo um estudo do Google, a maior parte das aplicações transporta nos headers de suas <em>requests</em> cerca de 200 <em>bytes</em> à 2KB (na média esse valor mantém-se entre 700 ~ 800 <em>bytes</em>)</p>
+
+<pre><code class="language-bash">~ $ curl -s -w \%{size_header} -o /dev/null www.elo7.com.br
+438 bytes
+</code></pre>
+
+<h1 id="websocket-mqtt">WebSocket + MQTT</h1>
+
+<p><a href="http://mqtt.org/">MQTT</a> é um protocolo de transporte que utiliza o <em>pattern</em> <strong>publisher/subscriber</strong>. É leve, aberto, simples e desenhado para ser fácil de implementar, e essas características fazem dele a melhor escolha quando se trata de comunicação <a href="https://pt.wikipedia.org/wiki/Machine_to_Machine">Machine to Machine</a> (M2M) e <a href="https://pt.wikipedia.org/wiki/Internet_das_coisas">Internet das Coisas</a> (IoT, do termo em inglês Internet of Things).</p>
+
+<p>Essa tecnologia foi criada em 1999 por um engenheiro da IBM, com o intuito de conectar dutos de óleo a satélites, com o objetivo de enviar métricas, possibilitando gerenciar remotamente esses dutos. Os requisitos para o desenvolvimento utilizando o protocolo MQTT dizem que ele deve ser e/ou ter:
+* Simples de implementar;
+* Garantia de entrega (QoS);
+* Leve e utilizar a banda eficientemente;
+* <em>Data Agnostic</em> (dados que podem ser enviados e recebidos independente da linguagem);
+* <em>Continuous Session Awareness</em> (o estado da sessão deve ser preservado no <em>disconnect/reconnect</em>);
+* <em>Pub/Sub</em>.</p>
+
+<p>O MQTT resolve o problema do <em>overhead</em> de headers que temos no HTTP. É possível enviar uma mensagem com um header de apenas 2 <em>bytes</em>. Abaixo temos o formato da requisição:</p>
+
+<p><img src="../images/mqtt-7.jpg" alt="Esquema do cabeçalho de uma mensagem no protocolo MQTT" /></p>
+
+<p>Na tabela abaixo temos uma comparação entre MQTT e HTTP (<a href="https://pt.slideshare.net/steve.liang/mqtt-and-sensorthings-api-mqtt-extension">fonte</a>):</p>
+
+<table>
+<thead>
+<tr>
+<th>Cenário</th>
+<th>HTTP</th>
+<th>MQTT</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>GET</td>
+<td>302 <em>bytes</em></td>
+<td>69 bytes (~4x)</td>
+</tr>
+
+<tr>
+<td>POST</td>
+<td>320 <em>bytes</em></td>
+<td>47 <em>bytes</em> (~7x)</td>
+</tr>
+
+<tr>
+<td>GET 100x</td>
+<td>12600 <em>bytes</em></td>
+<td>2445 <em>bytes</em> (~5x)</td>
+</tr>
+
+<tr>
+<td>POST 100x</td>
+<td>14100 <em>bytes</em></td>
+<td>2126 <em>bytes</em> (~7x)</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="pub-sub">Pub/Sub</h2>
+
+<p>Uma das vantagens do <em>Pub/Sub</em> é o desacoplamento, uma vez que o <em>publisher</em> não precisa saber para quais ou quantos clientes uma mensagem será enviada. Isso é possível graças ao <em>MQTT Broker</em>. O <em>broker</em> filtra as mensagens baseado em tópicos. Cada cliente pode se inscrever em um ou mais tópicos. Quando uma mensagem é enviada, ela é destinada a um tópico específico, e todos os clientes inscritos no tópico de destino recebem a mensagem.</p>
+
+<p><img src="../images/mqtt-8.png" alt="Esquema de funcionamento da arquitetura *pub/sub*" /></p>
+
+<h2 id="broker-e-cliente">Broker e Cliente</h2>
+
+<h3 id="broker">Broker</h3>
+
+<p>É o coração e o cérebro do MQTT. É o responsável por receber e enviar as mensagens para os clientes corretos, pela garantia de entrega (QoS) e session. Algumas implementações têm <em>features</em> adicionais como segurança, <em>clusterização</em> e suporte a <em>WebSocket</em>.</p>
+
+<p><a href="https://github.com/mqtt/mqtt.github.io/wiki/brokers">Lista de <em>brokers</em></a></p>
+
+<h3 id="cliente">Cliente</h3>
+
+<p>É a <em>lib</em> que vai ficar dentro da sua aplicação, é a responsável por se conectar, enviar e receber as mensagens do <em>broker</em>. Os clientes estão <a href="https://github.com/mqtt/mqtt.github.io/wiki/libraries">disponível em diversas linguagens e frameworks</a> como Java, Javascript, .NET, C++, Go, Objective-C, Swift, etc. Isso quer dizer que tanto aplicações web até pequenos dispositivos IoT (como sensores de temperatura) podem enviar e receber mensagens. O cliente se conecta com o <em>broker</em> enviando uma mensagem de <code>CONNECT</code> e o <em>broker</em> deve responder com <code>CONNACK</code>. Após a conexão ser estabelecida, ela é mantida aberta até o cliente se desconectar ou perder a conexão.</p>
+
+<h3 id="quality-of-service-qos">Quality of Service (QoS)</h3>
+
+<p>QoS é o nível de garantia de entrega das mensagens entre cliente e servidor.</p>
+
+<p>Existem 3 níveis:</p>
+
+<p>QoS 0 - <em>At most once</em> (no máximo uma vez)</p>
+
+<p><img src="../images/mqtt-1.png" alt="Exemplo de funcionamento do nível at most once de garantia de entrega das mensagens pelo MQTT" /></p>
+
+<p>Garante o menor nível de entrega, também chamado de <em>fire and forget</em>. É o mais rápido e consome menos banda, mas representa a menor garantia de entrega entre todos. Seu ciclo de vida é composto apenas pelo envio de uma mensagem pelo cliente ao <em>broker</em>.</p>
+
+<p>QoS 1 - <em>At least once</em> (ao menos uma vez)</p>
+
+<p><img src="../images/mqtt-2.png" alt="Exemplo de funcionamento do nível at least once de garantia de entrega das mensagens pelo MQTT" /></p>
+
+<p>Garante que a mensagem será enviada pelo menos uma vez ao <em>broker</em>. Após a mensagem ser enviada, o cliente guarda essa mensagem até receber o <code>PUBACK</code> do <em>broker</em>, Caso o <code>PUBACK</code> não seja recebido em um determinado tempo, o cliente envia outro <code>PUBLISH</code>. Pelo lado do broker, quando ele recebe um <code>PUBLISH</code> com QoS 1, a mensagem é processada de imediato enviando para todos os <code>SUBs</code> e respondendo para o cliente com o <code>PUBACK</code>.
+O cliente utiliza o <code>packetId</code> que é retornado no <code>PUBACK</code> para fazer a associação entre <code>PUBLISH</code> e <code>PUBACK</code>.</p>
+
+<p>QoS 2 - <em>Exactly once</em> (exatamente uma vez)</p>
+
+<p><img src="../images/mqtt-3.png" alt="Exemplo de funcionamento do nível exactly once de garantia de entrega das mensagens pelo MQTT" /></p>
+
+<p>Garante que cada mensagem é recebida pelo menos uma vez pelo destinatário. Dos três tipos descritos é o que possui a maior garantia de entrega, porém, é o mais lento.</p>
+
+<p>Devemos ter em mente que, quanto maior o nível de QoS, mais trocas de mensagens são feitas. Isso afeta o tempo que a mensagem leva para ser efetivamente entregue, e pode levar a um aumento do uso da banda de rede e bateria em dispositivos móveis.</p>
+
+<h2 id="arquitetura-realtime-do-elo7">Arquitetura realtime do Elo7</h2>
+
+<p><img src="../images/mqtt-4.png" alt="Arquitetura mqtt elo7" /></p>
+
+<p>A imagem acima é um resumo de como utilizamos o MQTT + <em>WebSocket</em> no Elo7. Podemos separar o que acontece nas seguintes etapas:</p>
+
+<ul>
+<li>O comprador envia uma mensagem para o vendedor</li>
+</ul>
+
+<p>Quando uma mensagem é enviada, várias operações secundárias são executadas em segundo plano (envio de métricas, captura de eventos, push notifications, etc) a fim de não comprometer a operação principal, que é persistir a mensagem.
+Realizamos essas operações de maneira assíncrona, enfileirando uma mensagem no <a href="https://aws.amazon.com/pt/sqs/">SQS</a>. O <em>mqtt-publisher</em> é o <em>worker</em> responsável pelo processamento das mensagens da fila, publicando-as no tópico adequado no <em>broker MQTT</em> (no nosso caso, utilizamos o <a href="https://mosquitto.org/">Mosquitto</a>).</p>
+
+<ul>
+<li>O vendedor recebe a mensagem</li>
+</ul>
+
+<p>Ao receber uma mensagem, o <em>client</em> do vendedor se conecta ao <em>Mosquitto</em> (via <em>WebSocket</em>) e se inscreve (sub) no tópico daquela conversa. No browser, isso é feito utilizando o <em>client</em> MQTT <a href="https://eclipse.org/paho/">pahoJS</a>. Dessa forma, ao receber uma nova mensagem do comprador, a conversa é atualizada sem nenhuma interação (ex: atualização da página) por parte do vendedor.</p>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<p>Foi demonstrado que existem certas vantagens ao se adotar o MQTT com <em>WebSocket</em>, porém nem tudo são unicórnios e arco-íris. Os custos para ter <em>realtime</em> são maiores em todos os aspectos (infra, manutenção, tempo de desenvolvimento e complexidade).</p>
+
+<p>Caso decida por MQTT, é necessário ter um bom conhecimento do <em>broker</em> escolhido, conhecer suas vantagens e desvantagens em relação aos outros, como irá escalar sua aplicação no futuro, como trabalhar com <em>brokers</em> distribuídos e também segurança (afinal, não queremos que o usuário tenha acesso às mensagens que não são destinadas a ele).</p>
+
+<p>Enfim, esperamos que essa análise possa ajudar os leitores na escolha da arquitetura ideal. Lembrando que essa escolha depende de muitos outros fatores, como análise do negócio, retorno do investimento, se a funcionalidade realmente precisa ser <em>realtime</em> e mais características internas da empresa/time envolvido.</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/mqtt/'>mqtt</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/websocket/'>websocket</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/arquitetura/'>arquitetura</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/polling/'>polling</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/http/'>http</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/pub-sub/'>pub-sub</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2farquiteturas-para-aplica%25C3%25A7%25C3%25B5es-realtime-utilizando-mqtt%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=arquiteturas-para-aplica%25C3%25A7%25C3%25B5es-realtime-utilizando-mqtt&url=https%3a%2f%2felo7.dev%2farquiteturas-para-aplica%25C3%25A7%25C3%25B5es-realtime-utilizando-mqtt%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/arquiteturas-para-aplica%C3%A7%C3%B5es-realtime-utilizando-mqtt/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/arquiteturas-para-aplica%C3%A7%C3%B5es-realtime-utilizando-mqtt/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Vamos descrever os diferentes tipos de arquiteturas para a criação de aplicações realtime, como Short Polling, Long Polling, WebSocket &#43; HTTP e suas vantagens e desvantagens em relação a WebSocket &#43; MQTT usada no Talk7.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2017-12-04 00:00:00 \x2b0000 UTC:\/arquiteturas-para-aplica%C3%A7%C3%B5es-realtime-utilizando-mqtt\/';
+            var disqus_url = 'https:\/\/elo7.dev\/arquiteturas-para-aplica%C3%A7%C3%B5es-realtime-utilizando-mqtt\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

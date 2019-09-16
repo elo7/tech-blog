@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,agile,cultura,metodologias,processos,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Metodologia ágil no Elo7'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Metodologia ágil no Elo7'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Metodologia ágil no Elo7'>
+	<meta property='og:url' content='https://elo7.dev/metodologia-agil/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Metodologia ágil no Elo7'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/metodologia-agil/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/metodologia-agil/'>
+	<title>Elo7 Tech - Metodologia ágil no Elo7</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Metodologia ágil no Elo7' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Metodologia ágil no Elo7</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2014-11-17 00:00:00 &#43;0000 UTC'
+    aria-label='17 de novembro de 2014'>
+    17/11/2014
+    <meta itemprop='datePublished' content='Mon Nov 17 2014 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Nov 17 2014 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2014-11-17'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='gustavomaia' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/gustavomaia/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/gustavomaia'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='gustavomaia'>@gustavomaia</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        <p>Atualmente no mercado existem diversas metodologias de desenvolvimento de software, como:  <a href="http://en.wikipedia.org/wiki/Rational_Unified_Process">RUP</a> (Processo unificado da Rational), <a href="http://en.wikipedia.org/wiki/Extreme_programming">XP</a> (Programação extrema), <a href="http://en.wikipedia.org/wiki/Scrum_(software_development)">Scrum</a> e <a href="http://en.wikipedia.org/wiki/Kanban_(development)">Kanban</a>, entre outras. Essas metodologias seguiram como uma evolução do modelo de desenvolvimento iterativo e incremental.</p>
+
+<p>Todas essas metodologias focam no <a href="http://agilemanifesto.org/iso/ptbr/">desenvolvimento ágil</a> que é um conjunto de técnicas utilizadas no desenvolvimento de software. A idéia de desenvolvimento ágil é simples:</p>
+
+<p>Valorizar indivíduos e a interação entre eles, entregar software funcionando, responder rapidamente a mudanças e ter colaboração entre todas as partes envolvidas norteando nossas decisões.</p>
+
+<p>A idéia aqui não é focar necessariamente em adicionar um novo conjunto significativo de funcionalidades, mas sim focar em pequenas histórias que entreguem valor para os nossos usuários.</p>
+
+<p>As principais características dos métodos ágeis são:</p>
+
+<ol>
+<li>Ciclo de vida iterativo, as fases vão se repetindo a cada ciclo entregando versões intermediárias, até atingir uma versão final do software;</li>
+<li>O cliente/usuário é a peça chave no projeto ele tem uma participação constante detalhando e aprovando os requisitos;</li>
+<li>A burocracia com a documentação é menor;</li>
+<li>Os profissionais envolvidos tem liberdade em desenvolver as tarefas;</li>
+<li>Em outros modelos as mudanças só acontecem depois da versão final do software, na metodologia ágil, as mudanças podem acontecer com frequência antes de entregar a versão final;</li>
+<li>Foco na simplicidade.</li>
+</ol>
+
+<p>Umas das metodologias mais populares é o Scrum, e aqui no <strong>Elo7</strong> aplicamos uma adaptação do Scrum em nosso dia-a-dia. Temos pequenos ciclos onde entregamos vários releases, estes ciclos são chamados de sprints no Scrum. No nosso caso não temos a entrega de um produto final, já que o nosso marketplace está em constante evolução. O que fazemos é entregar diariamente vários releases com melhorias no produto. O nosso ciclo está organizado da seguinte forma:</p>
+
+<p><img src="../images/metodologia-agil-1.png" alt="Metodologia Ágil" /></p>
+
+<p><strong>1 – Seleção das histórias para o Sprint:</strong> Ao início de cada sprint, o nosso PO (Product Owner, pessoa responsável pelas decisões que agregam valor ao nosso produto) define as histórias que entrarão em nosso sprint de acordo com o planejamento estratégico.</p>
+
+<p><strong>2 – Divisão das historias por times:</strong> Antes do planejamento por time, o PO já com as histórias selecionadas realiza a divisão e define a prioridade com o líder de cada time. No Elo7 nossos times são divididos por responsabilidades: busca; integração com serviços externos; internacionalização; front-end; API interna; operações e infraestrutura; e uma equipe especial de arquitetura, que funciona horizontalmente. Cada time leva um nome de uma casa de Game of Thrones.</p>
+
+<p><img src="../images/metodologia-agil-2.png" alt="Organograma Simplificado" /></p>
+
+<p><strong>3 – Planejamento da sprint por time:</strong> Cada time começa seu planning sabendo quais histórias irão atacar. Durante o planning as histórias são discutidas e votadas &ldquo;uma a uma&rdquo; utilizando planning poker. Primeiro definimos qual história será votada, então, é aberta uma contagem para que cada integrante da equipe mostre a pontuação que acredita ser necessária para realizar a história. Antes de definir o valor da mesma, caso haja divergência de pontos durante a votação, é aberto um debate entre quem deu o menor e o maior valor e, após o consenso entre ambos, uma nova votação é realizada. Uma vantagem da utilização do planning poker é minimizar a influência na decisão entre participantes.</p>
+
+<p><strong>4 – Desenvolvimento, revisão de código, testes:</strong> Uma das técnicas do desenvolvimento ágil é a programação em par. Aqui no Elo7 incentivamos a programação em par sempre que necessário. Para acompanhar o andamento de nossas tarefas realizamos reuniões diárias, onde cada integrante fala o que foi realizado no dia anterior e o que planeja trabalhar durante o dia. Utilizamos uma branch da master para desenvolver cada história e, finalizada a história, é feito um pull-request para que outra dupla possa fazer o code-review. A idéia é: quem desenvolveu a história não revisa o código, assim a história passa por quatro mãos e evita &ldquo;testes viciados&rdquo;.</p>
+
+<p><img src="../images/metodologia-agil-3.png" alt="Daily entre os times" />
+<img src="../images/metodologia-agil-4.png" alt="Integrantes de um time durante o pair prigramming" /></p>
+
+<p><strong>5 – Deploy: </strong>Em nosso ambiente utilizamos o git para versionamento de arquivos, quando &ldquo;mergeamos&rdquo; as histórias aprovadas pelo code-review, se inicia o processo de testes de aceitação em uma cópia do nosso ambiente de produção (integration) . Quando todos os testes são aprovados, iniciamos o deploy em nosso ambiente de produção que automaticamente aplica as alterações em todos os servidores, gerando uma nova versão do software.</p>
+
+<p><img src="../images/metodologia-agil-5.png" alt="Testes de aceitação" /></p>
+
+<p><strong>6 – Monitoração:</strong> Com a história em produção, acompanhamos os relatórios do marketplace para verificar se houve algum  impacto, positivo ou negativo. Na realidade esta fase se estende em todo o Sprint, todos os times acompanham as ferramentas que utilizamos para monitoramento diário.</p>
+
+<p><img src="../images/metodologia-agil-6.png" alt="Exemplo de um gráfico do New Relic" /></p>
+
+<p><strong>7 – Retrospectiva:</strong> Ao final de cada sprint, para identificar os pontos positivos e negativos realizamos uma retrospectiva. Cada time realiza uma &ldquo;retrô&rdquo; a sua maneira, algumas vezes ocorre o intercâmbio entre líderes, assim, mantemos uma dinâmica diferente a cada reunião. O principal foco é: integrar os times, avaliar o nível de satisfação, identificar perfis, otimizar os processos e &ldquo;lavar a roupa suja&rdquo;. Em relação aos problemas, também são discutidas possíveis soluções que podemos abordar em sprints futuras</p>
+
+<p>Fellyph Cintra e Gustavo Maia.</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/agile/'>agile</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/cultura/'>cultura</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/metodologias/'>metodologias</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/processos/'>processos</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fmetodologia-agil%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=metodologia-%25C3%25A1gil-no-elo7&url=https%3a%2f%2felo7.dev%2fmetodologia-agil%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/metodologia-agil/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/metodologia-agil/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Atualmente no mercado existem diversas metodologias de desenvolvimento de software, como:  RUP (Processo unificado da Rational), XP (Programação extrema), Scrum...'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2014-11-17 00:00:00 \x2b0000 UTC:\/metodologia-agil\/';
+            var disqus_url = 'https:\/\/elo7.dev\/metodologia-agil\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

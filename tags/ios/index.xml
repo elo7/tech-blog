@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ios on Tech Blog Elo7</title>
+    <link>https://elo7.dev/tags/ios/</link>
+    <description>Recent content in Ios on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 20 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://elo7.dev/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Desenvolvedor Mobile Júnior/Pleno</title>
+      <link>https://elo7.dev/vagas-desenvolverdor-mobile/</link>
+      <pubDate>Mon, 20 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/vagas-desenvolverdor-mobile/</guid>
+      <description>O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos.
+Utilizamos práticas ágeis de desenvolvimento e gostamos de ter um ambiente bem descontraído. O nosso time de aplicativos nativos trabalha principalmente no desenvolvimento dos nossos apps Android e iOS do Elo7 e do Talk7 utilizando as tecnologias Java, Objective-C, Swift e React Native. Somos um time Fullstack participando do desenvolvimento de APIs e de WebView utilizadas em nossos apps híbridos.</description>
+    </item>
+    
+    <item>
+      <title>Minimizando código duplicado com React Native no Elo7</title>
+      <link>https://elo7.dev/minimizando-codigo-duplicado-com-react-native/</link>
+      <pubDate>Mon, 16 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/minimizando-codigo-duplicado-com-react-native/</guid>
+      <description>Minimizando código duplicado com React Native no Elo7 Início Quando entrei no Elo7, estávamos engatinhando no mundo dos aplicativos, tínhamos uma versão apenas para o Android, que era basicamente um wrapper de um conjunto de webviews, com um drawer menu nativo. Olhando o roadmap, percebemos que logo atacaríamos uma versão mais nativa (sem tantos webviews) para o iOS e Android. O tempo foi passando e logo as versões mais nativas foram amadurecendo.</description>
+    </item>
+    
+    <item>
+      <title>Slides do evento Software Fora de série - #elo7tech</title>
+      <link>https://elo7.dev/slides-evento-software-fora-de-serie/</link>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/slides-evento-software-fora-de-serie/</guid>
+      <description>Todos os slides do evento Software Fora de Série:
+Carlos Curioni e David Robert Talk7 - Da concepção ao desenvolvimento de um aplicativo de mensagens 
+Mario Amaral A arquitetura de um chat integrado ao checkout 
+Alexandre Gama Back-end de extrema performance 
+Rafael Monteiro Automatizando a implantação e operação de aplicações conteinerizadas no AWS 
+Fernanda Bernardo e Andre Barro A influência dos usuários no desenvolvimento do Talk7</description>
+    </item>
+    
+    <item>
+      <title>iOS - Vamos falar um pouco de arquitetura</title>
+      <link>https://elo7.dev/ios-arquitetura/</link>
+      <pubDate>Wed, 27 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/ios-arquitetura/</guid>
+      <description>Fala galera, tudo tranquilo? Me chamo Abner Terribili, sou novo no time de Engenharia aqui na Elo7, e atualmente estou no time de mobile. Espero ter boas participações aqui no blog. 🙂
+Nós, aqui na Elo7, acabamos de tirar do forno nossa primeira versão do aplicativo para iOS (iPhones) para compradores.
+E hoje, vou abrir para vocês um pouco da arquitetura que decidimos adotar, claro, elencando alguns dos motivos para determinadas decisões.</description>
+    </item>
+    
+  </channel>
+</rss>

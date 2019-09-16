@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Semantica on Tech Blog Elo7</title>
+    <link>https://elo7.dev/tags/semantica/</link>
+    <description>Recent content in Semantica on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 12 Jun 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://elo7.dev/tags/semantica/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>As &#34;states&#34; e &#34;properties&#34; do atributo role no WAI-ARIA</title>
+      <link>https://elo7.dev/wai-aria-states-properties/</link>
+      <pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/wai-aria-states-properties/</guid>
+      <description>Neste terceiro post da série sobre WAI-ARIA, trataremos sobre os estados (states) e propriedades (properties) das roles. Caso queira saber mais, fizemos um apanhado geral introdutório sobre o WAI-ARIA e sobre o seu papel no html.
+Os termos states e properties referem-se a características semelhantes. Ambos fornecem informações específicas sobre um objeto, e ambos fazem parte da definição da natureza das roles. São aplicados como atributos de marcação de arias prefixados.</description>
+    </item>
+    
+    <item>
+      <title>Os papéis do WAI-ARIA no HTML</title>
+      <link>https://elo7.dev/wai-aria-roles/</link>
+      <pubDate>Mon, 17 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/wai-aria-roles/</guid>
+      <description>O ARIA se divide semanticamente em três partes: seus papéis (roles), estados (states) e suas propriedades (properties). As roles (papéis) descrevem widgets que não estão disponíveis no HTML 4, como sliders, barras de menus, guias e diálogos. As properties (propriedades) descrevem características desses widgets, como se eles são arrastáveis, têm um elemento necessário ou têm um popup associado a eles. Os states (estados) descrevem o estado de interação atual de um elemento, informando a tecnologia de assistência se ela estiver ocupada, desativada, selecionada ou ocultada.</description>
+    </item>
+    
+    <item>
+      <title>Um apanhado geral sobre o WAI-ARIA</title>
+      <link>https://elo7.dev/wai-aria-apanhado-geral/</link>
+      <pubDate>Mon, 03 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/wai-aria-apanhado-geral/</guid>
+      <description>Com a evolução da web, os sites estão ficando cada vez mais dinâmicos, utilizando muitos recursos de AJAX, JavaScript e CSS. Essas mudanças melhoram muito a usabilidade na web, porém usuários de tecnologias assistivas correm risco de serem excluídos por conta das lacunas de acessibilidade. Como leitores de tela normalmente sofrem com JavaScript, surge uma nova maneira de criar interfaces dinâmicas que são acessíveis a mais usuários.
+A maioria dos frameworks de JavaScript oferece ferramentas do lado do cliente que simulam o comportamento de interfaces desktop e mobile para se tornarem mais familiares, como drag and drop, menu hamburguer deslizante&amp;hellip; Todos eles são criados nessa combinação de JavaScript, CSS e HTML.</description>
+    </item>
+    
+    <item>
+      <title>A importância da semântica no HTML - parte II</title>
+      <link>https://elo7.dev/html-semantico-2/</link>
+      <pubDate>Mon, 16 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/html-semantico-2/</guid>
+      <description>Neste segundo post da série sobre a importância da semântica para os usuários e desenvolvedores, trataremos sobre como podemos melhorar nosso conteúdo de forma que os buscadores entendam o que realmente estamos oferecendo, com a menor possibilidade de ruídos de informação possível. Saberemos de maneira prática como podemos melhorar a disponibilidade de nosso conteúdo.
+Caso não tenha lido o nosso primeiro post, basta acessar aqui.
+Dando significado ao HTML Lembram do uso da palavra “lembrança” que utilizamos no post anterior?</description>
+    </item>
+    
+    <item>
+      <title>A importância da semântica no HTML - parte I</title>
+      <link>https://elo7.dev/html-semantico-1/</link>
+      <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/html-semantico-1/</guid>
+      <description>Antigamente a informação era armazenada em papéis, rochas e até paredes. A única forma de encontrar o que queríamos era indo até o local no qual a mensagem estava armazenada. Hoje existe todo um mundo digital que gera terabytes de dados por segundo.
+E para onde vai toda essa informação? Será que ficou mais fácil encontrar o que se deseja? O problema atual não é a escassez, mas a porção de ruído proveniente de uma quantidade exorbitante de dados.</description>
+    </item>
+    
+  </channel>
+</rss>

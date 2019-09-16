@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,e-mail,html,css,marketing,transacional,layout,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Técnicas para codificar um e-mail'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Técnicas para codificar um e-mail'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Técnicas para codificar um e-mail'>
+	<meta property='og:url' content='https://elo7.dev/tecnicas-para-codificar-um-e-mail/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Técnicas para codificar um e-mail'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/tecnicas-para-codificar-um-e-mail/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/tecnicas-para-codificar-um-e-mail/'>
+	<title>Elo7 Tech - Técnicas para codificar um e-mail</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Técnicas para codificar um e-mail' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Técnicas para codificar um e-mail</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2017-10-09 00:00:00 &#43;0000 UTC'
+    aria-label='09 de outubro de 2017'>
+    09/10/2017
+    <meta itemprop='datePublished' content='Mon Oct 09 2017 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Oct 09 2017 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2017-10-09'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='erikatakahara' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/erikatakahara/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/erikatakahara'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='erikatakahara'>@erikatakahara</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>No início da minha carreira como desenvolvedora front-end, tive que codificar o meu primeiro e-mail marketing (aqueles e-mails promocionais que você geralmente recebe de um e-commerce). Como não conhecia muito sobre como funcionavam os clientes de e-mail, fiz o código como se estivesse codificando um site: usei várias propriedade de css, abusei da propriedade <code>float</code> (que na época era moda), usei classes e coloquei todo o css dentro da tag <code>style</code>. O e-mail ficou igualzinho ao layout desenvolvido pelos designers, mas quando fiz o primeiro teste de envio, nada do que tinha feito refletia o que esperava. Afinal, por que o e-mail era renderizado de forma diferente após o envio?</p>
+
+<p>A resposta é simples: os clientes de e-mail, por questões de segurança, não aceitam a maior parte das técnicas que utilizei. Eles esperam que o e-mail seja codificado como se estivéssemos na época do HTML 2.0. Ou seja, layout montado a base de tabelas, css inline e só as propriedades mais básicas, como <code>font-size</code>, <code>border</code>, <code>width</code>, <code>height</code>, etc.</p>
+
+<p>É claro que, desde então, muitas coisas evoluíram e hoje conseguimos utilizar mais recursos. Neste post, irei descrever um pouco essas mudanças e demonstrar algumas técnicas novas para montar um e-mail.</p>
+
+<p>Para facilitar a explicação, vamos montar o seguinte e-mail:</p>
+
+<p><img src="../images/tecnicas-para-codificar-um-e-mail-1.png" alt="Layout do e-mail" /></p>
+
+<h2 id="background">Background</h2>
+
+<p>Primeiramente, vamos adicionar a cor azul (#798C98) no fundo do e-mail. Normalmente, adicionaríamos no <code>body</code> a propriedade <code>background-color: #798C98</code>, mas infelizmente as regras adicionadas diretamente ao <code>body</code> não funcionam na maioria dos clientes. Portanto, vamos seguir com uma outra abordagem.</p>
+
+<p>A forma mais aceita em todos os clientes de e-mail é criar uma <code>table</code> para simular a tag <code>body</code> que irá ocupar todo o espaço horizontal do e-mail. Mesmo não sendo semanticamente correta, esta ainda é a melhor abordagem.</p>
+
+<p>Para adicionar a cor, vamos adicionar o atributo <code>bgcolor</code> na <code>table</code> criada e, como não temos um reset para os padrões de cada navegador (para remover os espaçamentos desnecessários, internos e entre as células), vamos adicionar as propriedades <code>cellpadding=&quot;0&quot;</code> e <code>cellspacing=&quot;0&quot;</code>.</p>
+
+<p>E, por fim, para que o e-mail ocupe toda a largura possível, vamos adicionar o atributo <code>width=&quot;100%&quot;</code>. Ficaria da seguinte forma:</p>
+
+<p><img src="../images/tecnicas-para-codificar-um-e-mail-2.png" alt="E-mail ocupando 100% da largura" /></p>
+
+<pre><code class="language-html">&lt;body&gt;
+  &lt;table width=&quot;100%&quot; bgcolor=&quot;#798C98&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Teste&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>Podemos utilizar também utilizar o atributo <code>style</code> e utilizar a propriedade <code>background-color: #798C98</code> que teremos o mesmo efeito.</p>
+
+<h2 id="container">Container</h2>
+
+<p>Vamos adicionar agora um container para envelopar o nosso conteúdo e limitar a largura do nosso e-mail para 600px - geralmente é o padrão de largura dos e-mails, mas nada impede de usar um valor maior ou menor - recomendo usar a unidade em pixels porque a baseline do tamanho da fonte varia de acordo com o cliente de e-mail.</p>
+
+<p>Para isso precisaremos criar uma nova tabela, que será o nosso container, com os mesmos resets de espaçamento. Definimos então a largura para 600px e adicionamos um fundo branco. Ficaria assim:</p>
+
+<p><img src="../images/tecnicas-para-codificar-um-e-mail-3.png" alt="E-mail limitado a um container de 600px" /></p>
+
+<pre><code class="language-HTML">&lt;td&gt;
+    &lt;table bgcolor=&quot;#ffffff&quot; width=&quot;600&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Teste&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/td&gt;
+</code></pre>
+
+<p>Mas definir a largura para 600px fixo acaba acarretando problemas quando estamos visualizando em telas menores, como um celular. A largura não se ajusta e cria aquela barra de rolagem horizontal indesejada. Para que o e-mail se ajuste, teríamos que alterar a largura para ocupar o espaço total (100%), mas isso não limita que tenhamos no máximo 600px no nosso e-mail. Como obter o melhor dos dois mundos?</p>
+
+<p>A solução é simples: podemos fazer como na web, onde o container ocupa o quanto conseguir, mas limitado a uma largura máxima: o <code>max-width</code>. Aplicando isso no exemplo:</p>
+
+<pre><code class="language-HTML">&lt;td&gt;
+    &lt;table bgcolor=&quot;#ffffff&quot; style=&quot;max-width: 600px&quot; width=&quot;100%&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Teste&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/td&gt;
+</code></pre>
+
+<p>O <code>max-width</code> é uma propriedade aceita na maior parte dos clientes de e-mails utilizados hoje. Nos testes que fiz, os únicos que não apresentaram o layout como desejado foram os Outlook 2007, 2010 e 2013.</p>
+
+<h2 id="centralizar-o-corpo-do-e-mail">Centralizar o corpo do e-mail</h2>
+
+<p>O nosso container ainda não está alinhado no centro; como podemos fazer isso? Usar o clássico <code>margin: 0 auto</code>, que faz com que o navegador calcule automaticamente as distâncias em volta do e-mail e alinhe no centro? Mas isso funciona em todos os clientes de e-mail?</p>
+
+<p>O <code>margin: 0 auto</code> já é bem aceito nos clientes mais modernos. Os únicos que não dão suporte, dentre os que foram testados, são os Outlook 2007, 2010, 2013 e no app nativo do Windows Phone. Mas para dar suporte a todos, a forma mais aceita ainda é usar o atributo <code>align</code> na <code>td</code> que envolve nosso container. Isso faz com que o navegador entenda como deve centralizar os textos e elementos internos. No nosso exemplo ficaria assim:</p>
+
+<pre><code class="language-HTML">&lt;td align=&quot;center&quot;&gt;
+    &lt;table bgcolor=&quot;#ffffff&quot; style=&quot;max-width: 600px&quot; width=&quot;100%&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Teste&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/td&gt;
+</code></pre>
+
+<p>Podemos também utilizar a tag <code>&lt;center&gt;</code> para envelopar a nossa <code>table</code> que serve como container. Assim como no exemplo, a tabela ficaria centralizada; entretanto, esta <code>tag</code> não funciona no Yahoo Mail.</p>
+
+<h2 id="compatibilidade">Compatibilidade</h2>
+
+<p>As técnicas apresentadas funcionam nos seguintes clientes de email:</p>
+
+<h3 id="web">Web</h3>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">Gmail</th>
+<th align="center">Inbox</th>
+<th align="center">Outlook</th>
+<th align="center">Yahoo</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Chrome</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+</tr>
+
+<tr>
+<td>Safari</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+</tr>
+
+<tr>
+<td>Firefox</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+</tr>
+
+<tr>
+<td>IE11</td>
+<td align="center">✓</td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+</tr>
+
+<tr>
+<td>Edge</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+</tr>
+
+<tr>
+<td>Chrome Mobile</td>
+<td align="center">✓</td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+</tr>
+
+<tr>
+<td>Firefox Mobile</td>
+<td align="center">✓</td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+</tr>
+
+<tr>
+<td>Safari Mobile</td>
+<td align="center">✓</td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+</tr>
+
+<tr>
+<td>Edge Mobile</td>
+<td align="center">✓</td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="mobile">Mobile</h3>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">Gmail App</th>
+<th align="center">Inbox App</th>
+<th align="center">Outlook App</th>
+<th align="center">Yahoo App</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Android</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+</tr>
+
+<tr>
+<td>iOS</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+</tr>
+
+<tr>
+<td>Windows Phone</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="center">-</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="aplicativo-outlook">Aplicativo Outlook</h3>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">2007</th>
+<th align="center">2010</th>
+<th align="center">2011</th>
+<th align="center">2013</th>
+<th align="center">2015</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Outlook</td>
+<td align="center">✗¹</td>
+<td align="center">✗¹</td>
+<td align="center">✓</td>
+<td align="center">✗¹</td>
+<td align="center">✓</td>
+</tr>
+</tbody>
+</table>
+
+<p>¹ A propriedade <code>max-width</code> não funciona</p>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<p>Essa foi a primeira parte de uma série de posts sobre como codificar um e-mail. Neste primeiro artigo, aprendemos a criar a base do layout. <a href="/tecnicas-para-codificar-um-e-mail-parte-2/">No próximo, iremos falar sobre as diversas formas para lidar com espaçamentos.</a></p>
+
+<p>E você? Já passou por problemas parecidos? =]</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/e-mail/'>e-mail</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/html/'>html</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/css/'>css</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/marketing/'>marketing</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/transacional/'>transacional</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/layout/'>layout</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2ftecnicas-para-codificar-um-e-mail%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=t%25C3%25A9cnicas-para-codificar-um-e-mail&url=https%3a%2f%2felo7.dev%2ftecnicas-para-codificar-um-e-mail%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/tecnicas-para-codificar-um-e-mail/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/tecnicas-para-codificar-um-e-mail/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Todo desenvolvedor front-end já passou por problemas ao codificar um e-mail, principalmente quando se trata de compatibilidade com todos os clientes, como o Yahoo, Gmail, Outlook, etc. Neste post, iremos abordar algumas técnicas e quais são os principais pontos de atenção ao desenvolver esse tipo de layout.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2017-10-09 00:00:00 \x2b0000 UTC:\/tecnicas-para-codificar-um-e-mail\/';
+            var disqus_url = 'https:\/\/elo7.dev\/tecnicas-para-codificar-um-e-mail\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

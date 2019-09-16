@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,kotlin,api,rest,restful,spring,spring boot,mysql,jpa,hibernate,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - API Persistente com Kotlin, Spring Boot, MySQL, JPA e Hibernate'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - API Persistente com Kotlin, Spring Boot, MySQL, JPA e Hibernate'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - API Persistente com Kotlin, Spring Boot, MySQL, JPA e Hibernate'>
+	<meta property='og:url' content='https://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - API Persistente com Kotlin, Spring Boot, MySQL, JPA e Hibernate'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/'>
+	<title>Elo7 Tech - API Persistente com Kotlin, Spring Boot, MySQL, JPA e Hibernate</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='API Persistente com Kotlin, Spring Boot, MySQL, JPA e Hibernate' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>API Persistente com Kotlin, Spring Boot, MySQL, JPA e Hibernate</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2018-09-03 00:00:00 &#43;0000 UTC'
+    aria-label='03 de setembro de 2018'>
+    03/09/2018
+    <meta itemprop='datePublished' content='Mon Sep 03 2018 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Sep 03 2018 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2018-09-03'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='davidrobert' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/davidrobert/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/davidrobert'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='davidrobert'>@davidrobert</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Kotlin vem ganhando muita popularidade nos últimos tempos devido a seus recursos de produtividade e a possibilidade de utilização na plataforma Android.</p>
+
+<p>Devido à crescente popularidade do Kotlin, o Spring Framework também introduziu um suporte dedicado ao Kotlin.</p>
+
+<p>Neste post, você aprenderá a criar uma API do CRUD Restful com o Kotlin, Spring Boot e JPA.</p>
+
+<h2 id="o-que-vamos-construir">O que vamos construir?</h2>
+
+<p>Neste post criaremos APIs Restful para armazenar dados de livros e categorias. As categorias têm uma lista de livros, e cada livro pode ter uma categoria. Vamos escrever APIs para criar, recuperar, e excluir livros e categorias. Um livro tem um id, um título e o nome do autor.</p>
+
+<p>Usaremos o MySQL como nossa fonte de dados e JPA e Hibernate para acessar os dados do banco de dados.</p>
+
+<h2 id="criando-a-aplicação">Criando a aplicação</h2>
+
+<p>Usaremos a ferramenta da Web Spring initializr para fazer o bootstrap da nossa aplicação.</p>
+
+<ol>
+<li>Acesse <a href="http://start.spring.io">http://start.spring.io</a></li>
+<li>Defina o nome do Artefato</li>
+<li>Selecione Kotlin na seção de linguagens</li>
+<li>Selecione a versão mais recente do Spring Boot</li>
+<li>Adicione dependências da Web, JPA e MySQL.</li>
+<li>Clique em Gerar Projeto para gerar e baixar o projeto.</li>
+</ol>
+
+<h2 id="configurando-o-mysql">Configurando o MySQL</h2>
+
+<p>Precisamos configurar a URL, o nome de usuário e a senha do banco de dados MySQL para que o Spring Boot possa ter acesso.</p>
+
+<p>Abra o arquivo <strong>src/main/resources/application.properties</strong> e inclua as seguintes propriedades nele:</p>
+
+<pre><code class="language-apacheconf">## Spring DATASOURCE (DataSourceAutoConfiguration &amp; DataSourceProperties)
+spring.datasource.url = jdbc:mysql://localhost:3306/test?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;allowMultiQueries=true&amp;useSSL=false
+spring.datasource.username = root
+spring.datasource.password =
+
+spring.jpa.show-sql=false
+
+## Hibernate Properties
+
+# The SQL dialect makes Hibernate generate better SQL for the chosen database
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+
+# Hibernate ddl auto (create, create-drop, validate, update)
+spring.jpa.hibernate.ddl-auto = update
+</code></pre>
+
+<p>Não se esqueça de alterar <strong>spring.datasource.username</strong> e <strong>spring.datasource.password</strong> conforme sua configuração do MySQL.</p>
+
+<p>Além disso, a propriedade <strong>spring.jpa.hibernate.ddl-auto</strong> foi marcada para update. Essa propriedade atualiza o esquema do banco de dados sempre que você cria ou modifica os modelos de domínio na aplicação.</p>
+
+<h2 id="criando-os-modelos-do-domínio">Criando os modelos do domínio</h2>
+
+<pre><code class="language-kotlin">
+package br.com.elo7.test.apijpa.model
+
+import com.fasterxml.jackson.annotation.JsonBackReference
+import javax.persistence.*
+import javax.validation.constraints.NotBlank
+
+@Entity
+data class Livro (
+       @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+       val id: Long = 0,
+
+       @get: NotBlank
+       val titulo: String = &quot;&quot;,
+
+       @get: NotBlank
+       val autor: String = &quot;&quot;,
+
+       @JsonBackReference
+       @ManyToOne(fetch = FetchType.EAGER)
+       @JoinColumn(name = &quot;categoria_id&quot;)
+       val categoria: Categoria? = null
+)
+</code></pre>
+
+<p>A classe Livro acabou ficando pequena e concisa. Isso porque no Kotlin os getters e setters são implicitamente definidos. Além disso, foi usada <strong>data class</strong>. Um data class gera automaticamente os métodos <strong>equals()</strong>, <strong>hashcode()</strong>, <strong>toString()</strong> e <strong>copy()</strong>.</p>
+
+<p>Há uma ressalva ao usar data classes com JPA: data classes requerem um construtor principal com pelo menos um parâmetro e o JPA requer um construtor sem argumentos. Para resolver este impasse, o Kotlin tem o <a href="https://kotlinlang.org/docs/reference/compiler-plugins.html#no-arg-compiler-plugin">no-arg compiler plugin</a> que gera um construtor sem argumentos que só pode ser chamado usando reflection.</p>
+
+<p>Observe que foi atribuído um valor padrão para todos os atributos na classe Livro. Isso é necessário para o construtor sem argumentos.</p>
+
+<pre><code class="language-kotlin">package br.com.elo7.test.apijpa.model
+
+import com.fasterxml.jackson.annotation.JsonManagedReference
+import javax.persistence.*
+import javax.validation.constraints.NotBlank
+
+@Entity
+data class Categoria (
+       @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+       val id: Long = 0,
+
+       @get: NotBlank
+       val nome: String = &quot;&quot;,
+
+       @JsonManagedReference
+       @OneToMany(mappedBy = &quot;categoria&quot;, cascade = arrayOf(CascadeType.ALL), fetch = FetchType.EAGER)
+       var livros: List&lt;Livro&gt; = emptyList()
+)
+</code></pre>
+
+<h2 id="lidando-com-a-referência-circular">Lidando com a referência circular</h2>
+
+<p>O livro tem referência para categoria, e categoria tem referência para uma lista de livros. Ocorre o problema clássico, a maldita referência circular. 😕</p>
+
+<p>A alternativa adotada para solucionar esse problema foi usar as annotations @JsonManagedReference e @JsonBackReference do Jackson. Entretanto, existem outras maneiras de resolver esse problema, como por exemplo utilizar o @JsonIgnore em uma das pontas.</p>
+
+<p>Uma outra alternativa muito boa seria criar um DTO. Deixando apenas as informações que você precisa na serialização e usando as annotations do Jackson nesse objeto, isso se precisar. Essa solução é um pouco mais trabalhosa no início, mas a manutenção tende a ser bem mais simples.</p>
+
+<p>Mais informações podem ser encontradas nesse post: <a href="http://www.baeldung.com/jackson-bidirectional-relationships-and-infinite-recursion">jackson-bidirectional-relationships-and-infinite-recursion</a></p>
+
+<h2 id="criando-os-repositorios">Criando os Repositorios</h2>
+
+<p>Vamos agora criar o repositório para acessar os dados do banco de dados.</p>
+
+<p>Como o ArticleRepository extende a interface JpaRepository, todos os métodos CRUD na entidade Livro estão prontamente disponíveis. O Spring Boot conecta-se automaticamente a uma implementação padrão do JpaRepository chamada SimpleJpaRepository em tempo de execução.</p>
+
+<pre><code class="language-kotlin">package br.com.elo7.test.apijpa.repository
+
+import br.com.while42.example.apijpa.model.Livro
+import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.stereotype.Repository
+
+@Repository
+interface LivroRepository : JpaRepository&lt;Livro, Long&gt;
+</code></pre>
+
+<pre><code class="language-kotlin">package br.com.elo7.test.apijpa.repository
+
+import br.com.while42.example.apijpa.model.Categoria
+import br.com.while42.example.apijpa.model.Livro
+import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.stereotype.Repository
+
+@Repository
+interface CategoriaRepository : JpaRepository&lt;Categoria, Long&gt;
+</code></pre>
+
+<h2 id="criando-endpoints">Criando Endpoints</h2>
+
+<p>Agora vamos implementar os endpoints do controller para todas as operações CRUD nas entidades Livro e Categoria.</p>
+
+<pre><code class="language-kotlin">package br.com.elo7.test.apijpa.controller
+
+import br.com.elo7.test.apijpa.model.Livro
+import br.com.elo7.test.apijpa.repository.CategoriaRepository
+import br.com.elo7.test.apijpa.repository.LivroRepository
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
+
+@RestController
+@RequestMapping(&quot;/api&quot;)
+class LivroController(private val livroRepository: LivroRepository, private val categoriaRepository: CategoriaRepository) {
+
+   @GetMapping(&quot;/livros&quot;)
+   fun getAllLivros(): List&lt;Livro&gt; =
+           livroRepository.findAll()
+
+   @PostMapping(&quot;/livros&quot;)
+   fun createNewLivro(@Valid @RequestBody livro: Livro) {
+       livro.categoria?.let { categoriaRepository.save(it) }
+       livroRepository.save(livro)
+   }
+
+   @GetMapping(&quot;/livros/{id}&quot;)
+   fun getLivroById(@PathVariable(value = &quot;id&quot;) livroId: Long): ResponseEntity&lt;Livro&gt; {
+       return livroRepository.findById(livroId).map { livro -&gt;
+           ResponseEntity.ok(livro)
+       }.orElse(ResponseEntity.notFound().build())
+   }
+
+   @DeleteMapping(&quot;/livros/{id}&quot;)
+   fun deleteLivroById(@PathVariable(value = &quot;id&quot;) livroId: Long): ResponseEntity&lt;Void&gt; {
+
+       return livroRepository.findById(livroId).map { livro  -&gt;
+           livroRepository.delete(livro)
+           ResponseEntity&lt;Void&gt;(HttpStatus.OK)
+       }.orElse(ResponseEntity.notFound().build())
+
+   }
+}
+</code></pre>
+
+<pre><code class="language-kotlin">package br.com.elo7.test.apijpa.controller
+
+import br.com.elo7.test.apijpa.model.Categoria
+import br.com.elo7.test.apijpa.repository.CategoriaRepository
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
+
+@RestController
+@RequestMapping(&quot;/api&quot;)
+class CategoriaController(private val categoriaRepository: CategoriaRepository) {
+
+   @GetMapping(&quot;/categorias&quot;)
+   fun getAllCategorias(): List&lt;Categoria&gt; =
+           categoriaRepository.findAll()
+
+   @PostMapping(&quot;/categorias&quot;)
+   fun createNewCategoria(@Valid @RequestBody categoria: Categoria): ResponseEntity&lt;Categoria&gt; {
+       categoriaRepository.save(categoria)
+       return ResponseEntity.ok(categoria)
+   }
+
+   @GetMapping(&quot;/categorias/{id}&quot;)
+   fun getLivroById(@PathVariable(value = &quot;id&quot;) categoriaId: Long): ResponseEntity&lt;Categoria&gt; {
+       return categoriaRepository.findById(categoriaId).map { categoria -&gt;
+           ResponseEntity.ok(categoria)
+       }.orElse(ResponseEntity.notFound().build())
+   }
+
+   @DeleteMapping(&quot;/categorias/{id}&quot;)
+   fun deleteLivroById(@PathVariable(value = &quot;id&quot;) categoriaId: Long): ResponseEntity&lt;Void&gt; {
+
+       return categoriaRepository.findById(categoriaId).map { categoria  -&gt;
+           categoriaRepository.delete(categoria)
+           ResponseEntity&lt;Void&gt;(HttpStatus.OK)
+       }.orElse(ResponseEntity.notFound().build())
+
+   }
+}
+</code></pre>
+
+<p>Os controllers definem as APIs para as operações CRUD.</p>
+
+<h2 id="rodando-a-aplicação">Rodando a aplicação</h2>
+
+<pre><code class="language-bash">mvn spring-boot:run
+</code></pre>
+
+<h2 id="exemplos-de-utilização-da-api">Exemplos de utilização da API</h2>
+
+<pre><code class="language-bash">curl -i -H &quot;Content-Type: application/json&quot; -X POST -d '{&quot;titulo&quot;: &quot;Neuromancer&quot;, &quot;autor&quot;: &quot;Willian Gibson&quot;, &quot;categoria&quot;: {&quot;nome&quot;: &quot;Ciberpunk&quot;}}' http://localhost:8080/api/livros
+
+curl -i -H 'Accept: application/json' http://localhost:8080/api/livros
+</code></pre>
+
+<h2 id="estrutura-final-do-projeto">Estrutura final do projeto</h2>
+
+<p><img src="../images/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate-1.png" alt="Estrutura final do projeto" /></p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/kotlin/'>kotlin</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/api/'>api</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/rest/'>rest</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/restful/'>restful</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/spring/'>spring</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/spring-boot/'>spring boot</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/mysql/'>mysql</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/jpa/'>jpa</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/hibernate/'>hibernate</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fapi-persistente-com-kotlin-springboot-mysql-jpa-hibernate%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=api-persistente-com-kotlin-spring-boot-mysql-jpa-e-hibernate&url=https%3a%2f%2felo7.dev%2fapi-persistente-com-kotlin-springboot-mysql-jpa-hibernate%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Neste post, você aprenderá a criar uma API do Restful com o Kotlin, Spring Boot e JPA'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2018-09-03 00:00:00 \x2b0000 UTC:\/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate\/';
+            var disqus_url = 'https:\/\/elo7.dev\/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

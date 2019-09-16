@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,java,programacao-reativa,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Programação Reativa - Parte 1: O que é programação reativa?'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Programação Reativa - Parte 1: O que é programação reativa?'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/programacao-reativa.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Programação Reativa - Parte 1: O que é programação reativa?'>
+	<meta property='og:url' content='https://elo7.dev/programacao-reativa/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Programação Reativa - Parte 1: O que é programação reativa?'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/programacao-reativa/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/programacao-reativa.png'>
+
+	<link rel='canonical' href='https://elo7.dev/programacao-reativa/'>
+	<title>Elo7 Tech - Programação Reativa - Parte 1: O que é programação reativa?</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/programacao-reativa.png' alt='Programação Reativa - Parte 1: O que é programação reativa?' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Programação Reativa - Parte 1: O que é programação reativa?</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2018-03-12 00:00:00 &#43;0000 UTC'
+    aria-label='12 de março de 2018'>
+    12/03/2018
+    <meta itemprop='datePublished' content='Mon Mar 12 2018 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Mar 12 2018 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2018-03-12'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='ljtfreitas' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/ljtfreitas/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/ljtfreitas'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='ljtfreitas'>@ljtfreitas</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Em tempos recentes, a expressão &ldquo;programação reativa&rdquo; tem ganhado (ainda mais) força nas discussões do mundo do software. Apesar de não ser algo necessariamente &ldquo;novo&rdquo; (nem um pouco, na verdade) e se basear em conceitos e padrões já existentes, a tal &ldquo;programação reativa&rdquo; tem ganho <em>muito</em> destaque e há um bom número de frameworks que suportam esse paradigma em diversas linguagens. Mas será apenas mais uma &ldquo;buzzword&rdquo; ou algo realmente útil?</p>
+
+<p>Este post é o primeiro de uma série sobre programação reativa, onde queremos tentar atribuir um significado mais concreto para esse conceito, tanto a nível de implementação quanto arquitetura. Esperamos poder ajudá-lo a formar uma visão mais clara do impacto dessas idéias no seu software.</p>
+
+<p>Este post é baseado na família de frameworks <a href="http://reactivex.io/">ReactiveX</a>, em especial o <a href="https://github.com/ReactiveX/RxJava">RxJava</a>.</p>
+
+<h1 id="por-que">Por que?</h1>
+
+<p>Um dos desafios da Engenharia de Software atualmente são aplicações orientadas a alto volumes de dados em tempo real. Usuários querem seus dados <strong>agora</strong>; querem ver seus <em>tweets</em> agora, confirmar seus pedidos agora, jogos online precisam responder agora. Agora, agora, agora!</p>
+
+<p>Como desenvolvedores, nossas aplicações precisam igualmente responder a essas demandas <strong>agora</strong>. Não queremos que nosso software fique bloqueado por um pedido de informações ou aguardando o resultado de uma computação. Não queremos que nossa aplicação fique parada aguardando algum resultado, mas precisamos exibi-los assim que estiverem prontos. Se lidamos com um bloco de informações, queremos manipular resultados individuais, e não esperar que o conjunto inteiro seja processado. O comportamento das aplicações evoluiu para lidar com dados <em>empurrados</em>. Então, precisamos de ferramentas de implementação para construir um código capaz de <strong>reagir</strong> a eventos e informações.</p>
+
+<h1 id="para-que">Para que?</h1>
+
+<p>Alguns casos de uso onde a programação reativa pode fazer sentido são:</p>
+
+<ul>
+<li><p>Eventos de UI (movimento do mouse, clicks de botão, etc): programadores desse tipo de aplicação (digamos, em Javascript ou Android) estão acostumados a lidar com eventos de componentes, então não há nada fundamentalmente diferente. As vantagens do paradigma reativo surgem com o conjunto de operadores disponíveis para manipulação dos eventos, tornando simples tarefas como, por exemplo, <em>throttle</em> de múltiplos clicks ou propagação de eventos para interfaces hiper-interativas;</p></li>
+
+<li><p>Chamadas para serviços externos (REST, RPC, etc): operações realizadas sobre HTTP são bloqueantes por natureza; ao fornecer uma simplificação para o código assíncrono, a programação reativa pode ajudá-lo a desbloquear o código de cliente HTTP, mas essa é a parte mais simples. Em arquiteturas de serviços distribuídos (como microserviços), é comum um código de <em>back-end</em> construir uma composição entre várias chamadas dependentes (o serviço &ldquo;a&rdquo; é invocado, e a resposta é utilizada como parâmetro para invocar o serviço &ldquo;b&rdquo;, e sucessivamente). Frameworks reativos podem ajudar a orquestrar chamadas dependentes de maneira natural, com a vantagem de <strong>NÃO</strong> bloquear o código no cliente.</p></li>
+
+<li><p>Consumo de mensagens: processamento de mensagens com alta concorrência é um caso de uso comum. Declaradamente, frameworks como o próprio RxJava, <a href="https://projectreactor.io/">Reactor</a> ou o <a href="https://akka.io/">Akka</a> alegam serem capazes de processar milhões de mensagens por segundo na JVM sem esforço. Sendo isso verdade ou não, em maior ou menor grau, novamente sua implementação pode se beneficiar das ferramentas disponíveis nesses frameworks para construir um <em>pipeline</em> de consumo de eventos/mensagens de maneira muito simples.</p></li>
+
+<li><p>Abstração sobre processamento assíncrono: esse detalhe vai depender da ferramenta e da linguagem que estiver utilizando (no presente post, Java :)), mas um dos pontos-chave dos frameworks reativos é fornecer uma fundação simples para <em>processamento assíncrono</em>, desafogando sua aplicação dos detalhes mais complexos envolvendo <em>multithreading</em> e permitindo que seu código possa se concentrar na lógica de manipulação dos eventos.</p></li>
+</ul>
+
+<h1 id="o-que-é-programação-reativa">O que é programação reativa?</h1>
+
+<p>Não é o objetivo deste post cravar a &ldquo;definição definitiva&rdquo; sobre o assunto. Ainda assim, para uma resposta inicial à pergunta acima, podemos declarar que <strong>programação reativa é um modelo de programação sobre fluxos de dados, potencialmente assíncronos, em combinação com consumo/roteamento de eventos e propagação de estado</strong>.</p>
+
+<p>No decorrer do post, vamos desconstruir essa frase, começando com&hellip;</p>
+
+<h2 id="fluxos-de-dados-potencialmente-assíncronos">&ldquo;Fluxos de dados, potencialmente assíncronos&rdquo;</h2>
+
+<p>Os conceitos que declaramos acima (&ldquo;fluxos de dados&rdquo;, &ldquo;consumo de eventos&rdquo;) não são exatamente novos. Frameworks/modelos orientados a eventos (por exemplo, ferramentas de &ldquo;event bus&rdquo; ou simples <em>listeners</em> de clicks do mouse) são, com efeito, implementados sobre sequências assíncronas de acontecimentos, a partir dos quais podemos produzir ações e efeitos colaterais <em>reagindo aos eventos, quando acontecem</em>.</p>
+
+<p>A programação reativa parte da mesma idéia, mas anabolizada com esteróides :). Pode-se dizer que a programação reativa é uma versão extendida e mais poderosa do <a href="https://pt.wikipedia.org/wiki/Observer">padrão Observer</a>. Dada a premissa de termos objetos observáveis como porta de entrada do programa, um dos pilares do modelo reativo é a idéia que &ldquo;fluxos de dados&rdquo; (que passaremos a chamar de <strong>streams</strong>) possam ser criados a partir de <strong>qualquer coisa</strong>: variáveis discretas, entradas de dados, propriedades da aplicação, ou como nos exemplos citados antes, eventos de UI ou entradas de aplicações externas&hellip;o importante a destacar aqui é que, independente de como a entrada do <em>stream</em> é construída, o código de manipulação dos eventos <strong>é o mesmo</strong>. Por exemplo, seu <em>feed</em> do Twitter, ou o <em>listener</em> de um tópico do Kafka, poderiam ser consumidos da mesma maneira que o <em>click</em> de um botão. O <em>stream</em> passa a ser apenas a abstração de uma origem de dados (potencialmente (e principalmente!) assíncronos), que emite valores de forma contínua, sobre os quais você pode reagir de acordo.</p>
+
+<p>Os frameworks reativos fornecem uma espetacular caixa de ferramentas para manipulação de <em>streams</em>; podemos filtrá-los, transformá-los, combiná-los, entre outras dezenas de operações, que veremos no decorrer do post.</p>
+
+<p>Se a idéia de &ldquo;streams&rdquo; é central na programação reativa, pode ser útil uma definição mais formal: um <em>stream</em> é uma <strong>sequência de eventos ordenados no tempo</strong>. Isso significa que, uma vez vinculado à uma fonte de dados, o <em>stream</em> poderá emitir três eventos: <strong>algum valor</strong>, <strong>algum erro</strong>, e no caso de uma sequência finita, um evento indicando que o <em>stream</em>  foi <strong>concluído</strong>. Esses eventos são chamados, respectivamente, de <strong>onNext</strong>, <strong>onError</strong> e <strong>onCompleted</strong>.</p>
+
+<p>Nos frameworks ReactiveX, o principal objeto que representa um <em>stream</em> é o <a href="http://reactivex.io/documentation/observable.html">Observable</a>. Esse objeto contêm os principais operadores reativos, que iremos examinar com mais detalhes no decorrer do post.</p>
+
+<p>Outro objeto importante é o <a href="http://reactivex.io/documentation/single.html">Single</a>, que representa um <em>stream</em> que emite <em>apenas um valor</em>, ou <em>apenas um erro</em>. Também existe o <a href="http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Completable.html">Completable</a>, que é um <em>stream</em> que <strong>não emite valores</strong>, apenas indicando conclusão ou erro. A <a href="https://github.com/ReactiveX/RxJava/wiki/What's-different-in-2.0">versão 2</a> do RxJava, que falarei mais à frente, introduziu dois novos objetos: <a href="http://reactivex.io/RxJava/2.x/javadoc/">Maybe</a>, um observável que <strong>opcionalmente</strong> emite um valor (ou um erro) e se encerra, e o <a href="http://reactivex.io/RxJava/2.x/javadoc/">Flowable</a>, que é um observável um pouco mais poderoso (!).</p>
+
+<p>Uma vez definido nosso <em>stream</em>, representado por um Observable (ou alguma especialização), o próximo passo é <em>reagirmos</em> ao eventos emitidos pela sequência de eventos. Ou seja, precisamos de um &ldquo;observador&rdquo;; na programação reativa, a ação de vincular-se à um Observable é chamada de <strong>subscription</strong>, e esse papel é desempenhado por um <a href="http://reactivex.io/documentation/operators/subscribe.html">subscriber</a> (no caso do RxJava, o objeto que representa esse conceito é o <a href="http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observer.html">Observer</a>, que raramente precisa ser manipulado diretamente). O método que realiza essa operação é o <a href="http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html#subscribe--">subscribe</a>, que tem várias sobrecargas para permitir variações no tratamento dos eventos <em>onNext</em>, <em>onError</em> e <em>onCompleted</em>.</p>
+
+<p>Abaixo, alguns exemplos de criação de Observables vinculados à um Subscriber, usando os principais métodos de fábrica:</p>
+
+<ul>
+<li><a href="http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html#create-io.reactivex.ObservableOnSubscribe-">Observable.create</a></li>
+</ul>
+
+<pre><code class="language-java">// cria um Observable, com uma expressão lambda do tipo ObservableOnSubscribe
+Observable.create(emitter -&gt; {
+	//emitter é um argumento do tipo ObservableEmitter
+	//essa função é executada quando um Subscriber se vincula ao Observable
+
+	//emite valores para os Subscribers vinculados a esse Observable
+	emitter.onNext(&quot;first&quot;);
+	emitter.onNext(&quot;second&quot;);
+	emitter.onNext(&quot;third&quot;);
+
+	//finaliza o Observable
+	emitter.onComplete();
+})
+.subscribe(System.out::println); //vincula um Subscriber ao Observable; a funcão enviada como parâmetro é a ação executada no evento onNext
+
+/*
+output:
+
+first
+second
+third
+*/
+</code></pre>
+
+<ul>
+<li><a href="http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html#range-int-int-">Observable.range</a>
+```java
+// cria um Observable a partir de um range arbitrário de dados
+Observable.range(0, 5)
+	.subscribe(System.out::println);</li>
+</ul>
+
+<p>/*
+output:</p>
+
+<p>0
+1
+2
+3
+4
+*/</p>
+
+<pre><code>
+* [Observable.just](http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html#just-T-)
+```java
+// cria um Observable a partir de valores arbitrários
+Observable.just(&quot;first&quot;, &quot;second&quot;, &quot;third&quot;)
+	.subscribe(System.out::println);
+
+/*
+output:
+
+first
+second
+third
+*/
+</code></pre>
+
+<ul>
+<li><a href="http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html#empty--">Observable.empty</a>
+```java
+// cria um Observable vazio, que emite apenas onCompleted
+Observable.empty()
+	.subscribe(
+		System.out::println, //onNext
+		Throwable::printStackTrace, //onError
+		() -&gt; System.out.println(&ldquo;OnCompleted&rdquo;)); //onCompleted</li>
+</ul>
+
+<p>/*
+output:</p>
+
+<p>onCompleted
+*/</p>
+
+<pre><code>
+* [Observable.error](http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html#error-java.lang.Throwable-)
+```java
+// cria um Observable que emite apenas onError
+Observable.error(new RuntimeException(&quot;oops&quot;))
+	.subscribe(
+		System.out::println, //onNext
+		Throwable::printStackTrace, //onError
+		() -&gt; System.out.println(&quot;OnCompleted&quot;)); //onCompleted
+
+/*
+output:
+
+java.lang.RuntimeException: oops
+	at com.elo7.sample.rx.RxJavaSample.main(RxJavaSample.java:8)
+*/
+</code></pre>
+
+<ul>
+<li><a href="http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html#never--">Observable.never</a>
+```java
+// cria um Observable que não emite nenhum evento
+Observable.never()
+	.subscribe(
+		System.out::println, //onNext
+		Throwable::printStackTrace, //onError
+		() -&gt; System.out.println(&ldquo;OnCompleted&rdquo;)); //onCompleted</li>
+</ul>
+
+<p>// o código acima não produz nenhuma saída</p>
+
+<pre><code>
+* [Observable.defer](http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html#never--)
+```java
+// semelhante ao Observable.create, mas permite declarar dinamicamente como o Observable deve ser criado a cada subscrição
+// o argumento é um java.util.concurrent.Callable&lt;? extends ObservableSource&lt;? extends T&gt;&gt;.
+Observable&lt;String&gt; observable = Observable.defer(() -&gt; (e) -&gt; e.onNext(&quot;hello&quot;));
+
+observable.subscribe(System.out::println);
+observable.subscribe(System.out::println);
+
+/*
+output:
+
+hello
+hello
+*/
+</code></pre>
+
+<p>Observable é um <a href="http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/ObservableSource.html">ObservableSource</a>, de modo que o Observable gerado no método <em>defer</em> pode utilizar outro Observable como fonte de dados. Como exemplo, suponhamos um cenário onde você deseja emitir aos subscribers o timestamp do momento da subscrição. Uma implementacao com o método <em>just</em> poderia ser:</p>
+
+<pre><code class="language-java">Observable&lt;Long&gt; observable = Observable.just(System.currentTimeMillis()); //o Observable é criado com este valor
+
+observable.subscribe(System.out::println);
+Thread.sleep(1000);
+observable.subscribe(System.out::println);
+
+/*output: ambos os subscribers receberam o mesmo valor
+1510599123864
+1510599123864
+*/
+</code></pre>
+
+<p>Com o <em>defer</em>, podemos <strong>adiar</strong> o código que é executado no <em>onSubscribe</em>:</p>
+
+<pre><code class="language-java">Observable&lt;Long&gt; observable = Observable.defer(() -&gt; Observable.just(System.currentTimeMillis()));
+
+observable.subscribe(System.out::println);
+Thread.sleep(1000);
+observable.subscribe(System.out::println);
+
+/*
+output: diferentes timestamps
+
+1510599357278
+1510599358291
+*/
+</code></pre>
+
+<p>Um detalhe relevante que ainda não abordamos é a questão dos &ldquo;streams assíncronos&rdquo;, que, com efeito, é um dos motivos do <em>hype</em> em geral sobre a programação reativa. Frameworks reativos como RxJava suportam <em>multithreading</em> de maneira simples e natural (como veremos), o que eventualmente pode levar alguns desenvolvedores a inferir que &ldquo;tudo&rdquo; é feito de forma assíncrona. Isso <strong>não é verdade!</strong>. É importante deixar claro que TODOS os frameworks Rx <strong>são single-threaded por padrão</strong>, por uma questão de economia de recursos do hardware. Se um comportamento assíncrono é necessário, isso deve ser configurado <strong>explicitamente</strong>.</p>
+
+<h2 id="em-combinação-com-consumo-roteamento-de-eventos">&ldquo;em combinação com consumo/roteamento de eventos&rdquo;</h2>
+
+<p>O modelo de objetos comentado acima (a idéia de utilizar o <em>stream</em> como elemento base para consumo de dados/entradas/eventos) fundamenta um dos principais conceitos da programação reativa. Na maioria dos softwares, escritos sobre o paradigma da <strong>programação imperativa</strong>, os programas são sequências de instruções <strong>bloqueantes</strong>, executadas de maneira incremental e na ordem em que foram escritas no código. No paradigma reativo, por outro lado, uma vez construído o mecanismo-fonte de dados (o <em>stream</em>), podemos realizar <a href="http://reactivex.io/documentation/operators.html">muitas</a> (sim, muuuuuitas) operações de transformação, filtro, combinação, agrupamento, sobre esses dados.</p>
+
+<p>A característica comum a TODAS essas operações é que todas elas <strong>retornam um novo stream</strong>; essa propriedade é chamada de <em>imutabilidade</em>. E, como comentamos acima, podemos <em>vincular</em> um observador para reagir às sequências de dados emitidas pelo Observable. A principal vantagem dessa abordagem é que os observadores <strong>são independentes uns dos outros</strong>, de modo que podem ser executados em paralelo ou em qualquer ordem.</p>
+
+<p>O impacto disso no código é que a implementação pode seguir uma <em>abordagem declarativa</em>, onde nos concentramos <strong>no que o código deve fazer</strong>, e não em <strong>como deve fazer</strong>. Para fins de comparação, um pequeno exemplo demonstrando essa diferença:</p>
+
+<p>Um código imperativo:</p>
+
+<pre><code>//realiza alguma computação no método doSomething(), retorna um resultado e atribui a varíavel &quot;var&quot;
+
+var = doSomething();
+
+//fazemos alguma coisa com &quot;var&quot;...
+</code></pre>
+
+<p>E um código reativo:</p>
+
+<pre><code>// definimos uma função para representar a operação onNext
+
+myOnNext = {value -&gt; /* Faz alguma coisa com o valor, atribuído à variável &quot;value&quot;*/ }
+
+//cria o Observable de algum modo
+myObservable = createObservable();
+
+//associa o myOnNext (subscriber) ao Observable
+myObservable.subscribe(myOnNext);
+
+//continua o programa...
+</code></pre>
+
+<p>O exemplo acima é interessante por hora, mas não demonstra muito mais do que o <em>observer pattern</em> implementado de uma maneira diferente. O verdadeiro poder está nos métodos disponíveis na classe Observable; os <a href="http://reactivex.io/documentation/operators.html#alphabetical"><em>operadores reativos</em></a>. Como comentado acima, existem dezenas de operadores para os mais variados casos de uso, como <a href="http://reactivex.io/documentation/operators.html#creating">criação</a> (<code>create</code>, <code>defer</code>, <code>empty/never/throw</code>, <code>from</code>, <code>just</code>, <code>range</code>, <code>timer</code>, e outros), <a href="http://reactivex.io/documentation/operators.html#transforming">transformação</a> (<code>buffer</code>, <code>flatMap</code>, <code>groupBy</code>, <code>map</code>, <code>scan</code>, <code>window</code>), <a href="http://reactivex.io/documentation/operators.html#filtering">filtro</a> (<code>filter</code>, <code>distinct</code>, <code>first</code>, <code>last</code>, <code>take</code>, e outros), <a href="http://reactivex.io/documentation/operators.html#combining">combinação</a> (<code>and/then/when</code>, <code>merge</code>, <code>join</code>, <code>zip</code>, e outros), <a href="http://reactivex.io/documentation/operators.html#error">tratamento de erros</a> (<code>catch</code> e <code>retry</code>), <a href="http://reactivex.io/documentation/operators.html#utility">utilitários</a> (<code>delay</code>, <code>do</code>, <code>subscribe</code>, <code>observeOn</code>, <code>timeout</code>, e outros), além de métodos para <a href="http://reactivex.io/documentation/operators.html#conditional">operações condicionais</a>, <a href="http://reactivex.io/documentation/operators.html#mathematical">operações matemáticas</a>, <a href="http://reactivex.io/documentation/operators.html#connectable">conexão de streams</a>, e vários outros.</p>
+
+<p>Com esse riquíssimo conjunto de operações, torna-se simples implementarmos o <em>consumo/roteamento de eventos</em>, a partir de fluxos de dados: basta conectarmos esses operadores ao nosso Observable.</p>
+
+<h2 id="e-propagação-de-estado">&rdquo;&hellip;e propagação de estado.&rdquo;</h2>
+
+<p>Como comentado antes, os operadores reativos representam operações imutáveis que retornam um novo <em>stream</em> (afetado pela operação em questão), ao invés de modificar o original. Isso simboliza o terceiro ponto-chave da programação reativa: a <em>propagação de estado</em>.</p>
+
+<p>Nesse contexto, a propagação de estado nada mais é que a emissão de um valor pelo <em>stream</em>. Esse valor não representa apenas um dado qualquer, mas sim que <strong>algo aconteceu</strong>, e a ocorrência desse evento é propagado para os <em>subscribers</em> interessados em recebê-lo. Isso implica que os recebedores dos eventos lidarão sempre com o último valor emitido e sempre estarão <em>online</em> em relação ao <em>stream</em>.</p>
+
+<p>Esses valores também podem ser manipulados, como comentado acima. Podem ser combinados à outras mensagens, agrupados, filtrados, remapeados, etc, mas a mensagem original <em>nunca será modificada</em>, e sim transformada e <strong>propagada</strong> dentro do fluxo reativo, seja para a criação de um novo <em>stream</em> (através dos operadores) ou para noficação dos <em>subscribers</em>.</p>
+
+<h1 id="conclusão">Conclusão</h1>
+
+<p>Nesse post, apresentamos os principais fundamentos que formam a idéia da &ldquo;programação reativa&rdquo;, apresentando especialmente o que é um <em>stream</em>, e os eventos que podem ser emitidos por um fluxo de dados (<em>onNext</em>, <em>onError</em>, <em>onCompleted</em>).</p>
+
+<p>No próximo post, uma vez esclarecidos esses conceitos, poderemos colocar mais a mão na massa com mais exemplos do espetacular RxJava!</p>
+
+<p>Obrigado e qualquer dúvida, crítica ou comentário, esteja à vontade para usar a caixa de comentários!</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/java/'>java</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/programacao-reativa/'>programacao-reativa</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fprogramacao-reativa%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=programa%25C3%25A7%25C3%25A3o-reativa-parte-1-o-que-%25C3%25A9-programa%25C3%25A7%25C3%25A3o-reativa&url=https%3a%2f%2felo7.dev%2fprogramacao-reativa%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/programacao-reativa/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/programacao-reativa/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Você ouviu falar ou leu a respeito de uma tal &#34;programação reativa&#34;, e não sabe bem do que se trata? Este post é para você.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2018-03-12 00:00:00 \x2b0000 UTC:\/programacao-reativa\/';
+            var disqus_url = 'https:\/\/elo7.dev\/programacao-reativa\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

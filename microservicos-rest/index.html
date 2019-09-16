@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,microservices,rest,rpc,arquitetura de software,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Microserviços e REST (sério?)'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Microserviços e REST (sério?)'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/microservicos-e-rest.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Microserviços e REST (sério?)'>
+	<meta property='og:url' content='https://elo7.dev/microservicos-rest/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Microserviços e REST (sério?)'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/microservicos-rest/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/microservicos-e-rest.png'>
+
+	<link rel='canonical' href='https://elo7.dev/microservicos-rest/'>
+	<title>Elo7 Tech - Microserviços e REST (sério?)</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/microservicos-e-rest.png' alt='Microserviços e REST (sério?)' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Microserviços e REST (sério?)</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2017-07-17 00:00:00 &#43;0000 UTC'
+    aria-label='17 de julho de 2017'>
+    17/07/2017
+    <meta itemprop='datePublished' content='Mon Jul 17 2017 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Jul 17 2017 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2017-07-17'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='ljtfreitas' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/ljtfreitas/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/ljtfreitas'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='ljtfreitas'>@ljtfreitas</p>
+                                </a>
+                            
+                                <a data-author='newton-beck' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/newton-beck/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/newton-beck'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='newton-beck'>@newton-beck</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>No trabalho da <a href="https://carreira.elo7.com.br/engenharia">Engenharia</a> do Elo7, temos múltiplas equipes dedicadas à nossa principal aplicação (<a href="https://www.elo7.com.br">o site do Elo7</a>), segmentadas em diferentes domínios do negócio (carrinho de compras, pagamentos, integrações com Correios, etc). Também temos equipes focadas no uso de tecnologias específicas, como front-end, ferramentas de busca e plataformas mobile. O trabalho desenvolvido por todas essas equipes é inter-relacionado, sendo comum que diferentes aplicações, de diferentes times, precisem conversar entre si. Isso não é novidade, e existem muitas maneiras diferentes para implementar esse tipo de integração entre sistemas. Neste post, vamos falar um pouco sobre algumas possíveis estratégias, no contexto de <em>microserviços</em>, e diferentes abordagens de implementação.</p>
+
+<p>Com sorte, esperamos poder ajudar <strong>você</strong> a encontrar possíveis caminhos para a sua aplicação e o seu contexto em particular.</p>
+
+<h2 id="mas-o-que-raios-é-um-microserviço">Mas o que raios é um &ldquo;microserviço&rdquo;?</h2>
+
+<blockquote>
+<p><em>“O que é, por conseguinte, o tempo? Se ninguém me perguntar, eu sei; se o quiser explicar a quem me fizer a pergunta, já não o sei.” (Santo Agostinho, &ldquo;Confissões&rdquo;)</em></p>
+</blockquote>
+
+<p>Atualmente, o modelo de sistemas distribuídos em destaque é a <strong>arquitetura baseada em microserviços</strong>. Mas por quê? O que é um microserviço? Onde vivem, o que comem? É interessante notar que, apesar da grande adoção na indústria e (muitas) discussões a respeito, ainda encontramos diversas explicações para o termo &ldquo;microserviço&rdquo;. Não temos a pretensão de escrever uma definição canônica sobre essa palavra, mas existe um certo consenso sobre o que os tais &ldquo;microserviços&rdquo; têm em comum.</p>
+
+<p>Podemos estabelecer uma comparação dos microserviços com uma arquitetura monolítica: um &ldquo;monolito&rdquo; é feito como uma única unidade, e todos os componentes da aplicação estão juntos no mesmo lugar. Ou seja, todo o conjunto de funcionalidades disponíveis na aplicação estão representados por <strong>uma única unidade lógica executável</strong>. Essa é a maneira mais natural, mais simples, mais prática e mais rápida de construir um sistema. Não obstante, conforme o software evolui, as coisas começam a ficar complicadas: se houver um problema na funcionalidade A que, digamos, seja grave o suficiente para derrubar a aplicação, a funcionalidade B, completamente diferente, também será comprometida. Ciclos de deploy começam a se tornar maiores e mais complexos, uma vez que pequenas mudanças ou correções isoladas precisam republicar a aplicação inteira. A escalabilidade também é comprometida, uma vez que não é possível escalar apenas funcionalidades que demandem mais recursos. E, além disso, a tendência é que a base de código se torne cada vez mais extensa, aumentando sua complexidade.</p>
+
+<p>A arquitetura de microserviços propõe uma abordagem diferente: uma abordagem para <strong>desenvolver uma única aplicação como um conjunto de serviços</strong>, cada um sendo executado de maneira independente, em processos separados, se comunicando através de chamadas remotas. Sendo independentes, cada serviço terá o seu próprio processo de deploy e poderá escalar de acordo com suas necessidades em particular. Além disso, podem ser implementados com tecnologias diferentes uns dos outros e terem o seu próprio armazenamento de dados.</p>
+
+<p>E quão &ldquo;micro&rdquo; o &ldquo;microserviço&rdquo; deve ser? Com o tempo, a experiência demonstrou que uma boa abordagem é segmentar serviços por <em>contextos de negócio</em>, de modo que cada um represente um requisito funcional da sua aplicação (no caso do Elo7, pagamentos, pedidos, produtos, etc). Podemos usar aqui o Princípio da Responsabilidade Única, mas aplicado à arquitetura: um microserviço deve fazer <em>uma única coisa</em>, e fazê-lo bem, usando as ferramentas adequadas ao contexto que o serviço representa.</p>
+
+<p>Mas você já sabia de tudo isso, certo? Mais importante: o que a abordagem de microserviços tem de &ldquo;novo&rdquo;? Afinal, uma arquitetura baseada em componentes independentes é o pilar da idéia de <strong>sistemas distribuídos</strong>, e representar esses componentes como serviços é a idéia central do <a href="https://pt.wikipedia.org/wiki/Service-oriented_architecture">SOA</a>.</p>
+
+<p>Não é nosso objetivo fazer uma discussão sobre tudo o que envolve microserviços e a complexidade inerente a uma arquitetura distribuída (para uma explicação mais rica recomendamos <a href="https://martinfowler.com/articles/microservices.html">este link</a>). Para os fins do nosso artigo, vamos nos concentrar em um detalhe mais específico: a maneira como os serviços são <em>expostos</em> e como são <em>consumidos</em>.</p>
+
+<h2 id="web-services-e-api-s">Web services e API&rsquo;s</h2>
+
+<blockquote>
+<p><em>&ldquo;Que há em um nome? O que chamamos de rosa, com outro nome, exalaria o mesmo perfume tão agradável?&rdquo; (William Shakespeare, &ldquo;Romeu e Julieta&rdquo;)</em></p>
+</blockquote>
+
+<p>Yes, nós temos serviços. Como estabelecemos uma comunicação entre eles? Esta é uma preocupação importante, e que o monolito não possui: qualquer funcionalidade da aplicação pode ser consumida através de chamadas de método/função locais (em memória). Em uma arquitetura baseada em serviços, dado que cada um é executado em seu próprio processo, precisamos de chamadas remotas, e precisamos que os diferentes serviços sejam <strong>interoperáveis</strong>, de modo que o serviço A possa ser consumido sem dificuldades pelo serviço B. Como podemos conseguir isso?</p>
+
+<p>Em arquiteturas basedas em SOA, frequentemente (mas não unicamente) esses serviços são conectados através de web services (o protocolo mais comum é o <a href="https://pt.wikipedia.org/wiki/SOAP">SOAP</a>), eventualmente utilizando algum <a href="https://pt.wikipedia.org/wiki/Enterprise_Service_Bus">enterprise service bus ou ESB</a>, e são mais frequentemente consumidos através de mecanismos de <a href="https://pt.wikipedia.org/wiki/Chamada_de_procedimento_remoto">RPC</a> (o acrônimo de &ldquo;Remote Procedure Call&rdquo;; essencialmente, consiste em representar uma chamada remota como uma chamada local de método, usando alguma estrutura fornecida pela linguagem em questão. No caso do Java, normalmente implementações geradas a partir do contrato de definição do serviço, ou proxy dinâmico de interfaces).</p>
+
+<p>Existem muitas semelhanças entre o SOA e o modelo arquitetural dos microserviços, mas acreditamos que eles mais se diferem do que se parecem. Os conceitos de microserviços têm se afastado das idéias do SOA que descrevemos acima, especialmente no que se refere à coesão e tamanho dos serviços, e na maneira como as funcionalidades são expostas. Ao invés da orquestração via ESB, microserviços têm preferido a <a href="https://www.thoughtworks.com/de/insights/blog/scaling-microservices-event-stream">coreografia de múltiplas aplicações</a>; ao invés de web services baseados em SOAP, microserviços têm preferido a exposição de API&rsquo;s diretamente sobre HTTP.</p>
+
+<p>A respeito da maneira como as funcionalidades do serviço são expostas, um detalhe que tem caracterizado os microserviços é a escolha do <a href="https://pt.wikipedia.org/wiki/REST">REST</a> como estilo arquitetural. O conceito-chave do REST é a utilização do <em>recurso</em> como principal elemento de abstração do serviço. Sendo um modelo arquitetural, REST não é sobre protocolos, mas é mais comumente utilizado sobre o HTTP. Queremos nos concentrar nesse último detalhe em particular (a maneira como os serviços são expostos), que normalmente é reforçado como uma vantagem dos microserviços REST sobre os web services SOAP: expor uma API diretamente sobre HTTP é melhor?</p>
+
+<p>Em nossa opinião, SIM, e é a opinião que a indústria de software têm adotado nos últimos anos. Mas é o suficiente? Se sim, qual formato de dados devemos utilizar? Utilizar <a href="http://www.json.org/json-pt.html">JSON</a> é o mais indicado para todas as situações? Estamos implementando corretamente o principal conceito do REST (a idéia do <em>recurso</em>)? Ou estamos apenas usando HTTP para expor URIs que trafegam JSON, e chamando isso de &ldquo;API REST&rdquo;?</p>
+
+<h2 id="rest-e-rpc">REST e RPC</h2>
+
+<blockquote>
+<p><em>&ldquo;As coisas valem pelas idéias que nos sugerem.&rdquo; (Machado de Assis, &ldquo;Trio em lá menor&rdquo;)</em></p>
+</blockquote>
+
+<p>Como dito antes, RPC é principalmente uma maneira de encapsular uma chamada remota em uma chamada de método/função local, ocultando a comunicação propriamente dita (para o cliente do serviço, equivale a utilizar um objeto que represente o serviço e utilizar seus métodos normalmente, enviando argumentos e capturando o retorno). Essa abordagem de consumo reflete um dos conceitos principais dos web services <em>à la</em> SOA, que consistem em, grosso modo, expor funcionalidades de negócio através de <strong>operações</strong> (&ldquo;consultar&rdquo;, &ldquo;criar&rdquo;, &ldquo;excluir&rdquo;, etc), que fazem sentido dentro do contexto de negócio de cada serviço em específico.</p>
+
+<p>A abordagem do REST propõe que nos preocupemos com o que aquele serviço <em>representa</em>; as &ldquo;operações&rdquo; disponíveis já estão representadas pelos verbos da <strong>interface uniforme</strong> (o protocolo HTTP).</p>
+
+<p>Essa é uma diferença fundamental, e a partir disto podemos (ousadamente) estabelecer que: <em>REST é sobre substantivos (nomes); RPC é sobre verbos (ações)</em>.</p>
+
+<p>Embora o termo &ldquo;RPC&rdquo; traga à lembrança protocolos pesados como SOAP e o uso de ferramentas SOA complexas, existem protocolos mais leves e muito utilizados como <a href="https://pt.wikipedia.org/wiki/XML-RPC">XML-RPC</a> ou <a href="https://pt.wikipedia.org/wiki/JSON-RPC">JSON-RPC</a>. Na verdade, é muito mais comum encontrar uma API &ldquo;RPC-like&rdquo; do que utilizando as idéias do REST (não acredita? Continue lendo!).</p>
+
+<p>Como exemplo, vamos imaginar um (micro)serviço que seja responsável pelo gerenciamento de um catálogo de produtos. Para listar todos os produtos, faremos uma requisição HTTP no formato abaixo:</p>
+
+<pre><code>GET /product/list HTTP/1.1
+Host: api.example
+Accept: application/json
+</code></pre>
+
+<p>E a resposta será uma coleção dos produtos disponíveis (no formato JSON). Digamos que a requisição abaixo crie um novo produto:</p>
+
+<pre><code>POST /product/create HTTP/1.1
+Host: api.example
+Content-Type: application/json
+
+{name: &quot;Product name&quot;}
+</code></pre>
+
+<p>E a requisição abaixo altere os dados de um produto específico:</p>
+
+<pre><code>POST /product/update HTTP/1.1
+Host: api.example
+Content-Type: application/json
+
+{id: 1234, name: &quot;New Product name&quot;}
+</code></pre>
+
+<p>Algumas implementações de API parecem crer que basta receber requisições diretamente através de HTTP para serem consideradas um serviço &ldquo;REST&rdquo;. Vejamos: os endpoints acima (&ldquo;/product/list&rdquo;, &ldquo;/product/create&rdquo; e &ldquo;/product/update&rdquo;) estão em conformidade com o que o REST propõe? Em nossa opinião, a resposta é NÃO. E não estamos dizendo que é algo &ldquo;ruim&rdquo;; apenas que, tecnicamente, não é REST.</p>
+
+<p>Nos exemplos acima, o formato das URLs não representam nenhum &ldquo;recurso&rdquo;. Estas URLs representam as operações disponíveis e expostas por esse serviço em termos de <em>verbos</em>: &ldquo;list&rdquo; , &ldquo;create&rdquo; e &ldquo;update&rdquo;. Esta é justamente a proposta das ferramentas de RPC, pois o uso de particularidades do protocolo (como o uso de verbos HTTP para representar diferentes ações) tem um papel secundário. Ok, estamos utilizando o verbo HTTP GET para obter os produtos, e POST para criar novos produtos; mas é um uso simplesmente acidental, pois utilizamos uma URL diferente para cada operação que desejamos realizar (alguns frameworks RPC utilizam os verbos HTTP adequados mas, novamente, é um uso meramente acidental, porque a semântica está representada pela operação exposta na URL). Algumas implementações, como o JSON-RPC, expõe uma única URL (por exemplo, &ldquo;/product&rdquo;) e o cliente deve enviar no corpo da requisição a operação a ser realizada (o que implica ao cliente enviar POSTs mesmo para obter dados, por exemplo).</p>
+
+<p>Como podemos deixar nossos endpoints em maior conformidade com o que o REST propõe? Para retornar todos os produtos, poderíamos:</p>
+
+<pre><code>GET /product HTTP/1.1
+Host: api.example
+Accept: application/json
+</code></pre>
+
+<p>Aqui estamos usando o &ldquo;product&rdquo; como o <em>substantivo</em>, o que define o nosso serviço. O uso do verbo HTTP GET explicita que queremos retornar todos os produtos. Para criar um produto novo:</p>
+
+<pre><code>POST /product HTTP/1.1
+Host: api.example
+Content-Type: application/json
+
+{name: &quot;Product name&quot;}
+</code></pre>
+
+<p>Novamente, &ldquo;product&rdquo; é o recurso; o uso do verbo POST explicita que desejamos criar um novo produto, que por sua vez será um <strong>novo recurso</strong>, disponível em outra URL (digamos, &ldquo;/product/{identificador do produto}&rdquo;). Se desejarmos alterar esse recurso, podemos utilizar o verbo PUT para demonstrar nossa intenção:</p>
+
+<pre><code>PUT /product/1234 HTTP/1.1
+Host: api.example
+Content-Type: application/json
+
+{name: &quot;New Product name&quot;}
+</code></pre>
+
+<p>A abordagem REST é melhor? A partir dos exemplos acima, talvez você considere que sim, mas apenas porque, em nossa opinião, deliberadamente demonstramos um contexto no qual o uso do REST é mais apropriado do que a abordagem RPC. Mas será que sempre é o caso? Repassando o que declaramos no ínicio:</p>
+
+<p>Sobre APIs REST:
+- Uma API REST é modelada em termos de <strong>substantivos</strong>, modelando o domínio na forma de recursos; os verbos HTTP são utilizados para representar as operações disponíveis sobre esses recursos (verbos diferentes utilizados sobre o mesmo recurso representam diferentes operações).
+- Eventualmente, pode ser complicado usar o restrito grupo de verbos HTTP para representar ações mais complexas; talvez você deva utilizar endpoints &ldquo;RPC-like&rdquo; (representando ações) para estes casos.</p>
+
+<p>Sobre APIs RPC:
+- Uma API RPC é modelada em termos de <strong>verbos</strong>, expondo funcionalidades como operações (ou chamadas de método/função).
+- Eventualmente, a semântica do seu serviço pode ser prejudicada pelo fato das operações expostas representarem um conjunto de métodos, mas não um domínio; talvez você deva utilizar endpoints representando recursos ao invés de ações.</p>
+
+<p>Dois casos de uso interessantes sobre essas abordagens são as APIs do <a href="https://api.slack.com/web">Slack</a> e do <a href="https://www.hipchat.com/docs/apiv2">HipChat</a>: ambas são ferramentas de comunicação em equipe, com suporte a salas privadas, conversas individuais, integrações externas, entre outras coisas. São contextos bastante parecidos. O Slack optou por criar uma API RPC; o HipChat, por uma abordagem REST. Será que alguma das duas é &ldquo;melhor&rdquo;? Provavelmente, não. O &ldquo;melhor&rdquo; é sempre <strong>a abordagem mais adequada para o problema que você quer resolver</strong>.</p>
+
+<h2 id="frameworks-rest-e-rpc">Frameworks REST e RPC</h2>
+
+<blockquote>
+<p><em>&ldquo;Os homens em geral julgam mais pelos olhos do que pelas mãos, pois a todos é concedido ver, mas nem a todos é dado perceber.&rdquo; (Nicolau Maquiavel, &ldquo;O Príncipe&rdquo;)</em></p>
+</blockquote>
+
+<p>Expor um serviço REST é simples; há um grande número de frameworks web que tornam essa tarefa algo trivial. No Elo7, nossa principal linguagem é o Java, e para expor (micro)serviços normalmente utilizamos VRaptor e Spring MVC. Também temos serviços expostos em Scala, Ruby e Node. Em nossa opinião, é justamente essa facilidade que leva muitos desenvolvedores a verem o REST como o modelo &ldquo;correto&rdquo; (ou mesmo &ldquo;o único modelo&rdquo;) para integração de microserviços. Também podemos utilizar quaisquer desses frameworks para criar APIs &ldquo;RPC-like&rdquo; sobre HTTP facilmente. Mas existem frameworks <strong>especificamente</strong> para o modelo RPC?</p>
+
+<p>Até aqui, discutimos o formato e semântica das URLs, mas utilizar um framework RPC é um passo além, e uma decisão que deve ser tomada cuidadosa e cautelosamente. Existem várias opções: <a href="http://www.grpc.io/">gRPC</a>, <a href="https://thrift.apache.org/">Apache Thrift</a>, <a href="https://twitter.github.io/finagle/">Finagle</a>, entre outros. Talvez você ainda não conheça esses frameworks, mas são muito utilizados por empresas como Google, Twitter, Facebook, Pinterest, Foursquare, SoundCloud&hellip;(como pode perceber, empresas pequenas e desconhecidas :)).</p>
+
+<p>Mas porque essas empresas não usam REST + JSON, como nos habituamos a fazer?</p>
+
+<p>Em primeiro lugar, essas empresas utilizam esses frameworks em grande escala, mas <strong>somente para sistemas internos</strong>. Expor um serviço para clientes externos utilizando um framework RPC não é uma boa decisão; seus clientes (que você, potencialmente, não sabe quem são) serão forçados a utilizar a mesma tecnologia do serviço. E para sistemas internos? Uma vez que seus serviços estão inseridos dentro de um mesmo ecossistema (e não abertos ao mundo) <em>talvez</em> você possa vir a considerar que esta é uma limitação com a qual você possa conviver, dadas as vantagens (que relataremos também). Outro detalhe é a performance, uma vez que alguns destes frameworks RPC modernos foram especialmente projetados para suportar formatos binários (como serialização de objetos e <a href="https://developers.google.com/protocol-buffers/">protocol buffers</a>) e <a href="https://twitter.github.io/finagle/guide/Protocols.html">outros protocolos</a> além do HTTP.</p>
+
+<p>Para o cliente/consumidor do serviço, o que muda? APIs REST, adequadamente orientadas a recurso, em nossa opinião, tendem a ser mais fáceis de entender, uma vez que o HTTP é utilizado como interface uniforme do serviço (tornando-o facilmente consumível a partir de qualquer linguagem/plataforma/framework/biblioteca que trabalhe com HTTP); o uso de URIs como identificadores de recursos, somado ao uso dos verbos HTTP, em nossa opinião, tende a melhorar a semântica dos serviços expostos (em nossa opinião, isso torna o uso da API mais &ldquo;natural&rdquo;).</p>
+
+<p>No caso do RPC, é um pouco mais complicado. Se você estiver consumindo uma API &ldquo;RPC-like&rdquo; (como a do Slack, que citamos acima), isso vai exigir um pouco mais de documentação, uma vez que o cliente precisa conhecer exatamente cada operação disponível (que são diferentes URLs).</p>
+
+<p>Mas se você optou por utilizar algum dos frameworks citados acima (ou mesmo outros, como <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#remoting-httpinvoker">Spring Remoting</a>), o seu serviço será mais fácil de <strong>consumir</strong> a partir do código-fonte no cliente: bastará ter um &ldquo;stub&rdquo;, ou algum objeto/estrutura que represente o serviço exposto (no caso do Java, normalmente uma interface) e utilizar esse objeto normalmente, como chamadas de método normais. Frequentemente esse detalhe é citado como a maior vantagem da abordagem RPC: é muito fácil e transparente para o cliente consumir o serviço, uma vez que o mecanismo RPC de sua escolha irá encapsular e ocultar os detalhes de baixo nível da comunicação propriamente dita.</p>
+
+<p>O detalhe de implementação perigoso em qualquer mecanismo de RPC é o acoplamento da tecnologia: dependendo do que você escolher utilizar, o cliente e o servidor deverão utilizar a mesma linguagem/framework. A evolução dos frameworks RPC modernos, nos anos recentes, reduziu significativamente essa limitação: o <a href="http://www.grpc.io/docs/">gRPC</a> e o <a href="https://thrift.apache.org/lib/">Thrift</a> são compatíveis com várias linguagens (o servidor e o cliente podem ser implementados em linguagens diferentes), e o Finagle é compatível com qualquer linguagem que rode na JVM.</p>
+
+<p>Outra diferença importante, da perspectiva do cliente, é o tratamento da resposta: em serviços REST o código de status da resposta é um detalhe que deve ser usado muito conscientemente, pois cada código possui uma semântica particular. Mesmo retornos de &ldquo;sucesso&rdquo; podem ter significados diferentes, como &ldquo;Ok&rdquo;, &ldquo;Created&rdquo; ou &ldquo;Accepted&rdquo;; isso confere ao cliente uma especial flexibilidade para implementar lógicas de granularidade fina, para casos específicos (como, por exemplo, uso do cache (código 304)). O mesmo ocorre em casos de erro (no HTTP, respostas de &ldquo;erro&rdquo; são representadas pelos códigos de resposta 4xx (Not Found, Bad Request, Unauthorized, etc) e 5xx (Bad Gateway, Internal Server Error, etc)). Além do código de status, a resposta também pode conter cabeçalhos indicando determinas situações (por exemplo, o cabeçalho &ldquo;ETag&rdquo;, usado para controle de concorrência). Em frameworks RPC, uma vez que os detalhes da comunicação HTTP são encapsulados, irá depender da implementação o nível de detalhes da resposta que você poderá acessar (normalmente o tratamento de erros do protocolo é realizado pelo próprio framework, que fornece para o cliente alguma estrutura de dados/objeto com os detalhes do problema).</p>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<blockquote>
+<p><em>&ldquo;O que mais receamos é o que nos faz sair dos nossos hábitos.&rdquo; (Fiódor Dostoiévski, &ldquo;Crime e Castigo&rdquo;)</em></p>
+</blockquote>
+
+<p>Há uma grande quantidade de artigos disponíveis sobre as diferenças entre as abordagens REST e RPC, ao melhor estilo &ldquo;este contra aquele&rdquo;. Nosso maior objetivo com este post foi tentar demonstrar que esta é uma falsa dicotomia. Não escrevemos &ldquo;REST vs RPC&rdquo;, e sim <em>&ldquo;REST e RPC&rdquo;</em>. Não achamos que estas duas abordagens são mutuamente excludentes.</p>
+
+<p>Não obstante, muitas APIs parecem adotar REST sem entender muito bem o porquê, e o resultado são serviços que soam estranhos às idéias do REST. Sim, nós adoramos REST + JSON, mas essa não é a única maneira de expor um serviço. Eventualmente, não será nem mesmo a abordagem mais adequada. Por outro lado, embora os frameworks RPC tenham ganhado muito espaço na discussão sobre microserviços (como citamos acima, algumas empresas de grande porte, com sistemas gigantescos, dão preferência a esses frameworks), muitas vezes trazem consigo uma carga de complexidade que pode ir além do que seu software precisa.</p>
+
+<p>Em posts futuros discutiremos sobre como trabalhamos com monolitos, (micro)serviços, REST e RPC na Engenharia do Elo7.</p>
+
+<p>Apesar do post longo e o tema complicado, agradecemos por ter lido até o fim :). E qualquer dúvida, comentário, ou crítica, esteja à vontade para utilizar a caixa de comentários!</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/microservices/'>microservices</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/rest/'>rest</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/rpc/'>rpc</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/arquitetura-de-software/'>arquitetura de software</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fmicroservicos-rest%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=microservi%25C3%25A7os-e-rest-s%25C3%25A9rio&url=https%3a%2f%2felo7.dev%2fmicroservicos-rest%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/microservicos-rest/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/microservicos-rest/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Microserviços e REST estão na moda. Vamos discutir um pouco sobre essas duas palavrinhas.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2017-07-17 00:00:00 \x2b0000 UTC:\/microservicos-rest\/';
+            var disqus_url = 'https:\/\/elo7.dev\/microservicos-rest\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

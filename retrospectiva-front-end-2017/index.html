@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,acessibilidade,css,html,javascript,pwa,retrospectiva,webapi,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Front-End - Coisas de que nós nos orgulhamos em 2017!'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Front-End - Coisas de que nós nos orgulhamos em 2017!'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Front-End - Coisas de que nós nos orgulhamos em 2017!'>
+	<meta property='og:url' content='https://elo7.dev/retrospectiva-front-end-2017/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Front-End - Coisas de que nós nos orgulhamos em 2017!'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/retrospectiva-front-end-2017/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/retrospectiva-front-end-2017/'>
+	<title>Elo7 Tech - Front-End - Coisas de que nós nos orgulhamos em 2017!</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Front-End - Coisas de que nós nos orgulhamos em 2017!' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Front-End - Coisas de que nós nos orgulhamos em 2017!</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2018-01-08 00:00:00 &#43;0000 UTC'
+    aria-label='08 de janeiro de 2018'>
+    08/01/2018
+    <meta itemprop='datePublished' content='Mon Jan 08 2018 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Jan 08 2018 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2018-01-08'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='alinelee' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/alinelee/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/alinelee'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='alinelee'>@alinelee</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>2017 foi um ano recheado de projetos interessantes e desafiantes para nós. Neste post vou fazer um resumão deles.</p>
+
+<h2 id="web-apis">Web APIs</h2>
+
+<p>A tendência de tornar a web cada vez mais amigável aos usuários, muitas vezes de forma bem parecida ao que acontece com os aplicativos, se mostrou bem forte. E nós temos diversas ferramentas nos navegadores para implementar isso: as <a href='https://developer.mozilla.org/en-US/docs/Web/API' rel='nofollow' target='_blank'>Web APIs</a>.</p>
+
+<p>Foi muito divertido testar e implementar algumas delas:</p>
+
+<ul>
+<li><a href="/web-share-api/">Web Share API</a>: Baseada no <code>navigator.share()</code>, que possui suporte a partir do Chrome 61 para Android. Com ela, conseguimos utilizar recursos nativos para fazer o compartilhamento de conteúdo nas redes sociais.</li>
+</ul>
+
+<p><img src="../images/retrospectiva-front-end-2017-05.gif" alt="Ilustração para web share API" /></p>
+
+<ul>
+<li><a href='https://developers.google.com/web/fundamentals/security/credential-management/?hl=pt-br' rel='nofollow' target='_blank'>Credential Management API</a>: Utilizando essa API, que está disponível a partir do Chrome 51, o site é capaz de armazenar e utilizar as credenciais do usuário no login. Assim não é necessário digitar a senha em todos os acessos.
+Já implementamos no Elo7 e muito em breve teremos um post falando mais sobre ela.</li>
+</ul>
+
+<p><img src="../images/retrospectiva-front-end-2017-04.gif" alt="Ilustração para credential management API" /></p>
+
+<ul>
+<li><a href='https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API' rel='nofollow' target='_blank'>Payments Request API</a>: auxilia o preenchimento dos dados de pagamento no processo de compra do site.
+O <a href="/williammizuta/">William Mizuta</a> fez uma palestra sobre o assunto no <a href='https://front7.elo7.com.br/' rel='nofollow' target='_blank'>Front7</a>. Você pode ver os <a href='https://pt.slideshare.net/WilliamSeitiMizuta/front7-2017-a-experincia-do-usurio-no-mundo-web-de-hoje-e-quais-so-as-novas-ap-is-web' rel='nofollow' target='_blank'>slides</a>, um <a href='https://williammizuta.github.io/html5-apis/payment-request/' rel='nofollow' target='_blank'>exemplo</a> e a <a href='https://github.com/williammizuta/html5-apis' rel='nofollow' target='_blank'>implementação</a>.</li>
+</ul>
+
+<p>Nós acreditamos no potencial dessas APIs para engajar e melhorar a experiência do usuário na web, trazendo algo que só era visto em uma aplicação nativa.</p>
+
+<h2 id="pwa">PWA</h2>
+
+<p>Seguindo a ideia de trazer para web funcionalidades comuns em aplicativos, temos o tão falado <a href="/a-tecnologia-por-tras-de-progressive-web-apps/">Progressive Web Apps</a>.</p>
+
+<p>Em 2017, conseguimos os requisitos necessários para dar suporte ao PWA, como por exemplo ter a infraestrutura do site toda com HTTPS.</p>
+
+<p>Com isso implementamos o cache de assets do site. Tornamos possível que o usuário inclua um atalho do nosso site junto dos aplicativos do seu celular e aumentamos o engajamento na comunicação entre os nossos vendedores e compradores do site com notificações, as <em>push notification</em>. Assim ganhamos uma experiência de uso mais fluida também na web.</p>
+
+<p><img src="../images/retrospectiva-front-end-2017-06.jpg" alt="Ilustração de um usuário adicionando um atalho do site no celular" /></p>
+
+<h2 id="js">JS</h2>
+
+<p>Neste ano nós incluímos no <em>Water Garden</em>, nosso servidor de templates, o <a href='https://teropa.info/blog/2015/03/02/change-and-its-detection-in-javascript-frameworks.html' rel='nofollow' target='_blank'>Change Detection</a>, conhecido aqui como <em>Nymeria</em>.</p>
+
+<p>Agora a fonte de dados que nosso template segue para renderizar a tela fica mais consistente, nosso código mais claro e temos menos funções descentralizadas. A comunicação entre o <em>Water Garden</em> e a aplicação tem menos ruídos, trazendo uma percepção para o usuário de rapidez, pois não precisamos atualizar toda a página novamente, apenas o que precisa ser alterado.</p>
+
+<p><img src="../images/retrospectiva-front-end-2017-03.png" alt="Ilustração um modelo de produtos não favoritados" /></p>
+
+<p><img src="../images/retrospectiva-front-end-2017-02.png" alt="Ilustração um modelo de produtos favoritados" /></p>
+
+<p>Isso tudo é possível pois, no passado, nós investimos em <em>isomorfismo</em>, assim temos código javascript apto a renderizar componentes tanto no servidor quanto no cliente.</p>
+
+<p><a href="/isomorfismo/">Se quiser saber mais sobre <em>isomorfismo</em> e como nós aplicamos no Elo7 você pode conferir esses posts</a>.</p>
+
+<h2 id="a11y-acessibilidade">A11Y - Acessibilidade</h2>
+
+<p>Um dos assuntos em foco neste ano, a acessibilidade, esteve muito presente no nosso dia-a-dia aqui no Elo7, e acredito que fez parte da vida de muita gente.</p>
+
+<p>Um indicador é o número crescente de debates sobre o tema no mundo front-end em diversos eventos recentes. Lembrando que a <a href='http://www.thedevelopersconference.com.br/tdc/2017/saopaulo/trilha-acessibilidade' rel='nofollow' target='_blank'>TheDevConf 2017</a> contou com uma trilha específica sobre acessibilidade e a presença do <s>Sr. Saúde</s> <a href="/luiz/">Luiz</a>, que trabalha aqui conosco, falando sobre como nós estamos estudando e deixando aos pouquinhos nosso site mais acessível a todos.</p>
+
+<p>Aqui nós contamos com um grupo de estudos sobre o assunto que nos levou a não só aprender mais sobre o assunto, mas a lembrar dele durante nosso dia-a-dia. Nosso código ainda não se tornou totalmente acessível mas com certeza esta mais amigável.
+Se você se interessa pelo tema, não deixe de conferir esses <a href="/tags/acessibilidade/">posts</a> que foram feitos com muito carinho ♥.</p>
+
+<h2 id="css">CSS</h2>
+
+<p>Um conceito que nós continuamos praticando bastante em 2017 foi o <a href='https://csswizardry.net/talks/2014/11/itcss-dafed.pdf' rel='nofollow' target='_blank'>ITCSS</a>, aliado ao <a href='http://bradfrost.com/blog/post/atomic-web-design/' rel='nofollow' target='_blank'>Atomic Design</a>. E com isso estamos construindo uma aplicação muito mais estruturada e com códigos melhor reaproveitados.</p>
+
+<p><img src="../images/retrospectiva-front-end-2017-01.jpg" alt="Ilustração para atomic design e ITCSS" /></p>
+
+<p>Algo que nós ainda estamos começando a fazer esse ano é deixar o nosso código com uma nomenclatura mais próxima aos nossos designers. O atomic design ajuda muito nessa parte, pois os times de design e desenvolvimento podem trabalhar com os mesmos componentes visuais e a mesma nomenclatura.</p>
+
+<h2 id="produtividade">Produtividade</h2>
+
+<p>Aqui no Elo7 nós temos uma maneira no mínimo incomum de trabalhar. Trabalhamos em pares, nos dividimos em times intitulados com os nomes das casas de Game of Thrones e, ao contrário do que a temática sugere, somos uma grande família, que vive de modo muito colaborativo. <a href="/a-cultura-por-tras-do-time-fora-de-serie/">Você pode conferir esse post que o Leonardo Souza escreveu sobre como nós vivemos</a>.</p>
+
+<p>Para tudo isso funcionar de maneira muito harmônica, nós levamos organização e padronização de código bem a sério. Pensando nisso nós incluímos <a href='https://en.wikipedia.org/wiki/Lint_(software)' rel='nofollow' target='_blank'>linters</a> em boa parte dos nossos projetos. Por enquanto só ficaram de fora os projetos muito grandes.</p>
+
+<p>Desta forma, temos a garantia de que estamos escrevendo código padronizado e com menos erros.
+Nosso code review fica mais focado em melhorias de código e não perdemos tanto tempo em revisar se os padrões estão sendo respeitados. Além de deixar claro qual é o padrão de código utilizado pelo time.</p>
+
+<p>Outra ferramenta que nos fez ganhar tempo foi o <a href='https://travis-ci.org' rel='nofollow' target='_blank'>Travis Ci</a>. Ele é bem interessante quando se deseja implantar a integração contínua ou <a href='https://martinfowler.com/articles/continuousIntegration.html' rel='nofollow' target='_blank'>continuous integration</a>, já é integrado ao GitHub, e garante a execução de testes na versão atual do código, eliminando confusões e automatizando os processos, como o deploy. Em breve teremos um post aqui explicando como utilizar ele.</p>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<p>Esses foram alguns dos pontos que ocuparam bastante nossos dias em 2017 e muitos deles continuarão fazendo parte de 2018. E você? Fez coisas parecidas ou pretende fazer?
+Compartilhe conosco as tecnologias que fizeram seu ano aqui nos comentários.</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/acessibilidade/'>acessibilidade</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/css/'>css</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/html/'>html</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/javascript/'>javascript</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/pwa/'>pwa</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/retrospectiva/'>retrospectiva</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/webapi/'>webapi</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fretrospectiva-front-end-2017%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=front-end-coisas-de-que-n%25C3%25B3s-nos-orgulhamos-em-2017&url=https%3a%2f%2felo7.dev%2fretrospectiva-front-end-2017%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/retrospectiva-front-end-2017/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/retrospectiva-front-end-2017/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='2017 foi um ano recheado de projetos interessantes e desafiantes para nós. Neste post vou fazer um resumão deles'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2018-01-08 00:00:00 \x2b0000 UTC:\/retrospectiva-front-end-2017\/';
+            var disqus_url = 'https:\/\/elo7.dev\/retrospectiva-front-end-2017\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>
