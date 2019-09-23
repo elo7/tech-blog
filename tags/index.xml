@@ -354,6 +354,15 @@
     </item>
     
     <item>
+      <title>Cdc</title>
+      <link>https://elo7.dev/tags/cdc/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/cdc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Cep</title>
       <link>https://elo7.dev/tags/cep/</link>
       <pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate>
@@ -503,6 +512,15 @@
       <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/data-scientist/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Debezium</title>
+      <link>https://elo7.dev/tags/debezium/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/debezium/</guid>
       <description></description>
     </item>
     
@@ -1076,7 +1094,7 @@
     <item>
       <title>Kafka</title>
       <link>https://elo7.dev/tags/kafka/</link>
-      <pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/kafka/</guid>
       <description></description>
@@ -1274,7 +1292,7 @@
     <item>
       <title>Mysql</title>
       <link>https://elo7.dev/tags/mysql/</link>
-      <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/mysql/</guid>
       <description></description>
