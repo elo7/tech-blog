@@ -194,7 +194,7 @@
     <item>
       <title>Artificial</title>
       <link>https://elo7.dev/tags/artificial/</link>
-      <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/artificial/</guid>
       <description></description>
@@ -741,6 +741,15 @@
     </item>
     
     <item>
+      <title>Generative Adversarial Networks</title>
+      <link>https://elo7.dev/tags/generative-adversarial-networks/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/generative-adversarial-networks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Gerenciamento De Dependencias</title>
       <link>https://elo7.dev/tags/gerenciamento-de-dependencias/</link>
       <pubDate>Thu, 05 Mar 2015 00:00:00 +0000</pubDate>
@@ -986,7 +995,7 @@
     <item>
       <title>Intelligence</title>
       <link>https://elo7.dev/tags/intelligence/</link>
-      <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/intelligence/</guid>
       <description></description>
@@ -1148,7 +1157,7 @@
     <item>
       <title>Learning</title>
       <link>https://elo7.dev/tags/learning/</link>
-      <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/learning/</guid>
       <description></description>
@@ -1193,7 +1202,7 @@
     <item>
       <title>Machine</title>
       <link>https://elo7.dev/tags/machine/</link>
-      <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/machine/</guid>
       <description></description>
@@ -1556,6 +1565,15 @@
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/reader-monad/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Redes Neurais</title>
+      <link>https://elo7.dev/tags/redes-neurais/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/redes-neurais/</guid>
       <description></description>
     </item>
     

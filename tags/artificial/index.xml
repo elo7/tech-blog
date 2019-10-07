@@ -6,10 +6,19 @@
     <description>Recent content in Artificial on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
-    <lastBuildDate>Mon, 17 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://elo7.dev/tags/artificial/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GAN - Redes Geradoras Adversariais</title>
+      <link>https://elo7.dev/gan/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/gan/</guid>
+      <description>Em 2014 foi publicado um artigo entitulado Generative Adversarial Nets (GAN) propondo uma arquitetura de redes neurais que poderia gerar dados sintéticos que seriam indistinguíveis dos dados reais que foram usados na sua criação. Para quem está por dentro do mundo de Inteligência Artifical dois autores se destacam: o autor principal Ian Goodfellow que foi recentemente contratado pela Apple (estava no Google) para liderar a equipe de Inteligência Artificial; e o pesquisador Yoshua Bengio que recentemente recebeu o Turing Award junto com Geoffrey Hinton e Yann LeCun (outros dois nomes fortes em IA).</description>
+    </item>
     
     <item>
       <title>Reinforcement Learning Parte 1 - Introdução</title>

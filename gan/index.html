@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,generative adversarial networks,learning,machine,artificial,intelligence,redes neurais,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - GAN - Redes Geradoras Adversariais'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - GAN - Redes Geradoras Adversariais'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/gan-1.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - GAN - Redes Geradoras Adversariais'>
+	<meta property='og:url' content='https://elo7.dev/gan/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - GAN - Redes Geradoras Adversariais'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/gan/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/gan-1.png'>
+
+	<link rel='canonical' href='https://elo7.dev/gan/'>
+	<title>Elo7 Tech - GAN - Redes Geradoras Adversariais</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/gan-1.png' alt='GAN - Redes Geradoras Adversariais' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>GAN - Redes Geradoras Adversariais</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2019-10-07 00:00:00 &#43;0000 UTC'
+    aria-label='07 de outubro de 2019'>
+    07/10/2019
+    <meta itemprop='datePublished' content='Mon Oct 07 2019 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Oct 07 2019 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2019-10-07'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='onimaru' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/onimaru/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/onimaru'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='onimaru'>@onimaru</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Em 2014 foi publicado um artigo entitulado <em><a href="https://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf">Generative Adversarial Nets</a></em> (GAN) propondo uma arquitetura de redes neurais que poderia gerar dados sintéticos que seriam indistinguíveis dos dados reais que foram usados na sua criação. Para quem está por dentro do mundo de Inteligência Artifical dois autores se destacam: o autor principal Ian Goodfellow que foi recentemente contratado pela <a href="https://www.cnbc.com/2019/04/04/apple-hires-ai-expert-ian-goodfellow-from-google.html">Apple</a> (estava no Google) para liderar a equipe de Inteligência Artificial; e o pesquisador Yoshua Bengio que recentemente recebeu o <a href="https://epocanegocios.globo.com/Tecnologia/noticia/2019/03/padrinhos-da-inteligencia-artificial-sao-premiados-com-nobel-da-computacao.html">Turing Award</a> junto com Geoffrey Hinton e Yann LeCun (outros dois nomes fortes em IA).</p>
+
+<p>A proposta de gerar dados sintéticos não é nova, há diversas técnicas que envolvem variáveis latentes que circulam em torno desse objetivo. Entretanto, houve uma explosão de aplicações de GAN principalmente nas áreas de visão computacional e reconhecimento de voz, pois estas redes possuem características únicas que permitem identificar propriedades nos dados e as usar em outros dados, veja o exemplo que a <a href="http://openaccess.thecvf.com/content_CVPR_2019/papers/Karras_A_Style-Based_Generator_Architecture_for_Generative_Adversarial_Networks_CVPR_2019_paper.pdf">NVIDIA mostrou recentemente</a>:</p>
+
+<p><img src="../images/gan-2.png" alt="NVIDIA" /></p>
+
+<p>As duas pessoas nesta imagem não existem, foram criadas artificialmente usando GAN. Impressionante, não? Segundo <a href="https://www.quora.com/What-are-some-recent-and-potentially-upcoming-breakthroughs-in-deep-learning">Yann LeCun</a> (Diretor de IA no Facebook) &ldquo;Isso (GAN), e suas variações que estão sendo propostas agora, é a ideia mais interessante nos últimos 10 anos em Machine Learning, na minha opinião.&rdquo;</p>
+
+<h2 id="gerador-e-o-discriminador">Gerador e o Discriminador</h2>
+
+<p>A construção de GAN é bem simples na verdade. Imagine que uma criança (chamada de Gerador) deve levar um documento da escola para que seja assinado pela sua mãe (chamado de Discriminador). Chegando em casa a criança apresenta isso:</p>
+
+<p><img src="../images/gan-3.png" alt="bilete" /></p>
+
+<p>A mãe então analisa o documento, percebe que é falso e a criança fica de castigo. Ao longo da vida na escola esta criança tem a oportunidade de ver documentos verdadeiros e passa e entender como produzir um documento falso que pode enganar sua mãe. A qualidade da falsificação só pode ser testada se esta for colocada sob teste e portanto há um risco de penalização, o castigo. Se este processo se repete muitas vezes pode chegar o ponto em que a mãe não saberá mais diferenciar um documento falso do real.</p>
+
+<p>Este processo é chamado de treino adversarial, uma espécie de jogo entre dois agentes, o Gerador (falsificador) e o Discriminador (o investigador). As redes neurais construídas com base nesta estrutura são chamadas de Redes Geradoras Adversariais.</p>
+
+<p>Sendo um pouco mais técnico, treinamos dois modelos simultaneamente: um modelo gerador <em>G</em> que aprende como os dados reais estão distribuídos e um modelo discriminador <em>D</em> que estima a probabilidade de um dado ser real ou vindo de <em>G</em>. Assim, o objetivo é otimizar <em>G</em> de modo que a estimativa de acerto de <em>D</em> seja $\frac{1}{2}$.</p>
+
+<p>Em termos de redes, para que o gerador aprenda a distribuição dos dados:</p>
+
+<p>$p_{g}(x),$</p>
+
+<p>definimos uma distribuição de ruído:</p>
+
+<p>$p_{z}(z)$</p>
+
+<p>e um mapeamento de $G(z;\theta_{g}):Z \rightarrow X$,</p>
+
+<p>onde <em>G</em> deve ser diferenciável com parâmetro $\theta_{g}$ e <em>z</em> é dita variável latente. Definimos também o mapa diferenciável</p>
+
+<p>$D(x;\theta_{d}): X \rightarrow [0,1]$,</p>
+
+<p>onde o intervalo $[0,1]$ é o espaço de probabilidade de $x$ ser real.</p>
+
+<p>Desta maneira treinamos $D$ para maximizar a probabilidade de acerto de uma amostra ser real ou falsa (vinda de $G$) e ao mesmo tempo treinamos $G$ para minimizar a probabilidade de ser descoberto, $\ln(1-D(G(z)))$. Na prática Goodfellow observou que minimizar $\ln(1-D(G(z)))$ faz os gradientes convergirem para zero rapidamente e maximizar $\ln(D(G(z)))$ é equivalente e permite gradientes com valores mais altos. Assim a função objetivo é:</p>
+
+<p><img src="../images/gan-8.png" alt="" /></p>
+
+<p>Então está estabelecido este jogo entre Gerador e Discriminador, a função $V(D,G)$ atingirá seu valor máximo quando o equilíbrio de Nash for atingido, ou seja, quando nenhum dos dois conseguir melhorar sua performance. Assim a função acima será utilizada como função de perda do problema.</p>
+
+<p>Ok, hora de colocar isso em prática.</p>
+
+<h2 id="construindo-as-redes">Construindo as redes</h2>
+
+<p>Vamos usar para esse exemplo um dataset sintético com algum ruído:</p>
+
+<pre><code class="language-python">import numpy as np
+
+noise = np.random.normal(size=1000)
+x1    = 2*np.pi*np.arange(0,1,0.001)
+x2    = x1*np.cos(2*x1) + noise*0.1
+x3    = np.exp(-x1)*x1 + noise*0.01
+
+X_data = np.concatenate((x1.reshape(x1.shape[0],1),\
+                       x2.reshape(x1.shape[0],1),\
+                       x3.reshape(x1.shape[0],1)),axis=1)
+</code></pre>
+
+<p>Eis os dados em uma imagem:
+<img src="../images/gan-4.png" alt="dataset" /></p>
+
+<p>Parece que há um padrão razoável, porém complexo. Se houvesse muito ruído seria necessário limpar os dados primeiro.</p>
+
+<p>Construiremos as redes usando o <a href="https://pytorch.org/">Pytorch</a>, portanto temos que transformar o <em>X_data</em> em um tensor, aproveitando para melhorar a distribuição dos dados com o <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html">StandardScaler</a>:</p>
+
+<pre><code class="language-python">import torch
+from sklearn.preprocessing import StandardScaler
+
+X_data = StandardScaler().fit_transform(X_data)
+X_tc = torch.Tensor(X_data).type(torch.FloatTensor)
+print(X_tc.shape, X_tc.type())
+&gt;&gt;&gt; torch.Size([1000, 3]) torch.FloatTensor
+</code></pre>
+
+<p>Esse dataset tem 1000 amostras, vamos fazer um batch training com 25 amostras por vez. Uma dica simples para escolher o número de amostras por batch é pegar um número inteiro próximo da $\sqrt{n}$, onde $n$ é o número de amostras. Para fazer o batch training usaremos o DataLoader do Pytorch e vamos optar por fazer o treino em CPU, para usar a GPU veja <a href="https://pytorch.org/docs/stable/notes/cuda.html">aqui</a>.</p>
+
+<pre><code class="language-python">import torch.utils.data as Data
+
+batch_size = 25
+X_dim = X_tc.shape[1]
+torch_dataset = Data.TensorDataset(X_tc)
+loader = Data.DataLoader(
+        dataset = torch_dataset,
+        batch_size = batch_size,
+        shuffle=True)
+</code></pre>
+
+<p>Agora precisamos definir a arquitetura da rede, usaremos apenas uma camada com 50 neurônios e 20 dimensões para a variável latente. Não há uma regra para escolher esses valores, é necessária alguma experimentação. Entretanto, é sempre bom começar com valores baixos, assim o código roda mais rápido e você descobre logo o resultado. Há apenas um ponto a ser observado aqui, escolher o número de neurônios em relaçao ao número de features dos dados é uma característica de Autoencoders, mas isso fica pra outro post.</p>
+
+<p>O fluxo dos dados é mostrado na figura abaixo e nos dá uma ideia de como construir as redes.</p>
+
+<p><img src="../images/gan-5.png" alt="arquitetura" /></p>
+
+<pre><code class="language-python">from torch import optim
+from torch.autograd import Variable
+import torch.nn.functional as F
+from torch import nn
+
+Z_dim = 20    # Dimensão da variável latente
+h_dim = 50    # Tamanho da hidden layer
+lr    = 1e-3  # Taxa de aprendizado
+
+# Arquitetura do Gerador
+class GNet(torch.nn.Module):
+    def __init__(self):
+        super(GNet,self).__init__()
+        self.hidden = torch.nn.Linear(Z_dim, h_dim)
+        self.out = torch.nn.Linear(h_dim, X_dim)
+
+    def forward(self,z):
+        h = F.relu(self.hidden(z))
+        X = torch.sigmoid(self.out(h))
+        return X
+
+# Arquitetura do Discriminador
+class DNet(torch.nn.Module):
+    def __init__(self):
+        super(DNet,self).__init__()
+        self.hidden = torch.nn.Linear(X_dim, h_dim)
+        self.out = torch.nn.Linear(h_dim, 1)
+
+    def forward(self,X):
+        h = F.relu(self.hidden(X))
+        y = torch.sigmoid(self.out(h))
+        return y
+
+# Instanciamos as redes
+G = GNet()
+D = DNet()
+
+# Definimos os otimizadores
+G_optim = optim.Adam(G.parameters(), lr=lr)
+D_optim = optim.Adam(D.parameters(), lr=lr)
+</code></pre>
+
+<p>No caso das funções de perda, quando o Discriminador receber um dado real vamos usar a função <em>log loss</em> (binary cross entropy)) com o <em>label 1</em> e para o dado falso o <em>label 0</em>. Assim, teremos uma função de perda para $G$ e uma para $D$ composta pela soma das perdas de dado real e dado falso.</p>
+
+<pre><code class="language-python"># Labels de dados real e falso
+ones  = Variable(torch.ones(batch_size, 1))
+zeros = Variable(torch.zeros(batch_size, 1))
+
+# Binary cross entropy
+D_loss_real_func = nn.BCELoss()
+D_loss_fake_func = nn.BCELoss()
+G_loss_func = nn.BCELoss()
+</code></pre>
+
+<p>Um ponto muito importante nesse treino é o problema dos gradientes divergirem ou irem para zero, impedindo que a redes aprendam. Para evitar isso devemos reiniciar os pesos das camadas internas das redes. A discussão de qual função de inicialização é mais melhor é vasta, por fim é sempre bom testar algumas. Abaixo deixei comentadas duas funções que testei, mas a <em>Xavier Normal</em> foi a que forneceu melhor desempenho.</p>
+
+<pre><code class="language-python">def init_weights(m):
+    if type(m) == nn.Linear:
+        torch.nn.init.xavier_normal_(m.weight).cuda()
+#         torch.nn.init.kaiming_uniform_(m.weight, a=0.1, mode='fan_in', nonlinearity='relu').cuda()
+#         torch.nn.init.kaiming_normal_(m.weight, a=0.5, mode='fan_in', nonlinearity='leaky_relu')
+        m.bias.data.fill_(0.001)
+
+#Inicializar pesos das redes
+G.apply(init_weights)
+D.apply(init_weights)
+</code></pre>
+
+<p>Por fim definimos uma função para monitorar o desempenho do treinamento.</p>
+
+<pre><code class="language-python"># Avalia o desempenho do discriminador nos dados reais e falsos
+def discriminator_test(n_sample,G,D):
+    z = Variable(torch.randn(n_sample, Z_dim))
+    G_sample = G(z)
+    prob_real = D(X_tc)
+    prob_fake = D(G_sample)
+    print('Average real {:.6f}| Std real {:.6f}'.format(prob_real.mean(),prob_real.std()))
+    print('Average fake {:.6f}| Std fake {:.6f}'.format(prob_fake.mean(),prob_fake.std()))
+</code></pre>
+
+<p>Definimos também algumas listas para guardar os valores das funções de perda:</p>
+
+<pre><code class="language-python">G_his, D_his, D_real_his, D_fake_his = [[],[],[],[]]
+losses_his = [G_his,D_his,D_real_his,D_fake_his]
+</code></pre>
+
+<h2 id="treino">Treino</h2>
+
+<p>Estamos prontos para o treinamento em si. O Dataloader fornecerá os dados de $X_tc$ em batches até completar as $1000$ amostras e esse ciclo se repetirá por $500$ épocas (<em>epochs</em>).</p>
+
+<pre><code class="language-python">epochs = 500
+
+for epoch in range(epochs):
+    for step, batch_x in enumerate(loader):
+        # Amostragem de dados
+        z = Variable(torch.randn(batch_size, Z_dim))
+        X = Variable(batch_x[0])
+
+        # Discriminador
+        G_sample = G(z)
+        D_real = D(X)
+        D_fake = D(G_sample)
+
+        # Passamos dados reais e calculamos o erro, loss
+        D_loss_real = D_loss_real_func(D_real, ones)
+        # O mesmo para dados falsos
+        D_loss_fake = D_loss_fake_func(D_fake, zeros)
+        # O erro do Discriminador é a soma dos dois anteriores
+        D_loss = D_loss_real + D_loss_fake
+
+        D_optim.zero_grad()  # Reinicia os gradientes do otimizador
+        D_loss.backward()    # Calcula os gradientes da perda
+        D_optim.step()       # Faz o otimizador &quot;passar&quot; os gradientes pela rede
+
+        # Generador
+        z = Variable(torch.randn(batch_size, Z_dim))
+        G_sample = G(z)
+        D_fake = D(G_sample)
+
+        G_loss = G_loss_func(D_fake, ones)
+        G_optim.zero_grad()
+        G_loss.backward()
+        G_optim.step()
+
+    # Mostra resultado parcial das perdas 4 vezes
+    if epoch % int(epochs/4) == 0:
+        print('Epoch-{}| Average D_loss: {:.5f}| Average G_loss: {:.5f}'.format(
+            epoch, D_loss.data, G_loss.data))
+        # Mostra probabilidades do Discriminador
+        discriminator_test(500,G,D)
+
+
+&gt;&gt;&gt; Epoch-0| Average D_loss: 1.73391| Average G_loss: 0.44165
+    Average real 0.571132| Std real 0.047926
+    Average fake 0.654227| Std fake 0.052667
+&gt;&gt;&gt; Epoch-125| Average D_loss: 1.36265| Average G_loss: 0.83363
+    Average real 0.478787| Std real 0.124491
+    Average fake 0.432555| Std fake 0.079227
+&gt;&gt;&gt; Epoch-250| Average D_loss: 1.36687| Average G_loss: 0.68600
+    Average real 0.509063| Std real 0.086357
+    Average fake 0.495081| Std fake 0.059590
+&gt;&gt;&gt; Epoch-375| Average D_loss: 1.43308| Average G_loss: 0.68586
+    Average real 0.509467| Std real 0.079206
+    Average fake 0.516861| Std fake 0.063268
+    CPU times: user 8min 44s, sys: 2.89 s, total: 8min 47s
+    Wall time: 44.6 s
+</code></pre>
+
+<p>Em um caso ideal gostaríamos que ambas <em>Average real</em> e <em>Average fake</em> fossem 0.50, indicando que o Discriminador erra em 50% das vezes e logo nos primeiros estágios do treino as redes já estão próximas para esse valor. Como uma avalição para todo o modelo usamos a função <em>discriminator_test</em> para testar com todo o dataset real e mais 1000 dados falsos gerados por $G$.</p>
+
+<pre><code class="language-python">discriminator_test(1000,G,D)
+&gt;&gt;&gt; Average real 0.506466| Std real 0.014672
+&gt;&gt;&gt; Average fake 0.503768| Std fake 0.019862
+</code></pre>
+
+<p>Sem muito esforço o Discriminador já não consegue diferenciar entre os datasets. Agora se quisermos usar $G$ para gerar novos dados basta chamar $G$ fornecendo  ruído:</p>
+
+<pre><code class="language-python">n = 3  # Número de amostra que queremos gerar
+z = Variable(torch.randn(n, Z_dim))
+X_fake = G(z)
+X_fake
+&gt;&gt;&gt; ttensor([[ 0.0738,  1.1339, -0.2117],
+        [-1.5639, -0.0619, -0.5154],
+        [-1.5256, -0.0177,  0.4263]], grad_fn=&lt;AddmmBackward&gt;)
+</code></pre>
+
+<h2 id="avaliação-do-desempenho">Avaliação do desempenho</h2>
+
+<p>As duas maneiras iniciais que usaremos para saber se fizemos um bom trabalho são visualizar os dados reais e falsos juntos e visualizar as perdas ao longo do treino:</p>
+
+<p><img src="../images/gan-6.png" alt="Real e falso" /></p>
+
+<p><img src="../images/gan-7.png" alt="Perdas" /></p>
+
+<p>Os resultados parecem muitos bons para uma rede tão simples. As oscilações das perdas que podemos observar são causadas pelo processo de treino. O Discriminador treina primeiro e portanto está sempre um passo à frente do Gerador, mas é alcançado em seguida. A oscilação diminuiu muito perdo da época 200 indicando que o equilíbrio de Nash está próximo nesse jogo, não há muito mais o que melhorar após isso.</p>
+
+<p>Como teste final vamos unir o dataset real com mais 1000 amostras falsas e verificar como o Discriminador se sai como um classificador de dados.</p>
+
+<pre><code class="language-python">z = Variable(torch.randn(1000, Z_dim))
+X_fake = G(z)
+
+from sklearn.metrics import confusion_matrix, classification_report
+import pandas as pd
+
+# DataFrame real
+df_real = pd.DataFrame(data=X_data,columns=['x1','x2','x3'])
+df_real['reality_label'] = 1
+# Dataframe falso
+df_fake = pd.DataFrame(data=X_fake.data.numpy(),columns=['x1','x2','x3'])
+df_fake['reality_label'] = 0
+
+# Concatemos e embaralhamos os dois
+df_mixed = pd.concat([df_real,df_fake],axis=0)
+df_mixed = df_mixed.sample(frac=1.0)
+
+# Separamos o label para ser o target
+X_mixed = df_mixed.drop('reality_label',axis=1).copy()
+y_mixed = df_mixed['reality_label'].copy()
+
+# Transformamos em tensores
+X_mix_tc = torch.Tensor(X_mixed.values).type(torch.FloatTensor)
+y_mix_tc = torch.Tensor(y_mixed.values).type(torch.FloatTensor)
+</code></pre>
+
+<p>Então retornamos as previsões feitas pelo Discriminador.</p>
+
+<pre><code class="language-python">y_predict = D(X_mix_tc)
+
+# Confusion Matriz de confusão
+print(confusion_matrix(
+                    y_mix_tc.data.numpy().reshape(2000,),
+                    np.round(y_predict.data.numpy().reshape(2000,),0)))
+&gt;&gt;&gt; [[404 596]
+     [397 603]]
+
+# Relatório de classificação
+print(classification_report(
+ y_mix_tc.data.numpy().reshape(2000,),\
+ np.round(y_predict.data.numpy().reshape(2000,),0),digits=5))
+&gt;&gt;&gt;   Classification Report:
+              precision    recall  f1-score   support
+
+         0.0    0.50437   0.40400   0.44864      1000
+         1.0    0.50292   0.60300   0.54843      1000
+
+    accuracy                        0.50350      2000
+   macro avg    0.50364   0.50350   0.49854      2000
+weighted avg    0.50364   0.50350   0.49854      2000
+</code></pre>
+
+<p>Da matriz de confusão temos que:</p>
+
+<p>Verdadeiros negativos (TN) = 404 - 20%
+Falsos positivos (FP)      = 596 - 30%
+Falsos negativos (FN)      = 397 - 20%
+Verdadeiros positivos (TP) = 603 - 30%</p>
+
+<p>O relatório de classificação mostra as métricas que são consequência dos dados vistos na matriz de confusão, como a acurácia em 50%. O Discriminador &ldquo;está confuso&rdquo;, na maioria das vezes ele classifica os dados como reais. Os dados reais são classificados como falsos com a mesma porcentagem que os dados realmente falsos.</p>
+
+<p>Bom, dessa maneira construímos uma Rede Geradora Adversarial. Se quiser, o código todo está <a href="https://github.com/onimaru/Generative_models/blob/master/GAN/GAN_example.ipynb">aqui</a>. Um dia eu volto com mais aplicações disso, valeu.</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/generative-adversarial-networks/'>generative adversarial networks</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/learning/'>learning</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/machine/'>machine</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/artificial/'>artificial</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/intelligence/'>intelligence</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/redes-neurais/'>redes neurais</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fgan%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=gan-redes-geradoras-adversariais&url=https%3a%2f%2felo7.dev%2fgan%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/gan/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/gan/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='GANs são as redes neurais que mais geram notícias hoje em dia. Neste post vamos ver o que há por trás dessas redes que podem gerar dados sintéticos que são indistinguíveis dos reais.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2019-10-07 00:00:00 \x2b0000 UTC:\/gan\/';
+            var disqus_url = 'https:\/\/elo7.dev\/gan\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>
