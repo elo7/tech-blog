@@ -1,5 +1,5 @@
 ---
-date: 2019-06-22
+date: 2019-10-07
 category: machine-learning
 tags:
   - generative adversarial networks
