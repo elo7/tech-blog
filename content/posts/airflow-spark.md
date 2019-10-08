@@ -20,19 +20,19 @@ Atualmente utilizamos o [Apache Spark](https://spark.apache.org/) para realizar 
 
 Vale mencionar que possuímos apenas processos _batches_ utilizando [Apache Spark](https://spark.apache.org/).
 
-Utilizamos duas plataformas para agendar estes processos, o [EMR](https://aws.amazon.com/pt/emr/) e o [Kubernetes](https://kubernetes.io/), e estamos movendo todos os processos que utilizam o [EMR](https://aws.amazon.com/pt/emr/) para o [Kubernetes](https://kubernetes.io/), com auxilio do [Apache Airflow](https://airflow.apache.org/). Para que este _post_ não fique muito longo deixarei os motivos referente aos motivos desta movimentação para um _post_ futuro.
+Utilizamos duas plataformas para agendar estes processos, o [EMR](https://aws.amazon.com/pt/emr/) e o [Kubernetes](https://kubernetes.io/), e estamos movendo todos os processos que utilizam o [EMR](https://aws.amazon.com/pt/emr/) para o [Kubernetes](https://kubernetes.io/), com auxilio do [Apache Airflow](https://airflow.apache.org/). Para que este _post_ não fique muito longo deixarei os motivos referentes a esta movimentação para um _post_ futuro.
 
 ## Como utilizamos o Apache Airflow
 
 O [Apache Airflow](https://airflow.apache.org/) roda dentro do _cluster_ de [Kubernetes](https://kubernetes.io/), utilizamos o [Celery](http://www.celeryproject.org/) como _executor_ do airflow, estes _executors_ também rodam dentro do _cluster_ de [Kubernetes](https://kubernetes.io/).
 
-Temos premissa não executar nenhum processamento pesado nestes _executors_, desta forma, o _workers_ do [Celery](http://www.celeryproject.org/) não ficam bloqueados. O que fazemos é a criação de pods no [Kubernetes](https://kubernetes.io/) através do [Kubernetes Operator](https://airflow.apache.org/kubernetes.html#kubernetes-operator). Uma alternativa seria o uso do [Kubernetes Executor](https://airflow.apache.org/kubernetes.html#kubernetes-executor) como _executor_ do [Apache Airflow](https://airflow.apache.org/), porém ainda não o testamos e também gostamos da liberdade de executar qualquer container através do [Kubernetes Operator](https://airflow.apache.org/kubernetes.html#kubernetes-operator).
+Temos como premissa, não executar nenhum processamento pesado nestes _executors_, desta forma, o _workers_ do [Celery](http://www.celeryproject.org/) não ficam bloqueados. O que fazemos é a criação de pods no [Kubernetes](https://kubernetes.io/) através do [Kubernetes Operator](https://airflow.apache.org/kubernetes.html#kubernetes-operator). Uma alternativa seria o uso do [Kubernetes Executor](https://airflow.apache.org/kubernetes.html#kubernetes-executor) como _executor_ do [Apache Airflow](https://airflow.apache.org/), porém ainda não o testamos e também gostamos da liberdade de executar qualquer container através do [Kubernetes Operator](https://airflow.apache.org/kubernetes.html#kubernetes-operator).
 
 ## Agendando jobs Spark no Airflow
 
-O [Apache Airflow](https://airflow.apache.org/) possuí o [Spark Subimit Operator](https://airflow.apache.org/_api/airflow/contrib/operators/spark_submit_operator/index.html), porém este requer a instalação do [Apache Spark](https://spark.apache.org/) no _container_ do [Apache Airflow](https://airflow.apache.org/). O _container_ que criamos do [Apache Airflow](https://airflow.apache.org/) possuí um tamanho de aproximadamente 767Mb, a instalação do [Apache Spark](https://spark.apache.org/) acrescentaria cerca de 1.5Gb, isto somente para conseguir utilizar o [Spark Subimit Operator](https://airflow.apache.org/_api/airflow/contrib/operators/spark_submit_operator/index.html).
+O [Apache Airflow](https://airflow.apache.org/) possuí o [Spark Submit Operator](https://airflow.apache.org/_api/airflow/contrib/operators/spark_submit_operator/index.html), porém este requer a instalação do [Apache Spark](https://spark.apache.org/) no _container_ do [Apache Airflow](https://airflow.apache.org/). O _container_ que criamos do [Apache Airflow](https://airflow.apache.org/) possuí um tamanho de aproximadamente 767Mb, a instalação do [Apache Spark](https://spark.apache.org/) acrescentaria cerca de 1.5Gb, isto somente para conseguir utilizar o [Spark Submit Operator](https://airflow.apache.org/_api/airflow/contrib/operators/spark_submit_operator/index.html).
 
-Devido ao fatos acima mencionados optamos por utilizar o [Kubernetes Operator](https://airflow.apache.org/kubernetes.html#kubernetes-operator) para criar um _pod_ utilizando o _container_ do [Apache Spark](https://spark.apache.org/), o qual realiza o _submit_ do job spark, que é executado em modo _cluster_ (https://spark.apache.org/docs/latest/running-on-kubernetes.html#cluster-mode) e com a _flag_ `spark.kubernetes.submission.waitAppCompletion-false`. 
+Devido ao fatos acima mencionados optamos por utilizar o [Kubernetes Operator](https://airflow.apache.org/kubernetes.html#kubernetes-operator) para criar um _pod_ utilizando o _container_ do [Apache Spark](https://spark.apache.org/), o qual realiza o _submit_ do job spark, que é executado em modo _cluster_ (https://spark.apache.org/docs/latest/running-on-kubernetes.html#cluster-mode) e com a _flag_ `spark.kubernetes.submission.waitAppCompletion-false`.
 
 Porém para utilizar o [Kubernetes Operator](https://airflow.apache.org/kubernetes.html#kubernetes-operator) são necessárias algumas alteraçoes no _entrypoint_ do _container_ do [Apache Spark](https://spark.apache.org/):
 
@@ -52,7 +52,7 @@ function airflow-submit() {
 }
 ```
 
-O trecho de código acima realiza o _submit_ de um _job_ [Apache Spark](https://spark.apache.org/), capptura a resposta deste _submit_, extraí o _json_ que o [Apache Spark](https://spark.apache.org/) gera como resposta e salva ele no arquivo `/airflow/xcom/return.json`. Isto é necessário devido o [Apache Airflow](https://airflow.apache.org/) experar que o retorno de um _operator_ seja escrito neste arquivo.
+O trecho de código acima realiza o _submit_ de um _job_ [Apache Spark](https://spark.apache.org/), captura a resposta deste _submit_, extraí o _json_ que o [Apache Spark](https://spark.apache.org/) gera como resposta e salva ele no arquivo `/airflow/xcom/return.json`. Isto é necessário devido o [Apache Airflow](https://airflow.apache.org/) esperar que o retorno de um _operator_ seja escrito neste arquivo.
 
 Além disso, criamos nosso próprio operator para realizar o _submit_ de _jobs_ [Apache Spark](https://spark.apache.org/), o qual captura o retorno do submit e o salva no _xcom_ da _task_. Isto é necessário para a monitoração do estado do _pod_, que será descrito a seguir.
 
