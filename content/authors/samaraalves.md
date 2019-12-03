@@ -1,5 +1,5 @@
 ---
-title: Samara
+title: Samara Alves
 publisher: Samara
 layout: publisher
 twitter:
