@@ -1,6 +1,6 @@
 ---
 title: CORELS - um modelo interpretável
-date: 2019-12-XX
+date: 2019-12-03
 category: machine-learning
 layout: post
 description: Algoritmo opção aos modelos black-box
