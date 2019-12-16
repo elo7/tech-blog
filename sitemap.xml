@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/treinando-gans/</loc>
+    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/gan/</loc>
     <lastmod>2019-10-07T00:00:00+00:00</lastmod>
   </url>
@@ -754,6 +759,12 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/tags/artificial-intelligence/</loc>
+    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/tags/assertj/</loc>
     <lastmod>2018-02-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -1020,7 +1031,7 @@
   
   <url>
     <loc>https://elo7.dev/tags/deep-learning/</loc>
-    <lastmod>2017-11-27T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1236,7 +1247,7 @@
   
   <url>
     <loc>https://elo7.dev/tags/generative-adversarial-networks/</loc>
-    <lastmod>2019-10-07T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1572,13 +1583,13 @@
   
   <url>
     <loc>https://elo7.dev/categoria/machine-learning/</loc>
-    <lastmod>2019-10-07T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://elo7.dev/tags/machine-learning/</loc>
-    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1863,8 +1874,14 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/tags/redes-geradoras-adversariais/</loc>
+    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/tags/redes-neurais/</loc>
-    <lastmod>2019-10-07T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

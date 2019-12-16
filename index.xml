@@ -22,6 +22,15 @@ Como utilizamos o Apache Spark no Elo7 Atualmente utilizamos o Apache Spark para
     </item>
     
     <item>
+      <title>Estratégias e dicas para treinar GANs</title>
+      <link>https://elo7.dev/treinando-gans/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/treinando-gans/</guid>
+      <description>Recentemente realizamos no Elo7 um evento chamado de GAN School 1 dando início a série de workshops e meetups promovidos pelo time de engenharia. Os elo7.dev workshops visam compartilhar conhecimento sobre técnicas e soluções usadas aqui no Elo7. A GAN School tem como objetivo divulgar as redes geradoras adversariais no Brasil ensinando o básico necessário para que os participantes que não conhecem a técnica possam começar a acompanhar a literatura, a entender diferentes arquiteturas e aplicá-las em problemas próprios.</description>
+    </item>
+    
+    <item>
       <title>GAN - Redes Geradoras Adversariais</title>
       <link>https://elo7.dev/gan/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
