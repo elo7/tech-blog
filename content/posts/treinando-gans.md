@@ -3,15 +3,15 @@ date: 2019-12-16
 category: machine-learning
 tags:
   - generative adversarial networks
-  - learning
-  - machine
-  - artificial
-  - intelligence
+  - redes geradoras adversariais
+  - machine learning
+  - deep learning
+  - artificial intelligence
   - redes neurais
 authors: [onimaru]
 layout: post
-title: O que aprendi treinando GANs
-description: GANs, as redes geradoras adversariais, são famosas por serem usadas de maneiras incríveis e são muito difíceis de treinar. Nos últimos meses meu passatempo favorito foi estudar e experimentar com GANs e nesse post vou contar alguns dos segredos que aprendi para otimizar e estabilizar o treino.
+title: Estratégias e dicas para treinar GANs
+description: GANs, redes geradoras adversariais, são famosas por produzirem resultados incríveis, mas serem muito difíceis de treinar. Nesse post contamos alguns segredos para otimizar e estabilizar o treino dessas redes.
 cover: treinando-gans-1.png
 ---
 
