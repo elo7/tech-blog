@@ -13,10 +13,6 @@ cover: melhorando-performance-pagina-produto.jpg
 
 http://metrics.elo7aws.com.br:3000/d/000000138/dorne?orgId=1&from=1562293299265&to=1564976499944&var-platform=mobile&var-page=produto&var-gtm=remove_gtm&var-test=default&var-test=shared_worker_inactive
 
-Versões para teste:
-- Marketplace: elo7-1.183.02
-- W7: v76.0.0
-
 - CSS inline
 - JS inline (parece que impactou negativamente o first-contentful-paint; benefício difícil de ver pois foi deployado junto com remoção de AJAXes do i18n)
 - Remover JS não usado (polyfills/fallbacks) (não deu para capturar impacto pelo Dorne pois métricas começaram a ser coletadas depois)
@@ -35,9 +31,13 @@ Também foi uma mudança tecnológica significativa. A versão anterior era tota
 
 Todavia, essa mudança trouxe um ponto negativo não previsto: a performance de carregamento da página piorou bastante, prejudicando a experiência dos nossos usuários e a classificação nas ferramentas de busca. No ambiente de desenvolvimento, acessando a página sendo servida na própria máquina, sem problemas de conexão, essa piora não era perceptível, mas num celular real, mesmo acessando a página via conexão *wi-fi*, era visível que havia uma certa demora no carregamento. Essa demora ficava ainda mais visível olhando os números do [Google PageSpeed](https://developers.google.com/speed/pagespeed/insights/?hl=pt-br) e do [Lighthouse](https://developers.google.com/web/tools/lighthouse?hl=pt-br).
 
-![Relatório do Lighthouse mostrando pontuação de 63 para a página de produto mobile](../images/melhorando-performance-pagina-produto-3.png)
+![Relatório do Lighthouse mostrando pontuação de 72 para a página de produto mobile](../images/melhorando-performance-pagina-produto-3.png)
 
 Esses relatórios foram o principal indicativo de que algo estava errado, e também foram guias essenciais na melhoria da página.
+
+## Antes, uma precaução
+
+Analisando os relatórios, em certos momentos notávamos melhoras ou pioras que não conseguíamos explicar do nosso lado: nenhum deploy realizado, nenhuma alteração na infra-estrutura, nenhum teste A/B promovido... Restavam os parceiros de marketing, os pixels que carregamos em algumas páginas do Elo7. E, de fato, algumas alterações nesses pixels podem impactar consideravelmente o tempo de carregamento da página. Uma vez que percebemos esse fator, passamos a extrair métricas de performance com os pixels ligados e desligados. Dessa forma, conseguimos identificar se um problema de desempenho está sendo causado por uma funcionalidade nossa ou não e tomar as medidas mais adequadas.
 
 ## Examinando o relatório
 
