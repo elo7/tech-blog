@@ -22,14 +22,15 @@ cover: jupyter-enterprise-gateway-1.png
 O time de ciência de dados já utilizava o [Jupyter](https://jupyter.org/) há um bom tempo, porém, eles possuíam uma máquina bem grande na [aws](https://aws.amazon.com/) que era compartilhada entre todos os desenvolvedores.
 
 Neste cenário, cada desenvolvedor que deseja utilizar-se do _jupyter_, acessa a máquina via _ssh_ e cria seu _container_ _docker_ do _jupyter_. A imagem do container era gerada por eles onde diversos pacotes eram instalados. Podemos citar algumas características deste cenario:
-* Os desenvolvedores eram livres para utilizarem a imagem _docker_ que desejassem, porém partiam de uma mesma imagem base
-* O disco da máquina _host_ era compartilhado entre todos os _containers_, sendo assim, compartilhado por todos os desenvolvedores, o que facilitava o compartilhamento de código e dados gerados entre eles, porém o espaço em disco utilizado era consumido da máquina host.
-* Toda a configuração para iniciar o _jupyter_ era realizada manualmente, o que gerava certo trabalho por parte dos desenvolvedores.
-* Não havia controle de uso de recursos, um desenvolvedor poderia consumir todos os recursos da máquina.
-* Pelo fato de ser um servidor compartilhado, podemos mencionar:
-  * Em diversos momentos ficava ocioso (com apenas um usuário utilizando) ou mesmo sem uso
-  * Falta de recursos quando a maioria dos desenvolvedores competiam por recusrsos no servidor, o que poderia impactar diretamente o trabalho de todos os desenvolvedores
-* Em algumas ocasiões, hardware diferente era necessário, como uso GPUs, o que requisitava a criação de outra máquina para essas ocasiões.
+
+- Os desenvolvedores eram livres para utilizarem a imagem _docker_ que desejassem, porém partiam de uma mesma imagem base
+- O disco da máquina _host_ era compartilhado entre todos os _containers_, sendo assim, compartilhado por todos os desenvolvedores, o que facilitava o compartilhamento de código e dados gerados entre eles, porém o espaço em disco utilizado era consumido da máquina host.
+- Toda a configuração para iniciar o _jupyter_ era realizada manualmente, o que gerava certo trabalho por parte dos desenvolvedores.
+- Não havia controle de uso de recursos, um desenvolvedor poderia consumir todos os recursos da máquina.
+- Pelo fato de ser um servidor compartilhado, podemos mencionar:
+  - Em diversos momentos ficava ocioso (com apenas um usuário utilizando) ou mesmo sem uso
+  - Falta de recursos quando a maioria dos desenvolvedores competiam por recusrsos no servidor, o que poderia impactar diretamente o trabalho de todos os desenvolvedores
+- Em algumas ocasiões, hardware diferente era necessário, como uso GPUs, o que requisitava a criação de outra máquina para essas ocasiões.
 
 Como foi observado, este cenário trazia grande liberdade aos desenvolvedores, ao mesmo tempo em que poderia atrapalhar seu desenvolvimento no dia a dia.
 
@@ -50,8 +51,9 @@ O [Jupyter Enterprise Gateway](https://jupyter-enterprise-gateway.readthedocs.io
 ![Jupyter Enterprise Gateway - Architecture](../images/jupyter-enterprise-gateway-2.png)
 
 Sendo assim, ao efetuar o _login_, é criado um _pod_ para cada usuário. Quando o usuário abre um _notebook_ o _enterprise gateway_ cria um pod para a execução do kernel. Desta forma é possível ter diversos tipos diferentes de _kernels_, cada um com perfil de consumo de recursos diferentes e inclusive requisitos de hardware distintos. Por exemplo, você pode possuir os seguintes _kernels_:
-* Spark Scala com GPU, onde ao iniciar este _kernel_ é provisionada uma máquina com GPU e o _kernel_ é iniciado nela
-* Python3 H1, que pode significar uma _kernel_ que necessite de 32Gb de memória e 4 CPUs
+
+- Spark Scala com GPU, onde ao iniciar este _kernel_ é provisionada uma máquina com GPU e o _kernel_ é iniciado nela
+- Python3 H1, que pode significar uma _kernel_ que necessite de 32Gb de memória e 4 CPUs
 
 Com um cluster _kubernetes_ bem configurado, assim como as regras para _autoscale_ das máquinas na aws, você terá acesso a um cluster elástico de acordo com a necessidade dos desenvolvedores a cada momento do dia.
 
@@ -95,8 +97,9 @@ Outro ganho que tivemos com esta arquitetura foi no agendamento dos _notebooks_:
 ## Problemas encontrados
 
 Com essas ferramentas conseguimos resolver boa parte dos nossos problemas no uso do _jupyter_, como uso de disco e recursos, porém nem tudo são flores, e atualmente temos as seguintes limitações:
-* Não é possível compartilhar _notebooks_ através de _imports_ ou dados, porque somente o _notebook_ em execução é montado no _pod_ onde o _kernel_ o executa. Para solucionar esse problema, pretendemos analizar uma solução com o [EFS](https://aws.amazon.com/pt/efs/) através de discos compartilhados. Para compartilhar dados, atualmente, utilizamos o S3.
-* O uso de containers customizados _on-demand_ não é possível, portanto, os desenvolvedores muitas vezes instalam pacotes através do notebook, o que resolve em muitos casos, mas caso utilizem o [Apache Spark](https://spark.apache.org/), a mesma solução não funciona, porque a instalação dos pacotes somente ocorrerá no _driver_ do _spark_. Logo, esta alternativa somente funciona em _kernels_ python, _kernels_ como o do Spark em Scala não é possível esta solução.
+
+- Não é possível compartilhar _notebooks_ através de _imports_ ou dados, porque somente o _notebook_ em execução é montado no _pod_ onde o _kernel_ o executa. Para solucionar esse problema, pretendemos analizar uma solução com o [EFS](https://aws.amazon.com/pt/efs/) através de discos compartilhados. Para compartilhar dados, atualmente, utilizamos o S3.
+- O uso de containers customizados _on-demand_ não é possível, portanto, os desenvolvedores muitas vezes instalam pacotes através do notebook, o que resolve em muitos casos, mas caso utilizem o [Apache Spark](https://spark.apache.org/), a mesma solução não funciona, porque a instalação dos pacotes somente ocorrerá no _driver_ do _spark_. Logo, esta alternativa somente funciona em _kernels_ python, _kernels_ como o do Spark em Scala não é possível esta solução.
 
 Para _notebooks_ em Scala, existe um bug no [Apache Toree](https://toree.apache.org/), que é utilizado por _kernels_ com suporte a Scala, onde células que falhem em sua execução não retornam erro, desta forma ferramentas como [papermill](https://papermill.readthedocs.io/en/latest/) não conseguem identificar quando houve uma falha na execução de um _notebook_. Já existem iniciativas para a correção deste problema, veja [TOREE-508](https://issues.apache.org/jira/browse/TOREE-508) para maiores detalhes.
 
