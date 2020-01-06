@@ -194,15 +194,21 @@
 
 <p>O time de ciência de dados já utilizava o <a href="https://jupyter.org/">Jupyter</a> há um bom tempo, porém, eles possuíam uma máquina bem grande na <a href="https://aws.amazon.com/">aws</a> que era compartilhada entre todos os desenvolvedores.</p>
 
-<p>Neste cenário, cada desenvolvedor que deseja utilizar-se do <em>jupyter</em>, acessa a máquina via <em>ssh</em> e cria seu <em>container</em> <em>docker</em> do <em>jupyter</em>. A imagem do container era gerada por eles onde diversos pacotes eram instalados. Podemos citar algumas características deste cenario:
-* Os desenvolvedores eram livres para utilizarem a imagem <em>docker</em> que desejassem, porém partiam de uma mesma imagem base
-* O disco da máquina <em>host</em> era compartilhado entre todos os <em>containers</em>, sendo assim, compartilhado por todos os desenvolvedores, o que facilitava o compartilhamento de código e dados gerados entre eles, porém o espaço em disco utilizado era consumido da máquina host.
-* Toda a configuração para iniciar o <em>jupyter</em> era realizada manualmente, o que gerava certo trabalho por parte dos desenvolvedores.
-* Não havia controle de uso de recursos, um desenvolvedor poderia consumir todos os recursos da máquina.
-* Pelo fato de ser um servidor compartilhado, podemos mencionar:
-  * Em diversos momentos ficava ocioso (com apenas um usuário utilizando) ou mesmo sem uso
-  * Falta de recursos quando a maioria dos desenvolvedores competiam por recusrsos no servidor, o que poderia impactar diretamente o trabalho de todos os desenvolvedores
-* Em algumas ocasiões, hardware diferente era necessário, como uso GPUs, o que requisitava a criação de outra máquina para essas ocasiões.</p>
+<p>Neste cenário, cada desenvolvedor que deseja utilizar-se do <em>jupyter</em>, acessa a máquina via <em>ssh</em> e cria seu <em>container</em> <em>docker</em> do <em>jupyter</em>. A imagem do container era gerada por eles onde diversos pacotes eram instalados. Podemos citar algumas características deste cenario:</p>
+
+<ul>
+<li>Os desenvolvedores eram livres para utilizarem a imagem <em>docker</em> que desejassem, porém partiam de uma mesma imagem base</li>
+<li>O disco da máquina <em>host</em> era compartilhado entre todos os <em>containers</em>, sendo assim, compartilhado por todos os desenvolvedores, o que facilitava o compartilhamento de código e dados gerados entre eles, porém o espaço em disco utilizado era consumido da máquina host.</li>
+<li>Toda a configuração para iniciar o <em>jupyter</em> era realizada manualmente, o que gerava certo trabalho por parte dos desenvolvedores.</li>
+<li>Não havia controle de uso de recursos, um desenvolvedor poderia consumir todos os recursos da máquina.</li>
+<li>Pelo fato de ser um servidor compartilhado, podemos mencionar:
+
+<ul>
+<li>Em diversos momentos ficava ocioso (com apenas um usuário utilizando) ou mesmo sem uso</li>
+<li>Falta de recursos quando a maioria dos desenvolvedores competiam por recusrsos no servidor, o que poderia impactar diretamente o trabalho de todos os desenvolvedores</li>
+</ul></li>
+<li>Em algumas ocasiões, hardware diferente era necessário, como uso GPUs, o que requisitava a criação de outra máquina para essas ocasiões.</li>
+</ul>
 
 <p>Como foi observado, este cenário trazia grande liberdade aos desenvolvedores, ao mesmo tempo em que poderia atrapalhar seu desenvolvimento no dia a dia.</p>
 
@@ -222,9 +228,12 @@
 
 <p><img src="../images/jupyter-enterprise-gateway-2.png" alt="Jupyter Enterprise Gateway - Architecture" /></p>
 
-<p>Sendo assim, ao efetuar o <em>login</em>, é criado um <em>pod</em> para cada usuário. Quando o usuário abre um <em>notebook</em> o <em>enterprise gateway</em> cria um pod para a execução do kernel. Desta forma é possível ter diversos tipos diferentes de <em>kernels</em>, cada um com perfil de consumo de recursos diferentes e inclusive requisitos de hardware distintos. Por exemplo, você pode possuir os seguintes <em>kernels</em>:
-* Spark Scala com GPU, onde ao iniciar este <em>kernel</em> é provisionada uma máquina com GPU e o <em>kernel</em> é iniciado nela
-* Python3 H1, que pode significar uma <em>kernel</em> que necessite de 32Gb de memória e 4 CPUs</p>
+<p>Sendo assim, ao efetuar o <em>login</em>, é criado um <em>pod</em> para cada usuário. Quando o usuário abre um <em>notebook</em> o <em>enterprise gateway</em> cria um pod para a execução do kernel. Desta forma é possível ter diversos tipos diferentes de <em>kernels</em>, cada um com perfil de consumo de recursos diferentes e inclusive requisitos de hardware distintos. Por exemplo, você pode possuir os seguintes <em>kernels</em>:</p>
+
+<ul>
+<li>Spark Scala com GPU, onde ao iniciar este <em>kernel</em> é provisionada uma máquina com GPU e o <em>kernel</em> é iniciado nela</li>
+<li>Python3 H1, que pode significar uma <em>kernel</em> que necessite de 32Gb de memória e 4 CPUs</li>
+</ul>
 
 <p>Com um cluster <em>kubernetes</em> bem configurado, assim como as regras para <em>autoscale</em> das máquinas na aws, você terá acesso a um cluster elástico de acordo com a necessidade dos desenvolvedores a cada momento do dia.</p>
 
@@ -266,9 +275,12 @@
 
 <h2 id="problemas-encontrados">Problemas encontrados</h2>
 
-<p>Com essas ferramentas conseguimos resolver boa parte dos nossos problemas no uso do <em>jupyter</em>, como uso de disco e recursos, porém nem tudo são flores, e atualmente temos as seguintes limitações:
-* Não é possível compartilhar <em>notebooks</em> através de <em>imports</em> ou dados, porque somente o <em>notebook</em> em execução é montado no <em>pod</em> onde o <em>kernel</em> o executa. Para solucionar esse problema, pretendemos analizar uma solução com o <a href="https://aws.amazon.com/pt/efs/">EFS</a> através de discos compartilhados. Para compartilhar dados, atualmente, utilizamos o S3.
-* O uso de containers customizados <em>on-demand</em> não é possível, portanto, os desenvolvedores muitas vezes instalam pacotes através do notebook, o que resolve em muitos casos, mas caso utilizem o <a href="https://spark.apache.org/">Apache Spark</a>, a mesma solução não funciona, porque a instalação dos pacotes somente ocorrerá no <em>driver</em> do <em>spark</em>. Logo, esta alternativa somente funciona em <em>kernels</em> python, <em>kernels</em> como o do Spark em Scala não é possível esta solução.</p>
+<p>Com essas ferramentas conseguimos resolver boa parte dos nossos problemas no uso do <em>jupyter</em>, como uso de disco e recursos, porém nem tudo são flores, e atualmente temos as seguintes limitações:</p>
+
+<ul>
+<li>Não é possível compartilhar <em>notebooks</em> através de <em>imports</em> ou dados, porque somente o <em>notebook</em> em execução é montado no <em>pod</em> onde o <em>kernel</em> o executa. Para solucionar esse problema, pretendemos analizar uma solução com o <a href="https://aws.amazon.com/pt/efs/">EFS</a> através de discos compartilhados. Para compartilhar dados, atualmente, utilizamos o S3.</li>
+<li>O uso de containers customizados <em>on-demand</em> não é possível, portanto, os desenvolvedores muitas vezes instalam pacotes através do notebook, o que resolve em muitos casos, mas caso utilizem o <a href="https://spark.apache.org/">Apache Spark</a>, a mesma solução não funciona, porque a instalação dos pacotes somente ocorrerá no <em>driver</em> do <em>spark</em>. Logo, esta alternativa somente funciona em <em>kernels</em> python, <em>kernels</em> como o do Spark em Scala não é possível esta solução.</li>
+</ul>
 
 <p>Para <em>notebooks</em> em Scala, existe um bug no <a href="https://toree.apache.org/">Apache Toree</a>, que é utilizado por <em>kernels</em> com suporte a Scala, onde células que falhem em sua execução não retornam erro, desta forma ferramentas como <a href="https://papermill.readthedocs.io/en/latest/">papermill</a> não conseguem identificar quando houve uma falha na execução de um <em>notebook</em>. Já existem iniciativas para a correção deste problema, veja <a href="https://issues.apache.org/jira/browse/TOREE-508">TOREE-508</a> para maiores detalhes.</p>
 
