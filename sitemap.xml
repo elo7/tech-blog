@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://elo7.dev/corels/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/airflow-spark/</loc>
     <lastmod>2019-12-16T00:00:00+00:00</lastmod>
   </url>
@@ -812,14 +817,14 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/back-end/</loc>
-    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/tags/back-end/</loc>
+    <lastmod>2018-09-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/back-end/</loc>
-    <lastmod>2018-09-03T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/categoria/back-end/</loc>
+    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -836,13 +841,13 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/big-data/</loc>
+    <loc>https://elo7.dev/tags/big-data/</loc>
     <lastmod>2019-12-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/big-data/</loc>
+    <loc>https://elo7.dev/categoria/big-data/</loc>
     <lastmod>2019-12-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -920,6 +925,10 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/autor/cimarieta/</loc>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/tags/circle-ci/</loc>
     <lastmod>2018-05-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -990,14 +999,14 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/cultura/</loc>
-    <lastmod>2019-02-04T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/tags/cultura/</loc>
+    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/cultura/</loc>
-    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/categoria/cultura/</loc>
+    <lastmod>2019-02-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1052,13 +1061,13 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/design/</loc>
+    <loc>https://elo7.dev/tags/design/</loc>
     <lastmod>2018-12-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/design/</loc>
+    <loc>https://elo7.dev/categoria/design/</loc>
     <lastmod>2018-12-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -1070,14 +1079,14 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/devops/</loc>
-    <lastmod>2018-08-27T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/tags/devops/</loc>
+    <lastmod>2018-09-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/devops/</loc>
-    <lastmod>2018-09-03T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/categoria/devops/</loc>
+    <lastmod>2018-08-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1168,14 +1177,14 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/eventos/</loc>
-    <lastmod>2016-06-14T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/tags/eventos/</loc>
+    <lastmod>2014-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/eventos/</loc>
-    <lastmod>2014-09-09T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/categoria/eventos/</loc>
+    <lastmod>2016-06-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1187,6 +1196,12 @@
   
   <url>
     <loc>https://elo7.dev/autor/gmcoringa/</loc>
+  </url>
+  
+  <url>
+    <loc>https://elo7.dev/tags/fairness/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -1226,14 +1241,14 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/front-end/</loc>
-    <lastmod>2019-08-26T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/tags/front-end/</loc>
+    <lastmod>2018-10-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/front-end/</loc>
-    <lastmod>2018-10-01T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/categoria/front-end/</loc>
+    <lastmod>2019-08-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1418,6 +1433,12 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/tags/intelig%C3%AAncia-artificial/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/tags/intelligence/</loc>
     <lastmod>2019-10-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -1582,14 +1603,14 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/machine-learning/</loc>
+    <loc>https://elo7.dev/tags/machine-learning/</loc>
     <lastmod>2019-12-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/machine-learning/</loc>
-    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/categoria/machine-learning/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1652,20 +1673,32 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/mobile/</loc>
-    <lastmod>2017-10-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://elo7.dev/tags/mobile/</loc>
     <lastmod>2018-08-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://elo7.dev/categoria/mobile/</loc>
+    <lastmod>2017-10-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/tags/mockito/</loc>
     <lastmod>2017-08-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://elo7.dev/tags/modelo-de-regras/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://elo7.dev/tags/modelo-interpret%C3%A1vel/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1775,7 +1808,7 @@
   
   <url>
     <loc>https://elo7.dev/posts/</loc>
-    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1946,6 +1979,10 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/autor/samaraalves/</loc>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/tags/sbt/</loc>
     <lastmod>2013-08-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -2091,7 +2128,7 @@
   
   <url>
     <loc>https://elo7.dev/</loc>
-    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -2200,14 +2237,14 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/vagas/</loc>
-    <lastmod>2018-09-03T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/tags/vagas/</loc>
+    <lastmod>2018-08-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/vagas/</loc>
-    <lastmod>2018-08-20T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/categoria/vagas/</loc>
+    <lastmod>2018-09-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

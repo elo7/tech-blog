@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Inteligência Artificial on Tech Blog Elo7</title>
+    <link>https://elo7.dev/tags/intelig%C3%AAncia-artificial/</link>
+    <description>Recent content in Inteligência Artificial on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 06 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://elo7.dev/tags/intelig%C3%AAncia-artificial/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CORELS - um modelo interpretável</title>
+      <link>https://elo7.dev/corels/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/corels/</guid>
+      <description>CORELS: um modelo interpretável Neste post, vamos falar sobre o algoritmo CORELS (Certifiably Optimal RulE ListS), que promete ser uma opção aos modelos blackbox.
+O problema dos modelos blackbox Nos Estados Unidos, há alguns anos atrás, houve uma polêmica envolvendo um modelo blackbox chamado COMPAS, cujo propósito era identificar se um criminoso seria reincidente ou não. Uma análise independente pela organização ProPublica concluiu que réus negros tinham uma chance maior de serem incorretamente rotulados como alto risco de reincidência, enquanto os réus brancos tinham uma chance maior de serem incorretamente rotulados como baixo risco de reincidência.</description>
+    </item>
+    
+  </channel>
+</rss>
