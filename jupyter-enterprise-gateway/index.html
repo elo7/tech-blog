@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,jupyter,jupyter notebooks,Apache spark,Kubernetes,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Jupyter no Kubernetes'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Jupyter no Kubernetes'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/jupyter-enterprise-gateway-1.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Jupyter no Kubernetes'>
+	<meta property='og:url' content='https://elo7.dev/jupyter-enterprise-gateway/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Jupyter no Kubernetes'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/jupyter-enterprise-gateway/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/jupyter-enterprise-gateway-1.png'>
+
+	<link rel='canonical' href='https://elo7.dev/jupyter-enterprise-gateway/'>
+	<title>Elo7 Tech - Jupyter no Kubernetes</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='big-data'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/jupyter-enterprise-gateway-1.png' alt='Jupyter no Kubernetes' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Jupyter no Kubernetes</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2020-01-06 00:00:00 &#43;0000 UTC'
+    aria-label='06 de janeiro de 2020'>
+    06/01/2020
+    <meta itemprop='datePublished' content='Mon Jan 06 2020 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Jan 06 2020 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2020-01-06'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='gmcoringa' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/gmcoringa/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/gmcoringa'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='gmcoringa'>@gmcoringa</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p><a href="https://jupyter.org/">Jupyter</a> é uma ferramenta para desenvolvimento iterativo com suporte a diversas linguagens. No Elo7 é amplamente utilizado pelo time de Ciência de Dados e mais atualmente pelo time de Engenharia de Dados. O <em>jupyter</em> faz uso do que ele chama de <em>kernels</em> para execução de <em>notebooks</em>, já os <em>notebooks</em> são onde se encontram os códigos que serão executados. O <em>jupyter</em> possui diversos <em>kernels</em>, que definem a linguagem suportada e até mesmo algumas características de como executá-la.</p>
+
+<p>A seguir iremos detalhar como utilizamos o <a href="https://kubernetes.io/">Kubernetes</a> para uma arquitetura elástica do <a href="https://jupyter.org/">Jupyter</a>.</p>
+
+<h2 id="old-school">Old school</h2>
+
+<p>O time de ciência de dados já utilizava o <a href="https://jupyter.org/">Jupyter</a> há um bom tempo, porém, eles possuíam uma máquina bem grande na <a href="https://aws.amazon.com/">aws</a> que era compartilhada entre todos os desenvolvedores.</p>
+
+<p>Neste cenário, cada desenvolvedor que deseja utilizar-se do <em>jupyter</em>, acessa a máquina via <em>ssh</em> e cria seu <em>container</em> <em>docker</em> do <em>jupyter</em>. A imagem do container era gerada por eles onde diversos pacotes eram instalados. Podemos citar algumas características deste cenario:
+* Os desenvolvedores eram livres para utilizarem a imagem <em>docker</em> que desejassem, porém partiam de uma mesma imagem base
+* O disco da máquina <em>host</em> era compartilhado entre todos os <em>containers</em>, sendo assim, compartilhado por todos os desenvolvedores, o que facilitava o compartilhamento de código e dados gerados entre eles, porém o espaço em disco utilizado era consumido da máquina host.
+* Toda a configuração para iniciar o <em>jupyter</em> era realizada manualmente, o que gerava certo trabalho por parte dos desenvolvedores.
+* Não havia controle de uso de recursos, um desenvolvedor poderia consumir todos os recursos da máquina.
+* Pelo fato de ser um servidor compartilhado, podemos mencionar:
+  * Em diversos momentos ficava ocioso (com apenas um usuário utilizando) ou mesmo sem uso
+  * Falta de recursos quando a maioria dos desenvolvedores competiam por recusrsos no servidor, o que poderia impactar diretamente o trabalho de todos os desenvolvedores
+* Em algumas ocasiões, hardware diferente era necessário, como uso GPUs, o que requisitava a criação de outra máquina para essas ocasiões.</p>
+
+<p>Como foi observado, este cenário trazia grande liberdade aos desenvolvedores, ao mesmo tempo em que poderia atrapalhar seu desenvolvimento no dia a dia.</p>
+
+<h2 id="jupyter-no-kubernetes">Jupyter no Kubernetes</h2>
+
+<p>Tínhamos a ideia de criar um ambiente em que, ao efetuar login, cada usuário receberia acesso a um <em>jupyter</em> seu, onde os recursos ficariam isolados, de forma que não houvesse impacto a outros usuários, o que é possível através do <a href="https://github.com/jupyterhub/jupyterhub">Jupyter Hub</a>, que gerencia múltiplas instâncias de jupyter, com suporte ao <em>kubernetes</em>.</p>
+
+<p>Com essa ferramenta já éramos capazes de criar diversos <em>jupyters</em>, um para cada usuário, e vale ressaltar que o <a href="https://jupyterhub.readthedocs.io/en/stable/reference/authenticators.html">Jupyter Hub</a> suporta diversos mecanismos de autenticação, o que simplifica bastante sua implantação.</p>
+
+<p>Com ele também foi possível configurar um <em>storage</em> para cada usuário, com espaço dedicado para seu uso, veja <a href="https://z2jh.jupyter.org/en/latest/customizing/user-storage.html">https://z2jh.jupyter.org/en/latest/customizing/user-storage.html</a> para maiores detalhes. Note que o <em>jupyter hub</em> utiliza <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">Persistent Volumes</a> para provisionar esses discos.</p>
+
+<p>Legal, agora cada desenvolvedor tem seu próprio <em>jupyter</em> com seu próprio <em>storage</em>, porém os recursos são determinados no momento do <em>login</em> no <em>jupyter</em>, e estes não podem ser alterados em _ runtime_, portanto caso um desenvolvedor tenha a necessidade de um alto consumo de recursos em alguma tarefa que esteja desenvolvendo, ou mesmo necessite de hardware especial, como GPUs, não será possível com esta solução, voltando ao mesmo cenário descrito anteriormente.</p>
+
+<h2 id="jupyter-enterprise-gateway">Jupyter Enterprise Gateway</h2>
+
+<p>O <a href="https://jupyter-enterprise-gateway.readthedocs.io/en/latest/">Jupyter Enterprise Gateway</a> introduz mais uma camada, onde além do <em>jupyter</em> ser provisionado no <em>kubernetes</em>, agora os <em>kernels</em> também são provisionados como <em>pods</em> independentes.</p>
+
+<p><img src="../images/jupyter-enterprise-gateway-2.png" alt="Jupyter Enterprise Gateway - Architecture" /></p>
+
+<p>Sendo assim, ao efetuar o <em>login</em>, é criado um <em>pod</em> para cada usuário. Quando o usuário abre um <em>notebook</em> o <em>enterprise gateway</em> cria um pod para a execução do kernel. Desta forma é possível ter diversos tipos diferentes de <em>kernels</em>, cada um com perfil de consumo de recursos diferentes e inclusive requisitos de hardware distintos. Por exemplo, você pode possuir os seguintes <em>kernels</em>:
+* Spark Scala com GPU, onde ao iniciar este <em>kernel</em> é provisionada uma máquina com GPU e o <em>kernel</em> é iniciado nela
+* Python3 H1, que pode significar uma <em>kernel</em> que necessite de 32Gb de memória e 4 CPUs</p>
+
+<p>Com um cluster <em>kubernetes</em> bem configurado, assim como as regras para <em>autoscale</em> das máquinas na aws, você terá acesso a um cluster elástico de acordo com a necessidade dos desenvolvedores a cada momento do dia.</p>
+
+<p>Um excelente tutorial de como instalar toda essa infra-estrutura é encontrado em: <a href="https://blog.jupyter.org/introducing-jupyter-enterprise-gateway-db4859f86762">Introducing Jupyter Enterprise Gateway</a>.</p>
+
+<h2 id="jupyter-enterprise-gateway-no-elo7">Jupyter Enterprise Gateway no Elo7</h2>
+
+<p>No Elo7, o <em>jupyter</em> é executado em um <em>cluster</em> elástico, onde as máquinas são provisionadas de acordo com o uso. Vale ressaltar que este cluster utiliza somente uma única <a href="https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-regions-availability-zones">AZ</a>, devido à limitação dos <a href="https://aws.amazon.com/pt/ebs/">EBS</a>, o qual é utilizado pelo <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">Persistent Volumes</a>. Desta forma, caso o <em>pod</em> do desenvolvedor seja realocado em outra máquina, o seu <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">Persistent Volumes</a> poderá ser montado na nova instância onde o <em>pod</em> for alocado.</p>
+
+<p>Todas as imagens <em>docker</em> que utilizamos são customizadas para atenderem as nossas necessidades.</p>
+
+<p>Possuímos diversos perfis de <em>kernels</em> configurados, casos para alto e baixo consumo de recursos, além de suporte a GPUs.</p>
+
+<p>Cada usuário possui um limite de até dois <em>kernels</em> simultâneos, porém, devido ao fato de utilizarmos autenticação por usuário com o <a href="https://github.com/jupyterhub/jupyterhub">Jupyter Hub</a>, foi necessária a alteração abaixo para que o <a href="https://jupyter-enterprise-gateway.readthedocs.io/en/latest/">Jupyter Enterprise Gateway</a> interpretasse corretamente os usuários, no caso utilizamos o <a href="https://helm.sh/">helm</a> para instalação do <em>jupyter hub</em>:</p>
+
+<pre><code class="language-python">hub:
+  db:
+    type: sqlite-memory
+  extraConfig: |-
+    from kubespawner import KubeSpawner
+    from tornado import gen
+    import yaml
+    class CustomKubeSpawner(KubeSpawner):
+        def get_env(self):
+            env = super().get_env()
+            env['KG_HTTP_USER'] =  self.user.name
+            env['KERNEL_USERNAME'] =  self.user.name
+            return env
+    c.JupyterHub.spawner_class = CustomKubeSpawner
+    config = '/etc/jupyter/jupyter_notebook_config.py'
+    c.Spawner.cmd = ['jupyter-labhub']
+    c.KubeSpawner.namespace_name_template = 'hub-{username}'
+    ...
+</code></pre>
+
+<p>Quando o usuário efetua login pela primeira vez, ele deve configurar seu acesso ao github, utilizando suas credenciais, devido o fato de que cada usuário recebe um <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">Persistent Volumes</a>, o qual é mantido indeterminadamente.</p>
+
+<p>Outro ganho que tivemos com esta arquitetura foi no agendamento dos <em>notebooks</em>: o mesmo <em>notebook</em> utilizado durante o desenvolvimento no <em>jupyter</em> pode ser agendado através do <a href="https://airflow.apache.org/">Apache Airflow</a> e <a href="https://papermill.readthedocs.io/en/latest/">papermill</a>, que apresentaremos em um post futuro.</p>
+
+<h2 id="problemas-encontrados">Problemas encontrados</h2>
+
+<p>Com essas ferramentas conseguimos resolver boa parte dos nossos problemas no uso do <em>jupyter</em>, como uso de disco e recursos, porém nem tudo são flores, e atualmente temos as seguintes limitações:
+* Não é possível compartilhar <em>notebooks</em> através de <em>imports</em> ou dados, porque somente o <em>notebook</em> em execução é montado no <em>pod</em> onde o <em>kernel</em> o executa. Para solucionar esse problema, pretendemos analizar uma solução com o <a href="https://aws.amazon.com/pt/efs/">EFS</a> através de discos compartilhados. Para compartilhar dados, atualmente, utilizamos o S3.
+* O uso de containers customizados <em>on-demand</em> não é possível, portanto, os desenvolvedores muitas vezes instalam pacotes através do notebook, o que resolve em muitos casos, mas caso utilizem o <a href="https://spark.apache.org/">Apache Spark</a>, a mesma solução não funciona, porque a instalação dos pacotes somente ocorrerá no <em>driver</em> do <em>spark</em>. Logo, esta alternativa somente funciona em <em>kernels</em> python, <em>kernels</em> como o do Spark em Scala não é possível esta solução.</p>
+
+<p>Para <em>notebooks</em> em Scala, existe um bug no <a href="https://toree.apache.org/">Apache Toree</a>, que é utilizado por <em>kernels</em> com suporte a Scala, onde células que falhem em sua execução não retornam erro, desta forma ferramentas como <a href="https://papermill.readthedocs.io/en/latest/">papermill</a> não conseguem identificar quando houve uma falha na execução de um <em>notebook</em>. Já existem iniciativas para a correção deste problema, veja <a href="https://issues.apache.org/jira/browse/TOREE-508">TOREE-508</a> para maiores detalhes.</p>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<p>Através do uso do <a href="https://jupyter-enterprise-gateway.readthedocs.io/en/latest/">Jupyter Enterprise Gateway</a> em conjunto com <a href="https://github.com/jupyterhub/jupyterhub">Jupyter Hub</a> conseguimos melhorar o uso do <em>jupyter</em> no Elo7, onde os cientistas de dados resolveram alguns dos problemas que tinham. Além disso foi possível realizar uma redução de custos, porque somente existem instâncias em execução enquanto há uso de algum desenvolvedor. Outro fator responsável pela redução de custos foi o uso de <a href="https://aws.amazon.com/pt/ec2/spot/">spot instances</a>.</p>
+
+<p>Após a implantação dessas ferramentas, a adoção por outras equipes da empresa foi simplificada, o que ajudou bastante.</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/jupyter/'>jupyter</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/jupyter-notebooks/'>jupyter notebooks</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/apache-spark/'>apache spark</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/kubernetes/'>kubernetes</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fjupyter-enterprise-gateway%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=jupyter-no-kubernetes&url=https%3a%2f%2felo7.dev%2fjupyter-enterprise-gateway%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/jupyter-enterprise-gateway/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/jupyter-enterprise-gateway/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='O Jupyter tem sido umas das ferramentas mais utilizadas por Cientistas de Dados e neste artigo vamos demonstrar como utilizamos o Kubernetes para um ambiente de múltiplos usuários acessando o Jupyter.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2020-01-06 00:00:00 \x2b0000 UTC:\/jupyter-enterprise-gateway\/';
+            var disqus_url = 'https:\/\/elo7.dev\/jupyter-enterprise-gateway\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

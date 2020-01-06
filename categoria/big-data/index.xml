@@ -6,10 +6,19 @@
     <description>Recent content in Big Data on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
-    <lastBuildDate>Mon, 16 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://elo7.dev/categoria/big-data/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Jupyter no Kubernetes</title>
+      <link>https://elo7.dev/jupyter-enterprise-gateway/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/jupyter-enterprise-gateway/</guid>
+      <description>Jupyter é uma ferramenta para desenvolvimento iterativo com suporte a diversas linguagens. No Elo7 é amplamente utilizado pelo time de Ciência de Dados e mais atualmente pelo time de Engenharia de Dados. O jupyter faz uso do que ele chama de kernels para execução de notebooks, já os notebooks são onde se encontram os códigos que serão executados. O jupyter possui diversos kernels, que definem a linguagem suportada e até mesmo algumas características de como executá-la.</description>
+    </item>
     
     <item>
       <title>Agendando jobs Spark no k8s através do Airflow</title>

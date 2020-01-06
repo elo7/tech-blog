@@ -147,6 +147,15 @@
     </item>
     
     <item>
+      <title>Apache Spark</title>
+      <link>https://elo7.dev/tags/apache-spark/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/apache-spark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Api</title>
       <link>https://elo7.dev/tags/api/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
@@ -1137,6 +1146,24 @@
     </item>
     
     <item>
+      <title>Jupyter</title>
+      <link>https://elo7.dev/tags/jupyter/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/jupyter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jupyter Notebooks</title>
+      <link>https://elo7.dev/tags/jupyter-notebooks/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/jupyter-notebooks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Kafka</title>
       <link>https://elo7.dev/tags/kafka/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
@@ -1166,7 +1193,7 @@
     <item>
       <title>Kubernetes</title>
       <link>https://elo7.dev/tags/kubernetes/</link>
-      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/kubernetes/</guid>
       <description></description>

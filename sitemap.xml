@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/jupyter-enterprise-gateway/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/airflow-spark/</loc>
     <lastmod>2019-12-16T00:00:00+00:00</lastmod>
   </url>
@@ -722,6 +727,12 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/tags/apache-spark/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/tags/api/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -817,14 +828,14 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/back-end/</loc>
-    <lastmod>2018-09-03T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/categoria/back-end/</loc>
+    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/back-end/</loc>
-    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/tags/back-end/</loc>
+    <lastmod>2018-09-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -841,13 +852,13 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/big-data/</loc>
-    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/categoria/big-data/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/big-data/</loc>
+    <loc>https://elo7.dev/tags/big-data/</loc>
     <lastmod>2019-12-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -999,14 +1010,14 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/cultura/</loc>
-    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/categoria/cultura/</loc>
+    <lastmod>2019-02-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/cultura/</loc>
-    <lastmod>2019-02-04T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/tags/cultura/</loc>
+    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1061,13 +1072,13 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/design/</loc>
+    <loc>https://elo7.dev/categoria/design/</loc>
     <lastmod>2018-12-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/design/</loc>
+    <loc>https://elo7.dev/tags/design/</loc>
     <lastmod>2018-12-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -1079,14 +1090,14 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/devops/</loc>
-    <lastmod>2018-09-03T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/categoria/devops/</loc>
+    <lastmod>2018-08-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/devops/</loc>
-    <lastmod>2018-08-27T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/tags/devops/</loc>
+    <lastmod>2018-09-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1177,14 +1188,14 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/eventos/</loc>
-    <lastmod>2014-09-09T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/categoria/eventos/</loc>
+    <lastmod>2016-06-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/eventos/</loc>
-    <lastmod>2016-06-14T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/tags/eventos/</loc>
+    <lastmod>2014-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1241,14 +1252,14 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/front-end/</loc>
-    <lastmod>2018-10-01T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/categoria/front-end/</loc>
+    <lastmod>2019-08-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/front-end/</loc>
-    <lastmod>2019-08-26T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/tags/front-end/</loc>
+    <lastmod>2018-10-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1519,6 +1530,18 @@
   </url>
   
   <url>
+    <loc>https://elo7.dev/tags/jupyter/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://elo7.dev/tags/jupyter-notebooks/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/tags/kafka/</loc>
     <lastmod>2019-09-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -1538,7 +1561,7 @@
   
   <url>
     <loc>https://elo7.dev/tags/kubernetes/</loc>
-    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1603,14 +1626,14 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/machine-learning/</loc>
-    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/categoria/machine-learning/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/machine-learning/</loc>
-    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/tags/machine-learning/</loc>
+    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1673,14 +1696,14 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/mobile/</loc>
-    <lastmod>2018-08-20T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/categoria/mobile/</loc>
+    <lastmod>2017-10-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/mobile/</loc>
-    <lastmod>2017-10-16T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/tags/mobile/</loc>
+    <lastmod>2018-08-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -2237,14 +2260,14 @@
   </url>
   
   <url>
-    <loc>https://elo7.dev/tags/vagas/</loc>
-    <lastmod>2018-08-20T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/categoria/vagas/</loc>
+    <lastmod>2018-09-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://elo7.dev/categoria/vagas/</loc>
-    <lastmod>2018-09-03T00:00:00+00:00</lastmod>
+    <loc>https://elo7.dev/tags/vagas/</loc>
+    <lastmod>2018-08-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
