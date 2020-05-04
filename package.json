@@ -4,7 +4,7 @@
   "description": "Tech Blog",
   "dependencies": {
     "define-async": "1.3.2",
-    "elo7-ajax-amd": "1.3.6",
+    "elo7-ajax-amd": "1.3.7",
     "elo7-doc-amd": "1.5.1",
     "elo7-events-amd": "1.2.1",
     "highlightjs": "9.12.0",
