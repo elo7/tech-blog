@@ -8,7 +8,7 @@
     "elo7-doc-amd": "1.5.1",
     "elo7-events-amd": "1.2.1",
     "highlightjs": "9.12.0",
-    "node-sass": "4.11.0"
+    "node-sass": "4.14.1"
   },
   "scripts": {
     "copy:ajax-amd": "cp node_modules/elo7-ajax-amd/ajax.js static/js/vendor/ajax.js",
