@@ -82,7 +82,7 @@ type: application
 version: 0.1.0
 appVersion: 0.0.0
 ```
-Este arquivo define, basicamente, três coisas: qual será o nome do _chart_, a versão dele e a versão da aplicação, que é opcional. Aqui no Elo7, optamos por deixar o `appVersion` obrigatório e o utilizamos para informar qual a versão da aplicação que está rodando. Desta forma, sempre que algum desenvolvedor der um `helm list`, será possível ver a qual versão da aplicação está associado um determinado _release_, deixando as operações de rollback muito mais simples.
+Este arquivo define, basicamente, três coisas: qual será o nome do _chart_, a versão dele e a versão da aplicação, que é opcional. Aqui, iremos optar por utilizar o `appVersion` para informar qual a versão da aplicação que está rodando. Desta forma, sempre que alguém executar um `helm list`, será possível ver a qual versão da aplicação está associada a um determinado _release_, deixando não só operações como o rollback muito mais simples, mas também dando mais visibilidade.
 
 Em seguida, temos a pasta `templates`. Dentro dela, devemos colocar todos os arquivos que definem os recursos que iremos utilizar na nossa aplicação. No nosso caso, iremos criar um arquivo chamado `deployment.yaml`, que irá definir um recurso do tipo `Deployment` no Kubernetes:
 
