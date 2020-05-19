@@ -26,7 +26,7 @@ E é exatamente nesse procedimento de gerenciamento de pacotes das nossas aplica
 Para manter tudo bem simples, iremos subir uma aplicação sem muitos recursos: um contêiner do NGINX que irá expor um _endpoint_ na porta 80.
 
 ### Preparando o ambiente
-Em um cenário real, estaríamos utilizando um cluster de Kubernetes em alguma nuvem — possivelmente o [Amazon EKS]([https://aws.amazon.com/pt/eks/](https://aws.amazon.com/pt/eks/)) ou o [Google Kubernetes Engine]([https://cloud.google.com/kubernetes-engine?hl=pt-br](https://cloud.google.com/kubernetes-engine?hl=pt-br)) - mas como o foco deste tutorial está em criar nossa aplicação usando Helm, iremos utilizar o [Minikube]([https://kubernetes.io/docs/tasks/tools/install-minikube/](https://kubernetes.io/docs/tasks/tools/install-minikube/)), que é uma maneira prática de rodar localmente um cluster de Kubernetes completamente funcional. 
+Em um cenário real, estaríamos utilizando um cluster de Kubernetes em alguma nuvem — possivelmente o [Amazon EKS](https://aws.amazon.com/pt/eks/) ou o [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine?hl=pt-br) — mas como o foco deste tutorial está em criar nossa aplicação usando Helm, iremos utilizar o [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/), que é uma maneira prática de rodar localmente um cluster de Kubernetes completamente funcional. 
 
 Como estou usando o Linux, é possível subir o Minikube usando o próprio Docker com o comando `minikube start --driver=docker`. Isso vai fazer o Docker subir as imagens necessárias para o funcionamento do Minikube. Uma vez executado, é possível rodar o comando `kubectl get pods` para nos certificarmos de que o cluster local foi criado com sucesso.
 
@@ -63,7 +63,7 @@ STATUS: deployed
 CHART: hello-helm-0.1.0
 APP VERSION: 0.0.11
 ```
-Cada um desses _releases_ é definido a partir de um conjunto de pastas e arquivos que o Helm chama de _charts_. Este conjunto de pastas e arquivos tem um estrutura previamente definida, que é a seguinte:
+Cada um desses _releases_ é definido a partir de um conjunto de pastas e arquivos que o Helm chama de _charts_. Este conjunto de pastas e arquivos tem uma estrutura previamente definida, que é a seguinte:
 
 ```
 ├── hello_helm
@@ -82,7 +82,7 @@ type: application
 version: 0.1.0
 appVersion: 0.0.0
 ```
-Este arquivo define, basicamente, três coisas: qual será o nome do _chart_, a versão dele e a versão da aplicação, que é opcional. Aqui, iremos optar por utilizar o `appVersion` para informar qual a versão da aplicação que está rodando. Desta forma, sempre que alguém executar um `helm list`, será possível ver a qual versão da aplicação está associada a um determinado _release_, deixando não só operações como o rollback muito mais simples, mas também dando mais visibilidade.
+Este arquivo define, basicamente, três coisas: qual será o nome do _chart_, a versão dele e a versão da aplicação, que é opcional. Aqui, iremos optar por utilizar o `appVersion` para informar qual a versão da aplicação que está rodando. Desta forma, sempre que alguém executar um `helm list`, será possível ver a qual versão da aplicação está associado um determinado _release_, deixando não só operações como o rollback muito mais simples, mas também dando mais visibilidade.
 
 Em seguida, temos a pasta `templates`. Dentro dela, devemos colocar todos os arquivos que definem os recursos que iremos utilizar na nossa aplicação. No nosso caso, iremos criar um arquivo chamado `deployment.yaml`, que irá definir um recurso do tipo `Deployment` no Kubernetes:
 
@@ -109,7 +109,7 @@ spec:
         ports:
         - containerPort: 80
 ```
-Mas o que são esses valores entre `{{ }}`? Lembra que dissemos lá começo que gostaríamos de ter a capacidade de ter o mesmo arquivo para servir diferentes ambientes? O Helm, além de ser um gerenciador de pacotes, possui um poderoso motor de templates baseado na [linguagem de template do Go](https://golang.org/pkg/text/template/), e esses símbolos são os _placeholders_ que definimos para dizer que, naquele determinado ponto do arquivo, iremos utilizar um valor externo. No caso do nosso deployment, essa informação vem de dois lugares diferentes: da propriedade appVersion no arquivo `Chart.yaml` que criamos mais cedo, e do arquivo `values.yaml`.
+Mas o que são esses valores entre `{{ }}`? Lembra que dissemos lá no começo que gostaríamos de ter a capacidade de ter o mesmo arquivo para servir diferentes ambientes? O Helm, além de ser um gerenciador de pacotes, possui um poderoso motor de templates baseado na [linguagem de template do Go](https://golang.org/pkg/text/template/), e esses símbolos são os _placeholders_ que definimos para dizer que, naquele determinado ponto do arquivo, iremos utilizar um valor externo. No caso do nosso _deployment_, essa informação vem de dois lugares diferentes: da propriedade `appVersion` no arquivo `Chart.yaml` que criamos mais cedo, e do arquivo `values.yaml`.
 
 Este arquivo não possui nenhum formato pré-estabelecido e pode ter qualquer nome. Ele é simplesmente um YAML onde colocamos todas as variáveis utilizadas no nosso template. Como a única propriedade que iremos colocar por enquanto é quantidade de réplicas que nossa aplicação irá ter, nosso arquivo fica assim:
 
