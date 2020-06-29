@@ -446,9 +446,18 @@
     <item>
       <title>Containers</title>
       <link>https://elo7.dev/tags/containers/</link>
-      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Continuous Delivery</title>
+      <link>https://elo7.dev/tags/continuous-delivery/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/continuous-delivery/</guid>
       <description></description>
     </item>
     
@@ -599,7 +608,7 @@
     <item>
       <title>Devops</title>
       <link>https://elo7.dev/tags/devops/</link>
-      <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/devops/</guid>
       <description></description>
@@ -881,6 +890,15 @@
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/guice/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Helm</title>
+      <link>https://elo7.dev/tags/helm/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/helm/</guid>
       <description></description>
     </item>
     
@@ -1193,7 +1211,7 @@
     <item>
       <title>Kubernetes</title>
       <link>https://elo7.dev/tags/kubernetes/</link>
-      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://elo7.dev/tags/kubernetes/</guid>
       <description></description>
