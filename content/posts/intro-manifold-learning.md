@@ -67,7 +67,7 @@ Os *patches* de um conjunto discreto são construídos encontrando os $k$ vizinh
 
 $N\_{k}(x\_{i}) = \lbrace x \in X \vert x\ \text{é um knn de } x\_{i} \rbrace$
 
-Dados os patches o objetivo é descobrir os difeomorfismos:
+Dados os *patches*, o objetivo é descobrir os difeomorfismos:
 
 $f\_{i}: N\_{k}(x\_{i}) \rightarrow U\_{i} \subset \mathbb{R}^{k}$,
 
