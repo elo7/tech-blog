@@ -63,7 +63,7 @@ Seja $X$ o conjunto de dados $X = \lbrace x\_{1}, ..., x\_{n} \rbrace \subset \m
 
 A tarefa que queremos realizar é: dado que $X \subset \mathbb{R}^{D}$ tal que $X \subset M$, encontre a estrutura da variedade $M$, isto é, a coleção de *patches* coordenados e cartas coordenadas.
 
-Os patches de um conjunto discreto são construídos encontrando os $k$ vizinhos mais próximos (knn, k-nearest neighbors) de cada ponto $x \in X$.
+Os *patches* de um conjunto discreto são construídos encontrando os $k$ vizinhos mais próximos (k-NN, *k-nearest neighbors*) de cada ponto $x \in X$.
 
 $N\_{k}(x\_{i}) = \lbrace x \in X \vert x\ \text{é um knn de } x\_{i} \rbrace$
 
