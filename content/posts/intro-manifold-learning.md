@@ -29,7 +29,7 @@ O conjunto gigante de dados que observamos todos os dias pertence a algum univer
 Essa parte pode parecer chata se você não gosta de matemática, mas é essencial definirmos alguns termos para compreender o que há pela frente.
 
 Primeiro precisamos do conceito de **mapa diferenciável** (um **mapa** é apenas uma definição mais abrangente de função):  
-Seja um mapa $f:U \rightarrow V$, onde $U \subset \mathbb{R}^{n}$ e $V \subset \mathbb{R}^{k}$. Cada um deles, $U$ e $V$, é um subconjunto de algum espaço Euclidiano (dois espaços com dimensões não necessariamente iguais). Dizemos que o mapa $f$ é suave ou diferenciável se para qualquer $m$ as derivadas 
+Seja um mapa $f:U \rightarrow V$, onde $U \subset \mathbb{R}^{n}$ e $V \subset \mathbb{R}^{k}$. Cada um deles, $U$ e $V$, é um subconjunto de algum espaço euclidiano (dois espaços com dimensões não necessariamente iguais). Dizemos que o mapa $f$ é suave ou diferenciável se, para qualquer $m$, as derivadas 
 
 $\frac{\partial^{m}f}{\partial x\_{i}...\partial x\_{m}}$
 
