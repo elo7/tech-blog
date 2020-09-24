@@ -53,7 +53,7 @@ funções do ângulo $\theta$ e do raio $r$. Para fazer a transformação invers
 
 ![](../images/intro-manifold-learning-1.png)
 
-Observe que temos três possíveis mapas de $\theta$ para que possamos cobrir todo o círculo, três patches e três funções. Os mapas podem não ser suaves em algum ponto, mas há outro mapa suave nesse ponto. Assim cobrimos tudo e o círculo dotado dessas projeções, ou mapas diferenciáveis formam uma variedade de dimensão 1 mergulhada em um espaço Euclidiano de dimensão 2.
+Observe que temos três possíveis mapas de $\theta$ para que possamos cobrir todo o círculo, três *patches* e três funções. Os mapas podem não ser suaves em algum ponto, mas há outro mapa suave nesse ponto. Assim cobrimos tudo e o círculo dotado dessas projeções, ou mapas diferenciáveis, forma uma variedade de dimensão 1 mergulhada em um espaço euclidiano de dimensão 2.
 
 ## Objetivo de Manifold Learning
 
