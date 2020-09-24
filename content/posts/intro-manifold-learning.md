@@ -61,7 +61,7 @@ De posse desses conceitos, podemos entender um conceito bem famoso em Ciência d
 
 Seja $X$ o conjunto de dados $X = \lbrace x\_{1}, ..., x\_{n} \rbrace \subset \mathbb{R}^{D}$. Cada observação $x$ é um vetor de dimensão $D$ (às vezes chamado de vetor de características). Assumimos que os dados pertencem a uma variedade de dimensão $d$ mergulhada em $\mathbb{R}^{D}$, onde $d < D$.
 
-A tarefa que queremos realizar é: Dado que $X \subset \mathbb{R}^{D}$ tal que $X \subset M$, encontre a estrutura da variedade $M$, isto é, a coleção de patches coordenados e cartas coordenadas.
+A tarefa que queremos realizar é: dado que $X \subset \mathbb{R}^{D}$ tal que $X \subset M$, encontre a estrutura da variedade $M$, isto é, a coleção de *patches* coordenados e cartas coordenadas.
 
 Os patches de um conjunto discreto são construídos encontrando os $k$ vizinhos mais próximos (knn, k-nearest neighbors) de cada ponto $x \in X$.
 
