@@ -18,7 +18,7 @@ cover: intro-manifold-learning.png
 ---
 
 
-Muito do trabalhado de um Cientista de Dados não está apenas em criar sistemas de classificação, regressão ou recomendação. Aliás, estes são normalmente o resultado do fim de uma grande jornada aplicando diversas técnicas em cima dos dados coletados. Uma importante parte dessa jornada está em descobrir maneiras de compreender e utilizar a estrutura dos dados. 
+Muito do trabalho de um cientista de dados não está apenas em criar sistemas de classificação, regressão ou recomendação. Aliás, estes são normalmente o resultado final de uma grande jornada aplicando diversas técnicas em cima dos dados coletados. Uma importante parte dessa jornada está em descobrir maneiras de compreender e utilizar a estrutura dos dados. 
 
 Eu tenho um carinho especial por esse tipo de abordagem. Minha formação é como físico e boa parte da compreensão que temos do Universo veio através dessa estrutura dos dados observados. Vou dar um exemplo: compreendemos o Universo como uma espécie de superfície (uma superfície complicada, mas ainda sim uma superfície), nós vivemos sobre ela e qualquer coisa que possamos fazer deve obedecer um conjunto de regras (Leis Físicas) que são determinadas, a grosso modo, pelo formato da superfície, ou seja, pela geometria. Se há uma estrela em determinado lugar, a massa dela curva o espaço e a regra a que estamos submetidos é ser atraído para a estrela.
 
