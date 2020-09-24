@@ -79,7 +79,7 @@ Dado que tenhamos encontrado os difeomorfimos o que podemos fazer com eles?
 
 Bom, uma aplicação bem famosa é forçar que os difeomorfismos tenham dimensões pequenas, como 2 ou 3, para que a variedade possa ser visualizada. Essa é uma aplicação de Redução de Dimensionalidade ([*Dimensionality Reduction*](https://en.wikipedia.org/wiki/Dimensionality_reduction)).
 
-Podemos ainda aplicar uma espécie de filtro que permita observar pedaços da variedade no formato de grafos e como ali se comportam o valor das features. Isso faz parte de uma área de estudo conhecida como Análise Topológica de Dados ([Topolical Data Analysis](https://en.wikipedia.org/wiki/Topological_data_analysis)).
+Podemos ainda aplicar uma espécie de filtro que permita observar pedaços da variedade no formato de grafos e como se comportam o valor das *features* ali. Isso faz parte de uma área de estudo conhecida como Análise Topológica de Dados ([*Topological Data Analysis*](https://en.wikipedia.org/wiki/Topological_data_analysis)).
 
 Na minha humilde opinião as aplicações mais interessantes se encontram em aprender a estrutura da variedade de modo que possamos fazer amostragem (*sampling*) de sua pontos. As técnicas usadas para fazer isso são aquelas que usam modelos geradores como [Redes Geradoras Adversariais](https://elo7.dev/gan/), [*Variational Autoencoder*](https://en.wikipedia.org/wiki/Autoencoder#Variational_autoencoder_(VAE)) e [*normalizing-flows*](http://akosiorek.github.io/ml/2018/04/03/norm_flows.html).
 
