@@ -45,7 +45,7 @@ A chave aqui está na curvatura desse espaço, podemos entender uma variedade co
 
 Só nos falta agora a definição de variedade diferenciável. Seja $M \subset \mathbb{R}^{n}$, $M$ é uma variedade diferenciável de dimensão $d$ se para cada ponto $x \in M$ existir uma vizinhança aberta $U$ contendo $x$ e um difeomorfismo $f:U \rightarrow V$ onde $V \subset \mathbb{R}^{d}$. Essas vizinhanças são chamadas de **patches** coordenados e os difeomorfismos de cartas coordenadas (ou apenas sistemas de coordenadas, coordinate chart em inglês).
 
-Vamos a um exemplo: Pense em um círculo desenhado em um plano. O círculo é uma superfície de dimensão 1 **mergulhada** (**embedded**) dentro do plano de duas dimensões, o $\mathbb{R}^{2}$. Cada um dos pontos desse círculo podem ser projetados no $\mathbb{R}^{2}$ com as equações 
+Vamos a um exemplo: pense em um círculo desenhado em um plano. O círculo é uma superfície de dimensão 1 **mergulhada** (*embedded*) dentro do plano de duas dimensões, o $\mathbb{R}^{2}$. Cada um dos pontos desse círculo pode ser projetado no $\mathbb{R}^{2}$ com as equações 
 
 $x = r \cdot cos(\theta),\ \ y = r \cdot sen(\theta)$,
 
