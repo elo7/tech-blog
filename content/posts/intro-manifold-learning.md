@@ -57,7 +57,7 @@ Observe que temos três possíveis mapas de $\theta$ para que possamos cobrir to
 
 ## Objetivo de Manifold Learning
 
-De posse desses conceitos podemos entender um conceito bem famoso em Ciência de Dados chamado de **Hipótese da Variedade**. Ela afirma que os dados observados(quaisquer que sejam) pertencem à uma variedade, ou seja, são pontos coletados desta superfície e com um número suficiente de pontos podemos recriar a variedade ou aprender suas propriedades. É isso que chamamos de **Manifold Learning**.
+De posse desses conceitos, podemos entender um conceito bem famoso em Ciência de Dados chamado de **Hipótese da Variedade**. Ela afirma que os dados observados (quaisquer que sejam) pertencem a uma variedade, ou seja, são pontos coletados desta superfície, e, com um número suficiente de pontos, podemos recriar a variedade ou aprender suas propriedades. É isso que chamamos de ***Manifold Learning***.
 
 Seja o dataset $X = \lbrace x\_{1}, ..., x\_{n} \rbrace \subset \mathbb{R}^{D}$, cada data point $x$ é um vetor de dimensão $D$ (as vezes chamado de vetor de features). Assumimos que os dados pertencem à uma variedade de dimensão $d$ mergulhada em $\mathbb{R}^{D}$, onde $d < D$.
 
