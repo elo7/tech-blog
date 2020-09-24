@@ -41,7 +41,7 @@ Dizemos que um mapa $f: X \rightarrow Y$ é um **homeomorfismo** se é uma [bije
 
 Agora, uma **variedade** é um espaço topológico (basicamente um espaço em que conseguimos medir a distância entre dois pontos, pense em uma superfície qualquer) que localmente é difeomórfico a algum espaço euclidiano, ou seja, há um conjunto de mapas capaz de projetar todos os pontos da variedade para o espaço euclidiano que, ao mesmo tempo, possuem inversas contínuas e suaves. O termo localmente aqui significa *na vizinhança de algum ponto*.
 
-A chave aqui está na curvatura desse espaço, podemos entender uma variedade como um espaço topológico que ao olhado de perto (dando um zoom) não veremos curvatura, será um plano.
+A chave aqui está na curvatura desse espaço: podemos entender uma variedade como um espaço topológico que, visto de perto (dando um zoom), não apresenta curvatura, será um plano.
 
 Só nos falta agora a definição de variedade diferenciável. Seja $M \subset \mathbb{R}^{n}$, $M$ é uma variedade diferenciável de dimensão $d$ se para cada ponto $x \in M$ existir uma vizinhança aberta $U$ contendo $x$ e um difeomorfismo $f:U \rightarrow V$ onde $V \subset \mathbb{R}^{d}$. Essas vizinhanças são chamadas de **patches** coordenados e os difeomorfismos de cartas coordenadas (ou apenas sistemas de coordenadas, coordinate chart em inglês).
 
