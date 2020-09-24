@@ -35,7 +35,7 @@ $\frac{\partial^{m}f}{\partial x\_{i}...\partial x\_{m}}$
 
 formam um mapa suave, ou seja, se as derivadas existem em todos os pontos (não há divisões por zero ou descontinuidades).
 
-Sejam $X \subset \mathbb{R}^{n}$ e $Y \subset \mathbb{R}^{k}$ subconjuntos quaisquer. O mapa $f: X \rightarrow Y$ é suave se para cada $x\in X$ existe uma vizinhança aberta $U \subset \mathbb{R}^{n}$ (uma região de pontos vizinhos a $x$ que não é um intervalo fechado) e um mapa suave $g: U \rightarrow \mathbb{R}^{k}$ que coincida com $f$ na intersecção $U \cap X$. Isso basicamente quer dizer que pode não existir um único mapa que mapeie todos os pontos de $X$ para $Y$, mas se existir um conjunto de mapas que façam isso, então o conjunto é equivalente a um mapa suave.
+Sejam $X \subset \mathbb{R}^{n}$ e $Y \subset \mathbb{R}^{k}$ subconjuntos quaisquer. O mapa $f: X \rightarrow Y$ é suave se, para cada $x\in X$, existe uma vizinhança aberta $U \subset \mathbb{R}^{n}$ (uma região de pontos vizinhos a $x$ que não é um intervalo fechado) e um mapa suave $g: U \rightarrow \mathbb{R}^{k}$ que coincida com $f$ na intersecção $U \cap X$. Isso basicamente quer dizer que pode não existir um único mapa que mapeie todos os pontos de $X$ para $Y$, mas, se existir um conjunto de mapas que façam isso, então o conjunto é equivalente a um mapa suave.
 
 Dizemos que um mapa $f: X \rightarrow Y$ é um **homeomorfismo** se é uma [bijeção](https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%A3o_bijectiva) com $f$ e sua inversa $f^{-1}$ **contínuas**. No caso de $f$ e $f^{-1}$ serem ambas suaves, dizemos que o homeomorfismo é um **difeomorfismo**.
 
