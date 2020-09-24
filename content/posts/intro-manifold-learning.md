@@ -7,6 +7,9 @@ tags:
   - manifold learning
   - machine learning
   - artificial intelligence
+  - geometria dos dados
+  - inteligência artificial
+  - redes geradoras adversariais
 authors: [onimaru]
 layout: post
 title: Introdução ao Manifold Learning - Geometria dos dados
