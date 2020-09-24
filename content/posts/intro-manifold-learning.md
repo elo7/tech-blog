@@ -39,7 +39,7 @@ Sejam $X \subset \mathbb{R}^{n}$ e $Y \subset \mathbb{R}^{k}$ subconjuntos quais
 
 Dizemos que um mapa $f: X \rightarrow Y$ é um **homeomorfismo** se é uma [bijeção](https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%A3o_bijectiva) com $f$ e sua inversa $f^{-1}$ **contínuas**. No caso de $f$ e $f^{-1}$ serem ambas suaves, dizemos que o homeomorfismo é um **difeomorfismo**.
 
-Agora, uma variedade é um espaço topológico (basicamente um espaço em que conseguimos medir a distância entre dois pontos, pense em uma superfície qualquer) que localmente é difeomórfico a algum espaço Euclidiano, ou seja, há um conjunto de mapas capaz de projetar todos os pontos da variedade para o espaço Euclidiano que ao mesmo tempo possuem inversas contínuas e suaves. O termo localmente aqui significa *na vizinhança de algum ponto*.
+Agora, uma **variedade** é um espaço topológico (basicamente um espaço em que conseguimos medir a distância entre dois pontos, pense em uma superfície qualquer) que localmente é difeomórfico a algum espaço euclidiano, ou seja, há um conjunto de mapas capaz de projetar todos os pontos da variedade para o espaço euclidiano que, ao mesmo tempo, possuem inversas contínuas e suaves. O termo localmente aqui significa *na vizinhança de algum ponto*.
 
 A chave aqui está na curvatura desse espaço, podemos entender uma variedade como um espaço topológico que ao olhado de perto (dando um zoom) não veremos curvatura, será um plano.
 
