@@ -22,7 +22,7 @@ Muito do trabalho de um cientista de dados não está apenas em criar sistemas d
 
 Eu tenho um carinho especial por esse tipo de abordagem. Minha formação é como físico e boa parte da compreensão que temos do Universo veio através dessa estrutura dos dados observados. Vou dar um exemplo: compreendemos o Universo como uma espécie de superfície (uma superfície complicada, ainda assim uma superfície); nós vivemos sobre ela e qualquer coisa que possamos fazer deve obedecer um conjunto de regras (Leis Físicas) que são determinadas, a grosso modo, pelo formato da superfície, ou seja, pela geometria. Se há uma estrela em determinado lugar, a massa dela curva o espaço e a regra a que estamos submetidos é ser atraído para a estrela.
 
-O conjunto gigante de dados que observamos todos os dias pertence a algum universo próprio, com regras próprias e entender as regras desse ambiente nos permite entender como obter melhores respostas através dos dados. Temos hoje diversas maneiras de realizar este tipo de tarefa e aqui vou falar sobre uma chamada Manifold Learning ou Aprendizagem de Variedade. Primeiro precisamos entender o que é uma Variedade (Manifold em inglês). 
+O conjunto gigante de dados que observamos todos os dias pertence a algum universo próprio, com regras próprias, e entender as regras desse ambiente nos permite entender como obter melhores respostas através dos dados. Temos hoje diversas maneiras de realizar este tipo de tarefa e aqui vou falar sobre uma chamada *Manifold Learning* ou Aprendizagem de Variedade. Primeiro precisamos entender o que é uma **variedade** (*manifold* em inglês). 
 
 ## Algumas definições
 
