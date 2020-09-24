@@ -75,7 +75,7 @@ ou seja, as funções que mapeiam $x$ e seus vizinhos para vizinhanças mergulha
 
 ## E agora?
 
-Dado que tenhamos encontrado os difeomorfimos o que podemos fazer com eles?
+Dado que tenhamos encontrado os difeomorfimos, o que podemos fazer com eles?
 
 Bom, uma aplicação bem famosa é forçar que os difeomorfismos tenham dimensões pequenas, como 2 ou 3, para que a variedade possa ser visualizada. Essa é uma aplicação de Redução de Dimensionalidade ([*Dimensionality Reduction*](https://en.wikipedia.org/wiki/Dimensionality_reduction)).
 
