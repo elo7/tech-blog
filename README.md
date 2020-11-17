@@ -68,13 +68,13 @@ trecho do código
 
 ### Build e Desenvolvimento
 
-- Para rodar o projeto na sua máquina, é necessário ter instalado o npm e seguir os seguintes passos:
+Para rodar o projeto na sua máquina é necessário ter o Docker instalado, rodando e utilizar o seguinte comando:
 
 ```
-brew install hugo
-npm install
-npm start
+docker run -it -v $HOME/dev/tech-blog:/src -p 1313:1313 klakegg/hugo:0.55.6 server
 ```
+
+Você deve conseguir acessar o blog via `localhost:1313`.
 
 ### Labels do PR
 Seu PR(Pull Request) pode ter duas classificações: ``POST`` (novo post do blog) ou ``ENHANCEMENT`` (melhorias para o blog como um todo).
