@@ -3,7 +3,9 @@ date: 2020-11-16
 category: front-end
 tags:
   - front-end
-  - a11y
+  - acessibilidade
+  - html
+  - css
 authors: [ricardokojo]
 layout: post
 title: Complementando elementos textuais para leitores de tela
