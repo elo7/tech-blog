@@ -40,7 +40,7 @@ Agora, no áudio a seguir temos a leitura deste componente feita via NVDA:
 
 > _Transcrição do áudio_: "Frame. Figura. Origami Tsuru Colorido (Um unid). Sessenta reais, quarenta e oito reais, doze xis sem juros de quatro reais, quê tê dê min dez, frete grátis, legenda."
 
-**Confuso, não?** Como foi dito anteriormente, o preço original e o promocional são lidos sequencialmente, sem diferenciação. Além disso, tanto a leitura do parcelamento quanto da quantidade mínima não ficaram claras. Isso se agrava se levarmos em conta aqueles que utilizam _screen readers_ configuram a leitura para algo **muito** mais rápido do que o exemplo acima.
+**Confuso, não?** Como foi dito anteriormente, o preço original e o promocional são lidos sequencialmente, sem diferenciação. Além disso, tanto a leitura do parcelamento quanto da quantidade mínima não ficaram claras. Isso se agrava se levarmos em conta que aqueles que utilizam _screen readers_ configuram a leitura para algo **muito** mais rápido do que o exemplo acima.
 
 E agora, o que fazer?
 
