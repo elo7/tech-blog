@@ -113,3 +113,7 @@ Ressalto que a classe disponibilizada pelo WordPress tem como objetivo funcionar
 ```
 
 Também funciona. E vale lembrar que você pode alterar o nome da classe para o que achar que faz mais sentido!
+
+Eai, o que achou? Já tinha ouvido um leitor de tela antes? Este post te ajudou a resolver seu problema? Conhece outra solução? Deixe nos comentários!
+
+Obrigado por ler meu primeiro post no blog :) Espero escrever mais em breve!
