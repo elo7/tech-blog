@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Produtividade on Tech Blog Elo7</title>
+    <link>https://elo7.dev/tags/produtividade/</link>
+    <description>Recent content in Produtividade on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Tue, 14 Jun 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://elo7.dev/tags/produtividade/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Slides do evento Software Fora de série - #elo7tech</title>
+      <link>https://elo7.dev/slides-evento-software-fora-de-serie/</link>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/slides-evento-software-fora-de-serie/</guid>
+      <description>Todos os slides do evento Software Fora de Série:
+Carlos Curioni e David Robert Talk7 - Da concepção ao desenvolvimento de um aplicativo de mensagens 
+Mario Amaral A arquitetura de um chat integrado ao checkout 
+Alexandre Gama Back-end de extrema performance 
+Rafael Monteiro Automatizando a implantação e operação de aplicações conteinerizadas no AWS 
+Fernanda Bernardo e Andre Barro A influência dos usuários no desenvolvimento do Talk7</description>
+    </item>
+    
+    <item>
+      <title>Gerenciamento de dependências front-end com bower</title>
+      <link>https://elo7.dev/gerenciamento-dependencias-bower/</link>
+      <pubDate>Thu, 05 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/gerenciamento-dependencias-bower/</guid>
+      <description>Durante o desenvolvimento de um projeto, nos deparamos com diversos problemas que não são exclusivos do mesmo. Muitos destes problemas, como persistência de dados, troca de mensagens assíncronas, transação e segurança, já possuem soluções que foram compiladas em bibliotecas para facilitar o nosso dia-a-dia ao resolver diversos problemas, tanto no back-end quando no front-end.
+Só que essas bibliotecas também podem depender de outras bibliotecas. Então, ao importar uma delas para o nosso projeto, precisamos também importar as suas dependências e as bibliotecas as quais elas necessitam.</description>
+    </item>
+    
+  </channel>
+</rss>

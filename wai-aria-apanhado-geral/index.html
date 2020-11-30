@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,html,semantica,acessibilidade,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Um apanhado geral sobre o WAI-ARIA'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Um apanhado geral sobre o WAI-ARIA'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Um apanhado geral sobre o WAI-ARIA'>
+	<meta property='og:url' content='https://elo7.dev/wai-aria-apanhado-geral/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Um apanhado geral sobre o WAI-ARIA'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/wai-aria-apanhado-geral/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/wai-aria-apanhado-geral/'>
+	<title>Elo7 Tech - Um apanhado geral sobre o WAI-ARIA</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='front-end'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Um apanhado geral sobre o WAI-ARIA' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Um apanhado geral sobre o WAI-ARIA</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2017-04-03 00:00:00 &#43;0000 UTC'
+    aria-label='03 de abril de 2017'>
+    03/04/2017
+    <meta itemprop='datePublished' content='Mon Apr 03 2017 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Apr 03 2017 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2017-04-03'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='rapahaeru' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/rapahaeru/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/rapahaeru'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='rapahaeru'>@rapahaeru</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Com a evolução da web, os sites estão ficando cada vez mais dinâmicos, utilizando muitos recursos de AJAX, JavaScript e CSS. Essas mudanças melhoram muito a usabilidade na web, porém usuários de tecnologias assistivas correm risco de serem excluídos por conta das lacunas de acessibilidade. Como leitores de tela normalmente sofrem com JavaScript, surge uma nova maneira de criar interfaces dinâmicas que são acessíveis a mais usuários.</p>
+
+<p>A maioria dos frameworks de JavaScript oferece ferramentas do lado do cliente que simulam o comportamento de interfaces desktop e mobile para se tornarem mais familiares, como <em>drag and drop</em>, menu hamburguer deslizante&hellip; Todos eles são criados nessa combinação de JavaScript, CSS e HTML. Só que, para criar tais elementos, às vezes é necessário recorrer a marcações mais genéricas do HTML, como <code>span</code>, <code>div</code>, que não representam corretamente seu significado (em determinados casos), e é nesses momentos em que é utilizado o ARIA.</p>
+
+<p>Falamos anteriormente sobre o <a href="/html-semantico-1/">significado da semântica no html</a>, aqui no blog, caso queira se aprofundar mais no tema.</p>
+
+<h2 id="ampliando-os-significados">Ampliando os significados</h2>
+
+<p>Com o surgimento do HTML5 as marcações de layout já ficaram mais ricas, marcando os artigos, navegações, dentre outros. O ARIA serve para estender ainda mais o significado dessas tags, não como os <a href="/html-semantico-2/">microdados</a> que são bem úteis nessa função, mas com foco nas interações.</p>
+
+<h2 id="wai-aria-o-que-é">WAI-ARIA, o que é ?</h2>
+
+<p><em>Accessible Rich Internet Applications</em> (<a href="https://www.w3.org/WAI/intro/aria">ARIA</a>) é uma iniciativa de acessibilidade (WAI - <em>Web Accessibility Initiative</em>) da <a href="https://www.w3.org/">W3C</a> que fornece uma maneira de adicionar a semântica em falta em determinado elemento para tecnologias assistivas, como leitores de tela. Define formas de tornar o conteúdo da web (especialmente aqueles desenvolvidos com AJAX e JavaScript) mais acessível para pessoas que possuem algum tipo de deficiência. É um conjunto de atributos de acessibilidade especiais que podem ser adicionados a qualquer marcação, mas é especialmente adequado para HTML. O atributo <code>role</code> define qual o tipo geral de objeto (como um artigo, alerta ou controle deslizante). Outros atributos ARIA fornecem outras propriedades úteis, como uma descrição para um formulário ou o valor atual de uma barra de progresso.</p>
+
+<h2 id="regras-importantes-de-acessibilidade">Regras importantes de acessibilidade</h2>
+
+<p>Existem cinco regras (por enquanto) para que seu código seja implementado de forma conceitualmente correta.
+Dessa forma respeitaria todos os princípios de acessibilidade para atingir os mais diferentes usuários e suas tecnologias.</p>
+
+<h3 id="primeira-priorize-a-semântica-nativa">Primeira: Priorize a semântica nativa</h3>
+
+<p>Se você puder inserir um elemento HTML que já possui o valor semântico correto nativamente, opte sempre por ele, evitando adicionar uma <em>role</em>, <em>state</em> ou <em>property</em> ARIA em um elemento mais genérico.</p>
+
+<p>Exemplo ruim:</p>
+
+<pre><code class="language-html">&lt;ul role=&quot;list&quot;&gt;
+    &lt;li role=&quot;listitem&quot;&gt;Item da lista&lt;/li&gt;
+    &lt;li role=&quot;listitem&quot;&gt;Item da lista&lt;/li&gt;
+    &lt;li role=&quot;listitem&quot;&gt;Item da lista&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>As tags nativas do HTML já nos dizem semanticamente que é uma lista, esses atributos (roles) estão fazendo um papel redundante.</p>
+
+<h3 id="segunda-substituir-a-semântica-nativa-somente-quando-for-realmente-necessário">Segunda: substituir a semântica nativa somente quando for realmente necessário</h3>
+
+<p>Não mude a semântica nativa, a menos que você realmente precise. Essa segunda regra complementa a anterior.</p>
+
+<p>Exemplo ruim:</p>
+
+<pre><code class="language-html">&lt;span role=&quot;button&quot;&gt;ok&lt;/span&gt;
+</code></pre>
+
+<p>Não precisa mudar semanticamente o <code>span</code>, já que possuímos uma tag nativa que já faz esse papel</p>
+
+<p>Exemplo bom:</p>
+
+<pre><code class="language-html">&lt;label for=&quot;chk_btn&quot;&gt;Botão&lt;/label&gt;
+&lt;input type=&quot;checkbox&quot; id=&quot;chk_btn&quot;&gt;
+</code></pre>
+
+<p>Em um caso de <a href="https://css-tricks.com/the-checkbox-hack/">checkbox hack</a>, utilizamos a <code>label</code> como trigger de um <code>checkbox</code>, certo?</p>
+
+<p><strong>Nota:</strong> O checkbox hack é um dos casos que precisamos modificar a semântica nativa, pois ainda não encontramos uma forma similar de aplicar sua funcionalidade em algum elemento nativo do HTML. Fazemos uso dele pois precisamos de funcionalidades similares sem JavaScript.</p>
+
+<p>Neste caso, o papel do <code>label</code> seria de um botão, para disparar a ação, então podemos modificar semanticamente este elemento para um botão.</p>
+
+<pre><code class="language-html">&lt;label for=&quot;chk_btn&quot; role=&quot;button&quot;&gt;Botão&lt;/label&gt;
+&lt;input type=&quot;checkbox&quot; id=&quot;chk_btn&quot;&gt;
+</code></pre>
+
+<h3 id="terceira-interação-via-teclado">Terceira: Interação via teclado</h3>
+
+<p>Todos os controles interativos do ARIA devem ser utilizáveis via teclado.</p>
+
+<p>Se você criar um <em>widget</em> que um usuário pode clicar, tocar, arrastar, soltar, deslizar ou deslocar, um usuário também deve ser capaz de navegar até o widget e executar uma ação equivalente usando o teclado.</p>
+
+<p>Todos os widgets interativos devem ser preparados via script para responder as ações via teclado, quando possível.</p>
+
+<p>Por exemplo, se estiver usando o <code>role=&quot;button&quot;</code>, o elemento deve ser capaz de receber o foco e o usuário deve ser capaz de ativar a ação associada ao elemento usando a tecla <strong>enter</strong> (no Windows) ou o <strong>retorno</strong> (MAC OS) e a tecla de espaço.</p>
+
+<h3 id="quarta-só-omita-os-elementos-que-realmente-não-estejam-disponíveis-para-o-usuário">Quarta: Só omita os elementos que realmente não estejam disponíveis para o usuário</h3>
+
+<p>Não use <code>aria-hidden=&quot;true&quot;</code> se o elemento estiver visível.</p>
+
+<p>Isso é muito comum de ocorrer quando os estados são modificados via JavaScript.
+Se o elemento estiver escondido, estando com <code>aria-hidden=&quot;true&quot;</code>, e for ordenada a sua exibição, o atributo <code>aria-hidden</code> deverá ser setado para <em>false</em> imediatamente.</p>
+
+<p>Exemplo:</p>
+
+<pre><code class="language-html">&lt;!-- elemento visível --&gt;
+&lt;button aria-hidden=&quot;true&quot;&gt;Ok&lt;/button&gt;
+</code></pre>
+
+<p>Fazendo isso, o elemento não terá seu valor semântico correto.</p>
+
+<p>Ao invés disso, utilize <code>aria-hidden=&quot;false&quot;</code> se estiver visível ou <code>aria-hidden=&quot;true&quot;</code> quando não estiver visível.</p>
+
+<p><strong>Nota:</strong> Prefira utilizar nesse caso a propriedade <code>visibility: hidden</code> no CSS, pois, se utilizar o <code>display: none</code>, o elemento some da árvore de acessibilidade (Estrutura do navegador que roda em paralelo ao DOM com o objetivo de expor as informações de acessibilidade às tecnologias assistivas, como os leitores de tela) o que torna o <code>aria-hidden</code> desnecessário.</p>
+
+<h3 id="quinta-nomes-acessíveis-entre-os-elementos">Quinta: Nomes acessíveis entre os elementos</h3>
+
+<p>Todos os elementos que possuem interação, devem saber que interagem.</p>
+
+<p>Em um formulário de contato, por exemplo, é necessário preencher o e-mail do usuário. Veja o código abaixo:</p>
+
+<pre><code class="language-html">E-mail &lt;input type=&quot;text&quot;&gt;
+</code></pre>
+
+<p>Ele possui uma informação visível &ldquo;E-mail&rdquo;, porém não acessível.
+Há também outra forma errônea de se aplicar:</p>
+
+<pre><code class="language-html">&lt;label&gt;E-mail&lt;/label&gt;
+&lt;input type=&quot;text&quot;&gt;
+</code></pre>
+
+<p>A informação ainda não está acessível, já que a <code>label</code> precisa &ldquo;abraçar&rdquo; o elemento input para que a informação &ldquo;E-mail&rdquo; seja correspondente ao <code>input</code>.</p>
+
+<pre><code class="language-html">&lt;label&gt;
+    E-mail &lt;input type=&quot;text&quot;&gt;
+&lt;/label&gt;
+</code></pre>
+
+<p>Podemos também adicionar um atributo que vincule o <code>input</code> à informação que queremos.</p>
+
+<pre><code class="language-html">&lt;label for=&quot;email&quot;&gt;E-mail&lt;/label&gt;
+&lt;input id=&quot;email&quot; type=&quot;text&quot;&gt;
+</code></pre>
+
+<p>Obedecendo esses conceitos, já é uma boa porta de entrada para preparar o seu código de forma mais acessível.</p>
+
+<p>Acessando esse <a href="https://www.w3.org/TR/wai-aria/rdf_model.png">diagrama</a>, você consegue ter uma ideia das roles e suas propriedades e estados, de que falaremos mais pra frente.</p>
+
+<p>É muito importante compreendermos as regras do WAI-ARIA para não nos perdermos no seu real conceito. O próximo post será focado nas roles do WAI-ARIA e suas categorias, exemplificando cada atributo.
+Esta foi uma introdução de uma série de três posts sobre o tema, espero que tenham gostado.</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/html/'>html</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/semantica/'>semantica</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/acessibilidade/'>acessibilidade</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fwai-aria-apanhado-geral%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=um-apanhado-geral-sobre-o-wai-aria&url=https%3a%2f%2felo7.dev%2fwai-aria-apanhado-geral%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/wai-aria-apanhado-geral/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/wai-aria-apanhado-geral/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='O que o desenvolvedor atual está fazendo para tornar seu conteúdo mais acessível para pessoas com algum tipo de deficiência? Com a evolução da web, a usabilidade melhorou muito, porém usuários de tecnologias assistivas correm risco de serem excluídos por conta das lacunas de acessibilidade que surgem com as páginas mais dinâmicas. Como leitores de tela normalmente sofrem com JavaScript, surge uma nova maneira de criar interfaces dinâmicas que são acessíveis a mais usuários.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2017-04-03 00:00:00 \x2b0000 UTC:\/wai-aria-apanhado-geral\/';
+            var disqus_url = 'https:\/\/elo7.dev\/wai-aria-apanhado-geral\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

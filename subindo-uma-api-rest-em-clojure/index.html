@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,API,REST,clojure,back-end,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Subindo uma API REST em Clojure'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Subindo uma API REST em Clojure'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Subindo uma API REST em Clojure'>
+	<meta property='og:url' content='https://elo7.dev/subindo-uma-api-rest-em-clojure/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Subindo uma API REST em Clojure'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/subindo-uma-api-rest-em-clojure/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/subindo-uma-api-rest-em-clojure/'>
+	<title>Elo7 Tech - Subindo uma API REST em Clojure</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='back-end'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Subindo uma API REST em Clojure' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Subindo uma API REST em Clojure</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2018-01-22 00:00:00 &#43;0000 UTC'
+    aria-label='22 de janeiro de 2018'>
+    22/01/2018
+    <meta itemprop='datePublished' content='Mon Jan 22 2018 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Jan 22 2018 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2018-01-22'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='ericdallo' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/ericdallo/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/ericdallo'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='ericdallo'>@ericdallo</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p><a href="https://clojure.org/">Clojure</a> é uma linguagem funcional e dinâmica que roda na JVM e que vem crescendo bastante no mercado de trabalho. Ela é tão performática quanto qualquer programa que roda em <em>Java</em> e muito menos verbosa. Isso facilita e muito na manutenção do código, influenciando no custo do desenvolvimento.
+Caso não esteja muito familiarizado com esta linguagem incrível, recomendo a leitura do livro <a href="http://www.braveclojure.com/clojure-for-the-brave-and-true/">Clojure for the Brave and True</a> onde ensina desde o básico sobre Clojure.</p>
+
+<p>Para testar algumas características da linguagem vamos criar uma aplicação com uma <strong>API REST</strong> básica. Esse projeto, o <a href="https://github.com/ericdallo/clojure7">clojure7</a>, que será um <em>CRUD</em> de posts de um blog.</p>
+
+<p>Para quem programa ou já programou em <em>Clojure</em>, deve ter esbarrado em algum momento no <a href="https://leiningen.org">Leiningen</a>. Ele é um gerenciador de dependências e tasks, assim como o <em>gradle</em> e <em>maven</em> para os &ldquo;javeiros&rdquo;.
+Com o <em>Leinigen</em>, podemos construir a hierarquia do nosso novo projeto, rodar a aplicação com plugins, entre outros.</p>
+
+<h2 id="dependências">Dependências</h2>
+
+<p>Vamos utilizar um plugin chamado <strong>Compojure</strong>, para criar a hierarquia e arquivos básicos para nossa aplicação.
+O <a href="https://github.com/weavejester/compojure">Compojure</a> é uma biblioteca, não um framework, baseado no <a href="https://github.com/ring-clojure/ring">Ring</a> (biblioteca que consegue manipular <strong>request</strong> e <strong>response</strong>, semelhante à especificação <strong>Servlet</strong> no Java). A diferença entre os dois está no fato do compojure permitir o gerenciamento das rotas da aplicação mais facilmente.</p>
+
+<p>Caso tenha dúvidas de como o <em>Ring</em> funciona, sugiro a leitura de <a href="https://github.com/ring-clojure/ring/wiki/Concepts">seus conceitos</a>.</p>
+
+<p>Vamos começar criando o projeto a partir do <em>Leiningen</em>:</p>
+
+<pre><code class="language-bash">$ lein new compojure clojure7
+</code></pre>
+
+<p>Ao rodar este comando, o <em>lein</em> irá criar alguns arquivos para nós:</p>
+
+<ul>
+<li><strong>project.clj</strong> - arquivo de configuração do projeto, parecido com o <code>build.gradle</code> ou <code>pom.xml</code></li>
+<li><strong>resources/</strong>  - pasta onde serão guardados arquivos como assets, templates html e migrações de banco</li>
+<li><strong>src/</strong>        - pasta contendo todo o código clojure da aplicação</li>
+<li><strong>test/</strong>       - pasta contendo os testes da aplicação</li>
+</ul>
+
+<p>Vamos adicionar algumas dependências no arquivo <code>project.clj</code>:</p>
+
+<ul>
+<li><a href="https://github.com/ring-clojure/ring-json">ring-json</a> - Permite lidarmos com requisições que contenham <em>json</em> e facilita as respostas da aplicação em <em>json</em>.</li>
+<li><a href="http://sqlkorma.com/">korma</a> - Uma das minhas <em>libs</em> favoritas em clojure, um <a href="http://www.devmedia.com.br/orm-object-relational-mapper/19056">ORM</a> que mapeia nossos modelos clojure em modelos relacionais no banco de dados.</li>
+<li><a href="https://github.com/clojure/java.jdbc">mysql</a> - Driver do <em>mysql</em> para clojure.</li>
+</ul>
+
+<p>As dependências da aplicação ficarão assim:</p>
+
+<pre><code class="language-java">:dependencies [[org.clojure/clojure &quot;1.8.0&quot;]
+               [compojure &quot;1.5.2&quot;]
+               [ring/ring-defaults &quot;0.2.1&quot;]
+               [ring/ring-json &quot;0.4.0&quot;]
+               [korma &quot;0.4.3&quot;]
+               [mysql/mysql-connector-java &quot;5.1.6&quot;]]
+
+</code></pre>
+
+<p>Ainda neste mesmo arquivo, podemos adicionar a configuração do <code>ring</code>:</p>
+
+<pre><code class="language-clojure">:ring {:handler clojure7.handler/app}
+</code></pre>
+
+<p>Na configuração acima temos um <strong>handler</strong>, um arquivo que deverá lidar com cada rota da aplicação, e o namespace apontando para o mesmo.</p>
+
+<p>Ao abrirmos o <code>src/clojure7/handler.clj</code>, vamos alterar o <em>ring</em> para realizar o <em>bind</em> dos parâmetros da <em>request</em> para <em>json</em> e dizer ao ring que após passar pela nossa rota, transforme os dados da resposta em <em>json</em> .</p>
+
+<pre><code class="language-clojure">(ns clojure7.handler
+  (:require [compojure.core :refer :all]
+            [compojure.route :as route]
+            [ring.middleware.json :refer [wrap-json-response wrap-json-body]]))
+
+(def app
+  (-&gt; all-routes
+      wrap-json-response
+      wrap-json-body))
+</code></pre>
+
+<p>Neste mesmo arquivo, teremos as definições de rotas:</p>
+
+<pre><code>(defroutes all-routes
+  (GET &quot;/&quot; [] &quot;Hello World&quot;)
+  (route/not-found &quot;Página não encontrada :(&quot;))
+</code></pre>
+
+<p>Com o Compojure, temos a definição da nossa rota com o <code>defroutes</code>, onde podemos passar uma lista de rotas para ele. Podemos ver que já temos uma rota <em>GET</em> para a raiz da aplicação que retornará uma <em>String</em> no corpo da resposta, e outra que caso não encontre nenhuma rota definida deste método, exiba a página de 404, &ldquo;Página não encontrada :(&ldquo;.</p>
+
+<h2 id="banco-de-dados">Banco de dados</h2>
+
+<p>Criaremos então a nossa tabela <code>post</code> no nosso banco de dados mysql:</p>
+
+<pre><code class="language-sql">CREATE TABLE post (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `category` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+</code></pre>
+
+<p>A título de curiosidade, assim como no <em>Ruby on Rails</em>, podemos ter migrações de banco de dados para facilitar na criação/alteração de novas tabelas. Neste post não irei demonstrar pela extensão do assunto, mas caso queira aprender, sugiro o uso do <a href="https://github.com/yogthos/migratus">migratus</a> que também é outra <em>lib</em> excelente.</p>
+
+<p>Vamos criar o arquivo <code>src/clojure7/db.clj</code> contendo as configurações do banco de dados:</p>
+
+<pre><code class="language-clojure">(ns clojure7.db
+  (:use korma.db))
+
+  (defdb db (mysql
+            { :classname &quot;com.mysql.jdbc.Driver&quot;
+              :subprotocol &quot;mysql&quot;
+              :subname &quot;//localhost/clojure7&quot;
+              :user &quot;root&quot;
+              :password &quot;&quot;}))
+</code></pre>
+
+<h2 id="recursos">Recursos</h2>
+
+<p>Se tratando de <em>REST</em>, nosso modelo <code>post</code> é um recurso, então vamos mapeá-lo no arquivo <code>src/clojure7/post/post.clj</code>:</p>
+
+<pre><code class="language-clojure">(ns clojure7.post.post
+  (:require [korma.db :refer :all]
+            [korma.core :refer :all]
+            [clojure7.db :refer :all]))
+
+(defentity post)
+</code></pre>
+
+<p>Podemos observar que com o <code>defentity</code> transformamos o objeto <code>post</code> em uma entidade gerenciada pelo <strong>korma</strong>. Agora podemos manipular os dados da tabela através do clojure, então vamos criar os métodos para cada operação do <em>CRUD</em>:</p>
+
+<pre><code class="language-clojure">(defn find-all []
+  (select post))
+
+(defn find-by-id [id]
+    (select post
+      (where {:id id})
+      (limit 1)))
+
+(defn create [name category]
+  (insert post
+    (values {:name name :category category})))
+
+(defn update-by-id [id name category]
+  (update post
+    (set-fields {:name name :category category})
+    (where {:id id})))
+
+(defn delete-by-id [id]
+  (delete post
+    (where {:id id})))
+</code></pre>
+
+<p>Criaremos agora as rotas para alterar nosso recurso <code>post</code> no arquivo <code>src/clojure7/handler.clj</code> e adicionaremos no namespace dele o link para o namespace <code>post.clj</code>, assim conseguimos acessar os métodos daquele namespace:</p>
+
+<pre><code class="language-clojure">(ns clojure7.handler
+    (:require [compojure.core :refer :all]
+              [compojure.route :as route]
+              [clojure7.post.post :as post]
+              [ring.middleware.json :refer [wrap-json-response wrap-json-body]]))
+
+(defroutes all-routes
+  (GET &quot;/posts&quot; []
+    (post/find-all))
+  (POST &quot;/posts&quot; req
+    (let [name (get-in req [:body &quot;name&quot;])
+          category (get-in req [:body &quot;category&quot;])]
+          (post/create name category)))
+  (GET &quot;/posts/:id&quot; [id]
+    (post/find-by-id id))
+  (PUT &quot;/posts/:id&quot; req
+    (let [id (read-string (get-in req [:params :id]))
+          name (get-in req [:body &quot;name&quot;])
+          category (get-in req [:body &quot;category&quot;])]
+          (post/update-by-id id name category)
+          (post/find-by-id id)))
+  (DELETE &quot;/posts/:id&quot; [id]
+    (post/delete-by-id id)
+    (str &quot;Deleted post &quot; id))
+  (route/not-found &quot;Not Found&quot;))
+</code></pre>
+
+<h2 id="subindo-a-aplicação">Subindo a aplicação</h2>
+
+<p>Podemos agora subir nossa aplicação com o seguinte comando <code>lein ring server</code>, por padrão ele irá subir na porta 3000.</p>
+
+<p>Para executar cada uma das ações que criamos no código, seguem abaixo os comandos:</p>
+
+<ul>
+<li>Criando um <code>post</code></li>
+</ul>
+
+<pre><code class="language-bash">curl -X POST localhost:3000/posts -H &quot;Content-Type: application/json&quot; -d '{&quot;name&quot;:&quot;Clojure com o Simbal&quot;, &quot;category&quot;:&quot;cool-posts&quot;}'
+</code></pre>
+
+<ul>
+<li>Listando todos os <code>post</code>&rsquo;s</li>
+</ul>
+
+<pre><code class="language-bash">curl -X GET localhost:3000/posts
+</code></pre>
+
+<ul>
+<li>Editando um <code>post</code></li>
+</ul>
+
+<pre><code class="language-bash">curl -X PUT localhost:3000/posts/1 -H &quot;Content-Type: application/json&quot; -d '{&quot;name&quot;:&quot;Clojure com o Greg&quot;, &quot;category&quot;:&quot;other-posts&quot;}'
+</code></pre>
+
+<ul>
+<li>Encontrando um <code>post</code></li>
+</ul>
+
+<pre><code class="language-bash">curl -X GET localhost:3000/posts/1
+</code></pre>
+
+<ul>
+<li>Removendo um <code>post</code></li>
+</ul>
+
+<pre><code class="language-bash">curl -X DELETE localhost:3000/posts/1
+</code></pre>
+
+<p>Gostou do post? Tem alguma dúvida? Alguma crítica? Comenta aqui em baixo :)
+Espero que tenha despertado, para quem não conhece, aquela curiosidade que todo <em>dev</em> tem quando descobre que existe outra maneira de subir uma API REST nos seus novos projetos :D</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/api/'>api</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/rest/'>rest</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/clojure/'>clojure</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/back-end/'>back-end</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fsubindo-uma-api-rest-em-clojure%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=subindo-uma-api-rest-em-clojure&url=https%3a%2f%2felo7.dev%2fsubindo-uma-api-rest-em-clojure%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/subindo-uma-api-rest-em-clojure/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/subindo-uma-api-rest-em-clojure/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Clojure é uma linguagem já conhecida para os amantes do paradigma funcional, neste post, demonstro alguns detalhes de uma biblioteca que faz uma ponte entre esta linguagem e o mundo WEB. Venha aprender como subir uma API REST em 10 minutos!'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2018-01-22 00:00:00 \x2b0000 UTC:\/subindo-uma-api-rest-em-clojure\/';
+            var disqus_url = 'https:\/\/elo7.dev\/subindo-uma-api-rest-em-clojure\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

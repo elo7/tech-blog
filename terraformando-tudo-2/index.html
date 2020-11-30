@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,devops,terraform,iac,infrastructure as code,infra,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Terraformando tudo - parte 2'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Terraformando tudo - parte 2'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Terraformando tudo - parte 2'>
+	<meta property='og:url' content='https://elo7.dev/terraformando-tudo-2/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Terraformando tudo - parte 2'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/terraformando-tudo-2/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/terraformando-tudo-2/'>
+	<title>Elo7 Tech - Terraformando tudo - parte 2</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='devops'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Terraformando tudo - parte 2' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Terraformando tudo - parte 2</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2017-07-31 00:00:00 &#43;0000 UTC'
+    aria-label='31 de julho de 2017'>
+    31/07/2017
+    <meta itemprop='datePublished' content='Mon Jul 31 2017 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Jul 31 2017 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2017-07-31'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='lucasvasconcelos' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/lucasvasconcelos/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/lucasvasconcelos'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='lucasvasconcelos'>@lucasvasconcelos</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Veja os outros <em>posts</em> da série:
+- <a href="/terraformando-tudo-1/">Terraformando tudo - parte 1</a>
+- <a href="/terraformando-tudo-3/">Terraformando tudo - parte 3</a></p>
+
+<p>Olá!</p>
+
+<p>Estamos aqui novamente para dar continuidade na série de <em>posts</em> <em>Terraformando Tudo</em>. Nesse segundo <em>post</em> da série (se não leu o primeiro, leia <a href="/terraformando-tudo-1/">aqui</a>), vamos falar mais um pouco sobre os códigos do <a href="https://terraform.io">Terraform</a>, ou <em>Terraform configuration</em> (como o próprio projeto chama uma porção de código executável do Terraform). Também vamos mostrar como o Terraform controla o estado de seus <em>resources</em> e como mitigar as chances de desastres em um cenário onde podem haver diversas pessoas trabalhando no mesmo repositório de <em>configurations</em></p>
+
+<h2 id="terraform-configurations">Terraform configurations</h2>
+
+<p>Seguindo a nomenclatura supracitada, a partir deste ponto, vamos chamar um código do Terraform de <em>configuration</em> (apesar de aqui no Elo7 chamarmos de &lsquo;módulo&rsquo;, pra facilitar :P).</p>
+
+<p>Conforme foi citado no <a href="/terraformando-tudo-1/">primeiro post</a>, o Terraform utiliza uma linguagem proprietária chamada HCL (<em>Hashicorp Configuration Language</em>). A seguir, temos um exemplo de <em>configuration</em> mínimo que pode ser executado com o Terraform. Alguns detalhes estão em formato de comentário no código:</p>
+
+<p><code>main.tf</code></p>
+
+<pre><code class="language-python"># Define o provider que será utilizado e os parâmetros necessários
+# No caso, usaremos a AWS na region us-east-1 e as credenciais, como não foram
+# explicitadas, irão ser obtidas de variáveis de ambiente ou do arquivo credentials do awscli
+# (como default na maioria das bibliotecas da AWS)
+provider &quot;aws&quot; {
+  region = &quot;us-east-1&quot;
+}
+
+# Aqui estamos utilizando a funcionalidade de data-sources do Terraform, que traz
+# informações de recursos já existentes. Nesse caso, estamos obtendo informações
+# da imagem (AMI) mais recente do CoreOS stable da AWS
+data &quot;aws_ami&quot; &quot;coreos-stable-latest&quot; {
+  most_recent = true
+
+  filter {
+    name = &quot;name&quot;
+    values = [&quot;CoreOS-stable*&quot;]
+  }
+
+  filter {
+    name = &quot;virtualization-type&quot;
+    values = [&quot;hvm&quot;]
+  }
+  # ID do owner da AMI no AWS AMI Marketplace
+  # (colocado hardcoded aqui para facilitar este exemplo)
+  owners = [&quot;595879546273&quot;]
+}
+
+# Criando um security-group para a instância
+resource &quot;aws_security_group&quot; &quot;elo7-sg-example&quot; {
+  name = &quot;elo7-example&quot;
+  description = &quot;SG de exemplo para o post no Blog&quot;
+  vpc_id = &quot;vpc-123456&quot;
+
+  # A regra a seguir libera saída para qualquer destino em qualquer protocolo
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = &quot;-1&quot;
+    cidr_blocks = [&quot;0.0.0.0/0&quot;]
+  }
+
+  ingress {
+      from_port       = &quot;22&quot;
+      to_port         = &quot;22&quot;
+      protocol        = &quot;tcp&quot;
+      cidr_blocks = [ &quot;192.168.10.0/21&quot; ]
+  }
+
+}
+
+
+# Aqui, estamos definindo uma instância no EC2
+resource &quot;aws_instance&quot; &quot;elo7-ec2-example&quot; {
+
+  # Estamos referenciando o ID da AMI que foi setado no bloco anterior
+  ami = &quot;${data.aws_ami.coreos-stable-latest.id}&quot;
+  instance_type = &quot;t2.small&quot;
+  key_name = &quot;example-key&quot;
+  subnet_id = &quot;subnet-123456&quot;
+
+  # Estamos referenciando o ID do security-group criado nesse mesmo arquivo
+  # O Terraform cuidará de organizar as interdependências
+  vpc_security_group_ids = [ &quot;${aws_security_group.elo7-sg-example.id}&quot; ]
+
+  root_block_device {
+    volume_type = &quot;gp2&quot;
+    volume_size = &quot;15&quot;
+    delete_on_termination = true
+  }
+
+  tags {
+    &quot;Name&quot; = &quot;elo7-ec2-example&quot;
+  }
+}
+</code></pre>
+
+<p>Com a <em>configuration</em> acima, conseguimos criar um <em>Security Group</em> e uma instância na região <em>us-east-1</em> da AWS. Podemos ver que o <em>pattern</em> para criação de recursos com o Terraform é sempre este: <code>resource &quot;tipo_do_resource&quot; &quot;nome_do_resource&quot;</code>.</p>
+
+<p>Um outro detalhe é que, para ajudar na organização, poderíamos definir os <em>resources</em> em arquivos separados dentro do mesmo diretório, por exemplo: <code>main.tf</code>, <code>security-groups.tf</code> e <code>ec2.tf</code>. Isso não altera a maneira com que o Terraform irá executar seu código.</p>
+
+<p>Para aplicar o que está descrito no código são necessários 2 comandos:</p>
+
+<ul>
+<li><code>terraform plan</code>: Mostra um plano de execução, ou seja, diz o que será adicionado, o que será modificado e o que será removido da sua infra baseado no <em>configuration</em> encontrado no diretório onde esse comando é executado. Esse comando é opcional, mas de extrema importância para sabermos se a mudança é realmente o que estamos esperando.</li>
+<li><code>terraform apply</code>: Aplica as mudanças de fato. Se não houve nenhuma modificação desde o momento do <em>plan</em>, as mudanças que foram mostradas por ele serão aplicadas neste momento.</li>
+</ul>
+
+<h2 id="estado-de-um-resource">Estado de um <em>resource</em></h2>
+
+<p>O Terraform controla o estado dos resources contidos em um <em>configuration</em> em um arquivo JSON. Esse arquivo deve ser manipulado <strong>apenas</strong> pelo próprio Terraform. Ele utiliza esse arquivo para fazer comparações entre o estado existente (em disco ou armazenado remotamente), o estado que o código espera e o estado existente no <em>provider</em> (AWS, no nosso caso). Por padrão, esse arquivo é criado junto com os arquivos <code>.tf</code> e possui o nome <code>terraform.tfstate</code></p>
+
+<p>O estado dos resources criados no exemplo anterior fica desse jeito (várias linhas foram omitidas):</p>
+
+<pre><code class="language-javascript">{
+    &quot;version&quot;: 3,
+    &quot;serial&quot;: 4,
+    &quot;lineage&quot;: &quot;95a8a54a-f153-435e-b5fa-df66fd3c2c57&quot;,
+    &quot;modules&quot;: [
+        {
+            &quot;path&quot;: [
+                &quot;root&quot;
+            ],
+            &quot;outputs&quot;: {},
+            &quot;resources&quot;: {
+                &quot;aws_instance.elo7-ec2-example&quot;: {
+                    &quot;type&quot;: &quot;aws_instance&quot;,
+                    &quot;depends_on&quot;: [
+                        &quot;aws_security_group.elo7-sg-example&quot;,
+                        &quot;data.aws_ami.coreos-stable-latest&quot;
+                    ],
+                    &quot;primary&quot;: {
+                        &quot;id&quot;: &quot;i-0c2d521d1861a806d&quot;,
+                        &quot;attributes&quot;: {
+                            &quot;ami&quot;: &quot;ami-7ee7e169&quot;,
+                            &quot;availability_zone&quot;: &quot;us-east-1b&quot;,
+                            &quot;id&quot;: &quot;i-123456&quot;,
+                            &quot;instance_state&quot;: &quot;running&quot;,
+                            &quot;instance_type&quot;: &quot;t2.small&quot;,
+                            &quot;key_name&quot;: &quot;example_key&quot;,
+                            &quot;private_ip&quot;: &quot;192.168.10.111&quot;,
+                            &quot;security_groups.#&quot;: &quot;0&quot;,
+                            &quot;subnet_id&quot;: &quot;subnet-123456&quot;,
+                            &quot;tags.%&quot;: &quot;1&quot;,
+                            &quot;tags.Name&quot;: &quot;elo7-ec2-example&quot;,
+                            &quot;user_data&quot;: &quot;1c338728002999224f8c8283650db76768b34112&quot;,
+                            &quot;vpc_security_group_ids.#&quot;: &quot;1&quot;,
+                            &quot;vpc_security_group_ids.3439610007&quot;: &quot;sg-123456&quot;,
+                        }
+                    }
+                },
+                &quot;aws_security_group.elo7-sg-example&quot;: {
+                    &quot;type&quot;: &quot;aws_security_group&quot;,
+                    &quot;depends_on&quot;: [],
+                    &quot;primary&quot;: {
+                        &quot;id&quot;: &quot;sg-123456&quot;,
+                        &quot;attributes&quot;: {
+                            &quot;description&quot;: &quot;SG de exemplo para o post no Blog&quot;,
+                            &quot;egress.#&quot;: &quot;1&quot;,
+                            &quot;egress.482069346.cidr_blocks.#&quot;: &quot;1&quot;,
+                            &quot;egress.482069346.cidr_blocks.0&quot;: &quot;0.0.0.0/0&quot;,
+                            &quot;egress.482069346.from_port&quot;: &quot;0&quot;,
+                            &quot;egress.482069346.prefix_list_ids.#&quot;: &quot;0&quot;,
+                            &quot;egress.482069346.protocol&quot;: &quot;-1&quot;,
+                            &quot;egress.482069346.security_groups.#&quot;: &quot;0&quot;,
+                            &quot;egress.482069346.self&quot;: &quot;false&quot;,
+                            &quot;egress.482069346.to_port&quot;: &quot;0&quot;,
+                            &quot;id&quot;: &quot;sg-123456&quot;,
+                            &quot;ingress.#&quot;: &quot;1&quot;,
+                            &quot;ingress.2063172013.cidr_blocks.#&quot;: &quot;1&quot;,
+                            &quot;ingress.2063172013.cidr_blocks.0&quot;: &quot;172.16.0.0/16&quot;,
+                            &quot;ingress.2063172013.from_port&quot;: &quot;22&quot;,
+                            &quot;ingress.2063172013.protocol&quot;: &quot;tcp&quot;,
+                            &quot;ingress.2063172013.security_groups.#&quot;: &quot;0&quot;,
+                            &quot;ingress.2063172013.self&quot;: &quot;false&quot;,
+                            &quot;ingress.2063172013.to_port&quot;: &quot;22&quot;,
+                            &quot;name&quot;: &quot;elo7-sg-example&quot;,
+                        }
+                    }
+                },
+                &quot;data.aws_ami.coreos-stable-latest&quot;: {
+                    &quot;type&quot;: &quot;aws_ami&quot;,
+                    &quot;depends_on&quot;: [],
+                    &quot;primary&quot;: {
+                        &quot;id&quot;: &quot;ami-7ee7e169&quot;,
+                        &quot;attributes&quot;: {
+                            &quot;architecture&quot;: &quot;x86_64&quot;,
+                            &quot;description&quot;: &quot;CoreOS stable 1185.5.0 (HVM)&quot;,
+                            &quot;hypervisor&quot;: &quot;xen&quot;,
+                            &quot;id&quot;: &quot;ami-7ee7e169&quot;,
+                            &quot;image_id&quot;: &quot;ami-7ee7e169&quot;,
+                            &quot;image_location&quot;: &quot;595879546273/CoreOS-stable-1185.5.0-hvm&quot;,
+                            &quot;image_type&quot;: &quot;machine&quot;,
+                            &quot;most_recent&quot;: &quot;true&quot;,
+                            &quot;name&quot;: &quot;CoreOS-stable-1185.5.0-hvm&quot;,
+                            &quot;state&quot;: &quot;available&quot;,
+                            &quot;virtualization_type&quot;: &quot;hvm&quot;
+                        }
+                    }
+                }
+            },
+            &quot;depends_on&quot;: []
+        }
+    ]
+}
+</code></pre>
+
+<p>É com esse estado que o Terraform decide o que deve ser feito, baseando-se no código e também no que já existe no <em>provider</em> (no nosso caso, na AWS). Também é possível gerar o estado de uma infra já existente no seu <em>provider</em>&hellip; (mas isso ficará para um próximo <em>post</em> dessa série ;)).</p>
+
+<p>Com esse mecanismo, o controle dos <em>resources</em> funciona muito bem, porém, detectamos um problema. O Terraform gera um arquivo <code>terraform.tfstate</code> no diretório do <em>configuration</em> ao rodar o <code>terraform apply</code>. Isso é gerado em <em>runtime</em>, e se pensarmos de maneira distribuída, com vários desenvolvedores alterando os <em>configurations</em>, isso pode ser bem ruim. Afinal, se algum desenvolvedor não possuir o estado atual dos <em>resources</em> de um determinado <em>configuration</em> ao executar um <em>apply</em>, a infra será recriada pelo Terraform (até onde for possível, pois alguns <em>resources</em> não permitem duplicidade). Isso pode causar catástrofes em alguns casos, como um registro de DNS sendo sobrescrito e indisponibilizando alguma aplicação. E essa é uma situação que queremos bem longe da gente.</p>
+
+<p>A próxima seção discutirá sobre como mitigar esse problema.</p>
+
+<h2 id="estado-centralizado">Estado centralizado</h2>
+
+<p>Se estamos falando de um estado, logo esperamos que ele seja consistente. Para tal, o estado deve ser armazenado em um local centralizado. E foi isso que fizemos para nos ajudar com o problema que foi citado anteriormente.</p>
+
+<p>A solução óbvia, baseando-se no que já foi visto - estamos lidando com código (IaC) e o estado do Terraform nada mais é que um JSON (ou seja, mais texto) - seria versionar o estado junto com o código da infraestrutura, e assim mantê-lo centralizado no repositório do nosso controle de versão.</p>
+
+<p>Inicialmente isso pode parecer uma boa ideia, mas ela oferece um grande problema pra nós: trabalhamos com <em>branches</em>, e caso dois desenvolvedores abram uma <em>branch</em>, cada um de um mesmo <em>configuration</em>, ao fazer um teste ou aplicar o que está na <em>branch</em>, o estado entre elas e a <em>master</em> vai ficar inconsistente, ou seja, voltamos ao problema do estado distribuído. Mesmo em um caso onde exista apenas uma <em>branch</em>, ao modificar seu estado e fazer um <em>merge</em> na <em>master</em>, estaremos nós mesmos modificando o estado do Terraform e isso é errado (lembram-se que no começo do post foi dito que o estado só deveria ser manipulado pelo próprio Terraform, né?).</p>
+
+<p>A melhor solução seria termos o estado do <em>configuration</em> guardado em um ponto central, onde, independente da <em>branch</em> na qual os desenvolvedores estão fazendo alterações, um único estado será modificado. E o Terraform, como boa ferramenta que é, pode nos ajudar com isso.</p>
+
+<p>O Terraform possui a funcionalidade chamada <a href="https://www.terraform.io/docs/state/remote/index.html"><em>Remote State</em></a> que, como o nome já diz, permite com que o estado seja guardado em um local remoto centralizado. O Terraform dá suporte a algumas ferramentas para armazenar o estado, como o <a href="https://www.consul.io">Consul</a> e o <a href="https://aws.amazon.com/s3/pricing/">S3</a> da AWS.</p>
+
+<p>Para nós, centralizar os estados dos <em>configurations</em> no S3 fez mais sentido. Conseguimos fazer isso adicionando o seguinte bloco em nossos <em>configurations</em>:</p>
+
+<pre><code class="language-python">terraform {
+  backend &quot;s3&quot; {
+    bucket     = &quot;${S3_BUCKET}&quot;
+    key        = &quot;${S3_OBJECT}&quot;
+    region     = &quot;${S3_BUCKET_REGION}&quot;
+    # O Terraform também oferece a opção de utilizar uma tabela no DynamoDB (https://aws.amazon.com/pt/dynamodb/)
+    # como lock para o estado em questão, evitando condições de corrida no arquiv.
+    lock_table = &quot;terraform_state_locking&quot;
+  }
+}
+</code></pre>
+
+<p>Com isso, automaticamente, a cada <code>plan</code> e/ou <code>apply</code> do Terraform nas estações de trabalho dos desenvolvedores, um único arquivo de estado é modificado, e conseguimos manter nosso estado em um local centralizado para cada <em>configuration</em>.</p>
+
+<p>Uma dica para quem for utilizar o S3 como local de armazenamento para os estados é que o <em>bucket</em> tenha a opção de versionamento ativada, pois isso pode ajudar a corrigir possíveis inconsistências nos estados.</p>
+
+<p>Uma outra grande vantagem que o uso de <em>Remote States</em> oferece é a possibilidade de referenciar os <code>outputs</code> de um <em>configuration</em> em outro sem correr riscos de alterações indevidas. Isso pode ser feito com o <em>resource terraform_remote_state</em>.</p>
+
+<p>Um exemplo de como obtemos os IDs das zonas do Route53 para podermos criar novos registros em um <em>configuration</em>:</p>
+
+<pre><code class="language-python">data &quot;terraform_remote_state&quot; &quot;route53&quot; {
+    backend = &quot;s3&quot;
+    config {
+        bucket = &quot;BUCKET_NAME&quot;
+        key = &quot;BUCKET_NAME/route53/route53.tfstate&quot;
+        region = &quot;BUCKET_REGION&quot;
+    }
+}
+</code></pre>
+
+<p>Assim, conseguimos referenciar de maneira <em>read-only</em> o ID que precisamos para criação de um novo registro (lembrando que só é possível referenciar o que foi explicitamente exportado no módulo de origem):</p>
+
+<pre><code class="language-python">resource &quot;aws_route53_record&quot; &quot;dns-public-web-app&quot; {
+  zone_id = &quot;${data.terraform_remote_state.route53.zone01.id}&quot;
+  name = &quot;public-web-app.elo7.com.br&quot;
+  type = &quot;A&quot;
+  ttl = &quot;300&quot;
+  records = [&quot;${aws_instance.public-web-app.private_ip}&quot;]
+}
+</code></pre>
+
+<h2 id="limitações">Limitações</h2>
+
+<p>Utilizar o <em>Remote State</em> com o Terraform alivia bastante os problemas de desenvolvimento paralelo dos <em>configurations</em> que foram citados até aqui. Porém, ainda devemos tomar alguns cuidados ao lidar com esse modelo.</p>
+
+<p>Temos o seguinte cenário de exemplo:
+- <em>configuration</em>: <code>public-web-app</code>, que já possui uma série de <em>resources</em> criados, como instâncias, banco de dados, registros DNS, etc.</p>
+
+<p>Desenvolvedores criam as seguintes <em>branches</em>:
+- <em>Dev 1</em> cria branch: <code>adiciona-ALB</code>
+- <em>Dev 2</em> cria branch: <code>adiciona-discos-para-logs</code></p>
+
+<p>Supondo que o <em>Dev 1</em> trabalhe em sua <em>branch</em> primeiro, e adiciona um ALB (Application Load Balancer) no <em>configuration</em> do <code>public-web-app</code>. Nesse momento, o estado desse <em>configuration</em> vai possuir informações sobre o ALB criado.
+O <em>Dev 2</em>, por sua vez, vai fazer suas alterações. Porém, no momento que ele criou sua <em>branch</em>, o código do ALB criado pelo <em>Dev 1</em> ainda não existia, mas tais informações existem no estado. Então, o <em>Dev 2</em> vai fazer suas alterações, e vai executar o <code>terraform plan</code>.
+O plano mostrado pelo Terraform para o <em>Dev 2</em> dirá que os discos que ele adicionou serão provisionados e <em>attachados</em> nas instâncias pois, obviamente, tais <em>resources</em> não existiam no estado. Entretanto, algo estranho também aparecerá para o <em>Dev 2</em>: o Terraform o informará que irá remover um ALB, pois ele encontrou tal <em>resource</em> no estado e não no código.</p>
+
+<p>E agora? Como lidamos com as limitações?</p>
+
+<p>O Terraform não é capaz de controlar mudanças distribuídas (a Hashicorp possui uma versão Enterprise do Terraform que oferece esse controle centralizado). Então, a opção mais barata e direta é termos processos de uso da ferramenta:
+- Quebramos os nossos <em>configurations</em> por aplicações (às vezes uma aplicação possui mais de um <em>configuration</em>, caso ela tenha muitas dependências): isso diminui bastante as chances de existirem dois desenvolvedores alterando o mesmo <em>configuration</em> simultaneamente;
+- Caso a <em>branch</em> seja antiga, um <em>rebase</em> da <em>master</em> resolve o problema, pois novas alterações que já foram <em>mergeadas</em> são aplicadas na <em>branch</em> atual;
+- Em último caso, utilizamos o argumento <code>-target=</code> do Terraform, que permite passar exatamente quais resources queremos que sejam modificados. No caso do exemplo anterior, o <em>Dev 2</em> poderia apontar os seus discos no <code>-target=</code> e rodar um <code>terraform apply</code>. Assim, seus discos seriam criados e o ALB continuaria intacto.
+- Vale salientar, também, que o que está sendo desenvolvido em uma <em>branch</em>, mesmo que aplicado, não é considerado &ldquo;em produção&rdquo;. O ambiente de produção é considerado aquele que está na <em>master</em> do repositório, ou seja, um <code>terraform apply</code> na <em>master</em> não deve nunca causar nenhum dano às nossas aplicações.</p>
+
+<h2 id="conclusões">Conclusões</h2>
+
+<p>Nesse post mostramos como o Terraform se organiza internamente com a infraestrutura que ele controla, e como trabalhamos de maneira distribuída com os <em>configurations</em>. Também citamos alguns procedimentos que usamos para diminuir os problemas que as limitações do modelo trazem.</p>
+
+<p>Por enquanto o método de trabalho descrito aqui está nos atendendo muito bem. Mas temos em mente que podemos chegar a uma escala em que esse método não será suficiente. Quando isso ocorrer, vamos pensar em outras abordagens, como desenvolver uma ferramenta interna para controle de modificações em paralelo ou até mesmo contratar o serviço oferecido pela Hashicorp.</p>
+
+<p>Finalizamos, então, mais um post da série Terraformando Tudo. Mas ela ainda não terminou! Voltaremos aqui em um próximo post, mostrando o que fazer com a infraestrutura já existente! Podemos <em>&ldquo;terraformá-la&rdquo;</em>? Veremos!</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/devops/'>devops</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/terraform/'>terraform</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/iac/'>iac</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/infrastructure-as-code/'>infrastructure as code</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/infra/'>infra</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fterraformando-tudo-2%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=terraformando-tudo-parte-2&url=https%3a%2f%2felo7.dev%2fterraformando-tudo-2%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/terraformando-tudo-2/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/terraformando-tudo-2/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Segundo post da série &#39;Terraformando Tudo&#39;, que conta a nossa trajetória em busca da codificação da nossa infraestrutura. Neste post contamos o que fizemos para mitigar possíveis desastres e como controlamos N desenvolvedores alterando N Terraform configurations. Vamos lá?'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2017-07-31 00:00:00 \x2b0000 UTC:\/terraformando-tudo-2\/';
+            var disqus_url = 'https:\/\/elo7.dev\/terraformando-tudo-2\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

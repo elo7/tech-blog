@@ -1,0 +1,2157 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Tech Blog Elo7</title>
+    <link>https://elo7.dev/tags/</link>
+    <description>Recent content in Tags on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Wed, 27 May 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://elo7.dev/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Acceptance</title>
+      <link>https://elo7.dev/tags/acceptance/</link>
+      <pubDate>Wed, 27 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/acceptance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Acessibilidade</title>
+      <link>https://elo7.dev/tags/acessibilidade/</link>
+      <pubDate>Mon, 10 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/acessibilidade/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Agile</title>
+      <link>https://elo7.dev/tags/agile/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/agile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ai</title>
+      <link>https://elo7.dev/tags/ai/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Airflow</title>
+      <link>https://elo7.dev/tags/airflow/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/airflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Algoritmo</title>
+      <link>https://elo7.dev/tags/algoritmo/</link>
+      <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/algoritmo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Alinhamento Vertical</title>
+      <link>https://elo7.dev/tags/alinhamento-vertical/</link>
+      <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/alinhamento-vertical/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Amazon Elastic Compute Cloud</title>
+      <link>https://elo7.dev/tags/amazon-elastic-compute-cloud/</link>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/amazon-elastic-compute-cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Amazon Web Services</title>
+      <link>https://elo7.dev/tags/amazon-web-services/</link>
+      <pubDate>Mon, 24 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/amazon-web-services/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Amp</title>
+      <link>https://elo7.dev/tags/amp/</link>
+      <pubDate>Mon, 26 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/amp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Analytics</title>
+      <link>https://elo7.dev/tags/analytics/</link>
+      <pubDate>Mon, 06 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Android</title>
+      <link>https://elo7.dev/tags/android/</link>
+      <pubDate>Mon, 20 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Android O</title>
+      <link>https://elo7.dev/tags/android-o/</link>
+      <pubDate>Mon, 19 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/android-o/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Android Studio</title>
+      <link>https://elo7.dev/tags/android-studio/</link>
+      <pubDate>Mon, 19 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/android-studio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Android Vitals</title>
+      <link>https://elo7.dev/tags/android-vitals/</link>
+      <pubDate>Mon, 19 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/android-vitals/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Apache Spark</title>
+      <link>https://elo7.dev/tags/apache-spark/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/apache-spark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Api</title>
+      <link>https://elo7.dev/tags/api/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Api.ai</title>
+      <link>https://elo7.dev/tags/api.ai/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/api.ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aplicativos</title>
+      <link>https://elo7.dev/tags/aplicativos/</link>
+      <pubDate>Mon, 20 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/aplicativos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Arquitetura</title>
+      <link>https://elo7.dev/tags/arquitetura/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/arquitetura/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Arquitetura De Microsserviços</title>
+      <link>https://elo7.dev/tags/arquitetura-de-microsservi%C3%A7os/</link>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/arquitetura-de-microsservi%C3%A7os/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Arquitetura De Software</title>
+      <link>https://elo7.dev/tags/arquitetura-de-software/</link>
+      <pubDate>Mon, 17 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/arquitetura-de-software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Artificial</title>
+      <link>https://elo7.dev/tags/artificial/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/artificial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Artificial Intelligence</title>
+      <link>https://elo7.dev/tags/artificial-intelligence/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/artificial-intelligence/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Assertj</title>
+      <link>https://elo7.dev/tags/assertj/</link>
+      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/assertj/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Async</title>
+      <link>https://elo7.dev/tags/async/</link>
+      <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/async/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Auto Backup</title>
+      <link>https://elo7.dev/tags/auto-backup/</link>
+      <pubDate>Mon, 19 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/auto-backup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Auto Scaling</title>
+      <link>https://elo7.dev/tags/auto-scaling/</link>
+      <pubDate>Mon, 24 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/auto-scaling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Autofill</title>
+      <link>https://elo7.dev/tags/autofill/</link>
+      <pubDate>Mon, 19 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/autofill/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aws</title>
+      <link>https://elo7.dev/tags/aws/</link>
+      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aws Lambda</title>
+      <link>https://elo7.dev/tags/aws-lambda/</link>
+      <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/aws-lambda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Back End</title>
+      <link>https://elo7.dev/tags/back-end/</link>
+      <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/back-end/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Banco De Dados</title>
+      <link>https://elo7.dev/tags/banco-de-dados/</link>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/banco-de-dados/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bibliotecas Javascript</title>
+      <link>https://elo7.dev/tags/bibliotecas-javascript/</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/bibliotecas-javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Big Data</title>
+      <link>https://elo7.dev/tags/big-data/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/big-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bootstrapping</title>
+      <link>https://elo7.dev/tags/bootstrapping/</link>
+      <pubDate>Tue, 13 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/bootstrapping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bower</title>
+      <link>https://elo7.dev/tags/bower/</link>
+      <pubDate>Thu, 05 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/bower/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Box Sizing</title>
+      <link>https://elo7.dev/tags/box-sizing/</link>
+      <pubDate>Mon, 19 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/box-sizing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Browsers</title>
+      <link>https://elo7.dev/tags/browsers/</link>
+      <pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/browsers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Busca</title>
+      <link>https://elo7.dev/tags/busca/</link>
+      <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/busca/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Carreira</title>
+      <link>https://elo7.dev/tags/carreira/</link>
+      <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/carreira/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cdc</title>
+      <link>https://elo7.dev/tags/cdc/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/cdc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cep</title>
+      <link>https://elo7.dev/tags/cep/</link>
+      <pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/cep/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chrome</title>
+      <link>https://elo7.dev/tags/chrome/</link>
+      <pubDate>Mon, 26 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/chrome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Circle Ci</title>
+      <link>https://elo7.dev/tags/circle-ci/</link>
+      <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/circle-ci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clojure</title>
+      <link>https://elo7.dev/tags/clojure/</link>
+      <pubDate>Mon, 22 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/clojure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloud Tpus</title>
+      <link>https://elo7.dev/tags/cloud-tpus/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/cloud-tpus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloudwatch</title>
+      <link>https://elo7.dev/tags/cloudwatch/</link>
+      <pubDate>Mon, 24 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/cloudwatch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Containers</title>
+      <link>https://elo7.dev/tags/containers/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Continuous Delivery</title>
+      <link>https://elo7.dev/tags/continuous-delivery/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/continuous-delivery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Controle De Fluxo</title>
+      <link>https://elo7.dev/tags/controle-de-fluxo/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/controle-de-fluxo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Correios</title>
+      <link>https://elo7.dev/tags/correios/</link>
+      <pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/correios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cqrs</title>
+      <link>https://elo7.dev/tags/cqrs/</link>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/cqrs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Css</title>
+      <link>https://elo7.dev/tags/css/</link>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Css Basics</title>
+      <link>https://elo7.dev/tags/css-basics/</link>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/css-basics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Css Scroll Snap</title>
+      <link>https://elo7.dev/tags/css-scroll-snap/</link>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/css-scroll-snap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cultura</title>
+      <link>https://elo7.dev/tags/cultura/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/cultura/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dagger2</title>
+      <link>https://elo7.dev/tags/dagger2/</link>
+      <pubDate>Wed, 20 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/dagger2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Science</title>
+      <link>https://elo7.dev/tags/data-science/</link>
+      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Scientist</title>
+      <link>https://elo7.dev/tags/data-scientist/</link>
+      <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/data-scientist/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Debezium</title>
+      <link>https://elo7.dev/tags/debezium/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/debezium/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep Learning</title>
+      <link>https://elo7.dev/tags/deep-learning/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/deep-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dependency Injection</title>
+      <link>https://elo7.dev/tags/dependency-injection/</link>
+      <pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/dependency-injection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dependency Inversion</title>
+      <link>https://elo7.dev/tags/dependency-inversion/</link>
+      <pubDate>Wed, 20 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/dependency-inversion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Design</title>
+      <link>https://elo7.dev/tags/design/</link>
+      <pubDate>Mon, 17 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Design De Produto</title>
+      <link>https://elo7.dev/tags/design-de-produto/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/design-de-produto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops</title>
+      <link>https://elo7.dev/tags/devops/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devtools</title>
+      <link>https://elo7.dev/tags/devtools/</link>
+      <pubDate>Mon, 26 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/devtools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dimensionality Reduction</title>
+      <link>https://elo7.dev/tags/dimensionality-reduction/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/dimensionality-reduction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Display</title>
+      <link>https://elo7.dev/tags/display/</link>
+      <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/display/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>E Mail</title>
+      <link>https://elo7.dev/tags/e-mail/</link>
+      <pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/e-mail/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Eclemma</title>
+      <link>https://elo7.dev/tags/eclemma/</link>
+      <pubDate>Mon, 15 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/eclemma/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Eclipse</title>
+      <link>https://elo7.dev/tags/eclipse/</link>
+      <pubDate>Tue, 13 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/eclipse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ecmascript</title>
+      <link>https://elo7.dev/tags/ecmascript/</link>
+      <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/ecmascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Edne</title>
+      <link>https://elo7.dev/tags/edne/</link>
+      <pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/edne/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Elasticsearch</title>
+      <link>https://elo7.dev/tags/elasticsearch/</link>
+      <pubDate>Mon, 06 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/elasticsearch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Encoding</title>
+      <link>https://elo7.dev/tags/encoding/</link>
+      <pubDate>Mon, 02 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/encoding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Engineering</title>
+      <link>https://elo7.dev/tags/engineering/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Etag</title>
+      <link>https://elo7.dev/tags/etag/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/etag/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Eventos</title>
+      <link>https://elo7.dev/tags/eventos/</link>
+      <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/eventos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Expressoes Booleanas</title>
+      <link>https://elo7.dev/tags/expressoes-booleanas/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/expressoes-booleanas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fairness</title>
+      <link>https://elo7.dev/tags/fairness/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/fairness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Flex</title>
+      <link>https://elo7.dev/tags/flex/</link>
+      <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/flex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Flink</title>
+      <link>https://elo7.dev/tags/flink/</link>
+      <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/flink/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Float</title>
+      <link>https://elo7.dev/tags/float/</link>
+      <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/float/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Frameworks Javascript</title>
+      <link>https://elo7.dev/tags/frameworks-javascript/</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/frameworks-javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Front End</title>
+      <link>https://elo7.dev/tags/front-end/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/front-end/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Generative Adversarial Networks</title>
+      <link>https://elo7.dev/tags/generative-adversarial-networks/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/generative-adversarial-networks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Geometria Dos Dados</title>
+      <link>https://elo7.dev/tags/geometria-dos-dados/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/geometria-dos-dados/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gerenciamento De Dependencias</title>
+      <link>https://elo7.dev/tags/gerenciamento-de-dependencias/</link>
+      <pubDate>Thu, 05 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/gerenciamento-de-dependencias/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Assistant</title>
+      <link>https://elo7.dev/tags/google-assistant/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/google-assistant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Home</title>
+      <link>https://elo7.dev/tags/google-home/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/google-home/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Io</title>
+      <link>https://elo7.dev/tags/google-io/</link>
+      <pubDate>Mon, 26 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/google-io/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Lens</title>
+      <link>https://elo7.dev/tags/google-lens/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/google-lens/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Tango</title>
+      <link>https://elo7.dev/tags/google-tango/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/google-tango/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google.ai</title>
+      <link>https://elo7.dev/tags/google.ai/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/google.ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gradle</title>
+      <link>https://elo7.dev/tags/gradle/</link>
+      <pubDate>Mon, 13 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/gradle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Graylog</title>
+      <link>https://elo7.dev/tags/graylog/</link>
+      <pubDate>Mon, 10 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/graylog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Grid</title>
+      <link>https://elo7.dev/tags/grid/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/grid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Guice</title>
+      <link>https://elo7.dev/tags/guice/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/guice/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Helm</title>
+      <link>https://elo7.dev/tags/helm/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/helm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hibernate</title>
+      <link>https://elo7.dev/tags/hibernate/</link>
+      <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/hibernate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Html</title>
+      <link>https://elo7.dev/tags/html/</link>
+      <pubDate>Mon, 17 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Http</title>
+      <link>https://elo7.dev/tags/http/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/http/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Http2</title>
+      <link>https://elo7.dev/tags/http2/</link>
+      <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/http2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Https</title>
+      <link>https://elo7.dev/tags/https/</link>
+      <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/https/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Iac</title>
+      <link>https://elo7.dev/tags/iac/</link>
+      <pubDate>Mon, 18 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/iac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ideia</title>
+      <link>https://elo7.dev/tags/ideia/</link>
+      <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/ideia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Importacao</title>
+      <link>https://elo7.dev/tags/importacao/</link>
+      <pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/importacao/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Information Technology</title>
+      <link>https://elo7.dev/tags/information-technology/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/information-technology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Infra</title>
+      <link>https://elo7.dev/tags/infra/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/infra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Infraestrutura</title>
+      <link>https://elo7.dev/tags/infraestrutura/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/infraestrutura/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Infrastructure as Code</title>
+      <link>https://elo7.dev/tags/infrastructure-as-code/</link>
+      <pubDate>Mon, 18 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/infrastructure-as-code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Inline Block</title>
+      <link>https://elo7.dev/tags/inline-block/</link>
+      <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/inline-block/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Instant App</title>
+      <link>https://elo7.dev/tags/instant-app/</link>
+      <pubDate>Mon, 19 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/instant-app/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Integracao Continua</title>
+      <link>https://elo7.dev/tags/integracao-continua/</link>
+      <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/integracao-continua/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Inteligencia Artificial</title>
+      <link>https://elo7.dev/tags/inteligencia-artificial/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/inteligencia-artificial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Inteligência Artificial</title>
+      <link>https://elo7.dev/tags/intelig%C3%AAncia-artificial/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/intelig%C3%AAncia-artificial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Intelligence</title>
+      <link>https://elo7.dev/tags/intelligence/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/intelligence/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Intersection Observer</title>
+      <link>https://elo7.dev/tags/intersection-observer/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/intersection-observer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ios</title>
+      <link>https://elo7.dev/tags/ios/</link>
+      <pubDate>Mon, 20 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Isomorfico</title>
+      <link>https://elo7.dev/tags/isomorfico/</link>
+      <pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/isomorfico/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Isomorfismo</title>
+      <link>https://elo7.dev/tags/isomorfismo/</link>
+      <pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/isomorfismo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://elo7.dev/tags/java/</link>
+      <pubDate>Mon, 15 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java Basico</title>
+      <link>https://elo7.dev/tags/java-basico/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/java-basico/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java8</title>
+      <link>https://elo7.dev/tags/java8/</link>
+      <pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/java8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://elo7.dev/tags/javascript/</link>
+      <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jpa</title>
+      <link>https://elo7.dev/tags/jpa/</link>
+      <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/jpa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Js Templates</title>
+      <link>https://elo7.dev/tags/js-templates/</link>
+      <pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/js-templates/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Junit</title>
+      <link>https://elo7.dev/tags/junit/</link>
+      <pubDate>Mon, 20 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/junit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jupyter</title>
+      <link>https://elo7.dev/tags/jupyter/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/jupyter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jupyter Notebooks</title>
+      <link>https://elo7.dev/tags/jupyter-notebooks/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/jupyter-notebooks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kafka</title>
+      <link>https://elo7.dev/tags/kafka/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/kafka/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kibana</title>
+      <link>https://elo7.dev/tags/kibana/</link>
+      <pubDate>Mon, 06 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/kibana/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kotlin</title>
+      <link>https://elo7.dev/tags/kotlin/</link>
+      <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/kotlin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://elo7.dev/tags/kubernetes/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lambda</title>
+      <link>https://elo7.dev/tags/lambda/</link>
+      <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/lambda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Layout</title>
+      <link>https://elo7.dev/tags/layout/</link>
+      <pubDate>Mon, 09 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/layout/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Learning</title>
+      <link>https://elo7.dev/tags/learning/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Libs</title>
+      <link>https://elo7.dev/tags/libs/</link>
+      <pubDate>Mon, 25 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/libs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linters</title>
+      <link>https://elo7.dev/tags/linters/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/linters/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Logs</title>
+      <link>https://elo7.dev/tags/logs/</link>
+      <pubDate>Mon, 10 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/logs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lucene</title>
+      <link>https://elo7.dev/tags/lucene/</link>
+      <pubDate>Thu, 21 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/lucene/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine</title>
+      <link>https://elo7.dev/tags/machine/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/machine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://elo7.dev/tags/machine-learning/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Macwire</title>
+      <link>https://elo7.dev/tags/macwire/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/macwire/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Manifold Learning</title>
+      <link>https://elo7.dev/tags/manifold-learning/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/manifold-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Margin</title>
+      <link>https://elo7.dev/tags/margin/</link>
+      <pubDate>Mon, 19 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/margin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Marketing</title>
+      <link>https://elo7.dev/tags/marketing/</link>
+      <pubDate>Mon, 09 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/marketing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Metodologias</title>
+      <link>https://elo7.dev/tags/metodologias/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/metodologias/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Micro Serviços</title>
+      <link>https://elo7.dev/tags/micro-servi%C3%A7os/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/micro-servi%C3%A7os/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microservices</title>
+      <link>https://elo7.dev/tags/microservices/</link>
+      <pubDate>Mon, 17 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/microservices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mobile</title>
+      <link>https://elo7.dev/tags/mobile/</link>
+      <pubDate>Mon, 20 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/mobile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mockito</title>
+      <link>https://elo7.dev/tags/mockito/</link>
+      <pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/mockito/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Modelo De Regras</title>
+      <link>https://elo7.dev/tags/modelo-de-regras/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/modelo-de-regras/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Modelo Interpretável</title>
+      <link>https://elo7.dev/tags/modelo-interpret%C3%A1vel/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/modelo-interpret%C3%A1vel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mqtt</title>
+      <link>https://elo7.dev/tags/mqtt/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/mqtt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>https://elo7.dev/tags/mysql/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Netflix</title>
+      <link>https://elo7.dev/tags/netflix/</link>
+      <pubDate>Mon, 24 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/netflix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Non Interaction</title>
+      <link>https://elo7.dev/tags/non-interaction/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/non-interaction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Npm</title>
+      <link>https://elo7.dev/tags/npm/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/npm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Objective C</title>
+      <link>https://elo7.dev/tags/objective-c/</link>
+      <pubDate>Wed, 27 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/objective-c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Open Source</title>
+      <link>https://elo7.dev/tags/open-source/</link>
+      <pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/open-source/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Optimization</title>
+      <link>https://elo7.dev/tags/optimization/</link>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/optimization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Orquestracao</title>
+      <link>https://elo7.dev/tags/orquestracao/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/orquestracao/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Otimizacao</title>
+      <link>https://elo7.dev/tags/otimizacao/</link>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/otimizacao/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Padding</title>
+      <link>https://elo7.dev/tags/padding/</link>
+      <pubDate>Mon, 19 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/padding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pareamento</title>
+      <link>https://elo7.dev/tags/pareamento/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/pareamento/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Performance Front End</title>
+      <link>https://elo7.dev/tags/performance-front-end/</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/performance-front-end/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Planejamento</title>
+      <link>https://elo7.dev/tags/planejamento/</link>
+      <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/planejamento/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Polling</title>
+      <link>https://elo7.dev/tags/polling/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/polling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Posicionamento</title>
+      <link>https://elo7.dev/tags/posicionamento/</link>
+      <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/posicionamento/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Processamento De Imagens</title>
+      <link>https://elo7.dev/tags/processamento-de-imagens/</link>
+      <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/processamento-de-imagens/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Processos</title>
+      <link>https://elo7.dev/tags/processos/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/processos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Produtividade</title>
+      <link>https://elo7.dev/tags/produtividade/</link>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/produtividade/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programacao</title>
+      <link>https://elo7.dev/tags/programacao/</link>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/programacao/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programacao Funcional</title>
+      <link>https://elo7.dev/tags/programacao-funcional/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/programacao-funcional/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programacao Reativa</title>
+      <link>https://elo7.dev/tags/programacao-reativa/</link>
+      <pubDate>Mon, 15 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/programacao-reativa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Progressive Webapps</title>
+      <link>https://elo7.dev/tags/progressive-webapps/</link>
+      <pubDate>Mon, 10 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/progressive-webapps/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Projeto</title>
+      <link>https://elo7.dev/tags/projeto/</link>
+      <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/projeto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pub Sub</title>
+      <link>https://elo7.dev/tags/pub-sub/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/pub-sub/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pwa</title>
+      <link>https://elo7.dev/tags/pwa/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/pwa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://elo7.dev/tags/python/</link>
+      <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Quebrando Monolito</title>
+      <link>https://elo7.dev/tags/quebrando-monolito/</link>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/quebrando-monolito/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Query</title>
+      <link>https://elo7.dev/tags/query/</link>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/query/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>React Native</title>
+      <link>https://elo7.dev/tags/react-native/</link>
+      <pubDate>Mon, 16 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/react-native/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reader Monad</title>
+      <link>https://elo7.dev/tags/reader-monad/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/reader-monad/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Redes Geradoras Adversariais</title>
+      <link>https://elo7.dev/tags/redes-geradoras-adversariais/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/redes-geradoras-adversariais/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Redes Neurais</title>
+      <link>https://elo7.dev/tags/redes-neurais/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/redes-neurais/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reinforcement</title>
+      <link>https://elo7.dev/tags/reinforcement/</link>
+      <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/reinforcement/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Relacional</title>
+      <link>https://elo7.dev/tags/relacional/</link>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/relacional/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Responsivo</title>
+      <link>https://elo7.dev/tags/responsivo/</link>
+      <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/responsivo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rest</title>
+      <link>https://elo7.dev/tags/rest/</link>
+      <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/rest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Restful</title>
+      <link>https://elo7.dev/tags/restful/</link>
+      <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/restful/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Retrospectiva</title>
+      <link>https://elo7.dev/tags/retrospectiva/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/retrospectiva/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rpc</title>
+      <link>https://elo7.dev/tags/rpc/</link>
+      <pubDate>Mon, 17 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/rpc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ruby</title>
+      <link>https://elo7.dev/tags/ruby/</link>
+      <pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sbt</title>
+      <link>https://elo7.dev/tags/sbt/</link>
+      <pubDate>Tue, 13 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/sbt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scala</title>
+      <link>https://elo7.dev/tags/scala/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/scala/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Schema</title>
+      <link>https://elo7.dev/tags/schema/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/schema/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scroll</title>
+      <link>https://elo7.dev/tags/scroll/</link>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/scroll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Search</title>
+      <link>https://elo7.dev/tags/search/</link>
+      <pubDate>Thu, 21 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/search/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Semantica</title>
+      <link>https://elo7.dev/tags/semantica/</link>
+      <pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/semantica/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Seo</title>
+      <link>https://elo7.dev/tags/seo/</link>
+      <pubDate>Mon, 16 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/seo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Serverless</title>
+      <link>https://elo7.dev/tags/serverless/</link>
+      <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/serverless/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Service Workers</title>
+      <link>https://elo7.dev/tags/service-workers/</link>
+      <pubDate>Mon, 10 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/service-workers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Simple Build Tool</title>
+      <link>https://elo7.dev/tags/simple-build-tool/</link>
+      <pubDate>Tue, 13 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/simple-build-tool/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Smart Lock</title>
+      <link>https://elo7.dev/tags/smart-lock/</link>
+      <pubDate>Mon, 19 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/smart-lock/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software</title>
+      <link>https://elo7.dev/tags/software/</link>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Solr</title>
+      <link>https://elo7.dev/tags/solr/</link>
+      <pubDate>Thu, 21 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/solr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spark</title>
+      <link>https://elo7.dev/tags/spark/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/spark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring</title>
+      <link>https://elo7.dev/tags/spring/</link>
+      <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/spring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Boot</title>
+      <link>https://elo7.dev/tags/spring-boot/</link>
+      <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/spring-boot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Config</title>
+      <link>https://elo7.dev/tags/spring-cloud-config/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/spring-cloud-config/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sql</title>
+      <link>https://elo7.dev/tags/sql/</link>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Swift</title>
+      <link>https://elo7.dev/tags/swift/</link>
+      <pubDate>Wed, 27 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/swift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Talk7</title>
+      <link>https://elo7.dev/tags/talk7/</link>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/talk7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tdc</title>
+      <link>https://elo7.dev/tags/tdc/</link>
+      <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/tdc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tdd</title>
+      <link>https://elo7.dev/tags/tdd/</link>
+      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/tdd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tech Talk</title>
+      <link>https://elo7.dev/tags/tech-talk/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/tech-talk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tensor Processing Units</title>
+      <link>https://elo7.dev/tags/tensor-processing-units/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/tensor-processing-units/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tensorflow</title>
+      <link>https://elo7.dev/tags/tensorflow/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/tensorflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tensorflow Lite</title>
+      <link>https://elo7.dev/tags/tensorflow-lite/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/tensorflow-lite/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Terraform</title>
+      <link>https://elo7.dev/tags/terraform/</link>
+      <pubDate>Mon, 18 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/terraform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Testes</title>
+      <link>https://elo7.dev/tags/testes/</link>
+      <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/testes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tests</title>
+      <link>https://elo7.dev/tags/tests/</link>
+      <pubDate>Mon, 28 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/tests/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tpu</title>
+      <link>https://elo7.dev/tags/tpu/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/tpu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Transacional</title>
+      <link>https://elo7.dev/tags/transacional/</link>
+      <pubDate>Mon, 09 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/transacional/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Travis Ci</title>
+      <link>https://elo7.dev/tags/travis-ci/</link>
+      <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/travis-ci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ui Design</title>
+      <link>https://elo7.dev/tags/ui-design/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/ui-design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>User Testing</title>
+      <link>https://elo7.dev/tags/user-testing/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/user-testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ux</title>
+      <link>https://elo7.dev/tags/ux/</link>
+      <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/ux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ux Design</title>
+      <link>https://elo7.dev/tags/ux-design/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/ux-design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vagas</title>
+      <link>https://elo7.dev/tags/vagas/</link>
+      <pubDate>Mon, 20 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/vagas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>https://elo7.dev/tags/web/</link>
+      <pubDate>Mon, 19 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web Services</title>
+      <link>https://elo7.dev/tags/web-services/</link>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/web-services/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Webapi</title>
+      <link>https://elo7.dev/tags/webapi/</link>
+      <pubDate>Mon, 19 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/webapi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Websocket</title>
+      <link>https://elo7.dev/tags/websocket/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tags/websocket/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

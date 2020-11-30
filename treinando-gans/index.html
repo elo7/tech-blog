@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,generative adversarial networks,redes geradoras adversariais,machine learning,deep learning,artificial intelligence,redes neurais,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Estratégias e dicas para treinar GANs'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Estratégias e dicas para treinar GANs'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/treinando-gans-1.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Estratégias e dicas para treinar GANs'>
+	<meta property='og:url' content='https://elo7.dev/treinando-gans/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Estratégias e dicas para treinar GANs'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/treinando-gans/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/treinando-gans-1.png'>
+
+	<link rel='canonical' href='https://elo7.dev/treinando-gans/'>
+	<title>Elo7 Tech - Estratégias e dicas para treinar GANs</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='machine-learning'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/treinando-gans-1.png' alt='Estratégias e dicas para treinar GANs' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Estratégias e dicas para treinar GANs</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2019-12-16 00:00:00 &#43;0000 UTC'
+    aria-label='16 de dezembro de 2019'>
+    16/12/2019
+    <meta itemprop='datePublished' content='Mon Dec 16 2019 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Dec 16 2019 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2019-12-16'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='onimaru' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/onimaru/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/onimaru'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='onimaru'>@onimaru</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Recentemente realizamos no Elo7 um evento chamado de <a href="https://www.sympla.com.br/elo7dev-workshops---gan-school-01__716430#info">GAN School 1</a> dando início a série de workshops e meetups promovidos pelo time de engenharia. Os elo7.dev workshops  visam compartilhar conhecimento sobre técnicas e soluções usadas aqui no Elo7. A GAN School tem como objetivo divulgar as redes geradoras adversariais no Brasil ensinando o básico necessário para que os participantes que não conhecem a técnica possam começar a acompanhar a literatura, a entender diferentes arquiteturas e aplicá-las em problemas próprios. Os notebooks usados no curso estão <a href="https://github.com/onimaru/GAN_School">aqui</a> e os slides <a href="https://www.slideshare.net/elo7tech/gan-school-elo7-workshops">aqui</a>.</p>
+
+<p>Pelo que pesquisamos, é a primeira vez no Brasil que ocorre um evento exclusivamente dedicado ao estudo, ensino e discussão de GANs. Mesmo a nível mundial poucas vezes isso cocorreu. Nesta primeira edição abordamos teoria e prática da GAN convencional (NSGAN) e da Conditional GAN (CGAN). O NSGAN é basicamente o mesmo que foi abordado no <a href="https://elo7.dev/gan/">post passado</a>, com alguns upgrades.</p>
+
+<h2 id="por-que-gans-ainda-não-são-tão-populares">Por que GANs ainda não são tão populares?</h2>
+
+<p>Se você fez o curso ou já tem experiência com GANs sabe que elas são difíceis de treinar, mas não acho que seja esse o único motivo. Baseado na minha experiência, levantei alguns pontos que podem explicar isso:<br />
+1. GANs são novas: elas surgiram em 2014 e apesar de serem bastante utilizadas por grandes empresas ainda são um tema mais de pesquisa. Fora do Brasil a maioria das pessoas que utiliza GANs aprendeu durante seu mestrado ou doutorado, já que muitos pesquisadores mergulharam forte nesta área. Aqui no Brasil a pesquisa feita em Universidades (sim, estou julgando) é muito voltada para as técnicas que os pesquisadores tem muita experiência, ou seja, é necessário que jovens pesquisadores se interessem pelo assunto, estudem por conta própria e passem esse conhecimento adiante. É isso que estamos tentando atingir com o GAN School.<br />
+2. Modelos geradores são difíceis: a maneira mais popular de se aprender machine learning é através de cursos online. Há um número grande por aí e a maioria foca em assuntos como regressão e classificação, pois podem se beneficiar de bibliotecas como o scikit-learn. Agora, ensinar modelos geradores envolve falar de estatística bayesiana, modelagem matemática e técnicas para estimar distribuições. Isso toma tempo e exige um background mais forte do aluno, portanto, não é foco de cursos online.
+3. GANs são instáveis: se você decidiu seguir esse caminho deve estar preparado para ter muitos hiperparâmetros para ajustar antes que seu modelo sequer comoce a ficar aceitável. Mesmo que você tenha uma GAN que funciona muito bem para um determinado dataset não há garantia que ela funcione para outro dataset: você precisará ajustar os hiperparâmetros novamente. Não estou falando apenas de fazer uma busca pelos valores ideais de learning rate, número de épocas, etc. Várias coisas podem ser diferentes como o número de camadas nas redes neurais, a arquitetura das redes, as funções de ativação, a quantidade de vezes que o gerador e o discriminador são treinados um em relação ao outro, o batch size e os tipos de ruído. Isso tudo pode tornar frustrante aprender e usar GANs.</p>
+
+<p>Durante o curso já fui dando algumas dicas de coisas que podem ajudar em relação a esse último item, mas como não focamos nisso usarei este post para complementar o curso.</p>
+
+<h2 id="problemas-comuns">Problemas comuns</h2>
+
+<p>Há principalmente três problemas típicos que podemos encontrar ao usar GANs, o primeiro e crucial é a instabilidade do treino. Durante o <em>loop</em> de treino, buscamos o Equilíbrio de Nash, ou seja, queremos que o Discriminador e o Gerador tentem minimizar os seus erros e acabem empatando. Isso acontece quando o Discriminador identifica que 50% dos dados reais e falsos são reais. Ao dizer que GANs são instáveis estamos falando que o estado ótimo, para uma dada arquitetura, pode estar em um ponto de equilíbrio instável. Assim, o sistema que é sensível às condições iniciais e pode nunca atingir esse ponto e o pior, o Gerador vai continuar tentando buscar minimizar o seu erro, mas o Discriminador já em seu estado de mínima perda identificará os dados falsos fazendo a perda do Gerador apenas aumentar. Com isso dizemos que o treino diverge.</p>
+
+<p>Outro problema clássico de GANs é o <em>mode collapse</em>. Esse problema é caracterizado por um treino aparentemente bem-sucedido, mas ao verificar os dados vemos que o Gerador aprendeu apenas dados que conseguem enganar bem o Discriminador. Um bom exemplo disso ocorre quando o Gerador aprende apenas os valores médios de cada feature. Como são valores bem comuns acabam enganando o Discriminador.</p>
+
+<p>O último problema é um pouco similar ao anterior. O <em>Failure mode</em> ocorre quando temos modos bem claros no dataset, os números no caso do MNIST. Com o GAN tradicional não há garantia de que o Gerador vai aprender todos o modos. No exemplo do MNIST é possível que o Gerador crie dados de alta qualidade, mas apenas de um dos dígitos.</p>
+
+<p>O <em>mode collapse</em> e o <em>failure mode</em> podem ser evitados se usarmos arquiteturas que usem alguma informação extra sobre o dataset original, como o CGAN e o InfoGAN.</p>
+
+<h2 id="boas-estratégias-no-treino-de-gans-nível-1">Boas estratégias no treino de GANs - nível 1</h2>
+
+<p>O nível 1 é composto de estratégias que podem ser usadas já na primeira vez que você for rodar o treino.<br />
+1. Normalizar os inputs em (-1,1) ou (0,1). Ao normalizar os inputs você pode escolher usar uma função tanh, para (-1,1), ou sigmoid, para (0,1). Isto não deveria afetar o treino de uma rede neural comum, mas devido a instabilidade do treino é possível que o Gerador, nas primeiras épocas, produza valores em uma escala muito distante dos valores e isso seja suficiente para que ocorra divergência no treino.<br />
+2. Na loss function do discriminador troque <em>min log(1-D)</em> por <em>max log(D)</em>. Fazendo isso estaremos tentando maximizar os dois termos na função de perda do Discriminador e eles podem ser calculados da mesma forma, com a <em>binary cross entropy</em>. Devemos assim, utilizar labels para informar ao discriminador se o <em>input</em> é real ou falso.<br />
+3. No Gerador trocar a label de <em>false</em> para <em>real</em>. Assim temos a mesma utilidade de usar a <em>binary cross entropy</em>.<br />
+4. Usar como ruído uma distribuição gaussiana e não uma uniforme. A distribuição uniforme tem suas utilidades principalmente em arquiteturas como a do InfoGAN, mas como ruído principal do Gerador ela acaba dando peso muito grande para gerar dados que seriam outliers nos dados originais. Isso não ocorre com ao usar uma gaussiana.<br />
+5. Utilizar o <em>Adam</em> como otimizador. De maneira geral ele é melhor otimizador e portanto uma boa aposta tanto para o Gerador quanto para o Discriminador.<br />
+6. Fazer a inicialização de pesos com a <em>Xavier normal</em>. Essa é uma boa prática em qualquer tipo de rede neural, ajuda a evitar gradientes zerados no início do treino.<br />
+7. Se seu dataset é composto de imagens, comece com o Deep Convolutional GAN (DCGAN). Essa arquitetura não é famosa sem motivo, ela se mostrou muito eficiente tanto na estabilização do treino como na qualidade dos dados gerados.</p>
+
+<h2 id="boas-estratégias-no-treino-de-gans-nível-2">Boas estratégias no treino de GANs - nível 2</h2>
+
+<p>Se após isso sua GAN ainda não estiver boa, pode partir para o nível 2. Neste nível, temos alterações que podem ser testadas rapidamente e alterando minimamente o que você já fez.<br />
+1. Testar adição de ruído na forma de <em>dropout</em>. Isso pode ser testado tanto no Gerador quanto no Discriminador. Em ambos as ativações pouco informativas são ignoradas, então o Gerador produz dados de melhor qualidade e o Discriminador consegue usar dados mais significativos para identificar a realidade dos <em>inputs</em>.<br />
+2. Testar ativações na forma de <em>leaky relu</em>. Eu costumo começar usando a ativação <em>relu</em> no Gerador e <em>leaky relu</em> no Discriminador, mas algumas vezes os gradientes do Gerador começam a ficar pouco informativos. Usar a <em>leaky relu</em> também no Gerador pode ser uma boa saída para isso.<br />
+3. Treinar o Discriminador mais vezes que o Gerador. Se você observar que o Gerador está enganando o Discriminador com facilidade ou que a probabilidade de acerto para os dados reais estabiliza em <em>0.5</em>, enquanto para os dados falsos é maior que isso, pode ser um sinal de que a velocidade de aprendizado do Discriminador seja menor que a do Gerador. Para corrigir isso tente treinar o Discriminador mais vezes que o Gerador. Não existe um meio para descobrir essa quantidade, mas teste algo entre <em>2</em> e <em>5</em>.<br />
+4. Treinar o Gerador mais vezes que o Discriminador. Isso é o inverso do item anterior, pode ser que o Discriminador comece de maneira muito assertiva ao identificar os dados falsos. Isso pode não dar chances para o Gerador e fazer o treino divergir.</p>
+
+<h2 id="boas-estratégias-no-treino-de-gans-nível-3">Boas estratégias no treino de GANs - nível 3</h2>
+
+<p>Agora partimos para mudanças mais drásticas, e meu conselho é que para cada mudança de nível 3 você volte e teste novamente todas as novas alterações de nível 2. Isso pode ser trabalhoso, portanto tente uma abordagem bem científica e anote as diferenças no resultado para cada alteração que fizer.<br />
+1. Aumentar o número de camadas do Gerador. Comece com uma rede pequena e vá aumentando o número de camadas aos poucos. Na minha experiência o número de camadas se mostrou mais importante que o número de neurônios por camada.<br />
+2. Testar o otimizador Stochastic Gradient Descent (SGD) no Discriminador. Apesar do que foi dito sobre o Adam, em alguns testes o treino mehorou muito ao usar o SGD no Discriminador usando o mesmo <em>learning rate</em>.<br />
+3. Usar <em>mini batches</em> de dados apenas reais e apenas falsos. Essa é outra estratégia que quando funciona melhora muito o treino. Na etapa de treino do Discriminador forneça apenas dados reais primeiro, treine e atualize os pesos da rede e em seguida repita o procedimento apenas com dados falsos. Isso faz com que o Discriminador consiga diferenciar melhor entre os dados, forçando o Gerador a melhorar também.<br />
+4. Testar arquiteturas diferentes nas redes. Em princípio o Gerador e o Discriminador são redes neurais quaisquer e podemos usar qualquer tipo de arquitetura. Portanto, experimente algumas como uma rede com número de neurônios constante e arquiteturas de autoencoder. Uma alternativa mais avançada é usar um <em>Variational AutoEncoder</em> como Gerador, mas nesse caso estamos entrando no ramo de <em>Adversarial Variational AutoEncoder</em>.</p>
+
+<h2 id="boas-estratégias-no-treino-de-gans-nível-4">Boas estratégias no treino de GANs - nível 4</h2>
+
+<p>Pode ser que nada disso esteja funcionando, então, devemos ir atrás de mais informação usando outras GANs.<br />
+1. Se tiver algum tipo de <em>label</em>, use. Qualquer tipo de <em>label</em> que seus dados possuam, mesmo que não estejam ligadas ao problema que você quer resolver, pode ser usadas com sucesso no CGAN, por exemplo.<br />
+2. Faça o Discriminador ter mais funções. Além de identificar o dado como verdadeiro ou falso, faça ele também ser um classificador de <em>labels</em>. Isso melhora muito o papel do Discriminador e força a melhora do Gerador. A arquitetura que usa isso em conjunto com o CGAN é chamada de <em>Auxiliary CGAN</em>.<br />
+3. Suavize as <em>labels</em>. O caso mais comum é usar a label <em>1</em> para dados reais e <em>0</em> para os falsos. Suavizar as <em>labels</em> é adicionar algum ruído pequeno às <em>labels</em>, fazendo elas ficarem algo como <em>0.9</em> e <em>0.2</em>.<br />
+4. Apele para teoria de informação, InfoGAN. Assim como a CGAN, a InfoGAN vai produzir os mesmos resultados da GAN original, mas usa de informação extra para treinar. Além de produzir dados de alta qualidade ainda possui a característica de poder aprender variáveis latentes para controlar os dados gerados.<br />
+5. Teste outras formas de ruído. Outra técnica bastante usada é adicionar um ruído aos <em>inputs</em> do Discriminador com um decaimento ao longo das épocas. Isso pode ser muito útil se o Discriminador está aprendendo muito rápido não dando oportunidade ao Gerador.<br />
+6. Utilize diversas formas de métricas para monitorar o treino. Como dito algumas vezes, apenas monitorar a probabilidade de erro do Discriminador não é suficiente para um treino bem sucedido. Verifique que tipo de métrica é útil para os seus dados e acompanhe elas durante o treino. Por exemplo, para datasets de imagens as métricas mais comuns são <em>Inception Score</em> e <em>Fréchet Inception Distance</em>.<br />
+7. Com uma boa métrica use <em>early stop</em>. Se você encontrou uma boa métrica pode utilizá-la como critério de parada do seu treino. Isso é especialmente útil para economizar tempo e evitar os casos em que o treino diverge depois de muitas épocas.<br />
+8. Tente a WGAN. Esta arquitetura é conhecida por apresentar resultados tão bons quanto ou melhores que a GAN tradicional. Possui algumas diferenças significativas na arquitetura e no treino, mas pode ser usada com qualquer GAN.</p>
+
+<h2 id="trabalha-e-confia">Trabalha e confia</h2>
+
+<p>Bom, testar todas essas mudanças pode levar um bom tempo, mas com certeza aumentará o seu domínio sobre a técnica e fará com que você perceba novas aplicações facilmente. O grande objetivo do GAN School é permitir que você possa contribuir para a compreensão das GANs e colocar o Brasil no mapa desta área. Quem sabe futuramente não realizamos um evento internacional para divulgar o seu trabalho ;)</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/generative-adversarial-networks/'>generative adversarial networks</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/redes-geradoras-adversariais/'>redes geradoras adversariais</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/machine-learning/'>machine learning</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/deep-learning/'>deep learning</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/artificial-intelligence/'>artificial intelligence</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/redes-neurais/'>redes neurais</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2ftreinando-gans%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=estrat%25C3%25A9gias-e-dicas-para-treinar-gans&url=https%3a%2f%2felo7.dev%2ftreinando-gans%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/treinando-gans/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/treinando-gans/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='GANs, redes geradoras adversariais, são famosas por produzirem resultados incríveis, mas serem muito difíceis de treinar. Nesse post contamos alguns segredos para otimizar e estabilizar o treino dessas redes.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2019-12-16 00:00:00 \x2b0000 UTC:\/treinando-gans\/';
+            var disqus_url = 'https:\/\/elo7.dev\/treinando-gans\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

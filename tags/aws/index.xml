@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aws on Tech Blog Elo7</title>
+    <link>https://elo7.dev/tags/aws/</link>
+    <description>Recent content in Aws on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 27 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://elo7.dev/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Boas práticas na utilização do Kubernetes em produção</title>
+      <link>https://elo7.dev/boas-praticas-na-utilizacao-k8s/</link>
+      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/boas-praticas-na-utilizacao-k8s/</guid>
+      <description>O Kubernetes é uma ferramenta para orquestração de containers extremamente consolidada no mercado e com muitos recursos que facilitam a administração, diminuindo o overhead operacional de se manter ambientes com containers. Contudo, quando falamos de ambientes de produção, alguns pontos como segurança, disponibilidade, escalabilidade e outros precisam ser tratados com muito afinco para que tenhamos uma plataforma resiliente e preparada para receber grandes cargas de trabalho. A ideia desse post é apresentar alguns dos vários pontos de atenção que precisamos ter na hora de implementar/utilizar nosso cluster.</description>
+    </item>
+    
+    <item>
+      <title>Serverless e AWS Lambda</title>
+      <link>https://elo7.dev/serverless/</link>
+      <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/serverless/</guid>
+      <description>Todos os dias surgem novas buzzwords no mercado, cada uma relacionada a uma nova tecnologia/metodologia que promete revolucionar o modo de fazer as coisas; uma das mais recentes é a Serverless. Ao longo desse post vou tentar descrever o que é essa nova buzzword e vai de você analisar se faz sentido ou não aplicá-la ao seu projeto.
+Serverless Serverless permite a você construir e executar aplicações sem ter que gerenciar nenhuma infraestrutura.</description>
+    </item>
+    
+    <item>
+      <title>Slides do evento Software Fora de série - #elo7tech</title>
+      <link>https://elo7.dev/slides-evento-software-fora-de-serie/</link>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/slides-evento-software-fora-de-serie/</guid>
+      <description>Todos os slides do evento Software Fora de Série:
+Carlos Curioni e David Robert Talk7 - Da concepção ao desenvolvimento de um aplicativo de mensagens 
+Mario Amaral A arquitetura de um chat integrado ao checkout 
+Alexandre Gama Back-end de extrema performance 
+Rafael Monteiro Automatizando a implantação e operação de aplicações conteinerizadas no AWS 
+Fernanda Bernardo e Andre Barro A influência dos usuários no desenvolvimento do Talk7</description>
+    </item>
+    
+  </channel>
+</rss>

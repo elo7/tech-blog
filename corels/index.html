@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,inteligência artificial,modelo de regras,modelo interpretável,fairness,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - CORELS - um modelo interpretável'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - CORELS - um modelo interpretável'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - CORELS - um modelo interpretável'>
+	<meta property='og:url' content='https://elo7.dev/corels/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - CORELS - um modelo interpretável'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/corels/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/corels/'>
+	<title>Elo7 Tech - CORELS - um modelo interpretável</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='machine-learning'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='CORELS - um modelo interpretável' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>CORELS - um modelo interpretável</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2020-01-06 00:00:00 &#43;0000 UTC'
+    aria-label='06 de janeiro de 2020'>
+    06/01/2020
+    <meta itemprop='datePublished' content='Mon Jan 06 2020 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Jan 06 2020 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2020-01-06'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='samaraalves' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/samaraalves/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/samaraalves'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='samaraalves'>@samaraalves</p>
+                                </a>
+                            
+                                <a data-author='cimarieta' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/cimarieta/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/cimarieta'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='cimarieta'>@cimarieta</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<h1 id="corels-um-modelo-interpretável">CORELS: um modelo interpretável</h1>
+
+<p>Neste post, vamos falar sobre o algoritmo CORELS (Certifiably Optimal RulE ListS), que promete ser uma opção aos modelos <em>blackbox</em>.</p>
+
+<h2 id="o-problema-dos-modelos-blackbox">O problema dos modelos <em>blackbox</em></h2>
+
+<p>Nos Estados Unidos, há alguns anos atrás, houve uma polêmica envolvendo um modelo <em>blackbox</em> chamado COMPAS, cujo propósito era identificar se um criminoso seria reincidente ou não. Uma análise independente pela organização ProPublica concluiu que réus negros tinham uma chance maior de serem incorretamente rotulados como <strong>alto</strong> risco de reincidência, enquanto os réus brancos tinham uma chance maior de serem incorretamente rotulados como <strong>baixo</strong> risco de reincidência. Isso expôs a existência de um possível viés no modelo de machine learning COMPAS.</p>
+
+<p>Um problema inerente aos modelos <em>blackbox</em>, entretanto, é que eles, por natureza, não são totalmente explicáveis. Assim, ao gerar aproximações ao modelo para explicar suas predições, podemos chegar a explicações que não necessariamente usam as mesmas <em>features</em> ou os mesmos cálculos efetivamente utilizados pelo modelo. Essa inescrutabilidade se torna um problema ao utilizá-lo para modelar problemas que envolvem decisões sensíveis em larga escala (como em políticas públicas nas áreas de saúde, segurança, educação etc.).</p>
+
+<p>Nesse sentido, recentemente, foi demonstrado que é possível gerar explicações éticas mesmo para modelos injustos. O método envolve gerar um <em>ensemble</em> de modelos interpretáveis que aproxima um modelo <em>blackbox</em>, de forma que os modelos interpretáveis sejam mais justos do que o modelo original em relação a um atributo sensível, de acordo com uma métrica pré-definida. Essa técnica foi chamada de &ldquo;fairwashing&rdquo; e sua genericidade evidencia o perigo de confiar cegamente nas explicações de modelos <em>blackbox</em>.</p>
+
+<h2 id="o-modelo-corels">O modelo CORELS</h2>
+
+<p>O modelo CORELS tem como objetivo criar uma lista de regras explícitas compostas por afirmações <code>if-then</code> que tornam a tomada de decisão do modelo compreensível por seres humanos. Sua estrutura é semelhante às árvores de decisão e por isso dependendo da quantidade de dados iniciais, o número de combinações de regras torna o processo de otimzação um problema NP-completo. Para contornar isso, a criação da sua lista de regras são otimizadas por meio de uma função objetivo composta de um parâmetro de regularização que penaliza listas de regras grandes. Esse modelo é mais genérico do que um modelo de árvores de decisão, pois aplica uma técnica chamada <strong>branch-and-bound</strong> que permite a <strong>poda</strong> dos ramos não otimizados enquanto constrói a árvore, o que reduz o resultado de pesquisa. Um ponto importante que deve ser ressaltado é o fato de que esse modelo não implica causalidade, uma vez que alterações na função objetivo e nas features podem alterar a regra de listas geradas. Abaixo, apresentamos a função objetivo para a lista de regras <code>LR</code> que é composta da combinação da <em>perda</em> do modelo, que leva em conta a quantidade de predições erradas geradas pela lista de regras, e  mais o fator de regularização, parâmetro $c$, que penaliza o tamanho da lista de regras:</p>
+
+<p>$objetivo(LR) = perda(LR) + c * len(LR)$</p>
+
+<h3 id="exemplo-1">Exemplo 1:</h3>
+
+<p>Como primeiro exemplo, trazemos o exemplo que se encontra na <a href="https://github.com/fingoldin/pycorels">página do github do Pycorels</a>. Suponha que tenhamos uma amostra com 4 pessoas que são identificadas como <strong>usuário de Mac</strong>; <strong>gosta de torta</strong>; <strong>tem menos de 20 anos</strong>, e a ideia seja entender quais regras identificam se o computador do usuário é sujo.</p>
+
+<pre><code class="language-python"># 4 samples, 3 features
+X = [[1, 0, 1], [0, 0, 0], [1, 1, 0], [0, 1, 0]]
+y = [1, 0, 0, 1]
+# Feature names
+features = [&quot;Mac User&quot;, &quot;Likes Pie&quot;, &quot;Age &lt; 20&quot;]
+</code></pre>
+
+<p>Após definir o conjunto de dados, podemos aplicar o classificador <code>CorelsClassifier</code> aos nossos dados. Note que <code>max_card</code> controla a quantidade de condições por <code>if</code>, $c$ é o parâmetro de regularização e <code>verbosity</code> controla o quanto de verbosidade gostaríamos de ver no treinamento. Particularmente, no notebook (usamos o <a href="https://jupyterlab.readthedocs.io/en/stable/index.html">Jupyter Lab</a>), não vimos diferença em usar o modo <code>[&quot;loud&quot;, &quot;samples&quot;]</code>, mas quando colocamos no <code>ipython</code> ou rodamos um script, podemos ver a diferença na quantidade de informações que são impressas no console.</p>
+
+<pre><code class="language-python"># [&quot;loud&quot;, &quot;samples&quot;] is the most verbose setting possible
+C = CorelsClassifier(max_card=2, c=0.0, verbosity=[&quot;loud&quot;, &quot;samples&quot;])
+
+# Fit the model
+C.fit(X, y, features=features, prediction_name=&quot;Has a dirty computer&quot;)
+
+# Print the resulting rulelist
+print(C.rl())
+</code></pre>
+
+<p>As regras geradas pelo modelo foram as seguintes: o usuário tem o computador limpo se ele não gosta de torta e tem menos de 20 anos ou se ele usa Mac e gosta de torta, como pode ser visto pela saída do modelo abaixo:</p>
+
+<p><img src="../images/corels-2.png" alt="NVIDIA" /></p>
+
+<h3 id="exemplo-2">Exemplo 2:</h3>
+
+<p>Como segundo exemplo, usamos o conjunto de dados <code>rent.csv</code> do manifesto <a href="https://explained.ai/rf-importance/">Beware Default Random Forest Importances</a>. Como lá, também colocamos uma coluna a mais, <code>random</code>, com números aleatórios.</p>
+
+<pre><code class="language-python">df = pd.read_csv('rent.csv')
+df['random'] = np.random.random(size=len(df))
+</code></pre>
+
+<p>Abaixo, veja as 5 primeiras linhas do conjunto de dados:</p>
+
+<p><img src="../images/corels-3.png" alt="NVIDIA" /></p>
+
+<p>Para preparar esse conjunto de dados para utilizar no CORELS, precisamos que tanto os dados de entrada como o target sejam binários. Para binarizar o conjunto de entrada utilizamos como parâmetros de cortes das colunas &lsquo;bathrooms&rsquo;, &lsquo;bedrooms&rsquo;, &lsquo;price&rsquo; os percentis 25%, 50%, 75% e 99%. Além disso, tornamos a coluna de dados aleatórios binária também.</p>
+
+<pre><code class="language-python">def format_num(num):
+    return f'{num:,.2f}'.rstrip('0').rstrip('.')
+
+def generate_interval(bins):
+    def _generate_interval(val):
+        bin_id = np.digitize(val, bins, right=False)
+        return f'{format_num(bins[bin_id-1])} &lt;= x &lt; {format_num(bins[bin_id])}' if bin_id &lt; len(bins) else f'&gt;= {format_num(bins[-1])}'
+    return _generate_interval
+
+def create_category_col(df, col, q):
+    quantiles = df[col].quantile(q).tolist()
+    calc_interval = generate_interval([0] + quantiles)
+    return df[col].apply(calc_interval)
+
+def binarize_col(df, col, q=[0.25, 0.5, 0.75, 0.99]):
+    df[f'{col}_cat'] = create_category_col(df, col, q)
+    return pd.get_dummies(df[f'{col}_cat'], prefix=col)
+
+full_df = pd.DataFrame()
+for col in ['bathrooms', 'bedrooms', 'price']:
+    full_df = pd.concat([full_df, binarize_col(df, col)], axis=1)
+full_df = pd.concat([full_df, binarize_col(df, 'random', q=[0.5])], axis=1)
+</code></pre>
+
+<p>Em seguida, preparamos os inputs do modelo:</p>
+
+<pre><code class="language-python">train_df, test_df = train_test_split(full_df, stratify=full_df[target_col].values)
+
+X_train = train_df.drop(target_col, 1).values
+y_train = train_df[target_col].values
+
+X_test = test_df.drop(target_col, 1).values
+y_test = test_df[target_col].values
+
+features = train_df.drop(target_col, 1).columns.tolist()
+target_col = 'interest_level = 1'
+</code></pre>
+
+<p>Note que gostaríamos de prever o valor da coluna <code>interest_level</code>. Essa coluna têm valores inteiros de 1 a 3. Como a variável a se prever (<code>target</code>) também deve ser binária, optamos por classificar, primeiro, os dados em <code>interest_level = 1</code> ou <code>interest_level != 1</code>. Para conseguir distinguir entre <code>interest_level = 2</code> e <code>interest_level = 3</code>, poderíamos subsequentemente treinar outro modelo CORELS com essa mudança na variável target.</p>
+
+<p>Lembre-se de que parâmetros com valores diferentes podem levar a listas de regras muito diferentes, por isso, o modelo CORELS não deve ser interpretado como um modelo causal. Para explicar um pouco melhor o efeito do parâmetro de regularização nesse exemplo, fizemos um primeiro teste com o valor de $c=0$, o que significa que não iremos penalizar o tamanho da lista de regras. Note que aqui explicitamente mostramos o valor do parâmetro <code>policy</code>, que controla a ordem em que as listas de regras são avaliadas na busca pela <strong>melhor</strong> lista (para mais detalhes, veja a <a href="https://corels.eecs.harvard.edu/corels/">documentação</a>).</p>
+
+<pre><code class="language-python">C = CorelsClassifier(max_card=2, c=0., policy='lower_bound', verbosity=[&quot;loud&quot;, &quot;samples&quot;])
+C.fit(X_train, y_train, features=features, prediction_name=target_col)
+</code></pre>
+
+<p><img src="../images/corels-6.png" alt="NVIDIA" /></p>
+
+<p>Como vemos acima, não penalizar listas de regras longas realmente produz uma lista bem grande! Além disso, vemos que a feature aleatória aparece em meio às regras! Como melhorar esses pontos?</p>
+
+<p>Para isso, basta especificar um fator de regularização maior que zero. Nesse exemplo, fizemos o teste com $c=0.01$.</p>
+
+<pre><code class="language-python">C = CorelsClassifier(max_card=2, c=0.001, policy='lower_bound', verbosity=[&quot;loud&quot;, &quot;samples&quot;])
+C.fit(X_train, y_train, features=features, prediction_name=target_col)
+</code></pre>
+
+<p><img src="../images/corels-8.png" alt="NVIDIA" /></p>
+
+<p>Podemos ver que a lista de regras está consideravelmente menor. Isso acontece porque, para penalizar listas mais longas, o algoritmo seleciona somente as regras que aumentam a acurácia significativamente. Com isso, a feature aleatória deixa de aparecer nessa lista de regras enxuta e, em relação à acurácia, de fato, a diferença é mínima (<code>69.83%</code> vs. <code>69.80%</code> no conjunto de teste). Dessa maneira, como listas pequenas de regras permitem um entendimento maior e mais assertivo do comportamento do modelo, vemos que foi bem útil incluir um parâmetro de regularização com valor maior do que zero no treino do CORELS.</p>
+
+<h2 id="teste-você-mesmo">Teste você mesmo!</h2>
+
+<p>Além do que foi apresentado acima, no <a href="https://github.com/cimarieta/corels-examples/blob/master/corels.ipynb">notebook</a> que fizemos, temos resultados de árvores de decisão e o uso combinado do <a href="https://xgboost.readthedocs.io/en/latest/">xgboost</a> + <a href="https://github.com/slundberg/shap">SHAP</a> aplicados aos mesmos problemas, que podem ser usados para comparação e melhor entendimento sobre o CORELS.</p>
+
+<h2 id="referências">Referências</h2>
+
+<ul>
+<li><p>ANGELINO, Elaine et al. Learning certifiably optimal rule lists for categorical data. <strong>The Journal of Machine Learning Research</strong>, v. 18, n. 1, p. 8753-8830, 2017.</p></li>
+
+<li><p>RUDIN, Cynthia. Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead. <strong>Nature Machine Intelligence</strong>, v. 1, n. 5, p. 206-215, 2019.</p></li>
+
+<li><p>AÏVODJI, Ulrich et al. Fairwashing: the risk of rationalization. <strong>arXiv preprint arXiv:1901.09749</strong>, 2019.</p></li>
+</ul>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/intelig%C3%AAncia-artificial/'>inteligência artificial</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/modelo-de-regras/'>modelo de regras</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/modelo-interpret%C3%A1vel/'>modelo interpretável</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/fairness/'>fairness</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fcorels%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=corels-um-modelo-interpret%25C3%25A1vel&url=https%3a%2f%2felo7.dev%2fcorels%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/corels/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/corels/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Algoritmo opção aos modelos black-box'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2020-01-06 00:00:00 \x2b0000 UTC:\/corels\/';
+            var disqus_url = 'https:\/\/elo7.dev\/corels\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

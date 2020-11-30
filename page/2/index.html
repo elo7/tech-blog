@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="generator" content="Hugo 0.54.0" />
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Home'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Home'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Home'>
+	<meta property='og:url' content='https://elo7.dev/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Home'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/'>
+	<title>Elo7 Tech - Home</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body itemscope itemtype='http://schema.org/WebPage' data-env='production' data-ga-code='UA-3692628-29'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            
+
+
+<section class='container posts-container' itemscope itemtype='http://schema.org/Blog'>
+	
+	
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-front-end'>
+    <header>
+        <a href='https://elo7.dev/css-scroll-snap/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/css-scroll-snap-header.png' alt='CSS Scroll Snap' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/front-end/' class='category front-end'>front-end</a>
+        <div class='post-meta'>
+            <a href='https://elo7.dev/css-scroll-snap/' class='link'>
+                
+                    <h1 itemprop='name' class='title'>CSS Scroll Snap</h1>
+                
+            </a>
+            
+                <a href='/autor/alinelee/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@alinelee</p>
+                </a>
+            
+            <time class='date'
+    datetime='2019-08-12 00:00:00 &#43;0000 UTC'
+    aria-label='12 de agosto de 2019'>
+    12/08/2019
+    <meta itemprop='datePublished' content='Mon Aug 12 2019 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Aug 12 2019 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2019-08-12'>
+</time>
+
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                Um caso de uso do CSS Scroll Snap aplicado a um carrossel de imagens.
+            </p>
+            <meta itemprop='headline' content='Um caso de uso do CSS Scroll Snap aplicado a um carrossel de imagens.' >
+        
+        <a href='https://elo7.dev/css-scroll-snap/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+	
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-back-end'>
+    <header>
+        <a href='https://elo7.dev/quebrando-um-monolito-sem-quebrar-o-que-funciona/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/airplane-horizon-plane.jpg' alt='Quebrando um monolito sem quebrar o que funciona' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/back-end/' class='category back-end'>back-end</a>
+        <div class='post-meta'>
+            <a href='https://elo7.dev/quebrando-um-monolito-sem-quebrar-o-que-funciona/' class='link'>
+                
+                    <h1 itemprop='name' class='title'>Quebrando um monolito sem quebrar o que funciona</h1>
+                
+            </a>
+            
+                <a href='/autor/andreformento/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@andreformento</p>
+                </a>
+            
+            <time class='date'
+    datetime='2019-07-29 00:00:00 &#43;0000 UTC'
+    aria-label='29 de julho de 2019'>
+    29/07/2019
+    <meta itemprop='datePublished' content='Mon Jul 29 2019 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Jul 29 2019 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2019-07-29'>
+</time>
+
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                Como o Elo7 está lidando com a quebra do seu monolito, qual problema real estamos tentando resolver e uma abordagem do assunto de maneira prática.
+            </p>
+            <meta itemprop='headline' content='Como o Elo7 está lidando com a quebra do seu monolito, qual problema real estamos tentando resolver e uma …' >
+        
+        <a href='https://elo7.dev/quebrando-um-monolito-sem-quebrar-o-que-funciona/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+	
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-back-end'>
+    <header>
+        <a href='https://elo7.dev/programacao-reativa-parte-5/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/elo7.png' alt='Programação Reativa - Parte 5: Arquiteturas não-bloqueantes' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/back-end/' class='category back-end'>back-end</a>
+        <div class='post-meta'>
+            <a href='https://elo7.dev/programacao-reativa-parte-5/' class='link'>
+                
+                    <h1 itemprop='name' class='title'>Programação Reativa - Parte 5: Arquiteturas não-bloqueantes</h1>
+                
+            </a>
+            
+                <a href='/autor/ljtfreitas/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@ljtfreitas</p>
+                </a>
+            
+            <time class='date'
+    datetime='2019-07-15 00:00:00 &#43;0000 UTC'
+    aria-label='15 de julho de 2019'>
+    15/07/2019
+    <meta itemprop='datePublished' content='Mon Jul 15 2019 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Jul 15 2019 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2019-07-15'>
+</time>
+
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                (Mais sobre) Sistemas reativos: arquiteturas não-bloqueantes!
+            </p>
+            <meta itemprop='headline' content='(Mais sobre) Sistemas reativos: arquiteturas não-bloqueantes!' >
+        
+        <a href='https://elo7.dev/programacao-reativa-parte-5/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+	
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-back-end'>
+    <header>
+        <a href='https://elo7.dev/injecao-de-dependencia-em-scala-parte-1/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/injecao-de-dependencia-em-scala-parte-1.png' alt='Injeção de Dependência em Scala - Parte 1' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/back-end/' class='category back-end'>back-end</a>
+        <div class='post-meta'>
+            <a href='https://elo7.dev/injecao-de-dependencia-em-scala-parte-1/' class='link'>
+                
+                    <h1 itemprop='name' class='title'>Injeção de Dependência em Scala - Parte 1</h1>
+                
+            </a>
+            
+                <a href='/autor/rodrigovedovato/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@rodrigovedovato</p>
+                </a>
+            
+            <time class='date'
+    datetime='2019-07-01 00:00:00 &#43;0000 UTC'
+    aria-label='01 de julho de 2019'>
+    01/07/2019
+    <meta itemprop='datePublished' content='Mon Jul 01 2019 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Jul 01 2019 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2019-07-01'>
+</time>
+
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                Este artigo de duas partes irá abordar diferentes formas de resolver injeção de dependência em Scala, e como a linguagem e a programação funcional podem nos ajudar.
+            </p>
+            <meta itemprop='headline' content='Este artigo de duas partes irá abordar diferentes formas de resolver injeção de dependência em Scala, e como a …' >
+        
+        <a href='https://elo7.dev/injecao-de-dependencia-em-scala-parte-1/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+	
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-machine-learning'>
+    <header>
+        <a href='https://elo7.dev/reinforcement-learning-parte-1/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/reinforcement-learning-parte-1.png' alt='Reinforcement Learning Parte 1 - Introdução' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/machine-learning/' class='category machine-learning'>machine-learning</a>
+        <div class='post-meta'>
+            <a href='https://elo7.dev/reinforcement-learning-parte-1/' class='link'>
+                
+                    <h1 itemprop='name' class='title'>Reinforcement Learning Parte 1 - Introdução</h1>
+                
+            </a>
+            
+                <a href='/autor/onimaru/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@onimaru</p>
+                </a>
+            
+            <time class='date'
+    datetime='2019-06-17 00:00:00 &#43;0000 UTC'
+    aria-label='17 de junho de 2019'>
+    17/06/2019
+    <meta itemprop='datePublished' content='Mon Jun 17 2019 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Jun 17 2019 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2019-06-17'>
+</time>
+
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                Vamos iniciar o estudo sobre Reinforcement Learning abordando os termos mais comuns utilizados nesta área enquanto tentamos ensinar nosso agente a não cair em armadilhas.
+            </p>
+            <meta itemprop='headline' content='Vamos iniciar o estudo sobre Reinforcement Learning abordando os termos mais comuns utilizados nesta área …' >
+        
+        <a href='https://elo7.dev/reinforcement-learning-parte-1/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+	
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-front-end'>
+    <header>
+        <a href='https://elo7.dev/front-end-coisas-que-nos-nos-orgulhamos-em-2018/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/retrospectiva-2018.jpg' alt='Front-End - Coisas de que nós nos orgulhamos em 2018!' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/front-end/' class='category front-end'>front-end</a>
+        <div class='post-meta'>
+            <a href='https://elo7.dev/front-end-coisas-que-nos-nos-orgulhamos-em-2018/' class='link'>
+                
+                    <h1 itemprop='name' class='title'>Front-End - Coisas de que nós nos orgulhamos em 2018!</h1>
+                
+            </a>
+            
+                <a href='/autor/fernandabernardo/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@fernandabernardo</p>
+                </a>
+            
+            <time class='date'
+    datetime='2019-04-08 00:00:00 &#43;0000 UTC'
+    aria-label='08 de abril de 2019'>
+    08/04/2019
+    <meta itemprop='datePublished' content='Mon Apr 08 2019 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Apr 08 2019 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2019-04-08'>
+</time>
+
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                Nunca é tarde para falar de coisa boa! Nesse post, vamos mostrar tudo que marcou o nosso ano de 2018 quanto a tecnologias de front :)
+            </p>
+            <meta itemprop='headline' content='Nunca é tarde para falar de coisa boa! Nesse post, vamos mostrar tudo que marcou o nosso ano de 2018 quanto a …' >
+        
+        <a href='https://elo7.dev/front-end-coisas-que-nos-nos-orgulhamos-em-2018/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+	
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-front-end'>
+    <header>
+        <a href='https://elo7.dev/npm-run-all/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/npm-run-all.png' alt='Builds mais rápidos e portáveis com npm-run-all' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/front-end/' class='category front-end'>front-end</a>
+        <div class='post-meta'>
+            <a href='https://elo7.dev/npm-run-all/' class='link'>
+                
+                    <h1 itemprop='name' class='title'>Builds mais rápidos e portáveis com npm-run-all</h1>
+                
+            </a>
+            
+                <a href='/autor/luiz/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@luiz</p>
+                </a>
+            
+            <time class='date'
+    datetime='2019-03-25 00:00:00 &#43;0000 UTC'
+    aria-label='25 de março de 2019'>
+    25/03/2019
+    <meta itemprop='datePublished' content='Mon Mar 25 2019 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Mar 25 2019 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2019-03-25'>
+</time>
+
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                Lutando para deixar o build de sua aplicação Javascript mais rápido? Sofrendo com cadeias intermináveis de comandos num único script npm? Esse post mostra como o pacote npm-run-all pode ajudar.
+            </p>
+            <meta itemprop='headline' content='Lutando para deixar o build de sua aplicação Javascript mais rápido? Sofrendo com cadeias intermináveis de …' >
+        
+        <a href='https://elo7.dev/npm-run-all/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+	
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-front-end'>
+    <header>
+        <a href='https://elo7.dev/intersection-observer/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/intersection-observer.png' alt='Intersection Observer API' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/front-end/' class='category front-end'>front-end</a>
+        <div class='post-meta'>
+            <a href='https://elo7.dev/intersection-observer/' class='link'>
+                
+                    <h1 itemprop='name' class='title'>Intersection Observer API</h1>
+                
+            </a>
+            
+                <a href='/autor/alinelee/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@alinelee</p>
+                </a>
+            
+            <time class='date'
+    datetime='2019-03-11 00:00:00 &#43;0000 UTC'
+    aria-label='11 de março de 2019'>
+    11/03/2019
+    <meta itemprop='datePublished' content='Mon Mar 11 2019 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Mar 11 2019 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2019-03-11'>
+</time>
+
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                Entenda como funciona a API Intersection Observer e saiba como nós aplicamos essa API aqui no Elo7.
+            </p>
+            <meta itemprop='headline' content='Entenda como funciona a API Intersection Observer e saiba como nós aplicamos essa API aqui no Elo7.' >
+        
+        <a href='https://elo7.dev/intersection-observer/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+	
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-back-end'>
+    <header>
+        <a href='https://elo7.dev/programacao-reativa-parte-4/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/programacao-reativa-parte-4.png' alt='Programação Reativa - Parte 4: Sistemas reativos' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/back-end/' class='category back-end'>back-end</a>
+        <div class='post-meta'>
+            <a href='https://elo7.dev/programacao-reativa-parte-4/' class='link'>
+                
+                    <h1 itemprop='name' class='title'>Programação Reativa - Parte 4: Sistemas reativos</h1>
+                
+            </a>
+            
+                <a href='/autor/ljtfreitas/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@ljtfreitas</p>
+                </a>
+            
+            <time class='date'
+    datetime='2019-02-18 00:00:00 &#43;0000 UTC'
+    aria-label='18 de fevereiro de 2019'>
+    18/02/2019
+    <meta itemprop='datePublished' content='Mon Feb 18 2019 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Feb 18 2019 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2019-02-18'>
+</time>
+
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                Continuando a série sobre Programação Reativa: sistemas reativos!
+            </p>
+            <meta itemprop='headline' content='Continuando a série sobre Programação Reativa: sistemas reativos!' >
+        
+        <a href='https://elo7.dev/programacao-reativa-parte-4/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+	
+		<article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-card card-cultura'>
+    <header>
+        <a href='https://elo7.dev/tirando-projetos-do-papel/' class='link'>
+            <figure class='cover-image' itemprop='image' itemscope itemtype='http://schema.org/ImageObject'>
+                <img src='/images/cover/tirando-projetos-do-papel.jpg' alt='Tirando projetos do papel' itemprop='url'>
+            </figure>
+        </a>
+    </header>
+
+    <div class='post-info'>
+        <a href='/categoria/cultura/' class='category cultura'>cultura</a>
+        <div class='post-meta'>
+            <a href='https://elo7.dev/tirando-projetos-do-papel/' class='link'>
+                
+                    <h1 itemprop='name' class='title'>Tirando projetos do papel</h1>
+                
+            </a>
+            
+                <a href='/autor/fernandabernardo/' class='author' itemprop='author' itemscope itemtype='http://schema.org/Person'>
+                    <p itemprop='name'>@fernandabernardo</p>
+                </a>
+            
+            <time class='date'
+    datetime='2019-02-04 00:00:00 &#43;0000 UTC'
+    aria-label='04 de fevereiro de 2019'>
+    04/02/2019
+    <meta itemprop='datePublished' content='Mon Feb 04 2019 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Feb 04 2019 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2019-02-04'>
+</time>
+
+        </div>
+        
+            <p class=' description' itemprop='description'>
+                Geralmente, temos diversas ideias ao longo do dia, mas entre ter a ideia e ter um projeto concluído existe uma distância gigantesca. E como fazer para tirar essas ideias do papel? Nesse post vou falar um pouco sobre como sair dessa zona de conforto.
+            </p>
+            <meta itemprop='headline' content='Geralmente, temos diversas ideias ao longo do dia, mas entre ter a ideia e ter um projeto concluído existe uma …' >
+        
+        <a href='https://elo7.dev/tirando-projetos-do-papel/' class='link post-link'>Continue lendo</a>
+        <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+    </div>
+    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+        <meta itemprop='name' content='Elo7 Tech'/>
+        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <link href='/images/ico/logo-elo7.png' itemprop='url'/>
+            <meta itemprop='width' content='100px'/>
+            <meta itemprop='height' content='100px'/>
+        </span>
+    </span>
+</article>
+
+	
+
+</section>
+
+            <nav class='container pagination'>
+    
+        <a class='back btn' href='/'>anterior</a>
+    
+
+    <span>
+        Página 2 de 12
+    </span>
+
+    
+        <a class='next btn' href='/page/3/'>próximo</a>
+    
+</nav>
+
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    </body>
+</html>

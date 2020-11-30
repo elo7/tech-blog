@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,google io,web,pwa,amp,chrome,devtools,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Google I/O - Web'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Google I/O - Web'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Google I/O - Web'>
+	<meta property='og:url' content='https://elo7.dev/google-io-3/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Google I/O - Web'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/google-io-3/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/google-io-3/'>
+	<title>Elo7 Tech - Google I/O - Web</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='front-end'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Google I/O - Web' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Google I/O - Web</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2017-06-26 00:00:00 &#43;0000 UTC'
+    aria-label='26 de junho de 2017'>
+    26/06/2017
+    <meta itemprop='datePublished' content='Mon Jun 26 2017 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Jun 26 2017 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2017-06-26'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='davidrobert' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/davidrobert/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/davidrobert'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='davidrobert'>@davidrobert</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Durante várias sessões, os palestrantes incentivaram fortemente o uso de <strong>AMP</strong> (<a href="https://www.ampproject.org">Accelerated Mobile Pages</a>) e <strong>PWA</strong> (<a href="https://developers.google.com/web/progressive-web-apps">Progressive Web Apps</a>), além de reforçarem que Mobile Web é mainstream.</p>
+
+<p>Um Product Manager do Twitter apresentou casos de sucesso com PWA, onde seu uso trouxe um incremento de 65% de pages/sessions, e 75% mais tweets.</p>
+
+<p>Forbes, Expedia, Pinterest, Lyft, Airbnb, Trivago, Lacôme, entre outros já utilizam PWAs. Na Lacôme, houve um incremento de 53% de tempo de sessão após a adoção da tecnologia.</p>
+
+<p>No caso de uso do Trivago, é perguntado ao usuário se deseja adicionar um atalho na home, que é apresentado de maneira idêntica a um aplicativo nativo.</p>
+
+<p>O Head de Web Products do <a href="https://www.olacabs.com/">Olacabs</a> apresentou um caso de sucesso do uso de PWA com web components. Atualmente, o Olacabs tem mais de 1 milhão de corridas diárias, em mais de 110 cidades, com mais de 600 mil motoristas. A versão com PWA teve cerca de 30% mais conversão que o app nativo,e 20% das reservas usando PWA foram de usuários que haviam desinstalado o app.</p>
+
+<p>Outros tópicos relevantes:</p>
+
+<ul>
+<li>Status da implementação de novas features do Chrome - <a href="https://www.chromestatus.com/features">https://www.chromestatus.com/features</a></li>
+<li>Documentação e tutorais sobre AMP, PWA e desenvolvimento web em geral - <a href="https://developers.google.com/web">https://developers.google.com/web</a></li>
+<li>Exemplo de aplicação PWA que utiliza funcionalidades de video-on-demand - <a href="http://bit.ly/pwa-media">http://bit.ly/pwa-media</a></li>
+</ul>
+
+<h2 id="web-payments">Web Payments</h2>
+
+<p>Foram apresentados os casos de uso de Web Payments com <a href="https://www.wego.com/">Wego</a> e <a href="https://www.kogan.com">Kogan</a>, focando o processo de checkout na versão mobile web.</p>
+
+<p>Web Payments já está pronto para utilização, e diversas empresas já implementaram: Monzo, Kogan, Groupon, Nivea, Wego, Washington Post, Mobify, Shopify, WooCommerce, BigCommerce, WompMobile, Weebly, etc.</p>
+
+<p>O time do <a href="https://www.alipay.com/webpay">Alipay &amp; Alibaba</a> apresentou um caso de sucesso da utilização de Web Payments, afirmando que versão mobile web é a que melhor atende sua audiência global. O Alipay também possibilita a utilização de fingerprint (impressão digital do usuário) para autorizar uma compra.</p>
+
+<p>A integração de pagamento com Web Payments com PaymentRequest é feita de maneira simples, utilizando uma API JavaScript cross-browser. Navegadores que tem suporte a API: Chrome, IE, Samsung Internet e, em breve, Firefox.</p>
+
+<p>Por enquanto o número de parceiros de pagamento é limitado: PayPal, Samsung Pay e Alipay. Entretanto, outras alternativas serão adicionadas em breve. O Android Pay chegará ao Brasil até o fim de 2017.</p>
+
+<p>Continuando no tema Payments, foi apresentado o resultado de uma pesquisa sobre transações mobile. Cerca de 80% das transações de compra no ambiente mobile só possuem 1 produto. E apresentar a opção para o usuário &ldquo;Buy Now&rdquo;, além de &ldquo;Add to Cart&rdquo;, aumenta significativamente a conversão.</p>
+
+<ul>
+<li><a href="https://g.co/PaymentRequesgtGuide">https://g.co/PaymentRequesgtGuide</a></li>
+<li><a href="https://g.co/PayAppIntegration">https://g.co/PayAppIntegration</a></li>
+<li><a href="https://g.co/PaymentRequestCodeLab">https://g.co/PaymentRequestCodeLab</a></li>
+</ul>
+
+<h2 id="devtools">DevTools</h2>
+
+<p>O debug ficou muito melhor: antes, os breakpoints ficavam associados à linha que eles foram adicionados, e quando ocorria alguma alteração no código eles ficavam no lugar errado; agora os breakpoints são associados ao códigos (claro, uma grande refatoração vai fazer com que a ferramenta &ldquo;se perca&rdquo; mas isso já é uma grande melhoria).</p>
+
+<p>Com o JavaScript ganhando novos recursos de programação (como, por exemplo, promises e async/await functions), o devtools também teve que melhorar. Agora podemos ver se estamos dentro de uma função que foi executada de maneira asynchronous no stack trace. Por exemplo:</p>
+
+<p><img src="../images/google-io-3-1.png" alt="stack" />
+<img src="../images/google-io-3-2.png" alt="stack-promises" /></p>
+
+<p>Além disso, o debug de arrow functions sempre foi um problema (já que podemos fazer tudo em uma linha de código), mas agora podemos inserir breakpoints por colunas e não apenas por linha como antes:</p>
+
+<p><img src="../images/google-io-3-3.png" alt="breakpoint-columns" /></p>
+
+<p>Para quem gosta de debuggar seus projetos Node com o Chrome, também houve melhoria.</p>
+
+<p>O novo painel de Performance vai nos ajudar a encontrar pontos no código que podem ser melhorados. Basicamente, ele é uma junção dos painéis Network e Profile, permitindo, por exemplo, visualizar onde um arquivo JavaScript terminou de ser carregado e quando começou a sua execução (Evaluate Script). Outro exemplo de funcionalidade demonstrado foi o carregamento de uma fonte customizada e como ela impactou na experiência dos usuários, tudo isso com screenshots onde conseguiremos ver o carregamento/execução dos assets.</p>
+
+<p>Com a nova seção de Coverage dentro do painel Console, será possível ver exatamente qual parte do código e o quanto (em porcentagem) de nossos css/js está sendo realmente utilizado, e a ferramenta é inteligente o bastante para entender que alguns estilos e funções são aplicadas apenas se houver interações do usuário, de modo que essa porcentagem muda em tempo real conforme o uso da aplicação.</p>
+
+<p><img src="../images/google-io-3-4.png" alt="coverage" /></p>
+
+<p>Outros detalhes interessantes:
+- Screenshots de telas inteiras mesmo com barra de rolagem;
+- Finalmente poderemos editar os cookies, sem a necessidade de extensões de terceiros;
+- Com o Chrome headless poderemos fazer varias ações na linha de comando, como por exemplo screenshots e ações que só eram possíveis antes
+com selenium <a href="https://developers.google.com/web/updates/2017/04/headless-chrome">https://developers.google.com/web/updates/2017/04/headless-chrome</a>;
+- <a href="https://youtu.be/PjjlwAvV8Jg">DevTools: State of the Union 2017 (Google I/O &lsquo;17) https://youtu.be/PjjlwAvV8Jg</a>
+- <a href="https://youtu.be/4mx1m7UbBR0">Chrome 59 - What&rsquo;s New in DevTools</a>
+- A ferramenta <strong>Lighthouse</strong> foi integrada ao DevTools do Chrome <a href="https://www.chromestatus.com/features">https://www.chromestatus.com/features</a>
+- Web Components -&gt; Lançamento do Polymer 2.0 <a href="https://www.polymer-project.org/">https://www.polymer-project.org/</a>
+- <a href="https://developers.google.com/web/tools/lighthouse/">https://developers.google.com/web/tools/lighthouse/</a></p>
+
+<h2 id="v8">V8</h2>
+
+<p>Foram apresentados diversos dados sobre a evolução da tecnologia <a href="https://developers.google.com/v8/">V8</a>, e como essa evolução impacta positivamente o usuário final. As melhorias incluem redução do consumo de memória, melhora na performance do setup inicial e as otimizações feitas em tempo de execução (JIT) para múltiplas execuções da mesma chamada.</p>
+
+<p>Tópicos recomendados para uma boa compreensão:</p>
+
+<ul>
+<li>Conhecer bem JavaScript é fundamental;</li>
+<li>Entender o comportamento entre uma execução e múltiplas execuções da mesma chamada em JS;</li>
+<li><a href="https://github.com/v8/v8/wiki/TurboFan">TurboFan</a>;</li>
+<li><a href="https://github.com/v8/v8/wiki/Interpreter">Ignition Interpreter</a>;</li>
+<li><a href="https://v8project.blogspot.com.br/2016/04/jank-busters-part-two-orinoco.html">Orinoco</a>;</li>
+<li><a href="http://browserbench.org/Speedometer/">Speedometer 2</a>;</li>
+<li>Otimizações: Generators, Async e Await.</li>
+<li><a href="https://nodejs.org/en/blog/release/v8.0.0/#say-hello-to-v8-5-8">https://nodejs.org/en/blog/release/v8.0.0/#say-hello-to-v8-5-8</a></li>
+<li><a href="https://v8project.blogspot.com.br/2017/05/launching-ignition-and-turbofan.html">https://v8project.blogspot.com.br/2017/05/launching-ignition-and-turbofan.html</a></li>
+</ul>
+
+<h2 id="cloud-firebase">Cloud / Firebase</h2>
+
+<p>Diversas sessões sobre Firebase ocorreram durante o evento, focando principalmente em autenticação por número de telefone, hosting e realtime.
+<img src="../images/google-io-3-5.png" alt="Cloud / Firebase" />
+- <a href="https://firebase.google.com/">https://firebase.google.com/</a></p>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<p>Nesse post vimos algumas das novidades anunciadas durante o Google I/O focadas em Web. O que acharam? Gostaram das mudanças? Deixe seu comentário!</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/google-io/'>google io</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/web/'>web</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/pwa/'>pwa</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/amp/'>amp</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/chrome/'>chrome</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/devtools/'>devtools</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fgoogle-io-3%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=google-i%2fo-web&url=https%3a%2f%2felo7.dev%2fgoogle-io-3%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/google-io-3/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/google-io-3/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Durante diversas sessões os palestrantes incentivaram fortemente o uso de AMP e PWA, além de reforçarem que Mobile Web é mainstream.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2017-06-26 00:00:00 \x2b0000 UTC:\/google-io-3\/';
+            var disqus_url = 'https:\/\/elo7.dev\/google-io-3\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>E Mail on Tech Blog Elo7</title>
+    <link>https://elo7.dev/tags/e-mail/</link>
+    <description>Recent content in E Mail on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Tue, 03 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://elo7.dev/tags/e-mail/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Técnicas para codificar um e-mail - parte 4</title>
+      <link>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-4/</link>
+      <pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-4/</guid>
+      <description>No terceiro post da série, aprendemos a criar e-mails com conteúdos em colunas e a como deixá-las responsivas. Nesse, iremos comentar sobre algumas dicas gerais e sobre fontes customizadas.
+Table x Div Por que ainda usamos a table ao invés de div? A div é bem mais simples e não precisa criar linhas e colunas como a tabela, então por que não usar div&#39;s?
+Apesar das div&#39;s serem bem aceitas para a maior parte dos clientes de e-mail, ela ainda não é bem suportada para o Outlook 2007/2010/2013, nos quais algumas propriedades de CSS só funcionam para td.</description>
+    </item>
+    
+    <item>
+      <title>Técnicas para codificar um e-mail - parte 3</title>
+      <link>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</link>
+      <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</guid>
+      <description>No segundo post da série, aprendemos a lidar com espaçamento nos e-mails. Neste, iremos abordar como criar conteúdo em colunas e como deixá-las responsivas.
+Finalmente chegamos ao conteúdo! Para começar, vamos criar uma nova tabela. É possível usar a mesma tabela do container e alterar o bgcolor para mudar a cor da célula em vez da tabela. Mas aconselho a criar uma nova para evitar problemas com o colspan e rowspan, porque essas propriedades causam problemas para manter a estrutura correta à medida que são criadas novas células.</description>
+    </item>
+    
+    <item>
+      <title>Técnicas para codificar um e-mail - parte 2</title>
+      <link>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-2/</link>
+      <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-2/</guid>
+      <description>No primeiro post da série, aprendemos a criar uma base para codificação de e-mail. Neste, iremos abordar as diversas formas de trabalhar com os espaçamentos.
+Para começar, vamos adicionar um cabeçalho ao nosso e-mail. Criaremos uma tabela e, dentro dela, adicionaremos um título para o nosso e-mail. Para ficar igual ao layout proposto no primeiro post da série, vamos adicionar o atributo bgcolor para alterar a cor do fundo para marrom claro:</description>
+    </item>
+    
+    <item>
+      <title>Técnicas para codificar um e-mail</title>
+      <link>https://elo7.dev/tecnicas-para-codificar-um-e-mail/</link>
+      <pubDate>Mon, 09 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/tecnicas-para-codificar-um-e-mail/</guid>
+      <description>No início da minha carreira como desenvolvedora front-end, tive que codificar o meu primeiro e-mail marketing (aqueles e-mails promocionais que você geralmente recebe de um e-commerce). Como não conhecia muito sobre como funcionavam os clientes de e-mail, fiz o código como se estivesse codificando um site: usei várias propriedade de css, abusei da propriedade float (que na época era moda), usei classes e coloquei todo o css dentro da tag style.</description>
+    </item>
+    
+  </channel>
+</rss>

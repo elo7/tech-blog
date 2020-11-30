@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,java,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Introdução ao Java'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Introdução ao Java'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Introdução ao Java'>
+	<meta property='og:url' content='https://elo7.dev/introducao-ao-java/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Introdução ao Java'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/introducao-ao-java/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/introducao-ao-java/'>
+	<title>Elo7 Tech - Introdução ao Java</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='back-end'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Introdução ao Java' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Introdução ao Java</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2016-09-26 00:00:00 &#43;0000 UTC'
+    aria-label='26 de setembro de 2016'>
+    26/09/2016
+    <meta itemprop='datePublished' content='Mon Sep 26 2016 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Sep 26 2016 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2016-09-26'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='tcelestino' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/tcelestino/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/tcelestino'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='tcelestino'>@tcelestino</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Entrei para o time de front-end do <a href="http://elo7.com.br">Elo7</a> tem alguns meses e digo que fiquei &ldquo;assustado&rdquo; quando vi que o time mexia muito com código Java. Meu susto maior é que minha única experiência com a linguagem foi na época da faculdade, chegando apenas a desenvolver o <a href="https://github.com/tcelestino/iSnake">iSnake</a>. Tirando isso, posso dizer que minha experiência é <code>null</code>.</p>
+
+<p>Mas chega de história e vamos ao que interessa!</p>
+
+<h2 id="instalando-o-java">Instalando o Java</h2>
+
+<p>Antes de começar a escrever algum código, vamos precisar verificar se já temos o Java instalado. Para descobrir se já tem o compilador Java instalado em seu computador, execute o seguinte comando no terminal:</p>
+
+<pre><code class="language-bash">$ javac -version
+</code></pre>
+
+<p>Você precisa ver uma mensagem como a que aparece na imagem abaixo:</p>
+
+<p><img src="../images/introducao-ao-java-1.png" alt="Verificando se já temos o Java instalado" /></p>
+
+<p>Estou usando a versão 8 do Java, provalvemente você estará usando uma outra versão, que não vai impactar por enquanto nossos primeiros passos. Agora, caso a mensagem não seja parecida com a que tem na imagem acima, recomendo esse <a href="https://goo.gl/XfZCiB">artigo</a> do pessoal da Caelum que explica como fazer a instalação do Java em diversos sistemas operacionais.</p>
+
+<h2 id="nossa-primeira-classe">Nossa primeira classe</h2>
+
+<p>Para começarmos a fazer algum código, vamos apenas precisar do terminal e seu editor de texto preferido (Sublime, Atom, Bloco de Notas etc&hellip;). Sim, por enquanto não vamos usar nenhuma IDE, assunto que ficará para os futuros posts. Com seu editor de texto aberto, escreva (ou copie) o código abaixo:</p>
+
+<pre><code class="language-Java">public class HelloWorld {
+  public static void main(String[] args) {
+    System.out.println(&quot;Hello World!&quot;);
+  }
+}
+</code></pre>
+
+<p>Salve o arquivo como <em>HelloWorld.java</em>. No terminal digite o seguinte comando:</p>
+
+<pre><code class="language-bash">$ javac HelloWorld.java
+</code></pre>
+
+<p><strong>Explicando:</strong> o comando <em>javac</em> irá compilar seu <em>nomeClasse.java</em> e criar um arquivo chamado <em>nomeClasse.class</em>, no nosso caso <em>HelloWorld.class</em>.</p>
+
+<p>Depois de compilar nosso arquivo, vamos precisar executar o nosso código compilado. Rode o comando:</p>
+
+<pre><code class="language-bash">$ java HelloWorld
+</code></pre>
+
+<p><strong>Explicando:</strong> o comando <em>java</em> irá executar o nosso arquivo compilado.</p>
+
+<p><img src="../images/introducao-ao-java-2.png" alt="Nossa primeira classe: Hello World!" /></p>
+
+<p><strong>Nota:</strong> Todos os exemplos de código que serão usados nos posts, estarão disponíveis <a href="http://github.com/tcelestino/intro-java">nesse repositório</a></p>
+
+<h2 id="entendendo-tipos-primitivos">Entendendo tipos primitivos</h2>
+
+<p>No Java, precisamos sempre definir o tipo das variáveis que não poderá ser modificada em qualquer momento da execução do código. Existem 8 tipos de dados primitivos (char, boolean, byte, int, short, long, float e double). Vou explicar algumas delas.</p>
+
+<h3 id="int">#int</h3>
+
+<p>Variáveis do tipo <em>int</em> armazenam valores inteiros. Além disso, podemos realizar operações matemáticas (somar, subtrair, dividir, multiplicar, etc..) com os valores armazenados. Segue um exemplo:</p>
+
+<pre><code class="language-java">public class ExampleInt {
+  public static void main(String[] args) {
+    int bornYear = 1987;
+    int actualYear = 2016;
+    int myAge = bornYear - actualYear;
+    int myNewAge = myAge + 1;
+
+    System.out.println(myAge);
+    System.out.println(myNewAge);
+  }
+}
+</code></pre>
+
+<h3 id="double">#double</h3>
+
+<p>Em variavéis do tipo <em>double</em>, podemos armazenar valores com pontos flutuantes (Ex.: 1.89) e além desses valores fracionados, o <em>double</em> também aceita números inteiros. E assim como nas variáveis do tipo <em>int</em> é possível fazer operações matemáticas.</p>
+
+<pre><code class="language-java">public class ExampleDouble {
+  public static void main(String[] args) {
+    double dollar = 3.20;
+    double weight = 75;
+    double count = weight / 3;
+
+    System.out.println(dollar);
+    System.out.println(weight);
+    System.out.println(count);
+  }
+}
+</code></pre>
+
+<p><strong>Nota:</strong> assim como o <em>double</em>, existe o tipo <em>float</em> que também aceita valores fracionados, sendo que a diferença entre eles fica pela quantidade de bytes que cada um pode suportar. No <strong>float</strong> são 4 bytes e no <em>double</em> 8 bytes.</p>
+
+<h3 id="char">#char</h3>
+
+<p>Variáveis do tipo <em>char</em> apenas podem receber um caractere. Ou seja, você não pode escrever um texto, ou definir um número para ela.</p>
+
+<pre><code class="language-java">public class ExampleChar {
+  public static void main(String[] args) {
+    char e = 'e';
+
+    System.out.println(e);
+  }
+}
+</code></pre>
+
+<p>Vale anotar que variáveis desse tipo não podem receber um valor vazio, isso porque um valor vazio não é um caractere. Veja o exemplo:</p>
+
+<pre><code class="language-java">public class ExampleChar2 {
+  public static void main(String[] args) {
+    char charEmpty = '';
+
+    System.out.println(charEmpty);
+  }
+}
+</code></pre>
+
+<p>Se tentar compilar, terá o seguinte erro no terminal:</p>
+
+<p><img src="../images/introducao-ao-java-4.png" alt="Erro ao tentar compilar um char vazio" /></p>
+
+<h3 id="boolean">#boolean</h3>
+
+<p>Variáveis do tipo <em>boolean</em> apenas possuem dois valores: <em>true</em> ou <em>false</em>. As palavras <em>true</em> e <em>false</em>, no Java são palavras reservadas, ou seja, só podem ser usadas em variáveis que são do tipo <em>boolean</em>.</p>
+
+<pre><code class="language-java">public class ExampleBoolean {
+  public static void main(String[] args) {
+    boolean isBrazilian = true;
+    boolean isFitness = false;
+
+    System.out.println(isBrazilian);
+    System.out.println(isFitness);
+  }
+}
+</code></pre>
+
+<p>Agora, se tentarmos adicionar valores que não sejam do tipo definido, o que pode acontecer? Vamos criar um arquivo que vamos chamar de <em>MyPersonalInfo.java</em> e vamos escrever (pode copiar) o código abaixo:</p>
+
+<pre><code class="language-Java">public class MyPersonalInfo {
+  public static void main(String[] args) {
+    char t = 29;
+    int age = 78.9;
+    double weight = true;
+    boolean isBrazilian = &quot;a&quot;;
+
+    System.out.Println(age);
+    System.out.Println(weight);
+    System.out.Println(isBrazilian);
+  }
+}
+</code></pre>
+
+<p>Ao tentar compilar o arquivo, provavelmente você verá uma mensagem como a da imagem abaixo:</p>
+
+<p><img src="../images/introducao-ao-java-3.png" alt="Exibe erros ao tentar compilar o código Java" /></p>
+
+<p>Isso acontece porque o Java é uma linguagem fortemente tipada, ou seja, toda variável precisa ter um tipo especifico, sendo que após seu tipo ser declarado a variável será até o seu fim do mesmo tipo. Vale lembrar que a tipagem não está restrita apenas a variáveis, mas também aos metódos, mas isso fica para os futuros posts.</p>
+
+<p>Se tiver algo para acrescentar/sugerir, deixe nos comentários e aguardem os próximos posts.</p>
+
+<p><strong>Fonte:</strong> <a href="https://www.caelum.com.br/apostila-java-orientacao-objetos/variaveis-primitivas-e-controle-de-fluxo/">Variáveis primitivas e Controle de fluxo</a></p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/java/'>java</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fintroducao-ao-java%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=introdu%25C3%25A7%25C3%25A3o-ao-java&url=https%3a%2f%2felo7.dev%2fintroducao-ao-java%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/introducao-ao-java/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/introducao-ao-java/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='O primeiro post de uma série sobre como começar a codificar algo em Java. Nesse primeiro post você vai entender como que funciona a execução do Java no computador, além de entender sobre tipos primitivos.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2016-09-26 00:00:00 \x2b0000 UTC:\/introducao-ao-java\/';
+            var disqus_url = 'https:\/\/elo7.dev\/introducao-ao-java\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mockito on Tech Blog Elo7</title>
+    <link>https://elo7.dev/tags/mockito/</link>
+    <description>Recent content in Mockito on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 21 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://elo7.dev/tags/mockito/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Testes de código com Mockito (2) - Novidades da nova versão</title>
+      <link>https://elo7.dev/testes-codigo-mockito-2/</link>
+      <pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/testes-codigo-mockito-2/</guid>
+      <description>Há algum tempo, escrevi um post sobre o funcionamento e os principais recursos do Mockito. Na ocasião em que o post foi escrito, a versão 2 do framework ainda estava em beta, e, nesse tempo, não apenas foi oficialmente lançada como ocorreram vários releases subsequentes (no momento em que escrevo, a última versão é a 2.7.22).
+Neste post, vou demonstrar as principais novidades e funcionalidades dessa nova versão.
+Construção de mocks/proxy de objetos e classes final A principal alteração interna da versão 2 do Mockito foi a mudança da biblioteca utilizada para construção de mocks/proxificação de objetos.</description>
+    </item>
+    
+    <item>
+      <title>Testes de código com Mockito</title>
+      <link>https://elo7.dev/testes-codigo-mockito/</link>
+      <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/testes-codigo-mockito/</guid>
+      <description>No trabalho da Engenharia do Elo7, valorizamos bastante a qualidade do código que produzimos. Isso passa por várias etapas: boas práticas de código, programação pareada, revisões cuidadosas e, claro, testes. Muitos testes.
+Para as aplicações baseadas em Java (nossa principal linguagem), utilizamos o Mockito como ferramenta de criação de _objetos mocks_. Neste post, vamos explorar as principais funcionalidades e alguns recursos avançados desse framework.
+O básico Não é o objetivo desse post explicar em detalhes a idéia de &amp;ldquo;mock&amp;rdquo;, mas podemos arranhar a superfície desse conceito: pense em um mock como um objeto criado em tempo de execução, que devolve respostas pré-configuradas.</description>
+    </item>
+    
+  </channel>
+</rss>

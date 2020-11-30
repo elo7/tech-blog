@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,css,margin,padding,box sizing,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - CSS Basics - Margin x Padding'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - CSS Basics - Margin x Padding'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/margin-padding.jpg'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - CSS Basics - Margin x Padding'>
+	<meta property='og:url' content='https://elo7.dev/css-basics-margin-padding/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - CSS Basics - Margin x Padding'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/css-basics-margin-padding/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/margin-padding.jpg'>
+
+	<link rel='canonical' href='https://elo7.dev/css-basics-margin-padding/'>
+	<title>Elo7 Tech - CSS Basics - Margin x Padding</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='front-end'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/margin-padding.jpg' alt='CSS Basics - Margin x Padding' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>CSS Basics - Margin x Padding</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2018-02-19 00:00:00 &#43;0000 UTC'
+    aria-label='19 de fevereiro de 2018'>
+    19/02/2018
+    <meta itemprop='datePublished' content='Mon Feb 19 2018 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Feb 19 2018 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2018-02-19'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='fernandabernardo' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/fernandabernardo/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/fernandabernardo'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='fernandabernardo'>@fernandabernardo</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Depois de falar sobre a propriedade <em>display</em> no <a href="/css-basics-display/">post anterior</a>, continuaremos falando sobre outras propriedades básicas do CSS. Nesse post conheça um pouco mais sobre as propriedades de espaçamento <strong><em>margin</em></strong> e <strong><em>padding</em></strong>.</p>
+
+<h2 id="diferença">Diferença</h2>
+
+<p>Para começar, qual a principal diferença entre <em>margin</em> e <em>padding</em>? Ao utilizar a propriedade <em>margin</em>, você está acrescentando um espaço externo ao elemento, ou seja, para fora (a distância entre um elemento e outro). Enquanto o <em>padding</em> acrescenta um espaço interno ao elemento, para dentro (a distância entre o conteúdo e a borda).
+<img src="../images/css-basics-margin-padding-1.png" alt="Representação de margin, padding e border" /></p>
+
+<h2 id="forma-de-usar">Forma de Usar</h2>
+
+<p>As duas propriedades são muito parecidas na forma de usar. Existem duas formas para cada uma delas&hellip; A primeira forma é especificar cada um dos lados, sendo eles <strong>[margin/padding]-top</strong>, <strong>[margin/padding]-bottom</strong>, <strong>[margin/padding]-left</strong> e <strong>[margin/padding]-right</strong>. E existe a forma reduzida, em que você usa apenas a propriedade <code>margin</code> ou <code>padding</code> e pode escrever de até 4 formas diferentes:</p>
+
+<ul>
+<li><strong>top right bottom left</strong> - por exemplo: <code>1em 2em 3em 4em</code> que correspondem àqueles valores respectivamente;</li>
+<li><strong>top right/left bottom</strong> - por exemplo: <code>1em 2em 3em</code>, sendo que <code>2em</code> corresponde aos valores <code>right</code> e <code>left</code>;</li>
+<li><strong>top/bottom right/left</strong> - por exemplo: <code>1em 2em</code>, sendo que <code>1em</code> corresponde aos valores <code>top</code> e <code>bottom</code> e <code>2em</code> aos valores <code>right</code> e <code>left</code>;</li>
+<li><strong>top/right/bottom/left</strong> - por exemplo: <code>1em</code>, que corresponde a todos os valores.</li>
+</ul>
+
+<h2 id="box-sizing">Box Sizing</h2>
+
+<p>Uma propriedade relacionada com as duas tratadas acima é a <em>box-sizing</em>. Ela é utilizada para alterar a forma como o navegador calcula os tamanhos (altura e largura) de um elemento. Ela possui três valores:
+- <em>content-box</em> (valor padrão)
+- <em>padding-box</em> (não é muito suportado pelos browsers, apenas o Firefox tem suporte)
+- <em>border-box</em></p>
+
+<p><p data-height="333" data-theme-id="23784" data-slug-hash="vxPyPV" data-default-tab="css,result" data-user="FernandaBernardo" data-embed-version="2" data-pen-title="Box sizing" class="codepen">Veja o exemplo <a href="http://codepen.io/FernandaBernardo/pen/vxPyPV/">Box sizing</a> by Fernanda Bernardo (<a href="http://codepen.io/FernandaBernardo">@FernandaBernardo</a>) no <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script></p>
+
+<p>Para entender melhor como cada um destes valores funciona, acima temos duas <em>sections</em>, rosa e azul, usando os valores content-box e padding-box, respectivamente. Além disso, colocamos um <em>padding</em> de <em>30px</em> em ambas. Começando pela <code>&lt;section&gt;</code> com <em>content-box</em> (rosa) para calcular as dimensões dela (altura e largura), apenas o conteúdo é contado. Tanto <em>margin</em> como <em>padding</em> e <em>border</em> são considerados para fora do <em>box</em>. Ou seja, se minha <code>&lt;section&gt;</code> tem <code>100x100px</code> e um <em>padding</em> de <code>30px</code>, logo o tamanho total será <code>160x160px</code> (100 + 30 + 30). Já na <code>&lt;section&gt;</code> com <em>border-box</em>, o tamanho final seria <code>100x100px</code> porque, para calcular o tamanho final do elemento, o navegador utiliza a soma do conteúdo + <em>padding</em> + <em>border</em>. Um pouco confuso? Veja a imagem abaixo que o conceito ficará mais claro:</p>
+
+<p><img src="../images/css-basics-margin-padding-2.png" alt="Diferenças entre content-box e border-box" /></p>
+
+<h2 id="centralização-horizontal">Centralização horizontal</h2>
+
+<p>Um dos valores da propriedade <em>margin</em> é <em>auto</em>. Para usá-lo, precisamos que o elemento seja um bloco, ou seja, tenha a declaração <code>display: block</code>, e tenha uma largura (<code>width</code>) definida. Dessa forma, o elemento ficará centralizado horizontalmente. Vale lembrar que esse valor não funciona para centralizar verticalmente, com <em>margin-top</em> ou <em>margin-bottom</em>.</p>
+
+<p><p data-height="300" data-theme-id="23784" data-slug-hash="XzgJBz" data-default-tab="css,result" data-user="FernandaBernardo" data-embed-version="2" data-pen-title="Margin: auto" class="codepen">Veja o exemplo <a href="https://codepen.io/FernandaBernardo/pen/XzgJBz/">Margin: auto</a> by Fernanda Bernardo (<a href="https://codepen.io/FernandaBernardo">@FernandaBernardo</a>) no <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script></p>
+
+<h2 id="margin-com-elementos-inline">Margin com elementos inline</h2>
+
+<p>A propriedade <em>margin</em> serve para definir o tamanho da área de margem de um <em>box</em> para todas as direções (<em>top</em>, <em>right</em>, <em>bottom</em>, <em>left</em>). Com apenas uma exceção, as margens verticais (<em>top</em> e <em>bottom</em>) não funcionam para elementos inline. Veja o exemplo abaixo; no primeiro parágrafo, como o <em>span</em> está com seu <em>display</em> padrão (<code>inline</code>) a propriedade <em>margin</em> funciona somente nas dimensões horizontais. Já no segundo, como está <code>inline-block</code>, o <em>margin</em> é aplicado em todas as direções.</p>
+
+<p><p data-height="300" data-theme-id="23784" data-slug-hash="jawrZJ" data-default-tab="css,result" data-user="FernandaBernardo" data-embed-version="2" data-pen-title="jawrZJ" class="codepen">Veja o exemplo <a href="https://codepen.io/FernandaBernardo/pen/jawrZJ/">Margin inline</a> by Fernanda Bernardo (<a href="https://codepen.io/FernandaBernardo">@FernandaBernardo</a>) no <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script></p>
+
+<h2 id="collapsed-margin">Collapsed Margin</h2>
+
+<p>As margins <em>top</em> e <em>bottom</em> às vezes são combinadas e colapsadas em apenas uma. Mas como funciona isso?
+- <strong>Margens de blocos &ldquo;empilhados&rdquo;</strong>: no nosso exemplo, o bloco azul tem uma <code>margin-bottom</code> de <code>1em</code> e o bloco rosa uma <code>margin-top</code> de <code>2em</code>. No final, o espaçamento entre os blocos deveria ser de <code>3em</code> (<code>1em</code> + <code>2em</code>), certo? Mas não é isso que acontece&hellip; O espaçamento final é a maior das duas margens, no caso <code>2em</code>.
+- <strong>Margens com elementos pai e primeiro / último filho</strong>: no nosso exemplo, se não houver nenhuma borda, padding ou elemento inline, acontece o mesmo efeito com as margens, e a de maior valor é aplicada. É aplicada a margem do parágrafo, que tem o maior valor, em vez da margem do bloco verde. Ao descomentar a borda do <code>.outro-bloco</code>, as margens serão somadas normalmente.</p>
+
+<p><p data-height="300" data-theme-id="23784" data-slug-hash="QOgdNV" data-default-tab="css,result" data-user="FernandaBernardo" data-embed-version="2" data-pen-title="Collapsed margin" class="codepen">Veja o exemplo <a href="https://codepen.io/FernandaBernardo/pen/QOgdNV/">Collapsed margin</a> by Fernanda Bernardo (<a href="https://codepen.io/FernandaBernardo">@FernandaBernardo</a>) no <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script></p>
+
+<p>Dois casos em que a margem nunca colapsa são com elementos com <em>float</em> ou posição absoluta.</p>
+
+<h2 id="background-com-padding">Background com padding</h2>
+
+<p>Um caso interessante é se tentarmos usar um <em>background</em> com <em>padding</em>. Visualmente, parece que o padding não é aplicado nem para o <em>top</em> nem para o <em>left</em>. Só que ele continua sendo aplicado, mas o <em>background</em> não respeita esse padding. Para ficar &ldquo;certo&rdquo;, precisamos adicionar a declaração <code>background-origin: content-box</code>. Experimente comentar essa linha no CSS do exemplo para ver o que acontece.</p>
+
+<p><p data-height="300" data-theme-id="23784" data-slug-hash="OOgWao" data-default-tab="css,result" data-user="FernandaBernardo" data-embed-version="2" data-pen-title="Background with padding" class="codepen">Veja o exemplo <a href="https://codepen.io/FernandaBernardo/pen/OOgWao/">Background with padding</a> by Fernanda Bernardo (<a href="https://codepen.io/FernandaBernardo">@FernandaBernardo</a>) no <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script></p>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<p>Nesse post, falamos um pouco sobre as diferenças entre margin e padding, suas aplicações e funcionamento. Continuaremos com a nossa <a href="https://engenharia.elo7.com.br/tags/css">série sobre CSS</a>, e se tiver alguma sugestão de tema que queira ver, coloque nos comentários ;D</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/css/'>css</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/margin/'>margin</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/padding/'>padding</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/box-sizing/'>box sizing</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fcss-basics-margin-padding%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=css-basics-margin-x-padding&url=https%3a%2f%2felo7.dev%2fcss-basics-margin-padding%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/css-basics-margin-padding/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/css-basics-margin-padding/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Como funcionam as propriedades de espaçamento de CSS? Elas sempre funcionam como o esperado? Nesse post falaremos sobre as propriedades margin e padding e como elas funcionam em algumas situações.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2018-02-19 00:00:00 \x2b0000 UTC:\/css-basics-margin-padding\/';
+            var disqus_url = 'https:\/\/elo7.dev\/css-basics-margin-padding\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

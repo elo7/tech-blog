@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,acessibilidade,html,javascript,css,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Javascript e acessibilidade'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Javascript e acessibilidade'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/javascript-e-a11y-capa.jpg'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Javascript e acessibilidade'>
+	<meta property='og:url' content='https://elo7.dev/javascript-e-a11y/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Javascript e acessibilidade'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/javascript-e-a11y/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/javascript-e-a11y-capa.jpg'>
+
+	<link rel='canonical' href='https://elo7.dev/javascript-e-a11y/'>
+	<title>Elo7 Tech - Javascript e acessibilidade</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='front-end'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/javascript-e-a11y-capa.jpg' alt='Javascript e acessibilidade' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Javascript e acessibilidade</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2018-09-10 00:00:00 &#43;0000 UTC'
+    aria-label='10 de setembro de 2018'>
+    10/09/2018
+    <meta itemprop='datePublished' content='Mon Sep 10 2018 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Sep 10 2018 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2018-09-10'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='luiz' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/luiz/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/luiz'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='luiz'>@luiz</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Se temos uma web rica em termos de experiência do usuário, muito se deve ao Javascript, que nos permite criar componentes dinâmicos e torna a web uma plataforma muito mais interativa. Porém, com grandes poderes, vêm grandes responsabilidades e, se não tomarmos cuidado, dependendo da solução que implementarmos, podemos prejudicar a usabilidade e a acessibilidade das nossas interfaces. <a href="/um-pouco-sobre-css-js-a11y/">Num post anterior</a>, vimos que até o CSS pode atrapalhar em alguns casos, quem dirá o Javascript!</p>
+
+<p>Considere por exemplo a tarefa de preencher um formulário online. O Javascript pode ajudar muito ao validar e formatar automaticamente os dados preenchidos. Ou então ao esconder e mostrar elementos conforme o progresso de preenchimento.</p>
+
+<p><img src="../images/javascript-e-a11y-1.gif" alt="Campo de formulário com máscara para facilitar o preenchimento. Ao preenchê-lo, novos campos são exibidos" /></p>
+
+<p>No entanto, uma máscara de formulário pode acabar atrapalhando o usuário se não for bem implementada. Já encontrou uma máscara que não permite que você apague o que digitou? Ou então uma máscara que não permite a colagem de texto copiado? A implementação correta de uma máscara de formulário é uma tarefa bastante complexa e requer bastante cuidado e testes extensivos para dar bons resultados!</p>
+
+<p>Outra ajuda que também pode gerar confusão é o avanço automático entre campos de formulário, também implementado via Javascript. Sem o devido cuidado, podemos acabar impedindo o usuário de navegar livremente entre os campos, ou então de editar um campo já preenchido!</p>
+
+<p>Esses são casos em que a usabilidade, de uma forma geral, acaba ficando prejudicada, ainda que a intenção inicial fosse ajudar o usuário. Com certos cuidados, conseguimos evitar esses e outros problemas para a maioria dos usuários. Mas como ficam aqueles que dependem de ferramentas assistivas para acessar a web?</p>
+
+<h2 id="validação-de-formulários">Validação de formulários</h2>
+
+<p>Quando implementamos uma validação de formulários com Javascript, normalmente nos preocupamos apenas em fazer com que as mensagens de erro apareçam ou desapareçam corretamente, de acordo com a edição feita pelo usuário. <a href='https://codepen.io/lreal/pen/pLKrRP' target='_blank'>Uma solução bem simples para essa tarefa pode ser acessada aqui</a>.</p>
+
+<figure>
+  <img src='../images/javascript-e-a11y-2.png' alt='Formulário com mensagem de erro de validação sem estilização'>
+  <figcaption>Mensagem de erro customizada sendo exibida pelo código de exemplo</figcaption>
+</figure>
+
+<p>Note que, sem uma estilização básica da mensagem de erro, pode ser bem difícil identificá-la no meio do formulário! <a href="/um-pouco-sobre-css-js-a11y/">Num post anterior</a>, vimos como a estilização pode prejudicar a acessibilidade de uma página; porém, <strong>esse é um caso em que a estilização ajuda muito a deixar a página mais acessível</strong>, em especial para usuários com alguma deficiência cognitiva. <a href='https://codepen.io/lreal/pen/jzKLLB' target='_blank'>Veja aqui como poderia ser uma estilização simples para essa mensagem de erro</a>.</p>
+
+<figure>
+  <img src='../images/javascript-e-a11y-3.png' alt='Formulário com mensagens de erro de validação estilizadas'>
+  <figcaption>Mensagem de erro estilizada</figcaption>
+</figure>
+
+<p>Além da melhoria visual, são necessárias <em>melhorias semânticas</em> no nosso código. Sem elas, uma ferramenta assistiva, como um leitor de tela, não sabe informar ao usuário que o elemento que colocamos na página via Javascript é uma mensagem de erro de validação. Isso pode fazer com que o usuário sequer perceba que há um erro no formulário!</p>
+
+<p>Uma primeira melhoria que podemos fazer, então, é ligar cada campo <em>semanticamente</em> à sua mensagem de erro. Idealmente, faríamos isso com o atributo <code>aria-errormessage</code> passando, nesse atributo, o <em>id</em> do elemento com a mensagem de erro, mas o suporte ao atributo <code>aria-errormessage</code> não é muito bom. Para contornar essa limitação, podemos usar, em vez dele, o atributo <code>aria-describedby</code>, que serve para apontar para elementos que descrevem melhor aquele que o declara. Veja um exemplo abaixo de como poderia ficar a marcação de um campo de senha com uma mensagem de erro de validação e uma descrição de como o campo poderia ser preenchido, e note que podemos apontar para mais de um campo no atributo.</p>
+
+<pre><code class="language-html">&lt;input type=&quot;password&quot; aria-describedby=&quot;erro criterios&quot;&gt;
+&lt;p id=&quot;erro&quot; class=&quot;erro-validacao__mensagem&quot;&gt;Senha muito fraca&lt;/p&gt;
+&lt;div id=&quot;criterios&quot;&gt;
+	&lt;p&gt;A senha deve atender aos seguintes critérios&lt;/p&gt;
+	&lt;ul&gt;
+		&lt;li&gt;Conter letras e números&lt;/li&gt;
+		&lt;li&gt;Ter pelo menos 8 caracteres&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Como a ideia é adicionar a mensagem de erro via Javascript, é necessário gerar dinamicamente um <em>id</em> para a mensagem, a fim de colocá-lo no atributo <code>aria-describedby</code>. Além disso, a adição ou remoção do <em>id</em> da mensagem do atributo <code>aria-describedby</code> deve ser feita com cautela para não destruir o conteúdo original desse atributo (caso ele já venha preenchido no carregamento da página). Apesar de não ser muito simples, essa é uma alteração que já ajuda bastante o usuário e que só precisa ser feita na biblioteca de validação, ou seja, uma única vez. Caso você use uma biblioteca de validação Javascript que leva acessibilidade em conta, provavelmente ela já cuida disso para você. <a href='https://codepen.io/lreal/pen/PRaKBN' target='_blank'>Aqui, você pode testar o formulário com a implementação do controle do atributo <code>aria-describedby</code></a>.</p>
+
+<p>Ouça, abaixo, como é feita a leitura de um campo com erro de validação.</p>
+
+<p><audio controls src="../audios/javascript-e-a11y-1.mp3"></audio></p>
+
+<p>Se a mensagem de erro não for lida, fica muito mais difícil de o usuário entender o que está acontecendo. Assim, com essa alteração no código, já melhoramos bastante a acessibilidade. Mas ainda assim o usuário pode ficar perdido, pois o simples fato de as mensagens serem acrescentadas na tela não faz com que elas sejam lidas automaticamente. Além disso, se fosse apenas dito para o usuário &ldquo;Campo obrigatório&rdquo;, como ele saberia a qual campo a mensagem se refere? Por isso, precisamos fazer <em>pelo menos</em> mais uma alteração: quando um ou mais campos estiverem inválidos, devemos <strong>mover o foco do teclado para o primeiro campo inválido</strong>. <a href='https://codepen.io/lreal/pen/wmXrWr' target='_blank'>Teste aqui a versão com essa alteração</a> e veja que ela ajuda todos os usuários, não apenas aqueles que dependem de leitores de tela. Eis um exemplo claro de que <strong>melhorias de acessibilidade ajudam todos os usuários</strong>.</p>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<p>Neste post, vimos casos em que o uso de Javascript prejudica a usabilidade e a acessibilidade. Mas vimos, também, que o uso <strong>adequado</strong> de Javascript pode melhorar esses pontos, bastando tomar alguns cuidados! Estudamos o caso da validação de formulários, mas ainda há muitos outros padrões de usabilidade que podemos explorar e tentar melhorar nesse quesito. Ou seja: mais posts a caminho!</p>
+
+<p>E você, tem alguma experiência em que o Javascript afetou a acessibilidade da sua página, seja de forma positiva ou negativa? <strong>Compartilhe conosco!</strong></p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/acessibilidade/'>acessibilidade</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/html/'>html</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/javascript/'>javascript</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/css/'>css</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fjavascript-e-a11y%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=javascript-e-acessibilidade&url=https%3a%2f%2felo7.dev%2fjavascript-e-a11y%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/javascript-e-a11y/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/javascript-e-a11y/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Javascript: herói ou vilão da acessibilidade na web? Neste post, vamos discutir que cuidados precisamos tomar para que o Javascript não se torne fogo amigo na luta por uma web mais acessível.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2018-09-10 00:00:00 \x2b0000 UTC:\/javascript-e-a11y\/';
+            var disqus_url = 'https:\/\/elo7.dev\/javascript-e-a11y\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

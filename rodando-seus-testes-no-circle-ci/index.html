@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,testes,integracao continua,circle ci,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Rodando seus testes no Circle CI'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Rodando seus testes no Circle CI'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Rodando seus testes no Circle CI'>
+	<meta property='og:url' content='https://elo7.dev/rodando-seus-testes-no-circle-ci/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Rodando seus testes no Circle CI'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/rodando-seus-testes-no-circle-ci/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/rodando-seus-testes-no-circle-ci/'>
+	<title>Elo7 Tech - Rodando seus testes no Circle CI</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='back-end'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Rodando seus testes no Circle CI' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Rodando seus testes no Circle CI</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2018-05-14 00:00:00 &#43;0000 UTC'
+    aria-label='14 de maio de 2018'>
+    14/05/2018
+    <meta itemprop='datePublished' content='Mon May 14 2018 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon May 14 2018 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2018-05-14'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='thiagoandrad' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/thiagoandrad/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/thiagoandrad'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='thiagoandrad'>@thiagoandrad</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p><img src="/images/rodando-seus-testes-no-circle-ci-1.png" alt="Circle CI" /></p>
+
+<p>Em nossos projetos, testar e manter tudo funcionando antes de subir para produção é uma tarefa constante dentro do fluxo de trabalho. A cada modificação de código podemos quebrar algo, fazendo então com que os desenvolvedores adotem estratégias, como a criação de testes, para diminuir possíveis bugs. Hoje, com o uso muito comum do <a href="https://git-scm.com/">GIT</a> para versionar nossos códigos, muitas ferramentas de integração surgiram como <a href="https://circleci.com/">Circle CI</a>, <a href="https://travis-ci.com/">Travis</a>, <a href="https://jenkins.io/">Jenkins</a>, <a href="https://www.gocd.org/">GO CD</a> e outras, onde seus testes podem rodar e dar um feedback rápido do seu código.</p>
+
+<p>Com o <a href="https://circleci.com/">Circle CI</a> podemos integrar nossos repositórios que usam <code>git</code> como o <a href="https://github.com/">GitHub</a> ou <a href="https://bitbucket.org/">Bitbucket</a>, de uma maneira bem simples a um custo interessante. Isso porque, mesmo para repositórios privados, <a href="https://circleci.com/pricing/">o serviço não é cobrado se somente uma máquina for usada</a> (pelo menos até a data deste post =] ).</p>
+
+<h2 id="configurando-seu-projeto">Configurando seu projeto</h2>
+
+<p>A configuração é bem simples, baseando-se em um arquivo de extensão <code>.yml</code>. Basta criar, na raiz do projeto, um diretório com o nome de <code>.circleci</code> e dentro dele criamos o arquivo de configuração <code>config.yml</code>.</p>
+
+<p>A estrutura de pastas ficará basicamente assim:</p>
+
+<pre><code>└── &lt;pasta do projeto&gt;
+	└── .circleci
+			└── config.yml
+</code></pre>
+
+<p>Dentro do nosso <code>config.yml</code> teremos várias divisões para determinar as configurações que o Circle CI fará para nós. Na <a href="https://circleci.com/docs/2.0/">doc</a> oficial <a href="https://circleci.com/docs/2.0/tutorials/">existem vários exemplos básicos</a> para várias linguagens diferentes. Para nosso exemplo iremos usar uma aplicação em Java usando como ferramenta de build o <a href="https://maven.apache.org/">Maven</a>, mas isso não impacta negativamente no exemplo caso queira usar outra linguagem.</p>
+
+<p>Aqui definimos a versão usada do Circle CI como 2.0 (ainda existe uma 1.0 depreciada) e adicionamos configurações para definir o diretório, e qual imagem <em>docker</em> usará para poder buildar e rodar os testes. O próprio Circle CI tem várias imagens que são muito usadas no mercado, mas você poderia usar qualquer outra do <a href="https://hub.docker.com/">docker hub</a> (neste caso estamos usando uma específica para Java 8).</p>
+
+<pre><code class="language-yml">version: 2 # use CircleCI 2.0
+jobs: # a collection of steps
+  build: # runs not using Workflows must have a `build` job as entry point
+
+    working_directory: ~/circleci-test # directory where steps will run
+
+    docker: # run the steps with Docker
+      - image: circleci/openjdk:8-jdk # ...with this image as the primary container; this is where all `steps` will run
+</code></pre>
+
+<p>Na próxima etapa definimos os passos a serem executados no <em>pipeline</em>. Basicamente aqui baixamos as dependências e salvamos em um cache para melhorar a velocidade em uma próxima vez quando o <em>pipeline</em> de testes for iniciado.</p>
+
+<pre><code class="language-yml">steps: # a collection of executable commands
+
+      - checkout # check out source code to working directory
+
+      - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
+          key: circleci-test-{{ checksum &quot;pom.xml&quot; }}
+
+      - run: mvn dependency:go-offline # gets the project dependencies
+
+      - save_cache: # saves the project dependencies
+          paths:
+            - ~/.m2
+          key: circleci-test-{{ checksum &quot;pom.xml&quot; }}
+</code></pre>
+
+<p>Por fim, executamos aqui o comando do <code>maven</code> para rodar os testes e gerar nosso pacote, então indicamos para o Circle CI onde estão os relatórios gerados pelo teste e o artefado gerado.</p>
+
+<pre><code class="language-yml">- run: mvn package # run the actual tests
+
+      - store_test_results: # uploads the test metadata from the `target/surefire-reports` directory so that it can show up in the CircleCI dashboard.
+          path: target/surefire-reports
+
+      - store_artifacts: # store the uberjar as an artifact
+          path: target/circleci-test-0.0.1-SNAPSHOT.jar
+</code></pre>
+
+<p>O arquivo completo fica basicamente como <a href="https://circleci.com/docs/2.0/language-java/">este</a>.</p>
+
+<h2 id="concluindo-a-configuração-pelo-circle-ci">Concluindo a configuração pelo Circle CI</h2>
+
+<p>Agora podemos logar no Circle CI usando a conta onde está seu projeto (nesse caso GitHub) e só precisamos clicar em <code>add projects</code> no menu lateral e depois adicionar seu projeto:</p>
+
+<p><img src="/images/rodando-seus-testes-no-circle-ci-2.png" alt="Selecionando projeto" /></p>
+
+<p>No próximo passo o primordial é escolher qual a tecnologia que será utilizada, no nosso caso é <code>Maven (Java)</code>:</p>
+
+<p><img src="/images/rodando-seus-testes-no-circle-ci-3.png" alt="Selecionando tecnologia" /></p>
+
+<p>Pronto! Seus testes já irão iniciar e logo você terá seu feedback =). Agora a cada <em>commit</em> que rolar no seu repositório os testes iniciarão automaticamente:</p>
+
+<p><img src="/images/rodando-seus-testes-no-circle-ci-4.png" alt="feedback dos testes" /></p>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<p>Se você precisa de integração com seu repositório de maneira simples e sem custo, talvez o Circle CI te atenda bem.
+E se precisarmos de mais configuraçoes como workflows, paralelizar testes, mais máquinas, fazer um <em>ssh</em> para o <em>container</em> onde estão os testes estão sendo executados? Tudo isso é possível e outras coisinhas mais.</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/testes/'>testes</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/integracao-continua/'>integracao continua</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/circle-ci/'>circle ci</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2frodando-seus-testes-no-circle-ci%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=rodando-seus-testes-no-circle-ci&url=https%3a%2f%2felo7.dev%2frodando-seus-testes-no-circle-ci%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/rodando-seus-testes-no-circle-ci/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/rodando-seus-testes-no-circle-ci/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Integrar os testes a um servidor de integração contínua é uma tarefa importante para os sistemas hoje em dia. Nesse post vamos abordar o Circle CI como opção para essa tarefa.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2018-05-14 00:00:00 \x2b0000 UTC:\/rodando-seus-testes-no-circle-ci\/';
+            var disqus_url = 'https:\/\/elo7.dev\/rodando-seus-testes-no-circle-ci\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

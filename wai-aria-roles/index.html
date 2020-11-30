@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,html,semantica,acessibilidade,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Os papéis do WAI-ARIA no HTML'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Os papéis do WAI-ARIA no HTML'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Os papéis do WAI-ARIA no HTML'>
+	<meta property='og:url' content='https://elo7.dev/wai-aria-roles/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Os papéis do WAI-ARIA no HTML'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/wai-aria-roles/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/wai-aria-roles/'>
+	<title>Elo7 Tech - Os papéis do WAI-ARIA no HTML</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='front-end'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Os papéis do WAI-ARIA no HTML' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Os papéis do WAI-ARIA no HTML</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2017-04-17 00:00:00 &#43;0000 UTC'
+    aria-label='17 de abril de 2017'>
+    17/04/2017
+    <meta itemprop='datePublished' content='Mon Apr 17 2017 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Apr 17 2017 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2017-04-17'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='rapahaeru' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/rapahaeru/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/rapahaeru'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='rapahaeru'>@rapahaeru</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>O ARIA se divide semanticamente em três partes: seus papéis (<em>roles</em>), estados (<em>states</em>) e suas propriedades (<em>properties</em>).
+As <em>roles</em> (papéis) descrevem widgets que não estão disponíveis no HTML 4, como sliders, barras de menus, guias e diálogos. As <em>properties</em> (propriedades) descrevem características desses widgets, como se eles são arrastáveis, têm um elemento necessário ou têm um popup associado a eles. Os <em>states</em> (estados) descrevem o estado de interação atual de um elemento, informando a tecnologia de assistência se ela estiver ocupada, desativada, selecionada ou ocultada.</p>
+
+<p>No <a href="/wai-aria-apanhado-geral/">post anterior</a>, demos uma introdução conceitual do uso do ARIA. Nesse segundo trataremos das <em>roles</em> com alguns estados e propriedades que são necessárias para o uso correto, e o próximo e último post será dedicado exclusivamente aos estados e propriedades.</p>
+
+<h2 id="as-roles">As roles</h2>
+
+<p>O ARIA permite que os desenvolvedores declarem uma função semântica para um elemento que não possui ou possui uma semântica incorreta. Por exemplo, quando uma lista não ordenada é usada para criar um &ldquo;menu&rdquo;, deve ser dado ao <code>&lt;ul&gt;</code> um papel (role) de &ldquo;menu&rdquo; e para cada <code>&lt;li&gt;</code> um papel de &ldquo;menuitem&rdquo;.</p>
+
+<pre><code class="language-html">&lt;ul role=&quot;menu&quot;&gt;
+    &lt;li role=&quot;menuitem&quot;&gt;home&lt;/li&gt;
+    &lt;li role=&quot;menuitem&quot;&gt;posts&lt;/li&gt;
+    &lt;li role=&quot;menuitem&quot;&gt;contato&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>As roles são categorizadas em 4 tipos:</p>
+
+<ol>
+<li>Abstract</li>
+<li>Widgets</li>
+<li>Document Structures</li>
+<li>Landmarks</li>
+</ol>
+
+<p>Falarei sobre os <strong>Widgets</strong>, <strong>Document Structures</strong> e <strong>Landmarks</strong>, pois sinceramente não compreendi muito bem a utilidade real dos <strong>Abstract roles</strong>. Posso dizer que eles fazem o papel por trás das cenas, onde os atributos (roles) herdam propriedades desses papéis abstratos, confuso né? Esse <a href="https://www.w3.org/TR/wai-aria/rdf_model.png">diagrama de taxonomia</a> dá uma noção melhor da sua proposta.</p>
+
+<h2 id="1-widgets">1 - Widgets</h2>
+
+<p>São widgets normais de interface, como caixas de alerta, botões, progress bar e etc.</p>
+
+<p>Seguem alguns exemplos:</p>
+
+<h3 id="1-1-tooltips">1.1 - Tooltips</h3>
+
+<p>É um popup que exibe informações relacionadas a um elemento quando recebe foco do teclado ou no mouse hover.</p>
+
+<ol>
+<li>O elemento que serve de container para o Tooltip deve possuir a <em>role</em> tooltip.</li>
+<li>O elemento que aciona o Tooltip é referenciado com o atributo <code>aria-describedby</code></li>
+</ol>
+
+<pre><code class="language-html">&lt;div class=&quot;tooltip-info&quot; aria-describedby=&quot;tooltip_text&quot;&gt;Info
+  &lt;span class=&quot;tooltip-text&quot; id=&quot;tooltip_text&quot; role=&quot;tooltip&quot;&gt;Informação deste item&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Interação com o widget, via teclado:</p>
+
+<ul>
+<li><code>Tab</code>: Abre o Tooltip. Chega-se ao elemento via tab, o que faz exibir o tooltip no foco.</li>
+<li><code>Esc</code>: Fecha o Tooltip</li>
+</ul>
+
+<h3 id="1-2-tabs">1.2 - Tabs</h3>
+
+<p>São um conjunto de seções que exibem um painel com conteúdos diferentes, por vez. Cada tab possui um elemento associado, que quando ativado, exibe o conteúdo correspondente.</p>
+
+<pre><code class="language-html">&lt;div class=&quot;tabs&quot;&gt;
+    &lt;div role=&quot;tablist&quot;&gt;
+        &lt;button role=&quot;tab&quot; aria-selected=&quot;true&quot; aria-controls=&quot;apple-panel&quot; id=&quot;apple-tab&quot;&gt;Apple&lt;/button&gt;
+        &lt;button role=&quot;tab&quot; aria-selected=&quot;false&quot; aria-controls=&quot;orange-panel&quot; id=&quot;orange-tab&quot;&gt;Orange&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div role=&quot;tabpanel&quot; id=&quot;apple-panel&quot; aria-labelledby=&quot;apple-tab&quot;&gt;
+        &lt;p&gt;Apple panel content&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div role=&quot;tabpanel&quot; id=&quot;orange-panel&quot; aria-labelledby=&quot;orange-tab&quot;&gt;
+        &lt;p&gt;Orange panel content&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p><em>Roles</em>, <em>States</em> e <em>Properties</em> do widget <strong>Tab</strong>.</p>
+
+<ul>
+<li><code>Tablist</code>: Serve de container para o conjunto dos tabs.</li>
+<li><code>Tab</code>: É o título da tab e exibe o painel (tabpanel) quando ativado.</li>
+<li><code>Tabpanel</code>: Contém o conteúdo associado a tab</li>
+<li><code>Aria-labelledby</code>: Serve para rotular o elemento associado (através do id)</li>
+</ul>
+
+<p>Interação com o widget, via teclado:</p>
+
+<ul>
+<li><code>Tab</code>: move o foco da aba ativa</li>
+<li><code>Seta para esquerda</code>: move o foco para a aba anterior</li>
+<li><code>Seta para direita</code>: move o foco para a aba seguinte</li>
+<li><code>Home</code>: move o foco para a primeira aba</li>
+<li><code>End</code>: move o foco para a última aba</li>
+</ul>
+
+<h3 id="1-3-menu">1.3 - Menu</h3>
+
+<p>É  um tipo de widget (ferramenta) que oferece uma lista de opções para o usuário.
+A <em>role</em> &ldquo;menu&rdquo; é apropriada quando uma lista de <em>menuitems</em> é exibido de forma semelhante a uma aplicação de desktop, ou seja, é o simples menu que conhecemos.</p>
+
+<pre><code class="language-html">&lt;div role=&quot;menubar&quot;&gt;
+    &lt;ul role=&quot;menu&quot; tabindex=&quot;1&quot;&gt;
+        &lt;li role=&quot;menuitem&quot;&gt;Item 1&lt;/li&gt;
+        &lt;li role=&quot;menuitem&quot;&gt;Item 2&lt;/li&gt;
+        &lt;li role=&quot;menuitem&quot;&gt;Item 3&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Interação com o widget, via teclado:</p>
+
+<p>Se o foco estiver no <code>menubar</code></p>
+
+<ul>
+<li><code>Seta para esquerda</code>: Item anterior do <code>menubar</code></li>
+<li><code>Seta para direita</code>: próximo item do <code>menubar</code></li>
+<li><code>Seta para cima</code> ou <code>Seta para baixo</code>: Abre o submenu do item do menu e seleciona o primeiro <code>menuitem</code></li>
+<li><code>Enter</code> ou <code>Espaço</code>: Abre ou fecha o submenu do item do menu. Seleciona o primeiro <code>menuitem</code>, caso haja.</li>
+</ul>
+
+<p>Se o foco estiver no <code>menuitem</code></p>
+
+<ul>
+<li><code>Seta para esquerda</code>: Abre submenu do menu anterior e seleciona primeiro item.</li>
+<li><code>Seta para direita</code>: Abre submenu do menu seguinte e seleciona primeiro item.</li>
+<li><code>Seta para cima</code>: seleciona menu item anterior.</li>
+<li><code>Seta para baixo</code>: seleciona menu item seguinte.</li>
+<li><code>Enter</code> e <code>esoaço</code>: Aciona item selecionado e fecha submenu.</li>
+<li><code>Esc</code>: Fecha o menu e retorna o foco para o menubar.</li>
+</ul>
+
+<p><code>Tabindex</code></p>
+
+<ul>
+<li>Para os itens do menu receberem foco via teclado, o <code>tabindex</code> deve ser setado no elemento.</li>
+</ul>
+
+<h2 id="2-document-structures">2 - Document Structures</h2>
+
+<p>Como o nome diz, são estruturas que organizam o conteúdo em uma página.</p>
+
+<h3 id="2-1-article">2.1 - Article</h3>
+
+<p>É uma simples seção de uma página que forma uma parte independente de um documento.</p>
+
+<pre><code class="language-html">&lt;div class=&quot;post&quot; role=&quot;article&quot;&gt;
+   &lt;p&gt;Texto&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Todos sabemos que já possuímos a tag &ldquo;article&rdquo;, porém com esta <em>role</em>, podemos ampliar para qualquer elemento fazer parte de forma independente, sem que a tag &ldquo;article&rdquo; seja implementada de forma errônea.</p>
+
+<h3 id="2-2-toolbar">2.2 - Toolbar</h3>
+
+<p>Um toolbar pode agrupar botões, links e caixas de seleção em uma única tabulação. Neste caso, um toolbar bem simples com 3 botões para ilustrar a ideia:</p>
+
+<pre><code class="language-html">&lt;div role=&quot;toolbar&quot;&gt;
+    &lt;div role=&quot;button&quot; tabindex=&quot;0&quot; aria-selected=&quot;true&quot;&gt;Tool 1&lt;/div&gt;
+    &lt;div role=&quot;button&quot; tabindex=&quot;1&quot;&gt;Tool 2&lt;/div&gt;
+    &lt;div role=&quot;button&quot; tabindex=&quot;2&quot;&gt;Tool 3&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Interação com o widget, via teclado:</p>
+
+<p>Os botões do menu podem ser acionados por meio da tecla <em>enter</em>, caso em algum deles tenha um popup (submenu), o mesmo pode ser acionado via <em>enter</em> ou seta para baixo (<em>down arrow</em>)
+* <code>Tab</code>: Move o foco para dentro e para fora do toolbar. Quando foco move para o toolbar, o primeiro controle habilitado recebe foco.
+* <code>Seta para esquerda</code>: Move o foco para o controle anterior.
+* <code>Seta para direita</code>: Move o foco para o controle seguinte.
+* <code>Home</code>: Move o foco para o primeiro controle.
+* <code>End</code>: Move o foco para o último controle.</p>
+
+<h3 id="2-3-presentation">2.3 - Presentation</h3>
+
+<p>Sabemos que o ARIA é usado principalmente para expressar semântica dos elementos, porém há casos que ocultar a semântica de um elemento é importante e também ajuda algumas tecnologias assistivas.</p>
+
+<p>Quando a <code>role=presentation</code> é aplicada a uma imagem, a imagem é completamente escondida das tecnologias assistivas, como se estivesse aplicado o estado de <code>aria-hidden=true</code>. Por outro lado, se o mesmo for aplicado a um cabeçalho, o valor semântico do elemento será removido mas o texto continua sendo exibido normalmente.</p>
+
+<pre><code class="language-html">&lt;h3&gt;Exemplo de presentation&lt;/h3&gt;
+&lt;p&gt;
+    &lt;a href=&quot;//link.to.com&quot;&gt;primeiro link&lt;/a&gt;
+    &lt;img role=&quot;presentation&quot; alt=&quot;descrição da imagem&quot; src=&quot;//images.cdn.com&quot;&gt;
+    &lt;a href=&quot;//link.to.com&quot;&gt;segundo link&lt;/a&gt;
+    &lt;img role=&quot;presentation&quot; alt=&quot;descrição da imagem&quot; src=&quot;//images.cdn.com&quot;&gt;
+&lt;/p&gt;
+</code></pre>
+
+<p>Veja como ficou a árvore de acessibilidade:</p>
+
+<p><strong>h3</strong> .[<em>text</em>] Exemplo de presentation<br>
+<strong>p</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>a</strong> .[<em>text</em>] primeiro link<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>a</strong> .[text] segundo link</p>
+
+<p>A <code>role=presentation</code> remove o <code>&lt;img&gt;</code> da árvore de acessibilidade e com ele o atributo <code>alt</code>.</p>
+
+<h2 id="3-landmarks">3 - Landmarks</h2>
+
+<p>Serve para marcar regiões importantes da página, como <em>forms</em>, <em>banners</em> e etc.</p>
+
+<h3 id="3-1-complementary">3.1 - Complementary</h3>
+
+<p>Uma seção de suporte do documento complementa o conteúdo principal em um nível similar na hierarquia DOM. Pode ser usado como artigos relacionados ou arquivo de blogs.</p>
+
+<pre><code class="language-html">&lt;aside role=&quot;complementary&quot;&gt;
+...
+&lt;/aside&gt;
+</code></pre>
+
+<h3 id="3-2-banner">3.2 - Banner</h3>
+
+<p>O nome ja diz, é uma seção onde é incluído itens como o logotipo ou a identidade do patrocinador de um site, por exemplo, podemos aplicar em um <em>footer</em> com a lista de patrocinadores de um evento.</p>
+
+<pre><code class="language-html">&lt;footer&gt;
+    &lt;div role=&quot;banner&quot;&gt;
+        &lt;img src=&quot;//logo.patrocinador.com/image.jpg&quot; alt=&quot;Logo do patrocinador&quot;&gt;
+    &lt;/div&gt;
+    &lt;div role=&quot;banner&quot;&gt;
+        &lt;img src=&quot;//logo.patrocinador.com/image.jpg&quot; alt=&quot;Logo do patrocinador&quot;&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+
+<h3 id="3-3-navigation">3.3 - Navigation</h3>
+
+<p>Agrupa elementos de navegação, que normalmente são links para navegar por um documento ou um documento relacionado. Seria mais ou menos um mix do papel das tags <code>aside</code> e <code>nav</code>. Como podemos aplicar a qualquer elemento, genericamente poderia ficar assim.</p>
+
+<pre><code class="language-html">&lt;div role=&quot;navigation&quot;&gt;
+    ...
+&lt;/div&gt;
+</code></pre>
+
+<h3 id="3-4-main">3.4 - Main</h3>
+
+<p>Onde fica o conteúdo principal do elemento.</p>
+
+<pre><code class="language-html">&lt;section role=&quot;main&quot;&gt;
+    ...
+&lt;/section&gt;
+</code></pre>
+
+<h2 id="concluindo">Concluindo&hellip;</h2>
+
+<p>Aqui vimos como aplicar de forma correta os papéis (<em>roles</em>) nos elementos com alguns exemplos básicos. Porém, não só disso vive a acessibilidade no HTML.
+No próximo post focaremos nos estados e propriedades dessas <em>roles</em>.
+Espero que tenha ficado claro o papel das <em>roles</em> no ARIA e conceitualmente o real propósito do seu uso.</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/html/'>html</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/semantica/'>semantica</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/acessibilidade/'>acessibilidade</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fwai-aria-roles%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=os-pap%25C3%25A9is-do-wai-aria-no-html&url=https%3a%2f%2felo7.dev%2fwai-aria-roles%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/wai-aria-roles/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/wai-aria-roles/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='O ARIA se divide semanticamente em três partes: seus papéis (roles), estados (states) e suas propriedades (properties). Nesse post vamos focar nas roles (papéis) e entender o seu real papel no HTML.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2017-04-17 00:00:00 \x2b0000 UTC:\/wai-aria-roles\/';
+            var disqus_url = 'https:\/\/elo7.dev\/wai-aria-roles\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

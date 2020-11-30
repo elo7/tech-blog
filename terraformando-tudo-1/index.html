@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,devops,terraform,iac,infrastructure as code,infra,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Terraformando tudo - parte 1'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Terraformando tudo - parte 1'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Terraformando tudo - parte 1'>
+	<meta property='og:url' content='https://elo7.dev/terraformando-tudo-1/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Terraformando tudo - parte 1'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/terraformando-tudo-1/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/terraformando-tudo-1/'>
+	<title>Elo7 Tech - Terraformando tudo - parte 1</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='devops'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Terraformando tudo - parte 1' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Terraformando tudo - parte 1</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2017-02-13 00:00:00 &#43;0000 UTC'
+    aria-label='13 de fevereiro de 2017'>
+    13/02/2017
+    <meta itemprop='datePublished' content='Mon Feb 13 2017 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Feb 13 2017 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2017-02-13'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='lucasvasconcelos' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/lucasvasconcelos/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/lucasvasconcelos'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='lucasvasconcelos'>@lucasvasconcelos</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Veja os outros <em>posts</em> da série:
+- <a href="/terraformando-tudo-2/">Terraformando tudo - parte 2</a>
+- <a href="/terraformando-tudo-3/">Terraformando tudo - parte 3</a></p>
+
+<h2 id="infrastructure-as-code-no-elo7">Infrastructure as Code no Elo7</h2>
+
+<p>Esse <em>post</em> dá início a uma série de <em>posts</em> intitulada <strong>Terraformando tudo</strong>. Nessa série iremos mostrar o caminho que trilhamos (e os percalços que tivemos) no <strong>Elo7</strong> e o que ainda falta para concluir nosso objetivo de ter <strong>toda</strong> nossa infraestrutura sendo gerenciada por código, ou seja, termos <em>Infrastructure as Code</em>.</p>
+
+<p>Mas o que seria <em>Infrastructure as Code</em> (ou <em>IaC</em> para os mais íntimos)?</p>
+
+<p>Além de ser mais uma <em>buzzword</em>, <em>Infrastructure as Code</em> é o ato de gerenciar a infraestrutura (seja ela física ou virtual) e suas configurações. Tal gerenciamento deve ser feito através de código versionado, seja utilizando ferramentas desenvolvidas <em>in-house</em> ou de mercado. Esse processo é de grande importância para a cultura <em>DevOps</em>, possibilitando que todo o time de Engenharia seja responsável pela infraestrutura de suas aplicações e trazendo diversos benefícios:
+* Velocidade: execução rápida, evitando processos manuais;
+* Padronizações: melhora a garantia de que os padrões definidos sejam seguidos;
+* Evita erros manuais: ao não ser necessário utilizar ferramentas interativas, diminui a chance de falhas;
+* Qualidade: pode-se inserir no processo um <em>code review</em>, garantindo a qualidade do código/padrões;
+* Fácil reprodutibilidade: é fácil escalar a infra ou cloná-la em outro datacenter.</p>
+
+<p>Pelos motivos supracitados e ainda outras vantagens, decidimos ter <em>IaC</em> aqui no Elo7 e, pelo título do post, é fácil ver que escolhemos o <a href="http://terraform.io"><strong>Terraform</strong></a> para nos ajudar nessa tarefa, certo? :-). Mas como fizemos essa escolha? <em>Hype</em>? <em>Know-how</em> prévio? Nome bonito? Ninguém sabe?!?</p>
+
+<p>Negativo! Apesar de <em>ágeis e early adopters</em>, pesamos nossas decisões em diversos aspectos, como curva de aprendizado, escopo da resolução do problema, possíveis <em>lock-ins</em> e escala a longo prazo.</p>
+
+<p>E é exatamente disso que se trata esse primeiro post, um comparativo das features - <strong>que nos interessam</strong> - de cada ferramenta analisada e como nos pautamos para decidir utilizar o <strong>Terraform</strong>. Em nenhum momento esse post se trata de decidir se uma ferramenta é melhor que outra, e sim, da ferramenta que é <strong>melhor para nós e para nossas necessidades</strong>.</p>
+
+<h2 id="um-paralelo-com-o-desenvolvimento-das-nossas-aplicações">Um paralelo com o desenvolvimento das nossas aplicações</h2>
+
+<p>Ao buscar codificar nossa infra, tínhamos como intuito utilizar o mesmo fluxo que nós utilizamos para o desenvolvimento de nossas aplicações. Para termos o máximo de qualidade em tudo que fazemos, temos um fluxo rígido de desenvolvimento, que consiste em:</p>
+
+<p><img src="../images/terraformando-tudo-1-1.png" alt="Fluxo de desenvolvimento" /></p>
+
+<p>O processo de desenvolvimento do código responsável por nossa infra deveria se encaixar nesse fluxo, ou pelo menos em grande parte dele. Principalmente nas etapas de <em>pair-programming</em> e <em>review</em>.</p>
+
+<p>Além desse principal requisito, também temos algumas outras necessidades:
+* Suporte à <a href="https://aws.amazon.com/">AWS</a>;
+* <em>Opensource</em> (com comunidade ativa :P);
+* Foco em infra: nosso ambiente roda todo com <a href="https://www.docker.com/">Docker</a> + <a href="https://github.com/coreos/fleet">Fleet</a> (e no futuro <a href="https://kubernetes.io">Kubernetes</a>, teremos novidades aqui no <em>blog</em> huhuhu). Portanto, não iríamos fazer uso das <em>features</em> de automação de aplicações/configurações, por exemplo.</p>
+
+<p>E ainda contamos com alguns requisitos não tão importantes, mas desejáveis:
+* Curva de aprendizado curta;
+* Que a ferramenta não seja desenvolvida em uma linguagem exótica (tipo Erlang) para que uma possível contribuição seja factível;
+* Suporte ao <a href="https://cloud.google.com/">GCP (Google Cloud Platform)</a>;</p>
+
+<h2 id="nossas-opções">Nossas opções</h2>
+
+<p>Fizemos uma pré-seleção de algumas ferramentas para, dentre elas, escolher a que melhor cumpre os nossos requisitos. As ferramentas foram escolhidas baseando-se nas funcionalidades, <em>know-how</em> prévio e confiabilidade. Todas as ferramentas escolhidas possuem a capacidade de cumprir com os nossos requisitos principais. São elas:
+* <a href="https://puppet.com/">Puppet</a>;
+* <a href="https://www.chef.io/chef/">Chef</a>;
+* <a href="https://www.ansible.com/">Ansible</a>;
+* <a href="https://www.terraform.io/">Terraform</a>;
+* <a href="https://aws.amazon.com/cloudformation/">AWS CloudFormation</a>;</p>
+
+<p>Vale citar que, do ponto de vista de <em>IaC</em>, todas elas seguem as mesmas práticas, que ajudam principalmente na curva de aprendizado para quem já teve experiência prévia com algumas delas. As ferramentas são:
+* Declarativas;
+* Buscam um estado final para a infra que está sendo criada;
+* Controlam <em>recursos</em> da infra/configuração;
+* Reutilização de código/referência entre recursos.</p>
+
+<p>Os próximos sub-tópicos discutem os motivos que foram importantes <strong>para nós</strong> na escolha do Terraform.</p>
+
+<h3 id="aws-cloudformation">AWS CloudFormation</h3>
+
+<p>Não poderíamos deixar de analisar a ferramenta oferecida pela própria AWS para gerenciamento de infraestrutura como código. Por ser da própria AWS, já podíamos contar com suporte a todos os recursos existentes (EC2, S3, Route53, Redshift, Lambda, etc), além de performance e confiabilidade no que está sendo executado.</p>
+
+<p>O CloudFormation utiliza a sintaxe JSON no seu código. Nesse exemplo criamos uma instância no EC2 (vários campos foram omitidos):</p>
+
+<pre><code class="language-javascript">{
+   &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
+   &quot;Properties&quot; : {
+      &quot;AvailabilityZone&quot; : &quot;us-west-1a&quot;,
+      &quot;ImageId&quot; : &quot;ami-696e652c&quot;,
+      &quot;InstanceType&quot; : &quot;t1.micro&quot;,
+      &quot;SecurityGroups&quot; : [ &quot;sample-group&quot; ],
+      ...
+   }
+}
+</code></pre>
+
+<p>Apesar de não gostarmos da sintaxe JSON do CloudFormation, decidimos apostar na ferramenta. Mas, o feitiço pode voltar contra o feiticeiro. O que podia ser considerado uma vantagem pra nós, que é o fato da ferramenta estar dentro da AWS, também pode ser um ponto negativo. O CloudFormation só dá suporte à AWS (obviamente :P) e não gostamos de <em>lock-ins</em>. Temos planos futuros de rodar em um ambiente multi-cloud e essa característica tirou o CloudFormation da nossa lista.</p>
+
+<h3 id="puppet-e-chef">Puppet e Chef</h3>
+
+<p>Puppet e Chef são as opções mais conhecidas quando falamos de <strong>automação</strong> em geral, seja <em>IaC</em> ou gerenciamento de configurações. Muito poderosas, são capazes de gerenciar <em>data-centers</em> gigantescos.</p>
+
+<p>Eles já estão na estrada há um bom tempo e diversos padrões de <em>DevOps</em> e <em>IaC</em> foram inspirados em casos de uso dessas ferramentas. Ambas são escritas em <em>Ruby</em> e são <em>production-ready</em>, possuindo versões da comunidade e <em>Enterprise</em>.</p>
+
+<p>O Puppet possui uma linguagem DSL (<em>Domain Specific Language</em>) declarativa. Nesse exemplo, ele está criando uma instância EC2:</p>
+
+<pre><code class="language-ruby">ec2_instance { 'sample-instance':
+  ensure            =&gt; present,
+  region            =&gt; 'us-west-1',
+  availability_zone =&gt; 'us-west-1a',
+  image_id          =&gt; 'ami-696e652c',
+  instance_type     =&gt; 't1.micro',
+  security_groups   =&gt; ['sample-group'],
+}
+</code></pre>
+
+<p>Por sua vez, o Chef possui uma linguagem própria também, bem mais parecida com <em>Ruby</em> e imperativa. Exemplo de como um ELB (<em>Elastic Load Balancer</em>) é criado com o Chef:</p>
+
+<pre><code class="language-ruby">aws_elastic_lb 'elb' do
+  aws_access_key aws['aws_access_key_id']
+  aws_secret_access_key aws['aws_secret_access_key']
+  name 'LB_tech-blog'
+  action :register
+end
+</code></pre>
+
+<p>As duas ferramentas são de uma época <em>&lsquo;pré-cloud&rsquo;</em> (pré popularizacão, no caso), ou seja, foram inicialmente concebidas para automação de configurações em data-centers virtualizados/<em>bare-metal</em>. Atualmente, já suportam a criação de infraestrutura na nuvem. Portanto, possuem um arcabouço extenso de recursos de automação.</p>
+
+<p>Para nós, as duas ficaram no mesmo balaio, além do escopo de atuação delas ser muito grande, o que elas nasceram para fazer, que é o gerenciamento de configurações (exemplo acima), não iríamos utilizar. A necessidade de ter um <em>client</em> nos servidores para execução das automações também não nos agrada muito.</p>
+
+<p>A quantidade de recursos nativos disponíveis também é pequena, com destaque para o Chef que nem a criação de instâncias no EC2 possui nativamente (por isso que no exemplo é mostrada a criação de um ELB ao invés de uma instância EC2, como nos exemplos de outras ferramentas).</p>
+
+<h4 id="ansible">Ansible</h4>
+
+<p>O Ansible, escrito em <em>Python</em>, é uma ferramenta mais moderna que nasceu após a popularização da nuvem. Logo de cara, uma grande vantagem em cima das ferramentas já comentadas é que não é necessário um <em>client</em> rodando nos servidores, pois ele utiliza <em>SSH</em> para executar os comandos remotamente.</p>
+
+<p>Um outro detalhe importante do Ansible é a utilização da sintaxe <code>YAML</code> para escrita dos códigos, que pode ajudar bastante na curva de aprendizado. Segue o mesmo exemplo utilizado acima usando o Ansible:</p>
+
+<pre><code class="language-python">- name: Cria uma instância EC2
+  ec2:
+     group: sample-group
+     instance_type: t1.micro
+     image: &quot;ami-696e652c&quot;
+     zone: &quot;us-west-1a&quot;
+  register: ec2
+</code></pre>
+
+<p>O Ansible também cai no problema do Puppet e Chef, em que sua especialidade é gerenciamento de configurações. Um outro problema do Ansible é o suporte apenas aos principais serviços da AWS, não dando suporte ao <code>EMR</code> (<em>Elastic Map Reduce</em>), por exemplo.</p>
+
+<p>Entretanto, é válido citar que de todas as ferramentas já comentadas, o Ansible é a que mais se encaixou nas nossas necessidades. Se o Terraform tivesse alguma característica que fizesse com que ele fosse removido da nossa lista, o Ansible seria nossa escolha.</p>
+
+<h3 id="conclusão-terraform">Conclusão: Terraform</h3>
+
+<p>Ao analisar friamente o Terraform, separamos algumas características que chamaram nossa atenção. Todas elas se encaixam bem nos nossos requisitos, inclusive nos requisitos desejáveis.</p>
+
+<p>Primeiramente, o Terraform tem o suporte da <em>Hashicorp</em>, empresa que contribui com outros diversos projetos <em>Opensource</em> já conhecidos, como o Consul e Vault. É um projeto escrito em Golang com comunidade muito ativa e um ciclo de <em>releases</em> de aproximadamente 20 dias, com cada <em>release</em> sempre trazendo novas <em>features</em> e <em>fixes</em> importantes.</p>
+
+<p>Foi a ferramenta que coube exatamente no nosso escopo de criação de infra e somente infra, sem se preocupar com a aplicação. Possui suporte à AWS (suporte inclusive aos serviços menos utilizados, como o <em>Elastic Map Reduce</em>) e GCP, além de diversos outros <em>providers</em> como Azure e Openstack.</p>
+
+<p>A linguagem utilizada para criação da infra no Terraform é a HCL (<em>Hashicorp Configuration Language</em>), que é uma linguagem declarativa desenvolvida pela Hashicorp. Apesar de parecer um pouco estranha no início, nos acostumamos facilmente com ela. Segue um exemplo de criação de uma instância EC2 com o Terraform:</p>
+
+<pre><code class="language-python">resource &quot;aws_instance&quot; &quot;tech-blog&quot; {
+  ami = &quot;ami-696e652c&quot;
+  instance_type = &quot;t1.micro&quot;
+  availability_zone = &quot;us-west-1a&quot;
+  security_groups = [ &quot;sample-group&quot; ]
+}
+</code></pre>
+
+<p>Encontramos alguns <em>posts</em> sobre o <em>Terraform</em>, uns falando bem e outros falando mal, principalmente por ser uma ferramenta nova, que realmente carece de algumas funcionalidades. Fizemos validações e diversas simulações, principalmente de desastres. Estávamos muito precupados com comportamentos inesperados na hora de criar/destruir a nossa infra, principalmente mudanças críticas, como alteração de um registro DNS no <em>Route53</em>. Então, queríamos conhecer exatamente como a ferramenta se comporta em diversas situações.</p>
+
+<p>Encontramos sim, alguns problemas com a nossa escolha. Tanto técnicos como na definição de um fluxo que seja capaz de ser implementado para todo o time da Engenharia Elo7. Um assunto polêmico que fez a gente pensar bastante foi como íamos tratar a infra já existente, criada na base do mouse&hellip; Mas esses serão assuntos para os próximos <em>posts</em>! :D</p>
+
+<p>Pretendemos voltar logo mais, nesse mesmo canal, com os próximos posts dessa série, dando exemplos práticos de como utilizamos o Terraform e como resolvemos problemas conhecidos e não conhecidos nessa nossa aventura de Terraformar tudo.</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/devops/'>devops</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/terraform/'>terraform</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/iac/'>iac</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/infrastructure-as-code/'>infrastructure as code</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/infra/'>infra</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fterraformando-tudo-1%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=terraformando-tudo-parte-1&url=https%3a%2f%2felo7.dev%2fterraformando-tudo-1%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/terraformando-tudo-1/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/terraformando-tudo-1/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Início da série de posts &#39;Terraformando Tudo&#39;, que conta a nossa trajetória em busca da codificação da nossa infraestrutura. Esse primeiro post mostra nossas premissas para o projeto e como escolhemos o Terraform como ferramenta para nos auxiliar nesse caminho.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2017-02-13 00:00:00 \x2b0000 UTC:\/terraformando-tudo-1\/';
+            var disqus_url = 'https:\/\/elo7.dev\/terraformando-tudo-1\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on Tech Blog Elo7</title>
+    <link>https://elo7.dev/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 29 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://elo7.dev/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Subindo uma aplicação no Kubernetes usando o Helm</title>
+      <link>https://elo7.dev/subindo-uma-aplicacao-no-kubernetes-usando-helm/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/subindo-uma-aplicacao-no-kubernetes-usando-helm/</guid>
+      <description>Talvez o Kubernetes seja, hoje, um dos nomes mais famosos do mercado quando falamos em DevOps, e não é para menos. A plataforma é uma grande facilitadora quando se trata de gerenciar a infraestrutura de aplicações, tornando muito mais fáceis tarefas como escalar as instâncias, automatizar o deployment e até mesmo gerenciar o ciclo de vida das aplicações baseadas em Docker.
+Apesar de todos os benefícios, ainda há algumas coisas trabalhosas no dia a dia de quem trabalha com Kubernetes.</description>
+    </item>
+    
+    <item>
+      <title>Jupyter no Kubernetes</title>
+      <link>https://elo7.dev/jupyter-enterprise-gateway/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/jupyter-enterprise-gateway/</guid>
+      <description>Jupyter é uma ferramenta para desenvolvimento iterativo com suporte a diversas linguagens. No Elo7 é amplamente utilizado pelo time de Ciência de Dados e mais atualmente pelo time de Engenharia de Dados. O jupyter faz uso do que ele chama de kernels para execução de notebooks, já os notebooks são onde se encontram os códigos que serão executados. O jupyter possui diversos kernels, que definem a linguagem suportada e até mesmo algumas características de como executá-la.</description>
+    </item>
+    
+    <item>
+      <title>Agendando jobs Spark no k8s através do Airflow</title>
+      <link>https://elo7.dev/airflow-spark/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/airflow-spark/</guid>
+      <description>Apache Spark é uma ferramenta para processamento de dados em larga escala, já consolidada no mercado. O Apache Airflow é uma ferramenta para agendamento e monitoração de workflows, criado pelo Airbnb, vem ganhando destaque nos ultimos anos. O Kubernetes é uma ferramenta para orquestração de containers extremamente consolidada no mercado e com muitos recursos que facilitam a administração, diminuindo o overhead operacional de se manter ambientes com containers.
+Como utilizamos o Apache Spark no Elo7 Atualmente utilizamos o Apache Spark para realizar ETL de dados produzidos por aplicações.</description>
+    </item>
+    
+    <item>
+      <title>Boas práticas na utilização do Kubernetes em produção</title>
+      <link>https://elo7.dev/boas-praticas-na-utilizacao-k8s/</link>
+      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/boas-praticas-na-utilizacao-k8s/</guid>
+      <description>O Kubernetes é uma ferramenta para orquestração de containers extremamente consolidada no mercado e com muitos recursos que facilitam a administração, diminuindo o overhead operacional de se manter ambientes com containers. Contudo, quando falamos de ambientes de produção, alguns pontos como segurança, disponibilidade, escalabilidade e outros precisam ser tratados com muito afinco para que tenhamos uma plataforma resiliente e preparada para receber grandes cargas de trabalho. A ideia desse post é apresentar alguns dos vários pontos de atenção que precisamos ter na hora de implementar/utilizar nosso cluster.</description>
+    </item>
+    
+    <item>
+      <title>Orquestrando containers</title>
+      <link>https://elo7.dev/orquestrando-containers/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/orquestrando-containers/</guid>
+      <description>Olar, amigos. Prontos para mais um post de infra aqui no nosso blog?
+O objetivo deste post é mostrar o porquê de termos escolhido o Kubernetes (spoiler :P) como solução definitiva para orquestração dos nossos containers. Não entraremos no mérito dos motivos para orquestrar algo, pois consideramos que isso já está bem difundido em nosso meio.
+Para te situar, querido leitor, antes de começarmos a falar de Kubernetes e outras soluções de orquestração, vamos fazer um overview do nosso cenário até então.</description>
+    </item>
+    
+  </channel>
+</rss>

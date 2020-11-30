@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,java,mockito,tdd,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Testes de código com Mockito'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Testes de código com Mockito'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/testes-de-codigo-com-mockito.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Testes de código com Mockito'>
+	<meta property='og:url' content='https://elo7.dev/testes-codigo-mockito/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Testes de código com Mockito'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/testes-codigo-mockito/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/testes-de-codigo-com-mockito.png'>
+
+	<link rel='canonical' href='https://elo7.dev/testes-codigo-mockito/'>
+	<title>Elo7 Tech - Testes de código com Mockito</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='back-end'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/testes-de-codigo-com-mockito.png' alt='Testes de código com Mockito' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Testes de código com Mockito</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2016-05-02 00:00:00 &#43;0000 UTC'
+    aria-label='02 de maio de 2016'>
+    02/05/2016
+    <meta itemprop='datePublished' content='Mon May 02 2016 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon May 02 2016 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2016-05-02'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='ljtfreitas' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/ljtfreitas/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/ljtfreitas'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='ljtfreitas'>@ljtfreitas</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>No trabalho da Engenharia do Elo7, valorizamos bastante a qualidade do código que produzimos. Isso passa por várias etapas: boas práticas de código, programação pareada, revisões cuidadosas e, claro, testes. Muitos testes.</p>
+
+<p>Para as aplicações baseadas em Java (nossa principal linguagem), utilizamos o <a href="http://mockito.org/" target="_blank">Mockito</a> como ferramenta de criação de _<a href="https://pt.wikipedia.org/wiki/Objeto_Mock" target="_blank">objetos mocks</a>_. Neste post, vamos explorar as principais funcionalidades e alguns recursos avançados desse framework.</p>
+
+<h2 id="o-básico">O básico</h2>
+
+<p>Não é o objetivo desse post explicar em detalhes a idéia de &ldquo;mock&rdquo;, mas podemos arranhar a superfície desse conceito: pense em um mock como um objeto criado em tempo de execução, que devolve <strong>respostas pré-configuradas</strong>. Mocks não são obrigatórios (ou mesmo desejados) em todas as circunstâncias; mocks são úteis em situações em que o código que desejamos testar possui <em>dependências de outros objetos</em> (outras classes da nossa aplicação, interfaces de terceiros, etc), e os detalhes dessas dependências não são importantes para o teste em questão. Queremos testar apenas o nosso código, e não depender do comportamento de outros objetos ou recursos de infraestrutura.</p>
+
+<p>No exemplo abaixo, temos uma classe chamada AddressSearch, que encapsula um serviço de pesquisa de endereços a partir de um CEP. Esse serviço externo pode ser um banco de dados dos endereços brasileiros (acessado por JDBC), ou um web service SOAP/REST disponibilizado por outra empresa. A interface que representa esse serviço devolve o resultado da pesquisa no formato String, separando os campos por colunas.</p>
+
+<pre><code class="language-java">public class AddressSearch {
+
+    private final AddressSearchService addressSearchService;
+
+    public AddressSearch(AddressSearchService addressSearchService) {
+        this.addressSearchService = addressSearchService;
+    }
+
+    public Address findBy(ZipCode zipCode) {
+        String addressAsString = addressSearchService.searchByZipCode(zipCode.get());
+
+        String[] parts = addressAsString.split(&quot;\\|&quot;);
+
+        Address address = new Address();
+        address.setStreet(parts[0]);
+        address.setCity(parts[1]);
+        address.setState(parts[2]);
+        address.setZipCode(new ZipCode(parts[3]));
+
+        return address;
+    }
+}
+
+public interface AddressSearchService {
+
+    public String searchByZipCode(String zipCode);
+}
+
+</code></pre>
+
+<p>E o nosso caso de teste:</p>
+
+<pre><code class="language-java">public class AddressSearchTest {
+
+    private AddressSearch addressSearch;
+
+    @Before
+    public void setup() {
+        addressSearch = new AddressSearch(/* o que passamos aqui??? */);
+    }
+
+    @Test
+    public void shouldFindAddressByZipCode() {
+        Address address = addressSearch.findBy(new ZipCode(&quot;12345678&quot;));
+
+        assertEquals(&quot;Rua Beira Rio&quot;, address.getStreet()); // como garantir que o endereço retornado é este?
+        // assert nos demais campos de Address
+    }
+}
+
+</code></pre>
+
+<p>Vamos usar o Mockito para facilitar a escrita do nosso teste.</p>
+
+<h2 id="introduzindo-mockito">Introduzindo Mockito</h2>
+
+<h4 id="criação-de-mocks">Criação de mocks</h4>
+
+<p>Existe mais de uma maneira de criar mocks no Mockito, que diferem umas das outras quanto à configuração mas com os mesmos resultados finais. Uma maneira é por configuração programática, usando a DSL do framework;</p>
+
+<pre><code class="language-java">import org.mockito.Mockito;
+
+public class AddressSearchTest {
+
+    private AddressSearch addressSearch;
+
+    @Before
+    public void setup() {
+        AddressSearchService mockAddressSearchService = Mockito.mock(AddressSearchService.class);
+        addressSearch = new AddressSearch(mockAddressSearchService);
+    }
+</code></pre>
+
+<p>Para melhorar a legibilidade do código, podemos importar estáticamente os métodos da classe Mockito:</p>
+
+<pre><code class="language-java">import static org.mockito.Mockito.*;
+
+public class AddressSearchTest {
+
+    private AddressSearch addressSearch;
+
+    @Before
+    public void setup() {
+        AddressSearchService mockAddressSearchService = mock(AddressSearchService.class);
+        addressSearch = new AddressSearch(mockAddressSearchService);
+    }
+</code></pre>
+
+<p>Outra maneira é declarar os mocks utilizando anotações:</p>
+
+<pre><code class="language-java">import org.mockito.MockitoAnnotations;
+
+public class AddressSearchTest {
+
+    @Mock
+    private AddressSearchService mockAddressSearchService;
+
+    @Before
+    public void setup() {
+        MockitoAnnotations.initMocks(this);
+
+        addressSearch = new AddressSearch(mockAddressSearchService); // mockAddressSearchService inicializado
+    }
+</code></pre>
+
+<p>Adicionamos a anotação <em>@Mock</em> ao atributo, e, no setup do nosso teste, incluímos uma chamada para a classe MockitoAnnotations, que é responsável por processar as anotações da classe enviada para o método <em>initMocks</em>. Podemos utilizar um <a href="https://github.com/junit-team/junit/wiki/Test-runners" target="_blank">TestRunner</a> do Mockito que faz o mesmo trabalho:</p>
+
+<pre><code class="language-java">import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class AddressSearchTest {
+
+    @Mock
+    private AddressSearchService mockAddressSearchService;
+
+    @Before
+    public void setup() {
+        addressSearch = new AddressSearch(mockAddressSearchService); // mockAddressSearchService inicializado
+    }
+</code></pre>
+
+<p>Observe no topo a anotação @RunWith (do JUnit), passando como parâmetro a classe MockitoJUnitRunner do Mockito. Pessoalmente considero essa configuração a mais fácil de utilizar no Mockito, pois simplifica o código do teste. Mas pode haver situações em que você quer utilizar mocks, porém o seu teste já utiliza o TestRunner de algum outro framework (o JUnit permite parametrizar apenas um runner). Nesses casos, saber criar mocks sem utilizar o MockitoJUnitRunner pode ser útil.</p>
+
+<p>Uma terceira maneira é utilizar um <a href="https://github.com/junit-team/junit/wiki/Rules" target="_blank">TestRule</a> fornecido pelo Mockito:</p>
+
+<pre><code class="language-java">import org.mockito.Mock;
+
+public class AddressSearchTest {
+
+    @Rule
+    public MockitoRule mockitoRule = MockitoJUnit.rule();
+
+    @Mock
+    private AddressSearchService mockAddressSearchService;
+
+    @Before
+    public void setup() {
+        addressSearch = new AddressSearch(mockAddressSearchService); // mockAddressSearchService inicializado
+    }
+</code></pre>
+
+<p>O MockitoRule realiza o mesmo processamento de anotações demonstrado nos exemplos anteriores. Também é útil ter essa opção se você não puder utilizar o MockitoJUnitRunner (lembre que os campos anotados com @Rule devem ser públicos!).</p>
+
+<h4 id="injeção-de-mocks">Injeção de mocks</h4>
+
+<p>Nos exemplos acima, estamos injetando manualmente nosso mock dentro do objeto que estamos testando, através do construtor da classe AddressSearch. Esse é um trabalho que o Mockito também é capaz de realizar, com o uso da anotação @InjectMocks:</p>
+
+<pre><code class="language-java">import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class AddressSearchTest {
+
+    @Mock
+    private AddressSearchService mockAddressSearchService;
+
+    @InjectMocks
+    private AddressSearch addressSearch;
+
+    @Test
+    public void shouldFindAddressByZipCode() {
+        //addressSearch pronto para uso, com o mockAddressSearchService injetado
+    }
+</code></pre>
+
+<p>O atributo anotado com @InjectMocks será instanciado pelo Mockito, e todos os atributos anotados com @Mock e @Spy (veremos o que é um &ldquo;spy&rdquo; em detalhes mais à frente) são considerados dependências desse objeto. Essa &ldquo;injeção de dependências&rdquo; realizada pelo Mockito segue algumas regras:</p>
+
+<ul>
+<li><p>Injeção por construtor</p>
+
+<p>Para construir o objeto, a primeira tentativa é via <strong>construtor</strong>. O maior construtor da classe é escolhido, e os argumentos são resolvidos a partir dos mocks/spies declarados no teste. Dois pontos de atenção aqui são: se algum argumento não for encontrado no teste, <em>null</em> é passado; se algum argumento &ldquo;não mockável&rdquo; for esperado (um tipo primitivo, por exemplo), a injeção por construtor não acontece.</p></li>
+
+<li><p>Injeção por propriedade (<em>setter</em>)</p>
+
+<p>Se a injeção por construtor não acontece, a segunda tentativa é através das <strong>propriedades</strong> do objeto. Lembre-se que uma <em>propriedade</em> em Java não é necessariamente um campo declarado na classe, e sim os campos expostos via getter/setter. Os mocks são resolvidos pelo tipo (em caso de ambiguidade, além do tipo, é utilizado o nome). O construtor utilizado será o construtor padrão (sem argumentos).</p></li>
+
+<li><p>Injeção por campos</p>
+
+<p>Se a injeção por propriedades também não acontece (caso de não existirem <em>setters</em>), a terceira e última tentativa do Mockito é injetar os mocks diretamente nos <strong>campos do objeto</strong>, utilizando <strong>reflection</strong>. Assim como na injeção por propriedade, os mocks são resolvidos pelo tipo e, em caso de ambiguidade, pelo nome. O construtor padrão da classe é o construtor utilizado.</p></li>
+</ul>
+
+<p>Se nenhuma dessas situações puder ser satisfeita, a injeção dos mocks não é realizada e você deverá fornecer as dependências do seu objeto manualmente. Lembre-se também que o Mockito não é um framework de injeção de dependências, então não espere que um grafo complexo de mocks ou objetos reais seja resolvido.</p>
+
+<h4 id="configuração-de-mocks">Configuração de mocks</h4>
+
+<p>Nos exemplos acima, declaramos um mock da interface AddressSearchService e inicializamos o objeto AddressSearch, que queremos testar. Vamos rever nosso caso de teste:</p>
+
+<pre><code class="language-java">import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class AddressSearchTest {
+
+    @Mock
+    private AddressSearchService mockAddressSearchService;
+
+    @InjectMocks
+    private AddressSearch addressSearch;
+
+    @Test
+    public void shouldFindAddressByZipCode() {
+        Address address = addressSearch.findBy(new ZipCode(&quot;12345678&quot;));
+
+        assertEquals(&quot;Rua Beira Rio&quot;, address.getStreet());
+        assertEquals(&quot;São Paulo&quot;, address.getCity());
+        assertEquals(&quot;SP&quot;, address.getState());
+        assertEquals(new ZipCode(&quot;12345678&quot;), address.getZipCode());
+    }
+}
+</code></pre>
+
+<p>O cenário que montamos consiste em uma busca por um determinado CEP, e esperamos um objeto Address contendo os dados devolvidos pelo serviço de busca de endereços. Nosso teste ainda não passa, pois precisamos configurar o mock para devolver o endereço esperado. Recapitulando o início do post, um mock é um objeto <strong>que devolve respostas pré-configuradas</strong>, e vamos aprender como fazer isso com a DSL do Mockito:</p>
+
+<pre><code class="language-java">import static org.junit.Assert.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class AddressSearchTest {
+
+    @Mock
+    private AddressSearchService mockAddressSearchService;
+
+    @InjectMocks
+    private AddressSearch addressSearch;
+
+    @Test
+    public void shouldFindAddressByZipCode() {
+        String zipCode = &quot;12345678&quot;;
+
+        String addressResult = &quot;Rua Beira Rio|São Paulo|SP|12345678&quot;;
+
+        Mockito.when(mockAddressSearchService.searchByZipCode(zipCode)).thenReturn(addressResult);
+
+        Address address = addressSearch.findBy(new ZipCode(zipCode));
+
+        assertEquals(&quot;Rua Beira Rio&quot;, address.getStreet());
+        assertEquals(&quot;São Paulo&quot;, address.getCity());
+        assertEquals(&quot;SP&quot;, address.getState());
+        assertEquals(new ZipCode(&quot;12345678&quot;), address.getZipCode());
+    }
+}
+</code></pre>
+
+<p>No exemplo acima, o método chave é o <em>Mockito.when</em>. O que estamos dizendo ao Mockito é essencialmente: &ldquo;quando o método searchByZipCode, do objeto mockAddressSearchService, for invocado com um argumento igual a &#8216;12345678&#8217;, devolva esse resultado&rdquo;. A DSL de fácil entendimento e leitura do Mockito é um dos motivos da larga adoção desse framework. Detalhe: a literatura de testes de código chama esse tipo de configuração de <strong>expectativas</strong>.</p>
+
+<p>Podemos também utilizar o import estático para omitir o &ldquo;Mockito.&rdquo;:</p>
+
+<pre><code class="language-java">import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class AddressSearchTest {
+
+    @Mock
+    private AddressSearchService mockAddressSearchService;
+
+    @InjectMocks
+    private AddressSearch addressSearch;
+
+    @Test
+    public void shouldFindAddressByZipCode() {
+        String zipCode = &quot;12345678&quot;;
+
+        String addressResult = &quot;Rua Beira Rio|São Paulo|SP|12345678&quot;;
+
+        when(mockAddressSearchService.searchByZipCode(zipCode)).thenReturn(addressResult);
+
+        Address address = addressSearch.findBy(new ZipCode(zipCode));
+
+        assertEquals(&quot;Rua Beira Rio&quot;, address.getStreet());
+        assertEquals(&quot;São Paulo&quot;, address.getCity());
+        assertEquals(&quot;SP&quot;, address.getState());
+        assertEquals(new ZipCode(&quot;12345678&quot;), address.getZipCode());
+    }
+}
+</code></pre>
+
+<p>O método <em>when</em> oferece alguns outros recursos. Imagine que o método que estamos testando fizesse uso do &ldquo;searchByZipCode&rdquo; mais de uma vez; poderíamos configurar <strong>chamadas consecutivas</strong> para nosso mock:</p>
+
+<pre><code class="language-java">@RunWith(MockitoJUnitRunner.class)
+public class AddressSearchTest {
+
+    // código omitido
+
+    @Test
+    public void shouldFindAddressByZipCode() {
+        // código omitido
+
+        when(mockAddressSearchService.searchByZipCode(zipCode))
+            .thenReturn(addressResult, &quot;resultado da segunda chamada&quot;, &quot;resultado da terceira chamada&quot;);
+
+        // ou alternativamente,
+
+        when(mockAddressSearchService.searchByZipCode(zipCode))
+            .thenReturn(addressResult)
+            .thenReturn(&quot;resultado da segunda chamada&quot;)
+            .thenReturn(&quot;resultado da terceira chamada&quot;);
+    }
+}
+</code></pre>
+
+<p>E se nosso código implementasse algum tratamento de erro na chamada do método &ldquo;searchByZipCode&rdquo; (digamos, envolvendo a chamada um try/catch específico para o caso de endereço não encontrado)? Podemos instruir nosso mock a, ao invés de devolver um retorno de método, lançar uma exceção:</p>
+
+<pre><code class="language-java">@RunWith(MockitoJUnitRunner.class)
+public class AddressSearchTest {
+
+    // código omitido
+
+    @Test
+    public void shouldFindAddressByZipCode() {
+        // código omitido
+
+        when(mockAddressSearchService.searchByZipCode(zipCode))
+            .thenThrow(ZipCodeNotFoundException.class);
+
+        // ou alternativamente,
+
+        when(mockAddressSearchService.searchByZipCode(zipCode))
+            .thenThrow(new ZipCodeNotFoundException(&quot;zipcode not found&quot;)));
+    }
+}
+</code></pre>
+
+<h4 id="argument-matchers">Argument matchers</h4>
+
+<p>Um detalhe importante na configuração dos mocks são os argumentos do método configurado. No nosso teste, estamos configurando a invocação do método &ldquo;searchByZipCode&rdquo; com um argumento do tipo String cujo valor é &ldquo;12345678&rdquo;. E se nosso código invocasse esse método com um argumento de valor diferente, o que aconteceria? A resposta é que o Mockito NÃO devolveria a resposta que desejamos, pois a configuração do mock esperava um argumento com um valor específico.</p>
+
+<p>Esse é o cenário ideal, pois torna o teste mais seguro e a configuração mais assertiva, uma vez que estamos trabalhando com os valores que definimos no nosso teste. Mas existem diversas situações onde podemos/queremos flexibilizar nosso teste; no exemplo acima, por exemplo, poderíamos mover a configuração do mock para o setup do teste, e configurar a resposta para &ldquo;qualquer String&rdquo; enviada para o método. Podemos fazer isso utilizando os <strong>argument matchers</strong> do Mockito:</p>
+
+<pre><code class="language-java">import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class AddressSearchTest {
+
+    @Mock
+    private AddressSearchService mockAddressSearchService;
+
+    @InjectMocks
+    private AddressSearch addressSearch;
+
+    @Before
+    public void setup() {
+        String addressResult = &quot;Rua Beira Rio|São Paulo|SP|12345678&quot;;
+
+        when(mockAddressSearchService.searchByZipCode(anyString())).thenReturn(addressResult);
+    }
+
+    @Test
+    public void shouldFindAddressByZipCode() {
+        Address address = addressSearch.findBy(new ZipCode(&quot;12345678&quot;));
+
+        assertEquals(&quot;Rua Beira Rio&quot;, address.getStreet());
+        assertEquals(&quot;São Paulo&quot;, address.getCity());
+        assertEquals(&quot;SP&quot;, address.getState());
+        assertEquals(new ZipCode(&quot;12345678&quot;), address.getZipCode());
+    }
+}
+</code></pre>
+
+<p>Nossa configuração do mock está levemente diferente; o argumento que estamos passando para o método &ldquo;searchByZipCode&rdquo; é o matcher <em>anyString()</em>. Agora, o que estamos dizendo ao Mockito é: &ldquo;quando o método searchByZipCode, do objeto mockAddressSearchService, for invocado com uma String qualquer, devolva esse resultado&rdquo;. Os argument matchers permitem maior flexibilidade em situações onde você pode se dar a esse luxo, ou os argumentos do método mockado são menos importantes no seu teste, ou você simplesmente não é capaz de prever os valores. O Mockito possui dezenas de matchers prontos para uso: <em>anyInt(), any(Class<T>), isNull(), notNull(), same()</em>. Para a lista completa, consulte os métodos disponíveis na classe <em>Matchers</em> (os métodos estarão disponíveis quando você importar estáticamente a classe Mockito, que por sua vez extende Matchers) e <em>AdditionalMatchers</em>.</p>
+
+<p>Um detalhe importante: se o método que estamos configurando possui mais de um argumento, e queremos utilizar argument matchers, teremos que utilizá-los em <strong>todos</strong> os argumentos. Vamos imaginar que nossa interface AddressSearchService possui um método que devolve o CEP a partir de um logradouro, uma cidade e um estado:</p>
+
+<pre><code class="language-java">public interface AddressSearchService {
+
+    //codigo omitido
+
+    public String searchZipCodeByAddress(String street, String city, String state);
+}
+</code></pre>
+
+<p>E queremos mockar esse método para nossos testes:</p>
+
+<pre><code class="language-java">@RunWith(MockitoJUnitRunner.class)
+public class AddressSearchTest {
+
+    @Mock
+    private AddressSearchService mockAddressSearchService;
+
+    @InjectMocks
+    private AddressSearch addressSearch;
+
+    @Before
+    public void setup() {
+        // codigo omitido
+
+        // essa configuração não funciona!
+        when(mockAddressSearchService.searchZipCodeByAddress(anyString(), &quot;São Paulo&quot;, &quot;SP&quot;))
+            .thenReturn(&quot;12345678&quot;);
+
+        // correto - matchers em todos os argumentos
+        when(mockAddressSearchService.searchZipCodeByAddress(anyString(), eq(&quot;São Paulo&quot;), eq(&quot;SP&quot;))
+            .thenReturn(&quot;12345678&quot;);
+    }
+
+    // codigo omitido
+}
+</code></pre>
+
+<h4 id="argument-matchers-do-hamcrest">Argument matchers do Hamcrest</h4>
+
+<p>O <a href="http://hamcrest.org/">Hamcrest</a> é um framework de argument matchers bastante utilizado em conjunto com o Junit. O Mockito fornece matchers iguais/equivalentes à maioria dos existentes no Hamcrest, mas se você preferir utilizar essa biblioteca (por exemplo, por ter implementado matchers customizados orientados ao domínio da sua aplicação), é fácil integrá-los ao Mockito. Existe um matcher especial chamado <em>argThat()</em>, cujo parâmetro é um Matcher do Hamcrest.</p>
+
+<pre><code class="language-java">import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import static org.hamcrest.Matchers.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class AddressSearchTest {
+
+    @Mock
+    private AddressSearchService mockAddressSearchService;
+
+    @InjectMocks
+    private AddressSearch addressSearch;
+
+    @Test
+    public void shouldFindAddressByZipCode() {
+        String zipCode = &quot;12345678&quot;;
+
+        String addressResult = &quot;Rua Beira Rio|São Paulo|SP|12345678&quot;;
+
+        when(mockAddressSearchService.searchByZipCode(argThat(equalTo(zipCode)))) // equalTo é um matcher do Hamcrest
+            .thenReturn(addressResult);
+
+        // codigo omitido
+    }
+}
+</code></pre>
+
+<p>Até aqui, aprendemos como configurar o método de um mock para devolver a resposta que queremos. Mas o que acontece se um método <strong>não configurado</strong> for invocado?</p>
+
+<h4 id="respostas">Respostas</h4>
+
+<p>Esse detalhe é uma diferença importante quando comparamos o Mockito com outros frameworks; bibliotecas como o <a href="http://www.jmock.org/" target="_blank">JMock</a> ou o <a href="http://easymock.org/" target="_blank">EasyMock</a> lançam exceções quando métodos não configurados são invocados; o Mockito possui uma abstração chamada <em>Answer</em> que representa o retorno de método de um mock. Vamos entender mais detalhadamente como isso funciona.</p>
+
+<h5 id="resposta-padrão">Resposta &ldquo;padrão&rdquo;</h5>
+
+<p>Até aqui, declaramos nosso mock da seguinte forma:</p>
+
+<pre><code class="language-java">@RunWith(MockitoJUnitRunner.class)
+public class AddressSearchTest {
+
+    @Mock
+    private AddressSearchService mockAddressSearchService;
+
+    @InjectMocks
+    private AddressSearch addressSearch;
+
+    @Test
+    public void shouldFindAddressByZipCode() {
+        Address address = addressSearch.findBy(new ZipCode(&quot;12345678&quot;));
+    }
+}
+</code></pre>
+
+<p>A declaração acima configura nosso mock com o Answer &ldquo;padrão&rdquo;. O comportamento dessa resposta é: se algum método <strong>não configurado</strong> desse mock for invocado,</p>
+
+<ul>
+<li>Se o método retornar algum tipo primitivo ou um tipo wrapper, devolve um retorno apropriado e consistente (exemplo: se o método retornar um int ou Integer, devolve 0; se retornar long ou Long, devolve 0; se retornar boolean ou Boolean, devolve false);</li>
+<li>Se o método retornar uma <em>Collection</em>, devolve uma coleção vazia (usando os tipos mais comuns. exemplo: por padrão devolve ArrayList se o método retorna uma Collection ou List; se o método devolver um Set, retorna um HashSet; se o método devolver um Map, retorna um HashMap);</li>
+<li>Se o método invocado for o <em>toString()</em>, devolve uma descrição do mock;</li>
+<li>Para qualquer outro caso, devolve <em>null</em>.</li>
+</ul>
+
+<p>Outras respostas estão disponíveis. Podemos mudar o Answer utilizado pelo nosso mock, usando o parâmetro <em>answer</em> da anotação @Mock. Vamos explorar outra opção:</p>
+
+<h5 id="returns-smart-nulls">RETURNS_SMART_NULLS</h5>
+
+<pre><code class="language-java">@RunWith(MockitoJUnitRunner.class)
+public class AddressSearchTest {
+
+    @Mock(answer = Answers.RETURNS_SMART_NULLS)
+    private AddressSearchService mockAddressSearchService;
+
+    @InjectMocks
+    private AddressSearch addressSearch;
+
+    @Test
+    public void shouldFindAddressByZipCode() {
+        Address address = addressSearch.findBy(new ZipCode(&quot;12345678&quot;));
+    }
+}
+</code></pre>
+
+<p>Dessa vez, estamos utilizando o Answer <em>RETURNS_SMART_NULLS</em>. O comportamento dessa resposta é diferente: se algum método <strong>não configurado</strong> desse mock for invocado,</p>
+
+<ul>
+<li>Se o método retornar algum tipo primitivo ou um tipo wrapper, devolve um retorno apropriado e consistente (exemplo: se o método retornar um int ou Integer, devolve 0; se retornar long ou Long, devolve 0; se retornar boolean ou Boolean, devolve false);</li>
+<li>Se o método retornar uma <em>Collection</em>, devolve uma coleção vazia (usando os tipos mais comuns);</li>
+<li>Se o método retornar um <em>array</em>, devolve uma array vazio;</li>
+<li>Se o método retornar uma <em>String</em>, devolve uma String vazia;</li>
+<li>Se o método invocado for o <em>toString()</em>, devolve uma descrição do mock;</li>
+<li>Para qualquer outro caso, devolve um <em>&ldquo;smart null&rdquo;</em>.</li>
+</ul>
+
+<p>E o que é um &ldquo;smart null&rdquo;? É um objeto que irá lançar uma <em>SmartNullPointerException</em> quando o seu código tentar utilizá-lo. A vantagem aqui é que a mensagem gerada pelo Mockito (e exibida no relatório de erro do Junit) irá lhe mostrar exatamente qual chamada de método originou esse NullPointerException, e como você deve configurá-lo para que isso não aconteça; com a resposta padrão você teria que procurar o problema no seu código de teste.</p>
+
+<pre><code class="language-java">org.mockito.exceptions.verification.SmartNullPointerException:
+You have a NullPointerException here:
+-&gt; at com.elo7.mockito.AddressSearch.findBy(AddressSearch.java:12)
+because this method call was *not* stubbed correctly:
+-&gt; at com.elo7.mockito.AddressSearch.findBy(AddressSearch.java:12)
+mockAddressSearchService.searchByZipCode(
+    &quot;12345678&quot;
+);
+</code></pre>
+
+<p>Uma observação importante: o RETURNS_SMART_NULLS será a resposta padrão a partir da versão 2 do Mockito (no momento da escrita desse post (abril/2016), essa versão ainda está em beta)</p>
+
+<h5 id="returns-deep-stubs">RETURNS_DEEP_STUBS</h5>
+
+<p>Nesse exemplo, vamos criar uma nova implementação do serviço de busca de CEP, consultando um serviço REST que expõe uma consulta de endereços a partir de um CEP. O endpoint desse serviço também devolve os campos do endereço separados por colunas, o que atende o contrato da nossa interface AddressSearchService. Eis nosso código:</p>
+
+<pre><code class="language-java">public class WebServiceAddressSearchService implements AddressSearchService {
+
+    private final RestClient restClient;
+
+    public WebServiceAddressSearchService(RestClient restClient) {
+        this.restClient = restClient;
+    }
+
+    public String searchByZipCode(String zipCode) {
+        return (String) restClient.target(&quot;http://my.service&quot;)
+            .path(&quot;postal_code&quot;)
+            .path(zipCode)
+            .request()
+            .get();
+    }
+}
+</code></pre>
+
+<p>O objeto RestClient é responsável por realizar a requisição HTTP propriamente dita; para nós os detalhes dessa implementação não são importantes. O que nos importa aqui é que as operações desse objeto são expostas através de uma <em>interface fluente</em>. Como podemos testar esse código?</p>
+
+<pre><code class="language-java">@RunWith(MockitoJUnitRunner.class)
+public class WebServiceAddressSearchServiceTest {
+
+    @Mock
+    private RestClient mockRestClient;
+
+    @InjectMocks
+    private WebServiceAddressSearchService webServiceAddressSearchService;
+
+    @Test
+    public void shouldGetAddressByZipCode() {
+        String zipCode = &quot;12345678&quot;;
+
+        String expected = &quot;Rua Beira Rio|São Paulo|SP|12345678&quot;;
+
+        when(mockRestClient.target(&quot;http://my.service&quot;)
+            .path(&quot;postal_code&quot;)
+            .path(zipCode)
+            .request()
+            .get())
+        .thenReturn(expected);
+
+        String result = webServiceAddressSearchService.searchByZipCode(zipCode);
+
+        assertEquals(expected, result);
+    }
+}
+</code></pre>
+
+<p>Estamos configurando toda a cadeia de métodos que utilizamos do RestClient, e configurando a resposta final do método &ldquo;.get()&rdquo;. Isso irá funcionar? NÃO. O retorno do método &ldquo;mockRestClient.target(&ldquo;<a href="http://my.service&quot;)&quot;">http://my.service&quot;)&quot;</a> será nulo, e não conseguiremos prosseguir em toda a cadeia de invocações. O que precisamos aqui é que o método &ldquo;target&rdquo; devolva um novo mock; após isso precisamos de um novo mock para o retorno do método &ldquo;path&rdquo;, e assim sucessivamente até alcançarmos o método &ldquo;.get()&rdquo;. Esse é um complicador adicional de mockarmos objetos com interfaces fluentes (outro exemplo seriam objetos Builder), mas o Mockito pode nos ajudar nessa situação. Podemos utilizar o Answer <em>RETURNS_DEEP_STUBS</em>:</p>
+
+<pre><code class="language-java">@RunWith(MockitoJUnitRunner.class)
+public class WebServiceAddressSearchServiceTest {
+
+    @Mock(answer = Answers.RETURNS_DEEP_STUBS)
+    private RestClient mockRestClient;
+
+    @InjectMocks
+    private WebServiceAddressSearchService webServiceAddressSearchService;
+
+    @Test
+    public void shouldGetAddressByZipCode() {
+        String zipCode = &quot;12345678&quot;;
+
+        String expected = &quot;Rua Beira Rio|São Paulo|SP|12345678&quot;;
+
+        when(mockRestClient.target(&quot;http://my.service&quot;) // retorna um novo mock
+            .path(&quot;postal_code&quot;) // retorna um novo mock
+            .path(zipCode) // retorna um novo mock
+            .request() // retorna um novo mock
+            .get()) // método que iremos configurar
+        .thenReturn(expected);
+
+        String result = webServiceAddressSearchService.searchByZipCode(zipCode);
+
+        assertEquals(expected, result);
+    }
+}
+</code></pre>
+
+<p>Outro Answer com comportamento parecido é o _RETURNS<em>MOCKS</em>. A diferença entre este e o RETURNS_DEEP_STUBS é que o RETURNS_MOCKS, inicialmente, tenta criar o retorno do método de forma semelhante ao RETURNS_SMART_NULLS (valor padrão para tipos primitivos, coleções e arrays vazios, etc); não sendo possível, é retornado um novo mock. O RETURNS_DEEP_STUBS, ao contrário, SEMPRE tenta criar um novo mock para o retorno do método.</p>
+
+<p>Uma observação importante é que, até a versão do Mockito com a qual esse post foi escrito (1.10.19), estes dois Answers não funcionam com retornos de tipos genéricos (é um bug já reportado para os desenvolvedores do Mockito).</p>
+
+<p>O caso de uma interface fluente é um uso válido para o RETURNS_DEEP_STUBS, mas reflita se você realmente necessita dele ao implementar os seus testes. Um exemplo onde você poderia ficar tentado ao utilizar esse recurso é um código como o abaixo:</p>
+
+<pre><code class="language-java">public class Person {
+
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+}
+
+public class Address {
+
+    private ZipCode zipCode;
+
+    public ZipCode getZipCode() {
+        return zipCode;
+    }
+}
+
+public class ZipCode {
+
+    private String value;
+
+    public String getValue() {
+        return value;
+    }
+}
+
+// em algum outro lugar que utiliza uma instância de Person
+
+Person person ... //código omitido; obtém uma instancia de Person de alguma forma
+String zipCode = person.getAddress().getZipCode().getValue();
+
+</code></pre>
+
+<p>Digamos que no seu teste surja a necessidade de mockar essa cadeia de métodos até obtermos o zipCode. Poderíamos criar um mock da classe Person com o answer RETURN_DEEP_STUBS e configurar o retorno do método &ldquo;getValue&rdquo; da classe ZipCode. Funcionaria sem problemas. O detalhe é que o código acima apresenta um problema de design: ele viola a <a href="https://en.wikipedia.org/wiki/Law_of_Demeter" target="_blank">Lei de Demeter</a>, pois o seu código cliente conhece a estrutura interna do objeto Person. Lembre-se que os testes de unidade fornecem feedback sobre o design do seu código; no exemplo acima, poderíamos refatorar para algo como isto:</p>
+
+<pre><code class="language-java">public class Person {
+
+    private Address address;
+
+    public String getZipCode() {
+        return address.getZipCode();
+    }
+}
+
+public class Address {
+
+    private ZipCode zipCode;
+
+    public String getZipCode() {
+        return zipCode.getValue();
+    }
+}
+
+public class ZipCode {
+
+    private String value;
+
+    public String getValue() {
+        return value;
+    }
+}
+
+Person person ...
+String zipCode = person.getZipCode();
+
+</code></pre>
+
+<p>Agora estamos encapsulando melhor a estrutura interna de cada objeto, de modo que nosso código cliente desconhece que existe um objeto Address e um objeto ZipCode; apenas sabemos que Person tem um código postal no formato String. O RETURN_DEEP_STUBS não é mais necessário.</p>
+
+<p>O ponto que gostaria de reforçar com o exemplo acima é: sempre que um mock precise retornar outro mock, repense o design do seu código e avalie se isso é realmente necessário. A documentação do Mockito é um pouco mais explícita: <a href="http://site.mockito.org/mockito/docs/current/org/mockito/Mockito.html#RETURNS_DEEP_STUBS" target="_blank">sempre que um mock devolve outro mock, uma fada morre</a>.</p>
+
+<h5 id="respostas-customizadas">Respostas customizadas</h5>
+
+<p>Caso queira implementar uma lógica em particular sobre o retorno do método, você também pode criar sua própria Answer:</p>
+
+<pre><code class="language-java">@RunWith(MockitoJUnitRunner.class)
+public class AddressSearchTest {
+
+    @Mock
+    private AddressSearchService mockAddressSearchService;
+
+    @InjectMocks
+    private AddressSearch addressSearch;
+
+    @Test
+    public void shouldFindAddressByZipCode() {
+        when(mockAddressSearchService.searchByZipCode(&quot;12345678&quot;)).then(new Answer&lt;String&gt;() {
+
+            public String answer(InvocationOnMock invocation) throws Throwable {
+                // sua logica aqui. O objeto InvocationOnMock permite acessar os argumentos enviados para o mock
+                return null;
+            }
+        });
+    }
+}
+</code></pre>
+
+<p>Existem outras Answers disponibilizadas pelo Mockito para casos mais específicos (por exemplo, retornar sempre o valor do primeiro ou do segundo argumento), disponíveis na classe <em>AdditionalAnswers</em>.</p>
+
+<h4 id="verificação-de-mocks">Verificação de mocks</h4>
+
+<p>Nos exemplos acima, configuramos nossos mocks com o cenário de testes que queríamos montar, e exercitamos nosso código com os retornos de métodos que desejávamos. Nosso código interage com outros objetos; será que ele está interagindo corretamente? Para nos ajudarmos com isso podemos usar as <em>verificações</em> de mocks disponibilizadas pelo Mockito.</p>
+
+<p>Voltando ao nosso primeiro exemplo:</p>
+
+<pre><code class="language-java">import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class AddressSearchTest {
+
+    @Mock
+    private AddressSearchService mockAddressSearchService;
+
+    @InjectMocks
+    private AddressSearch addressSearch;
+
+    @Test
+    public void shouldFindAddressByZipCode() {
+        String zipCode = &quot;12345678&quot;;
+
+        String addressResult = &quot;Rua Beira Rio|São Paulo|SP|12345678&quot;;
+
+        when(mockAddressSearchService.searchByZipCode(zipCode)).thenReturn(addressResult);
+
+        Address address = addressSearch.findBy(new ZipCode(zipCode));
+
+        assertEquals(&quot;Rua Beira Rio&quot;, address.getStreet());
+        assertEquals(&quot;São Paulo&quot;, address.getCity());
+        assertEquals(&quot;SP&quot;, address.getState());
+        assertEquals(new ZipCode(&quot;12345678&quot;), address.getZipCode());
+    }
+}
+</code></pre>
+
+<p>Podemos <strong>garantir</strong> que nosso mock foi invocado da maneira que configuramos adicionando essa linha no final do teste:</p>
+
+<pre><code class="language-java">import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class AddressSearchTest {
+
+    @Test
+    public void shouldFindAddressByZipCode() {
+        // código omitido
+
+        // O método verify está na classe Mockito, que importamos estaticamente
+        verify(mockAddressSearchService).searchByZipCode(zipCode);
+    }
+}
+</code></pre>
+
+<p>O método <em>verify</em> do Mockito, como o nome sugere, verifica se aquele método, daquele mock, foi chamado com aqueles argumentos; se não, é lançada uma exceção (quebrando o teste). Essa exceção tem uma mensagem bastante explicativa informando como a chamada de método realmente ocorreu. Por exemplo, nosso mock está configurado com o argumento &ldquo;12345678&rdquo;; se por algum bug nosso código invocasse o método com o argumento &ldquo;123&rdquo;, a mensagem da exceção lançada pelo <em>verify</em> seria:</p>
+
+<pre><code class="language-java">Argument(s) are different! Wanted:
+mockAddressSearchService.searchByZipCode(
+    &quot;12345678&quot;
+);
+-&gt; at com.elo7.mockito.AddressSearchTest.shouldFindAddressByZipCode(AddressSearchTest.java:40)
+Actual invocation has different arguments:
+mockAddressSearchService.searchByZipCode(
+    &quot;123&quot;
+);
+</code></pre>
+
+<h5 id="outras-maneiras-de-utilizar-a-verificação">Outras maneiras de utilizar a verificação</h5>
+
+<p>Por padrão, o <em>verify</em> confirma se o método em questão foi invocado <strong>apenas uma vez</strong>. E se não fosse o caso? Se nosso método mockado fosse invocado, digamos, duas vezes, o Mockito lançaria uma mensagem de erro com esta mensagem:</p>
+
+<pre><code class="language-java">org.mockito.exceptions.verification.TooManyActualInvocations:
+mockAddressSearchService.searchByZipCode(
+    &quot;12345678&quot;
+);
+Wanted 1 time:
+-&gt; at com.elo7.mockito.AddressSearchTest.shouldFindAddressByZipCode(AddressSearchTest.java:42)
+But was 2 times. Undesired invocation:
+</code></pre>
+
+<p>Indicando que o método foi chamado duas vezes, ao invés de uma, e apontando a linha de código onde a segunda chamada ocorreu.</p>
+
+<p>Para verificações como essa e outras variações, podemos utilizar uma sobrecarga do método verify:</p>
+
+<pre><code class="language-java">import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class AddressSearchTest {
+
+    @Test
+    public void shouldFindAddressByZipCode() {
+        ...
+
+        // O método times está na classe Mockito, que importamos estaticamente
+        verify(mockAddressSearchService, times(2)).searchByZipCode(zipCode);
+    }
+}
+</code></pre>
+
+<p>A verificação acima checa se método searchByZipCode foi chamado exatamente duas vezes. Existem outras variações como <em>atLeastOnce()</em> (pelo menos uma vez), <em>atLeast(número de invocações)</em> (pelo menos quantas invocações você precisar), <em>never()</em> (verifica se o método nunca foi invocado), <em>atMost(número máximo de invocações)</em>, <em>only()</em> (se <strong>apenas</strong> aquele método do objeto foi invocado). Consulte <a href="http://site.mockito.org/mockito/docs/current/org/mockito/Mockito.html#verify(T)">a documentação do Mockito</a> para mais detalhes e exemplos desses métodos.</p>
+
+<h4 id="argument-matchers-1">Argument matchers</h4>
+
+<p>Mais acima nós exploramos o uso dos argument matchers na configuração dos nossos mocks; os mesmos conceitos se aplicam para a verificação dos métodos mockados. Podemos fazer uso dos argument matchers em conjunto com a verificação.</p>
+
+<pre><code class="language-java">import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class AddressSearchTest {
+
+    @Test
+    public void shouldFindAddressByZipCode() {
+        String zipCode = &quot;12345678&quot;;
+
+        String addressResult = &quot;Rua Beira Rio|São Paulo|SP|12345678&quot;;
+
+        when(mockAddressSearchService.searchByZipCode(eq(zipCode)).thenReturn(addressResult);
+        ...
+
+        verify(mockAddressSearchService).searchByZipCode(startsWith(&quot;123&quot;));
+    }
+}
+</code></pre>
+
+<p>No exemplo acima configuramos o método searchByZipCode para devolver uma resposta caso o argumento seja igual a &ldquo;12345678&rdquo; (usando o argument matcher <em>eq()</em>); na verificação dizemos ao Mockito para confirmar se o método foi invocado usando um argumento do tipo String iniciado com &ldquo;123&rdquo; (usando o argument matcher <em>startsWith()</em>). As mesmas regras de utilização dos argument matchers que analisamos na configuração dos mocks se aplicam para o método verify.</p>
+
+<h4 id="verificação-de-ordem-de-métodos">Verificação de ordem de métodos</h4>
+
+<p>Vamos imaginar um código como o exemplo abaixo:</p>
+
+<pre><code class="language-java">public class UserPasswordService {
+
+    private UserDao userDao;
+    private EmailSender emailSender;
+
+    public UserPasswordService(UserDao userDao, EmailSender emailSender) {
+        this.userDao = userDao;
+        this.emailSender = emailSender;
+    }
+
+    public void changePassword(User user, String newPassword) {
+        String encryptNewPassword = Crypto.encrypt(newPassword);
+
+        user.setPassword(encryptNewPassword);
+
+        userDao.save(user);
+
+        Email email = new Email();
+        email.setReceiverAddress(user.getEmail());
+        email.setSubject(&quot;Alteração de senha&quot;);
+        email.setBody(&quot;Sua senha foi alterada com sucesso&quot;);
+
+        emailSender.send(email);
+    }
+}
+</code></pre>
+
+<p>Nossa classe UserPasswordService gerencia a alteração de senha de usuários; o método <em>changePassword</em> recebe uma instância de User e a nova senha; utilizamos uma classe utilitária para encriptar a senha utilizando algum algoritmo qualquer; usamos o UserDao para salvas as alterações na base de dados; e enviamos um email ao usuário notificando-o que a sua senha foi alterada com sucesso. Um detalhe importante da nossa implementação: o envio do email deve obrigatoriamente ocorrer APÓS a persistência, pois não queremos enviar um email notificando o usuário sobre algo que não aconteceu (afinal, poderia ocorrer um erro durante a atualização da base de dados e a senha não ser alterada). Nosso teste poderia ser algo como:</p>
+
+<pre><code class="language-java">import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InOrder;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class UserPasswordServiceTest {
+
+    @Mock
+    private UserDao mockUserDao;
+
+    @Mock
+    private EmailSender mockEmailSender;
+
+    @InjectMocks
+    private UserPasswordService userPasswordService;
+
+    @Test
+    public void shouldSaveNewPasswordAndSendEmailToUser() {
+        User user = new User();
+
+        userPasswordService.changePassword(user, &quot;newPassword&quot;);
+
+        verify(mockUserDao).save(user);
+        verify(mockEmailSender).send(notNull(Email.class));
+    }
+}
+</code></pre>
+
+<p>Nosso teste está apenas validando se a interação com os outros objetos está funcionando adequadamente. Estamos verificando se o usuário foi salvo adequadamente na nossa base de dados (através do método UserDao.save), e se o email foi enviado (através do método EmailSender.send recebendo uma instância da classe Email). Dissemos que a ordem dos métodos é importante, mas se invertermos nosso código:</p>
+
+<pre><code class="language-java">public class UserPasswordService {
+
+    public void changePassword(User user, String newPassword) {
+        // código omitido
+
+        emailSender.send(email);
+        userDao.save(user);
+    }
+}
+</code></pre>
+
+<p>Nossas verificações de mock continuam passando sem nenhum problema! Porque, afinal, os métodos foram invocados! Em um cenário como esse, precisamos garantir que os métodos foram utilizados na ordem que precisamos. Para nos ajudar, podemos utilizar um objeto do Mockito chamado <em>InOrder</em>:</p>
+
+<pre><code class="language-java">import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InOrder;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class UserPasswordServiceTest {
+
+    @Mock
+    private UserDao mockUserDao;
+
+    @Mock
+    private EmailSender mockEmailSender;
+
+    @InjectMocks
+    private UserPasswordService userPasswordService;
+
+    @Test
+    public void shouldSaveNewPasswordAndSendEmailToUser() {
+        User user = new User();
+
+        // o método inOrder está na classe Mockito, que importamos estáticamente
+        InOrder inOrder = inOrder(mockUserDao, mockEmailSender);
+
+        inOrder.verify(mockUserDao).save(user);
+        inOrder.verify(mockEmailSender).send(notNull(Email.class));
+    }
+}
+</code></pre>
+
+<p>Com o InOrder, podemos garantir exatamente a ordem de invocação; o Mockito irá lançar um erro se os métodos não foram invocados na ordem em que estão sendo verificados. No exemplo mais acima, onde invertemos a ordem de chamadas no código, a mensagem de erro seria:</p>
+
+<pre><code class="language-java">org.mockito.exceptions.verification.VerificationInOrderFailure:
+Verification in order failure
+Wanted but not invoked:
+mockEmailSender.send(
+    com.elo7.mockito.Email@3532ec19
+);
+-&gt; at com.elo7.mockito.UserPasswordServiceTest.shouldSaveNewPasswordAndSendEmailToUser(UserPasswordServiceTest.java:34)
+Wanted anywhere AFTER following interaction:
+mockUserDao.save(
+    com.elo7.mockito.User@3532ec19
+);
+-&gt; at com.elo7.mockito.UserPasswordService.changePassword(UserPasswordService.java:19)
+</code></pre>
+
+<p>A mensagem de erro indica que a invocação do EmailSender.send era esperada APÓS a chamada do método UserDao.save. Agora sabemos que a ordem de invocações dos métodos do nosso código está errada.</p>
+
+<p>É importante lembrar que é perigoso nosso código depender desse tipo de detalhe; seria muito fácil para alguém que não tem o entendimento da regra de domínio da aplicação introduzir um potencial bug invertendo a ordem dos métodos (alteração aparentemente inocente). Mas o Java é uma linguagem baseada no paradigma imperativo, então esse tipo de implementação é praticamente inevitável (em outras linguagens baseadas no paradigma funcional poderíamos, por exemplo, enviar um bloco de código para ser executado como um callback pelo próprio método UserDao.save, após a persistência ser realizada com sucesso; claro que em Java também poderíamos fazer dessa forma, apenas não é usual).</p>
+
+<h4 id="captura-de-argumentos">Captura de argumentos</h4>
+
+<p>No exemplo acima, utilizamos a classe Email. Uma classe simples:</p>
+
+<pre><code class="language-java">public class Email {
+
+    private String receiverAddress;
+    private String subject;
+    private String body;
+
+    public void setReceiverAddress(String receiverAddress) {
+        this.receiverAddress = receiverAddress;
+    }
+
+    public String getReceiverAddress() {
+        return receiverAddress;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+}
+</code></pre>
+
+<p>No nosso código, criamos uma instância de Email e enviamos para a classe EmailSender através do método <em>send</em>. Um detalhe interessante é que nossa verificação garante que enviamos uma instância não-nula de Email, mas não que essa instância está preenchida da maneira que gostaríamos. Se um bug for introduzido no código:</p>
+
+<pre><code class="language-java">public class UserPasswordService {
+
+    public void changePassword(User user, String newPassword) {
+        // código omitido
+
+        Email email = new Email();
+        email.setReceiverAddress(user.getName()); // Trocamos o getEmail por getName!
+        email.setSubject(&quot;Alteração de senha&quot;);
+        email.setBody(&quot;Sua senha foi alterada com sucesso&quot;);
+
+        emailSender.send(email);
+    }
+}
+</code></pre>
+
+<p>Nosso teste continua passando!</p>
+
+<pre><code class="language-java">import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InOrder;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class UserPasswordServiceTest {
+
+    @Test
+    public void shouldSaveNewPasswordAndSendEmailToUser() {
+        // código omitido
+
+        InOrder inOrder = inOrder(mockUserDao, mockEmailSender);
+
+        inOrder.verify(mockUserDao).save(user);
+
+        //Essa verificação passa sem problema. Afinal, a ordem das chamadas está correta, e passamos uma instância não-nula de Email, certo?
+        inOrder.verify(mockEmailSender).send(notNull(Email.class));
+    }
+}
+</code></pre>
+
+<p>E agora? Nosso problema é que precisamos acessar a instância de Email que foi enviada para o método <em>send</em> para validarmos o seu estado; não é algo tão difícil de se resolver. Poderíamos implementar o método equals do objeto Email para comparar os campos relevantes entre duas instâncias e utilizar o matcher <em>eq()</em>.</p>
+
+<pre><code class="language-java">public class Email {
+
+    //código omitido
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Email) {
+            Email that = (Email) obj;
+
+            return Objects.equals(this.receiverAddress, that.receiverAddress)
+                &amp;&amp; Objects.equals(this.subject, that.subject)
+                &amp;&amp; Objects.equals(this.body, that.body);
+
+        } else {
+            return false;
+        }
+    }
+
+}
+</code></pre>
+
+<pre><code class="language-java">import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InOrder;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class UserPasswordServiceTest {
+
+    @Test
+    public void shouldSaveNewPasswordAndSendEmailToUser() {
+        // código omitido
+
+        Email email = new Email();
+        email.setReceiverAddress(user.getEmail()); // nosso código ainda está utilizando user.getName()
+        email.setSubject(&quot;Alteração de senha&quot;);
+        email.setBody(&quot;Sua senha foi alterada com sucesso&quot;);
+
+        //a verificação quebra pois os dados do Email enviado para o método serão diferentes dessa instância
+        inOrder.verify(mockEmailSender).send(eq(email));
+    }
+}
+</code></pre>
+
+<p>Normalmente essa é uma boa solução, mas a implementação do equals do Email pode ficar complicada se surgirem novos campos, e nosso teste irá depender da regra de igualdade do objeto envolvido, o que nem sempre é o desejado. Outra possibilidade é usarmos um argument matcher chamado <em>refEq</em> que compara dois objetos via reflection:</p>
+
+<pre><code class="language-java">import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InOrder;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class UserPasswordServiceTest {
+
+    @Test
+    public void shouldSaveNewPasswordAndSendEmailToUser() {
+        // código omitido
+
+        Email email = new Email();
+        email.setReceiverAddress(user.getEmail()); // nosso código ainda está utilizando user.getName()
+        email.setSubject(&quot;Alteração de senha&quot;);
+        email.setBody(&quot;Sua senha foi alterada com sucesso&quot;);
+
+        //a verificação quebra pois a comparação do campo receiverAddress irá indicar que são diferentes
+        inOrder.verify(mockEmailSender).send(refEq(email));
+    }
+}
+</code></pre>
+
+<p>O matcher <em>refEq</em> também resolve nosso problema, mas é desencorajado pelo Mockito porque seu uso pode obscurecer o propósito do teste (está claro pra você como a igualdade do objeto é resolvida?).</p>
+
+<p>Um terceiro modo seria criarmos nosso próprio argument matcher para termos acesso à instância de Email enviada ao método send:</p>
+
+<pre><code class="language-java">import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InOrder;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class UserPasswordServiceTest {
+
+    @Test
+    public void shouldSaveNewPasswordAndSendEmailToUser() {
+        // código omitido
+
+        inOrder.verify(mockUserEmailSender).send(new ArgumentMatcher&lt;Email&gt;() {
+
+            @Override
+            public boolean matches(Object argument) {
+                Email email = (Email) argument; // instância de Email enviada ao método send; podemos validar se o estado do objeto é o que desejamos
+
+                return email.getReceiverAddress().equals(user.getEmail())
+                    &amp;&amp; email.getSubject().equals(&quot;Alteração de senha&quot;)
+                    &amp;&amp; email.getBody().equals(&quot;Sua senha foi alterada com sucesso&quot;);
+            }
+        });
+    }
+}
+</code></pre>
+
+<p>Essa abordagem é desencorajada pelo Mockito porque a criação de um ArgumentMatcher, feita como no exemplo acima, pode afetar a legibilidade do teste; normalmente implementar o equals do objeto é uma solução melhor, mas sugiro que considere a criação de matchers customizados, orientados ao modelo da sua aplicação (são úteis especialmente quando desejamos reaproveitar a validação).</p>
+
+<p>As três soluções acima resolvem o nosso problema, que é garantirmos o estado do Email, e todas tem o seu lado positivo e negativo. Mas existe uma quarta possibilidade que na minha opinião é a mais elegante, além de ser a maneira recomendada pelo Mockito: o uso de uma classe especial para esse propósito, chamada <em>ArgumentCaptor</em>.</p>
+
+<pre><code class="language-java">import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InOrder;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class UserPasswordServiceTest {
+
+    @Test
+    public void shouldSaveNewPasswordAndSendEmailToUser() {
+        // código omitido
+
+        // Um ArgumentCaptor é criado pelo método de fábrica forClass; passe o tipo do argumento que você quer capturar
+        ArgumentCaptor&lt;Email&gt; emailCaptor = ArgumentCaptor.forClass(Email.class);
+
+        // Usamos o método capture() na verificação; esse método irá obter e armazenar a instância do argumento enviado para o método send
+        inOrder.verify(mockUserEmailSender).send(emailCaptor.capture());
+
+        // Agora podemos obter a instância de Email que foi criada dentro nosso código
+        Email email = emailCaptor.getValue();
+
+        // E podemos validar se o Email realmente está correto
+        assertEquals(user.getEmail(), email.getReceiverAddress()) // falha aqui, pois o código utiliza email.getName()
+        assertEquals(&quot;Alteração de senha&quot;, email.getSubject());
+        assertEquals(&quot;Sua senha foi alterada com sucesso&quot;, email.getBody());
+    }
+}
+</code></pre>
+
+<p>Também podemos criar um ArgumentCaptor utilizando a anotação <em>@Captor</em>:</p>
+
+<pre><code class="language-java">import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InOrder;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class UserPasswordServiceTest {
+
+    @Mock
+    private UserDao mockUserDao;
+
+    @Mock
+    private EmailSender mockEmailSender;
+
+    @InjectMocks
+    private UserPasswordService userPasswordService;
+
+    @Captor
+    private ArgumentCaptor&lt;Email&gt; emailCaptor;
+
+}
+</code></pre>
+
+<p>Para obter o Email capturado na chamada do método utilizamos o método <em>getValue()</em> do ArgumentCaptor; se o método fosse chamado mais de uma vez, e fosse necessário validarmos todas as invocações, isso também seria possível, pois o ArgumentCaptor possui outro método chamado <em>getAllValues()</em> que devolve uma coleção com todos os argumentos capturados (em todas as invocações do método mockado).</p>
+
+<h4 id="precisamos-verificar">Precisamos verificar?</h4>
+
+<p>Uma discussão recorrente no universo dos mocks é sobre a necessidade de verificação. Afinal, configuramos nossos mocks tendo um cenário de testes em mente, e nosso código interage com os métodos mockados. Podemos inferir que, se nosso teste passa, então os mocks estão se comportando da maneira correta. Ou seja, se nosso teste está passando, em teoria nossos mocks <strong>já estão verificados</strong>. Então, precisamos do método <em>verify</em>?</p>
+
+<p>Pessoalmente, eu utilizo verificações somente em interações mais complicadas entre objetos, como chamar o método &ldquo;a&rdquo; ou &ldquo;b&rdquo; dependendo de alguma validação, métodos que são invocados com argumentos diferentes dos que tenho acesso direto no teste, e outras situações do tipo. O fato é que é muito simples introduzir um bug com alterações aparentemente inocentes, e a verificação é a melhor maneira de confirmar que a interação entre nosso código e nossas dependências está acontecendo como queremos.</p>
+
+<p>Sempre que precisar dessa garantia, ou quiser deixar explícito no teste que o comportamento testado depende da interação com outro objeto, recomendo que utilize o <em>verify</em>.</p>
+
+<h2 id="objetos-espiões">Objetos espiões</h2>
+
+<p>Além dos mocks, outro personagem bastante comum em testes é o objeto <strong>spy</strong>. Não vou me concentrar aqui nas diferenças teóricas entre um mock e um spy, mas uma pequena explicação conceitual (superficial, admito) pode nos ajudar: um spy é essencialmente um objeto que &ldquo;engole&rdquo; uma <strong>instância real</strong> do tipo &ldquo;espionado&rdquo;, de modo que podemos utilizar normalmente esse objeto com o seu comportamento verdadeiro (é uma diferença fundamental em relação ao mock, que apenas sabe fazer o que lhe é &ldquo;ensinado&rdquo;). O termo &ldquo;espião&rdquo; se refere justamente a esse detalhe: podemos observar como nosso teste interagiu com esse objeto (como fizemos mais acima com as verificações), apesar de estarmos utilizando o seu real comportamento. Além disso, o spy também pode ter seus métodos configurados para devolver respostas pré-fabricadas, assim como os mocks.</p>
+
+<p>Ou seja, com um spy podemos utilizar tanto o comportamento real do objeto quanto configurar (&ldquo;mockar&rdquo;) os métodos que forem necessários para o nosso teste. Isso é chamado de &ldquo;partial mock&rdquo;, e é assim que o Mockito se refere a estes objetos.</p>
+
+<h4 id="criando-um-spy-no-mockito">Criando um Spy no Mockito</h4>
+
+<p>Para entendermos o funcionamento do spy (e demonstrar melhor a explicação acima), vamos utilizar objetos conhecidos da api do Java: List e ArrayList.</p>
+
+<pre><code class="language-java">import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test;
+
+public class SpySampleTest {
+
+    @Test
+    public void test() {
+
+        List&lt;String&gt; list = new ArrayList&lt;String&gt;(); // instância real
+        List&lt;String&gt; spyList = spy(list); // método spy -&gt; importado estáticamente na classe Mockito
+
+        spyList.add(&quot;one&quot;); //usa o comportamento real do método add
+        spyList.add(&quot;two&quot;);
+
+        assertEquals(2, spyList.size()); // o objeto spy é alterado
+
+        assertEquals(0, list.size()); // o objeto real NÃO é alterado. Por que?
+    }
+}
+</code></pre>
+
+<p>Explicando em detalhes os comentários do código, iniciamos o teste criando uma instância de ArrayList, e em seguida passamos esse objeto para o método <em>spy</em> da classe Mockito. Esse método cria o objeto espião encapsulando a instância real do objeto ao qual o spy faz referência. Quando utilizamos o método &ldquo;add&rdquo;, estamos utilizando de fato o método da classe ArrayList, então podemos esperar com segurança que a lista tenha dois elementos. Mas o objeto original (a variável &ldquo;list&rdquo;) não foi alterada!</p>
+
+<p>Isso é um detalhe de implementação importante no Mockito: ao criar um spy, a partir de uma instância, o Mockito cria uma <strong>cópia do objeto</strong>, de modo que alterações no objeto real não são refletidos no spy e vice-versa. É importante ser cuidadoso com esse detalhe; o ideal é que, uma vez criado o spy, você interaja com ele no seu teste, uma vez que, pela definição do que é um spy, você pode assumir que ele tem o mesmo comportamento real do objeto.</p>
+
+<p>Uma outra maneira de declarar spies é utilizando anotações:</p>
+
+<pre><code class="language-java">@RunWith(MockitoJUnitRunner.class)
+public class SpySampleTest {
+
+    @Spy
+    private List&lt;String&gt; spyList = new ArrayList&lt;String&gt;();
+
+    @Test
+    public void test() {
+        ...
+    }
+}
+</code></pre>
+
+<p>Atributos anotados com @Spy também são elegíveis para serem injetados dentro do objeto anotado com @InjectMocks (com as mesmas considerações da anotação @Mock que analisamos antes).</p>
+
+<p>Um detalhe importante sobre essas duas abordagens é que estamos inicializando um objeto que por sua vez é utilizado pelo Mockito na criação do spy. Poderíamos não fazer isso e criar o spy apenas através do tipo (seja utilizando Mockito.spy(MyType.class) ou no exemplo acima, não inicializando a variável &ldquo;spyList&rdquo;). Se você não fornecer a instância real, o Mockito tentará criá-la usando o construtor padrão do tipo; a criação do spy irá falhar se este construtor não existir, ou o tipo declarado for uma classe interna, classe abstrata ou interface.</p>
+
+<h4 id="configurando-um-spy">Configurando um Spy</h4>
+
+<p>Como dissemos antes, um spy é um &ldquo;partial mock&rdquo;; podemos configurar os métodos que desejamos com respostas pré-configuradas do mesmo modo que faríamos com um mock. Mas existem algumas diferenças na DSL do Mockito. Com o mesmo exemplo anterior, vamos tentar configurar o método &ldquo;get&rdquo; da interface List:</p>
+
+<pre><code class="language-java">@RunWith(MockitoJUnitRunner.class)
+public class SpySampleTest {
+
+    @Spy
+    private List&lt;String&gt; spyList = new ArrayList&lt;String&gt;();
+
+    @Test
+    public void test() {
+        when(spyList.get(0)).thenReturn(&quot;element&quot;); //configurando com o método when, idêntico a como fizemos com os mocks
+
+        String value = spyList.get(0);
+
+        assertEquals(&quot;element&quot;, value);
+    }
+}
+</code></pre>
+
+<p>No exemplo acima, configuramos nosso spy utilizando a DSL do Mockito da mesma maneira que fizemos com os mocks, através do método <em>when</em>. Mas este código NÃO funcionará. Por que? Porque a invocação do método &ldquo;spyList.get(0)&rdquo; irá invocar o comportamento real existente na classe ArrayList, e o comportamento é lançar uma exceção se aquele índice não existir na lista! Para configurar um spy, devemos utilizar um método diferente:</p>
+
+<pre><code class="language-java">import static org.mockito.Mockito.*;
+
+@RunWith(MockitoJUnitRunner.class)
+public class SpySampleTest {
+
+    @Spy
+    private List&lt;String&gt; spyList = new ArrayList&lt;String&gt;();
+
+    @Test
+    public void test() {
+        doReturn(&quot;element&quot;).when(spyList).get(0); // o método doReturn também está na classe Mockito
+
+        String value = spyList.get(0);
+
+        assertEquals(&quot;element&quot;, value);
+    }
+}
+</code></pre>
+
+<p>Agora o nosso teste passa sem problema. O método <em>doReturn</em> é o método correto a ser utilizado ao trabalhar com um spy; ele pode ser utilizado também com um mock mas não é recomendado, pois sua legibilidade não é tão clara quanto a do método <em>when</em>, de modo que o doReturn deve ser usado em raras ou específicas situações (o mesmo se aplica aos outros métodos iniciados com &ldquo;do&#8230;&ldquo;: <em>doThrow</em>, <em>doAnswer</em>, <em>doCallRealMethod</em>, <em>doNothing</em>).</p>
+
+<h4 id="verificações-de-métodos-do-spy">Verificações de métodos do spy</h4>
+
+<p>O método verify funciona para spies exatamente da mesma forma que analisamos para os mocks. Você pode verificar inclusive as invocações de métodos &ldquo;não mockados&rdquo;.</p>
+
+<h4 id="devemos-usar-um-spy">Devemos usar um spy?</h4>
+
+<p>A documentação do Mockito indica que o spy é uma prática a ser evitada. Uma boa prática da orientação a objetos é o <a href="https://en.wikipedia.org/wiki/Single_responsibility_principle" target="_blank">príncipio da responsabilidade única</a>, que consiste em criar objetos coesos com uma única responsabilidade; o fato de você precisar utilizar um &ldquo;partial mock&rdquo; (e não utilizar o comportamento real do objeto) <em>pode</em> (ênfase no &ldquo;pode&rdquo;) indicar que algum eventual comportamento complexo foi movido para um método específico. Esta abordagem parece boa porque, aparentemente, o seu código está &ldquo;mais fácil de testar&rdquo;; mas será que essa complexidade não deveria estar representada em OUTRO objeto?</p>
+
+<p>Nos casos de objetos com menor granularidade (digamos, uma classe de modelo), eu prefiro sempre utilizar objetos reais. Se o objeto faz parte do contexto do teste, não tem dependências externas e eu posso criar esse objeto facilmente (com um simples &ldquo;new&rdquo;), eu considero que o teste fica mais claro e mais simples de ser entendido. Mas eventualmente esse objeto pode ter algum método cuja implementação não é conveniente para o nosso teste; para esse tipo de caso, eu prefiro utilizar o Spy.</p>
+
+<p>Um exemplo: em uma aplicação e-commerce, um objeto que provavelmente teríamos é o que representa o &ldquo;carrinho de compras&rdquo;; digamos que internamente esse objeto possui uma lista de produtos, entre outras coisas. Digamos que esse mesmo objeto possui um método que retorne o valor total do carrinho, somando o valor de todos os produtos, custo do frete, algum eventual cupom de desconto inserido pelo cliente&#8230;Em algum teste que faz uso do &ldquo;carrinho de compras&rdquo; e da lista de produtos, pode ser mais legível instanciá-lo e preencher os produtos manualmente (pode ser mais legível do que utilizar um mock), mas talvez toda essa lógica que envolve o &ldquo;valor total&rdquo; não seja relevante (mesmo que você precise utilizar esse método). Neste caso, poderíamos fazer uso do comportamento verdadeiro do &ldquo;carrinho de compras&rdquo; e configurar os métodos que necessitarmos com os valores pré-estabelecidos no nosso teste.</p>
+
+<p>Essa observação do Mockito é relevante e deve ser levada em consideração mas, obviamente, você não deve vê-la como uma regra escrita na pedra. Deixe que o seu teste forneça feedback sobre o seu design e refatore onde fizer sentido.</p>
+
+<h2 id="outras-dicas">Outras dicas</h2>
+
+<h4 id="mock-com-mais-de-uma-interface">Mock com mais de uma interface</h4>
+
+<p>Temos as interfaces abaixo:</p>
+
+<pre><code class="language-java">public interface FooService {
+
+    public void foo();
+}
+
+public interface BarService {
+
+    public void bar();
+}
+</code></pre>
+
+<p>E este código:</p>
+
+<pre><code class="language-java">public class MyType {
+
+    private final FooService myService;
+
+    public MyType(FooService myService) {
+        this.myService = myService;
+    }
+
+    public void process() {
+        myService.foo();
+
+        if (myService instanceof BarService) {
+            ((BarService) myService).bar();
+        }
+    }
+}
+</code></pre>
+
+<p>Nosso maior problema aqui é a verificação de tipo realizada com o &ldquo;instanceof&rdquo; do Java. É um código estranho (e não incomum!), afinal FooService não tem nenhuma relação de tipo com BarService (não fazem parte da mesma hierarquia). Um teste possível para essa classe poderia ser:</p>
+
+<pre><code class="language-java">@RunWith(MockitoJUnitRunner.class)
+public class MyTypeTest {
+
+    @Mock
+    private FooService mockFooService;
+
+    @InjectMocks
+    private MyType myType;
+
+    @Test
+    public void test() {
+        myType.process();
+
+        verify(mockFooService).foo();
+    }
+}
+</code></pre>
+
+<p>Esse teste irá passar, mas a execução não vai entrar no &ldquo;if&rdquo; da verificação pelo instanceof; afinal, um FooService não é um BarService. Como podemos testar esse trecho do código?</p>
+
+<p>Poderíamos alterar a declaração do BarService para:</p>
+
+<pre><code class="language-java">public interface BarService extends FooService {
+
+    public void bar();
+}
+</code></pre>
+
+<p>E injetar um mock de BarService. Isso resolveria, mas essa relação faz sentido (um BarService É UM FooService)? Mesmo que sim, e se não pudéssemos alterar o código (se fossem interfaces de uma biblioteca de terceiros)?</p>
+
+<p>Poderíamos criar um objeto para os propósito do nosso teste que resolvesse essa questão (uma prática conhecida como &ldquo;objeto stub&rdquo;):</p>
+
+<pre><code class="language-java">public class MyStub implements FooService, BarService { //implementando as duas interfaces
+
+    public void bar() {
+    }
+
+    public void foo() {
+    }
+}
+</code></pre>
+
+<p>E injetarmos uma instância de MyStub dentro do nosso código. Essa abordagem também resolveria nosso problema mas parece que estamos fazendo &ldquo;código demais&rdquo;. Como o Mockito pode nos ajudar nessa situação?</p>
+
+<p>No início do post, dissemos que um mock, entre outras coisas, é <strong>um objeto criado em tempo de execução</strong>. Criar um mock é o equivalente a criarmos dinamicamente um objeto como o <em>MyStub</em> acima; então, também podemos criar um mock que &ldquo;implemente&rdquo; mais de uma interface!</p>
+
+<p>A anotação @Mock possui um parâmetro chamado <em>extraInterfaces</em> que podemos utilizar para esse fim:</p>
+
+<pre><code class="language-java">@RunWith(MockitoJUnitRunner.class)
+public class MyTypeTest {
+
+    @Mock(extraInterfaces = BarService.class)
+    private FooService mockFooService;
+
+    @InjectMocks
+    private MyType myType;
+
+    @Test
+    public void test() {
+        myType.process();
+
+        verify(mockFooService).foo();
+
+        verify((BarService) mockFooService).bar(); // podemos inclusive fazer o cast, pois agora a variável mockFooService É UM BarService
+    }
+}
+</code></pre>
+
+<p>Esse parâmetro é um array de interfaces; você pode passar quantas forem necessárias. Esse recurso também funciona se o tipo declarado da variável for um tipo concreto.</p>
+
+<p>Lembrando: aquele código é realmente uma prática que você NÃO deve utilizar (viola o <a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle" target="_blank">príncipio da substituição de Liskov</a>), mas não é raro encontrá-lo em códigos legados :(.</p>
+
+<h2 id="configuração-de-métodos-void">Configuração de métodos void</h2>
+
+<p>Para esse exemplo vou usar a interface FooService que declaramos no exemplo anterior. Digamos que queremos configurar o lançamento de uma exceção quando o método &ldquo;FooService.foo()&rdquo; for invocado:</p>
+
+<pre><code class="language-java">@Mock
+private FooService mockFooService;
+
+@Test
+public void test() {
+    when(mockFooService.foo())... //foo() é um método void -&gt; é impossível para o Mockito continuar
+}
+</code></pre>
+
+<p>O parâmetro do método <em>when</em> é o <strong>tipo</strong> do objeto retornado pelo método a ser configurado; a partir dele completamos a configuração com os métodos thenReturn(o tipo esperado), thenThrow, etc. Se o método que desejamos configurar tem o seu retorno do tipo <em>void</em>, é impossível ao Mockito continuar a cadeia de métodos. A conclusão é: essa DSL de configuração de métodos &ldquo;when().then*()&rdquo; <strong>funciona apenas com métodos de retorno não-void</strong>. A solução é outra parte da API do Mockito que já vimos antes com os spies: a família de métodos <em>do*</em>:</p>
+
+<pre><code class="language-java">@Mock
+private FooService mockFooService;
+
+@Test
+public void test() {
+    doThrow(new RuntimeException(&quot;error&quot;)).when(mockFooService).foo();
+}
+</code></pre>
+
+<p>Como comentei antes, os métodos <em>doReturn</em>, <em>doNothing</em>, <em>doAnswer</em> e <em>doThrow</em> não são tão legíveis quanto a estrutura &ldquo;when().then*()&ldquo;, e devem ser usados em casos raros e específicos; o exemplo acima é um desses cenários.</p>
+
+<p>Um detalhe a respeito da configuração de métodos void: pessoalmente eu só os configuro quando desejo lançar alguma exceção. Há quem goste de configurar o mock para deixar explícito que aquela invocação do método não terá efeito:</p>
+
+<pre><code class="language-java">@Mock
+private FooService mockFooService;
+
+@Test
+public void test() {
+    doNothing().when(mockFooService).foo();
+}
+</code></pre>
+
+<p>É uma preocupação justa, mas acho desnecessário; o comportamento padrão da invocação de um método void é justamente não fazer nada :).</p>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<p>Apesar do post longo, espero ter conseguido abordar as principais funcionalidades e recursos mais avançados do Mockito. Espero que tenha gostado, e que este post seja útil para você. Em caso de dúvidas ou críticas, sinta-se à vontade para utilizar a caixa de comentários!</p>
+
+<p>Até a próxima!</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/java/'>java</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/mockito/'>mockito</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/tdd/'>tdd</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2ftestes-codigo-mockito%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=testes-de-c%25C3%25B3digo-com-mockito&url=https%3a%2f%2felo7.dev%2ftestes-codigo-mockito%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/testes-codigo-mockito/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/testes-codigo-mockito/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='No trabalho da Engenharia do Elo7, valorizamos bastante a qualidade do código que produzimos. Isso passa por várias etapas: boas práticas de código, programação pareada, revisões cuidadosas e, claro, testes. Muitos testes...'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2016-05-02 00:00:00 \x2b0000 UTC:\/testes-codigo-mockito\/';
+            var disqus_url = 'https:\/\/elo7.dev\/testes-codigo-mockito\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

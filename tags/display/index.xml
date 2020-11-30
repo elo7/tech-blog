@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Display on Tech Blog Elo7</title>
+    <link>https://elo7.dev/tags/display/</link>
+    <description>Recent content in Display on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 24 Jul 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://elo7.dev/tags/display/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CSS Basics - Display</title>
+      <link>https://elo7.dev/css-basics-display/</link>
+      <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/css-basics-display/</guid>
+      <description>Este será o primeiro de uma série de posts sobre CSS Básico. A ideia desses posts é explicar como funciona cada uma das propriedades do CSS que na teoria &amp;ldquo;todo mundo conhece&amp;rdquo;. Vamos entender como usar cada uma delas sem ficarmos apenas &amp;ldquo;chutando&amp;rdquo; até descobrir o que funciona e nunca mais mexer. Nesse primeiro post falaremos sobre a propriedade display.
+A propriedade display é muito importante para o controle do layout, pois indica a caixa de renderização para cada elemento.</description>
+    </item>
+    
+  </channel>
+</rss>

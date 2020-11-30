@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,javascript,npm,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Builds mais rápidos e portáveis com npm-run-all'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Builds mais rápidos e portáveis com npm-run-all'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/npm-run-all.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Builds mais rápidos e portáveis com npm-run-all'>
+	<meta property='og:url' content='https://elo7.dev/npm-run-all/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Builds mais rápidos e portáveis com npm-run-all'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/npm-run-all/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/npm-run-all.png'>
+
+	<link rel='canonical' href='https://elo7.dev/npm-run-all/'>
+	<title>Elo7 Tech - Builds mais rápidos e portáveis com npm-run-all</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='front-end'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/npm-run-all.png' alt='Builds mais rápidos e portáveis com npm-run-all' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Builds mais rápidos e portáveis com npm-run-all</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2019-03-25 00:00:00 &#43;0000 UTC'
+    aria-label='25 de março de 2019'>
+    25/03/2019
+    <meta itemprop='datePublished' content='Mon Mar 25 2019 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Mar 25 2019 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2019-03-25'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='luiz' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/luiz/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/luiz'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='luiz'>@luiz</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Quando precisamos baixar dependências, compilar arquivos e gerar assets em nossas aplicações, é comum utilizarmos alguma ferramenta para automatizar esse processo. Uma ferramenta que tem se tornado cada vez mais popular para esse fim são os scripts do <strong>npm</strong>. Cada um dos scripts pode ser um comando qualquer de terminal, inclusive uma combinação de comandos usando os operadores <code>&amp;&amp;</code>, <code>|</code> (<em>pipe</em>) e <code>;</code>. Além disso, nos scripts do <strong>npm</strong> conseguimos chamar comandos de pacotes <strong>npm</strong> referenciados pelo nosso projeto de forma bem direta. O exemplo abaixo mostra como poderia ser um script para minificar os arquivos Javascript de um projeto.</p>
+
+<pre><code class="language-json">...
+&quot;name&quot;: &quot;meuprojeto&quot;,
+&quot;scripts&quot;: {
+    &quot;build:js&quot;: &quot;concat-cli -f js/*.js -o js/build.js &amp;&amp; uglify js/build.js -o js/build.min.js&quot;,
+    ...
+},
+...
+</code></pre>
+
+<p>Um olhar atento nos permite perceber alguns problemas com esse script:</p>
+
+<ul>
+<li><strong>Só funciona em Linux e Mac OSX</strong>: por usar o operador <code>&amp;&amp;</code>, o script não funciona em todas as plataformas.</li>
+<li><strong>Pouco legível</strong>: conforme a quantidade de comandos ou de parâmetros aumenta, fica cada vez mais difícil entender o que o comando faz.</li>
+</ul>
+
+<p>Podemos até usar os scripts especiais <code>pre</code> e <code>post</code> (no exemplo, <code>prebuild:js</code> e <code>postbuild:js</code>) para diminuir esses problemas. Porém, caso nosso script tenha mais de três passos, voltaremos a ter esses mesmos problemas. Podemos tentar dividir um script em mais partes ainda:</p>
+
+<pre><code class="language-json">...
+&quot;name&quot;: &quot;meuprojeto&quot;,
+&quot;scripts&quot;: {
+    &quot;build:js&quot;: &quot;npm run build:js:desktop &amp;&amp; npm run build:js:mobile &amp;&amp; npm run build:js:app&quot;,
+    &quot;build:js:desktop&quot;: &quot;concat-cli -f js/desktop/*.js -o js/desktop/build.js &amp;&amp; uglify js/desktop/build.js -o js/desktop/build.min.js&quot;,
+    &quot;build:js:mobile&quot;: &quot;...&quot;,
+    ...
+},
+...
+</code></pre>
+
+<p>Com isso, conseguimos melhorar um pouco a legibilidade de comandos mais complexos mas, ainda assim, temos o problema da compatibilidade entre plataformas. Além disso, surge um novo problema: caso usemos variáveis em nosso <code>package.json</code> em nossos scripts, precisamos lembrar de repassá-las em cada uma dessas chamadas <code>npm run</code>. Por exemplo:</p>
+
+<pre><code class="language-json">...
+&quot;name&quot;: &quot;meuprojeto&quot;,
+&quot;config&quot;: {
+    &quot;jsdir&quot;: &quot;js&quot;
+},
+&quot;scripts&quot;: {
+    &quot;build:js&quot;: &quot;npm run build:js:desktop --meuprojeto:jsdir=$npm_package_config_jsdir &amp;&amp; npm run build:js:mobile --meuprojeto:jsdir=$npm_package_config_jsdir &amp;&amp; npm run build:js:app --meuprojeto:jsdir=$npm_package_config_jsdir&quot;,
+    &quot;build:js:desktop&quot;: &quot;concat-cli -f $npm_package_config_jsdir/desktop/*.js -o $npm_package_config_jsdir/desktop/build.js &amp;&amp; uglify $npm_package_config_jsdir/desktop/build.js -o $npm_package_config_jsdir/desktop/build.min.js&quot;,
+    &quot;build:js:mobile&quot;: &quot;...&quot;,
+    ...
+},
+...
+</code></pre>
+
+<p>Novamente a legibilidade acaba prejudicada, além de ser um ponto fácil de se esquecer e difícil de perceber (pelo menos pela experiência que tivemos até aqui). Foi com o intuito de resolver esses problemas de uma forma elegante que surgiu o pacote <a href="https://github.com/mysticatea/npm-run-all">npm-run-all</a>.</p>
+
+<h2 id="uso-básico">Uso básico</h2>
+
+<p>Instalar o pacote <code>npm-run-all</code> é simples como instalar qualquer pacote <code>npm</code>:</p>
+
+<pre><code>$ npm install npm-run-all --save-dev
+# ou
+$ yarn add npm-run-all --dev
+</code></pre>
+
+<p>Uma vez instalado, teremos a nossa disposição o comando <code>npm-run-all</code> nos nossos scripts do <strong>npm</strong>. Esse comando recebe uma lista de nomes de scripts do <strong>npm</strong> e executa-os em sequência. Por exemplo, podemos re-escrever o exemplo anterior da seguinte forma:</p>
+
+<pre><code class="language-json">...
+&quot;name&quot;: &quot;meuprojeto&quot;,
+&quot;config&quot;: {
+    &quot;jsdir&quot;: &quot;js&quot;
+},
+&quot;scripts&quot;: {
+    &quot;build:js&quot;: &quot;npm-run-all build:js:desktop build:js:mobile build:js:app&quot;,
+    &quot;build:js:desktop&quot;: &quot;concat-cli -f $npm_package_config_jsdir/desktop/*.js -o $npm_package_config_jsdir/desktop/build.js &amp;&amp; uglify $npm_package_config_jsdir/desktop/build.js -o $npm_package_config_jsdir/desktop/build.min.js&quot;,
+    &quot;build:js:mobile&quot;: &quot;...&quot;,
+    ...
+},
+...
+</code></pre>
+
+<p>Repare que não é necessário repassar as variáveis de configuração do <code>package.json</code> para cada um dos scripts: o <code>npm-run-all</code> já faz isso para nós! Caso um dos scripts não execute corretamente, os scripts seguintes não serão executados, igualzinho o que acontece quando usamos o operador <code>&amp;&amp;</code>. Se, por acaso, quisermos que a execução continue no caso de um erro (como se estivéssemos usando o operador <code>;</code>), basta usarmos a opção <code>-c</code>.</p>
+
+<h2 id="facilidades">Facilidades</h2>
+
+<p>O <code>npm-run-all</code> oferece algumas facilidades para a execução de muitos scripts. Por exemplo, podemos usar a opção <code>-l</code> (ou <code>--print-label</code>) para que cada linha de saída dos scripts executados receba um rótulo, facilitando a identificação do script executado em cada momento.</p>
+
+<pre><code>[build:js:desktop] Excluindo arquivos gerados anteriormente
+[build:js:desktop] Concatenando...
+[build:js:desktop] Minificando build.js
+[build:js:desktop] Concluído
+[build:js:mobile] Excluindo arquivos gerados anteriormente
+[build:js:mobile] Concatenando...
+[build:js:mobile] Minificando build.js
+[build:js:mobile] Concluído
+...
+</code></pre>
+
+<p>Mais interessante ainda: caso usemos a nomenclatura <code>script:subscript</code> para nomear nossos scripts, conseguimos especificar um conjunto de scripts para ser executado usando o operador <code>*</code>. Por exemplo:</p>
+
+<pre><code class="language-json">...
+&quot;name&quot;: &quot;meuprojeto&quot;,
+&quot;config&quot;: {
+    &quot;jsdir&quot;: &quot;js&quot;
+},
+&quot;scripts&quot;: {
+    &quot;build:js&quot;: &quot;npm-run-all build:js:*&quot;,
+    &quot;build:js:desktop&quot;: &quot;concat-cli -f $npm_package_config_jsdir/desktop/*.js -o $npm_package_config_jsdir/desktop/build.js &amp;&amp; uglify $npm_package_config_jsdir/desktop/build.js -o $npm_package_config_jsdir/desktop/build.min.js&quot;,
+    &quot;build:js:mobile&quot;: &quot;...&quot;,
+    ...
+},
+...
+</code></pre>
+
+<p>Os scripts serão executados na ordem em que foram especificados no <code>package.json</code>. Assim, no exemplo acima, ao executar o script <code>build:js</code>, o script <code>build:js:desktop</code> seria executado e, em seguida, o script <code>build:js:mobile</code>.</p>
+
+<h2 id="paralelismo">Paralelismo</h2>
+
+<p>Quando dividimos nossos scripts em pequenas partes e essas partes são independentes umas das outras, ganhamos a possibilidade de executá-los em paralelo. No exemplo anterior, poderíamos executar os scripts <code>build:js:desktop</code> e <code>build:js:mobile</code> em paralelo.</p>
+
+<p>Sem o <code>npm-run-all</code> e em um ambiente Linux ou Mac OSX, poderíamos atingir esse objetivo usando o operador <code>&amp;</code>:</p>
+
+<pre><code class="language-json">...
+&quot;name&quot;: &quot;meuprojeto&quot;,
+&quot;scripts&quot;: {
+    &quot;build:js&quot;: &quot;npm run build:js:desktop &amp; npm run build:js:mobile&quot;,
+    &quot;build:js:desktop&quot;: &quot;concat-cli -f js/desktop/*.js -o js/desktop/build.js &amp;&amp; uglify js/desktop/build.js -o js/desktop/build.min.js&quot;,
+    &quot;build:js:mobile&quot;: &quot;...&quot;,
+    ...
+},
+...
+</code></pre>
+
+<p>Porém, novamente estaríamos usando uma solução não portável, além de não termos muito controle sobre a execução paralela. Agora, com o <code>npm-run-all</code>, executar scripts em paralelo de forma portável torna-se muito simples!</p>
+
+<pre><code class="language-json">...
+&quot;name&quot;: &quot;meuprojeto&quot;,
+&quot;scripts&quot;: {
+    &quot;build:js&quot;: &quot;npm-run-all -p build:js:*&quot;,
+    &quot;build:js:desktop&quot;: &quot;concat-cli -f js/desktop/*.js -o js/desktop/build.js &amp;&amp; uglify js/desktop/build.js -o js/desktop/build.min.js&quot;,
+    &quot;build:js:mobile&quot;: &quot;...&quot;,
+    ...
+},
+...
+</code></pre>
+
+<p>Repare que a forma de usar o <code>npm-run-all</code> não muda praticamente nada, só uma opção a mais na chamada já faz com que a execução seja paralela.</p>
+
+<p>Além de tornar a execução paralela de scripts mais fácil e portável, o <code>npm-run-all</code> provê alguns recursos para controlar essa execução. Por exemplo, podemos controlar o nível de paralelismo, que por padrão é ilimitado, com a opção <code>--max-parallel &lt;n&gt;</code>, em que <code>n</code> é o número máximo de tarefas que aceitamos executar paralelamente. Também há a opção <code>--race</code> ou <code>-r</code>, que faz com que o <code>npm-run-all</code> encerre todos os scripts em execução paralela assim que o primeiro terminar.</p>
+
+<p>A opção <code>-l</code> torna-se especialmente interessante no modo de execução paralelo, pois nos permite verificar o paralelismo e entender melhor a saída dos scripts. Por exemplo, se tivermos o seguinte <code>package.json</code>:</p>
+
+<pre><code class="language-json">...
+&quot;name&quot;: &quot;meuprojeto&quot;,
+&quot;scripts&quot;: {
+    &quot;build:js&quot;: &quot;npm-run-all -l -p build:js:*&quot;,
+    &quot;build:js:desktop&quot;: &quot;concat-cli -f js/desktop/*.js -o js/desktop/build.js &amp;&amp; uglify js/desktop/build.js -o js/desktop/build.min.js&quot;,
+    &quot;build:js:mobile&quot;: &quot;...&quot;,
+    ...
+},
+...
+</code></pre>
+
+<p>E executarmos o script <code>build:js</code>, é possível que tenhamos a seguinte saída:</p>
+
+<pre><code>[build:js:desktop] Excluindo arquivos gerados anteriormente
+[build:js:mobile] Excluindo arquivos gerados anteriormente
+[build:js:desktop] Concatenando...
+[build:js:mobile] Concatenando...
+[build:js:desktop] Minificando build.js
+[build:js:mobile] Minificando build.js
+[build:js:desktop] Concluído
+[build:js:mobile] Concluído
+...
+</code></pre>
+
+<p>Se quisermos tornar a saída mais organizada mesmo numa execução paralela, podemos passar a opção <code>--aggregate-output</code>. Com ela, o <code>npm-run-all</code> vai armazenando a saída de um script até que ele termine sua execução para, só então, imprimir a saída completa, evitando que a saída dos subscripts apareça intercalada.</p>
+
+<h2 id="run-p-run-s-e-execuções-avançadas">run-p, run-s e execuções avançadas</h2>
+
+<p>Para facilitar ainda mais a nossa vida, o pacote <code>npm-run-all</code> fornece mais dois <strong>comandos</strong>: o <code>run-s</code> e o <code>run-p</code>. Eles são atalhos para o <code>npm-run-all</code> e o <code>npm-run-all -p</code>, respectivamente. Ou seja, podemos re-escrever o último exemplo da seguinte forma:</p>
+
+<pre><code class="language-json">...
+&quot;name&quot;: &quot;meuprojeto&quot;,
+&quot;scripts&quot;: {
+    &quot;build:js&quot;: &quot;run-p -l build:js:*&quot;,
+    &quot;build:js:desktop&quot;: &quot;concat-cli -f js/desktop/*.js -o js/desktop/build.js &amp;&amp; uglify js/desktop/build.js -o js/desktop/build.min.js&quot;,
+    &quot;build:js:mobile&quot;: &quot;...&quot;,
+    ...
+},
+...
+</code></pre>
+
+<p>Repare que podemos passar a opção <code>-l</code> para o <code>run-p</code> também. Ambos os comando aceitam <em>praticamente todas</em> as opções do <code>npm-run-all</code>. As exceções são as opções <code>-s</code> e <code>-p</code>, já que o <code>run-s</code> e o <code>run-p</code> são abreviações dessas opções, e, no caso do <code>run-s</code>, as opções <code>--max-parallel</code> e <code>-r</code>, que só fazem sentido na execução paralela.</p>
+
+<p>Mas então quando usar o comando <code>npm-run-all</code> diretamente? Imagine que queremos criar um script que processa paralelamente arquivos Javascript e CSS do projeto e, em seguida, acrescenta uma assinatura MD5 ao nome dos arquivos e envia-os a um servidor. Esses dois últimos passos não podem ser executados em paralelo, então temos um fluxo de processamento misto, com partes paralelas e partes sequenciais. Podemos fazer isso num único comando com o <code>npm-run-all</code>:</p>
+
+<pre><code class="language-json">...
+&quot;name&quot;: &quot;meuprojeto&quot;,
+&quot;scripts&quot;: {
+    &quot;deploy&quot;: &quot;npm-run-all -l -p build:* -s md5 upload&quot;,
+    &quot;build:js&quot;: &quot;concat-cli ...&quot;,
+    &quot;build:css&quot;: &quot;node-sass ...&quot;,
+    &quot;md5&quot;: &quot;...&quot;,
+    &quot;upload&quot;: &quot;scp ...&quot;
+},
+...
+</code></pre>
+
+<p>Conforme vamos passando as opções <code>-s</code> e <code>-p</code>, o <code>npm-run-all</code> vai alternando a forma de execução dos scripts passados como parâmetro. Assim, conseguimos combinações bastante flexíveis!</p>
+
+<p>Contudo, recomendo quebrar o script em tarefas menores sempre que possível, para facilitar a legibilidade e a manutenção do <code>package.json</code>. No exemplo acima, poderíamos fazer da seguinte forma:</p>
+
+<pre><code class="language-json">...
+&quot;name&quot;: &quot;meuprojeto&quot;,
+&quot;scripts&quot;: {
+    &quot;deploy&quot;: &quot;run-s -l md5 upload&quot;,
+    &quot;build&quot;: &quot;run-p -l build:*&quot;,
+    &quot;build:js&quot;: &quot;concat-cli ...&quot;,
+    &quot;build:css&quot;: &quot;node-sass ...&quot;,
+    &quot;md5&quot;: &quot;...&quot;,
+    &quot;upload&quot;: &quot;scp ...&quot;
+},
+...
+</code></pre>
+
+<p>Vale observar, também, que os scripts <code>pre</code> e <code>post</code> do <strong>npm</strong> funcionam normalmente com o <code>npm-run-all</code>, o que significa que podemos quebrar ainda mais nossos scripts sem precisar necessariamente complicar os scripts de nível mais alto. Por exemplo, caso queiramos concatenar, compilar e minificar os arquivos Javascript no exemplo anterior, podemos fazer:</p>
+
+<pre><code class="language-json">...
+&quot;name&quot;: &quot;meuprojeto&quot;,
+&quot;scripts&quot;: {
+    &quot;deploy&quot;: &quot;run-s -l md5 upload&quot;,
+    &quot;build&quot;: &quot;run-p -l build:*&quot;,
+    &quot;prebuild:js&quot;: &quot;concat-cli ...&quot;,
+    &quot;build:js&quot;: &quot;babel-node ...&quot;,
+    &quot;postbuild:js&quot;: &quot;uglify ...&quot;,
+    &quot;build:css&quot;: &quot;node-sass ...&quot;,
+    &quot;md5&quot;: &quot;...&quot;,
+    &quot;upload&quot;: &quot;scp ...&quot;
+},
+...
+</code></pre>
+
+<p>Dessa forma, cada script fica com uma única responsabilidade bem definida e o fluxo de execução fica bem definido, sem muita complicação na especificação:</p>
+
+<pre><code>       +--&gt; prebuild:js +-&gt; build:js +-&gt; postbuild:js +
+deploy |                                              +-&gt; md5 +-&gt; upload
+       +--&gt; build:css +-------------------------------+
+</code></pre>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<p>Usar o <code>package.json</code> para especificar os scripts de que sua aplicação depende é uma prática cada vez mais comum mas que, como toda tecnologia, tem suas limitações. O <code>npm-run-all</code> soluciona algumas dessas limitações de forma bastante elegante, tornando os scripts <strong>npm</strong> ainda mais interessantes como ferramenta de desenvolvimento.</p>
+
+<p>Contudo, vale sempre o cuidado e o bom senso para não abusar de suas funcionalidades. Uma especificação de dependências entre scripts muito complexa pode tornar o projeto muito difícil de manter, e as facilidades que o <code>npm-run-all</code> traz tornam mais fácil escrever uma especificação complexa.</p>
+
+<p>Vale observar, também, que o <code>npm-run-all</code> não é a única ferramenta que fornece esse tipo de funcionalidade. A biblioteca <a href="https://github.com/kimmobrunfeldt/concurrently">concurrently</a> também permite a execução paralela de scripts, dá mais controle sobre a entrada e saída dos scripts, reinicia scripts que falharam, dentre outras funcionalidades.</p>
+
+<p>Você já usou ou usa o <code>npm-run-all</code>, o <code>concurrently</code> ou outra ferramenta similar? Conte para nós sua experiência!</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/javascript/'>javascript</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/npm/'>npm</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fnpm-run-all%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=builds-mais-r%25C3%25A1pidos-e-port%25C3%25A1veis-com-npm-run-all&url=https%3a%2f%2felo7.dev%2fnpm-run-all%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/npm-run-all/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/npm-run-all/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Lutando para deixar o build de sua aplicação Javascript mais rápido? Sofrendo com cadeias intermináveis de comandos num único script npm? Esse post mostra como o pacote npm-run-all pode ajudar.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2019-03-25 00:00:00 \x2b0000 UTC:\/npm-run-all\/';
+            var disqus_url = 'https:\/\/elo7.dev\/npm-run-all\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

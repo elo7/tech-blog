@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,javascript,isomorfico,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Javascript Isomórfico'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Javascript Isomórfico'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/isomorfico.jpg'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Javascript Isomórfico'>
+	<meta property='og:url' content='https://elo7.dev/isomorfismo/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Javascript Isomórfico'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/isomorfismo/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/isomorfico.jpg'>
+
+	<link rel='canonical' href='https://elo7.dev/isomorfismo/'>
+	<title>Elo7 Tech - Javascript Isomórfico</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='front-end'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/isomorfico.jpg' alt='Javascript Isomórfico' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Javascript Isomórfico</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2017-01-30 00:00:00 &#43;0000 UTC'
+    aria-label='30 de janeiro de 2017'>
+    30/01/2017
+    <meta itemprop='datePublished' content='Mon Jan 30 2017 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Jan 30 2017 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2017-01-30'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='fernandabernardo' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/fernandabernardo/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/fernandabernardo'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='fernandabernardo'>@fernandabernardo</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Novos frameworks são criados a todo momento e um novo nome está criando mais força no mundo Javascript: isomorfismo. Farei uma série de posts para explicar melhor esse conceito e algumas aplicações dele com o uso de frameworks. Nesse primeiro post, será abordada uma parte mais teórica sobre o que é isomorfismo.</p>
+
+<h2 id="voltando-no-tempo">Voltando no tempo</h2>
+
+<p>Antes de falar de fato do isomorfismo, é interessante pensar em o que aconteceu na história para surgir a necessidade de utilizar um código Javascript isomórfico.
+No final de 1990, Tim Berners-Lee publicou uma proposta de gerenciamento de informações mais formal para a <em>World Wide Web</em>. Em 1993, lançaram o <a href="https://pt.wikipedia.org/wiki/Mosaic">Mosaic</a>, o primeiro navegador WWW, que rodava tanto em Windows quanto em Linux, a qual abriu a web para o público em geral. Nesse mesmo ano, já é possível observar as primeiras páginas estáticas, com muitos textos e imagens. <a href="http://gizmodo.com/5960831/23-ancient-web-sites-that-are-still-alive">Alguns desses sites antigos podem ser encontrados nesse artigo</a>.</p>
+
+<p><img src="../images/isomorfismo-1.png" alt="&quot;Sites estáticos: Netscape e Space Jam&quot;" /></p>
+
+<p>Já em maio de 1995, Brendan Eich criou o Javascript. Inicialmente conhecido como Mocha e mais tarde como LiveScript, o Javascript passou a ser conhecido com este nome apenas em dezembro, depois de receber uma licença da Sun. Essa mudança foi devido a uma jogada de marketing, já que o Java estava começando a ficar bem popular no mesmo período. Com o Javascript, foi possível adicionar mais interações com a página, eventos, animações&hellip;</p>
+
+<p>No final dos anos 2000, as <em>Single Page Applications</em> (SPAs) se tornaram populares. Elas são um modelo de desenvolvimento de aplicações web e mobile. Desenvolver uma SPA significa dividir a responsabilidade com o cliente, ou seja, ter mais código rodando no cliente. Elas se assemelham mais a aplicativos desktop e com elas é possível interagir com uma página sem a necessidade de atualizá-la (reload). Como não é mais necessário o reload, é possível carregar dados assincronamente para que os usuários possam fazer algo durante o primeiro carregamento da página. Temos vários exemplos de SPA (Facebook, Google Drive, Twitter, FourSquare), onde podemos realizar diversas tarefas sem ter que aguardar cada uma delas ser concluída. Um bom exemplo é o Gmail, no qual podemos enviar diversos emails em paralelo sem ter que aguardar o primeiro processo encerrar com sucesso.</p>
+
+<h2 id="problemas-atuais">Problemas atuais</h2>
+
+<p>Alguns problemas encontrados são com questões de <em>Search Engine Optimization</em> (SEO), já que, por padrão, não é possível rodar uma página dessas sem Javascript, pois todo o seu código é gerado no cliente via JS. Porém, melhora a usabilidade do usuário, tornando uma página mais fluida.</p>
+
+<p>Em 1997, o projeto do <a href="https://developer.mozilla.org/pt-BR/docs/Mozilla/Projects/Rhino">Rhino</a> foi iniciado na Netscape. O objetivo dele estava ligado ao suporte de scripting dentro de aplicações Java, e não ao desenvolvimento de aplicações completas. Anos depois, em 2009, foi criado o NodeJS e com isso é possível rodar um código Javascript no lado do servidor.</p>
+
+<p>Sendo possível rodar código Javascript no servidor e também no cliente, podemos nos fazer uma pergunta: E se fosse possível rodar <strong>um mesmo</strong> código Javascript no servidor e no cliente?</p>
+
+<h2 id="nomenclatura">Nomenclatura</h2>
+
+<p>A palavra isomorfismo no dicionário tem alguns significados, mas o que mais se assemelha ao que queremos é:
+&gt; 2. <em>miner</em> fenômeno pelo qual duas ou mais substâncias de composição química diferente se apresentam com a mesma estrutura cristalina.</p>
+
+<p>Outra nomenclatura conhecida é <strong>Javascript Universal</strong>. Esta surgiu com um <a href="https://medium.com/@mjackson/universal-javascript-4761051b7ae9#.e5tzyhurr">post</a> em 2015 do Michael Jackson (é verdade). Ele fez um <a href="https://github.com/facebook/react/pull/4041">pull request</a> para o React colocando os significados das duas nomenclaturas. No post, um dos argumentos mais interessantes é que, quando falamos para uma pessoa sobre Javascript isomórfico, ninguém entende logo o que significa, mas, se falarmos Javascript Universal, todos entendem bem mais rápido sobre o que estamos falando. No post, usarei o termo isomórfico, mas é bom saber que as duas nomenclaturas são usadas hoje em dia.</p>
+
+<h2 id="código-isomórfico">Código isomórfico</h2>
+
+<p>Depois da parte teórica, a pergunta que surge é: como isso funciona no código?
+Basicamente, temos o mesmo código que consegue rodar no cliente e no servidor. Isso é possível, já que temos a seguinte separação entre os dois lados:</p>
+
+<p><img src="../images/isomorfismo-2.png" alt="&quot;Responsabilidades do cliente/servidor&quot;" /></p>
+
+<p>Como é possível perceber, alguns pontos são repetidos dos dois lados, e são esses os pontos que serão unificados em um código só isomórfico. O resto, como, por exemplo, a parte de persistência e de sessão, faz parte unicamente do lado servidor, enquanto eventos de DOM e o Local Storage faz parte do lado cliente.</p>
+
+<p><img src="../images/isomorfismo-3.png" alt="&quot;Unificação em um código isomórfico&quot;" /></p>
+
+<p>Para exemplificar como fazer um código isomórfico e quais são as especificações do lado cliente e do servidor, segue o código abaixo, feito com EcmaScript 2015:</p>
+
+<pre><code class="language-js">class Pessoa {
+    constructor(nome, dataNascimento) {
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+    }
+
+    get idade() { ... }
+
+    get primeiroNome() { ... }
+}
+
+module.exports = Pessoa;
+</code></pre>
+
+<p>Esse arquivo é o modelo de uma pessoa, com nome e data de nascimento. Nesse modelo há dois métodos, que retornam, respectivamente, a idade e o primeiro nome. Apenas isso é importante saber no momento, toda a forma de como foi implementado é irrelevante para o exemplo. Já o próximo código é a parte mais importante, já que será nele que aplicaremos o isomorfismo.</p>
+
+<pre><code class="language-js">Pessoa = require('./pessoa');
+
+const parser = {
+    parse: function(txt) {
+        return txt.split('\n').map((linha) =&gt; {
+            let [nome, dataTxt] = linha.split(';');
+            return new Pessoa(nome, new Date(dataTxt));
+        });
+    }
+};
+
+module.exports = parser;
+</code></pre>
+
+<p>Nesse código, temos um parser para o arquivo, que separa cada linha do texto e quebra a linha em cada <code>;</code> e, com o resultado disso, cria uma nova Pessoa. O importante desse código é perceber que não utilizamos nenhum módulo do Node nem manipulamos o <code>document</code> do <em>browser</em>.</p>
+
+<p>Na primeira parte do nosso exemplo, vamos rodar todo esse código no Node, apenas no lado servidor. Para isso, criaremos mais um arquivo (<code>main.js</code>) para rodar todo o código criado.</p>
+
+<pre><code class="language-js">const parser = require('./pessoa_parser');
+const fs = require('fs');
+fs.readFile('pessoas.txt', (err, content) =&gt; {
+    let pessoas = parser.parse(content.toString());
+    console.log(pessoas);
+});
+
+</code></pre>
+
+<p>Dessa forma, quando rodamos esse arquivo no servidor, obtemos essa resposta:</p>
+
+<p><img src="../images/isomorfismo-4.png" alt="&quot;Output do código quando rodado no servidor&quot;" /></p>
+
+<p>Agora, como nosso objetivo é ter um código que rode no servidor e no cliente, precisamos criar um arquivo HTML para tentar rodar esse código que já criamos. Esse HTML ficaria parecido com o código a seguir:</p>
+
+<pre><code class="language-html">&lt;html&gt;
+    &lt;head&gt;&lt;/head&gt;
+    &lt;body&gt;
+        &lt;label&gt;Pessoas
+            &lt;textarea id='pessoas'&gt;&lt;/textarea&gt;
+        &lt;/label&gt;
+        &lt;button id='processar'&gt;Processar&lt;/button&gt;
+        &lt;script&gt;&lt;/script&gt;  &lt;!-- Import dos scripts --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Logo de início, se tentarmos abrir o arquivo em um <em>browser</em>, teremos esse erro:</p>
+
+<p><img src="../images/isomorfismo-5.png" alt="&quot;Erro quando código não isomórfico roda no browser&quot;" /></p>
+
+<p>Aqui, percebemos que o <code>module</code> e o <code>require</code>, que fazem parte da especificação do <em>node</em>, não funcionam no <em>browser</em>, apenas no servidor. Precisamos arrumar o nosso código para que ele consiga se adaptar nos diferentes ambientes. Porém, vale lembrar que não iremos alterar a função <code>parser</code>, já que esse é o código isomórfico. O lugar que vamos alterar será no <code>main.js</code>, como mostra o código a seguir:</p>
+
+<pre><code class="language-js">if (typeof module === 'object') {
+    const parser = require('./pessoa_parser');
+    const fs = require('fs');
+    fs.readFile('pessoas.txt', (err, content) =&gt; { ... });
+} else {
+    document.getElementById('processar').addEventListener('click', () =&gt; {
+        let pessoas = parser.parse(document.getElementById('pessoas').value);
+        console.log(pessoas);
+    });
+}
+</code></pre>
+
+<p>Além disso, em todos os lugares que usarem o <code>require</code> ou o <code>module</code>, teremos que fazer o seguinte <code>if</code>:</p>
+
+<pre><code class="language-js">if (typeof module === 'object') { ... }
+</code></pre>
+
+<p>Dessa forma, no servidor continuará funcionando normalmente e, no <em>browser</em>, passará a funcionar:</p>
+
+<p><img src="../images/isomorfismo-6.png" alt="&quot;Output do código no browser&quot;" /></p>
+
+<p>Agora temos um código isomórfico! (Nossa função parser :) ) Nesse <a href="https://github.com/FernandaBernardo/palestra-isomorfismo-exemplo">repositório</a> está o código completo do exemplo explicado. Finalizando, nesse post temos o que é o isomorfismo, toda a parte histórica e como funciona um código simples. No próximo post, falarei mais sobre frameworks e o que usar isomorfismo traz para seu projeto.</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/javascript/'>javascript</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/isomorfico/'>isomorfico</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fisomorfismo%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=javascript-isom%25C3%25B3rfico&url=https%3a%2f%2felo7.dev%2fisomorfismo%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/isomorfismo/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/isomorfismo/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Novos frameworks são criados a todo momento e um novo nome está criando mais força no mundo Javascript: isomorfismo.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2017-01-30 00:00:00 \x2b0000 UTC:\/isomorfismo\/';
+            var disqus_url = 'https:\/\/elo7.dev\/isomorfismo\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

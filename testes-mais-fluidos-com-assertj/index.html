@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,java,tdd,assertj,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Testes mais fluidos com AssertJ'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Testes mais fluidos com AssertJ'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/elo7.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Testes mais fluidos com AssertJ'>
+	<meta property='og:url' content='https://elo7.dev/testes-mais-fluidos-com-assertj/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Testes mais fluidos com AssertJ'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/testes-mais-fluidos-com-assertj/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/elo7.png'>
+
+	<link rel='canonical' href='https://elo7.dev/testes-mais-fluidos-com-assertj/'>
+	<title>Elo7 Tech - Testes mais fluidos com AssertJ</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='back-end'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/elo7.png' alt='Testes mais fluidos com AssertJ' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Testes mais fluidos com AssertJ</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2018-02-26 00:00:00 &#43;0000 UTC'
+    aria-label='26 de fevereiro de 2018'>
+    26/02/2018
+    <meta itemprop='datePublished' content='Mon Feb 26 2018 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Feb 26 2018 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2018-02-26'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='fabioueno' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/fabioueno/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/fabioueno'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='fabioueno'>@fabioueno</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Em um <a href="https://engenharia.elo7.com.br/a-cultura-por-tras-do-time-fora-de-serie"><em>post</em></a> anterior, o <a href="https://engenharia.elo7.com.br/leonardosouza/">Leonardo Souza</a> explicou como é a cultura da empresa e comentou sobre o <em>hackday</em>, um dia em que os desenvolvedores podem trabalhar em suas próprias ideias. Eu entrei para a empresa em outubro e nos meus primeiros meses fiquei auxiliando nas ideias de outras pessoas, pois ainda não tinha nenhuma ideia. Pouco tempo depois, a ThoughtWorks lançou a décima-sétima edição do seu <a href="https://www.thoughtworks.com/radar">radar</a> e, para minha surpresa, na área de linguagens e <em>frameworks</em> para se adotar estava apenas Python 3. Na área seguinte, para testar, estava o <a href="http://joel-costigliola.github.io/assertj"><strong>AssertJ</strong></a>. A partir desse momento resolvi explorar essa biblioteca.</p>
+
+<h2 id="motivação">Motivação</h2>
+
+<p>A primeira coisa que pensei foi: qual é a vantagem em utilizá-lo? Logo de cara, o radar nos informa que o <em>framework</em> em questão fornece uma interface fluida para asserções. Mas o que é uma interface fluida? <a href="https://martinfowler.com/bliki/FluentInterface.html">Martin Fowler</a> mostra um exemplo e comenta um pouco, mas, em resumo, é uma forma de escrever nosso código tentando nos aproximar da maneira como escrevemos no dia-a-dia.</p>
+
+<p>Esclarecidas essas dúvidas, resolvi dar uma olhada no código, de fato. Vamos supor que temos um cenário de teste em que queremos verificar se a variável <code>a</code> é igual à variável <code>b</code>.</p>
+
+<h3 id="junit">JUnit</h3>
+
+<p>Utilizando apenas JUnit, ficaríamos com o seguinte código:</p>
+
+<pre><code class="language-java">assertEquals(b, a);
+</code></pre>
+
+<p>E teríamos a seguinte importação:</p>
+
+<pre><code class="language-java">import static org.junit.Assert.assertEquals;
+</code></pre>
+
+<p>Essa asserção sempre me incomodou, pois eu não gostava de escrever primeiro o valor esperado e, só depois, o valor real. Felizmente isso não foi algo frequente no meu time, pois usamos o <a href="http://hamcrest.org">Hamcrest</a>. Aí entrou um outro ponto: qual a vantagem do AssertJ sobre o que já usamos?</p>
+
+<h3 id="hamcrest">Hamcrest</h3>
+
+<p>Para isso, vamos reescrever o teste acima, usando o que o time já estava acostumado:</p>
+
+<pre><code class="language-java">assertThat(a, equalTo(b));
+</code></pre>
+
+<p>E os <code>import</code>s:</p>
+
+<pre><code class="language-java">import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+</code></pre>
+
+<p>É possível observar que agora escrevemos na ordem que esperamos, ou seja, primeiro o valor real, depois o esperado. Um outro ponto é que aumentamos o número de <code>import</code>s para dois, mas isso é totalmente aceitável.</p>
+
+<h3 id="assertj">AssertJ</h3>
+
+<p>E, finalmente, como ficaria com o AssertJ?</p>
+
+<pre><code class="language-java">assertThat(a).isEqualTo(b);
+</code></pre>
+
+<p>E teríamos o seguinte <code>import</code>:</p>
+
+<pre><code class="language-java">import static org.assertj.core.api.Assertions.assertThat;
+</code></pre>
+
+<p>Duas coisas que me chamaram a atenção:</p>
+
+<ol>
+<li>A asserção ficou ainda melhor do que com Hamcrest (no meu ponto de vista).</li>
+<li>Temos uma linha de importação a menos.</li>
+</ol>
+
+<p>Mas, sendo sincero, quem se importa quanto à quantidade de linhas de importação? A IDE já nos auxilia e as faz de forma rápida com algum atalho. Como o propósito não é esse, mas escrever nossos testes de forma mais simples e fáceis de entender, achei que o <em>framework</em> cumpria o que prometia. Além disso, procurando por &ldquo;Hamcrest vs AssertJ&rdquo; no Google é possível ver que este vem ganhando cada vez mais espaço.</p>
+
+<p>Um ponto importante é que, mesmo fazendo as alterações, ainda é necessário aprovação do(s) time(s) envolvido(s). Dito isso, eu optei por testá-lo e comecei a migrar todas as minhas classes de teste, até chegar o momento em que não era mais necessário manter a dependência do Hamcrest.</p>
+
+<h2 id="migrando-os-testes">Migrando os testes</h2>
+
+<p>Para converter todos os testes do JUnit para o AssertJ, o próprio site oficial contém uma <a href="http://joel-costigliola.github.io/assertj/assertj-core-converting-junit-assertions-to-assertj.html">seção</a>, onde é possível fazer o <em>download</em> de um <em>script</em>, que faz as alterações automaticamente. Entretanto, para ter certeza que aprendi a utilizar o <em>framework</em> e conhecer um pouco mais de suas <em>features</em>, optei por fazer todo o processo manualmente. Felizmente não temos mais do que 58 classes de teste no projeto em questão.</p>
+
+<h3 id="adicionando-a-dependência">Adicionando a dependência</h3>
+
+<p>O primeiro passo foi adicionar a dependência ao projeto. Como usamos Gradle, adicionamos a linha seguinte em nosso <code>build.gradle</code>:</p>
+
+<pre><code class="language-java">testCompile 'org.assertj:assertj-core:3.9.0'
+</code></pre>
+
+<blockquote>
+<p>Obs: Para a versão 3.x é necessário Java 8 ou superior. Caso tenha o Java 7, use a versão 2.x. Se tiver Java 6, opte pela versão 1.x.</p>
+
+<p>Obs 2: No <a href="http://joel-costigliola.github.io/assertj/assertj-core-quick-start.html"><em>quick start</em></a> é possível encontrar o código para o Maven.</p>
+</blockquote>
+
+<h3 id="alterando-o-primeiro-teste">Alterando o primeiro teste</h3>
+
+<p>Cada <em>commit</em> meu alterava uma única classe de teste, então vamos para a primeira classe, responsável por verificar se, dado um código, há um tipo de mensagem associada ou não. Um código válido, por exemplo, é 1, enquanto que 99 é inválido. Nosso teste antes, estava da seguinte forma:</p>
+
+<pre><code class="language-java">public class MessageTypeTest {
+
+    @Test
+    public void should_return_present_when_message_type_is_valid() {
+        Optional&lt;MessageType&gt; messageType = MessageType.fromCode(1);
+
+        assertTrue(messageType.isPresent());
+        assertEquals(1, messageType.get().getCode());
+    }
+
+    @Test
+    public void should_return_empty_when_message_type_is_not_valid() {
+        Optional&lt;MessageType&gt; messageType = MessageType.fromCode(99);
+
+        assertFalse(messageType.isPresent());
+    }
+}
+</code></pre>
+
+<p>No primeiro exemplo, vimos que onde aparece <code>assertEquals()</code>, trocamos por <code>assertThat().isEqualTo()</code>. Logo, essa foi a primeira mudança que fiz:</p>
+
+<pre><code class="language-java">public class MessageTypeTest {
+
+    @Test
+    public void should_return_present_when_message_type_is_valid() {
+        Optional&lt;MessageType&gt; messageType = MessageType.fromCode(1);
+
+        assertTrue(messageType.isPresent());
+        assertThat(messageType.get().getCode()).isEqualTo(1);
+    }
+
+    @Test
+    public void should_return_empty_when_message_type_is_not_valid() {
+        Optional&lt;MessageType&gt; messageType = MessageType.fromCode(99);
+
+        assertFalse(messageType.isPresent());
+    }
+}
+</code></pre>
+
+<p>Com o que já vimos, poderíamos alterar as asserções <em>booleanas</em>, ficando com <code>assertThat(messageType.isPresent()).isEqualTo(true)</code> (ou <code>false</code> no segundo caso). Mas o <em>framework</em> nos disponibiliza dois métodos para isso, o <code>isTrue()</code> ou <code>isFalse()</code>, então podemos refatorar tudo, ficando com o código final abaixo:</p>
+
+<pre><code class="language-java">public class MessageTypeTest {
+
+    @Test
+    public void should_return_present_when_message_type_is_valid() {
+        Optional&lt;MessageType&gt; messageType = MessageType.fromCode(1);
+
+        assertThat(messageType.isPresent()).isTrue();
+        assertThat(messageType.get().getCode()).isEqualTo(1);
+    }
+
+    @Test
+    public void should_return_empty_when_message_type_is_not_valid() {
+        Optional&lt;MessageType&gt; messageType = MessageType.fromCode(99);
+
+        assertThat(messageType.isPresent()).isFalse();
+    }
+}
+</code></pre>
+
+<h3 id="próximos-testes">Próximos testes</h3>
+
+<p>A maioria dos testes continha asserções simples, como <code>assertEquals()</code>, <code>assertTrue()</code>, <code>assertFalse()</code>, <code>assertNull()</code> e <code>assertNotNull()</code>. Todas elas podem ser facilmente substituídas por, respectivamente:</p>
+
+<ul>
+<li><code>assertThat().isEqualTo()</code></li>
+<li><code>assertThat().isTrue()</code></li>
+<li><code>assertThat().isFalse()</code></li>
+<li><code>assertThat().isNull()</code></li>
+<li><code>assertThat().isNotNull()</code></li>
+</ul>
+
+<p>Conhecendo um pouquinho de inglês essa tarefa fica um pouco mais intuitiva.</p>
+
+<p>Mas a migração começa a ficar um pouco mais interessante quando começamos a mexer com coleções e <em>streams</em>.</p>
+
+<p>Uma das classes, <code>ConversationDAOIntegrationTest</code> continha métodos que verificavam o conteúdo de listas de conversas. Como podemos filtrar por mensagens não arquivadas, por exemplo, temos que verificar se determinada conversa está presente ou não numa listagem. Nosso teste estava assim:</p>
+
+<pre><code class="language-java">public class ConversationDAOIntegrationTest {
+
+    @Test
+    public void should_filter_active_conversations() {
+        // Código omitido para manter a simplicidade...
+
+        List&lt;GroupParticipation&gt; result = groups.getResults();
+
+        assertThat(result, contains(activeParticipation));
+        assertThat(result, not(contains(archivedParticipation)));
+    }
+}
+</code></pre>
+
+<p>Repare que estávamos usando Hamcrest aqui! Observe, também, que precisamos ficar encadeando chamadas de métodos para verificar se a lista não contém determinado elemento. Um pouco ruim, não? Com AssertJ, podemos fazer assim:</p>
+
+<pre><code class="language-java">public class ConversationDAOIntegrationTest {
+
+    @Test
+    public void should_filter_active_conversations() {
+        // Código omitido para manter a simplicidade...
+
+        List&lt;GroupParticipation&gt; result = groups.getResults();
+
+        assertThat(result).contains(activeParticipation);
+        assertThat(result).doesNotContain(archivedParticipation);
+    }
+}
+</code></pre>
+
+<p>Um pouco melhor, certo? Olhando um pouco mais o <a href="http://joel-costigliola.github.io/assertj/core-8/api/index.html">Javadoc</a>, vi que há outros métodos, um deles chamado de <code>containsExactly()</code>, que verifica se o grupo possui o elemento passado como parâmetro e nada mais, em ordem! Nesse caso não há problema, pois temos apenas um único parâmetro. Caso tivéssemos mais de um e a ordem não importasse, poderíamos usar ainda o <code>containsExactlyInAnyOrder()</code>. Usando o método que acabamos de descobrir, temos o seguinte:</p>
+
+<pre><code class="language-java">public class ConversationDAOIntegrationTest {
+
+    @Test
+    public void should_filter_active_conversations() {
+        // Código omitido para manter a simplicidade...
+
+        List&lt;GroupParticipation&gt; result = groups.getResults();
+
+        assertThat(result).containsExactly(activeParticipation);
+    }
+}
+</code></pre>
+
+<p>Uma outra classe, <code>ConversationCreationAcceptanceTest</code> também possui métodos envolvendo conversas. Um deles, inclusive, filtra os participantes de uma conversa, para garantir que a pessoa que criou a conversa é o comprador&hellip; Vamos dar uma olhada em como ele estava:</p>
+
+<pre><code class="language-java">public class ConversationCreationAcceptanceTest extends BaseAcceptanceTest {
+
+    @Test
+    public void should_create_a_conversation_as_buyer() {
+        // Código omitido para manter a simplicidade...
+
+        Optional&lt;Conversation&gt; optionalConversation = conversations.details();
+
+        assertTrue(optionalConversation.isPresent());
+
+        Conversation conversation = optionalConversation.get();
+
+        assertEquals(randomConversation.getExternalId(), conversation.getExternalId());
+        assertEquals(userCreation.getExternalUserId(), conversation.getLastMessage().get().getSender().getAuthorId());
+        assertEquals(1, conversation.getMembers().stream()
+                            .filter(p -&gt; p.getMemberId().equals(userCreation.getExternalUserId()))
+                            .filter(p -&gt; p.getGroupRole().equals(&quot;BUYER&quot;))
+                            .count());
+    }
+}
+</code></pre>
+
+<p>O <code>assertTrue()</code> está presente para verificar se o <code>optionalConversation</code> possui algum valor antes de realizarmos o <code>get()</code>. Como ele não nos interessa no momento e já sabemos como transformá-lo numa asserção do AssertJ, vamos passar a omití-lo. Os dois primeiros <code>assertEquals()</code> também podem ser convertidos facilmente, sobrando o último, que faz um filtro nos membros da conversa. Ao invés de criarmos um <em>stream</em> à partir da lista, podemos chamar direto o método <code>filteredOn()</code> do AssertJ, assim:</p>
+
+<pre><code class="language-java">public class ConversationCreationAcceptanceTest extends BaseAcceptanceTest {
+
+    @Test
+    public void should_create_a_conversation_as_buyer() {
+        // Código omitido para manter a simplicidade...
+
+        Conversation conversation = optionalConversation.get();
+
+        assertThat(conversation.getExternalId()).isEqualTo(randomConversation.getExternalId());
+        assertThat(conversation.getLastMessage().get().getSender().getAuthorId()).isEqualTo(userCreation.getExternalUserId());
+        assertThat(conversation.getMembers())
+            .filteredOn(conversationMember -&gt; conversationMember.getMemberId().equals(userCreation.getExternalUserId()))
+            .filteredOn(conversationMember -&gt; conversationMember.getGroupRole().equals(&quot;BUYER&quot;))
+            .hasSize(1);
+    }
+}
+</code></pre>
+
+<p>Vou bater na tecla que o AssertJ não está aqui para diminuir a quantidade de código que escrevemos (às vezes ele diminui, mas não é a regra). A ideia de utilizá-lo é tornar o código mais legível para o ser humano, como se estivéssemos escrevendo uma frase.</p>
+
+<h3 id="melhorando-os-testes">Melhorando os testes</h3>
+
+<p>O que aconteceria, no último exemplo, se a primeira asserção estiver incorreta? O restante do código nem é executado e não temos como saber se o restante está correto ou não. Ou seja, se o ID externo da conversa não for igual ao esperado, não saberemos se o ID do autor está correto, nem se ele é um comprador. Para isso, o AssertJ nos oferece <em>soft assertions</em>, isto é, asserções suaves, que executa todo o código e, ao final, nos informa quais asserções falharam.</p>
+
+<p>Vamos alterar o código acima para utilizar esse recurso, através do <code>SoftAssertions.assertSoftly()</code>:</p>
+
+<pre><code class="language-java">public class ConversationCreationAcceptanceTest extends BaseAcceptanceTest {
+
+    @Test
+    public void should_create_a_conversation_as_buyer() {
+        // Código omitido para manter a simplicidade...
+
+        Conversation conversation = optionalConversation.get();
+
+        SoftAssertions.assertSoftly(softly -&gt; {
+            softly.assertThat(conversation.getExternalId()).isEqualTo(randomConversation.getExternalId());
+            softly.assertThat(conversation.getLastMessage().get().getSender().getAuthorId()).isEqualTo(userCreation.getExternalUserId());
+            softly.assertThat(conversation.getMembers())
+                        .filteredOn(conversationMember -&gt; conversationMember.getMemberId().equals(userCreation.getExternalUserId()))
+                        .filteredOn(conversationMember -&gt; conversationMember.getGroupRole().equals(&quot;BUYER&quot;))
+                        .hasSize(1);
+        }
+    }
+}
+</code></pre>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<p>Se testes automatizados são ou não importantes não é o foco desse <em>post</em>. Vários outros já argumentaram em cima desse tema e, como nós acreditamos que seja importante, estamos de olho no código para melhorá-lo e garantir que tudo funcione corretamente. Para isso, usamos os <em>frameworks</em> e dentre os diversos disponíveis, o AssertJ acabou de entrar na nossa <em>stack</em>. Só lembrando, não optamos por utilizá-lo para escrever menos. Ao contrário, escrevemos mais, mas fazemos nossos testes como se fossem frases que podem ser lidas, facilitando muito nosso trabalho.</p>
+
+<p>Nesse <em>post</em> vimos apenas uma parte dos recursos disponíveis, mas olhando no site oficial, encontraremos diversos outros que podem ser muito úteis, como o método <code>extracting()</code>, que permite retirarmos atributos do objeto em questão, ou criar <em>custom assertions</em> que nos possibilita criar as nossas próprias asserções!</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/java/'>java</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/tdd/'>tdd</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/assertj/'>assertj</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2ftestes-mais-fluidos-com-assertj%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=testes-mais-fluidos-com-assertj&url=https%3a%2f%2felo7.dev%2ftestes-mais-fluidos-com-assertj%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/testes-mais-fluidos-com-assertj/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/testes-mais-fluidos-com-assertj/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Diversos posts falam sobre a importância dos testes, mas o foco aqui será como melhorar a compreensão e legibilidade de nossos testes utilizando o AssertJ!'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2018-02-26 00:00:00 \x2b0000 UTC:\/testes-mais-fluidos-com-assertj\/';
+            var disqus_url = 'https:\/\/elo7.dev\/testes-mais-fluidos-com-assertj\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,encoding,web,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Desmistificando o Encoding'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Desmistificando o Encoding'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/desmistificando-encoding.jpg'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Desmistificando o Encoding'>
+	<meta property='og:url' content='https://elo7.dev/encoding/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Desmistificando o Encoding'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/encoding/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/desmistificando-encoding.jpg'>
+
+	<link rel='canonical' href='https://elo7.dev/encoding/'>
+	<title>Elo7 Tech - Desmistificando o Encoding</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='back-end'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/desmistificando-encoding.jpg' alt='Desmistificando o Encoding' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Desmistificando o Encoding</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2017-10-02 00:00:00 &#43;0000 UTC'
+    aria-label='02 de outubro de 2017'>
+    02/10/2017
+    <meta itemprop='datePublished' content='Mon Oct 02 2017 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Oct 02 2017 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2017-10-02'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='mariofts' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/mariofts/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/mariofts'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='mariofts'>@mariofts</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Já reparou como é difícil fazer acentos, emojis e outros caracteres estranhos serem exibidos corretamente nos seus programas? Vamos entender um pouco sobre como funciona o armazenamento de caracteres e como fazer software que suporte múltiplas línguas da maneira correta. Sim, é muito mais que termos vários arquivos com as mensagens traduzidas&hellip;</p>
+
+<p><em>Encoding</em> é o mecanismo que define como representamos diversos símbolos e letras de diferentes alfabetos de maneira binária. Não tem nada a ver com idiomas, só com os símbolos. O mesmo caractere <strong>á</strong> pode ser representado de diversas maneiras, com 1, 2 ou mais bytes, dependendo do encoding usado. Mas por que isso é assim?</p>
+
+<h2 id="um-pouco-de-história">Um pouco de história</h2>
+
+<p>No início, havia o <a href="http://www.robelle.com/library/smugbook/ascii.html">ASCII</a>, uma tabela de 7 bits que representava <em>&ldquo;todos&rdquo;</em> os 128 caracteres <em>&ldquo;necessários&rdquo;</em>, e ainda sobrava 1 bit de espaço. Claro, isso falando da lingua inglesa, que não possui acentos, por exemplo. Quando os computadores começaram a se tornar populares em terras não dominadas pela Rainha ou pelo Tio Sam, esses 128 símbolos não eram suficientes para todas as letras de outros alfabetos, como grego, árabe, chinês, etc. Mas como havia um bit sobrando, cada país/fabricante de computador acabou criando seu própio mapa de caracteres usando o espaço restante, o que resultou em vários <a href="http://www.i18nguy.com/unicode/codepages.html#msftdos">code pages</a>. Apesar de solucionar parcialmente o problema (idiomas como o chinês que possuem muito mais de 256 caracteres/símbolos continuaram não suportados), ainda era muito difícil usar caracteres de dois code pages diferentes no mesmo arquivo (por exemplo, uma letra grega ∑ e o caracter de ¡ do espanhol).</p>
+
+<h2 id="o-unicode">O Unicode</h2>
+
+<p>Para organizar essa bagunça, surgiu o <a href="http://www.unicode.org/">Unicode</a>, uma espécie de mapa que inclui todos os caracteres de qualquer sistema de escrita usado em todas as línguas, e que ainda pode ser extendido para novos símbolos conforme estes forem surgindo. Um dos pontos mais importantes a se entender quando estamos falando de encoding é que <strong>o Unicode não é um encoding</strong>, já que ele não indica a forma binária de representação dos símbolos. O Unicode é um mapa do caractere para um <strong>code point</strong>, uma representação no formato <em>U+0000</em>. Por exemplo, o caractere <strong>á</strong> é o code point <em>U+00E1</em>, já o <strong>ç</strong> é o <em>U+00E7</em>. Repare que os codepoints estão em base hexadecimal, e podem ter quantos números forem necessários, como em <em>U+1F60E</em>, que representa o emoji 😎 .</p>
+
+<h2 id="encodings">Encodings</h2>
+
+<p>De volta aos encodings, existem diversas maneiras de armazenar esses caracteres em disco/memória. Como exemplo, usaremos a palavra <strong>olá</strong>. Vejamos como ela fica convertida para Unicode:</p>
+
+<pre><code># Olá
+U+006F U+006C U+00E1
+</code></pre>
+
+<p>A forma binária varia de encoding para encoding. Começaremos com um bem familiar, o <strong>ISO-8859-1</strong>, também conhecido como <strong>Latin1</strong>:</p>
+
+<p><img src="/images/encoding-1.png" alt="Tabela com a palavra olá em hexadecimal e binário em ISO-8859-1" /></p>
+
+<p>Olhando na <a href="https://cs.stanford.edu/people/miles/iso8859.html">tabela de caracteres do ISO-8859-1</a> é possível ver que o byte <em>e1</em> é o que representa o caractere <strong>á</strong>. Um ponto muito importante a se notar é que o <em>ISO-8859-1</em> é um encoding de <strong>byte único</strong>, ou seja, cada caractere sempre ocupa 1 byte e, sendo assim, só consegue representar até 256 caracteres diferentes.</p>
+
+<p>Agora, vamos mudar a forma de armazenar nosso texto, usando um outro encoding bem famoso, o <strong>UTF-8</strong>:</p>
+
+<p><img src="/images/encoding-2.png" alt="Tabela com a palavra olá em hexadecimal e binário em UTF-8" /></p>
+
+<p>Veja que interessante, o mesmo texto que antes conseguia ser representado em 3 bytes, agora está ocupando 4 bytes de espaço, e para piorar, os últimos bytes nem são iguais! Antes de entrar em detalhes de como o <em>UTF-8</em> funciona, podemos criar dois arquivos com o mesmo texto em encodings diferentes e consultar o tamanho deles no disco:</p>
+
+<p><img src="/images/encoding-3.png" alt="Tamanho dos arquivos no sistema operacional" /></p>
+
+<p>O arquivo em <em>UTF-8</em> é maior que o em <em>ISO-8859-1</em>. Isso acontece porque o <em>UTF-8</em> usa um esquema variável de bytes para representar cada caractere. Para os caracteres contidos na tabela <em>ASCII</em>, usa-se apenas 1 byte (127 bits somente); para caracteres diferentes, usa-se 2, 3, até 4 bytes para representá-los. Essa estrutura permite que o <em>UTF-8</em> seja retrocompatível com antigos arquivos em <em>ASCII</em>, além de ocupar menos espaço quando o arquivo contém apenas os caracteres básicos da língua inglesa.</p>
+
+<h2 id="de-onde-vem-os-bebes-problemas">De onde vem os <del>bebes</del> problemas</h2>
+
+<p>Praticamente todos os problemas relacionados a encoding estão ligados a leitura de arquivos usando um encoding diferente do usado na escrita. Por exemplo, se tentarmos ler o arquivo <code>ola-iso-8859-1.txt</code> usando o encoding <em>UTF-8</em>, vejamos o que acontece:</p>
+
+<pre><code class="language-bash"># arquivo ola-iso-8859-1.txt aberto como UTF-8
+ol�
+</code></pre>
+
+<p>Esse caractere <strong>�</strong> significa que algum byte do arquivo não possue caractere válido equivalente em <em>UTF-8</em>. Dependendo da fonte usada para exibição, pode ser que uma simples <strong>?</strong> apareça no lugar também.</p>
+
+<p>Outra possibilidade é tentar ler um arquivo <em>UTF-8</em> usando o encoding <em>ISO-8859-1</em>:</p>
+
+<pre><code class="language-bash"># arquivo ola-utf-8.txt aberto como ISO-8859-1
+olÃ¡
+</code></pre>
+
+<p>Aqui o problema é outro. Como o <em>ISO-8859-1</em> só usa 1 byte para representar cada caractere, ao chegar na letra <strong>á</strong>, representada com 2 bytes pelo <em>UTF-8</em>, acabamos imprimindo dois caracteres, o <strong>Ã</strong> e o <strong>¡</strong>.</p>
+
+<h2 id="mas-e-na-prática">Mas e na prática?</h2>
+
+<p>Em páginas web, além do encoding usado para salvar o arquivo, ainda temos que nos atentar ao cabeçalho <code>&lt;meta&gt;</code>, usado pelos navegadores para &ldquo;adivinhar&rdquo; qual o encoding da página. Sempre precisamos sincronizar o conteúdo desta tag com o encoding do arquivo html:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset=&quot;UTF-8&quot;&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;olá, este arquivo foi salvo como ISO-8859-1.&lt;/p&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>A página acima é exibida no navegador com problemas:
+<img src="/images/encoding-4.png" alt="Página com problemas de encoding " /></p>
+
+<p>Para corrigir, devemos mudar o conteúdo da tag para o encoding correto:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset=&quot;ISO-8859-1&quot;&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;olá, este arquivo foi salvo como ISO-8859-1.&lt;/p&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>A página agora é exibida corretamente:
+<img src="/images/encoding-5.png" alt="Página com problemas de encoding " /></p>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<p>Além dos tópicos discutidos aqui, existem vários outros pontos onde problemas de encoding podem acontecer, como no banco de dados, por exemplo, (é possível customizar o encoding por database/tabela, e em alguns bancos até por coluna), ou ainda em arquivos <code>.properties</code>, que no Java por padrão sempre são escritos e lidos em <em>ISO-8859-1</em>. Resumindo, para evitar problemas com encoding, a melhor estratégia é sempre manter todos os seus arquivos/databases em <em>UTF-8</em>. É um encoding flexível, que não desperdiça espaço, e é o padrão em várias ferramentas, editores e linguagens de programação.</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/encoding/'>encoding</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/web/'>web</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fencoding%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=desmistificando-o-encoding&url=https%3a%2f%2felo7.dev%2fencoding%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/encoding/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/encoding/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Já reparou como é difícil fazer acentos, emojis e outros caracteres estranhos serem exibidos corretamente nos seus programas? Vamos entender um pouco sobre como funciona o armazenamento de caracteres e como fazer software que suporte múltiplas línguas da maneira correta.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2017-10-02 00:00:00 \x2b0000 UTC:\/encoding\/';
+            var disqus_url = 'https:\/\/elo7.dev\/encoding\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

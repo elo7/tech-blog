@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Continuous Delivery on Tech Blog Elo7</title>
+    <link>https://elo7.dev/tags/continuous-delivery/</link>
+    <description>Recent content in Continuous Delivery on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 29 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://elo7.dev/tags/continuous-delivery/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Subindo uma aplicação no Kubernetes usando o Helm</title>
+      <link>https://elo7.dev/subindo-uma-aplicacao-no-kubernetes-usando-helm/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/subindo-uma-aplicacao-no-kubernetes-usando-helm/</guid>
+      <description>Talvez o Kubernetes seja, hoje, um dos nomes mais famosos do mercado quando falamos em DevOps, e não é para menos. A plataforma é uma grande facilitadora quando se trata de gerenciar a infraestrutura de aplicações, tornando muito mais fáceis tarefas como escalar as instâncias, automatizar o deployment e até mesmo gerenciar o ciclo de vida das aplicações baseadas em Docker.
+Apesar de todos os benefícios, ainda há algumas coisas trabalhosas no dia a dia de quem trabalha com Kubernetes.</description>
+    </item>
+    
+  </channel>
+</rss>

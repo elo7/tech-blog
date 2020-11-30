@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debezium on Tech Blog Elo7</title>
+    <link>https://elo7.dev/tags/debezium/</link>
+    <description>Recent content in Debezium on Tech Blog Elo7</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 23 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://elo7.dev/tags/debezium/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introdução ao Change Data Capture (CDC)</title>
+      <link>https://elo7.dev/cdc-parte-1/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/cdc-parte-1/</guid>
+      <description>A atual popularidade do termo Big Data veio acompanhada de diversas buzzwords, entre elas o Change Data Capture, ou simplesmente CDC. Porém esse design pattern é tão antigo quanto os RDBMS, pois os dois estão estritamente ligados.
+Como o próprio nome diz, o CDC nada mais é do que uma forma de capturar as mudanças nos dados. Vamos imaginar a seguinte tabela de produto:
+CREATE TABLE `produto` ( id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(30) NOT NULL, preco DECIMAL(15,2) NOT NULL, quantidade INT NOT NULL, data_atualizacao DATETIME );  com o seguinte insert:</description>
+    </item>
+    
+  </channel>
+</rss>
