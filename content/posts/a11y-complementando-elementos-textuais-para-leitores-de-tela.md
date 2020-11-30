@@ -93,7 +93,7 @@ A solução foi bem simples, mas por quê `margin` negativa? Qual a necessidade 
 
 > - O valor `width` e `height` é `1px` pois alguns leitores de tela não leem elementos de tamanho `0px`;
 > - `margin: -1px;` esconde o elemento completamente;
-> - `word-wrap: normal;` evita que o leitor de tela leia um texto letra por letra, dado que o texto está contido num espaço de apenas 1 pixel. Muitas combinações leitores de tela e browsers leem palavras quebradas como elas são dispostas visualmente;
+> - `word-wrap: normal;` evita que o leitor de tela leia um texto letra por letra, dado que o texto está contido num espaço de apenas 1 pixel. Muitas combinações de leitores de tela e browsers leem palavras quebradas da forma como elas são dispostas visualmente;
 > - `clip` está depreciado, mas foi adicionado para manter suporte a browser mais antigos que ainda não suportam `clip-path`.
 >
 > Nota: `display: none;` e `visibility: hidden;` escondem o texto da tela, mas também o escondem dos leitores de tela. Assim, estes atributos não podem ser utilizados para dar descrições adicionais a usuários de _screen readers_.
