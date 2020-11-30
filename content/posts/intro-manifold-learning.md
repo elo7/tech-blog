@@ -13,7 +13,7 @@ tags:
 authors: [onimaru]
 layout: post
 title: Introdução ao Manifold Learning - Geometria dos dados
-description: *Manifold Learning*, ou Aprendizagem de Variedade em português, é uma classe de técnicas que visa aprender uma representação dos dados para que possamos entender sua estrutura. Nesse post vamos ver algumas definições de conceitos necessários para começar a compreenssão de *Manifold Learning*.
+description: Manifold Learning, ou Aprendizagem de Variedade em português, é uma classe de técnicas que visa aprender uma representação dos dados para que possamos entender sua estrutura. Nesse post vamos ver algumas definições de conceitos necessários para começar a compreenssão de Manifold Learning.
 cover: intro-manifold-learning.png
 ---
 
