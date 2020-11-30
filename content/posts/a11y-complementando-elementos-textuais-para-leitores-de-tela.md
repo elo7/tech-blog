@@ -9,7 +9,7 @@ tags:
 authors: [ricardokojo]
 layout: post
 title: Complementando elementos textuais para leitores de tela
-description: Entenda como alterar o texto de seu site para melhorar a experiência de usuários de leitores de tela.
+description: Entenda como complementar o texto de seu site para melhorar a experiência de usuários de leitores de tela.
 ---
 Ao digitar o conteúdo de nossas páginas web, muitas vezes utilizamos siglas, abreviações e outros elementos visuais que são triviais para usuários videntes, mas que não conseguem ser interpretadas corretamente por leitores de tela (_screen readers_). Assim, a acessibildade do site fica prejudicada.
 
