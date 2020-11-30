@@ -98,7 +98,7 @@ A solução foi bem simples, mas por quê `margin` negativa? Qual a necessidade 
 >
 > Nota: `display: none;` e `visibility: hidden;` escondem o texto da tela, mas também o escondem dos leitores de tela. Assim, estes atributos não podem ser utilizados para dar descrições adicionais a usuários de _screen readers_.
 
-Ressalto que classe disponibilizada pelo WordPress tem como objetivo funcionar no máximo de combinações browser-leitor de tela. Caso esta não seja situação, algo do como:
+Ressalto que a classe disponibilizada pelo WordPress tem como objetivo funcionar no máximo de combinações browser-leitor de tela. Caso esta não seja sua situação, algo do como:
 
 ```css
 .visually-hidden {
