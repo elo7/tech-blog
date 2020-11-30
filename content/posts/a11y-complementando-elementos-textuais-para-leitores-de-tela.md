@@ -13,7 +13,7 @@ Ao digitar o conteúdo de nossas páginas web, muitas vezes utilizamos siglas, a
 
 Recentemente, aqui no Elo7, enfrentamos o seguinte problema: **como fazer com que nossos _cards_ de produtos sejam lidos da forma esperada por leitores de tela?** Por exemplo, tendo um preço com fonte menor e tachada, e outro com fonte maior, é possível entender que o primeiro é o preço original, enquanto o segundo é o promocional. No entanto, um leitor de tela lê os dois preços da mesma forma, sem distinção. No caso de parcelamento, interpretamos o texto `"12x sem juros"` como `"doze vezes sem juros"`, enquanto um leitor de tela lê `"12 xis sem juros"`.
 
-Neste _post_, veremos como resolver estes problemas usando apenas atributos [ARIA (link externo)](https://developer.mozilla.org/pt-BR/docs/Web/Accessibility/ARIA) do HTML e um pouquinho de CSS!
+Neste _post_, veremos exemplos (visuais e com áudios de leituras de tela) dos problemas citados e como resolvê-los usando apenas atributos [ARIA (link externo)](https://developer.mozilla.org/pt-BR/docs/Web/Accessibility/ARIA) do HTML e um pouquinho de CSS!
 
 ## Entendendo melhor o problema
 
