@@ -1,0 +1,62 @@
+
+---
+title: Retrospectivas e sua importância
+date: 2020-11-30
+category: front-end
+layout: post
+description: Neste post discutiremos os benefícios da adoção de retrospectivas no seu time.
+authors: [mwingter]
+tags:
+  - retrospectivas
+  - agile
+  - metodologias
+---
+
+Uma retrospectiva é uma parte essencial da metodologia ágil, que tem como um de seus pilares a melhoria contínua na produtividade do time. O objetivo deste post é justamente mostrar a importância desta prática e como ela funciona, dando alguns exemplos de técnicas e de ferramentas online que nós do Elo7 temos utilizado para realizar a prática remotamente.
+
+# Retrospectivas
+O objetivo principal de uma retrospectiva é avaliar todo o processo de trabalho ao final de cada sprint. Em outras palavras, isto significa um verdadeiro "lavar roupa suja", ou seja, discutir o que deu ou não deu certo, o que poderia ser melhorado, o que continuar fazendo ou deixar de fazer, e com isto entender os pontos fortes e fracos e implementar estratégias e ações para superá-los e, assim, garantir que a melhoria contínua aconteça, gerando um aumento na produtividade e na qualidade e uma redução de falhas. São muitas as vantagens de se realizar retrospectivas em seu time, dentre elas podemos destacar:
+* aumento na qualidade das entregas;
+* aumento na produtividade do time;
+* maior integração e engajamento do time;
+* identificação e redução de falhas;
+* visão mais ampla dos processos e objetivos;
+* tomadas de decisões mais eficientes;
+
+## Como funciona?
+Uma retrospectiva acontece **sempre ao final de cada sprint** e, geralmente, dura em torno de 1 hora. Por exemplo, aqui no time do Nymeros no Elo7, cada sprint tem duração de duas semanas e finalizando nas terças-feiras, então deixamos agendadas as retrospectivas para as quartas-feiras às 16h. Além disso, existem alguns papéis e regras fundamentais para o sucesso de uma retrospectiva.
+### Participantes:
+* **Facilitador**: é a pessoa que irá moderar a reunião, ou seja, quem irá controlar o fluxo da discussão, definir o modelo da retrospectiva e direcionar os assuntos mais relevantes e monitorar o tempo. Nós do time Nymeros no Elo7, por exemplo, temos o costume de intercalar o facilitador entre os membros a cada sprint.
+* **Membros**: são todos outros membros do time que irão participar da retrospectiva. É essencial que todos membros do time estejam presentes para que todos pontos de vista possam ser abordados. Outras pessoas também podem participar caso seja relevante, mas é importante ressaltar que isto é válido somente para quem realmente *precisa* estar lá, para que não haja desconfortos e inseguranças e impossibilite de haver uma conversa sincera e aberta sobre assuntos mais delicados.
+
+### Técnicas de Retrospectivas
+Existem várias técnicas de retrospectivas, e o facilitador definirá qual a melhor para aquele momento. O ideal é evitar fazer sempre a mesma coisa em todas retrospectivas, por isto é importante que o facilitador tenha uma boa visão de qual o contexto e o objetivo final em cada ocasião. Segue abaixo alguns exemplos de técnicas:
+
+* **Start, stop, continue**: é um modelo que foca nas coisas que estão funcionando (continue), nas que não estão funcionando (stop) e nas que o time deveria começar a fazer (start). Assim, ele se concentra no passado, presente e futuro ao mesmo tempo. Pode parecer uma técnica muito simples - mas funciona, pois ajuda os participantes a transmitir mais claramente seus problemas e preocupações, e, consequentemente, dando a todos uma visão geral do que aconteceu e não aconteceu, o que deve acontecer e o que precisa permanecer o mesmo.
+
+* **4 L's (Liked, learned, lacked, longed for)**: este modelo é uma tentativa de capturar os pensamentos naturais que os participantes possam ter, visto que naturalmente tendemos a pensar e compartilhar em termos de coisas que apreciamos, lições aprendidas, coisas que faltaram e aquilo que gostaríamos de ter, e é isso que o 4L's irá trazer, de forma focada e útil.
+
+* **Mad, sad, glad**: é uma técnica que promove o bem-estar emocional, de forma que incentiva os participantes a discutirem sua jornada emocional durante a ultima sprint, compartilhando o que os fez se sentirem bravos (mad), tristes (sad) ou contentes (glad), sendo assim uma oportunidade de refletir sobre problemas e uma ótima forma de melhorar a satisfação no trabalho e criar um ambiente de equipe positivo. No entanto, é muito importante que todos se foquem nos eventos sem atribuir quaisquer culpas aos membros.
+
+* **Sailboat**: é uma técnica de visualização cuja idéia é colocar o time para refletir sobre seus objetivos (ilha), impedimentos (âncoras), riscos (rochas) e em coisas que os favorecem (vento). Pode ser bastante interessante para se conduzir uma retrospectiva com mais de um time ao mesmo tempo, pois o nome ambas equipes serão colocadas no Sailboat, relembrando que estão todos no "mesmo barco" e navegando na mesma direção.
+
+* **KALM (Keep, Add, More, Less)**: esta atividade foca em práticas e processos em seu time, com o intuito de ajudar a equipe a refletir sobre as atividades atuais e seu valor, além de outras melhorias.
+
+* **Hot Air Balloon**: é uma técnica simples para ajudar o time a identificar coisas que os fazem mover mais rápido (ar quente e fogo impedem o projeto) e coisas que os tornam mais lentos (sacos de areia e tempestades empurram o projeto para frente).
+
+* **Starfish**: o objetivo desta atividade é ajudar as equipes a entender melhor o que fizeram de errado e como podem melhorar, permitindo que sejam avaliadas quais atividades precisam de mais ou de menos recursos e energia.
+
+
+
+### Ferramentas online para Retrospectivas
+Existem muitas ferramentas online que podem te auxiliar a realizar suas retrospectivas com seu time, algumas delas são:
+* [MetroRetro](https://metroretro.io/)
+* [Fun Retrospectives](https://www.funretrospectives.com/)
+* [EasyRetro](https://easyretro.io/)
+* [Miro](https://miro.com/)
+* [Zite Board](https://ziteboard.com/)
+* [IdeiaBoadz](https://ideaboardz.com/)
+* [Trello](https://trello.com/)
+
+___
+Gostou do conteúdo? E você, conhece alguma ferramenta ou técnica legal de retrospectiva que não foi mencionada aqui? Deixe nos comentários!
