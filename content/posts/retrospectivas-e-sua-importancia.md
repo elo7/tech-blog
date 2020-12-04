@@ -25,12 +25,13 @@ O objetivo principal de uma retrospectiva é avaliar todo o processo de trabalho
 
 ## Como funciona?
 Uma retrospectiva acontece **sempre ao final de cada sprint** e, geralmente, dura em torno de 1 hora. Por exemplo, aqui no time do Nymeros no Elo7, cada sprint tem duração de duas semanas e finalizando nas terças-feiras, então deixamos agendadas as retrospectivas para as quartas-feiras às 16h. Além disso, existem alguns papéis e regras fundamentais para o sucesso de uma retrospectiva.
+
 ### Participantes:
 * **Facilitador**: é a pessoa que irá moderar a reunião, ou seja, quem irá controlar o fluxo da discussão, definir o modelo da retrospectiva e direcionar os assuntos mais relevantes e monitorar o tempo. Nós do time Nymeros no Elo7, por exemplo, temos o costume de intercalar o facilitador entre os membros a cada sprint.
 * **Membros**: são todos outros membros do time que irão participar da retrospectiva. É essencial que todos membros do time estejam presentes para que todos pontos de vista possam ser abordados. Outras pessoas também podem participar caso seja relevante, mas é importante ressaltar que isto é válido somente para quem realmente *precisa* estar lá, para que não haja desconfortos e inseguranças e impossibilite de haver uma conversa sincera e aberta sobre assuntos mais delicados.
 
 ### Técnicas de Retrospectivas
-Existem várias técnicas de retrospectivas, e o facilitador definirá qual a melhor para aquele momento. O ideal é evitar fazer sempre a mesma coisa em todas retrospectivas, por isto é importante que o facilitador tenha uma boa visão de qual o contexto e o objetivo final em cada ocasião. Segue abaixo alguns exemplos de técnicas:
+Existem várias técnicas de retrospectivas, e o facilitador definirá qual a melhor para aquele momento. O ideal é evitar fazer sempre a mesma coisa em todas retrospectivas, pois os desafios do time mudam com o tempo e a abordagem dessa dinâmica deve ser adaptada. Por exemplo, em sprints iniciais com um novo time, é interessante facilitar a construção desta equipe com técnicas de Team Building. Por outro lado, há ocasiões em que é necessário ajudar o time a dar e receber feedbacks. Em outros momentos, é necessário também olhar para frente com futurospectivas. Por isto é muito importante que o facilitador tenha uma boa visão de qual o contexto e o objetivo final em cada ocasião. Segue abaixo alguns exemplos de técnicas:
 
 * **Start, stop, continue**: é um modelo que foca nas coisas que estão funcionando (continue), nas que não estão funcionando (stop) e nas que o time deveria começar a fazer (start). Assim, ele se concentra no passado, presente e futuro ao mesmo tempo. Pode parecer uma técnica muito simples - mas funciona, pois ajuda os participantes a transmitir mais claramente seus problemas e preocupações, e, consequentemente, dando a todos uma visão geral do que aconteceu e não aconteceu, o que deve acontecer e o que precisa permanecer o mesmo.
 
@@ -40,19 +41,18 @@ Existem várias técnicas de retrospectivas, e o facilitador definirá qual a me
 
 * **Sailboat**: é uma técnica de visualização cuja idéia é colocar o time para refletir sobre seus objetivos (ilha), impedimentos (âncoras), riscos (rochas) e em coisas que os favorecem (vento). Pode ser bastante interessante para se conduzir uma retrospectiva com mais de um time ao mesmo tempo, pois o nome ambas equipes serão colocadas no Sailboat, relembrando que estão todos no "mesmo barco" e navegando na mesma direção.
 
-* **KALM (Keep, Add, More, Less)**: esta atividade foca em práticas e processos em seu time, com o intuito de ajudar a equipe a refletir sobre as atividades atuais e seu valor, além de outras melhorias.
-
-* **Hot Air Balloon**: é uma técnica simples para ajudar o time a identificar coisas que os fazem mover mais rápido (ar quente e fogo impedem o projeto) e coisas que os tornam mais lentos (sacos de areia e tempestades empurram o projeto para frente).
+* **Hot Air Balloon**: é uma técnica interessante pois envolve também futurospectiva. Assim, na dinâmica, a equipe é incentivada a refletir sobre o passado e o futuro, discutindo os pontos positivos que levam o projeto para frente (ar quente), os pontos negativos que os atrasam (sacos de areia), os perigos adiante (tempestade) e nas coisas que esperam para o futuro (sol).
 
 * **Starfish**: o objetivo desta atividade é ajudar as equipes a entender melhor o que fizeram de errado e como podem melhorar, permitindo que sejam avaliadas quais atividades precisam de mais ou de menos recursos e energia.
 
+* **KALM (Keep, Add, More, Less)**: esta atividade foca em práticas e processos em seu time, com o intuito de ajudar a equipe a refletir sobre as atividades atuais e seu valor, além de outras melhorias.
 
+São quiser conhecer ainda mais estas e outras técnicas existentes, recomendo a leitura destes sites: [Fun Retrospectives](https://www.funretrospectives.com/), [RetroAgil](https://retroagil.wordpress.com/) e [MetroRetro](https://metroretro.io/templates).
 
 ### Ferramentas online para Retrospectivas
-Existem muitas ferramentas online que podem te auxiliar a realizar suas retrospectivas com seu time, algumas delas são:
-* [MetroRetro](https://metroretro.io/)
-* [Fun Retrospectives](https://www.funretrospectives.com/)
+Existem muitas ferramentas online que podem te auxiliar a realizar suas retrospectivas com seu time, aqui no Elo7 costumamos utilizar muito a  [MetroRetro](https://metroretro.io/), por conta de várias funcionalidades legais facilidades que este possui, além de ter um visual bem elegante. Mas além desta existem também muitas outras, algumas delas são:
 * [EasyRetro](https://easyretro.io/)
+* [Fun Retrospectives](https://www.funretrospectives.com/)
 * [Miro](https://miro.com/)
 * [Zite Board](https://ziteboard.com/)
 * [IdeiaBoadz](https://ideaboardz.com/)
