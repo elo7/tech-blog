@@ -15,7 +15,12 @@ tags:
 Uma retrospectiva é uma parte essencial da metodologia ágil, que tem como um de seus pilares a melhoria contínua na produtividade do time. O objetivo deste post é justamente mostrar a importância desta prática e como ela funciona, dando alguns exemplos de técnicas e de ferramentas online que nós do Elo7 temos utilizado para realizar a prática remotamente.
 
 # Retrospectivas
-O objetivo principal de uma retrospectiva é avaliar todo o processo de trabalho ao final de cada sprint. Em outras palavras, isto significa um verdadeiro "lavar roupa suja", ou seja, discutir o que deu ou não deu certo, o que poderia ser melhorado, o que continuar fazendo ou deixar de fazer, e com isto entender os pontos fortes e fracos e implementar estratégias e ações para superá-los e, assim, garantir que a melhoria contínua aconteça, gerando um aumento na produtividade e na qualidade e uma redução de falhas. São muitas as vantagens de se realizar retrospectivas em seu time, dentre elas podemos destacar:
+O objetivo principal de uma retrospectiva é avaliar todo o processo de trabalho ao final de cada sprint. Em outras palavras, isto significa um verdadeiro "lavar roupa suja", ou seja, discutir o que deu ou não deu certo, o que poderia ser melhorado, o que continuar fazendo ou deixar de fazer, e com isto entender os pontos fortes e fracos e implementar estratégias e ações para superá-los e, assim, garantir que a melhoria contínua aconteça, gerando um aumento na produtividade e na qualidade e uma redução de falhas.
+
+## Porque fazer retrospectivas?
+Uma das principais razões para se fazer retrospectivas é a nova perspectiva que os membros ganham ao fazer autoavaliações, podendo discutir e ouvir vários pontos de vistas diferentes sobre si e o projeto em questão. Ao deixar de realizar esta prática, muitos sentimentos e coisas que poderiam ser resolvidas rapidamente acabam se acumulando e muitas vezes gerando uma verdadeira "bola de neve". Um exemplo real disto foi quando aqui no Elo7 tivemos um time que ficou algum tempo sem fazer retrospectivas e então em dado momento um dos membros propôs que começassem a fazer. Resultado: tiveram uma retrospectiva estendida por vários dias, de tantos assuntos importantes que se acumularam ao longo do tempo. Ou seja, algo que poderiam ter discutido e resolvido muito antes rapidamente, se tornou algo muito mais cansativo e demorado.
+
+Além disso, são muitas as vantagens de se realizar retrospectivas em seu time, dentre elas podemos destacar:
 * aumento na qualidade das entregas;
 * aumento na produtividade do time;
 * maior integração e engajamento do time;
