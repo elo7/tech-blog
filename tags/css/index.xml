@@ -6,10 +6,20 @@
     <description>Recent content in Css on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
-    <lastBuildDate>Mon, 12 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://elo7.dev/tags/css/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Complementando elementos textuais para leitores de tela</title>
+      <link>https://elo7.dev/a11y-complementando-elementos-textuais-para-leitores-de-tela/</link>
+      <pubDate>Mon, 14 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://elo7.dev/a11y-complementando-elementos-textuais-para-leitores-de-tela/</guid>
+      <description>Ao digitar o conteúdo de nossas páginas web, muitas vezes utilizamos siglas, abreviações e outros elementos visuais que são triviais para usuários videntes, mas que não conseguem ser interpretadas corretamente por leitores de tela (screen readers). Assim, a acessibildade do site fica prejudicada.
+Recentemente, aqui no Elo7, enfrentamos o seguinte problema: como fazer com que nossos cards de produtos sejam lidos da forma esperada por leitores de tela? Por exemplo, tendo um preço com fonte menor e tachada, e outro com fonte maior, é possível entender que o primeiro é o preço original, enquanto o segundo é o promocional.</description>
+    </item>
     
     <item>
       <title>CSS Scroll Snap</title>

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://elo7.dev/a11y-complementando-elementos-textuais-para-leitores-de-tela/</loc>
+    <lastmod>2020-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/intro-manifold-learning/</loc>
     <lastmod>2020-11-30T00:00:00+00:00</lastmod>
   </url>
@@ -634,7 +639,7 @@
   
   <url>
     <loc>https://elo7.dev/tags/acessibilidade/</loc>
-    <lastmod>2018-09-10T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1009,7 +1014,7 @@
   
   <url>
     <loc>https://elo7.dev/tags/css/</loc>
-    <lastmod>2019-08-12T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1275,13 +1280,13 @@
   
   <url>
     <loc>https://elo7.dev/categoria/front-end/</loc>
-    <lastmod>2019-08-26T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://elo7.dev/tags/front-end/</loc>
-    <lastmod>2018-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1389,7 +1394,7 @@
   
   <url>
     <loc>https://elo7.dev/tags/html/</loc>
-    <lastmod>2018-12-17T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1871,7 +1876,7 @@
   
   <url>
     <loc>https://elo7.dev/posts/</loc>
-    <lastmod>2020-11-30T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -2019,6 +2024,10 @@
     <loc>https://elo7.dev/tags/retrospectiva/</loc>
     <lastmod>2018-01-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://elo7.dev/autor/ricardokojo/</loc>
   </url>
   
   <url>
@@ -2191,7 +2200,7 @@
   
   <url>
     <loc>https://elo7.dev/</loc>
-    <lastmod>2020-11-30T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
