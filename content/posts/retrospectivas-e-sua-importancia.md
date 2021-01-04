@@ -35,7 +35,7 @@ Uma retrospectiva acontece **sempre ao final de cada sprint** e, geralmente, dur
 
 ### Papéis (participantes):
 * **Facilitador**: é a pessoa que irá moderar a reunião, ou seja, quem irá controlar o fluxo da discussão, definir o modelo da retrospectiva, direcionar os assuntos mais relevantes e monitorar o tempo. Nós do time Nymeros no Elo7, por exemplo, temos o costume de revezar o facilitador a cada sprint.
-* **Membros**: são todos os outros membros do time que irão participar da retrospectiva. É essencial que todos membros estejam presentes para que todos pontos de vista sejam abordados. Outras pessoas também podem participar caso seja relevante, mas é importante ressaltar que isto é válido somente para quem realmente *precisa* estar lá, de forma que não haja desconfortos, inseguranças ou impossibilite de haver uma conversa sincera e aberta sobre assuntos mais delicados.
+* **Membros**: são todos os outros membros do time que irão participar da retrospectiva. É essencial que todos os membros estejam presentes para que todos os pontos de vista sejam abordados. Outras pessoas também podem participar caso seja relevante, mas é importante ressaltar que isto é válido somente para quem realmente *precisa* estar lá, de forma que não haja desconfortos, inseguranças ou a impossibilidade de haver uma conversa sincera e aberta sobre assuntos mais delicados.
 
 ### Regras básicas
 Há duas regras básicas que devem ser sempre seguidas para o sucesso de qualquer tipo de retrospectiva:
