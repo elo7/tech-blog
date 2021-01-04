@@ -40,7 +40,7 @@ Uma retrospectiva acontece **sempre ao final de cada sprint** e, geralmente, dur
 ### Regras básicas
 Há duas regras básicas que devem ser sempre seguidas para o sucesso de qualquer tipo de retrospectiva:
 
-1 - **Reconheça que todos deram o melhor de si**. É importante que todos tenham um senso de abertura e compaixão, para que se tenha uma conversa sem culpas nem julgamentos;
+1. **Reconheça que todos deram o melhor de si**. É importante que todos tenham um senso de abertura e compaixão, para que se tenha uma conversa sem culpas nem julgamentos;
 2 - **Saiba qual o objetivo**. Antes de começar a planejar a dinâmica, é essencial que se saiba quais os desafios e objetivos do time, para que se escolha a melhor técnica e tire o maior proveito da discussão.
 
 ### Técnicas de Retrospectivas
