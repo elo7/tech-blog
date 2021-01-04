@@ -6,6 +6,7 @@ category: front-end
 layout: post
 description: Neste post discutiremos os benefícios da adoção de retrospectivas no seu time.
 authors: [mwingter]
+cover: retrospectivas-e-sua-importancia-1.png
 tags:
   - retrospectivas
   - agile
