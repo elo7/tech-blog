@@ -3,7 +3,7 @@ title: Retrospectivas e sua importância
 date: 2020-11-30
 category: front-end
 layout: post
-description: Neste post discutiremos os benefícios da adoção de retrospectivas no seu time.
+description: Saiba o que são retrospectivas e qual a importância de praticá-las com frequência, e entenda como cada uma de suas técnicas podem ser poderosas ferramentas ao serem aplicadas nos momentos certos.
 authors: [mwingter]
 cover: retrospectivas-e-sua-importancia-1.png
 tags:
@@ -12,6 +12,10 @@ tags:
   - metodologias
   - processos
 ---
+
+
+importância de fazer com frequência e de usar diferentes técnicas para diferentes momentos
+
 
 Retrospectivas são uma parte essencial das metodologias ágeis, que têm como um de seus pilares a melhoria contínua. O objetivo deste post é mostrar a importância desta prática e como ela funciona, dando alguns exemplos de técnicas e de ferramentas online que nós, do Elo7, temos utilizado para realizar a prática remotamente.
 
