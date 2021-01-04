@@ -21,7 +21,8 @@ O objetivo principal de uma retrospectiva é avaliar todo o processo de trabalho
 ## Por que fazer retrospectivas?
 Uma das principais razões para se fazer retrospectivas é a nova perspectiva que os membros ganham ao fazer autoavaliações, podendo discutir e ouvir vários pontos de vistas diferentes sobre si mesmo e sobre o projeto em questão. Ao deixar de realizar esta prática, muitos sentimentos e problemas que poderiam ser resolvidos rapidamente acabam se acumulando, muitas vezes gerando uma verdadeira "bola de neve". Um exemplo real que ocorreu no Elo7: um time ficou algum tempo sem fazer retrospectivas, até que em dado momento um dos membros propôs que começassem a fazer. Resultado: tiveram uma retrospectiva estendida por vários dias, devido à quantidade de assuntos importantes que se acumularam ao longo do tempo. Ou seja, algo que poderia ter sido discutido e resolvido muito antes, se tornou uma tarefa muito mais cansativa e demorada.
 
-Além disso, são muitas as vantagens de se realizar retrospectivas em seu time, dentre elas podemos destacar:
+Além disso, são muitas as vantagens de se realizar retrospectivas em seu time. Dentre elas podemos destacar:
+
 * aumento na qualidade das entregas;
 * aumento na produtividade do time;
 * maior integração e engajamento do time;
