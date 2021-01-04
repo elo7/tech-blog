@@ -64,6 +64,7 @@ Se quiser conhecer ainda mais sobre estas e outras técnicas existentes, recomen
 
 ### Ferramentas online para Retrospectivas
 Existem muitas ferramentas online que podem te auxiliar a realizar suas retrospectivas com seu time. Aqui no Elo7 costumamos utilizar a [MetroRetro](https://metroretro.io/), por conta de várias funcionalidades legais que possui, além de ter um visual super atrativo. Além desta existem também muitas outras:
+
 * [EasyRetro](https://easyretro.io/)
 * [Fun Retrospectives](https://www.funretrospectives.com/)
 * [Miro](https://miro.com/)
