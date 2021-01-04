@@ -13,7 +13,7 @@ tags:
   - processos
 ---
 
-Retrospectivas são uma parte essencial das metodologias ágeis, que tem como um de seus pilares a melhoria contínua na produtividade do time. O objetivo deste post é mostrar a importância desta prática e como ela funciona, dando alguns exemplos de técnicas e de ferramentas online que nós do Elo7 temos utilizado para realizar a prática remotamente.
+Retrospectivas são uma parte essencial das metodologias ágeis, que têm como um de seus pilares a melhoria contínua. O objetivo deste post é mostrar a importância desta prática e como ela funciona, dando alguns exemplos de técnicas e de ferramentas online que nós, do Elo7, temos utilizado para realizar a prática remotamente.
 
 # Retrospectivas
 O objetivo principal de uma retrospectiva é avaliar todo o processo de trabalho ao final de cada sprint. Em outras palavras, isto significa um verdadeiro "lavar roupa suja": discutir o que deu ou não deu certo, o que poderia ser melhorado, o que continuar fazendo ou deixar de fazer. Com isto, é possível entender os pontos fortes e fracos, implementar estratégias e ações para superá-los, e assim garantir que a melhoria contínua aconteça, gerando um aumento na produtividade, qualidade e redução de falhas.
