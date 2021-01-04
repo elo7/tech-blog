@@ -13,10 +13,6 @@ tags:
   - processos
 ---
 
-
-importância de fazer com frequência e de usar diferentes técnicas para diferentes momentos
-
-
 Retrospectivas são uma parte essencial das metodologias ágeis, que têm como um de seus pilares a melhoria contínua. O objetivo deste post é mostrar a importância desta prática e como ela funciona, dando alguns exemplos de técnicas e de ferramentas online que nós, do Elo7, temos utilizado para realizar a prática remotamente.
 
 # Retrospectivas
@@ -70,7 +66,7 @@ Existem diversas técnicas de retrospectivas, e o facilitador é quem define qua
   <figcaption>Ilustração da técnica Hot Air Baloon (Imagem: MetroRetro)</figcaption>
 </figure>
 
-* **Starfish**: o objetivo desta atividade é ajudar as equipes a entender melhor o que fizeram de errado e como podem melhorar, permitindo que sejam avaliadas quais atividades precisam de mais ou de menos recursos e energia.
+* **Starfish**: é uma atividade dividida em cinco sessões: o que o time deve continuar fazendo, fazer menos, fazer mais, parar de fazer, e começar a fazer. O objetivo é ajudar as equipes a entender melhor o que fizeram de errado e como podem melhorar, permitindo que sejam avaliadas quais atividades precisam de mais ou de menos recursos e energia.
 
 * **KALM (Keep, Add, More, Less)**: esta atividade foca em práticas e processos do seu time, com o intuito de ajudar a equipe a refletir sobre as atividades atuais e seu valor, além de outras melhorias.
 
