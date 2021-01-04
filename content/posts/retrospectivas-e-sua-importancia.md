@@ -1,4 +1,3 @@
-
 ---
 title: Retrospectivas e sua importância
 date: 2020-11-30
