@@ -41,7 +41,7 @@ Uma retrospectiva acontece **sempre ao final de cada sprint** e, geralmente, dur
 Há duas regras básicas que devem ser sempre seguidas para o sucesso de qualquer tipo de retrospectiva:
 
 1. **Reconheça que todos deram o melhor de si**. É importante que todos tenham um senso de abertura e compaixão, para que se tenha uma conversa sem culpas nem julgamentos;
-2 - **Saiba qual o objetivo**. Antes de começar a planejar a dinâmica, é essencial que se saiba quais os desafios e objetivos do time, para que se escolha a melhor técnica e tire o maior proveito da discussão.
+2. **Saiba qual o objetivo**. Antes de começar a planejar a dinâmica, é essencial que se saiba quais os desafios e objetivos do time, para que se escolha a melhor técnica e se tire o maior proveito da discussão.
 
 ### Técnicas de Retrospectivas
 Existem diversas técnicas de retrospectivas, e o facilitador é quem define qual a melhor para aquele momento. O ideal é evitar repetir a mesma técnica em todas as retrospectivas, pois os desafios do time mudam com o tempo e a abordagem desta dinâmica deve ser adaptada. Por exemplo, em sprints iniciais com um novo time, é interessante facilitar a construção desta equipe com técnicas de _Team Building_. Por outro lado, há ocasiões em que é necessário ajudar o time a dar e receber _feedbacks_. Em outros momentos, é necessário também olhar para frente com futurospectivas. Por isto é muito importante que o facilitador tenha uma boa visão de qual o contexto e o objetivo final em cada ocasião. Segue abaixo alguns exemplos de técnicas:
