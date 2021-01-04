@@ -10,6 +10,7 @@ tags:
   - retrospectivas
   - agile
   - metodologias
+  - processos
 ---
 
 Retrospectivas são uma parte essencial das metodologias ágeis, que tem como um de seus pilares a melhoria contínua na produtividade do time. O objetivo deste post é mostrar a importância desta prática e como ela funciona, dando alguns exemplos de técnicas e de ferramentas online que nós do Elo7 temos utilizado para realizar a prática remotamente.
