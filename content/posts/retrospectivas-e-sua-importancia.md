@@ -58,7 +58,17 @@ Existem diversas técnicas de retrospectivas, e o facilitador é quem define qua
 
 * **Sailboat**: é uma técnica de visualização cuja ideia é colocar o time para refletir sobre seus objetivos (ilha), impedimentos (âncoras), riscos (rochas) e coisas que os favorecem (vento). Pode ser bastante interessante para se conduzir uma retrospectiva com mais de um time ao mesmo tempo, pois os nomes de ambas as equipes serão colocados no Sailboat, relembrando que estão todos no "mesmo barco" e navegando na mesma direção.
 
-* **Hot Air Balloon**: é uma técnica interessante pois envolve também futurospectiva. Assim, na dinâmica, a equipe é incentivada a refletir sobre o passado e o futuro, discutindo os pontos positivos que levam o projeto para frente (ar quente), os pontos negativos que os atrasam (sacos de areia), os perigos adiante (tempestade) e nas coisas que esperam para o futuro (sol).
+<figure>
+  <img src='../images/retrospectivas-e-sua-importancia-2.png' alt='Técnica Sailboat'>
+  <figcaption>Ilustração da técnica Sailboat (Imagem: MetroRetro)</figcaption>
+</figure>
+
+* **Hot Air Balloon**: é outra técnica de visualização que é bastante interessante pois envolve também futurospectiva. Assim, na dinâmica, a equipe é incentivada a refletir sobre o passado e o futuro, discutindo os pontos positivos que levam o projeto para frente (ar quente), os pontos negativos que os atrasam (sacos de areia), os perigos adiante (tempestade) e nas coisas que esperam para o futuro (sol).
+
+<figure>
+  <img src='../images/retrospectivas-e-sua-importancia-3.png' alt='Técnica Hot Air Baloon'>
+  <figcaption>Ilustração da técnica Hot Air Baloon (Imagem: MetroRetro)</figcaption>
+</figure>
 
 * **Starfish**: o objetivo desta atividade é ajudar as equipes a entender melhor o que fizeram de errado e como podem melhorar, permitindo que sejam avaliadas quais atividades precisam de mais ou de menos recursos e energia.
 
