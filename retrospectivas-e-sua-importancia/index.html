@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta name='google-site-verification' content='NqCILBTY8B8P-r_KF8BSZKH9kUQgQOEbXJvEMaB33vw'>
+	<meta name='google-site-verification' content='cKh-stJM3_ENNfMjaBIIyYiDgMXZFpRkoH8eQTcPwhM' />
+	<meta name="google-site-verification" content="6Er6NBhORIKrEwdS46h772O_7LTE9vWgZjwtzuZ5gpQ" />
+	<meta name='theme-color' content='#FDC24F'>
+	<meta name='keywords' content='Elo7,tecnologia,post,desenvolvimento,blog,retrospectivas,agile,metodologias,processos,'>
+	<meta name='language' content='pt-br'>
+	<meta name='title' content='Elo7 Tech - Retrospectivas e sua importância'>
+	<meta name='apple-mobile-web-app-title' content='Elo7 Tech - Retrospectivas e sua importância'>
+	<meta name='mobile-web-app-capable' content='yes'>
+
+	<meta property='fb:app_id' content='644444999041914'>
+	<meta property='fb:admins' content='100003324447975'>
+
+	<meta property='og:site_name' content='Elo7 Tech'>
+	<meta property='og:image' content='https://elo7.dev/images/cover/retrospectivas-e-sua-importancia-1.png'>
+	<meta property='og:type' content='website'>
+	<meta property='og:title' content='Elo7 Tech - Retrospectivas e sua importância'>
+	<meta property='og:url' content='https://elo7.dev/retrospectivas-e-sua-importancia/'>
+	<meta property='og:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+
+	<meta name='twitter:widgets:csp' content='on'>
+	<meta name='twitter:card' content='summary_large_image'>
+
+	<meta property='twitter:title' content='Elo7 Tech - Retrospectivas e sua importância'>
+	<meta property='twitter:domain' content='https://elo7.dev/'>
+	<meta property='twitter:url' content='https://elo7.dev/retrospectivas-e-sua-importancia/'>
+	<meta property='twitter:description' content='Blog de tecnologia do Elo7, mantido pelo nosso time de Engenharia, compartilhando conhecimento e mostrando como é o dia a dia de um colaborador fora de série.'>
+	<meta property='twitter:image' content='https://elo7.dev/images/cover/retrospectivas-e-sua-importancia-1.png'>
+
+	<link rel='canonical' href='https://elo7.dev/retrospectivas-e-sua-importancia/'>
+	<title>Elo7 Tech - Retrospectivas e sua importância</title>
+	<link rel='stylesheet' href='https://elo7.dev/css/reset.css'>
+	<link rel='stylesheet' href='https://elo7.dev/css/vendor/highlight.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/main.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/posts.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/post.css' >
+	<link rel='stylesheet' href='https://elo7.dev/css/publisher.css' >
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-16.png' sizes='16x16'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-32.png' sizes='32x32'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-48.png' sizes='48x48'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-64.png' sizes='64x64'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-96.png' sizes='96x96'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-128.png' sizes='128x128'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-160.png' sizes='160x160'>
+	<link rel='icon' href='https://elo7.dev/images/favicon/favicon-192.png' sizes='192x192'>
+	<link rel='apple-touch-icon-precomposed' sizes='180x180' href='https://elo7.dev/images/favicon/favicon-180.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='152x152' href='https://elo7.dev/images/favicon/favicon-152.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='144x144' href='https://elo7.dev/images/favicon/favicon-144.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='120x120' href='https://elo7.dev/images/favicon/favicon-120.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='114x114' href='https://elo7.dev/images/favicon/favicon-114.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='76x76' href='https://elo7.dev/images/favicon/favicon-76.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='72x72' href='https://elo7.dev/images/favicon/favicon-72.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='60x60' href='https://elo7.dev/images/favicon/favicon-60.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://elo7.dev/images/favicon/favicon-57.png'>
+	<link rel='apple-touch-icon-precomposed' href='https://elo7.dev/images/favicon/favicon-precomposed.png'>
+	<script>window.addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});</script>
+	<script src='/js/vendor/async-define.js'></script>
+</head>
+
+    <body data-env='production' data-ga-code='UA-3692628-29'>
+        <meta name='page_type' content='post'>
+        <meta name='category' content='front-end'>
+        <header class='left-pane'>
+    <div class='logo-container'>
+        <a rel='home' itemprop='url' href='https://elo7.dev/' class='logo'>Tech Blog Elo7</a>
+    </div>
+    <div class='navigation'>
+        <input id='categories-switch' type='checkbox' class='categories-switch'>
+        <label for='categories-switch' class='selectable'>
+            <h2 class='nav-title'>Categorias</h2>
+        </label>
+        <nav aria-label='Navegue pelas categorias do nosso blog' class='nav-list nav-category'>
+            
+                <a href='/categoria/back-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Back End</a></span>
+                </a>
+            
+                <a href='/categoria/big-data' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Big Data</a></span>
+                </a>
+            
+                <a href='/categoria/cultura' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Cultura</a></span>
+                </a>
+            
+                <a href='/categoria/design' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Design</a></span>
+                </a>
+            
+                <a href='/categoria/devops' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Devops</a></span>
+                </a>
+            
+                <a href='/categoria/eventos' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Eventos</a></span>
+                </a>
+            
+                <a href='/categoria/front-end' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Front End</a></span>
+                </a>
+            
+                <a href='/categoria/machine-learning' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Machine Learning</a></span>
+                </a>
+            
+                <a href='/categoria/mobile' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Mobile</a></span>
+                </a>
+            
+                <a href='/categoria/vagas' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                    <span itemprop='name'>Vagas</a></span>
+                </a>
+            
+            <a href='/talks' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+                <span itemprop='name'>Palestras</span>
+            </a>
+        </nav>
+    </div>
+    <div class='navigation'>
+        <input id='more-switch' type='checkbox' class='more-switch'>
+        <label for='more-switch' class='selectable'>
+            <h2 class='nav-title'>Veja também</h2>
+        </label>
+        <nav class='nav-list nav-more' aria-label='Navegue pelos links relacionados ao Elo7'>
+            <a itemprop='relatedLink' href='/meetups'>
+                <span itemprop='name'>Meetups no Elo7</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/engenharia/' target='_blank'>
+                <span itemprop='name'>A engenharia</span>
+            </a>
+            <a itemprop='relatedLink' href='http://carreira.elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Carreiras</span>
+            </a>
+            <a itemprop='relatedLink' href='http://elo7.com.br/' target='_blank'>
+                <span itemprop='name'>Elo7</span>
+            </a>
+        </nav>
+    </div>
+    <div class='social'>
+        <a title='Github do Elo7' rel='external' itemprop='relatedLink' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='relatedLink' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='relatedLink' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='relatedLink' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </div>
+</header>
+
+        <main aria-label='Conteúdo principal' itemscope itemtype='http://schema.org/Blog'>
+            <article itemprop='blogPost' itemscope itemtype='http://schema.org/BlogPosting' class='post-main'>
+                <figure class='cover-image' itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <img src='/images/cover/retrospectivas-e-sua-importancia-1.png' alt='Retrospectivas e sua importância' itemprop="url">
+                </figure>
+                <div class='post-content'>
+                    <h1 itemprop='name' class='title'>Retrospectivas e sua importância</h1>
+                    <div class='post-meta'>
+                        <p class='date'>
+                            Publicado em:
+                            <time class='date'
+    datetime='2021-01-18 00:00:00 &#43;0000 UTC'
+    aria-label='18 de janeiro de 2021'>
+    18/01/2021
+    <meta itemprop='datePublished' content='Mon Jan 18 2021 00:00:00 GMT&#43;0000 (UTC)'/>
+    <meta itemprop='dateModified' content='Mon Jan 18 2021 00:00:00 GMT&#43;0000 (UTC)'>
+    <meta name='date' content='2021-01-18'>
+</time>
+
+                        </p>
+
+                        <article>
+                            
+                                <a data-author='mwingter' itemprop='author' itemscope itemtype='http://schema.org/Person' rel='author' href='/autor/mwingter/' class='author'>
+                                    <meta name='author' itemprop='url' content='/autor/mwingter'>
+                                    <img class='hide avatar' width='50px' height='50px' itemprop='image'>
+                                    <p itemprop='name' class='publisher' data-author='mwingter'>@mwingter</p>
+                                </a>
+                            
+
+                            <meta itemprop='worksFor' content='Elo7 Serviços de Informática SA'>
+                        </article>
+                    </div>
+                    <div itemprop='articleBody'>
+                        
+
+<p>Retrospectivas são uma parte essencial das metodologias ágeis, que têm como um de seus pilares a melhoria contínua. O objetivo deste post é mostrar a importância desta prática e como ela funciona, dando alguns exemplos de técnicas e de ferramentas online que nós, do Elo7, temos utilizado para realizar a prática remotamente.</p>
+
+<h1 id="retrospectivas">Retrospectivas</h1>
+
+<p>O objetivo principal de uma retrospectiva é avaliar todo o processo de trabalho ao final de cada sprint. Em outras palavras, isto significa um verdadeiro &ldquo;lavar roupa suja&rdquo;: discutir o que deu ou não deu certo, o que poderia ser melhorado, o que continuar fazendo ou deixar de fazer. Com isto, é possível entender os pontos fortes e fracos, implementar estratégias e ações para superá-los e, assim, garantir que a melhoria contínua aconteça, gerando um aumento na produtividade e na qualidade, além de uma redução de falhas.</p>
+
+<h2 id="por-que-fazer-retrospectivas">Por que fazer retrospectivas?</h2>
+
+<p>Uma das principais razões para se fazer retrospectivas é a nova perspectiva que os membros ganham ao fazer autoavaliações, podendo discutir e ouvir vários pontos de vistas diferentes sobre si mesmos e sobre o projeto em questão. Ao deixar de realizar esta prática, muitos sentimentos e problemas que poderiam ser resolvidos rapidamente acabam se acumulando, muitas vezes gerando uma verdadeira &ldquo;bola de neve&rdquo;. Um exemplo real que ocorreu no Elo7: um time ficou algum tempo sem fazer retrospectivas, até que em dado momento um dos membros propôs que as retrospectivas fossem retomadas. Resultado: tiveram uma retrospectiva estendida por vários dias, devido à quantidade de assuntos importantes que se acumularam ao longo do tempo. Ou seja, algo que poderia ter sido discutido e resolvido muito antes se tornou uma tarefa muito mais cansativa e demorada.</p>
+
+<p>Além disso, são muitas as vantagens de se realizar retrospectivas em seu time. Dentre elas podemos destacar:</p>
+
+<ul>
+<li>aumento na qualidade das entregas;</li>
+<li>aumento na produtividade do time;</li>
+<li>maior integração e engajamento do time;</li>
+<li>identificação e redução de falhas;</li>
+<li>visão mais ampla dos processos e objetivos;</li>
+<li>tomadas de decisões mais eficientes.</li>
+</ul>
+
+<h2 id="como-funciona">Como funciona?</h2>
+
+<p>Uma retrospectiva acontece <strong>sempre ao final de cada sprint</strong> e, geralmente, dura em torno de 1 hora. Por exemplo, aqui no time Nymeros no Elo7, cada sprint tem duração de duas semanas e se encerra às terças-feiras, sendo que as retrospectivas ficam agendadas para as quartas-feiras, às 16h. Além disso, existem alguns papéis e regras fundamentais para o sucesso de uma retrospectiva.</p>
+
+<h3 id="papéis-participantes">Papéis (participantes):</h3>
+
+<ul>
+<li><strong>Facilitador</strong>: é a pessoa que irá moderar a reunião, ou seja, quem irá controlar o fluxo da discussão, definir o modelo da retrospectiva, direcionar os assuntos mais relevantes e monitorar o tempo. Nós do time Nymeros no Elo7, por exemplo, temos o costume de revezar o facilitador a cada sprint.</li>
+<li><strong>Membros</strong>: são todos os outros membros do time que irão participar da retrospectiva. É essencial que todos os membros estejam presentes para que todos os pontos de vista sejam abordados. Outras pessoas também podem participar caso seja relevante, mas é importante ressaltar que isto é válido somente para quem realmente <em>precisa</em> estar lá, de forma que não haja desconfortos, inseguranças ou a impossibilidade de haver uma conversa sincera e aberta sobre assuntos mais delicados.</li>
+</ul>
+
+<h3 id="regras-básicas">Regras básicas</h3>
+
+<p>Há duas regras básicas que devem ser sempre seguidas para o sucesso de qualquer tipo de retrospectiva:</p>
+
+<ol>
+<li><strong>Reconheça que todos deram o melhor de si</strong>. É importante que todos tenham um senso de abertura e compaixão, para que se tenha uma conversa sem culpas nem julgamentos;</li>
+<li><strong>Saiba qual o objetivo</strong>. Antes de começar a planejar a dinâmica, é essencial que se saiba quais os desafios e objetivos do time, para que se escolha a melhor técnica e se tire o maior proveito da discussão.</li>
+</ol>
+
+<h3 id="técnicas-de-retrospectivas">Técnicas de Retrospectivas</h3>
+
+<p>Existem diversas técnicas de retrospectivas, e o facilitador é quem define qual a melhor para aquele momento. O ideal é evitar repetir a mesma técnica em todas as retrospectivas, pois os desafios do time mudam com o tempo e a abordagem desta dinâmica deve ser adaptada. Por exemplo, em sprints iniciais com um novo time, é interessante facilitar a construção desta equipe com técnicas de <em>Team Building</em>. Por outro lado, há ocasiões em que é necessário ajudar o time a dar e receber <em>feedbacks</em>. Em outros momentos, é necessário também olhar para frente com futurospectivas. Por isto é muito importante que o facilitador tenha uma boa visão de qual o contexto e o objetivo final em cada ocasião. Seguem abaixo alguns exemplos de técnicas:</p>
+
+<ul>
+<li><p><strong>Start, stop, continue</strong>: é um modelo que foca no que está funcionando (<em>continue</em>), no que não está funcionando (<em>stop</em>) e no que o time deveria começar a fazer (<em>start</em>). Assim, ele se concentra no passado, presente e futuro ao mesmo tempo. Pode parecer uma técnica muito simples, mas ajuda os participantes a transmitirem mais claramente seus problemas e preocupações, dando a todos uma visão geral do que aconteceu ou não aconteceu, o que deve acontecer e o que precisa permanecer como está.</p></li>
+
+<li><p><strong>4 L&rsquo;s (Liked, learned, lacked, longed for)</strong>: este modelo é uma tentativa de capturar os pensamentos naturais que os participantes possam ter, visto que naturalmente tendemos a pensar e compartilhar em termos de coisas que apreciamos, lições aprendidas, coisas que faltaram e aquilo que gostaríamos de ter. É isso que o 4L&rsquo;s irá trazer, de forma focada e útil.</p></li>
+
+<li><p><strong>Mad, sad, glad</strong>: é uma técnica que promove o bem-estar emocional, de forma que incentiva os participantes a discutirem sua jornada emocional durante a ultima sprint, compartilhando o que os fez se sentirem bravos (<em>mad</em>), tristes (<em>sad</em>) ou contentes (<em>glad</em>). É uma oportunidade de refletir sobre problemas e uma ótima forma de melhorar a satisfação no trabalho, criando um ambiente positivo para a equipe. No entanto, é muito importante que todos se foquem nos eventos sem atribuir quaisquer culpas aos membros.</p></li>
+
+<li><p><strong>Sailboat</strong>: é uma técnica de visualização cuja ideia é colocar o time para refletir sobre seus objetivos (ilha), impedimentos (âncoras), riscos (rochas) e coisas que os favorecem (vento). Pode ser bastante interessante para se conduzir uma retrospectiva com mais de um time ao mesmo tempo, pois os nomes de ambas as equipes serão colocados no Sailboat, relembrando que estão todos no &ldquo;mesmo barco&rdquo; e navegando na mesma direção.</p></li>
+</ul>
+
+<figure>
+  <img src='../images/retrospectivas-e-sua-importancia-2.png' alt='Técnica Sailboat'>
+  <figcaption>Ilustração da técnica Sailboat (Imagem: MetroRetro)</figcaption>
+</figure>
+
+<ul>
+<li><strong>Hot Air Balloon</strong>: é outra técnica de visualização que é bastante interessante pois envolve também futurospectiva. Assim, na dinâmica, a equipe é incentivada a refletir sobre o passado e o futuro, discutindo os pontos positivos que levam o projeto para frente (ar quente), os pontos negativos que os atrasam (sacos de areia), os perigos adiante (tempestade) e nas coisas que esperam para o futuro (sol).</li>
+</ul>
+
+<figure>
+  <img src='../images/retrospectivas-e-sua-importancia-3.png' alt='Técnica Hot Air Baloon'>
+  <figcaption>Ilustração da técnica Hot Air Baloon (Imagem: MetroRetro)</figcaption>
+</figure>
+
+<ul>
+<li><p><strong>Starfish</strong>: é uma atividade dividida em cinco sessões: o que o time deve continuar fazendo, fazer menos, fazer mais, parar de fazer, e começar a fazer. O objetivo é ajudar as equipes a entender melhor o que fizeram de errado e como podem melhorar, permitindo que sejam avaliadas quais atividades precisam de mais ou de menos recursos e energia.</p></li>
+
+<li><p><strong>KALM (Keep, Add, More, Less)</strong>: esta atividade foca em práticas e processos do seu time, com o intuito de ajudar a equipe a refletir sobre as atividades atuais e seu valor, além de outras melhorias.</p></li>
+</ul>
+
+<p>Se quiser conhecer ainda mais sobre estas e outras técnicas existentes, recomendo a leitura destes sites: <a href="https://www.funretrospectives.com/">Fun Retrospectives</a>, <a href="https://retroagil.wordpress.com/">RetroAgil</a> e <a href="https://metroretro.io/templates">MetroRetro</a>.</p>
+
+<h3 id="ferramentas-online-para-retrospectivas">Ferramentas online para Retrospectivas</h3>
+
+<p>Existem muitas ferramentas online que podem te auxiliar a realizar suas retrospectivas com seu time. Aqui no Elo7 costumamos utilizar a <a href="https://metroretro.io/">MetroRetro</a>, por conta de várias funcionalidades legais que possui, além de ter um visual super atrativo. Além desta existem também muitas outras:</p>
+
+<ul>
+<li><a href="https://easyretro.io/">EasyRetro</a></li>
+<li><a href="https://www.funretrospectives.com/">Fun Retrospectives</a></li>
+<li><a href="https://miro.com/">Miro</a></li>
+<li><a href="https://ziteboard.com/">Zite Board</a></li>
+<li><a href="https://ideaboardz.com/">IdeiaBoadz</a></li>
+<li><a href="https://trello.com/">Trello</a></li>
+</ul>
+
+<hr />
+
+<p>Gostou do conteúdo? E você, conhece alguma ferramenta ou técnica legal de retrospectiva que não foi mencionada aqui? Deixe nos comentários!</p>
+
+
+                        <ul class='tag-list'>
+                            
+                                <li>
+                                    <a href='/tags/retrospectivas/'>retrospectivas</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/agile/'>agile</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/metodologias/'>metodologias</a>
+                                </li>
+                            
+                                <li>
+                                    <a href='/tags/processos/'>processos</a>
+                                </li>
+                            
+                        </ul>
+                        <section class='share'>
+                            <a href='#share' class='share-post hide' title='Clique aqui para compartilhar esse post'>Compartilhe</a>
+                            <div class='social-share'>
+                                <a href='https://www.facebook.com/dialog/share?app_id=644444999041914&href=https%3a%2f%2felo7.dev%2fretrospectivas-e-sua-importancia%2f&display=popup' rel='noopener' target='_blank' class='link-share facebook' title='Clique para compartilhar no Facebook'>
+                                    Compartilhar no facebook
+                                </a>
+                                <a href='https://twitter.com/intent/tweet?text=retrospectivas-e-sua-import%25C3%25A2ncia&url=https%3a%2f%2felo7.dev%2fretrospectivas-e-sua-importancia%2f&hashtags=elo7tech' rel='noopener' target='_blank' class='link-share twitter' title='Clique para compartilhar no Twitter'>
+                                    Compartilhar no twitter
+                                </a>
+                                <a href='https://elo7.dev/retrospectivas-e-sua-importancia/?utm_source=share&utm_medium=copy' class='link-share hide copy' title='Clique para copiar a url'>
+                                    Copiar URL
+                                </a>
+                                <span class='copy-success'>Link copiado</span>
+                                <input type='url' value='https://elo7.dev/retrospectivas-e-sua-importancia/?utm_source=share&utm_medium=copy' class='link-input'>
+                            </div>
+                        </section>
+                    </div>
+                    <meta itemprop='headline' content='Saiba o que são retrospectivas e qual a importância de praticá-las com frequência, e entenda como cada uma de suas técnicas podem ser poderosas ferramentas ao serem aplicadas nos momentos certos.'/>
+                    <span itemprop='publisher' itemscope itemtype='http://schema.org/Organization'>
+                        <meta itemprop='name' content='Elo7 Tech'/>
+                        <meta itemprop='url' content='https://elo7.dev/'/>
+                        <span itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+                            <link href='https://images.elo7.com.br/assets/v3/desktop/png/logo-elo7.png' itemprop='url'/>
+                            <meta itemprop='width' content='100px'/>
+                            <meta itemprop='height' content='100px'/>
+                        </span>
+                    </span>
+                    <meta itemprop='mainEntityOfPage' content='Elo7 Serviços de Informática SA'/>
+
+                    <div id='disqus_thread'></div>
+                </div>
+            </article>
+        </main>
+
+        <footer itemscope itemtype='http://schema.org/Organization'>
+    <a rel='home' itemprop='url' href='https://elo7.dev/' >
+        elo7.dev © <script>now = new Date; document.write(now.getFullYear());</script>
+    </a>
+    <meta itemprop='name' content='Elo7 Serviços de Informática SA'/>
+    <section class='footer-social'>
+        <a title='Github do Elo7' rel='external' itemprop='url' href='https://github.com/elo7' target='_blank' class='github'>Github do Elo7</a>
+        <a title='Twitter do Elo7' rel='external' itemprop='url' href='https://twitter.com/elo7tech' target='_blank' class='twitter'>Twitter do Elo7</a>
+        <a title='RSS do Elo7' rel='external' itemprop='url' href='https://elo7.dev/index.xml' target='_blank' class='rss'>RSS do Elo7</a>
+        <a title='Newsletter do Elo7' rel='external' itemprop='url' href='http://eepurl.com/cVUwvH' target='_blank' class='email'>Newsletter do Elo7</a>
+    </section>
+</footer>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='/js/analytics.js'></script>
+<script async src='/js/github.js'></script>
+<script async src='/js/vendor/events-amd.js'></script>
+<script async src='/js/vendor/ajax.js'></script>
+<script async src='/js/vendor/doc.js'></script>
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\[','\]'] ],
+            processEscapes: true
+        },
+    });
+</script>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='/js/vendor/highlight.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+        <script>
+            var disqus_shortname = 'engenhariaelo7';
+            var disqus_identifier = '2021-01-18 00:00:00 \x2b0000 UTC:\/retrospectivas-e-sua-importancia\/';
+            var disqus_url = 'https:\/\/elo7.dev\/retrospectivas-e-sua-importancia\/';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Habilite o JavaScript para ver os comentários</noscript>
+        <script async src='/js/post.js'></script>
+    </body>
+</html>

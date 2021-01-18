@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://elo7.dev/retrospectivas-e-sua-importancia/</loc>
+    <lastmod>2021-01-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://elo7.dev/a11y-complementando-elementos-textuais-para-leitores-de-tela/</loc>
     <lastmod>2020-12-14T00:00:00+00:00</lastmod>
   </url>
@@ -649,7 +654,7 @@
   
   <url>
     <loc>https://elo7.dev/tags/agile/</loc>
-    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
+    <lastmod>2021-01-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1280,7 +1285,7 @@
   
   <url>
     <loc>https://elo7.dev/categoria/front-end/</loc>
-    <lastmod>2020-12-14T00:00:00+00:00</lastmod>
+    <lastmod>2021-01-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1720,8 +1725,12 @@
   
   <url>
     <loc>https://elo7.dev/tags/metodologias/</loc>
-    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
+    <lastmod>2021-01-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://elo7.dev/autor/mwingter/</loc>
   </url>
   
   <url>
@@ -1876,7 +1885,7 @@
   
   <url>
     <loc>https://elo7.dev/posts/</loc>
-    <lastmod>2020-12-14T00:00:00+00:00</lastmod>
+    <lastmod>2021-01-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1888,7 +1897,7 @@
   
   <url>
     <loc>https://elo7.dev/tags/processos/</loc>
-    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
+    <lastmod>2021-01-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -2023,6 +2032,12 @@
   <url>
     <loc>https://elo7.dev/tags/retrospectiva/</loc>
     <lastmod>2018-01-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://elo7.dev/tags/retrospectivas/</loc>
+    <lastmod>2021-01-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -2200,7 +2215,7 @@
   
   <url>
     <loc>https://elo7.dev/</loc>
-    <lastmod>2020-12-14T00:00:00+00:00</lastmod>
+    <lastmod>2021-01-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
