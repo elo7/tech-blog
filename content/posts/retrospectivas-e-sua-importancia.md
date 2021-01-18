@@ -1,6 +1,6 @@
 ---
 title: Retrospectivas e sua importância
-date: 2020-11-30
+date: 2021-01-18
 category: front-end
 layout: post
 description: Saiba o que são retrospectivas e qual a importância de praticá-las com frequência, e entenda como cada uma de suas técnicas podem ser poderosas ferramentas ao serem aplicadas nos momentos certos.
