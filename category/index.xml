@@ -2,102 +2,102 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Category on Tech Blog Elo7</title>
-    <link>https://elo7.dev/category/</link>
+    <link>https://blog.elo7.dev/category/</link>
     <description>Recent content in Category on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/category/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/category/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Back End</title>
-      <link>https://elo7.dev/categoria/back-end/</link>
+      <link>https://blog.elo7.dev/categoria/back-end/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/categoria/back-end/</guid>
+      <guid>https://blog.elo7.dev/categoria/back-end/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Big Data</title>
-      <link>https://elo7.dev/categoria/big-data/</link>
+      <link>https://blog.elo7.dev/categoria/big-data/</link>
       <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/categoria/big-data/</guid>
+      <guid>https://blog.elo7.dev/categoria/big-data/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cultura</title>
-      <link>https://elo7.dev/categoria/cultura/</link>
+      <link>https://blog.elo7.dev/categoria/cultura/</link>
       <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/categoria/cultura/</guid>
+      <guid>https://blog.elo7.dev/categoria/cultura/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Design</title>
-      <link>https://elo7.dev/categoria/design/</link>
+      <link>https://blog.elo7.dev/categoria/design/</link>
       <pubDate>Mon, 17 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/categoria/design/</guid>
+      <guid>https://blog.elo7.dev/categoria/design/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Devops</title>
-      <link>https://elo7.dev/categoria/devops/</link>
+      <link>https://blog.elo7.dev/categoria/devops/</link>
       <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/categoria/devops/</guid>
+      <guid>https://blog.elo7.dev/categoria/devops/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Eventos</title>
-      <link>https://elo7.dev/categoria/eventos/</link>
+      <link>https://blog.elo7.dev/categoria/eventos/</link>
       <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/categoria/eventos/</guid>
+      <guid>https://blog.elo7.dev/categoria/eventos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Front End</title>
-      <link>https://elo7.dev/categoria/front-end/</link>
+      <link>https://blog.elo7.dev/categoria/front-end/</link>
       <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/categoria/front-end/</guid>
+      <guid>https://blog.elo7.dev/categoria/front-end/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Machine Learning</title>
-      <link>https://elo7.dev/categoria/machine-learning/</link>
+      <link>https://blog.elo7.dev/categoria/machine-learning/</link>
       <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/categoria/machine-learning/</guid>
+      <guid>https://blog.elo7.dev/categoria/machine-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mobile</title>
-      <link>https://elo7.dev/categoria/mobile/</link>
+      <link>https://blog.elo7.dev/categoria/mobile/</link>
       <pubDate>Mon, 16 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/categoria/mobile/</guid>
+      <guid>https://blog.elo7.dev/categoria/mobile/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Vagas</title>
-      <link>https://elo7.dev/categoria/vagas/</link>
+      <link>https://blog.elo7.dev/categoria/vagas/</link>
       <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/categoria/vagas/</guid>
+      <guid>https://blog.elo7.dev/categoria/vagas/</guid>
       <description></description>
     </item>
     

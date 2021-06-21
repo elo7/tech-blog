@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eclipse on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/eclipse/</link>
+    <link>https://blog.elo7.dev/tags/eclipse/</link>
     <description>Recent content in Eclipse on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Tue, 13 Aug 2013 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/eclipse/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/eclipse/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Configuring Eclipse scala project with SBT</title>
-      <link>https://elo7.dev/eclipse-scala-sbt/</link>
+      <link>https://blog.elo7.dev/eclipse-scala-sbt/</link>
       <pubDate>Tue, 13 Aug 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/eclipse-scala-sbt/</guid>
+      <guid>https://blog.elo7.dev/eclipse-scala-sbt/</guid>
       <description>Recently we started a new project here in Elo7 and this is a quick guide to help you to configure a new Scala project using SBT to manage your project dependencies and Eclipse as your IDE.
 So&amp;hellip; what is SBT?  &amp;ldquo;sbt is a build tool for Scala and Java projects that aims to do the basics well&amp;amp;&amp;rdquo; from scala-sbt.org
  It manages your dependencies (using Apache Ivy) and supports mixed projects with Scala and Java.</description>

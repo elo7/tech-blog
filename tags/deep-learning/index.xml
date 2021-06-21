@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Deep Learning on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/deep-learning/</link>
+    <link>https://blog.elo7.dev/tags/deep-learning/</link>
     <description>Recent content in Deep Learning on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 16 Dec 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Estratégias e dicas para treinar GANs</title>
-      <link>https://elo7.dev/treinando-gans/</link>
+      <link>https://blog.elo7.dev/treinando-gans/</link>
       <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/treinando-gans/</guid>
+      <guid>https://blog.elo7.dev/treinando-gans/</guid>
       <description>Recentemente realizamos no Elo7 um evento chamado de GAN School 1 dando início a série de workshops e meetups promovidos pelo time de engenharia. Os elo7.dev workshops visam compartilhar conhecimento sobre técnicas e soluções usadas aqui no Elo7. A GAN School tem como objetivo divulgar as redes geradoras adversariais no Brasil ensinando o básico necessário para que os participantes que não conhecem a técnica possam começar a acompanhar a literatura, a entender diferentes arquiteturas e aplicá-las em problemas próprios.</description>
     </item>
     
     <item>
       <title>Vaga Data Scientist</title>
-      <link>https://elo7.dev/vagas-data-scientist-cientista-de-dados/</link>
+      <link>https://blog.elo7.dev/vagas-data-scientist-cientista-de-dados/</link>
       <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vagas-data-scientist-cientista-de-dados/</guid>
+      <guid>https://blog.elo7.dev/vagas-data-scientist-cientista-de-dados/</guid>
       <description>O Elo7 é um marketplace que busca conectar milhões de usuários a produtos feitos sob encomenda por milhares de vendedores para oferecer uma experiência de compra única na internet. O objetivo do Elo7 é oferecer as melhores ferramentas para compra e venda de produtos personalizados.
 Nosso ambiente é colaborativo e gostamos de incentivar aprendizado e distribuição de conhecimento. Em nosso dia-a-dia utilizamos pair-programming com objetivo de garantir esses pontos, além da qualidade da solução.</description>
     </item>
     
     <item>
       <title>Vaga Data Scientist</title>
-      <link>https://elo7.dev/vagas-data-scientist/</link>
+      <link>https://blog.elo7.dev/vagas-data-scientist/</link>
       <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vagas-data-scientist/</guid>
+      <guid>https://blog.elo7.dev/vagas-data-scientist/</guid>
       <description>O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos.
 Utilizamos práticas ágeis de desenvolvimento e gostamos de ter um ambiente bem descontraído. Atualmente temos um cenário com diversas tecnologias (AWS, Docker) e linguagens (Java, Python, Ruby e Scala) que nos leva à necessidade de possuir profissionais versáteis, capazes de utilizar essas ferramentas com boas práticas, autonomia e algumas vezes antes de elas serem amadurecidas no mercado.</description>
     </item>

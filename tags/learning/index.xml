@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Learning on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/learning/</link>
+    <link>https://blog.elo7.dev/tags/learning/</link>
     <description>Recent content in Learning on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 07 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/learning/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/learning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>GAN - Redes Geradoras Adversariais</title>
-      <link>https://elo7.dev/gan/</link>
+      <link>https://blog.elo7.dev/gan/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/gan/</guid>
+      <guid>https://blog.elo7.dev/gan/</guid>
       <description>Em 2014 foi publicado um artigo entitulado Generative Adversarial Nets (GAN) propondo uma arquitetura de redes neurais que poderia gerar dados sintéticos que seriam indistinguíveis dos dados reais que foram usados na sua criação. Para quem está por dentro do mundo de Inteligência Artifical dois autores se destacam: o autor principal Ian Goodfellow que foi recentemente contratado pela Apple (estava no Google) para liderar a equipe de Inteligência Artificial; e o pesquisador Yoshua Bengio que recentemente recebeu o Turing Award junto com Geoffrey Hinton e Yann LeCun (outros dois nomes fortes em IA).</description>
     </item>
     
     <item>
       <title>Reinforcement Learning Parte 1 - Introdução</title>
-      <link>https://elo7.dev/reinforcement-learning-parte-1/</link>
+      <link>https://blog.elo7.dev/reinforcement-learning-parte-1/</link>
       <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/reinforcement-learning-parte-1/</guid>
+      <guid>https://blog.elo7.dev/reinforcement-learning-parte-1/</guid>
       <description>Esta é a primeira parte de uma série de posts nos quais vamos concentrar nossa atenção em uma parte de Machine Learning (ML) chamada Aprendizado por Reforço. Esta talvez seja a parte menos conhecida de ML e é aquela que possui maior semelhança com os métodos que humanos e animais usam para aprender a realizar tarefas, e ela inicialmente também envolve uma menor abstração matemática para entender o funcionamento dos algoritmos.</description>
     </item>
     

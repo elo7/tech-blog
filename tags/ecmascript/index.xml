@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ecmascript on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/ecmascript/</link>
+    <link>https://blog.elo7.dev/tags/ecmascript/</link>
     <description>Recent content in Ecmascript on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Thu, 11 Feb 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/ecmascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/ecmascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ECMAScript 2015 no Elo7 – Proxy</title>
-      <link>https://elo7.dev/ecmascript-post/</link>
+      <link>https://blog.elo7.dev/ecmascript-post/</link>
       <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/ecmascript-post/</guid>
+      <guid>https://blog.elo7.dev/ecmascript-post/</guid>
       <description>Já faz algum tempo que ouvimos falar de ECMAScript 2015 (também conhecido como ECMAScript 6) com todas as suas novidades como map reduce, escopos, promises, etc. Mas infelizmente não podemos utilizá-las porque temos problema de compatibilidade entre os navegadores, ora por versão, ora por falta da implementação da especificação. Assim como todas as especificações (ECMA, CSS, HTML), as adoções são feitas aos poucos pelos navegadores. Com o tempo a aceitação se torna maior, até que um belo dia a especificação se torna recomendada e viável.</description>
     </item>
     

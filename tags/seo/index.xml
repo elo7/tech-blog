@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Seo on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/seo/</link>
+    <link>https://blog.elo7.dev/tags/seo/</link>
     <description>Recent content in Seo on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 16 Jan 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/seo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/seo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A importância da semântica no HTML - parte II</title>
-      <link>https://elo7.dev/html-semantico-2/</link>
+      <link>https://blog.elo7.dev/html-semantico-2/</link>
       <pubDate>Mon, 16 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/html-semantico-2/</guid>
+      <guid>https://blog.elo7.dev/html-semantico-2/</guid>
       <description>Neste segundo post da série sobre a importância da semântica para os usuários e desenvolvedores, trataremos sobre como podemos melhorar nosso conteúdo de forma que os buscadores entendam o que realmente estamos oferecendo, com a menor possibilidade de ruídos de informação possível. Saberemos de maneira prática como podemos melhorar a disponibilidade de nosso conteúdo.
 Caso não tenha lido o nosso primeiro post, basta acessar aqui.
 Dando significado ao HTML Lembram do uso da palavra “lembrança” que utilizamos no post anterior?</description>
@@ -24,10 +24,10 @@ Dando significado ao HTML Lembram do uso da palavra “lembrança” que utiliza
     
     <item>
       <title>A importância da semântica no HTML - parte I</title>
-      <link>https://elo7.dev/html-semantico-1/</link>
+      <link>https://blog.elo7.dev/html-semantico-1/</link>
       <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/html-semantico-1/</guid>
+      <guid>https://blog.elo7.dev/html-semantico-1/</guid>
       <description>Antigamente a informação era armazenada em papéis, rochas e até paredes. A única forma de encontrar o que queríamos era indo até o local no qual a mensagem estava armazenada. Hoje existe todo um mundo digital que gera terabytes de dados por segundo.
 E para onde vai toda essa informação? Será que ficou mais fácil encontrar o que se deseja? O problema atual não é a escassez, mas a porção de ruído proveniente de uma quantidade exorbitante de dados.</description>
     </item>

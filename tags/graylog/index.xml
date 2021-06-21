@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Graylog on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/graylog/</link>
+    <link>https://blog.elo7.dev/tags/graylog/</link>
     <description>Recent content in Graylog on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 10 Oct 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/graylog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/graylog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Gestão de logs</title>
-      <link>https://elo7.dev/gestao-de-logs/</link>
+      <link>https://blog.elo7.dev/gestao-de-logs/</link>
       <pubDate>Mon, 10 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/gestao-de-logs/</guid>
+      <guid>https://blog.elo7.dev/gestao-de-logs/</guid>
       <description>Introdução Aqui no Elo7 nós cuidamos de nossos logs assim como cuidamos das pessoas - com muito carinho. Como toda empresa de tecnologia, nós geramos centenas de milhões de linhas de log diariamente, a partir dos mais diversos tipos de sistemas. Isso implica imediatamente em um sério problema: como gerenciar esses dados, organizá-los, salvá-los e disponibilizá-los para consulta quando necessário? Além disso, como extrair significado deles em tempo real e dar visibilidade da saúde de nossos sistemas e dos eventos que ocorrem?</description>
     </item>
     

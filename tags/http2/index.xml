@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Http2 on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/http2/</link>
+    <link>https://blog.elo7.dev/tags/http2/</link>
     <description>Recent content in Http2 on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Tue, 02 May 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/http2/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/http2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Migrando para HTTPS</title>
-      <link>https://elo7.dev/https-only/</link>
+      <link>https://blog.elo7.dev/https-only/</link>
       <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/https-only/</guid>
+      <guid>https://blog.elo7.dev/https-only/</guid>
       <description>Como vocês já devem ter notado, recentemente o Elo7 passou a ser servido unicamente em HTTPS. Nenhuma parte de nosso conteúdo ou navegação está mais disponível em HTTP plano. Isso segue uma tendência de toda a Internet e cada vez mais sites devem adotar esse &amp;ldquo;formato&amp;rdquo;. O gráfico abaixo (extraído daqui) mostra o crescimento do uso de HTTPS entre o 1 milhão de sites mais acessados listados pela Alexa.</description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Macwire on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/macwire/</link>
+    <link>https://blog.elo7.dev/tags/macwire/</link>
     <description>Recent content in Macwire on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/macwire/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/macwire/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Injeção de Dependência em Scala - Parte 2</title>
-      <link>https://elo7.dev/injecao-de-dependencia-em-scala-parte-2/</link>
+      <link>https://blog.elo7.dev/injecao-de-dependencia-em-scala-parte-2/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/injecao-de-dependencia-em-scala-parte-2/</guid>
+      <guid>https://blog.elo7.dev/injecao-de-dependencia-em-scala-parte-2/</guid>
       <description>Scala no Elo7 Antes restrito basicamente às áreas de Data Science e Data Engineering da empresa, o uso de Scala está sendo expandido para outras áreas de backend aqui no Elo7 em 2019. Como compartilhar conhecimento faz parte do nosso DNA, iremos realizar posts contando as experiências que temos com a linguagem e um pouco sobre como resolvemos diferentes situações que aparecem no dia-a-dia.
 Recapitulando Na primeira parte, introduzimos o problema da injeção de dependência, e como podemos resolvê-lo em Scala usando o já consagrado Guice, da Google.</description>
     </item>

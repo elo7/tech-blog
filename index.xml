@@ -2,108 +2,108 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tech Blog Elo7</title>
-    <link>https://elo7.dev/</link>
+    <link>https://blog.elo7.dev/</link>
     <description>Recent content on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 18 Jan 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Retrospectivas e sua importância</title>
-      <link>https://elo7.dev/retrospectivas-e-sua-importancia/</link>
+      <link>https://blog.elo7.dev/retrospectivas-e-sua-importancia/</link>
       <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/retrospectivas-e-sua-importancia/</guid>
+      <guid>https://blog.elo7.dev/retrospectivas-e-sua-importancia/</guid>
       <description>Retrospectivas são uma parte essencial das metodologias ágeis, que têm como um de seus pilares a melhoria contínua. O objetivo deste post é mostrar a importância desta prática e como ela funciona, dando alguns exemplos de técnicas e de ferramentas online que nós, do Elo7, temos utilizado para realizar a prática remotamente.
 Retrospectivas O objetivo principal de uma retrospectiva é avaliar todo o processo de trabalho ao final de cada sprint.</description>
     </item>
     
     <item>
       <title>Complementando elementos textuais para leitores de tela</title>
-      <link>https://elo7.dev/a11y-complementando-elementos-textuais-para-leitores-de-tela/</link>
+      <link>https://blog.elo7.dev/a11y-complementando-elementos-textuais-para-leitores-de-tela/</link>
       <pubDate>Mon, 14 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/a11y-complementando-elementos-textuais-para-leitores-de-tela/</guid>
+      <guid>https://blog.elo7.dev/a11y-complementando-elementos-textuais-para-leitores-de-tela/</guid>
       <description>Ao digitar o conteúdo de nossas páginas web, muitas vezes utilizamos siglas, abreviações e outros elementos visuais que são triviais para usuários videntes, mas que não conseguem ser interpretadas corretamente por leitores de tela (screen readers). Assim, a acessibildade do site fica prejudicada.
 Recentemente, aqui no Elo7, enfrentamos o seguinte problema: como fazer com que nossos cards de produtos sejam lidos da forma esperada por leitores de tela? Por exemplo, tendo um preço com fonte menor e tachada, e outro com fonte maior, é possível entender que o primeiro é o preço original, enquanto o segundo é o promocional.</description>
     </item>
     
     <item>
       <title>Introdução ao Manifold Learning - Geometria dos dados</title>
-      <link>https://elo7.dev/intro-manifold-learning/</link>
+      <link>https://blog.elo7.dev/intro-manifold-learning/</link>
       <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/intro-manifold-learning/</guid>
+      <guid>https://blog.elo7.dev/intro-manifold-learning/</guid>
       <description>Muito do trabalho de um cientista de dados não está apenas em criar sistemas de classificação, regressão ou recomendação. Aliás, estes são normalmente o resultado final de uma grande jornada aplicando diversas técnicas em cima dos dados coletados. Uma importante parte dessa jornada está em descobrir maneiras de compreender e utilizar a estrutura dos dados.
 Eu tenho um carinho especial por esse tipo de abordagem. Minha formação é como físico e boa parte da compreensão que temos do Universo veio através dessa estrutura dos dados observados.</description>
     </item>
     
     <item>
       <title>Subindo uma aplicação no Kubernetes usando o Helm</title>
-      <link>https://elo7.dev/subindo-uma-aplicacao-no-kubernetes-usando-helm/</link>
+      <link>https://blog.elo7.dev/subindo-uma-aplicacao-no-kubernetes-usando-helm/</link>
       <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/subindo-uma-aplicacao-no-kubernetes-usando-helm/</guid>
+      <guid>https://blog.elo7.dev/subindo-uma-aplicacao-no-kubernetes-usando-helm/</guid>
       <description>Talvez o Kubernetes seja, hoje, um dos nomes mais famosos do mercado quando falamos em DevOps, e não é para menos. A plataforma é uma grande facilitadora quando se trata de gerenciar a infraestrutura de aplicações, tornando muito mais fáceis tarefas como escalar as instâncias, automatizar o deployment e até mesmo gerenciar o ciclo de vida das aplicações baseadas em Docker.
 Apesar de todos os benefícios, ainda há algumas coisas trabalhosas no dia a dia de quem trabalha com Kubernetes.</description>
     </item>
     
     <item>
       <title>CORELS - um modelo interpretável</title>
-      <link>https://elo7.dev/corels/</link>
+      <link>https://blog.elo7.dev/corels/</link>
       <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/corels/</guid>
+      <guid>https://blog.elo7.dev/corels/</guid>
       <description>CORELS: um modelo interpretável Neste post, vamos falar sobre o algoritmo CORELS (Certifiably Optimal RulE ListS), que promete ser uma opção aos modelos blackbox.
 O problema dos modelos blackbox Nos Estados Unidos, há alguns anos atrás, houve uma polêmica envolvendo um modelo blackbox chamado COMPAS, cujo propósito era identificar se um criminoso seria reincidente ou não. Uma análise independente pela organização ProPublica concluiu que réus negros tinham uma chance maior de serem incorretamente rotulados como alto risco de reincidência, enquanto os réus brancos tinham uma chance maior de serem incorretamente rotulados como baixo risco de reincidência.</description>
     </item>
     
     <item>
       <title>Jupyter no Kubernetes</title>
-      <link>https://elo7.dev/jupyter-enterprise-gateway/</link>
+      <link>https://blog.elo7.dev/jupyter-enterprise-gateway/</link>
       <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/jupyter-enterprise-gateway/</guid>
+      <guid>https://blog.elo7.dev/jupyter-enterprise-gateway/</guid>
       <description>Jupyter é uma ferramenta para desenvolvimento iterativo com suporte a diversas linguagens. No Elo7 é amplamente utilizado pelo time de Ciência de Dados e mais atualmente pelo time de Engenharia de Dados. O jupyter faz uso do que ele chama de kernels para execução de notebooks, já os notebooks são onde se encontram os códigos que serão executados. O jupyter possui diversos kernels, que definem a linguagem suportada e até mesmo algumas características de como executá-la.</description>
     </item>
     
     <item>
       <title>Agendando jobs Spark no k8s através do Airflow</title>
-      <link>https://elo7.dev/airflow-spark/</link>
+      <link>https://blog.elo7.dev/airflow-spark/</link>
       <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/airflow-spark/</guid>
+      <guid>https://blog.elo7.dev/airflow-spark/</guid>
       <description>Apache Spark é uma ferramenta para processamento de dados em larga escala, já consolidada no mercado. O Apache Airflow é uma ferramenta para agendamento e monitoração de workflows, criado pelo Airbnb, vem ganhando destaque nos ultimos anos. O Kubernetes é uma ferramenta para orquestração de containers extremamente consolidada no mercado e com muitos recursos que facilitam a administração, diminuindo o overhead operacional de se manter ambientes com containers.
 Como utilizamos o Apache Spark no Elo7 Atualmente utilizamos o Apache Spark para realizar ETL de dados produzidos por aplicações.</description>
     </item>
     
     <item>
       <title>Estratégias e dicas para treinar GANs</title>
-      <link>https://elo7.dev/treinando-gans/</link>
+      <link>https://blog.elo7.dev/treinando-gans/</link>
       <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/treinando-gans/</guid>
+      <guid>https://blog.elo7.dev/treinando-gans/</guid>
       <description>Recentemente realizamos no Elo7 um evento chamado de GAN School 1 dando início a série de workshops e meetups promovidos pelo time de engenharia. Os elo7.dev workshops visam compartilhar conhecimento sobre técnicas e soluções usadas aqui no Elo7. A GAN School tem como objetivo divulgar as redes geradoras adversariais no Brasil ensinando o básico necessário para que os participantes que não conhecem a técnica possam começar a acompanhar a literatura, a entender diferentes arquiteturas e aplicá-las em problemas próprios.</description>
     </item>
     
     <item>
       <title>GAN - Redes Geradoras Adversariais</title>
-      <link>https://elo7.dev/gan/</link>
+      <link>https://blog.elo7.dev/gan/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/gan/</guid>
+      <guid>https://blog.elo7.dev/gan/</guid>
       <description>Em 2014 foi publicado um artigo entitulado Generative Adversarial Nets (GAN) propondo uma arquitetura de redes neurais que poderia gerar dados sintéticos que seriam indistinguíveis dos dados reais que foram usados na sua criação. Para quem está por dentro do mundo de Inteligência Artifical dois autores se destacam: o autor principal Ian Goodfellow que foi recentemente contratado pela Apple (estava no Google) para liderar a equipe de Inteligência Artificial; e o pesquisador Yoshua Bengio que recentemente recebeu o Turing Award junto com Geoffrey Hinton e Yann LeCun (outros dois nomes fortes em IA).</description>
     </item>
     
     <item>
       <title>Introdução ao Change Data Capture (CDC)</title>
-      <link>https://elo7.dev/cdc-parte-1/</link>
+      <link>https://blog.elo7.dev/cdc-parte-1/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/cdc-parte-1/</guid>
+      <guid>https://blog.elo7.dev/cdc-parte-1/</guid>
       <description>A atual popularidade do termo Big Data veio acompanhada de diversas buzzwords, entre elas o Change Data Capture, ou simplesmente CDC. Porém esse design pattern é tão antigo quanto os RDBMS, pois os dois estão estritamente ligados.
 Como o próprio nome diz, o CDC nada mais é do que uma forma de capturar as mudanças nos dados. Vamos imaginar a seguinte tabela de produto:
 CREATE TABLE `produto` ( id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(30) NOT NULL, preco DECIMAL(15,2) NOT NULL, quantidade INT NOT NULL, data_atualizacao DATETIME );  com o seguinte insert:</description>
@@ -111,85 +111,85 @@ CREATE TABLE `produto` ( id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, nome VAR
     
     <item>
       <title>Injeção de Dependência em Scala - Parte 2</title>
-      <link>https://elo7.dev/injecao-de-dependencia-em-scala-parte-2/</link>
+      <link>https://blog.elo7.dev/injecao-de-dependencia-em-scala-parte-2/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/injecao-de-dependencia-em-scala-parte-2/</guid>
+      <guid>https://blog.elo7.dev/injecao-de-dependencia-em-scala-parte-2/</guid>
       <description>Scala no Elo7 Antes restrito basicamente às áreas de Data Science e Data Engineering da empresa, o uso de Scala está sendo expandido para outras áreas de backend aqui no Elo7 em 2019. Como compartilhar conhecimento faz parte do nosso DNA, iremos realizar posts contando as experiências que temos com a linguagem e um pouco sobre como resolvemos diferentes situações que aparecem no dia-a-dia.
 Recapitulando Na primeira parte, introduzimos o problema da injeção de dependência, e como podemos resolvê-lo em Scala usando o já consagrado Guice, da Google.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://elo7.dev/meetups/pydata/</link>
+      <link>https://blog.elo7.dev/meetups/pydata/</link>
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/meetups/pydata/</guid>
+      <guid>https://blog.elo7.dev/meetups/pydata/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Trabalhando com JavaScript Assíncrono</title>
-      <link>https://elo7.dev/trabalhando-com-javascript-assincrono/</link>
+      <link>https://blog.elo7.dev/trabalhando-com-javascript-assincrono/</link>
       <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/trabalhando-com-javascript-assincrono/</guid>
+      <guid>https://blog.elo7.dev/trabalhando-com-javascript-assincrono/</guid>
       <description>Não podemos negar que JavaScript é uma linguagem extremamente versátil. Por muito tempo usada apenas em aplicações Front-end, hoje podemos fazer apps full-stack utilizando apenas essa linguagem. Essa versatilidade está fazendo com que cada vez mais desenvolvedores se tornem adeptos a ela.
 Nesse post irei focar em um assunto muito importante para aplicações web: requisições assíncronas. Trabalhar com isso pode ser bem chato em várias linguagens, porém mostrarei aqui como o JavaScript fornece ferramentas bastante interessantes para resolver esse problema.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://elo7.dev/meetups/aibrasilgirls/</link>
+      <link>https://blog.elo7.dev/meetups/aibrasilgirls/</link>
       <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/meetups/aibrasilgirls/</guid>
+      <guid>https://blog.elo7.dev/meetups/aibrasilgirls/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://elo7.dev/meetups/scaladores/</link>
+      <link>https://blog.elo7.dev/meetups/scaladores/</link>
       <pubDate>Wed, 14 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/meetups/scaladores/</guid>
+      <guid>https://blog.elo7.dev/meetups/scaladores/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CSS Scroll Snap</title>
-      <link>https://elo7.dev/css-scroll-snap/</link>
+      <link>https://blog.elo7.dev/css-scroll-snap/</link>
       <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/css-scroll-snap/</guid>
+      <guid>https://blog.elo7.dev/css-scroll-snap/</guid>
       <description>Há algum tempo eu escrevi um post falando sobre o IntersectionObserver e como utilizá-lo para enriquecer um carrossel de fotos. Mas ficou faltando uma funcionalidade muito utilizada em carrosséis: o scroll que ajusta as imagens na tela, mostrando ao usuário sempre a imagem centralizada certinha.
 Para conseguir esse efeito existe um módulo em CSS chamado CSS Scroll Snap que facilita e muito a implementação, deixando a transição de imagens bem fluída e bonita.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://elo7.dev/meetups/perifacode/</link>
+      <link>https://blog.elo7.dev/meetups/perifacode/</link>
       <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/meetups/perifacode/</guid>
+      <guid>https://blog.elo7.dev/meetups/perifacode/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Quebrando um monolito sem quebrar o que funciona</title>
-      <link>https://elo7.dev/quebrando-um-monolito-sem-quebrar-o-que-funciona/</link>
+      <link>https://blog.elo7.dev/quebrando-um-monolito-sem-quebrar-o-que-funciona/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/quebrando-um-monolito-sem-quebrar-o-que-funciona/</guid>
+      <guid>https://blog.elo7.dev/quebrando-um-monolito-sem-quebrar-o-que-funciona/</guid>
       <description>Gostaria de descrever como estamos lidando com a refatoração do nosso monolito para transformá-lo em microsserviços aqui no Elo7. Acredito que cada problema apresenta uma solução mais apropriada e que vai além da parte técnica - envolve questões culturais, a clareza do problema raiz pra não trocar a tecnologia (ou técnica) e continuar com o mesmo problema inicial. Pretendo mostrar alguns pontos com o objetivo de dar insights e mostrar nossas experiências.</description>
     </item>
     
     <item>
       <title>Programação Reativa - Parte 5: Arquiteturas não-bloqueantes</title>
-      <link>https://elo7.dev/programacao-reativa-parte-5/</link>
+      <link>https://blog.elo7.dev/programacao-reativa-parte-5/</link>
       <pubDate>Mon, 15 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/programacao-reativa-parte-5/</guid>
+      <guid>https://blog.elo7.dev/programacao-reativa-parte-5/</guid>
       <description>Depois de muito falarmos sobre programação reativa, no post anterior vimos os fundamentos dos &amp;ldquo;sistemas reativos&amp;rdquo;, e uma expressão em especial recebeu bastante destaque: &amp;ldquo;não bloqueante&amp;rdquo;.
 Mas o que significa de fato &amp;ldquo;não bloqueante&amp;rdquo;?
 Síncrono vs assíncrono vs não-bloqueante Considere o código abaixo:
@@ -198,29 +198,29 @@ String result = myObject.doSomething(); // alguma operação como acesso a um ba
     
     <item>
       <title>Injeção de Dependência em Scala - Parte 1</title>
-      <link>https://elo7.dev/injecao-de-dependencia-em-scala-parte-1/</link>
+      <link>https://blog.elo7.dev/injecao-de-dependencia-em-scala-parte-1/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/injecao-de-dependencia-em-scala-parte-1/</guid>
+      <guid>https://blog.elo7.dev/injecao-de-dependencia-em-scala-parte-1/</guid>
       <description>Scala no Elo7 Antes restrito basicamente às áreas de Data Science e Data Engineering da empresa, o uso de Scala está sendo expandido para outras áreas de backend aqui no Elo7 em 2019. Como compartilhar conhecimento faz parte do nosso DNA, iremos realizar posts contando as experiências que temos com a linguagem e um pouco sobre como resolvemos diferentes situações que aparecem no dia-a-dia.
 Injeção de dependência Injeção de dependência (ou DI) é um dos padrões mais básicos utilizados por desenvolvedores em diferentes linguagens, e no Scala não poderia ser diferente.</description>
     </item>
     
     <item>
       <title>Reinforcement Learning Parte 1 - Introdução</title>
-      <link>https://elo7.dev/reinforcement-learning-parte-1/</link>
+      <link>https://blog.elo7.dev/reinforcement-learning-parte-1/</link>
       <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/reinforcement-learning-parte-1/</guid>
+      <guid>https://blog.elo7.dev/reinforcement-learning-parte-1/</guid>
       <description>Esta é a primeira parte de uma série de posts nos quais vamos concentrar nossa atenção em uma parte de Machine Learning (ML) chamada Aprendizado por Reforço. Esta talvez seja a parte menos conhecida de ML e é aquela que possui maior semelhança com os métodos que humanos e animais usam para aprender a realizar tarefas, e ela inicialmente também envolve uma menor abstração matemática para entender o funcionamento dos algoritmos.</description>
     </item>
     
     <item>
       <title>Front-End - Coisas de que nós nos orgulhamos em 2018!</title>
-      <link>https://elo7.dev/front-end-coisas-que-nos-nos-orgulhamos-em-2018/</link>
+      <link>https://blog.elo7.dev/front-end-coisas-que-nos-nos-orgulhamos-em-2018/</link>
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/front-end-coisas-que-nos-nos-orgulhamos-em-2018/</guid>
+      <guid>https://blog.elo7.dev/front-end-coisas-que-nos-nos-orgulhamos-em-2018/</guid>
       <description>Antes tarde do que nunca! Já acabamos o primeiro trimestre de 2019, mas ainda dá tempo de falar sobre o que fizemos aqui no Elo7 no time de front end.
 Intersection Observer Começamos a usar bastante a API do Intersection Observer, principalmente nos nossos carrosséis de imagens ao longo do site.
 A Aline Lee fez um post só sobre ele, mas para resumir, com ele, você consegue observar um determinado elemento, que te avisa sempre que este aparece na área visível da página.</description>
@@ -228,19 +228,19 @@ A Aline Lee fez um post só sobre ele, mas para resumir, com ele, você consegue
     
     <item>
       <title>Builds mais rápidos e portáveis com npm-run-all</title>
-      <link>https://elo7.dev/npm-run-all/</link>
+      <link>https://blog.elo7.dev/npm-run-all/</link>
       <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/npm-run-all/</guid>
+      <guid>https://blog.elo7.dev/npm-run-all/</guid>
       <description>Quando precisamos baixar dependências, compilar arquivos e gerar assets em nossas aplicações, é comum utilizarmos alguma ferramenta para automatizar esse processo. Uma ferramenta que tem se tornado cada vez mais popular para esse fim são os scripts do npm. Cada um dos scripts pode ser um comando qualquer de terminal, inclusive uma combinação de comandos usando os operadores &amp;amp;&amp;amp;, | (pipe) e ;. Além disso, nos scripts do npm conseguimos chamar comandos de pacotes npm referenciados pelo nosso projeto de forma bem direta.</description>
     </item>
     
     <item>
       <title>Intersection Observer API</title>
-      <link>https://elo7.dev/intersection-observer/</link>
+      <link>https://blog.elo7.dev/intersection-observer/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/intersection-observer/</guid>
+      <guid>https://blog.elo7.dev/intersection-observer/</guid>
       <description>Nos últimos meses nós conseguimos usufruir bastante da Intersection Observer API que está disponível desde a versão 51 do Chrome.
 Implementamos carregamento assíncrono de imagens, paginação infinita, carrosséis entre outras ações na tela dependendo da visibilidade que algum elemento possui.
 O que é, o que faz, pra que serve? O Intersection Observer é uma API que atua como uma sentinela te avisando sempre que certo elemento passar a ficar dentro da área visível da página.</description>
@@ -248,10 +248,10 @@ O que é, o que faz, pra que serve? O Intersection Observer é uma API que atua 
     
     <item>
       <title>Programação Reativa - Parte 4: Sistemas reativos</title>
-      <link>https://elo7.dev/programacao-reativa-parte-4/</link>
+      <link>https://blog.elo7.dev/programacao-reativa-parte-4/</link>
       <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/programacao-reativa-parte-4/</guid>
+      <guid>https://blog.elo7.dev/programacao-reativa-parte-4/</guid>
       <description>Nos três posts anteriores, vimos os fundamentos principais da programação reativa, incluindo muitos exemplos de código, processamento concorrente e contrapressão. Que lindo! Mas serão esses conceitos aplicáveis para aplicações de grande porte e sistemas inteiros? Esse post irá explorar os detalhes de uma verdadeira aplicação reativa.
 Caso você não tenha lido os posts anteriores, uma recapitulação:
  O que é programação reativa? Exemplos de código com o RxJava Processamento concorrente, paralelismo e backpressure  Por que queremos um sistema &amp;ldquo;reativo&amp;rdquo;?</description>
@@ -259,65 +259,65 @@ Caso você não tenha lido os posts anteriores, uma recapitulação:
     
     <item>
       <title>A experiência do usuário no mundo web de hoje e quais são as novas apis web</title>
-      <link>https://elo7.dev/talks/experiencia-do-usuario-no-mundo-web/</link>
+      <link>https://blog.elo7.dev/talks/experiencia-do-usuario-no-mundo-web/</link>
       <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/talks/experiencia-do-usuario-no-mundo-web/</guid>
+      <guid>https://blog.elo7.dev/talks/experiencia-do-usuario-no-mundo-web/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Evolução cultural: Criando times de alto desempenho no Elo7</title>
-      <link>https://elo7.dev/talks/criando-times-de-alto-desempenho/</link>
+      <link>https://blog.elo7.dev/talks/criando-times-de-alto-desempenho/</link>
       <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/talks/criando-times-de-alto-desempenho/</guid>
+      <guid>https://blog.elo7.dev/talks/criando-times-de-alto-desempenho/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Incorporando acessibilidade no seu projeto</title>
-      <link>https://elo7.dev/talks/incorporando-acessibilidade-no-seu-projeto/</link>
+      <link>https://blog.elo7.dev/talks/incorporando-acessibilidade-no-seu-projeto/</link>
       <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/talks/incorporando-acessibilidade-no-seu-projeto/</guid>
+      <guid>https://blog.elo7.dev/talks/incorporando-acessibilidade-no-seu-projeto/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Introdução ao Kotlin</title>
-      <link>https://elo7.dev/talks/introducao-ao-kotlin/</link>
+      <link>https://blog.elo7.dev/talks/introducao-ao-kotlin/</link>
       <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/talks/introducao-ao-kotlin/</guid>
+      <guid>https://blog.elo7.dev/talks/introducao-ao-kotlin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Perceived Performance</title>
-      <link>https://elo7.dev/talks/perceived-performance/</link>
+      <link>https://blog.elo7.dev/talks/perceived-performance/</link>
       <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/talks/perceived-performance/</guid>
+      <guid>https://blog.elo7.dev/talks/perceived-performance/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tirando projetos do papel</title>
-      <link>https://elo7.dev/tirando-projetos-do-papel/</link>
+      <link>https://blog.elo7.dev/tirando-projetos-do-papel/</link>
       <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/tirando-projetos-do-papel/</guid>
+      <guid>https://blog.elo7.dev/tirando-projetos-do-papel/</guid>
       <description>Geralmente, temos diversas ideias ao longo do dia, mas entre ter a ideia e ter um projeto concluído existe uma distância gigantesca. E quando eu falo projeto, pode ser um código para facilitar a vida do desenvolvedor, um post, um vídeo, uma ideia de negócio, enfim, qualquer coisa que tenha que sair do formato de ideia para o mundo real.
 Um dos primeiros impedimentos para que uma ideia não saia do papel é o seguinte pensamento: &amp;ldquo;Mas a minha ideia não é boa o suficiente&amp;rdquo;.</description>
     </item>
     
     <item>
       <title>Como o design pode contribuir com a entregabilidade dos emails?</title>
-      <link>https://elo7.dev/design-e-entregabilidade-de-emails/</link>
+      <link>https://blog.elo7.dev/design-e-entregabilidade-de-emails/</link>
       <pubDate>Mon, 17 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/design-e-entregabilidade-de-emails/</guid>
+      <guid>https://blog.elo7.dev/design-e-entregabilidade-de-emails/</guid>
       <description>Antes de tudo, uma pergunta importante: você sabe qual a diferença entre entrega e entregabilidade? Não?! Calma, eu explico!
 Há quem diga que essas duas palavrinhas são diferentes formas de descrever uma mesma ação. Adianto: ledo engano! Muito embora sejam parecidas, têm conceitos (um pouco) distintos.
 Quando falamos de entrega, estamos nos referindo ao número de emails enviados pela plataforma de disparo de email marketing que chegaram aos provedores - Gmail, Hotmail.</description>
@@ -325,19 +325,19 @@ Quando falamos de entrega, estamos nos referindo ao número de emails enviados p
     
     <item>
       <title>Techtalk - Jogos: indo além do simples CSS</title>
-      <link>https://elo7.dev/techtalk-jogos-indo-alem-do-simples-css/</link>
+      <link>https://blog.elo7.dev/techtalk-jogos-indo-alem-do-simples-css/</link>
       <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/techtalk-jogos-indo-alem-do-simples-css/</guid>
+      <guid>https://blog.elo7.dev/techtalk-jogos-indo-alem-do-simples-css/</guid>
       <description>Naturalmente, quando pensamos em jogos, pensamos em animações, eventos, vários tipos de interações&amp;hellip; E na hora de desenvolver, mais naturalmente ainda pensamos em uma linguagem de programação, já que ela possibilita executar tudo isso. Mas você já pensou em fazer um jogo usando apenas HTML (uma linguagem de estrutura) e CSS (uma linguagem de estilos)? Sem uma linha de Javascript? Sim, sim, isso é possível! Veja a minha talk e descubra como isso é possível ;D</description>
     </item>
     
     <item>
       <title>Programação Reativa - Parte 3: Processamento concorrente, paralelismo e backpressure</title>
-      <link>https://elo7.dev/programacao-reativa-parte-3/</link>
+      <link>https://blog.elo7.dev/programacao-reativa-parte-3/</link>
       <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/programacao-reativa-parte-3/</guid>
+      <guid>https://blog.elo7.dev/programacao-reativa-parte-3/</guid>
       <description>Nos dois posts anteriores sobre Programação Reativa, estudamos os fundamentos desse paradigma e vimos muitos exemplos de código usando o RxJava. Nesse capítulo, vamos nos focar na abstração sobre a execução assícrona e parelela que os frameworks Rx fornecem, e especialmente em um conceito que é um dos pilares do modelo reativo: a contrapressão ou backpressure.
  “A dúvida é o princípio da sabedoria. (Aristóteles)”
  Processamento assíncrono Um dos assuntos que mais causam discussão a respeito da programação reativa é questão do processamento assíncrono.</description>
@@ -345,19 +345,19 @@ Quando falamos de entrega, estamos nos referindo ao número de emails enviados p
     
     <item>
       <title>Javascript e acessibilidade</title>
-      <link>https://elo7.dev/javascript-e-a11y/</link>
+      <link>https://blog.elo7.dev/javascript-e-a11y/</link>
       <pubDate>Mon, 10 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/javascript-e-a11y/</guid>
+      <guid>https://blog.elo7.dev/javascript-e-a11y/</guid>
       <description>Se temos uma web rica em termos de experiência do usuário, muito se deve ao Javascript, que nos permite criar componentes dinâmicos e torna a web uma plataforma muito mais interativa. Porém, com grandes poderes, vêm grandes responsabilidades e, se não tomarmos cuidado, dependendo da solução que implementarmos, podemos prejudicar a usabilidade e a acessibilidade das nossas interfaces. Num post anterior, vimos que até o CSS pode atrapalhar em alguns casos, quem dirá o Javascript!</description>
     </item>
     
     <item>
       <title>API Persistente com Kotlin, Spring Boot, MySQL, JPA e Hibernate</title>
-      <link>https://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</link>
+      <link>https://blog.elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</link>
       <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</guid>
+      <guid>https://blog.elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</guid>
       <description>Kotlin vem ganhando muita popularidade nos últimos tempos devido a seus recursos de produtividade e a possibilidade de utilização na plataforma Android.
 Devido à crescente popularidade do Kotlin, o Spring Framework também introduziu um suporte dedicado ao Kotlin.
 Neste post, você aprenderá a criar uma API do CRUD Restful com o Kotlin, Spring Boot e JPA.
@@ -366,39 +366,39 @@ O que vamos construir? Neste post criaremos APIs Restful para armazenar dados de
     
     <item>
       <title>Vaga Engenheiro de Software/DevOps</title>
-      <link>https://elo7.dev/vagas-devops/</link>
+      <link>https://blog.elo7.dev/vagas-devops/</link>
       <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vagas-devops/</guid>
+      <guid>https://blog.elo7.dev/vagas-devops/</guid>
       <description>O Elo7 é o maior site de compra e venda de produtos criativos e autorais da América Latina. Aqui você compra diretamente de milhares de pessoas que transformam idéias criativas em produtos únicos. Além de comprar ou vender, você pode também apreciar o trabalho criativo de artesãos, artistas, designers e todos aqueles que criam manualmente produtos diferenciados e de qualidade.
 Utilizamos práticas ágeis de desenvolvimento e gostamos de ter um ambiente bem descontraído.</description>
     </item>
     
     <item>
       <title>Boas práticas na utilização do Kubernetes em produção</title>
-      <link>https://elo7.dev/boas-praticas-na-utilizacao-k8s/</link>
+      <link>https://blog.elo7.dev/boas-praticas-na-utilizacao-k8s/</link>
       <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/boas-praticas-na-utilizacao-k8s/</guid>
+      <guid>https://blog.elo7.dev/boas-praticas-na-utilizacao-k8s/</guid>
       <description>O Kubernetes é uma ferramenta para orquestração de containers extremamente consolidada no mercado e com muitos recursos que facilitam a administração, diminuindo o overhead operacional de se manter ambientes com containers. Contudo, quando falamos de ambientes de produção, alguns pontos como segurança, disponibilidade, escalabilidade e outros precisam ser tratados com muito afinco para que tenhamos uma plataforma resiliente e preparada para receber grandes cargas de trabalho. A ideia desse post é apresentar alguns dos vários pontos de atenção que precisamos ter na hora de implementar/utilizar nosso cluster.</description>
     </item>
     
     <item>
       <title>Desenvolvedor Mobile Júnior/Pleno</title>
-      <link>https://elo7.dev/vagas-desenvolverdor-mobile/</link>
+      <link>https://blog.elo7.dev/vagas-desenvolverdor-mobile/</link>
       <pubDate>Mon, 20 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vagas-desenvolverdor-mobile/</guid>
+      <guid>https://blog.elo7.dev/vagas-desenvolverdor-mobile/</guid>
       <description>O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos.
 Utilizamos práticas ágeis de desenvolvimento e gostamos de ter um ambiente bem descontraído. O nosso time de aplicativos nativos trabalha principalmente no desenvolvimento dos nossos apps Android e iOS do Elo7 e do Talk7 utilizando as tecnologias Java, Objective-C, Swift e React Native. Somos um time Fullstack participando do desenvolvimento de APIs e de WebView utilizadas em nossos apps híbridos.</description>
     </item>
     
     <item>
       <title>Implementando um serviço Web RESTful em Kotlin com Spring Boot</title>
-      <link>https://elo7.dev/web-restful-em-kotlin-com-springboot/</link>
+      <link>https://blog.elo7.dev/web-restful-em-kotlin-com-springboot/</link>
       <pubDate>Mon, 13 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/web-restful-em-kotlin-com-springboot/</guid>
+      <guid>https://blog.elo7.dev/web-restful-em-kotlin-com-springboot/</guid>
       <description>Este post nos guia pelo processo de criar um REST controller simples com o Spring Boot.
 O Kotlin funciona muito bem em conjunto com Spring Boot. Existem algumas pequenas diferenças, no entanto, quando se trata de definir a configuração do Gradle e a estrutura do layout do projeto, bem como o código de inicialização.
 Neste tutorial, vamos percorrer as etapas necessárias. Para obter uma explicação mais detalhada sobre os serviços Spring Boot e RESTful, consulte Construindo um Serviço Web RESTful.</description>
@@ -406,29 +406,29 @@ Neste tutorial, vamos percorrer as etapas necessárias. Para obter uma explicaç
     
     <item>
       <title>Conhecendo o Dust.js, uma biblioteca de template para javascript</title>
-      <link>https://elo7.dev/conheca-o-dustjs/</link>
+      <link>https://blog.elo7.dev/conheca-o-dustjs/</link>
       <pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/conheca-o-dustjs/</guid>
+      <guid>https://blog.elo7.dev/conheca-o-dustjs/</guid>
       <description>O time de front-end do Elo7 está sempre buscando novas tecnologias para compor o fluxo de trabalho, mesmo que algumas dessas tecnologias não estejam nos holofotes da comunidade. Acreditamos que independente do hype, temos como principal foco a resolução de nossas necessidades e é por isso que neste post vamos falar sobre o Dust.js, uma bibloteca javascript para trabalhar com templates, desenvolvido pelo Linkedin e que usamos em nosso serviço de templates.</description>
     </item>
     
     <item>
       <title>Properties dinâmicos com Spring Cloud Config</title>
-      <link>https://elo7.dev/spring-cloud-config/</link>
+      <link>https://blog.elo7.dev/spring-cloud-config/</link>
       <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/spring-cloud-config/</guid>
+      <guid>https://blog.elo7.dev/spring-cloud-config/</guid>
       <description>O problema existente hoje&amp;hellip; Bom, primeiramente posso dizer que pensei nesse tema por já ter presenciado, algumas vezes, problemas em ambiente de produção, devido a configurações com valores incorretos ou mesmo falta delas por esquecimento.
 Agora imagine isso ocorrendo no final de um deploy no ambiente de produção, e pior, com os arquivos de configurações (no caso de aplicações Java, normalmente arquivos properties) dentro da aplicação. Um novo deploy teria que ser feito em N máquinas.</description>
     </item>
     
     <item>
       <title>Técnicas para codificar um e-mail - parte 4</title>
-      <link>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-4/</link>
+      <link>https://blog.elo7.dev/tecnicas-para-codificar-um-e-mail-parte-4/</link>
       <pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-4/</guid>
+      <guid>https://blog.elo7.dev/tecnicas-para-codificar-um-e-mail-parte-4/</guid>
       <description>No terceiro post da série, aprendemos a criar e-mails com conteúdos em colunas e a como deixá-las responsivas. Nesse, iremos comentar sobre algumas dicas gerais e sobre fontes customizadas.
 Table x Div Por que ainda usamos a table ao invés de div? A div é bem mais simples e não precisa criar linhas e colunas como a tabela, então por que não usar div&#39;s?
 Apesar das div&#39;s serem bem aceitas para a maior parte dos clientes de e-mail, ela ainda não é bem suportada para o Outlook 2007/2010/2013, nos quais algumas propriedades de CSS só funcionam para td.</description>
@@ -436,163 +436,163 @@ Apesar das div&#39;s serem bem aceitas para a maior parte dos clientes de e-mail
     
     <item>
       <title>Pareamento quase 100% do tempo, como é isso?</title>
-      <link>https://elo7.dev/pareamento/</link>
+      <link>https://blog.elo7.dev/pareamento/</link>
       <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/pareamento/</guid>
+      <guid>https://blog.elo7.dev/pareamento/</guid>
       <description>Geralmente temos a visão dos programadores como sendo aquelas pessoas de fone que se isolam do mundo e de todos.
 Mas existem outras formas do trabalho funcionar. Uma delas é a cultura de pareamento. Aqui no Elo7 todos os times tem essa cultura, mudando entre elas apenas a frequência que isso acontece. No meu time, de front end isso acontece em quase 100% do tempo. Ao longo desse post eu vou explicar mais como isso funciona e quais são as vantagens e desvantagens na minha opinião.</description>
     </item>
     
     <item>
       <title>Isomorfismo pra quê?</title>
-      <link>https://elo7.dev/talks/javascript-isomorfico/</link>
+      <link>https://blog.elo7.dev/talks/javascript-isomorfico/</link>
       <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/talks/javascript-isomorfico/</guid>
+      <guid>https://blog.elo7.dev/talks/javascript-isomorfico/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Programação Reativa - Parte 2: RxJava</title>
-      <link>https://elo7.dev/programacao-reativa-parte-2/</link>
+      <link>https://blog.elo7.dev/programacao-reativa-parte-2/</link>
       <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/programacao-reativa-parte-2/</guid>
+      <guid>https://blog.elo7.dev/programacao-reativa-parte-2/</guid>
       <description>No post anterior, vimos os fundamentos da programação reativa, incluindo o funcionamento básico sobre os quais os frameworks da família ReactiveX são implementados. Nessa segunda fase da nossa &amp;ldquo;jornada reativa&amp;rdquo;, começaremos a estudar os principais recursos e funcionalidades do RxJava, e então estaremos mais preparados para aplicar esses conceitos - não apenas em &amp;ldquo;programas&amp;rdquo; mas em &amp;ldquo;sistemas&amp;rdquo;, os chamados sistemas reativos.
 Os exemplos deste post estão implementados com o RxJava (a versão 2, compatível com o Reactive Streams, que tem algumas diferenças para a versão anterior).</description>
     </item>
     
     <item>
       <title>Rodando seus testes no Circle CI</title>
-      <link>https://elo7.dev/rodando-seus-testes-no-circle-ci/</link>
+      <link>https://blog.elo7.dev/rodando-seus-testes-no-circle-ci/</link>
       <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/rodando-seus-testes-no-circle-ci/</guid>
+      <guid>https://blog.elo7.dev/rodando-seus-testes-no-circle-ci/</guid>
       <description>Em nossos projetos, testar e manter tudo funcionando antes de subir para produção é uma tarefa constante dentro do fluxo de trabalho. A cada modificação de código podemos quebrar algo, fazendo então com que os desenvolvedores adotem estratégias, como a criação de testes, para diminuir possíveis bugs. Hoje, com o uso muito comum do GIT para versionar nossos códigos, muitas ferramentas de integração surgiram como Circle CI, Travis, Jenkins, GO CD e outras, onde seus testes podem rodar e dar um feedback rápido do seu código.</description>
     </item>
     
     <item>
       <title>Características de Big Data</title>
-      <link>https://elo7.dev/caracteristicas-do-big-data/</link>
+      <link>https://blog.elo7.dev/caracteristicas-do-big-data/</link>
       <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/caracteristicas-do-big-data/</guid>
+      <guid>https://blog.elo7.dev/caracteristicas-do-big-data/</guid>
       <description>Este é só o primeiro post de uma série de publicações sobre a área de Big Data que iremos lançar aqui no blog. Nessa série iremos mostrar como utilizamos o Big Data aqui no Elo7, entre outras características que foram muito importantes para a construção da nossa arquitetura atual.
 Primeiramente&amp;hellip; O que é Big Data? Basicamente, um conjunto de dados que podem ser analisados computacionalmente para revelar padrões, tendências e associações.</description>
     </item>
     
     <item>
       <title>Técnicas para codificar um e-mail - parte 3</title>
-      <link>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</link>
+      <link>https://blog.elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</link>
       <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</guid>
+      <guid>https://blog.elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</guid>
       <description>No segundo post da série, aprendemos a lidar com espaçamento nos e-mails. Neste, iremos abordar como criar conteúdo em colunas e como deixá-las responsivas.
 Finalmente chegamos ao conteúdo! Para começar, vamos criar uma nova tabela. É possível usar a mesma tabela do container e alterar o bgcolor para mudar a cor da célula em vez da tabela. Mas aconselho a criar uma nova para evitar problemas com o colspan e rowspan, porque essas propriedades causam problemas para manter a estrutura correta à medida que são criadas novas células.</description>
     </item>
     
     <item>
       <title>Serverless e AWS Lambda</title>
-      <link>https://elo7.dev/serverless/</link>
+      <link>https://blog.elo7.dev/serverless/</link>
       <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/serverless/</guid>
+      <guid>https://blog.elo7.dev/serverless/</guid>
       <description>Todos os dias surgem novas buzzwords no mercado, cada uma relacionada a uma nova tecnologia/metodologia que promete revolucionar o modo de fazer as coisas; uma das mais recentes é a Serverless. Ao longo desse post vou tentar descrever o que é essa nova buzzword e vai de você analisar se faz sentido ou não aplicá-la ao seu projeto.
 Serverless Serverless permite a você construir e executar aplicações sem ter que gerenciar nenhuma infraestrutura.</description>
     </item>
     
     <item>
       <title>Credential Managament API</title>
-      <link>https://elo7.dev/credential-management-api/</link>
+      <link>https://blog.elo7.dev/credential-management-api/</link>
       <pubDate>Mon, 19 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/credential-management-api/</guid>
+      <guid>https://blog.elo7.dev/credential-management-api/</guid>
       <description>Hoje em dia passamos muito tempo em redes sociais, fóruns, blogs e sites de comércio eletrônico, sabemos então o quanto é chato ter que ficar anotando dados de login e senha deste serviços. E como você sabe, por questões de segurança, não devemos usar os mesmos dados para acessar diferentes serviços. Para resolver este problema, existem diversas aplicações que gerenciam essas informações, como: LastPass, 1Password, bitwarden, Dashlane, entre outros. Os principais navegadores do mercado também possuem recursos para fazer esse gerenciamento.</description>
     </item>
     
     <item>
       <title>Programação Reativa - Parte 1: O que é programação reativa?</title>
-      <link>https://elo7.dev/programacao-reativa/</link>
+      <link>https://blog.elo7.dev/programacao-reativa/</link>
       <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/programacao-reativa/</guid>
+      <guid>https://blog.elo7.dev/programacao-reativa/</guid>
       <description>Em tempos recentes, a expressão &amp;ldquo;programação reativa&amp;rdquo; tem ganhado (ainda mais) força nas discussões do mundo do software. Apesar de não ser algo necessariamente &amp;ldquo;novo&amp;rdquo; (nem um pouco, na verdade) e se basear em conceitos e padrões já existentes, a tal &amp;ldquo;programação reativa&amp;rdquo; tem ganho muito destaque e há um bom número de frameworks que suportam esse paradigma em diversas linguagens. Mas será apenas mais uma &amp;ldquo;buzzword&amp;rdquo; ou algo realmente útil?</description>
     </item>
     
     <item>
       <title>Otimização de queries lentas em bancos relacionais</title>
-      <link>https://elo7.dev/otimizacao-bd/</link>
+      <link>https://blog.elo7.dev/otimizacao-bd/</link>
       <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/otimizacao-bd/</guid>
+      <guid>https://blog.elo7.dev/otimizacao-bd/</guid>
       <description>Quando começamos a desenvolver um novo sistema, a performance do banco de dados parece não ser um problema muito importante, mas com o aumento do número de usuários e, consequentemente, dos dados que precisam ser armazenados, queries que executavam em milisegundos passam a demorar segundos ou até mesmo minutos para serem executadas. Para ilustrar esse problema, vamos utilizar um exemplo simples:
 Imagine que precisamos desenvolver um cadastro simples de compradores para um comércio eletrônico.</description>
     </item>
     
     <item>
       <title>Testes mais fluidos com AssertJ</title>
-      <link>https://elo7.dev/testes-mais-fluidos-com-assertj/</link>
+      <link>https://blog.elo7.dev/testes-mais-fluidos-com-assertj/</link>
       <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/testes-mais-fluidos-com-assertj/</guid>
+      <guid>https://blog.elo7.dev/testes-mais-fluidos-com-assertj/</guid>
       <description>Em um post anterior, o Leonardo Souza explicou como é a cultura da empresa e comentou sobre o hackday, um dia em que os desenvolvedores podem trabalhar em suas próprias ideias. Eu entrei para a empresa em outubro e nos meus primeiros meses fiquei auxiliando nas ideias de outras pessoas, pois ainda não tinha nenhuma ideia. Pouco tempo depois, a ThoughtWorks lançou a décima-sétima edição do seu radar e, para minha surpresa, na área de linguagens e frameworks para se adotar estava apenas Python 3.</description>
     </item>
     
     <item>
       <title>CSS Basics - Margin x Padding</title>
-      <link>https://elo7.dev/css-basics-margin-padding/</link>
+      <link>https://blog.elo7.dev/css-basics-margin-padding/</link>
       <pubDate>Mon, 19 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/css-basics-margin-padding/</guid>
+      <guid>https://blog.elo7.dev/css-basics-margin-padding/</guid>
       <description>Depois de falar sobre a propriedade display no post anterior, continuaremos falando sobre outras propriedades básicas do CSS. Nesse post conheça um pouco mais sobre as propriedades de espaçamento margin e padding.
 Diferença Para começar, qual a principal diferença entre margin e padding? Ao utilizar a propriedade margin, você está acrescentando um espaço externo ao elemento, ou seja, para fora (a distância entre um elemento e outro). Enquanto o padding acrescenta um espaço interno ao elemento, para dentro (a distância entre o conteúdo e a borda).</description>
     </item>
     
     <item>
       <title>Controlando e melhorando a performance do build no Travis CI</title>
-      <link>https://elo7.dev/travis-build-stages/</link>
+      <link>https://blog.elo7.dev/travis-build-stages/</link>
       <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/travis-build-stages/</guid>
+      <guid>https://blog.elo7.dev/travis-build-stages/</guid>
       <description>Hoje a maioria dos projetos, tanto de código livre quanto fechado, utilizam git como a ferramenta de controle de versão. E muitos destes estão hospedados no GitHub, uma das plataformas mais comuns para armazenamento de projetos. Além disso, muitos projetos adotam a prática conhecida como integração contínua ou continuous integration, a qual visa facilitar a integração do código sendo desenvolvido e encontrar problemas mais rapidamente. Há inúmeras ferramentas que auxiliam a implementação dessa prática.</description>
     </item>
     
     <item>
       <title>Um pouco sobre acessibilidade, CSS e Javascript</title>
-      <link>https://elo7.dev/um-pouco-sobre-css-js-a11y/</link>
+      <link>https://blog.elo7.dev/um-pouco-sobre-css-js-a11y/</link>
       <pubDate>Mon, 05 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/um-pouco-sobre-css-js-a11y/</guid>
+      <guid>https://blog.elo7.dev/um-pouco-sobre-css-js-a11y/</guid>
       <description>Quando se fala em acessibilidade na Web, normalmente as questões giram em torno de recursos mais avançados de navegação, como pop-ups, formulários com AJAX e menus, que exigem código CSS e Javascript para serem implementados. Isso porque, do lado do HTML, as coisas são um pouco mais simples. Ao escrever um HTML semântico, já ganhamos uma página bastante acessível.
 Podemos notar isso com formulários, por exemplo. Ao usar os controles de formulário nativos e a validação HTML5, junto com as tags &amp;lt;label&amp;gt;, &amp;lt;fieldset&amp;gt; e &amp;lt;legend&amp;gt;, nossos formulários já são bastante acessíveis.</description>
     </item>
     
     <item>
       <title>Técnicas para codificar um e-mail - parte 2</title>
-      <link>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-2/</link>
+      <link>https://blog.elo7.dev/tecnicas-para-codificar-um-e-mail-parte-2/</link>
       <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-2/</guid>
+      <guid>https://blog.elo7.dev/tecnicas-para-codificar-um-e-mail-parte-2/</guid>
       <description>No primeiro post da série, aprendemos a criar uma base para codificação de e-mail. Neste, iremos abordar as diversas formas de trabalhar com os espaçamentos.
 Para começar, vamos adicionar um cabeçalho ao nosso e-mail. Criaremos uma tabela e, dentro dela, adicionaremos um título para o nosso e-mail. Para ficar igual ao layout proposto no primeiro post da série, vamos adicionar o atributo bgcolor para alterar a cor do fundo para marrom claro:</description>
     </item>
     
     <item>
       <title>Subindo uma API REST em Clojure</title>
-      <link>https://elo7.dev/subindo-uma-api-rest-em-clojure/</link>
+      <link>https://blog.elo7.dev/subindo-uma-api-rest-em-clojure/</link>
       <pubDate>Mon, 22 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/subindo-uma-api-rest-em-clojure/</guid>
+      <guid>https://blog.elo7.dev/subindo-uma-api-rest-em-clojure/</guid>
       <description>Clojure é uma linguagem funcional e dinâmica que roda na JVM e que vem crescendo bastante no mercado de trabalho. Ela é tão performática quanto qualquer programa que roda em Java e muito menos verbosa. Isso facilita e muito na manutenção do código, influenciando no custo do desenvolvimento. Caso não esteja muito familiarizado com esta linguagem incrível, recomendo a leitura do livro Clojure for the Brave and True onde ensina desde o básico sobre Clojure.</description>
     </item>
     
     <item>
       <title>Princípios de Processamento de Imagens: Uma introdução à Convolução</title>
-      <link>https://elo7.dev/convolucao/</link>
+      <link>https://blog.elo7.dev/convolucao/</link>
       <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/convolucao/</guid>
+      <guid>https://blog.elo7.dev/convolucao/</guid>
       <description>Quando trabalhamos com processamento de imagens, existem diferentes algoritmos que podemos utilizar dependendo do objetivo que queremos atingir. Alguns exemplos conhecidos podem ser vistos logo abaixo:
 Dentro da área de processamento de imagem, uma das técnicas mais difundidas para solucionar esses problemas é a Convolução.
 A convolução tem raizes na matemática, e pode ser contínua (que é usada em processamento de sinais, por exemplo) ou discreta (que é usada em processamento de imagens).</description>
@@ -600,20 +600,20 @@ A convolução tem raizes na matemática, e pode ser contínua (que é usada em 
     
     <item>
       <title>Vaga Data Engineer</title>
-      <link>https://elo7.dev/vaga-data-engineer/</link>
+      <link>https://blog.elo7.dev/vaga-data-engineer/</link>
       <pubDate>Tue, 09 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vaga-data-engineer/</guid>
+      <guid>https://blog.elo7.dev/vaga-data-engineer/</guid>
       <description>O Elo7 é um marketplace que busca conectar milhões de usuários a produtos feitos sob encomenda por milhares de vendedores para oferecer uma experiência de compra única na internet. O objetivo do Elo7 é oferecer as melhores ferramentas para compra e venda de produtos personalizados.
 Nosso ambiente é colaborativo e gostamos de incentivar aprendizado e distribuição de conhecimento. Em nosso dia-a-dia utilizamos pair-programming com objetivo de garantir esses pontos, além da qualidade da solução.</description>
     </item>
     
     <item>
       <title>Front-End - Coisas de que nós nos orgulhamos em 2017!</title>
-      <link>https://elo7.dev/retrospectiva-front-end-2017/</link>
+      <link>https://blog.elo7.dev/retrospectiva-front-end-2017/</link>
       <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/retrospectiva-front-end-2017/</guid>
+      <guid>https://blog.elo7.dev/retrospectiva-front-end-2017/</guid>
       <description>2017 foi um ano recheado de projetos interessantes e desafiantes para nós. Neste post vou fazer um resumão deles.
 Web APIs A tendência de tornar a web cada vez mais amigável aos usuários, muitas vezes de forma bem parecida ao que acontece com os aplicativos, se mostrou bem forte. E nós temos diversas ferramentas nos navegadores para implementar isso: as Web APIs.
 Foi muito divertido testar e implementar algumas delas:</description>
@@ -621,58 +621,58 @@ Foi muito divertido testar e implementar algumas delas:</description>
     
     <item>
       <title>Vaga Search Developer - Information Retrieval</title>
-      <link>https://elo7.dev/vagas-search-2017-12/</link>
+      <link>https://blog.elo7.dev/vagas-search-2017-12/</link>
       <pubDate>Thu, 21 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vagas-search-2017-12/</guid>
+      <guid>https://blog.elo7.dev/vagas-search-2017-12/</guid>
       <description>O Elo7 é um marketplace que busca conectar milhões de usuários a produtos feitos sob encomenda por milhares de vendedores para oferecer uma experiência de compra única na internet. O objetivo do Elo7 é oferecer as melhores ferramentas para compra e venda de produtos personalizados.
 Nosso ambiente é colaborativo e gostamos de incentivar aprendizado e distribuição de conhecimento. Em nosso dia-a-dia utilizamos pair-programming com objetivo de garantir esses pontos, além da qualidade da solução.</description>
     </item>
     
     <item>
       <title>A cultura por trás do time fora de série!</title>
-      <link>https://elo7.dev/a-cultura-por-tras-do-time-fora-de-serie/</link>
+      <link>https://blog.elo7.dev/a-cultura-por-tras-do-time-fora-de-serie/</link>
       <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/a-cultura-por-tras-do-time-fora-de-serie/</guid>
+      <guid>https://blog.elo7.dev/a-cultura-por-tras-do-time-fora-de-serie/</guid>
       <description>Há alguns anos, tomei a importante decisão de respirar novos ares e buscar algo que fosse mais conectado ao meu estilo de vida, valores e o que verdadeiramente busco e valorizo profissionalmente. Isso me levou a abandonar uma posição estável em um dos maiores portais de conteúdo da América Latina e &amp;ldquo;arriscar&amp;rdquo; a minha carreira no mundo das startups. De lá para cá foram cerca de 2 anos e meio de hardwork, sendo estes dedicados principalmente ao desenvolvimento de um grande produto do nicho imobiliário e, mais recentemente, ao marketplace que tem como principal missão transformar a vida das pessoas através de uma experiência de compra fora de série de produtos, digamos, inspiradores!</description>
     </item>
     
     <item>
       <title>Arquiteturas para aplicações realtime utilizando MQTT</title>
-      <link>https://elo7.dev/arquiteturas-para-aplica%C3%A7%C3%B5es-realtime-utilizando-mqtt/</link>
+      <link>https://blog.elo7.dev/arquiteturas-para-aplica%C3%A7%C3%B5es-realtime-utilizando-mqtt/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/arquiteturas-para-aplica%C3%A7%C3%B5es-realtime-utilizando-mqtt/</guid>
+      <guid>https://blog.elo7.dev/arquiteturas-para-aplica%C3%A7%C3%B5es-realtime-utilizando-mqtt/</guid>
       <description>Neste post vamos explicar alguns modelos arquiteturais para desenvolver um chat em realtime que deve atender às seguintes especificações: * Mensagem 1-N: apenas o usuário que recebeu a mensagem deve receber a notificação de nova mensagem; * Realtime: o chat do destinatário deve ser atualizado sem nenhuma ação por parte do usuário; * Lightspeed: todo o processo de envio e recebimento deve ser rápido e consumir o mínimo possível de recursos de todos os componentes (remetente, destinatário e servidor).</description>
     </item>
     
     <item>
       <title>Vaga Data Scientist</title>
-      <link>https://elo7.dev/vagas-data-scientist-cientista-de-dados/</link>
+      <link>https://blog.elo7.dev/vagas-data-scientist-cientista-de-dados/</link>
       <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vagas-data-scientist-cientista-de-dados/</guid>
+      <guid>https://blog.elo7.dev/vagas-data-scientist-cientista-de-dados/</guid>
       <description>O Elo7 é um marketplace que busca conectar milhões de usuários a produtos feitos sob encomenda por milhares de vendedores para oferecer uma experiência de compra única na internet. O objetivo do Elo7 é oferecer as melhores ferramentas para compra e venda de produtos personalizados.
 Nosso ambiente é colaborativo e gostamos de incentivar aprendizado e distribuição de conhecimento. Em nosso dia-a-dia utilizamos pair-programming com objetivo de garantir esses pontos, além da qualidade da solução.</description>
     </item>
     
     <item>
       <title>Novidades do JUnit 5 - parte 2</title>
-      <link>https://elo7.dev/novidades-do-junit-5-parte-2/</link>
+      <link>https://blog.elo7.dev/novidades-do-junit-5-parte-2/</link>
       <pubDate>Mon, 20 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/novidades-do-junit-5-parte-2/</guid>
+      <guid>https://blog.elo7.dev/novidades-do-junit-5-parte-2/</guid>
       <description>Em setembro/2017, após pouco mais de um ano de versões milestones e testes, foi lançado o JUnit 5, a nova versão do principal framework para testes de código na plataforma Java. Escrevi um post sobre as principais novas funcionalidades e recursos. Váááárias coisas legais, mas o que fazemos com os testes que já existem no nosso projeto?
 Adorei o JUnit 5! Mas&amp;hellip;e os meus testes já escritos nas versões anteriores do JUnit?</description>
     </item>
     
     <item>
       <title>Orquestrando containers</title>
-      <link>https://elo7.dev/orquestrando-containers/</link>
+      <link>https://blog.elo7.dev/orquestrando-containers/</link>
       <pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/orquestrando-containers/</guid>
+      <guid>https://blog.elo7.dev/orquestrando-containers/</guid>
       <description>Olar, amigos. Prontos para mais um post de infra aqui no nosso blog?
 O objetivo deste post é mostrar o porquê de termos escolhido o Kubernetes (spoiler :P) como solução definitiva para orquestração dos nossos containers. Não entraremos no mérito dos motivos para orquestrar algo, pois consideramos que isso já está bem difundido em nosso meio.
 Para te situar, querido leitor, antes de começarmos a falar de Kubernetes e outras soluções de orquestração, vamos fazer um overview do nosso cenário até então.</description>
@@ -680,68 +680,68 @@ Para te situar, querido leitor, antes de começarmos a falar de Kubernetes e out
     
     <item>
       <title>Novidades do JUnit 5 - parte 1</title>
-      <link>https://elo7.dev/novidades-do-junit-5-parte-1/</link>
+      <link>https://blog.elo7.dev/novidades-do-junit-5-parte-1/</link>
       <pubDate>Mon, 06 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/novidades-do-junit-5-parte-1/</guid>
+      <guid>https://blog.elo7.dev/novidades-do-junit-5-parte-1/</guid>
       <description>Em setembro/2017, após pouco mais de um ano de versões milestones e testes, foi lançado o JUnit 5, a nova versão do principal framework para testes de código na plataforma Java. Essa versão traz várias novas funcionalidades excelentes e algumas mudanças drásticas em relação às versões anteriores.
 Este é o primeiro post de uma série sobre o JUnit 5. Aqui, vou tratar das principais mudanças e recursos nesse novo release.</description>
     </item>
     
     <item>
       <title>Testando acessibilidade</title>
-      <link>https://elo7.dev/testando-acessibilidade/</link>
+      <link>https://blog.elo7.dev/testando-acessibilidade/</link>
       <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/testando-acessibilidade/</guid>
+      <guid>https://blog.elo7.dev/testando-acessibilidade/</guid>
       <description>Assim como muitos times front-end no mercado afora, nosso time despertou para a questão de acessibilidade recentemente. E, nesse processo, tivemos muitos aprendizados, e descobrimos que, quando se fala de acessibilidade, uma questão essencial é: como testar? Vejamos como foi esse processo aqui.
 Acessibilidade: o início Começamos a abordar a questão de acessibilidade por iniciativa de alguns indivíduos do time. A Aline Lee usou o hackday (tempo reservado em cada sprint para o time de engenharia se aperfeiçoar e inovar) para investigar e melhorar a acessibilidade por teclado no cabeçalho do site.</description>
     </item>
     
     <item>
       <title>Otimização de busca em faixas de valores</title>
-      <link>https://elo7.dev/otimizacao-de-busca-em-faixas-de-valores/</link>
+      <link>https://blog.elo7.dev/otimizacao-de-busca-em-faixas-de-valores/</link>
       <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/otimizacao-de-busca-em-faixas-de-valores/</guid>
+      <guid>https://blog.elo7.dev/otimizacao-de-busca-em-faixas-de-valores/</guid>
       <description>Recentemente, nossa equipe fez algumas análises de frete e um dos desafios foi classificar todos os fretes de 2016 de acordo com as faixas dos Correios, que separam as regiões do Brasil em várias categorias: Locais, Divisa, Capitais e Interior. Cada categoria é subdividida em grupos, sendo de 1 a 4 ou de 1 a 6.
 Para descobrir qual a categoria de um frete, temos que consultar diversas tabelas, em geral em um formato CSV ou planilha:</description>
     </item>
     
     <item>
       <title>Minimizando código duplicado com React Native no Elo7</title>
-      <link>https://elo7.dev/minimizando-codigo-duplicado-com-react-native/</link>
+      <link>https://blog.elo7.dev/minimizando-codigo-duplicado-com-react-native/</link>
       <pubDate>Mon, 16 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/minimizando-codigo-duplicado-com-react-native/</guid>
+      <guid>https://blog.elo7.dev/minimizando-codigo-duplicado-com-react-native/</guid>
       <description>Minimizando código duplicado com React Native no Elo7 Início Quando entrei no Elo7, estávamos engatinhando no mundo dos aplicativos, tínhamos uma versão apenas para o Android, que era basicamente um wrapper de um conjunto de webviews, com um drawer menu nativo. Olhando o roadmap, percebemos que logo atacaríamos uma versão mais nativa (sem tantos webviews) para o iOS e Android. O tempo foi passando e logo as versões mais nativas foram amadurecendo.</description>
     </item>
     
     <item>
       <title>Técnicas para codificar um e-mail</title>
-      <link>https://elo7.dev/tecnicas-para-codificar-um-e-mail/</link>
+      <link>https://blog.elo7.dev/tecnicas-para-codificar-um-e-mail/</link>
       <pubDate>Mon, 09 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/tecnicas-para-codificar-um-e-mail/</guid>
+      <guid>https://blog.elo7.dev/tecnicas-para-codificar-um-e-mail/</guid>
       <description>No início da minha carreira como desenvolvedora front-end, tive que codificar o meu primeiro e-mail marketing (aqueles e-mails promocionais que você geralmente recebe de um e-commerce). Como não conhecia muito sobre como funcionavam os clientes de e-mail, fiz o código como se estivesse codificando um site: usei várias propriedade de css, abusei da propriedade float (que na época era moda), usei classes e coloquei todo o css dentro da tag style.</description>
     </item>
     
     <item>
       <title>Desmistificando o Encoding</title>
-      <link>https://elo7.dev/encoding/</link>
+      <link>https://blog.elo7.dev/encoding/</link>
       <pubDate>Mon, 02 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/encoding/</guid>
+      <guid>https://blog.elo7.dev/encoding/</guid>
       <description>Já reparou como é difícil fazer acentos, emojis e outros caracteres estranhos serem exibidos corretamente nos seus programas? Vamos entender um pouco sobre como funciona o armazenamento de caracteres e como fazer software que suporte múltiplas línguas da maneira correta. Sim, é muito mais que termos vários arquivos com as mensagens traduzidas&amp;hellip;
 Encoding é o mecanismo que define como representamos diversos símbolos e letras de diferentes alfabetos de maneira binária.</description>
     </item>
     
     <item>
       <title>Customizando campos de formulário com o mask-amd</title>
-      <link>https://elo7.dev/customizando-campos-de-formulario-com-elo7-mask-amd/</link>
+      <link>https://blog.elo7.dev/customizando-campos-de-formulario-com-elo7-mask-amd/</link>
       <pubDate>Mon, 25 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/customizando-campos-de-formulario-com-elo7-mask-amd/</guid>
+      <guid>https://blog.elo7.dev/customizando-campos-de-formulario-com-elo7-mask-amd/</guid>
       <description>Sempre procuramos uma biblioteca que seja bem focada no problema que queremos resolver e frequentemente encontramos aqueles pacotes com várias funcionalidades. Normalmente, utilizamos apenas um recurso (ou alguns) da biblioteca que escolhemos utilizar.
 É importante mencionar o peso inútil no final do carregamento da página, agora imagine quando você utiliza várias bibliotecas em seu site.
 Esse tipo de situação é muito comum e, pensando nesse problema, nós do Elo7 resolvemos escrever nossas próprias bibliotecas, diretas no que necessitamos na casa, e isso vem sendo bem bacana pois, além de otimizar nossas aplicações, ainda as disponibilizamos para comunidade.</description>
@@ -749,10 +749,10 @@ Esse tipo de situação é muito comum e, pensando nesse problema, nós do Elo7 
     
     <item>
       <title>Terraformando tudo - parte 3</title>
-      <link>https://elo7.dev/terraformando-tudo-3/</link>
+      <link>https://blog.elo7.dev/terraformando-tudo-3/</link>
       <pubDate>Mon, 18 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/terraformando-tudo-3/</guid>
+      <guid>https://blog.elo7.dev/terraformando-tudo-3/</guid>
       <description>Veja os outros posts da série: - Terraformando tudo - parte 1 - Terraformando tudo - parte 2
 Olár!
 Como foi prometido no segundo post, estamos aqui novamente. Agora, para responder uma das perguntas que sempre são feitas na hora de adotar uma nova ferramenta: &amp;ldquo;E o legado?&amp;rdquo;
@@ -761,37 +761,37 @@ No contexto de Infraestrutura como Código, o legado é a infra já existente. N
     
     <item>
       <title>Web Share API</title>
-      <link>https://elo7.dev/web-share-api/</link>
+      <link>https://blog.elo7.dev/web-share-api/</link>
       <pubDate>Mon, 11 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/web-share-api/</guid>
+      <guid>https://blog.elo7.dev/web-share-api/</guid>
       <description>Vivemos atualmente a era da informação, onde estamos conectados o tempo todo a redes sociais (Facebook, Twitter, LinkedIn), programas de conversação (WhatsApp, Telegram e Slack) e outras ferramentas que permitem o compartilhamento de informações. Através destes softwares, podemos compartilhar com nossos amigos de tudo: fotos, textos, um link para uma notícia importante ou até mesmo aquele produto que gostamos. Como desenvolvedor web, você provavelmente já precisou adicionar em seus projetos algum recurso para compartilhamento de terceiros.</description>
     </item>
     
     <item>
       <title>Flink vs Spark</title>
-      <link>https://elo7.dev/flink-spark/</link>
+      <link>https://blog.elo7.dev/flink-spark/</link>
       <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/flink-spark/</guid>
+      <guid>https://blog.elo7.dev/flink-spark/</guid>
       <description>O título do post é polêmico para chamar sua atenção, mas a ideia deste post é mostrar a nossa visão sobre essas duas excelentes ferramentas: Apache Flink e Apache Spark. Nós não entraremos em detalhes profundos de cada ferramenta, nem faremos qualquer tipo de benchmark. Nós vamos apenas apontar as características que são relevantes para o nosso dia a dia. Se você não conhece o Flink ou o Spark, na homepage dos projetos há uma introdução bacana sobre cada um deles.</description>
     </item>
     
     <item>
       <title>Jest - Testar seu código Javascript nunca foi tão fácil!</title>
-      <link>https://elo7.dev/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/</link>
+      <link>https://blog.elo7.dev/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/</link>
       <pubDate>Mon, 28 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/</guid>
+      <guid>https://blog.elo7.dev/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/</guid>
       <description>Trabalhar com desenvolvimento de software é algo que está longe de ser fácil, pois além da parte técnica (que evolui a passadas largas), todo profissional precisa estar minimamente antenado a ponto de perceber qual das suas posturas em relação à execução de suas atividades podem literalmente travá-lo (dentro da carreira) ou levá-lo a outro patamar. Dentre as muitas características valorizadas atualmente pelo mercado, uma importantissíma é ser um profissional adaptável a mudanças, pelo simples fato que o mundo muda muito rapidamente, e o jeito que trabalhavámos no passado já não serve e/ou se encaixa com o presente.</description>
     </item>
     
     <item>
       <title>Testes de código com Mockito (2) - Novidades da nova versão</title>
-      <link>https://elo7.dev/testes-codigo-mockito-2/</link>
+      <link>https://blog.elo7.dev/testes-codigo-mockito-2/</link>
       <pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/testes-codigo-mockito-2/</guid>
+      <guid>https://blog.elo7.dev/testes-codigo-mockito-2/</guid>
       <description>Há algum tempo, escrevi um post sobre o funcionamento e os principais recursos do Mockito. Na ocasião em que o post foi escrito, a versão 2 do framework ainda estava em beta, e, nesse tempo, não apenas foi oficialmente lançada como ocorreram vários releases subsequentes (no momento em que escrevo, a última versão é a 2.7.22).
 Neste post, vou demonstrar as principais novidades e funcionalidades dessa nova versão.
 Construção de mocks/proxy de objetos e classes final A principal alteração interna da versão 2 do Mockito foi a mudança da biblioteca utilizada para construção de mocks/proxificação de objetos.</description>
@@ -799,29 +799,29 @@ Construção de mocks/proxy de objetos e classes final A principal alteração i
     
     <item>
       <title>Design de Produto no Elo7</title>
-      <link>https://elo7.dev/design-de-produto-no-elo7/</link>
+      <link>https://blog.elo7.dev/design-de-produto-no-elo7/</link>
       <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/design-de-produto-no-elo7/</guid>
+      <guid>https://blog.elo7.dev/design-de-produto-no-elo7/</guid>
       <description>Conheça o trabalho do time de design de produto no Elo7! Vamos apresentar uma visão geral do trabalho deste pequeno, porém orgulhoso time :)
 O time de design de produto do Elo7 atua na elaboração de soluções para a interface dos nossos produtos (especialmente o nosso site - o marketplace e o Talk7), bem como a busca da experiência mais agradável possível para os nossos usuários. Atualmente, somos uma equipe enxuta, formada por 3 membros, mas estamos sempre trabalhando em colaboração com outras equipes, tanto de desenvolvimento quanto de produto.</description>
     </item>
     
     <item>
       <title>Frameworks e bibliotecas JavaScript: quando e qual usar</title>
-      <link>https://elo7.dev/frameworks-js/</link>
+      <link>https://blog.elo7.dev/frameworks-js/</link>
       <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/frameworks-js/</guid>
+      <guid>https://blog.elo7.dev/frameworks-js/</guid>
       <description>Recentemente, temos ouvido cada vez mais sobre frameworks e bibliotecas JavaScript, tanto os que já existem há algum tempo como os que acabaram de surgir: jQuery, Zepto, Ember, Backbone, AngularJS, React, Vue.js&amp;hellip; mas será que precisamos usar algum deles? Se sim, qual devemos escolher para nossa aplicação? Neste post, vou apresentar porque no Elo7 decidimos por não adotar nenhum desses frameworks ou bibliotecas, e quais foram as consequências dessa decisão.</description>
     </item>
     
     <item>
       <title>Terraformando tudo - parte 2</title>
-      <link>https://elo7.dev/terraformando-tudo-2/</link>
+      <link>https://blog.elo7.dev/terraformando-tudo-2/</link>
       <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/terraformando-tudo-2/</guid>
+      <guid>https://blog.elo7.dev/terraformando-tudo-2/</guid>
       <description>Veja os outros posts da série: - Terraformando tudo - parte 1 - Terraformando tudo - parte 3
 Olá!
 Estamos aqui novamente para dar continuidade na série de posts Terraformando Tudo. Nesse segundo post da série (se não leu o primeiro, leia aqui), vamos falar mais um pouco sobre os códigos do Terraform, ou Terraform configuration (como o próprio projeto chama uma porção de código executável do Terraform). Também vamos mostrar como o Terraform controla o estado de seus resources e como mitigar as chances de desastres em um cenário onde podem haver diversas pessoas trabalhando no mesmo repositório de configurations</description>
@@ -829,29 +829,29 @@ Estamos aqui novamente para dar continuidade na série de posts Terraformando Tu
     
     <item>
       <title>CSS Basics - Display</title>
-      <link>https://elo7.dev/css-basics-display/</link>
+      <link>https://blog.elo7.dev/css-basics-display/</link>
       <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/css-basics-display/</guid>
+      <guid>https://blog.elo7.dev/css-basics-display/</guid>
       <description>Este será o primeiro de uma série de posts sobre CSS Básico. A ideia desses posts é explicar como funciona cada uma das propriedades do CSS que na teoria &amp;ldquo;todo mundo conhece&amp;rdquo;. Vamos entender como usar cada uma delas sem ficarmos apenas &amp;ldquo;chutando&amp;rdquo; até descobrir o que funciona e nunca mais mexer. Nesse primeiro post falaremos sobre a propriedade display.
 A propriedade display é muito importante para o controle do layout, pois indica a caixa de renderização para cada elemento.</description>
     </item>
     
     <item>
       <title>Microserviços e REST (sério?)</title>
-      <link>https://elo7.dev/microservicos-rest/</link>
+      <link>https://blog.elo7.dev/microservicos-rest/</link>
       <pubDate>Mon, 17 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/microservicos-rest/</guid>
+      <guid>https://blog.elo7.dev/microservicos-rest/</guid>
       <description>No trabalho da Engenharia do Elo7, temos múltiplas equipes dedicadas à nossa principal aplicação (o site do Elo7), segmentadas em diferentes domínios do negócio (carrinho de compras, pagamentos, integrações com Correios, etc). Também temos equipes focadas no uso de tecnologias específicas, como front-end, ferramentas de busca e plataformas mobile. O trabalho desenvolvido por todas essas equipes é inter-relacionado, sendo comum que diferentes aplicações, de diferentes times, precisem conversar entre si.</description>
     </item>
     
     <item>
       <title>Javascript Isomórfico - parte 2</title>
-      <link>https://elo7.dev/isomorfismo-parte-2/</link>
+      <link>https://blog.elo7.dev/isomorfismo-parte-2/</link>
       <pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/isomorfismo-parte-2/</guid>
+      <guid>https://blog.elo7.dev/isomorfismo-parte-2/</guid>
       <description>Continuando o post sobre Javascript isomórfico, depois de explicar toda a história e o conceito de isomorfismo, vamos entrar em uma parte mais prática. Quais empresas usam, o resultado da implementação e alguns frameworks existentes no mercado serão alguns dos tópicos deste post.
 Quem usa? Algumas empresas como Airbnb, Facebook, PayPal, Walmart, Netflix, Autodesk, além do próprio Elo7.
 Como tudo começou? Em 2011, Charlie Robbins, da Nodejitsu, escreveu um post apresentando a arquitetura isomórfica.</description>
@@ -859,10 +859,10 @@ Como tudo começou? Em 2011, Charlie Robbins, da Nodejitsu, escreveu um post apr
     
     <item>
       <title>Google I/O - Web</title>
-      <link>https://elo7.dev/google-io-3/</link>
+      <link>https://blog.elo7.dev/google-io-3/</link>
       <pubDate>Mon, 26 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/google-io-3/</guid>
+      <guid>https://blog.elo7.dev/google-io-3/</guid>
       <description>Durante várias sessões, os palestrantes incentivaram fortemente o uso de AMP (Accelerated Mobile Pages) e PWA (Progressive Web Apps), além de reforçarem que Mobile Web é mainstream.
 Um Product Manager do Twitter apresentou casos de sucesso com PWA, onde seu uso trouxe um incremento de 65% de pages/sessions, e 75% mais tweets.
 Forbes, Expedia, Pinterest, Lyft, Airbnb, Trivago, Lacôme, entre outros já utilizam PWAs. Na Lacôme, houve um incremento de 53% de tempo de sessão após a adoção da tecnologia.</description>
@@ -870,50 +870,50 @@ Forbes, Expedia, Pinterest, Lyft, Airbnb, Trivago, Lacôme, entre outros já uti
     
     <item>
       <title>Google I/O - Android</title>
-      <link>https://elo7.dev/google-io-2/</link>
+      <link>https://blog.elo7.dev/google-io-2/</link>
       <pubDate>Mon, 19 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/google-io-2/</guid>
+      <guid>https://blog.elo7.dev/google-io-2/</guid>
       <description>A principal novidade sobre a plataforma Android foi o suporte à linguagem de programação Kotlin.
  https://android-developers.googleblog.com/2017/05/android-announces-support-for-kotlin.html https://kotlinlang.org/ Introduction to Kotlin (Google I/O &amp;lsquo;17) https://www.youtube.com/watch?v=X1RVYt2QKQE  O suporte oficial à linguagem Kotlin está disponível no Android Studio a partir da versão 3.0. Essa versão disponibiliza o suporte nativo da IDE ao Kotlin, com 100% de interoperabilidade com Java (provida pelo compilador do Kotlin) e conversão de código legado (para aqueles que gostam de se aventurar).</description>
     </item>
     
     <item>
       <title>Vaga Mobile Developer</title>
-      <link>https://elo7.dev/vagas-mobile/</link>
+      <link>https://blog.elo7.dev/vagas-mobile/</link>
       <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vagas-mobile/</guid>
+      <guid>https://blog.elo7.dev/vagas-mobile/</guid>
       <description>O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos.
 Utilizamos práticas ágeis de desenvolvimento e gostamos de ter um ambiente bem descontraído. O nosso time de aplicativos nativos trabalha principalmente no desenvolvimento dos nossos apps Android e iOS do Elo7 e do Talk7 utilizando as tecnologias Java, Objective-C, Swift e React Native. Também cuidamos de todo o ambiente ao redor que pode facilitar o desenvolvimento, influenciar o usuário, detectar bugs e automatizar processos.</description>
     </item>
     
     <item>
       <title>Vaga Software Engineer - Search</title>
-      <link>https://elo7.dev/vagas-search/</link>
+      <link>https://blog.elo7.dev/vagas-search/</link>
       <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vagas-search/</guid>
+      <guid>https://blog.elo7.dev/vagas-search/</guid>
       <description>O Elo7 é um marketplace que busca conectar milhões de usuários a produtos feitos sob encomenda por milhares de vendedores para oferecer uma experiência de compra única na internet. O objetivo do Elo7 é oferecer as melhores ferramentas para compra e venda de produtos personalizados.
 Nosso ambiente é colaborativo e gostamos de incentivar aprendizado e distribuição de conhecimento. Em nosso dia-a-dia utilizamos pair-programming com objetivo de garantir esses pontos, além da qualidade da solução.</description>
     </item>
     
     <item>
       <title>As &#34;states&#34; e &#34;properties&#34; do atributo role no WAI-ARIA</title>
-      <link>https://elo7.dev/wai-aria-states-properties/</link>
+      <link>https://blog.elo7.dev/wai-aria-states-properties/</link>
       <pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/wai-aria-states-properties/</guid>
+      <guid>https://blog.elo7.dev/wai-aria-states-properties/</guid>
       <description>Neste terceiro post da série sobre WAI-ARIA, trataremos sobre os estados (states) e propriedades (properties) das roles. Caso queira saber mais, fizemos um apanhado geral introdutório sobre o WAI-ARIA e sobre o seu papel no html.
 Os termos states e properties referem-se a características semelhantes. Ambos fornecem informações específicas sobre um objeto, e ambos fazem parte da definição da natureza das roles. São aplicados como atributos de marcação de arias prefixados.</description>
     </item>
     
     <item>
       <title>Google I/O - Inteligência Artificial</title>
-      <link>https://elo7.dev/google-io/</link>
+      <link>https://blog.elo7.dev/google-io/</link>
       <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/google-io/</guid>
+      <guid>https://blog.elo7.dev/google-io/</guid>
       <description>No geral o Google I/O 2017 foi bem denso em conteúdo. Ocorreram 155 sessões, 100 office hours, 85 code labs e 19 sandboxes!
 Inteligência artificial foi um dos grandes temas da conferência. Atualmente, todos os produtos da Google estão utilizando alguma camada de inteligência artificial, e vão usar cada vez mais no futuro.
 Mobile First to AI First A empresa está lançando uma nova iniciativa chamada Google.ai para compartilhar documentos de pesquisa, ferramentas e diversos outros tópicos sobre inteligência artificial.</description>
@@ -921,108 +921,108 @@ Mobile First to AI First A empresa está lançando uma nova iniciativa chamada G
     
     <item>
       <title>Nightfall - Injetando dependências no Spark (Parte 1)</title>
-      <link>https://elo7.dev/nightfall/</link>
+      <link>https://blog.elo7.dev/nightfall/</link>
       <pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/nightfall/</guid>
+      <guid>https://blog.elo7.dev/nightfall/</guid>
       <description>O início Começamos a utilizar o Spark no Elo7 para processar métricas em tempo real, enviando eventos assíncronos do nosso site para serem consumidos em um sistema de agregação. Essa foi uma forma de remover o acoplamento entre as métricas e o negócio.
 Mas o que é Spark? Spark é uma plataforma para computação distribuída, que extende o modelo de MapReduce. É uma ferramenta de propósito geral e projetada para alta performance, incluindo queries iterativas e processamento em batch e streaming.</description>
     </item>
     
     <item>
       <title>Vaga Data Scientist</title>
-      <link>https://elo7.dev/vagas-data-scientist/</link>
+      <link>https://blog.elo7.dev/vagas-data-scientist/</link>
       <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vagas-data-scientist/</guid>
+      <guid>https://blog.elo7.dev/vagas-data-scientist/</guid>
       <description>O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos.
 Utilizamos práticas ágeis de desenvolvimento e gostamos de ter um ambiente bem descontraído. Atualmente temos um cenário com diversas tecnologias (AWS, Docker) e linguagens (Java, Python, Ruby e Scala) que nos leva à necessidade de possuir profissionais versáteis, capazes de utilizar essas ferramentas com boas práticas, autonomia e algumas vezes antes de elas serem amadurecidas no mercado.</description>
     </item>
     
     <item>
       <title>Posicionando elementos com CSS</title>
-      <link>https://elo7.dev/posicionando-com-css/</link>
+      <link>https://blog.elo7.dev/posicionando-com-css/</link>
       <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/posicionando-com-css/</guid>
+      <guid>https://blog.elo7.dev/posicionando-com-css/</guid>
       <description>Posicionar elementos na tela em layout responsivo pode ser uma das partes mais chatas na construção de um site. Muitas vezes decidir qual método utilizar, considerando suas vantagens e desvantagens, é a chave para uma economia valiosa de tempo no desenvolvimento.
 Vamos considerar que queremos exibir uma simples galeria de imagens a qual deve exibir cinco imagens posicionadas em uma linha, não permitindo que as imagens fiquem esticadas. Caso a tela seja pequena demais elas devem diminuir de tamanho proporcionalmente.</description>
     </item>
     
     <item>
       <title>Migrando para HTTPS</title>
-      <link>https://elo7.dev/https-only/</link>
+      <link>https://blog.elo7.dev/https-only/</link>
       <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/https-only/</guid>
+      <guid>https://blog.elo7.dev/https-only/</guid>
       <description>Como vocês já devem ter notado, recentemente o Elo7 passou a ser servido unicamente em HTTPS. Nenhuma parte de nosso conteúdo ou navegação está mais disponível em HTTP plano. Isso segue uma tendência de toda a Internet e cada vez mais sites devem adotar esse &amp;ldquo;formato&amp;rdquo;. O gráfico abaixo (extraído daqui) mostra o crescimento do uso de HTTPS entre o 1 milhão de sites mais acessados listados pela Alexa.</description>
     </item>
     
     <item>
       <title>Os papéis do WAI-ARIA no HTML</title>
-      <link>https://elo7.dev/wai-aria-roles/</link>
+      <link>https://blog.elo7.dev/wai-aria-roles/</link>
       <pubDate>Mon, 17 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/wai-aria-roles/</guid>
+      <guid>https://blog.elo7.dev/wai-aria-roles/</guid>
       <description>O ARIA se divide semanticamente em três partes: seus papéis (roles), estados (states) e suas propriedades (properties). As roles (papéis) descrevem widgets que não estão disponíveis no HTML 4, como sliders, barras de menus, guias e diálogos. As properties (propriedades) descrevem características desses widgets, como se eles são arrastáveis, têm um elemento necessário ou têm um popup associado a eles. Os states (estados) descrevem o estado de interação atual de um elemento, informando a tecnologia de assistência se ela estiver ocupada, desativada, selecionada ou ocultada.</description>
     </item>
     
     <item>
       <title>Um apanhado geral sobre o WAI-ARIA</title>
-      <link>https://elo7.dev/wai-aria-apanhado-geral/</link>
+      <link>https://blog.elo7.dev/wai-aria-apanhado-geral/</link>
       <pubDate>Mon, 03 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/wai-aria-apanhado-geral/</guid>
+      <guid>https://blog.elo7.dev/wai-aria-apanhado-geral/</guid>
       <description>Com a evolução da web, os sites estão ficando cada vez mais dinâmicos, utilizando muitos recursos de AJAX, JavaScript e CSS. Essas mudanças melhoram muito a usabilidade na web, porém usuários de tecnologias assistivas correm risco de serem excluídos por conta das lacunas de acessibilidade. Como leitores de tela normalmente sofrem com JavaScript, surge uma nova maneira de criar interfaces dinâmicas que são acessíveis a mais usuários.
 A maioria dos frameworks de JavaScript oferece ferramentas do lado do cliente que simulam o comportamento de interfaces desktop e mobile para se tornarem mais familiares, como drag and drop, menu hamburguer deslizante&amp;hellip; Todos eles são criados nessa combinação de JavaScript, CSS e HTML.</description>
     </item>
     
     <item>
       <title>Introdução ao Java - parte 2</title>
-      <link>https://elo7.dev/introducao-ao-java-2/</link>
+      <link>https://blog.elo7.dev/introducao-ao-java-2/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/introducao-ao-java-2/</guid>
+      <guid>https://blog.elo7.dev/introducao-ao-java-2/</guid>
       <description>No primeiro post da série de introdução ao Java, mostrei como configurar e executar nosso código Java. Continuando, nesse post vou apresentar alguns conceitos que serão necessários para lidarmos com o controle de fluxo na lógica de funcionamento dos nossos códigos. Sim, vamos continuar no básico, porém essencial para os próximos posts. Mas vamos deixar de conversa e partir para o que mais interessa: código!
 Lidando com o controle de fluxo Se você já iniciou algum estudo em qualquer linguagem de programação, acredito que já tenha ouvido falar de &amp;ldquo;if&amp;rdquo;, &amp;ldquo;else&amp;rdquo;, &amp;ldquo;while&amp;rdquo; e &amp;ldquo;for&amp;rdquo;.</description>
     </item>
     
     <item>
       <title>Elo7 &#43; Analytics = Elytics</title>
-      <link>https://elo7.dev/elo7-analytics-elytics/</link>
+      <link>https://blog.elo7.dev/elo7-analytics-elytics/</link>
       <pubDate>Mon, 06 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/elo7-analytics-elytics/</guid>
+      <guid>https://blog.elo7.dev/elo7-analytics-elytics/</guid>
       <description>Métricas, métricas, métricas! Aqui no Elo7, tanto as métricas de sistema (cpu, mémoria, disco, logs, etc) quanto as métricas de negócio (pedidos, carrinhos, mensagens) importam bastante. Tudo o que acontece no site é capturado, metrificado e monitorado em tempo real para que nós possamos saber se estamos indo bem ou mal e para onde devemos seguir. Para que isso seja possível nós criamos o Elytics (Elo7 + Analytics).
 O que é o Elytics?</description>
     </item>
     
     <item>
       <title>Terraformando tudo - parte 1</title>
-      <link>https://elo7.dev/terraformando-tudo-1/</link>
+      <link>https://blog.elo7.dev/terraformando-tudo-1/</link>
       <pubDate>Mon, 13 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/terraformando-tudo-1/</guid>
+      <guid>https://blog.elo7.dev/terraformando-tudo-1/</guid>
       <description>Veja os outros posts da série: - Terraformando tudo - parte 2 - Terraformando tudo - parte 3
 Infrastructure as Code no Elo7 Esse post dá início a uma série de posts intitulada Terraformando tudo. Nessa série iremos mostrar o caminho que trilhamos (e os percalços que tivemos) no Elo7 e o que ainda falta para concluir nosso objetivo de ter toda nossa infraestrutura sendo gerenciada por código, ou seja, termos Infrastructure as Code.</description>
     </item>
     
     <item>
       <title>Javascript Isomórfico</title>
-      <link>https://elo7.dev/isomorfismo/</link>
+      <link>https://blog.elo7.dev/isomorfismo/</link>
       <pubDate>Mon, 30 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/isomorfismo/</guid>
+      <guid>https://blog.elo7.dev/isomorfismo/</guid>
       <description>Novos frameworks são criados a todo momento e um novo nome está criando mais força no mundo Javascript: isomorfismo. Farei uma série de posts para explicar melhor esse conceito e algumas aplicações dele com o uso de frameworks. Nesse primeiro post, será abordada uma parte mais teórica sobre o que é isomorfismo.
 Voltando no tempo Antes de falar de fato do isomorfismo, é interessante pensar em o que aconteceu na história para surgir a necessidade de utilizar um código Javascript isomórfico.</description>
     </item>
     
     <item>
       <title>A importância da semântica no HTML - parte II</title>
-      <link>https://elo7.dev/html-semantico-2/</link>
+      <link>https://blog.elo7.dev/html-semantico-2/</link>
       <pubDate>Mon, 16 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/html-semantico-2/</guid>
+      <guid>https://blog.elo7.dev/html-semantico-2/</guid>
       <description>Neste segundo post da série sobre a importância da semântica para os usuários e desenvolvedores, trataremos sobre como podemos melhorar nosso conteúdo de forma que os buscadores entendam o que realmente estamos oferecendo, com a menor possibilidade de ruídos de informação possível. Saberemos de maneira prática como podemos melhorar a disponibilidade de nosso conteúdo.
 Caso não tenha lido o nosso primeiro post, basta acessar aqui.
 Dando significado ao HTML Lembram do uso da palavra “lembrança” que utilizamos no post anterior?</description>
@@ -1030,10 +1030,10 @@ Dando significado ao HTML Lembram do uso da palavra “lembrança” que utiliza
     
     <item>
       <title>Vaga de estágio em desenvolvimento de software</title>
-      <link>https://elo7.dev/vagas-estagio/</link>
+      <link>https://blog.elo7.dev/vagas-estagio/</link>
       <pubDate>Mon, 26 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vagas-estagio/</guid>
+      <guid>https://blog.elo7.dev/vagas-estagio/</guid>
       <description>Procuramos estagiários com os seguintes requisitos:
  Gostar de programar! Orientação a objetos Conhecimento em Java ou C Conhecimento de HTML, CSS e JavaScript Disposto a aprender e compartilhar conhecimento! Cursando faculdade ou técnico  Desejável experiência também em:
  Boas práticas de programação Conhecimento em Java para web (VRaptor ou Spring) Design Patterns  Vaga para 6 horas diárias.
@@ -1043,48 +1043,48 @@ Envie um e-mail com o título: Estágio Desenvolvimento para: jobs+estagio@elo7.
     
     <item>
       <title>Introdução à programação funcional com Java 8</title>
-      <link>https://elo7.dev/introducao-a-programacao-funcional-com-java8/</link>
+      <link>https://blog.elo7.dev/introducao-a-programacao-funcional-com-java8/</link>
       <pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/introducao-a-programacao-funcional-com-java8/</guid>
+      <guid>https://blog.elo7.dev/introducao-a-programacao-funcional-com-java8/</guid>
       <description>Disponível desde 2014, o Java 8 ainda deixa muitas dúvidas, principalmente quanto às novidades em relação à sua versão anterior e a incorporação de conceitos de programação funcional. Nesse post vou falar sobre as principais novidades do Java 8 relativas a esse aspecto. É importante observar que o Java 8 foi desenvolvido pensando na retrocompatibilidade, ou seja, aplicações desenvolvidas na versão 7 funcionarão perfeitamente nas versões mais atuais da linguagem.</description>
     </item>
     
     <item>
       <title>A tecnologia por trás de progressive web apps</title>
-      <link>https://elo7.dev/a-tecnologia-por-tras-de-progressive-web-apps/</link>
+      <link>https://blog.elo7.dev/a-tecnologia-por-tras-de-progressive-web-apps/</link>
       <pubDate>Mon, 10 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/a-tecnologia-por-tras-de-progressive-web-apps/</guid>
+      <guid>https://blog.elo7.dev/a-tecnologia-por-tras-de-progressive-web-apps/</guid>
       <description>Se você trabalha com web, provavelmente já deve ter ouvido falar no termo progressive web app. Essa é uma tendência que vem aparecendo muito forte, impulsionada principalmente pelo Google, que até já organizou um evento especificamente sobre esse tema.
 O Fabricio Teixeira já escreveu um post explicando bem o conceito de progressive web apps. O objetivo aqui, então, vai ser explorar um pouco mais o lado técnico dessa tendência: como a tecnologia evoluiu para chegarmos nesse ponto, o que temos de ferramentas e o que ainda está por vir.</description>
     </item>
     
     <item>
       <title>Gestão de logs</title>
-      <link>https://elo7.dev/gestao-de-logs/</link>
+      <link>https://blog.elo7.dev/gestao-de-logs/</link>
       <pubDate>Mon, 10 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/gestao-de-logs/</guid>
+      <guid>https://blog.elo7.dev/gestao-de-logs/</guid>
       <description>Introdução Aqui no Elo7 nós cuidamos de nossos logs assim como cuidamos das pessoas - com muito carinho. Como toda empresa de tecnologia, nós geramos centenas de milhões de linhas de log diariamente, a partir dos mais diversos tipos de sistemas. Isso implica imediatamente em um sério problema: como gerenciar esses dados, organizá-los, salvá-los e disponibilizá-los para consulta quando necessário? Além disso, como extrair significado deles em tempo real e dar visibilidade da saúde de nossos sistemas e dos eventos que ocorrem?</description>
     </item>
     
     <item>
       <title>A importância da semântica no HTML - parte I</title>
-      <link>https://elo7.dev/html-semantico-1/</link>
+      <link>https://blog.elo7.dev/html-semantico-1/</link>
       <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/html-semantico-1/</guid>
+      <guid>https://blog.elo7.dev/html-semantico-1/</guid>
       <description>Antigamente a informação era armazenada em papéis, rochas e até paredes. A única forma de encontrar o que queríamos era indo até o local no qual a mensagem estava armazenada. Hoje existe todo um mundo digital que gera terabytes de dados por segundo.
 E para onde vai toda essa informação? Será que ficou mais fácil encontrar o que se deseja? O problema atual não é a escassez, mas a porção de ruído proveniente de uma quantidade exorbitante de dados.</description>
     </item>
     
     <item>
       <title>Introdução ao Java</title>
-      <link>https://elo7.dev/introducao-ao-java/</link>
+      <link>https://blog.elo7.dev/introducao-ao-java/</link>
       <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/introducao-ao-java/</guid>
+      <guid>https://blog.elo7.dev/introducao-ao-java/</guid>
       <description>Entrei para o time de front-end do Elo7 tem alguns meses e digo que fiquei &amp;ldquo;assustado&amp;rdquo; quando vi que o time mexia muito com código Java. Meu susto maior é que minha única experiência com a linguagem foi na época da faculdade, chegando apenas a desenvolver o iSnake. Tirando isso, posso dizer que minha experiência é null.
 Mas chega de história e vamos ao que interessa!
 Instalando o Java Antes de começar a escrever algum código, vamos precisar verificar se já temos o Java instalado.</description>
@@ -1092,10 +1092,10 @@ Instalando o Java Antes de começar a escrever algum código, vamos precisar ver
     
     <item>
       <title>Desmistificando o Dagger 2</title>
-      <link>https://elo7.dev/desmistificando-dagger2/</link>
+      <link>https://blog.elo7.dev/desmistificando-dagger2/</link>
       <pubDate>Wed, 20 Jul 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/desmistificando-dagger2/</guid>
+      <guid>https://blog.elo7.dev/desmistificando-dagger2/</guid>
       <description>Sem dúvidas, uma das bibliotecas mais famosas da “atualidade” (embora tenha vários anos de vida) no universo Android, mas que mesmo assim nos causa muita confusão e dúvida.
 Até mesmo para engenheiros experientes, o Dagger 2 causa um pouco de “medo” para implementar.
 Mas a parte boa é que ele é muito simples! Vamos juntos tentar dissecar o problema até que você tenha o famoso Eureka!
@@ -1104,10 +1104,10 @@ Inversion of Control e Dependency Inversion Para entender bem o Dagger 2, precis
     
     <item>
       <title>Slides do evento Software Fora de série - #elo7tech</title>
-      <link>https://elo7.dev/slides-evento-software-fora-de-serie/</link>
+      <link>https://blog.elo7.dev/slides-evento-software-fora-de-serie/</link>
       <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/slides-evento-software-fora-de-serie/</guid>
+      <guid>https://blog.elo7.dev/slides-evento-software-fora-de-serie/</guid>
       <description>Todos os slides do evento Software Fora de Série:
 Carlos Curioni e David Robert Talk7 - Da concepção ao desenvolvimento de um aplicativo de mensagens 
 Mario Amaral A arquitetura de um chat integrado ao checkout 
@@ -1118,10 +1118,10 @@ Fernanda Bernardo e Andre Barro A influência dos usuários no desenvolvimento
     
     <item>
       <title>Testes de código com Mockito</title>
-      <link>https://elo7.dev/testes-codigo-mockito/</link>
+      <link>https://blog.elo7.dev/testes-codigo-mockito/</link>
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/testes-codigo-mockito/</guid>
+      <guid>https://blog.elo7.dev/testes-codigo-mockito/</guid>
       <description>No trabalho da Engenharia do Elo7, valorizamos bastante a qualidade do código que produzimos. Isso passa por várias etapas: boas práticas de código, programação pareada, revisões cuidadosas e, claro, testes. Muitos testes.
 Para as aplicações baseadas em Java (nossa principal linguagem), utilizamos o Mockito como ferramenta de criação de _objetos mocks_. Neste post, vamos explorar as principais funcionalidades e alguns recursos avançados desse framework.
 O básico Não é o objetivo desse post explicar em detalhes a idéia de &amp;ldquo;mock&amp;rdquo;, mas podemos arranhar a superfície desse conceito: pense em um mock como um objeto criado em tempo de execução, que devolve respostas pré-configuradas.</description>
@@ -1129,10 +1129,10 @@ O básico Não é o objetivo desse post explicar em detalhes a idéia de &amp;ld
     
     <item>
       <title>Vaga Engenheiro de Software/Java</title>
-      <link>https://elo7.dev/vagas-java-post/</link>
+      <link>https://blog.elo7.dev/vagas-java-post/</link>
       <pubDate>Fri, 15 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vagas-java-post/</guid>
+      <guid>https://blog.elo7.dev/vagas-java-post/</guid>
       <description>Desenvolvedor(a) de Software Java Sênior Procuramos desenvolvedores Java com bons conhecimentos em:
  Orientação a objetos e boas práticas de programação Java para web (Spring, Vraptor, JSP) APIs Rest (Integração e criação) Processamentos assíncronos  Desejável experiência também em:
  Arquitetura de sistemas Desenho de APIs Oauth2 Integração Contínua e Jenkins Cultura Devops  **Curtiu o desafio? Quer fazer parte deste time #foradesérie? Envie um e-mail com o título: Desenvolvedor Java para: jobs+devjava@elo7.</description>
@@ -1140,57 +1140,57 @@ O básico Não é o objetivo desse post explicar em detalhes a idéia de &amp;ld
     
     <item>
       <title>Vaga Engenheiro de Software/DevOps</title>
-      <link>https://elo7.dev/vagas-devops-post/</link>
+      <link>https://blog.elo7.dev/vagas-devops-post/</link>
       <pubDate>Mon, 04 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vagas-devops-post/</guid>
+      <guid>https://blog.elo7.dev/vagas-devops-post/</guid>
       <description>O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos. Temos a seguinte vaga para o time da engenharia:
 Utilizamos práticas ágeis de desenvolvimento e gostamos de ter um ambiente bem descontraído.Atualmente temos um cenário com diversas tecnologias (AWS, Docker, CoreOS) e linguagens (Java, Ruby, Scala) que nos leva à necessidade de possuir profissionais versáteis, capazes de utilizar essas ferramentas com boas práticas, autonomia e algumas vezes antes de elas serem amadurecidas no mercado.</description>
     </item>
     
     <item>
       <title>Cobertura de testes</title>
-      <link>https://elo7.dev/cobertura-de-testes/</link>
+      <link>https://blog.elo7.dev/cobertura-de-testes/</link>
       <pubDate>Mon, 15 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/cobertura-de-testes/</guid>
+      <guid>https://blog.elo7.dev/cobertura-de-testes/</guid>
       <description>Experiências com ferramenta de cobertura de testes Quando se fala em cobertura de testes, pode vir a mente a idéia de relatórios contendo números de várias métricas de software em busca de apresentar a qualidade geral de um sistema. Muitos já devem ter se perguntado qual o verdadeiro valor desses números. Algumas métricas combinadas, realmente podem ajudar, porém uma métrica analisada sozinha como um número alto de cobertura de testes não significa qualidade.</description>
     </item>
     
     <item>
       <title>ECMAScript 2015 no Elo7 – Proxy</title>
-      <link>https://elo7.dev/ecmascript-post/</link>
+      <link>https://blog.elo7.dev/ecmascript-post/</link>
       <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/ecmascript-post/</guid>
+      <guid>https://blog.elo7.dev/ecmascript-post/</guid>
       <description>Já faz algum tempo que ouvimos falar de ECMAScript 2015 (também conhecido como ECMAScript 6) com todas as suas novidades como map reduce, escopos, promises, etc. Mas infelizmente não podemos utilizá-las porque temos problema de compatibilidade entre os navegadores, ora por versão, ora por falta da implementação da especificação. Assim como todas as especificações (ECMA, CSS, HTML), as adoções são feitas aos poucos pelos navegadores. Com o tempo a aceitação se torna maior, até que um belo dia a especificação se torna recomendada e viável.</description>
     </item>
     
     <item>
       <title>CSS4 - Seletores nível 4</title>
-      <link>https://elo7.dev/css4-selectors/</link>
+      <link>https://blog.elo7.dev/css4-selectors/</link>
       <pubDate>Mon, 16 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/css4-selectors/</guid>
+      <guid>https://blog.elo7.dev/css4-selectors/</guid>
       <description>O CSS3 já está aí com força total, mas poucos sabem que o CSS4 já está em rascunho desde 2011 e muitas funções hoje são usadas sem você saber. Um dos focos dessa versão são os novos seletores. Neste post irei falar um pouco sobre o que vem por aí, este tema foi uma apresentação realizada em um TechTalk do Elo7 e os slides estão no final do post.</description>
     </item>
     
     <item>
       <title>O universo soturno da compatibilidade cross-browser</title>
-      <link>https://elo7.dev/compatibilidade-cross-browser/</link>
+      <link>https://blog.elo7.dev/compatibilidade-cross-browser/</link>
       <pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/compatibilidade-cross-browser/</guid>
+      <guid>https://blog.elo7.dev/compatibilidade-cross-browser/</guid>
       <description>Em um mundo ideal, todos os browsers apresentariam o mesmo comportamento no carregamento e renderização das páginas da web. Para o terror de muitos desenvolvedores, existem determinadas situações em que uma implementação funciona perfeitamente no navegador utilizado na hora de testar o código, contudo ao abrir a mesma página com o mesmo código em outro, o site está quebrado.
 Ao afirmar que um site é cross-browser, o desenvolvedor está se comprometendo a dar suporte às funcionalidades em todos os navegadores.</description>
     </item>
     
     <item>
       <title>iOS - Vamos falar um pouco de arquitetura</title>
-      <link>https://elo7.dev/ios-arquitetura/</link>
+      <link>https://blog.elo7.dev/ios-arquitetura/</link>
       <pubDate>Wed, 27 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/ios-arquitetura/</guid>
+      <guid>https://blog.elo7.dev/ios-arquitetura/</guid>
       <description>Fala galera, tudo tranquilo? Me chamo Abner Terribili, sou novo no time de Engenharia aqui na Elo7, e atualmente estou no time de mobile. Espero ter boas participações aqui no blog. 🙂
 Nós, aqui na Elo7, acabamos de tirar do forno nossa primeira versão do aplicativo para iOS (iPhones) para compradores.
 E hoje, vou abrir para vocês um pouco da arquitetura que decidimos adotar, claro, elencando alguns dos motivos para determinadas decisões.</description>
@@ -1198,20 +1198,20 @@ E hoje, vou abrir para vocês um pouco da arquitetura que decidimos adotar, clar
     
     <item>
       <title>Gerenciamento de dependências front-end com bower</title>
-      <link>https://elo7.dev/gerenciamento-dependencias-bower/</link>
+      <link>https://blog.elo7.dev/gerenciamento-dependencias-bower/</link>
       <pubDate>Thu, 05 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/gerenciamento-dependencias-bower/</guid>
+      <guid>https://blog.elo7.dev/gerenciamento-dependencias-bower/</guid>
       <description>Durante o desenvolvimento de um projeto, nos deparamos com diversos problemas que não são exclusivos do mesmo. Muitos destes problemas, como persistência de dados, troca de mensagens assíncronas, transação e segurança, já possuem soluções que foram compiladas em bibliotecas para facilitar o nosso dia-a-dia ao resolver diversos problemas, tanto no back-end quando no front-end.
 Só que essas bibliotecas também podem depender de outras bibliotecas. Então, ao importar uma delas para o nosso projeto, precisamos também importar as suas dependências e as bibliotecas as quais elas necessitam.</description>
     </item>
     
     <item>
       <title>Metodologia ágil no Elo7</title>
-      <link>https://elo7.dev/metodologia-agil/</link>
+      <link>https://blog.elo7.dev/metodologia-agil/</link>
       <pubDate>Mon, 17 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/metodologia-agil/</guid>
+      <guid>https://blog.elo7.dev/metodologia-agil/</guid>
       <description>Atualmente no mercado existem diversas metodologias de desenvolvimento de software, como: RUP (Processo unificado da Rational), XP (Programação extrema), Scrum e Kanban, entre outras. Essas metodologias seguiram como uma evolução do modelo de desenvolvimento iterativo e incremental.
 Todas essas metodologias focam no desenvolvimento ágil que é um conjunto de técnicas utilizadas no desenvolvimento de software. A idéia de desenvolvimento ágil é simples:
 Valorizar indivíduos e a interação entre eles, entregar software funcionando, responder rapidamente a mudanças e ter colaboração entre todas as partes envolvidas norteando nossas decisões.</description>
@@ -1219,30 +1219,30 @@ Valorizar indivíduos e a interação entre eles, entregar software funcionando,
     
     <item>
       <title>Elo7 no TDC 2014</title>
-      <link>https://elo7.dev/tdc/</link>
+      <link>https://blog.elo7.dev/tdc/</link>
       <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/tdc/</guid>
+      <guid>https://blog.elo7.dev/tdc/</guid>
       <description>O TDC2014 trouxe trilhas tradicionais, cobrindo várias tecnologias e assuntos relacionados, como: Java, .NET, Ruby, Android, Cloud, Python, Empreendedorismo, Agile, Web e Testes, entre muitas outras trilhas. E A equipe Elo7 esteve presente apresentando algumas palestras:
 Na quarta-feira (06/08/2014) na Trilha Open source, Michel Bottan falou sobre Solr facets descomplicado, a palestra foi sobre como agregar resultados de uma query no Solr. Uma solução rápida, poderosa e simples de usar.</description>
     </item>
     
     <item>
       <title>Tech Talks Elo7</title>
-      <link>https://elo7.dev/tech-talks/</link>
+      <link>https://blog.elo7.dev/tech-talks/</link>
       <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/tech-talks/</guid>
+      <guid>https://blog.elo7.dev/tech-talks/</guid>
       <description>No Elo7 temos uma série de iniciativas legais que realizamos em nosso dia-a-dia: Tech Talks, Dojos, Grupos de estudos, café da manhã com vendedores, craft day, além de aplicar as metodologias ágil no nosso dia a dia.
 Neste nosso primeiro post gostaria de falar um pouco sobre os Tech Talks. Semanalmente um integrante de um time faz uma apresentação sobre um determinado tema durante uma hora, relacionado a uma tecnologia que utilizamos no nosso dia-a-dia ou que podemos aplicar algum dia.</description>
     </item>
     
     <item>
       <title>Configuring Eclipse scala project with SBT</title>
-      <link>https://elo7.dev/eclipse-scala-sbt/</link>
+      <link>https://blog.elo7.dev/eclipse-scala-sbt/</link>
       <pubDate>Tue, 13 Aug 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/eclipse-scala-sbt/</guid>
+      <guid>https://blog.elo7.dev/eclipse-scala-sbt/</guid>
       <description>Recently we started a new project here in Elo7 and this is a quick guide to help you to configure a new Scala project using SBT to manage your project dependencies and Eclipse as your IDE.
 So&amp;hellip; what is SBT?  &amp;ldquo;sbt is a build tool for Scala and Java projects that aims to do the basics well&amp;amp;&amp;rdquo; from scala-sbt.org
  It manages your dependencies (using Apache Ivy) and supports mixed projects with Scala and Java.</description>
@@ -1250,10 +1250,10 @@ So&amp;hellip; what is SBT?  &amp;ldquo;sbt is a build tool for Scala and Java p
     
     <item>
       <title>e-DNE Correios</title>
-      <link>https://elo7.dev/edne-correios/</link>
+      <link>https://blog.elo7.dev/edne-correios/</link>
       <pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/edne-correios/</guid>
+      <guid>https://blog.elo7.dev/edne-correios/</guid>
       <description>O e-DNE é um banco de dados que contém todos os CEPs do Brasil.
 No entanto, essa base é disponibilizada apenas para download. Então criamos uma ferramenta para importar essa base para nosso banco de dados. Você pode baixar o código no Github ou seguir os passos pra instalação.
 Instalação Baixe o projeto usando Git:
@@ -1263,10 +1263,10 @@ bundle install  Preparando o banco de dados Primeiramente vamos importar as info
     
     <item>
       <title>Auto scale Sidekiq workers on Amazon EC2</title>
-      <link>https://elo7.dev/sidekiq-workers/</link>
+      <link>https://blog.elo7.dev/sidekiq-workers/</link>
       <pubDate>Mon, 24 Jun 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/sidekiq-workers/</guid>
+      <guid>https://blog.elo7.dev/sidekiq-workers/</guid>
       <description>We use Sidekiq to process messages from images conversion to shipping tickets&amp;rsquo; generation.
 The total size of our queues decreases and increases drastically during the day. When it happens we have to increase or decrease our workers by adding or removing new EC2 instances.
 Amazon Auto Scale I will not get into the details of Amazon Auto Scaling, as it deserves an entire post about it.
@@ -1275,460 +1275,460 @@ Roughly you have to create an Auto Scaling Group, Launch Configuration and Scali
     
     <item>
       <title>Abner Terribili</title>
-      <link>https://elo7.dev/autor/aterribili/</link>
+      <link>https://blog.elo7.dev/autor/aterribili/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/aterribili/</guid>
+      <guid>https://blog.elo7.dev/autor/aterribili/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Adolfo Eloy</title>
-      <link>https://elo7.dev/autor/adolfoweloy/</link>
+      <link>https://blog.elo7.dev/autor/adolfoweloy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/adolfoweloy/</guid>
+      <guid>https://blog.elo7.dev/autor/adolfoweloy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Aline Lee</title>
-      <link>https://elo7.dev/autor/alinelee/</link>
+      <link>https://blog.elo7.dev/autor/alinelee/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/alinelee/</guid>
+      <guid>https://blog.elo7.dev/autor/alinelee/</guid>
       <description></description>
     </item>
     
     <item>
       <title>André Baptista</title>
-      <link>https://elo7.dev/autor/andrepbap/</link>
+      <link>https://blog.elo7.dev/autor/andrepbap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/andrepbap/</guid>
+      <guid>https://blog.elo7.dev/autor/andrepbap/</guid>
       <description></description>
     </item>
     
     <item>
       <title>André Barbosa</title>
-      <link>https://elo7.dev/autor/abarbosa94/</link>
+      <link>https://blog.elo7.dev/autor/abarbosa94/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/abarbosa94/</guid>
+      <guid>https://blog.elo7.dev/autor/abarbosa94/</guid>
       <description></description>
     </item>
     
     <item>
       <title>André Formento</title>
-      <link>https://elo7.dev/autor/andreformento/</link>
+      <link>https://blog.elo7.dev/autor/andreformento/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/andreformento/</guid>
+      <guid>https://blog.elo7.dev/autor/andreformento/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Bruno Buccolo</title>
-      <link>https://elo7.dev/autor/brunobuccoloelo7/</link>
+      <link>https://blog.elo7.dev/autor/brunobuccoloelo7/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/brunobuccoloelo7/</guid>
+      <guid>https://blog.elo7.dev/autor/brunobuccoloelo7/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Camila Tessarolo</title>
-      <link>https://elo7.dev/autor/macadantas/</link>
+      <link>https://blog.elo7.dev/autor/macadantas/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/macadantas/</guid>
+      <guid>https://blog.elo7.dev/autor/macadantas/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Caroline Stoev</title>
-      <link>https://elo7.dev/autor/kkstv/</link>
+      <link>https://blog.elo7.dev/autor/kkstv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/kkstv/</guid>
+      <guid>https://blog.elo7.dev/autor/kkstv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cinthia Tanaka</title>
-      <link>https://elo7.dev/autor/cimarieta/</link>
+      <link>https://blog.elo7.dev/autor/cimarieta/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/cimarieta/</guid>
+      <guid>https://blog.elo7.dev/autor/cimarieta/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cristiano Perez</title>
-      <link>https://elo7.dev/autor/cristianoperez/</link>
+      <link>https://blog.elo7.dev/autor/cristianoperez/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/cristianoperez/</guid>
+      <guid>https://blog.elo7.dev/autor/cristianoperez/</guid>
       <description></description>
     </item>
     
     <item>
       <title>David Robert</title>
-      <link>https://elo7.dev/autor/davidrobert/</link>
+      <link>https://blog.elo7.dev/autor/davidrobert/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/davidrobert/</guid>
+      <guid>https://blog.elo7.dev/autor/davidrobert/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Denis Schimidt</title>
-      <link>https://elo7.dev/autor/denis-schimidt/</link>
+      <link>https://blog.elo7.dev/autor/denis-schimidt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/denis-schimidt/</guid>
+      <guid>https://blog.elo7.dev/autor/denis-schimidt/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Diego Cesar</title>
-      <link>https://elo7.dev/autor/diegocesar/</link>
+      <link>https://blog.elo7.dev/autor/diegocesar/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/diegocesar/</guid>
+      <guid>https://blog.elo7.dev/autor/diegocesar/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Edson Marquezani</title>
-      <link>https://elo7.dev/autor/edsonmarquezani/</link>
+      <link>https://blog.elo7.dev/autor/edsonmarquezani/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/edsonmarquezani/</guid>
+      <guid>https://blog.elo7.dev/autor/edsonmarquezani/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Eric Dallo</title>
-      <link>https://elo7.dev/autor/ericdallo/</link>
+      <link>https://blog.elo7.dev/autor/ericdallo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/ericdallo/</guid>
+      <guid>https://blog.elo7.dev/autor/ericdallo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Eric Vinicius</title>
-      <link>https://elo7.dev/autor/ericvinicius/</link>
+      <link>https://blog.elo7.dev/autor/ericvinicius/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/ericvinicius/</guid>
+      <guid>https://blog.elo7.dev/autor/ericvinicius/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Erika Takahara</title>
-      <link>https://elo7.dev/autor/erikatakahara/</link>
+      <link>https://blog.elo7.dev/autor/erikatakahara/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/erikatakahara/</guid>
+      <guid>https://blog.elo7.dev/autor/erikatakahara/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Fabiano Vicente dos Santos</title>
-      <link>https://elo7.dev/autor/gmcoringa/</link>
+      <link>https://blog.elo7.dev/autor/gmcoringa/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/gmcoringa/</guid>
+      <guid>https://blog.elo7.dev/autor/gmcoringa/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Felipe Farias</title>
-      <link>https://elo7.dev/autor/ftfarias/</link>
+      <link>https://blog.elo7.dev/autor/ftfarias/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/ftfarias/</guid>
+      <guid>https://blog.elo7.dev/autor/ftfarias/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Fellyph Cintra</title>
-      <link>https://elo7.dev/autor/fellyph/</link>
+      <link>https://blog.elo7.dev/autor/fellyph/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/fellyph/</guid>
+      <guid>https://blog.elo7.dev/autor/fellyph/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Fernanda Bernardo</title>
-      <link>https://elo7.dev/autor/fernandabernardo/</link>
+      <link>https://blog.elo7.dev/autor/fernandabernardo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/fernandabernardo/</guid>
+      <guid>https://blog.elo7.dev/autor/fernandabernardo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Fábio Ueno</title>
-      <link>https://elo7.dev/autor/fabioueno/</link>
+      <link>https://blog.elo7.dev/autor/fabioueno/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/fabioueno/</guid>
+      <guid>https://blog.elo7.dev/autor/fabioueno/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Gabriel Corrêa</title>
-      <link>https://elo7.dev/autor/gadsc/</link>
+      <link>https://blog.elo7.dev/autor/gadsc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/gadsc/</guid>
+      <guid>https://blog.elo7.dev/autor/gadsc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Gustavo Maia</title>
-      <link>https://elo7.dev/autor/gustavomaia/</link>
+      <link>https://blog.elo7.dev/autor/gustavomaia/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/gustavomaia/</guid>
+      <guid>https://blog.elo7.dev/autor/gustavomaia/</guid>
       <description></description>
     </item>
     
     <item>
       <title>José Luiz Morais da Fonseca</title>
-      <link>https://elo7.dev/autor/jlmfonseca/</link>
+      <link>https://blog.elo7.dev/autor/jlmfonseca/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/jlmfonseca/</guid>
+      <guid>https://blog.elo7.dev/autor/jlmfonseca/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Junior A. Koch</title>
-      <link>https://elo7.dev/autor/onimaru/</link>
+      <link>https://blog.elo7.dev/autor/onimaru/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/onimaru/</guid>
+      <guid>https://blog.elo7.dev/autor/onimaru/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Leonardo Souza</title>
-      <link>https://elo7.dev/autor/leonardosouza/</link>
+      <link>https://blog.elo7.dev/autor/leonardosouza/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/leonardosouza/</guid>
+      <guid>https://blog.elo7.dev/autor/leonardosouza/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Lucas Vasconcelos</title>
-      <link>https://elo7.dev/autor/lucasvasconcelos/</link>
+      <link>https://blog.elo7.dev/autor/lucasvasconcelos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/lucasvasconcelos/</guid>
+      <guid>https://blog.elo7.dev/autor/lucasvasconcelos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Luiz Fernando Oliveira Corte Real</title>
-      <link>https://elo7.dev/autor/luiz/</link>
+      <link>https://blog.elo7.dev/autor/luiz/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/luiz/</guid>
+      <guid>https://blog.elo7.dev/autor/luiz/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Marcus Rios</title>
-      <link>https://elo7.dev/autor/marcusrios/</link>
+      <link>https://blog.elo7.dev/autor/marcusrios/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/marcusrios/</guid>
+      <guid>https://blog.elo7.dev/autor/marcusrios/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mario Amaral</title>
-      <link>https://elo7.dev/autor/mariofts/</link>
+      <link>https://blog.elo7.dev/autor/mariofts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/mariofts/</guid>
+      <guid>https://blog.elo7.dev/autor/mariofts/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mateus Molinaro</title>
-      <link>https://elo7.dev/autor/mottam/</link>
+      <link>https://blog.elo7.dev/autor/mottam/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/mottam/</guid>
+      <guid>https://blog.elo7.dev/autor/mottam/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Michelle Wingter da Silva</title>
-      <link>https://elo7.dev/autor/mwingter/</link>
+      <link>https://blog.elo7.dev/autor/mwingter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/mwingter/</guid>
+      <guid>https://blog.elo7.dev/autor/mwingter/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mike Dias</title>
-      <link>https://elo7.dev/autor/mikedias/</link>
+      <link>https://blog.elo7.dev/autor/mikedias/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/mikedias/</guid>
+      <guid>https://blog.elo7.dev/autor/mikedias/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Newton Rhomel Beck Angelini</title>
-      <link>https://elo7.dev/autor/newton-beck/</link>
+      <link>https://blog.elo7.dev/autor/newton-beck/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/newton-beck/</guid>
+      <guid>https://blog.elo7.dev/autor/newton-beck/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Pablo Cantero</title>
-      <link>https://elo7.dev/autor/pablocantero/</link>
+      <link>https://blog.elo7.dev/autor/pablocantero/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/pablocantero/</guid>
+      <guid>https://blog.elo7.dev/autor/pablocantero/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Raphael Alves de Oliveira</title>
-      <link>https://elo7.dev/autor/rapahaeru/</link>
+      <link>https://blog.elo7.dev/autor/rapahaeru/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/rapahaeru/</guid>
+      <guid>https://blog.elo7.dev/autor/rapahaeru/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Renato Sardinha</title>
-      <link>https://elo7.dev/autor/sardinha/</link>
+      <link>https://blog.elo7.dev/autor/sardinha/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/sardinha/</guid>
+      <guid>https://blog.elo7.dev/autor/sardinha/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ricardo H. H. Kojo</title>
-      <link>https://elo7.dev/autor/ricardokojo/</link>
+      <link>https://blog.elo7.dev/autor/ricardokojo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/ricardokojo/</guid>
+      <guid>https://blog.elo7.dev/autor/ricardokojo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rodrigo Sicarelli</title>
-      <link>https://elo7.dev/autor/rsicarelli/</link>
+      <link>https://blog.elo7.dev/autor/rsicarelli/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/rsicarelli/</guid>
+      <guid>https://blog.elo7.dev/autor/rsicarelli/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rodrigo Vedovato</title>
-      <link>https://elo7.dev/autor/rodrigovedovato/</link>
+      <link>https://blog.elo7.dev/autor/rodrigovedovato/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/rodrigovedovato/</guid>
+      <guid>https://blog.elo7.dev/autor/rodrigovedovato/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Samara Alves</title>
-      <link>https://elo7.dev/autor/samaraalves/</link>
+      <link>https://blog.elo7.dev/autor/samaraalves/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/samaraalves/</guid>
+      <guid>https://blog.elo7.dev/autor/samaraalves/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Thiago Andrade</title>
-      <link>https://elo7.dev/autor/thiagoandrad/</link>
+      <link>https://blog.elo7.dev/autor/thiagoandrad/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/thiagoandrad/</guid>
+      <guid>https://blog.elo7.dev/autor/thiagoandrad/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tiago Celestino</title>
-      <link>https://elo7.dev/autor/tcelestino/</link>
+      <link>https://blog.elo7.dev/autor/tcelestino/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/tcelestino/</guid>
+      <guid>https://blog.elo7.dev/autor/tcelestino/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tiago Lima</title>
-      <link>https://elo7.dev/autor/ljtfreitas/</link>
+      <link>https://blog.elo7.dev/autor/ljtfreitas/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/ljtfreitas/</guid>
+      <guid>https://blog.elo7.dev/autor/ljtfreitas/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tiago Lima</title>
-      <link>https://elo7.dev/autor/tiagolimaelo7/</link>
+      <link>https://blog.elo7.dev/autor/tiagolimaelo7/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/tiagolimaelo7/</guid>
+      <guid>https://blog.elo7.dev/autor/tiagolimaelo7/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tiago Vasconcelos</title>
-      <link>https://elo7.dev/autor/tisvasconcelos/</link>
+      <link>https://blog.elo7.dev/autor/tisvasconcelos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/tisvasconcelos/</guid>
+      <guid>https://blog.elo7.dev/autor/tisvasconcelos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Victor Harada</title>
-      <link>https://elo7.dev/autor/victorkendy/</link>
+      <link>https://blog.elo7.dev/autor/victorkendy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/victorkendy/</guid>
+      <guid>https://blog.elo7.dev/autor/victorkendy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>William Seiti Mizuta</title>
-      <link>https://elo7.dev/autor/williammizuta/</link>
+      <link>https://blog.elo7.dev/autor/williammizuta/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/williammizuta/</guid>
+      <guid>https://blog.elo7.dev/autor/williammizuta/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ígor Bonadio</title>
-      <link>https://elo7.dev/autor/igorbonadio/</link>
+      <link>https://blog.elo7.dev/autor/igorbonadio/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/autor/igorbonadio/</guid>
+      <guid>https://blog.elo7.dev/autor/igorbonadio/</guid>
       <description></description>
     </item>
     

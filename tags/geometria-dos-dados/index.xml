@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Geometria Dos Dados on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/geometria-dos-dados/</link>
+    <link>https://blog.elo7.dev/tags/geometria-dos-dados/</link>
     <description>Recent content in Geometria Dos Dados on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 30 Nov 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/geometria-dos-dados/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/geometria-dos-dados/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Introdução ao Manifold Learning - Geometria dos dados</title>
-      <link>https://elo7.dev/intro-manifold-learning/</link>
+      <link>https://blog.elo7.dev/intro-manifold-learning/</link>
       <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/intro-manifold-learning/</guid>
+      <guid>https://blog.elo7.dev/intro-manifold-learning/</guid>
       <description>Muito do trabalho de um cientista de dados não está apenas em criar sistemas de classificação, regressão ou recomendação. Aliás, estes são normalmente o resultado final de uma grande jornada aplicando diversas técnicas em cima dos dados coletados. Uma importante parte dessa jornada está em descobrir maneiras de compreender e utilizar a estrutura dos dados.
 Eu tenho um carinho especial por esse tipo de abordagem. Minha formação é como físico e boa parte da compreensão que temos do Universo veio através dessa estrutura dos dados observados.</description>
     </item>

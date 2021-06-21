@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Generative Adversarial Networks on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/generative-adversarial-networks/</link>
+    <link>https://blog.elo7.dev/tags/generative-adversarial-networks/</link>
     <description>Recent content in Generative Adversarial Networks on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 30 Nov 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/generative-adversarial-networks/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/generative-adversarial-networks/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Introdução ao Manifold Learning - Geometria dos dados</title>
-      <link>https://elo7.dev/intro-manifold-learning/</link>
+      <link>https://blog.elo7.dev/intro-manifold-learning/</link>
       <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/intro-manifold-learning/</guid>
+      <guid>https://blog.elo7.dev/intro-manifold-learning/</guid>
       <description>Muito do trabalho de um cientista de dados não está apenas em criar sistemas de classificação, regressão ou recomendação. Aliás, estes são normalmente o resultado final de uma grande jornada aplicando diversas técnicas em cima dos dados coletados. Uma importante parte dessa jornada está em descobrir maneiras de compreender e utilizar a estrutura dos dados.
 Eu tenho um carinho especial por esse tipo de abordagem. Minha formação é como físico e boa parte da compreensão que temos do Universo veio através dessa estrutura dos dados observados.</description>
     </item>
     
     <item>
       <title>Estratégias e dicas para treinar GANs</title>
-      <link>https://elo7.dev/treinando-gans/</link>
+      <link>https://blog.elo7.dev/treinando-gans/</link>
       <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/treinando-gans/</guid>
+      <guid>https://blog.elo7.dev/treinando-gans/</guid>
       <description>Recentemente realizamos no Elo7 um evento chamado de GAN School 1 dando início a série de workshops e meetups promovidos pelo time de engenharia. Os elo7.dev workshops visam compartilhar conhecimento sobre técnicas e soluções usadas aqui no Elo7. A GAN School tem como objetivo divulgar as redes geradoras adversariais no Brasil ensinando o básico necessário para que os participantes que não conhecem a técnica possam começar a acompanhar a literatura, a entender diferentes arquiteturas e aplicá-las em problemas próprios.</description>
     </item>
     
     <item>
       <title>GAN - Redes Geradoras Adversariais</title>
-      <link>https://elo7.dev/gan/</link>
+      <link>https://blog.elo7.dev/gan/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/gan/</guid>
+      <guid>https://blog.elo7.dev/gan/</guid>
       <description>Em 2014 foi publicado um artigo entitulado Generative Adversarial Nets (GAN) propondo uma arquitetura de redes neurais que poderia gerar dados sintéticos que seriam indistinguíveis dos dados reais que foram usados na sua criação. Para quem está por dentro do mundo de Inteligência Artifical dois autores se destacam: o autor principal Ian Goodfellow que foi recentemente contratado pela Apple (estava no Google) para liderar a equipe de Inteligência Artificial; e o pesquisador Yoshua Bengio que recentemente recebeu o Turing Award junto com Geoffrey Hinton e Yann LeCun (outros dois nomes fortes em IA).</description>
     </item>
     

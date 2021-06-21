@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Spring on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/spring/</link>
+    <link>https://blog.elo7.dev/tags/spring/</link>
     <description>Recent content in Spring on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 03 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/spring/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>API Persistente com Kotlin, Spring Boot, MySQL, JPA e Hibernate</title>
-      <link>https://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</link>
+      <link>https://blog.elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</link>
       <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</guid>
+      <guid>https://blog.elo7.dev/api-persistente-com-kotlin-springboot-mysql-jpa-hibernate/</guid>
       <description>Kotlin vem ganhando muita popularidade nos últimos tempos devido a seus recursos de produtividade e a possibilidade de utilização na plataforma Android.
 Devido à crescente popularidade do Kotlin, o Spring Framework também introduziu um suporte dedicado ao Kotlin.
 Neste post, você aprenderá a criar uma API do CRUD Restful com o Kotlin, Spring Boot e JPA.
@@ -25,10 +25,10 @@ O que vamos construir? Neste post criaremos APIs Restful para armazenar dados de
     
     <item>
       <title>Implementando um serviço Web RESTful em Kotlin com Spring Boot</title>
-      <link>https://elo7.dev/web-restful-em-kotlin-com-springboot/</link>
+      <link>https://blog.elo7.dev/web-restful-em-kotlin-com-springboot/</link>
       <pubDate>Mon, 13 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/web-restful-em-kotlin-com-springboot/</guid>
+      <guid>https://blog.elo7.dev/web-restful-em-kotlin-com-springboot/</guid>
       <description>Este post nos guia pelo processo de criar um REST controller simples com o Spring Boot.
 O Kotlin funciona muito bem em conjunto com Spring Boot. Existem algumas pequenas diferenças, no entanto, quando se trata de definir a configuração do Gradle e a estrutura do layout do projeto, bem como o código de inicialização.
 Neste tutorial, vamos percorrer as etapas necessárias. Para obter uma explicação mais detalhada sobre os serviços Spring Boot e RESTful, consulte Construindo um Serviço Web RESTful.</description>

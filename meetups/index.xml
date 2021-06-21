@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Meetups on Tech Blog Elo7</title>
-    <link>https://elo7.dev/meetups/</link>
+    <link>https://blog.elo7.dev/meetups/</link>
     <description>Recent content in Meetups on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Wed, 04 Sep 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/meetups/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/meetups/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title></title>
-      <link>https://elo7.dev/meetups/pydata/</link>
+      <link>https://blog.elo7.dev/meetups/pydata/</link>
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/meetups/pydata/</guid>
+      <guid>https://blog.elo7.dev/meetups/pydata/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://elo7.dev/meetups/aibrasilgirls/</link>
+      <link>https://blog.elo7.dev/meetups/aibrasilgirls/</link>
       <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/meetups/aibrasilgirls/</guid>
+      <guid>https://blog.elo7.dev/meetups/aibrasilgirls/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://elo7.dev/meetups/scaladores/</link>
+      <link>https://blog.elo7.dev/meetups/scaladores/</link>
       <pubDate>Wed, 14 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/meetups/scaladores/</guid>
+      <guid>https://blog.elo7.dev/meetups/scaladores/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://elo7.dev/meetups/perifacode/</link>
+      <link>https://blog.elo7.dev/meetups/perifacode/</link>
       <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/meetups/perifacode/</guid>
+      <guid>https://blog.elo7.dev/meetups/perifacode/</guid>
       <description></description>
     </item>
     

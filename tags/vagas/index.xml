@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vagas on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/vagas/</link>
+    <link>https://blog.elo7.dev/tags/vagas/</link>
     <description>Recent content in Vagas on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 20 Aug 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/vagas/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/vagas/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Desenvolvedor Mobile Júnior/Pleno</title>
-      <link>https://elo7.dev/vagas-desenvolverdor-mobile/</link>
+      <link>https://blog.elo7.dev/vagas-desenvolverdor-mobile/</link>
       <pubDate>Mon, 20 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vagas-desenvolverdor-mobile/</guid>
+      <guid>https://blog.elo7.dev/vagas-desenvolverdor-mobile/</guid>
       <description>O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos.
 Utilizamos práticas ágeis de desenvolvimento e gostamos de ter um ambiente bem descontraído. O nosso time de aplicativos nativos trabalha principalmente no desenvolvimento dos nossos apps Android e iOS do Elo7 e do Talk7 utilizando as tecnologias Java, Objective-C, Swift e React Native. Somos um time Fullstack participando do desenvolvimento de APIs e de WebView utilizadas em nossos apps híbridos.</description>
     </item>
     
     <item>
       <title>Vaga Data Engineer</title>
-      <link>https://elo7.dev/vaga-data-engineer/</link>
+      <link>https://blog.elo7.dev/vaga-data-engineer/</link>
       <pubDate>Tue, 09 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vaga-data-engineer/</guid>
+      <guid>https://blog.elo7.dev/vaga-data-engineer/</guid>
       <description>O Elo7 é um marketplace que busca conectar milhões de usuários a produtos feitos sob encomenda por milhares de vendedores para oferecer uma experiência de compra única na internet. O objetivo do Elo7 é oferecer as melhores ferramentas para compra e venda de produtos personalizados.
 Nosso ambiente é colaborativo e gostamos de incentivar aprendizado e distribuição de conhecimento. Em nosso dia-a-dia utilizamos pair-programming com objetivo de garantir esses pontos, além da qualidade da solução.</description>
     </item>
     
     <item>
       <title>Vaga Mobile Developer</title>
-      <link>https://elo7.dev/vagas-mobile/</link>
+      <link>https://blog.elo7.dev/vagas-mobile/</link>
       <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vagas-mobile/</guid>
+      <guid>https://blog.elo7.dev/vagas-mobile/</guid>
       <description>O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos.
 Utilizamos práticas ágeis de desenvolvimento e gostamos de ter um ambiente bem descontraído. O nosso time de aplicativos nativos trabalha principalmente no desenvolvimento dos nossos apps Android e iOS do Elo7 e do Talk7 utilizando as tecnologias Java, Objective-C, Swift e React Native. Também cuidamos de todo o ambiente ao redor que pode facilitar o desenvolvimento, influenciar o usuário, detectar bugs e automatizar processos.</description>
     </item>

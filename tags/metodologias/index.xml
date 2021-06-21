@@ -2,50 +2,50 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Metodologias on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/metodologias/</link>
+    <link>https://blog.elo7.dev/tags/metodologias/</link>
     <description>Recent content in Metodologias on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 18 Jan 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/metodologias/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/metodologias/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Retrospectivas e sua importância</title>
-      <link>https://elo7.dev/retrospectivas-e-sua-importancia/</link>
+      <link>https://blog.elo7.dev/retrospectivas-e-sua-importancia/</link>
       <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/retrospectivas-e-sua-importancia/</guid>
+      <guid>https://blog.elo7.dev/retrospectivas-e-sua-importancia/</guid>
       <description>Retrospectivas são uma parte essencial das metodologias ágeis, que têm como um de seus pilares a melhoria contínua. O objetivo deste post é mostrar a importância desta prática e como ela funciona, dando alguns exemplos de técnicas e de ferramentas online que nós, do Elo7, temos utilizado para realizar a prática remotamente.
 Retrospectivas O objetivo principal de uma retrospectiva é avaliar todo o processo de trabalho ao final de cada sprint.</description>
     </item>
     
     <item>
       <title>Pareamento quase 100% do tempo, como é isso?</title>
-      <link>https://elo7.dev/pareamento/</link>
+      <link>https://blog.elo7.dev/pareamento/</link>
       <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/pareamento/</guid>
+      <guid>https://blog.elo7.dev/pareamento/</guid>
       <description>Geralmente temos a visão dos programadores como sendo aquelas pessoas de fone que se isolam do mundo e de todos.
 Mas existem outras formas do trabalho funcionar. Uma delas é a cultura de pareamento. Aqui no Elo7 todos os times tem essa cultura, mudando entre elas apenas a frequência que isso acontece. No meu time, de front end isso acontece em quase 100% do tempo. Ao longo desse post eu vou explicar mais como isso funciona e quais são as vantagens e desvantagens na minha opinião.</description>
     </item>
     
     <item>
       <title>A cultura por trás do time fora de série!</title>
-      <link>https://elo7.dev/a-cultura-por-tras-do-time-fora-de-serie/</link>
+      <link>https://blog.elo7.dev/a-cultura-por-tras-do-time-fora-de-serie/</link>
       <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/a-cultura-por-tras-do-time-fora-de-serie/</guid>
+      <guid>https://blog.elo7.dev/a-cultura-por-tras-do-time-fora-de-serie/</guid>
       <description>Há alguns anos, tomei a importante decisão de respirar novos ares e buscar algo que fosse mais conectado ao meu estilo de vida, valores e o que verdadeiramente busco e valorizo profissionalmente. Isso me levou a abandonar uma posição estável em um dos maiores portais de conteúdo da América Latina e &amp;ldquo;arriscar&amp;rdquo; a minha carreira no mundo das startups. De lá para cá foram cerca de 2 anos e meio de hardwork, sendo estes dedicados principalmente ao desenvolvimento de um grande produto do nicho imobiliário e, mais recentemente, ao marketplace que tem como principal missão transformar a vida das pessoas através de uma experiência de compra fora de série de produtos, digamos, inspiradores!</description>
     </item>
     
     <item>
       <title>Metodologia ágil no Elo7</title>
-      <link>https://elo7.dev/metodologia-agil/</link>
+      <link>https://blog.elo7.dev/metodologia-agil/</link>
       <pubDate>Mon, 17 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/metodologia-agil/</guid>
+      <guid>https://blog.elo7.dev/metodologia-agil/</guid>
       <description>Atualmente no mercado existem diversas metodologias de desenvolvimento de software, como: RUP (Processo unificado da Rational), XP (Programação extrema), Scrum e Kanban, entre outras. Essas metodologias seguiram como uma evolução do modelo de desenvolvimento iterativo e incremental.
 Todas essas metodologias focam no desenvolvimento ágil que é um conjunto de técnicas utilizadas no desenvolvimento de software. A idéia de desenvolvimento ágil é simples:
 Valorizar indivíduos e a interação entre eles, entregar software funcionando, responder rapidamente a mudanças e ter colaboração entre todas as partes envolvidas norteando nossas decisões.</description>

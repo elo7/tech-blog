@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Responsivo on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/responsivo/</link>
+    <link>https://blog.elo7.dev/tags/responsivo/</link>
     <description>Recent content in Responsivo on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 09 Apr 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/responsivo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/responsivo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Técnicas para codificar um e-mail - parte 3</title>
-      <link>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</link>
+      <link>https://blog.elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</link>
       <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</guid>
+      <guid>https://blog.elo7.dev/tecnicas-para-codificar-um-e-mail-parte-3/</guid>
       <description>No segundo post da série, aprendemos a lidar com espaçamento nos e-mails. Neste, iremos abordar como criar conteúdo em colunas e como deixá-las responsivas.
 Finalmente chegamos ao conteúdo! Para começar, vamos criar uma nova tabela. É possível usar a mesma tabela do container e alterar o bgcolor para mudar a cor da célula em vez da tabela. Mas aconselho a criar uma nova para evitar problemas com o colspan e rowspan, porque essas propriedades causam problemas para manter a estrutura correta à medida que são criadas novas células.</description>
     </item>

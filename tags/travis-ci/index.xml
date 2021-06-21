@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Travis Ci on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/travis-ci/</link>
+    <link>https://blog.elo7.dev/tags/travis-ci/</link>
     <description>Recent content in Travis Ci on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 12 Feb 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/travis-ci/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/travis-ci/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Controlando e melhorando a performance do build no Travis CI</title>
-      <link>https://elo7.dev/travis-build-stages/</link>
+      <link>https://blog.elo7.dev/travis-build-stages/</link>
       <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/travis-build-stages/</guid>
+      <guid>https://blog.elo7.dev/travis-build-stages/</guid>
       <description>Hoje a maioria dos projetos, tanto de código livre quanto fechado, utilizam git como a ferramenta de controle de versão. E muitos destes estão hospedados no GitHub, uma das plataformas mais comuns para armazenamento de projetos. Além disso, muitos projetos adotam a prática conhecida como integração contínua ou continuous integration, a qual visa facilitar a integração do código sendo desenvolvido e encontrar problemas mais rapidamente. Há inúmeras ferramentas que auxiliam a implementação dessa prática.</description>
     </item>
     

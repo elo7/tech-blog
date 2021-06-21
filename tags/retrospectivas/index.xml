@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Retrospectivas on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/retrospectivas/</link>
+    <link>https://blog.elo7.dev/tags/retrospectivas/</link>
     <description>Recent content in Retrospectivas on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 18 Jan 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/retrospectivas/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/retrospectivas/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Retrospectivas e sua importância</title>
-      <link>https://elo7.dev/retrospectivas-e-sua-importancia/</link>
+      <link>https://blog.elo7.dev/retrospectivas-e-sua-importancia/</link>
       <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/retrospectivas-e-sua-importancia/</guid>
+      <guid>https://blog.elo7.dev/retrospectivas-e-sua-importancia/</guid>
       <description>Retrospectivas são uma parte essencial das metodologias ágeis, que têm como um de seus pilares a melhoria contínua. O objetivo deste post é mostrar a importância desta prática e como ela funciona, dando alguns exemplos de técnicas e de ferramentas online que nós, do Elo7, temos utilizado para realizar a prática remotamente.
 Retrospectivas O objetivo principal de uma retrospectiva é avaliar todo o processo de trabalho ao final de cada sprint.</description>
     </item>

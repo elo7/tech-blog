@@ -2,80 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Big Data on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/big-data/</link>
+    <link>https://blog.elo7.dev/tags/big-data/</link>
     <description>Recent content in Big Data on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 16 Dec 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/big-data/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/big-data/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Agendando jobs Spark no k8s através do Airflow</title>
-      <link>https://elo7.dev/airflow-spark/</link>
+      <link>https://blog.elo7.dev/airflow-spark/</link>
       <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/airflow-spark/</guid>
+      <guid>https://blog.elo7.dev/airflow-spark/</guid>
       <description>Apache Spark é uma ferramenta para processamento de dados em larga escala, já consolidada no mercado. O Apache Airflow é uma ferramenta para agendamento e monitoração de workflows, criado pelo Airbnb, vem ganhando destaque nos ultimos anos. O Kubernetes é uma ferramenta para orquestração de containers extremamente consolidada no mercado e com muitos recursos que facilitam a administração, diminuindo o overhead operacional de se manter ambientes com containers.
 Como utilizamos o Apache Spark no Elo7 Atualmente utilizamos o Apache Spark para realizar ETL de dados produzidos por aplicações.</description>
     </item>
     
     <item>
       <title>Características de Big Data</title>
-      <link>https://elo7.dev/caracteristicas-do-big-data/</link>
+      <link>https://blog.elo7.dev/caracteristicas-do-big-data/</link>
       <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/caracteristicas-do-big-data/</guid>
+      <guid>https://blog.elo7.dev/caracteristicas-do-big-data/</guid>
       <description>Este é só o primeiro post de uma série de publicações sobre a área de Big Data que iremos lançar aqui no blog. Nessa série iremos mostrar como utilizamos o Big Data aqui no Elo7, entre outras características que foram muito importantes para a construção da nossa arquitetura atual.
 Primeiramente&amp;hellip; O que é Big Data? Basicamente, um conjunto de dados que podem ser analisados computacionalmente para revelar padrões, tendências e associações.</description>
     </item>
     
     <item>
       <title>Vaga Data Scientist</title>
-      <link>https://elo7.dev/vagas-data-scientist-cientista-de-dados/</link>
+      <link>https://blog.elo7.dev/vagas-data-scientist-cientista-de-dados/</link>
       <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vagas-data-scientist-cientista-de-dados/</guid>
+      <guid>https://blog.elo7.dev/vagas-data-scientist-cientista-de-dados/</guid>
       <description>O Elo7 é um marketplace que busca conectar milhões de usuários a produtos feitos sob encomenda por milhares de vendedores para oferecer uma experiência de compra única na internet. O objetivo do Elo7 é oferecer as melhores ferramentas para compra e venda de produtos personalizados.
 Nosso ambiente é colaborativo e gostamos de incentivar aprendizado e distribuição de conhecimento. Em nosso dia-a-dia utilizamos pair-programming com objetivo de garantir esses pontos, além da qualidade da solução.</description>
     </item>
     
     <item>
       <title>Flink vs Spark</title>
-      <link>https://elo7.dev/flink-spark/</link>
+      <link>https://blog.elo7.dev/flink-spark/</link>
       <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/flink-spark/</guid>
+      <guid>https://blog.elo7.dev/flink-spark/</guid>
       <description>O título do post é polêmico para chamar sua atenção, mas a ideia deste post é mostrar a nossa visão sobre essas duas excelentes ferramentas: Apache Flink e Apache Spark. Nós não entraremos em detalhes profundos de cada ferramenta, nem faremos qualquer tipo de benchmark. Nós vamos apenas apontar as características que são relevantes para o nosso dia a dia. Se você não conhece o Flink ou o Spark, na homepage dos projetos há uma introdução bacana sobre cada um deles.</description>
     </item>
     
     <item>
       <title>Nightfall - Injetando dependências no Spark (Parte 1)</title>
-      <link>https://elo7.dev/nightfall/</link>
+      <link>https://blog.elo7.dev/nightfall/</link>
       <pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/nightfall/</guid>
+      <guid>https://blog.elo7.dev/nightfall/</guid>
       <description>O início Começamos a utilizar o Spark no Elo7 para processar métricas em tempo real, enviando eventos assíncronos do nosso site para serem consumidos em um sistema de agregação. Essa foi uma forma de remover o acoplamento entre as métricas e o negócio.
 Mas o que é Spark? Spark é uma plataforma para computação distribuída, que extende o modelo de MapReduce. É uma ferramenta de propósito geral e projetada para alta performance, incluindo queries iterativas e processamento em batch e streaming.</description>
     </item>
     
     <item>
       <title>Vaga Data Scientist</title>
-      <link>https://elo7.dev/vagas-data-scientist/</link>
+      <link>https://blog.elo7.dev/vagas-data-scientist/</link>
       <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/vagas-data-scientist/</guid>
+      <guid>https://blog.elo7.dev/vagas-data-scientist/</guid>
       <description>O Elo7, o maior marketplace de produtos criativos da América Latina, está com muitos desafios técnicos para implementar com seus novos projetos.
 Utilizamos práticas ágeis de desenvolvimento e gostamos de ter um ambiente bem descontraído. Atualmente temos um cenário com diversas tecnologias (AWS, Docker) e linguagens (Java, Python, Ruby e Scala) que nos leva à necessidade de possuir profissionais versáteis, capazes de utilizar essas ferramentas com boas práticas, autonomia e algumas vezes antes de elas serem amadurecidas no mercado.</description>
     </item>
     
     <item>
       <title>Slides do evento Software Fora de série - #elo7tech</title>
-      <link>https://elo7.dev/slides-evento-software-fora-de-serie/</link>
+      <link>https://blog.elo7.dev/slides-evento-software-fora-de-serie/</link>
       <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/slides-evento-software-fora-de-serie/</guid>
+      <guid>https://blog.elo7.dev/slides-evento-software-fora-de-serie/</guid>
       <description>Todos os slides do evento Software Fora de Série:
 Carlos Curioni e David Robert Talk7 - Da concepção ao desenvolvimento de um aplicativo de mensagens 
 Mario Amaral A arquitetura de um chat integrado ao checkout 

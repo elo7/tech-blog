@@ -2,59 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tdd on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/tdd/</link>
+    <link>https://blog.elo7.dev/tags/tdd/</link>
     <description>Recent content in Tdd on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 26 Feb 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/tdd/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/tdd/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Testes mais fluidos com AssertJ</title>
-      <link>https://elo7.dev/testes-mais-fluidos-com-assertj/</link>
+      <link>https://blog.elo7.dev/testes-mais-fluidos-com-assertj/</link>
       <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/testes-mais-fluidos-com-assertj/</guid>
+      <guid>https://blog.elo7.dev/testes-mais-fluidos-com-assertj/</guid>
       <description>Em um post anterior, o Leonardo Souza explicou como é a cultura da empresa e comentou sobre o hackday, um dia em que os desenvolvedores podem trabalhar em suas próprias ideias. Eu entrei para a empresa em outubro e nos meus primeiros meses fiquei auxiliando nas ideias de outras pessoas, pois ainda não tinha nenhuma ideia. Pouco tempo depois, a ThoughtWorks lançou a décima-sétima edição do seu radar e, para minha surpresa, na área de linguagens e frameworks para se adotar estava apenas Python 3.</description>
     </item>
     
     <item>
       <title>Novidades do JUnit 5 - parte 2</title>
-      <link>https://elo7.dev/novidades-do-junit-5-parte-2/</link>
+      <link>https://blog.elo7.dev/novidades-do-junit-5-parte-2/</link>
       <pubDate>Mon, 20 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/novidades-do-junit-5-parte-2/</guid>
+      <guid>https://blog.elo7.dev/novidades-do-junit-5-parte-2/</guid>
       <description>Em setembro/2017, após pouco mais de um ano de versões milestones e testes, foi lançado o JUnit 5, a nova versão do principal framework para testes de código na plataforma Java. Escrevi um post sobre as principais novas funcionalidades e recursos. Váááárias coisas legais, mas o que fazemos com os testes que já existem no nosso projeto?
 Adorei o JUnit 5! Mas&amp;hellip;e os meus testes já escritos nas versões anteriores do JUnit?</description>
     </item>
     
     <item>
       <title>Novidades do JUnit 5 - parte 1</title>
-      <link>https://elo7.dev/novidades-do-junit-5-parte-1/</link>
+      <link>https://blog.elo7.dev/novidades-do-junit-5-parte-1/</link>
       <pubDate>Mon, 06 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/novidades-do-junit-5-parte-1/</guid>
+      <guid>https://blog.elo7.dev/novidades-do-junit-5-parte-1/</guid>
       <description>Em setembro/2017, após pouco mais de um ano de versões milestones e testes, foi lançado o JUnit 5, a nova versão do principal framework para testes de código na plataforma Java. Essa versão traz várias novas funcionalidades excelentes e algumas mudanças drásticas em relação às versões anteriores.
 Este é o primeiro post de uma série sobre o JUnit 5. Aqui, vou tratar das principais mudanças e recursos nesse novo release.</description>
     </item>
     
     <item>
       <title>Jest - Testar seu código Javascript nunca foi tão fácil!</title>
-      <link>https://elo7.dev/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/</link>
+      <link>https://blog.elo7.dev/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/</link>
       <pubDate>Mon, 28 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/</guid>
+      <guid>https://blog.elo7.dev/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/</guid>
       <description>Trabalhar com desenvolvimento de software é algo que está longe de ser fácil, pois além da parte técnica (que evolui a passadas largas), todo profissional precisa estar minimamente antenado a ponto de perceber qual das suas posturas em relação à execução de suas atividades podem literalmente travá-lo (dentro da carreira) ou levá-lo a outro patamar. Dentre as muitas características valorizadas atualmente pelo mercado, uma importantissíma é ser um profissional adaptável a mudanças, pelo simples fato que o mundo muda muito rapidamente, e o jeito que trabalhavámos no passado já não serve e/ou se encaixa com o presente.</description>
     </item>
     
     <item>
       <title>Testes de código com Mockito (2) - Novidades da nova versão</title>
-      <link>https://elo7.dev/testes-codigo-mockito-2/</link>
+      <link>https://blog.elo7.dev/testes-codigo-mockito-2/</link>
       <pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/testes-codigo-mockito-2/</guid>
+      <guid>https://blog.elo7.dev/testes-codigo-mockito-2/</guid>
       <description>Há algum tempo, escrevi um post sobre o funcionamento e os principais recursos do Mockito. Na ocasião em que o post foi escrito, a versão 2 do framework ainda estava em beta, e, nesse tempo, não apenas foi oficialmente lançada como ocorreram vários releases subsequentes (no momento em que escrevo, a última versão é a 2.7.22).
 Neste post, vou demonstrar as principais novidades e funcionalidades dessa nova versão.
 Construção de mocks/proxy de objetos e classes final A principal alteração interna da versão 2 do Mockito foi a mudança da biblioteca utilizada para construção de mocks/proxificação de objetos.</description>
@@ -62,10 +62,10 @@ Construção de mocks/proxy de objetos e classes final A principal alteração i
     
     <item>
       <title>Testes de código com Mockito</title>
-      <link>https://elo7.dev/testes-codigo-mockito/</link>
+      <link>https://blog.elo7.dev/testes-codigo-mockito/</link>
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/testes-codigo-mockito/</guid>
+      <guid>https://blog.elo7.dev/testes-codigo-mockito/</guid>
       <description>No trabalho da Engenharia do Elo7, valorizamos bastante a qualidade do código que produzimos. Isso passa por várias etapas: boas práticas de código, programação pareada, revisões cuidadosas e, claro, testes. Muitos testes.
 Para as aplicações baseadas em Java (nossa principal linguagem), utilizamos o Mockito como ferramenta de criação de _objetos mocks_. Neste post, vamos explorar as principais funcionalidades e alguns recursos avançados desse framework.
 O básico Não é o objetivo desse post explicar em detalhes a idéia de &amp;ldquo;mock&amp;rdquo;, mas podemos arranhar a superfície desse conceito: pense em um mock como um objeto criado em tempo de execução, que devolve respostas pré-configuradas.</description>

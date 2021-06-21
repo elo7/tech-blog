@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Padding on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/padding/</link>
+    <link>https://blog.elo7.dev/tags/padding/</link>
     <description>Recent content in Padding on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 19 Feb 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/padding/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/padding/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CSS Basics - Margin x Padding</title>
-      <link>https://elo7.dev/css-basics-margin-padding/</link>
+      <link>https://blog.elo7.dev/css-basics-margin-padding/</link>
       <pubDate>Mon, 19 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/css-basics-margin-padding/</guid>
+      <guid>https://blog.elo7.dev/css-basics-margin-padding/</guid>
       <description>Depois de falar sobre a propriedade display no post anterior, continuaremos falando sobre outras propriedades básicas do CSS. Nesse post conheça um pouco mais sobre as propriedades de espaçamento margin e padding.
 Diferença Para começar, qual a principal diferença entre margin e padding? Ao utilizar a propriedade margin, você está acrescentando um espaço externo ao elemento, ou seja, para fora (a distância entre um elemento e outro). Enquanto o padding acrescenta um espaço interno ao elemento, para dentro (a distância entre o conteúdo e a borda).</description>
     </item>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>React Native on Tech Blog Elo7</title>
-    <link>https://elo7.dev/tags/react-native/</link>
+    <link>https://blog.elo7.dev/tags/react-native/</link>
     <description>Recent content in React Native on Tech Blog Elo7</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
     <lastBuildDate>Mon, 16 Oct 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://elo7.dev/tags/react-native/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.elo7.dev/tags/react-native/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Minimizando código duplicado com React Native no Elo7</title>
-      <link>https://elo7.dev/minimizando-codigo-duplicado-com-react-native/</link>
+      <link>https://blog.elo7.dev/minimizando-codigo-duplicado-com-react-native/</link>
       <pubDate>Mon, 16 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://elo7.dev/minimizando-codigo-duplicado-com-react-native/</guid>
+      <guid>https://blog.elo7.dev/minimizando-codigo-duplicado-com-react-native/</guid>
       <description>Minimizando código duplicado com React Native no Elo7 Início Quando entrei no Elo7, estávamos engatinhando no mundo dos aplicativos, tínhamos uma versão apenas para o Android, que era basicamente um wrapper de um conjunto de webviews, com um drawer menu nativo. Olhando o roadmap, percebemos que logo atacaríamos uma versão mais nativa (sem tantos webviews) para o iOS e Android. O tempo foi passando e logo as versões mais nativas foram amadurecendo.</description>
     </item>
     
