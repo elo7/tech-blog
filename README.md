@@ -91,4 +91,4 @@ Para deployar:
 
 ### Hospedagem
 
-Blog hospedado no [github-pages](https://elo7.github.io/tech-blog) ou [elo7.dev](https://elo7.dev)
+Blog hospedado no [github-pages](https://elo7.github.io/tech-blog) ou [blog.elo7.dev](https://blog.elo7.dev)

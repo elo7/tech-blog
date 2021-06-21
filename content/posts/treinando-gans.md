@@ -17,7 +17,7 @@ cover: treinando-gans-1.png
 
 Recentemente realizamos no Elo7 um evento chamado de [GAN School 1](https://www.sympla.com.br/elo7dev-workshops---gan-school-01__716430#info) dando início a série de workshops e meetups promovidos pelo time de engenharia. Os elo7.dev workshops  visam compartilhar conhecimento sobre técnicas e soluções usadas aqui no Elo7. A GAN School tem como objetivo divulgar as redes geradoras adversariais no Brasil ensinando o básico necessário para que os participantes que não conhecem a técnica possam começar a acompanhar a literatura, a entender diferentes arquiteturas e aplicá-las em problemas próprios. Os notebooks usados no curso estão [aqui](https://github.com/onimaru/GAN_School) e os slides [aqui](https://www.slideshare.net/elo7tech/gan-school-elo7-workshops).
 
-Pelo que pesquisamos, é a primeira vez no Brasil que ocorre um evento exclusivamente dedicado ao estudo, ensino e discussão de GANs. Mesmo a nível mundial poucas vezes isso cocorreu. Nesta primeira edição abordamos teoria e prática da GAN convencional (NSGAN) e da Conditional GAN (CGAN). O NSGAN é basicamente o mesmo que foi abordado no [post passado](https://elo7.dev/gan/), com alguns upgrades.
+Pelo que pesquisamos, é a primeira vez no Brasil que ocorre um evento exclusivamente dedicado ao estudo, ensino e discussão de GANs. Mesmo a nível mundial poucas vezes isso cocorreu. Nesta primeira edição abordamos teoria e prática da GAN convencional (NSGAN) e da Conditional GAN (CGAN). O NSGAN é basicamente o mesmo que foi abordado no [post passado](https://blog.elo7.dev/gan/), com alguns upgrades.
 
 ## Por que GANs ainda não são tão populares?
 
