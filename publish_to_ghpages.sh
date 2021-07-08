@@ -17,8 +17,8 @@ echo "Removing existing files"
 rm -rf public/*
 
 echo "Generating site"
-npm run build
-hugo --config config.prod.toml
+npm run build || exit 1
+hugo --config config.prod.toml || exit 1
 
 echo "Updating gh-pages branch"
 cd public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)"
