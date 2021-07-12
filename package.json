@@ -27,6 +27,6 @@
     "deploy": "./publish_to_ghpages.sh"
   },
   "devDependencies": {
-    "nodemon": "1.18.10"
+    "nodemon": "2.0.12"
   }
 }
