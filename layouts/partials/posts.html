@@ -1,5 +1,5 @@
-{{ $paginator := .Paginate (where .Data.Pages "Type" "posts") }}
-{{$page := .}}
+{{ $paginator := .Paginate (where (where .Site.Pages "Type" "posts") ".Content" "!=" "") }}
+{{ $page := . }}
 
 <section class='container posts-container' itemscope itemtype='http://schema.org/Blog'>
 	{{ if not .IsHome}}
@@ -8,5 +8,4 @@
 	{{ range $paginator.Pages }}
 		{{ partial "post-summary.html" (dict "context" . "page" $page)}}
 	{{ end }}
-
 </section>
