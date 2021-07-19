@@ -1,4 +1,4 @@
-{{ $paginator := .Paginate (where (where .Site.Pages "Type" "posts") ".Content" "!=" "") }}
+{{ $paginator := .Paginate (where (where (cond .IsHome .Site.Pages .Pages) "Type" "posts") ".Content" "!=" "") }}
 {{ $page := . }}
 
 <section class='container posts-container' itemscope itemtype='http://schema.org/Blog'>
