@@ -68,10 +68,10 @@ trecho do código
 
 ### Build e Desenvolvimento
 
-Para rodar o projeto na sua máquina é necessário ter o Docker instalado, rodando e utilizar o seguinte comando:
+Para rodar o projeto na sua máquina é necessário ter o Docker instalado, rodando e utilizar o seguinte comando na pasta do repositório:
 
 ```
-docker run -it -v $HOME/dev/tech-blog:/src -p 1313:1313 klakegg/hugo:0.55.6 server
+docker run -it -v $(pwd):/src -p 1313:1313 klakegg/hugo:0.83.1 server
 ```
 
 Você deve conseguir acessar o blog via `localhost:1313`.
