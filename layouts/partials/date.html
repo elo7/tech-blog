@@ -1,8 +1,8 @@
 <time class='date'
     datetime='{{ .Params.date }}'
-    aria-label='{{ dateFormat "02" .Params.date }} de {{ index .Site.Data.mes (printf "%s" (dateFormat "1" .Params.date)) }} de {{ dateFormat "2006" .Params.date }}'>
-    {{ dateFormat "02/01/2006" .Params.date }}
-    <meta itemprop='datePublished' content='{{ dateFormat "Mon Jan 02 2006 00:00:00 GMT+0000 (UTC)" .Params.date }}'/>
-    <meta itemprop='dateModified' content='{{ dateFormat "Mon Jan 02 2006 00:00:00 GMT+0000 (UTC)" .Params.date }}'>
-    <meta name='date' content='{{ dateFormat "2006-01-02" .Params.date }}'>
+    aria-label='{{ .Params.Date.Format "02" }} de {{ index .Site.Data.mes (printf "%s" ( .Params.Date.Format "1" )) }} de {{ .Params.Date.Format "2006" }}'>
+    {{ .Params.Date.Format "02/01/2006" }}
+    <meta itemprop='datePublished' content='{{ .Params.Date.Format "Mon Jan 02 2006 00:00:00 GMT+0000 (UTC)" }}'/>
+    <meta itemprop='dateModified' content='{{ .Params.Date.Format "Mon Jan 02 2006 00:00:00 GMT+0000 (UTC)" }}'>
+    <meta name='date' content='{{ .Params.Date.Format "2006-01-02" }}'>
 </time>
